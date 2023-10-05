@@ -1,0 +1,24 @@
+<table id="c-available-prices" width="100%" class="s-big-table">
+	<tr class="white">
+		<th style="padding: 0;"></th>
+		{*<th style="padding: 0;"></th>*}
+		<th style="padding: 20px 15px 15px;" class="grey" align="left"><label><input name="{$name}[0][name]" type="checkbox"{if !empty($value[0]['name'])} checked{/if}> [`Price name`]</label></th>
+		<th style="padding: 20px 15px 15px;" class="grey" align="left"><label><input name="{$name}[0][conditions]" type="checkbox"{if !empty($value[0]['conditions'])} checked{/if}> [`Conditions for customer`]</label></th>
+	</tr>
+	{foreach $prices as $price}
+	{include '../actions/backend/BackendAvailablePriceView.html' price=$price value=$value}
+	{/foreach}
+</table>
+<script type="text/javascript">
+(function($) {
+	$(document).off('focus', '#c-available-prices input[type="text"], #c-available-prices textarea').on('focus', '#c-available-prices input[type="text"], #c-available-prices textarea', function() {
+		if(!$(this).val())
+			$(this).val($(this).prop('placeholder'));
+	});
+
+	$(document).off('blur', '#c-available-prices input[type="text"], #c-available-prices textarea').on('blur', '#c-available-prices input[type="text"], #c-available-prices textarea', function() {
+		if($(this).val() == $(this).prop('placeholder'))
+			$(this).val('');
+	});
+})(jQuery);
+</script>

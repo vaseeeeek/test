@@ -1,0 +1,389 @@
+<link rel="stylesheet" href="{$wa_url}wa-apps/shop/plugins/clicklite/css/backend.css" />
+
+<h1>Покупка в один клик (lite)</h1>
+
+<div class="fields form plugins">
+    <form action="" method="post">
+        {$wa->csrf()}
+
+        <ul class="tabs">
+            <li class="selected"><a href="#/belllight/">[`Settings`]</a></li>
+            <li><a href="#/belllight/">Уведомления</a></li>
+            <li><a href="#/belllight/">Вывод кнопки</a></li>
+            <li><a href="#/belllight/">[s`Design`]</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="block top-padded">
+                <div class="field">
+                    <div class="name">Включить плагин:</div>
+                    <div class="value">
+                        <div class="ibutton-checkbox">
+                            <ul class="menu-h">
+                                <li><input class="switcher" type="checkbox" name="shop_plugins[status]"{if $settings.status} checked="checked"{/if} value="1" /></li>
+                            </ul>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="name">Комментарий к заказу:</div>
+                    <div class="value">
+                        <input type="text" name="shop_plugins[comment]" value="{$settings.comment}" />
+                        <p></p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="name">Текст спасибо:</div>
+                    <div class="value CodeMirrorBlock">
+                        <textarea class="codemirror-area" data-mode="text/html" name="shop_plugins[thank]">{$settings.thank}</textarea>
+                        <p></p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="name">Политика текст:</div>
+                    <div class="value CodeMirrorBlock">
+                        <textarea class="codemirror-area" data-mode="text/html" name="shop_plugins[politika]">{$settings.politika}</textarea>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">Выводить галочку:</div>
+                    <div class="value">
+                        <div class="ibutton-checkbox">
+                            <ul class="menu-h">
+                                <li><input class="switcher" type="checkbox" name="shop_plugins[policy_checkbox]"{if $settings.policy_checkbox} checked="checked"{/if} value="1" /></li>
+                            </ul>
+                            <p class="hint">показывать или нет обязательный флажок</p>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="name">Запрещать показ у товара:</div>
+                    <div class="value">
+                        <div class="ibutton-checkbox">
+                            <ul class="menu-h">
+                                <li><input class="switcher" type="checkbox" name="shop_plugins[button_view]"{if $settings.button_view} checked="checked"{/if} value="1" /></li>
+                            </ul>
+                            <p class="hint">
+                                Для отключения вывода у товара в дополнительных параметрах пропишите <b>clicklite=1</b>
+                                <br />
+                                ВНИМАНИЕ! В списке товаров будут делаться дополнительные запросы в базу данных</p>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field"><h3>Цели Яндекс метрики</h3></div>
+                <div class="field">
+                    <div class="name">Номер счетчика:</div>
+                    <div class="value">
+                        <input type="text" name="shop_plugins[yandex][counter]" value="{$settings.yandex.counter}" />
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">Открыли форму:</div>
+                    <div class="value">
+                        <input type="text" name="shop_plugins[yandex][click]" value="{$settings.yandex.click}" />
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">Отправили форму:</div>
+                    <div class="value">
+                        <input type="text" name="shop_plugins[yandex][send]" value="{$settings.yandex.send}" />
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">Ошибка отправления:</div>
+                    <div class="value">
+                        <input type="text" name="shop_plugins[yandex][fail]" value="{$settings.yandex.fail}" />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="name">Электронная коммерция:</div>
+                    <div class="value">
+                        <div class="ibutton-checkbox">
+                            <ul class="menu-h">
+                                <li><input class="switcher" type="checkbox" name="shop_plugins[ecommerce]"{if $settings.ecommerce} checked="checked"{/if} value="1" /></li>
+                            </ul>
+                            <p class="hint">Электронная коммерция яндекс, вам надо только установить новый счетчик, добавив dataLayer, <a href="https://yandex.ru/support/metrika/data/e-commerce.html#e-commerce__action_data" target="_blank">настройки dataLayer</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block top-padded">
+                <div class="field"><h3>Настройки уведомления в вконтакте</h3></div>
+                <div class="field">
+                    <div class="name">Отправка уведомления в вконтакте:</div>
+                    <div class="value">
+                        <div class="ibutton-checkbox">
+                            <ul class="menu-h">
+                                <li><span id="switcher-off-label">Нет</span></li>
+                                <li><input class="switcher" type="checkbox" name="shop_plugins[vk]"{if $settings.vk} checked="checked"{/if} value="1" /></li>
+                                <li><span id="switcher-on-label">Да</span></li>
+                            </ul>
+                            <p class="hint">надо ли отправлять уведомление в телеграм</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">vk id получателя:</div>
+                    <div class="value">
+                        <input type="text" name="shop_plugins[vk_id]" value="{$settings.vk_id}" />
+                        <p class="hint">пропишите id вашего аккаунта вконтакте который будет получать уведомелния</p>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">Токен:</div>
+                    <div class="value">
+                        <input type="text" name="shop_plugins[vk_token]" value="{$settings.vk_token}" />
+                        <p class="hint">Пропишите Токен для отправки, токен получает акканут от которого будут приходить уведомления <a href="https://www.webasyst.ru/store/plugin/shop/belllight/" target="_blank">ссылка как получить</a>.<br />
+                            Получайте токен лучше от аккаунта отличного от получателя.</p>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">Шаблон уведомления:</div>
+                    <div class="value CodeMirrorBlock">
+                        <textarea class="codemirror-area" data-object="thank" data-mode="text/html" name="shop_plugins[vk_templates]">{$settings.vk_templates}</textarea>
+                        <p class="hint">Не поддерживает формат html</p>
+                    </div>
+                </div>
+
+                <div class="field"><h3>Настройки уведомления в телеграм</h3></div>
+                <div class="field">
+                    <div class="name">Отправка уведомления в телеграм:</div>
+                    <div class="value">
+                        <div class="ibutton-checkbox">
+                            <ul class="menu-h">
+                                <li><input class="switcher" type="checkbox" name="shop_plugins[telegram]"{if $settings.telegram} checked="checked"{/if} value="1" /></li>
+                            </ul>
+                            <div class="hint">надо ли отправлять уведомление в телеграм</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">Чат id:</div>
+                    <div class="value">
+                        <input type="text" name="shop_plugins[telegram_id]" value="{$settings.telegram_id}" />
+                        <div class="hint">пропишите chat_id для отправки, <a href="https://www.webasyst.ru/store/plugin/shop/belllight/" target="_blank">ссылка как получить</a></div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">Токен:</div>
+                    <div class="value">
+                        <input type="text" name="shop_plugins[telegram_token]" value="{$settings.telegram_token}" />
+                        <p class="hint">пропишите Токен для отправки, <a href="https://www.webasyst.ru/store/plugin/shop/belllight/" target="_blank">ссылка как получить</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block top-padded">
+                <h2>Товар</h2>
+                {literal}
+                <p class="gray">Для вывода формы с кнопкой, в любом месте шаблона товара пропишите <b>{shopClicklitePlugin::displayProductForm($product)}</b>.</p>
+                <p class="gray">Для вывода только кнопки, в любом месте шаблона товара пропишите <b>{shopClicklitePlugin::displayProductButton($product)}</b>.</p>
+                {/literal}
+                <div class="field">
+                    <div class="name">Вывод в хуке <b>frontend_product.cart</b>:</div>
+                    <div class="value">
+                        <div class="ibutton-checkbox">
+                            <ul class="menu-h">
+                                <li><input class="switcher" type="checkbox" name="shop_plugins[product_hook]"{if $settings.product_hook} checked="checked"{/if} value="1" /></li>
+                            </ul>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">Название кнопки:</div>
+                    <div class="value">
+                        <input type="text" name="shop_plugins[product_name]" value="{$settings.product_name}" />
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">Класс кнопки:</div>
+                    <div class="value">
+                        <input type="text" name="shop_plugins[product_class]" value="{$settings.product_class}" />
+                        <p><br /></p>
+                    </div>
+                </div>
+
+                <h2>Список товаров</h2>
+                {literal}
+                <p class="gray">Для вывода кнопки в списке товаров шаблона пропишите <b>{shopClicklitePlugin::displayListButton($p)}</b>.</p>
+                {/literal}
+                <div class="field">
+                    <div class="name">Название кнопки:</div>
+                    <div class="value">
+                        <input type="text" name="shop_plugins[list_name]" value="{$settings.list_name}" />
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">Класс кнопки:</div>
+                    <div class="value">
+                        <input type="text" name="shop_plugins[list_class]" value="{$settings.list_class}" />
+                        <p><br /></p>
+                    </div>
+                </div>
+
+                <h2>Корзина</h2>
+                {literal}
+                <p class="gray">Для вывода только кнопки, в любом месте шаблона корзины пропишите <b>{shopClicklitePlugin::displayCartButton()}</b>.</p>
+                {/literal}
+                <div class="field">
+                    <div class="name">Вывод в хуке <b>frontend_cart</b>:</div>
+                    <div class="value">
+                        <div class="ibutton-checkbox">
+                            <ul class="menu-h">
+                                <li><input class="switcher" type="checkbox" name="shop_plugins[cart_hook]"{if $settings.cart_hook} checked="checked"{/if} value="1" /></li>
+                            </ul>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">Название кнопки:</div>
+                    <div class="value">
+                        <input type="text" name="shop_plugins[cart_name]" value="{$settings.cart_name}" />
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">Класс кнопки:</div>
+                    <div class="value">
+                        <input type="text" name="shop_plugins[cart_class]" value="{$settings.cart_class}" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="block top-padded">
+                <div class="field">
+                    <div class="name">Не выводить сплывающую форму в хуке frontend_footer:</div>
+                    <div class="value">
+                        <div class="ibutton-checkbox">
+                            <ul class="menu-h">
+                                <li><input class="switcher" type="checkbox" name="shop_plugins[frontend_footer]"{if $settings.frontend_footer} checked="checked"{/if} value="1" /></li>
+                            </ul>
+                            <p class="hint">Отрубите и выведите сами форму через хелпер {literal}<b>{if $wa->shop}{shopClicklitePlugin::displayModalForm()}{/if}</b>{/literal}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="name">Использовать маску телефона:</div>
+                    <div class="value">
+                        <div class="ibutton-checkbox">
+                            <ul class="menu-h">
+                                <li><input class="switcher" type="checkbox" name="shop_plugins[mask]"{if $settings.mask} checked="checked"{/if} value="1" /></li>
+                            </ul>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="name">Маска телефона:</div>
+                    <div class="value">
+                        <input type="text" name="shop_plugins[mask_view]" value="{$settings.mask_view}" />
+                        <p class="hint">задайте свою маску для телефона, по умолчанию +7 (999) 999-99-99</p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="name">Отключить количество:</div>
+                    <div class="value">
+                        <div class="ibutton-checkbox">
+                            <ul class="menu-h">
+                                <li><input class="switcher" type="checkbox" name="shop_plugins[count]"{if $settings.count} checked="checked"{/if} value="1" /></li>
+                            </ul>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="name">Отключить css:</div>
+                    <div class="value">
+                        <div class="ibutton-checkbox">
+                            <ul class="menu-h">
+                                <li><input class="switcher" type="checkbox" name="shop_plugins[style_enable]"{if $settings.style_enable} checked="checked"{/if} value="1" /></li>
+                            </ul>
+                            <p class="hint">можете отключить стили плагина и прописать в своем css файле.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="name">CSS оформление:</div>
+                    <div class="value plugins__codemirror">
+                        <a href="#" class="plugins__editTextarea"><i class="icon10 edit"></i> <span>редактировать</span></a>
+                        <a href="#" class="plugins__reset" data-templ="style">сбросить</a>
+                        <textarea class="codemirror-area" data-object="style" data-mode="css" name="shop_plugins_file[style]">{$settings.style}</textarea>
+                        <p></p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="name">Отключить js:</div>
+                    <div class="value">
+                        <div class="ibutton-checkbox">
+                            <ul class="menu-h">
+                                <li><input class="switcher" type="checkbox" name="shop_plugins[script_enable]"{if $settings.script_enable} checked="checked"{/if} value="1" /></li>
+                            </ul>
+                            <p class="hint">можете отключить js и прописать в своем js файле.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="name">Javascript:</div>
+                    <div class="value plugins__codemirror">
+                        <a href="#" class="plugins__editTextarea"><i class="icon10 edit"></i> <span>редактировать</span></a>
+                        <a href="#" class="plugins__reset" data-templ="script">сбросить</a>
+                        <textarea class="codemirror-area" data-object="script" data-mode="javascript" name="shop_plugins_file[script]">{$settings.script}</textarea>
+                        <p></p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="name">Шаблон сплывающей формы:</div>
+                    <div class="value plugins__codemirror">
+                        <a href="#" class="plugins__editTextarea"><i class="icon10 edit"></i> <span>редактировать</span></a>
+                        <a href="#" class="plugins__reset" data-templ="templ">сбросить</a>
+                        <textarea class="codemirror-area" data-object="templ" data-mode="text/html" name="shop_plugins_file[templ]">{$settings.templ}</textarea>
+                        <p></p>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="name">Шаблон формы:</div>
+                    <div class="value plugins__codemirror">
+                        <a href="#" class="plugins__editTextarea"><i class="icon10 edit"></i> <span>редактировать</span></a>
+                        <a href="#" class="plugins__reset" data-templ="templ_form">сбросить</a>
+                        <textarea class="codemirror-area" data-object="templ_form" data-mode="text/html" name="shop_plugins_file[templ_form]">{$settings.templ_form}</textarea>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p><br /></p>
+
+        <div id="s-product-edit-save-panel" style="display: block;">
+            <div class="block bordered-top" style="padding-left:225px;">
+                <input type="submit" class="button green plugins__save" value="Сохранить" style="margin-right:10px;">
+                <em class="errormsg" style="display:inline-block;"></em>
+            </div>
+        </div>
+
+        <input type="hidden" name="shop_plugins[version]" value="{$settings.version}" />
+    </form>
+</div>
+
+
+<script src="{$wa_url}wa-apps/shop/plugins/clicklite/js/backend.js"></script>

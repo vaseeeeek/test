@@ -1,0 +1,201 @@
+/*
+Модальное окно
+.emailform - общий клас с будущими формами
+.emailform_popup
+#emailform_popup
+*/
+
+.emailform .overlay {
+	background: #000;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 1000;
+	opacity: .5;
+}
+.emailform .visible {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-top: -200px;
+	overflow: hidden;
+	z-index: 2000;
+	width: 600px;
+	padding: 0px;
+	margin-left: -300px;
+	padding: 15px;
+    color: #333;
+	font-size: 14px;
+    background-color: #eeeae9;
+	text-align: left;
+    background-image: url(/wa-apps/shop/plugins/emailform/img/fon2.png);
+    background-position: 100%;
+	background-repeat: no-repeat;
+    background-size: cover;
+	line-height: 1.4;
+	box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
+}
+.emailform button {
+	float: right;
+	line-height: 20px;
+	margin: 1.2em;
+	border: none;
+	background: transparent;
+	color: blue;
+}
+.emailform button[type="button"]:hover {
+	cursor: pointer;
+	color: navy;
+	text-decoration: underline;
+}
+.emailform h3 {
+	text-align: center;
+	color: #555;
+}
+.emailform .content {
+	padding: 0 1em;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: WhiteSmoke;
+}
+.ef-input-wrap {
+    margin-bottom: 10px;
+}
+.ef-name-value,
+.ef-email-value,
+.ef-phone-value {
+	padding: 8px 10px;
+    border: 1px solid #999;
+	background-color: #fff;
+	color: #333;
+	width: 100%;
+	max-width: 260px;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+input[placeholder]::-webkit-input-placeholder       {color: #333;}
+input[placeholder]::-moz-placeholder                {color: #333;}
+input[placeholder]:-moz-placeholder                 {color: #333;}
+input[placeholder]:-ms-input-placeholder            {color: #333;}
+input[placeholder]:focus::-webkit-input-placeholder {color: #333;}
+input[placeholder]:focus::-moz-placeholder          {color: #333;}
+input[placeholder]:focus:-moz-placeholder           {color: #333;}
+input[placeholder]:focus:-ms-input-placeholder      {color: #333;}
+
+input[type=submit].ef-submit-input {
+	width: 100%;
+	max-width: 260px;
+	box-sizing: border-box;
+	background: #fcd630;
+    color: #333;
+	padding: 8px 10px;
+    max-height: 35px;
+    font-size: 14px;
+    outline: 0;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-color: rgba(0,0,0,0.2) rgba(0,0,0,0.3) rgba(0,0,0,0.3) rgba(0,0,0,0.3);
+    -webkit-appearance: none;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    text-shadow: 0 1px 0px rgba(255,255,255,0.5);
+    background: #fcd630 -moz-linear-gradient(top, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.0) 100%);
+    background: #fcd630 -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.5)), color-stop(100%,rgba(255,255,255,0.0)));
+    background: #fcd630 -webkit-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.0) 100%);
+    background: #fcd630 -o-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.0) 100%);
+    background: #fcd630 -ms-linear-gradient(top, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.0) 100%);
+    background: #fcd630 linear-gradient(to bottom, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde992', endColorstr='#fcd630',GradientType=0 );
+}
+input[type=submit].ef-submit-input:hover {
+	cursor: pointer;
+    background: #fcd630 linear-gradient(to bottom, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.3) 100%);
+}
+.ef-pdn {
+	font-size: 12px;
+	margin-bottom: 10px;
+	text-shadow: 1px 1px 2px rgb(255, 255, 255,0.9);
+}
+.ef-pdn-cbox {
+	position: relative;
+    top: 2px;
+}
+.ef-slose {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 16px;
+	height: 16px;
+	background-image: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMzU3cHgiIGhlaWdodD0iMzU3cHgiIHZpZXdCb3g9IjAgMCAzNTcgMzU3IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzNTcgMzU3OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQoJCTxwb2x5Z29uIHBvaW50cz0iMzU3LDM1LjcgMzIxLjMsMCAxNzguNSwxNDIuOCAzNS43LDAgMCwzNS43IDE0Mi44LDE3OC41IDAsMzIxLjMgMzUuNywzNTcgMTc4LjUsMjE0LjIgMzIxLjMsMzU3IDM1NywzMjEuMyANCgkJCTIxNC4yLDE3OC41IAkJIi8+DQo8L3N2Zz4=');
+	background-repeat: no-repeat;
+	background-position: center center;
+    background-size: 12px;
+    text-indent: -9999px;
+    cursor: pointer;
+    padding: 8px;
+	box-shadow: 0px 0px 4px rgba(255,255,255,0.9);
+    background-color: rgba(255,255,255,0.4);
+}
+
+
+.ef-title {
+	font-size: 18px;
+    margin-bottom: 10px;
+	font-weight: bold;
+	text-shadow: 1px 1px 2px rgb(255, 255, 255,0.9);
+	padding-right: 28px;
+}
+.ef-text {
+	margin-bottom: 10px;
+	text-shadow: 1px 1px 2px rgb(255, 255, 255,0.9);
+}
+
+
+/* success */
+.emailform .ef-text-success{
+	/* после успешной подписки блок с текстом*/
+	
+}
+.emailform.ef-subscribe-success .ef-title,
+.emailform.ef-subscribe-success .ef-text  {
+	/* после успешной подписки блок emailform */
+	color: #0b730b;
+}
+
+/* errors */
+.emailform .ef-input-error {
+	/* инпуты при ошибке */
+	border: 1px solid #ca1615;
+}
+.emailform .ef-pdn.ef-pdn-error {
+	/* блок с ПДН (внутри текст и чекбокс) */
+	color: #ca1615;
+}
+.emailform .ef-plugin-template .ef-error-div {
+	/* блок с ошибкой при подписке, внутри ef-plugin-template */
+}
+
+@media screen and (max-width: 768px) {
+	.emailform .visible {
+		width: 100%;
+		margin-left: 0;
+		left: 0;
+		box-sizing: border-box;
+	}
+}
+@media screen and (max-width: 630px) {
+	.emailform .visible {
+		background-image: none;
+		text-align: center;
+	}
+	.ef-slose {
+		box-shadow: none;
+		background-color: transparent;
+		top: 1px;
+		right: -5px;
+	}
+	.ef-title {
+		padding-right: 0;
+	}
+}

@@ -1,0 +1,571 @@
+
+<script type="text/javascript" src="{$wa_url}wa-content/js/ace/ace.js?{$wa->version(true)}"></script>
+<link type="text/css" rel="stylesheet" href="{$wa_url}wa-content/js/redactor/redactor.css?v{$wa->version(true)}">
+<script src="{$wa_url}wa-content/js/redactor/redactor.min.js?v{$wa->version(true)}"></script>
+
+
+
+<div class="block double-padded">
+<h1>Настройки Advanced Services</h1>
+<p>
+	На данной странице можно задать подсказки и ссылки для пояснения сервисов магазина для клиентов. Для отображения опций во фронтенде магазина установите флажки "Включен" в нужных сервисах. На текущем этапе плагин поддерживает только верхний уровень сервисов, описание и ссылки для опций сервиса не предусмотрено.
+	В текущей редакции доступны следующие опции:
+<ul>
+<li>
+	Указание ссылки на сервис. Ссылка на сервис - может быть внутренней или внешней. Это удобно, если сервис - это один из товаров магазина, например, подарочная упаковка или целая категория товаров.
+	При указании ссылки на файл форматов JPG, PNG, GIF - можно отметить опцию "Открывать в попап". При других типах ссылок настройка игнорируется и ссылки открываются в новом окне.
+</li>
+<li>
+	Для исключения услуги в одной или нескольких категориях необходимо указать ID нужных категорий через запятую в соответствующее поле. Эти значения можно увидеть в поле адреса при редактировании катерогии (category_id=1) или при наведении на их название в разделе товаров. Скрытые услуги, даже с пометкой "Отмечена", выключены и не всчитываются в стоимость товара. 
+</li>
+<li>
+	В поле подсказка можно ввести описание сервиса или дополнительную текстовую информацию, которая будет отображаться при нажатии на иконку <span id="adv-toggle-icon">?</span> рядом с названием сервиса. Также как и ссылка описание сервиса открывается или в попап или на новой странице. Страница с описанием генерируется на лету. 	Пустое поле отключает соответствующую иконку возле сервиса.
+</li>
+<li>
+ Пункт "Отмечена" - позволяет отметить услугу по умолчанию, например, вы всегда продаете окна с установкой, но иногда без нее. Это даст вам возможность уменьшить стоимость для клиента (аналог услуги с отрицательной стоимостью)
+</li>
+<li>
+ Пункт "Разделитель" - позволяет "превратить" услугу в подобие категории услуг (визуально). Удобно, если услуг много и они могут быть сгрупированы. Порядок задается в разделе управления услугами, а не на странице плагина. Нужно указать любую цену, чтобы появился символ двоеточия после названия. Также включение пункта автоматически отключает все остальные действия с этой услугой.
+</li>
+<li>
+	Пустое поле отключает соответствующую иконку возле сервиса.
+</li>
+<li>
+	Даже если плагин не включен на этой странице, а также отключено применение описаний и подсказок для услуг, вы все равно можете открыть страницу с подробностями об услуге 
+	по адресу http://URL Магазина/advancedservices/ID услуги (ID указаны в названиях услуг на этой странице). При отключении плагина через PlugMeIn описания не работают, при удалении плагина - описания будут удалены.
+</li>
+</p>
+<div class="fields form">
+<form action="?plugin=advancedservices&action=save" method="post" id="advs-plugins-settings-form">
+	{$wa->csrf()}
+	
+<div class="field">
+	<div class="name"><label for="advs_enabled">Плагин включен</label></div>
+	<div class="value"><select name="advs_enabled" autocomplete="off" class="select" id="advs_enabled">
+		<option value="1" {if $advs_enabled}selected="selected"{/if} >Да	</option>
+		<option value="0"  {if !$advs_enabled}selected="selected"{/if}>Нет</option>
+		</select> 
+		<br><span class="hint"></span></div>
+
+</div>
+
+<div class="field">
+	<div class="name"><label for="advs_use_theme_popup">Использовать попап из шаблона сайта</label></div>
+	<div class="value"><select name="advs_use_theme_popup" autocomplete="off" class="select" id="advs_use_theme_popup">
+		<option value="1" {if $advs_use_theme_popup}selected="selected"{/if} >Да	</option>
+		<option value="0"  {if !$advs_use_theme_popup}selected="selected"{/if}>Нет</option>
+		</select> 
+		<br><span class="hint"></span></div>
+
+</div>
+
+<div class="field">
+	<div class="name"><label for="advs_use_mobile">Включать для мобильных</label></div>
+	<div class="value"><select name="advs_use_mobile" autocomplete="off" class="select" id="advs_use_mobile">
+		<option value="1" {if $advs_use_mobile}selected="selected"{/if} >Да	</option>
+		<option value="0"  {if !$advs_use_mobile}selected="selected"{/if}>Нет</option>
+		</select> 
+		<br><span class="hint">Можно отключить плагин при просмотре на мобильных</span></div>
+
+</div>
+<div class="field">
+<div class="name"><label for="advs_services_field">Настройка услуг</label></div>
+<div class="value" id="advs_services_values">
+
+  
+
+
+
+</div>
+</div>
+
+
+
+<div class="field">
+<div class="value submit">
+	<input type="submit" class="button green" value="Сохранить">
+		<span id="plugins-settings-form-status" style="display:none"><!-- message placeholder --></span>
+</div>
+</div>
+  </div>
+
+
+</form>
+
+
+
+
+<script type="text/javascript">
+$(function() {
+		
+		//array of all services old+new
+		{if $advs_services}
+			var advs_services_array = {$advs_services};
+		
+		{else}
+			var advs_services_array = null;
+		{/if}
+		
+		//array of options old or emty on init
+		{if $service_settings}
+				var service_settings = {$service_settings};
+			
+		{else}
+				var service_settings = null;
+		{/if}
+		
+		
+
+	//	console.log(JSON.stringify(service_settings));
+
+		//prevent cache page
+		$('head').append('	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />');
+		$('head').append('	<meta http-equiv="Pragma" content="no-cache" />');
+		$('head').append(' <meta http-equiv="Expires" content="0" /> ');
+	
+	
+		
+		
+		// first init or has services
+		
+		initServices = function () {
+				
+				$("#advs_services_values").html();
+				if (advs_services_array == null) {
+					
+						$("#advs_services_values").append('У Вас нет созданных услуг. Создайте услуги в разделе <a href="webasyst/shop/?action=products#/services/">"Услуги"</a> и обновите эту страницу');
+				}
+				else if ((advs_services_array!=null)) {
+						var objArr = createObjects();
+						setObjOptions(objArr);
+						generateHtml(objArr);
+			 	}
+			 
+				// has services with or without options
+				
+		  		function createObjects() {
+					
+					var advs_services_objects = [];
+					
+					// initilize all services with default options
+					for (var i = 0; i < advs_services_array.length; ++i) {
+						
+						var service_obj = {
+								id : advs_services_array[i].id,
+								name : advs_services_array[i].name, 
+								enabled : null,
+								link : '',
+								category_filter: '',
+								popup : null,
+								divider : null,
+								tooltip : '',
+								hasVar : false,
+						}
+						
+						advs_services_object = new AdvService(service_obj);
+						
+						advs_services_objects.push(advs_services_object);
+						console.log('New Empty Object ID = ' + advs_services_object.id);
+					}
+					
+					
+					
+				return advs_services_objects; 
+				}
+				
+				
+				function setObjOptions(objArray) {
+					
+					
+					function getIndexSettings(index) {
+							  		
+								  		for (var i=0; i<service_settings.length; i++)
+								  		{
+								  			if (service_settings[i].id == index) {
+								  				return service_settings[i];
+								  			}
+								  		}
+							  		}
+							  		
+					for (var i = 0; i < objArray.length; ++i) {
+							
+							
+						
+							
+							if (service_settings) {
+								
+								//has saved settings
+							
+								var id = getIndexSettings(objArray[i].id); 
+								
+								if (id) {
+									console.log ('Service_settings ID = ' + id.id );
+									objArray[i].enabled = id.enabled;
+									
+									objArray[i].link = id.link;
+									
+									if (id.category_filter)
+									objArray[i].category_filter = id.category_filter;
+									
+									objArray[i].popup = id.popup;
+								
+									objArray[i].divider = id.divider;
+								
+									objArray[i].ondefault = id.ondefault;
+									
+									if (id.tooltip)
+									objArray[i].tooltip = id.tooltip;
+									
+									
+								}
+							
+							}
+							else {
+								console.log ("Settings problem");
+							}
+						}
+						
+				console.log(JSON.stringify(objArray));		
+				}
+				
+				function generateHtml (objArray) {
+					
+					$("#advs_services_values").append("<ul id='adv-toggle-view'>");
+					
+				
+					var advs_id_keys = [];
+					
+					
+					$.each(objArray, function(i) {
+						 $("#adv-toggle-view").append(objArray[i].settingsView());
+						 advs_id_keys.push(objArray[i].id);
+						});
+					
+					
+					$("#advs_services_values").append('<input name="advs_service_array" type="hidden" value="'+advs_id_keys+'" >');
+					//$("#advs_services_values").append('<input name="advs_service_array" type="text" value="'+JSON.stringify(objArray)+'" >');
+					
+					$("#advs_services_values").append("</ul>");			
+				}		
+			
+		}
+	
+
+		//constructor service objects
+		
+		function AdvService(param) {
+			this.id = 	param.id;
+			this.name = param.name;
+			this.link =  param.link;
+			this.category_filter =  param.category_filter;
+			this.popup =  param.popup;
+			this.tooltip = param.tooltip;
+			this.ondefault = param.ondefault;
+			this.divider = param.divider;
+			
+			this.enabled = param.enabled;
+			this.hasVar = false;
+		}
+		
+		
+		
+		
+		
+		// html generator method for objects
+		AdvService.prototype.settingsView = function() {
+		
+		
+			var labels = ["Включен", "Ссылка на услугу", "Исключить категории",   "Открывать в попап", "Отмечена", "Разделитель", "Описание услуги"];
+			var input_types = ["checkbox", "text",  "text",  "checkbox", "checkbox", "checkbox", "textarea"]; 
+			var values = ["enabled", "link", "category_filter", "popup", "ondefault" , "divider", "tooltip"]; 
+			var obj = this;
+			
+			var settings_html_view = '';
+		
+		
+			//generate settings options
+			for (var i=0; i < labels.length; i++) {
+				var value = values [i];
+				//console.log( this[value]);
+				settings_html_view = settings_html_view + generateLabel(this.id, labels[i]) + generateInput(this.id, input_types[i], values[i] , this[value]);
+			}
+			
+			settings_html_view = settings_html_view + generateInput (this.id, "hidden", "id") + generateInput(this.id, "name", "name", this.name);
+			
+			return s_view = '<li><h3>'+this.name+' (ID:'+this.id+')'+'</h3><span class="expand">+</span><div '+
+							'id="service_div_'+this.id+'" class="adv-toggle-panel">'
+							+settings_html_view+'</div></li>';
+			
+			
+			// generate labels 
+			
+			function generateLabel(id, text) {
+				return '<label for="advs_service_'+id+'">'+text+'</label>';
+			}
+			
+			
+			// generate inputs
+			
+			function generateInput(id, field, value_name,  value) {
+				var output = '<input name="advs_service_'+value_name+'_'+id + '" ';
+				
+			
+				switch (field) {
+					
+					case "hidden" :
+						output = output + ' type="hidden" value="'+ id + '" ';
+						break;	
+					
+					case "checkbox": 
+						if (value == true) {
+							value = 'checked';
+								} 
+							else value = '';
+						
+						
+						output = output + ' type="checkbox" '+ value;
+						break;	
+						
+					case "text":
+						output = output + ' type="text" value="'+ value+ '" ';
+						break;
+						
+					case "name":
+						output = output + ' type="hidden" value="'+ value+ '" ';
+						break;
+						
+						
+				
+				}
+				
+
+				output = output + ' id="advs_service_'+value_name+'_'+id+'"><div class="clear"></div>';
+				
+				if (field == "textarea")
+				{
+						output = 	'<textarea rows="20" cols="65" class="advs_redactor_field" name="advs_service_tooltip_' +id+'" id="advs_service_'+value_name+'_'+id+'">'+value+'</textarea>';
+				}
+				
+			
+				
+				return output;
+				
+			} 
+			
+				
+		}
+		
+		
+	
+	 	
+		
+		
+		//save settings
+
+		$('#advs-plugins-settings-form').submit(function() {
+			
+			var f = $(this);
+			$.post($(this).attr('action'), $(this).serialize(), function(response){ 
+				   if(response.status == 'ok') {
+					console.log(response.data.message);
+					$("#plugins-settings-form-status").html("Настройки сохранены!");
+					$("#plugins-settings-form-status").fadeIn('slow', function () { $(this).fadeOut(1000); });
+				} else {
+					$("#plugins-settings-form-status").html('Error');
+					$("#plugins-settings-form-status").fadeIn('slow', function () { $(this).fadeOut(1000);});
+				}
+				}, "json");
+				
+		
+			 return false;
+		});
+		
+		
+		
+		//construct settings inputs
+		
+		
+		initServices();	
+		$(document).ready(function () {
+			
+			
+			//ctrl+s hook
+			$(document).bind('keydown', function(event) {
+				event=event||window.event;
+			  if(event.ctrlKey && (event.which == 83)) {
+			    event.preventDefault();
+			   	$('#advs-plugins-settings-form').submit();
+			    return false;
+			  }
+			});
+			
+			
+			
+			$(function()
+				{
+				    $('.advs_redactor_field').redactor();
+				});
+			
+			
+			// resubmit if has new service or has no options
+			if(!advs_services_array) {
+			
+					$('#advs-plugins-settings-form').submit();
+					
+			}
+			else if (!service_settings) {
+				 $('#advs-plugins-settings-form').submit();
+			}
+			
+			
+			// toggle for ul settings	
+			$('#adv-toggle-view li span').on("click", function () {
+				 
+					var text = 	$(this).parent('li').children('div.adv-toggle-panel');
+			
+					if (text.is(':hidden')) {
+						text.slideDown('50');
+							$(this).parent('li').children('span').html('-');		
+					} else {
+						text.slideUp('50');
+						$(this).parent('li').children('span').html('+');		
+					}
+					
+				});
+				
+	
+		
+		
+		});
+	
+	}
+);
+	
+
+
+
+
+</script>
+
+{literal}
+<style type="text/css">
+.advs_hidden {
+display: none !important;
+}
+
+
+#advs_services_field {
+float: left;
+width: 600px;
+padding-top: .05em;
+padding-bottom: 10px;
+color: #888;
+font-size: 1.1em;
+font-family: 'Helvetica Neue',Arial,sans-serif;
+}
+
+
+#adv-toggle-view textarea {
+	margin-top:4px;
+	height:120px;
+	margin-left:1px;
+}
+
+#adv-toggle-view {
+	list-style:none;	
+	font-family:arial;
+	font-size:16px;
+	margin:0;
+	padding:0;
+	width:630px;
+}
+
+#adv-toggle-view li {
+		margin:0px 0px 10px 0px;
+		border-bottom:1px solid #ccc;
+		position:relative;
+		cursor:pointer;
+	}
+	
+#adv-toggle-view h3 {
+		margin:6px;
+		font-size:16px;
+	}
+
+#adv-toggle-view span {
+		position:absolute;
+		right:5px; top:0;
+		color:black;
+		font-size:20px;
+	}
+	
+#adv-toggle-icon {
+		text-align: center;
+	background: black;
+	color: white;
+	margin-left: 3px;
+	font-size: 12px;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	line-height:18px;
+	text-decoration:none !important;
+	}	
+	
+#adv-toggle-view .adv-toggle-panel {
+	margin: 10px 0px;
+  line-height: 24px;
+		display:none;
+		  padding-left: 18px;
+			border: 1px dashed #ccc;
+	}	
+
+
+#adv-toggle-view .adv-toggle-panel label  {
+  width: 130px;
+  display: inline-block;
+  font-size: 13px;
+  text-align: right;
+
+	}	
+
+
+	
+#adv-toggle-view .adv-toggle-panel input {
+ 	 margin-left: 15px;
+  
+	}
+	
+#adv-toggle-view .adv-toggle-panel input[type="text"] {	
+	width:70%;
+	  height: 15px;
+}
+
+.adv-toggle-panel select {
+  margin-left: 14px!important;
+  height: 20px;
+   display: inline-block;
+}
+
+.adv-toggle-panel textarea {
+	margin-left: 14px!important;
+  vertical-align: top;
+}
+
+.redactor-box {
+  max-width: 600px;
+  border: 1px solid #ccc;
+  min-height:200px;
+	
+}
+
+.redactor-box textarea{
+	width: 100% !important;
+  padding: 0px !important;
+  margin: 1px 0px !important;
+  min-height:200px;
+}
+
+</style>
+{/literal}
+

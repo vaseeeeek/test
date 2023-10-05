@@ -1,0 +1,40 @@
+<textarea id="massupdating-tags-list" cols="30" rows="5" name="tags">{if !empty($input['value']['tags']) && count($input['value']['tags']) > 0 && count($products) == 1}{implode($input['value']['tags'], ', ')}{/if}</textarea>
+<div style="margin-top: 10px;" class="massupdating-switcher massupdating-tags">
+	<label>
+		<input value="1" type="checkbox" name="tags_update_case">
+		[`Обновить существующие тэги при изменении регистра`]
+	</label>
+	{if !empty($input['value']['tags']) && count($input['value']['tags']) > 0 && count($products) > 1}
+	<div style="margin-top: 10px;">
+		[`У выбранных товаров имеются общие теги:`]
+		<b>{implode($input['value']['tags'], ', ')|escape}</b>
+	</div>
+	<div style="margin-top: 10px;">
+	{else}
+	<div>
+	{/if}
+		{if count($products) > 1}
+		<a href="#" data-action="add" class="selected">[`Добавить к текущим тегам`]</a>
+		<a href="#" data-action="replace">[`Заменить теги`]</a>
+		{/if}
+		<input id="massupdating-tags-action" value="{if count($products) == 1}replace{else}add{/if}" type="hidden" name="tags_action">
+	</div>
+</div>
+<script type="text/javascript">
+(function() {
+	{if count($products) > 1}
+	$('.massupdating-tags a').click(function(e) {
+		$('.massupdating-tags a').removeClass('selected');
+		$(this).addClass('selected');
+		var action = $(this).data('action');
+		$('#massupdating-tags-action').val(action);
+		e.preventDefault();
+	});
+	{/if}
+	$('#massupdating-tags-list').tagsInput({
+		autocomplete_url: '?module=product&action=tagsAutocomplete',
+		height: 120,
+		defaultText: ''
+	});
+})();
+</script>

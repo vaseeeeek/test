@@ -1,0 +1,35 @@
+{strip}
+	{if count($pages) > 1}
+		<ul class="brand-plugin-pages">
+			{foreach $pages as $_page}
+				<li class="brand-plugin-pages__item {if $_page.id == $page.id}brand-plugin-pages__item_current{/if}">
+					{if $_page.id == $page.id}
+						<span class="brand-plugin-pages-item brand-plugin-pages-item_current">
+							<span class="brand-plugin-pages-item__name">
+								{$_page.name}
+							</span>
+
+							{if $_page.is_reviews_page}
+								<span class="brand-plugin-pages-item__count">
+									({$reviews_count})
+								</span>
+							{/if}
+						</span>
+					{else}
+						<a href="{$brand->getFrontendUrl($_page)}" class="brand-plugin-pages-item">
+							<span class="brand-plugin-pages-item__name">
+								{$_page.name}
+							</span>
+
+							{if $_page.is_reviews_page}
+								<span class="brand-plugin-pages-item__count">
+									({$reviews_count})
+								</span>
+							{/if}
+						</a>
+					{/if}
+				</li>
+			{/foreach}
+		</ul>
+	{/if}
+{/strip}

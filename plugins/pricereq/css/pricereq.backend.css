@@ -1,0 +1,20 @@
+.fields.form { width: 50%; }
+.field .value input[type="text"] { width: 200px; }
+
+.s-colorpicker { display: none; margin: -110px 0 0 245px; position: absolute; }
+
+.price-req-form { border-color: rgba(244, 244, 244, 1); border-style: solid; border-width: 10px 50px; box-shadow: 1px -1px 5px rgba(0, 0, 0, 0.3); display: none; left: inherit; margin: 120px 20px 50px 0; position: absolute; right: 0; top: 0; }
+
+.plugin-links { margin: 0 20px; position: absolute; right: 0; }
+.plugin-links a { background: gray none repeat scroll 0 0; border-radius: 2px; color: #fefefe!important; display: none; font-size: 1em; margin: 0 0 10px; padding: 10px; position: relative; text-align: center; z-index: 9; }
+.plugin-links a:hover { color: #fefefe!important; }
+#more-info-support { background: rgb(51, 102, 255) none repeat scroll 0 0; }
+
+@media (min-width:320px) and (max-width: 1600px) {
+    .price-req-form { position: relative; margin: 35px 20px 35px 0; }
+}
+
+#pricereq_shop_pricereq_privacy_text,
+#pricereq_shop_pricereq_privacy_link_text { width: 350px; }
+
+#price-req-submit:disabled { cursor: default; opacity: 1; }

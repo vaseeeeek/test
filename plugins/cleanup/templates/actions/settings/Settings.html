@@ -1,0 +1,52 @@
+<link href="{$plugin_path}/css/cleanup.css?{$version}" rel="stylesheet" type="text/css">
+<script src="{$plugin_path}/js/jstree.min.js"></script>
+<script type="text/javascript">
+$.cleanup = {
+    loc: {},
+    l: function (key) {
+        return ($.cleanup.loc[key] !== undefined) ? $.cleanup.loc[key] : key;
+    }
+};
+{foreach $loc as $key => $string}
+$.cleanup.loc["{$key}"] = '{$string|escape:"js"}';
+{/foreach}
+$(".rtabs label").click(function(){
+	window.location.hash='#/cleanup/'+this.id;
+});
+</script>
+<div>
+<section class="rtabs">
+    <input id="tab_1" type="radio" name="rtab" checked="checked" />
+    <input id="tab_2" type="radio" name="rtab" />
+    <input id="tab_3" type="radio" name="rtab" />
+    <input id="tab_4" type="radio" name="rtab" />
+    <label for="tab_1" id="tab_l1">{_wp('Main')}</label>
+    <label for="tab_2" id="tab_l2">{_wp('Categories')}</label>
+    <label for="tab_3" id="tab_l3">{_wp('Tags')}</label>
+    <label for="tab_4" id="tab_l4">{_wp('Workflow')}</label>
+    <br>
+    <div class="tabs_cont">
+        <div id="tab_c1">
+            {include file="./include.main.html"}
+        </div>
+        <div id="tab_c2">
+            {include file="./include.categories.html"}
+        </div>
+        <div id="tab_c3">
+            {include file="./include.tags.html"}
+        </div>
+        <div id="tab_c4">
+            {include file="./include.workflow.html"}
+        </div>
+        <span id="s-cleanup-error" title="{_wp('Close')}" onclick='$(this).empty();'></span>
+    </div>
+</section>
+<script>
+    var hash = window.location.hash;
+    hash = hash.replace('#/cleanup/','');
+    if(hash !="#/cleanup") $("#"+hash).trigger('click');
+    </script>
+<br>
+<strong>{_wp('Attention.')}</strong> {_wp('All operations use framework functions to remove entries and can\'t be cancelled. Please be careful using this tool.')} 
+{_wp('Don\'t forget to make backups.')}
+</div>

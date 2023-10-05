@@ -1,0 +1,15 @@
+{if $service.config.type|in_array:['points', 'courier']}
+	{include file="shop_dp:{$current_theme_id}/{$service.config.type|lower}_dialog" inline}
+	{capture assign="inline_assets"}
+	{if !empty($service.js)}
+		<script type="text/javascript">
+		  (function($) {
+			$(document).one('shop-dp-dialog-content-loaded', function(e, save) {
+			  save({$service.js|@json_encode nofilter});
+			});
+		  })(jQuery);
+		</script>
+	{/if}
+	{/capture}
+	{$inline_assets|strip}
+{/if}

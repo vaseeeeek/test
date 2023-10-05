@@ -1,0 +1,19 @@
+<h1 style='position: relative'>[`Coupon delete`] <a href="javascript:void(0)" onclick='$(this).closest(".dialog").trigger("close")' title="[`close`]" class="close">[`close`]</a></h1>
+<p>[`Do you really want to delete coupon`] <b style='font-size: 18px' class='s-coupon-code-field'>{$coupon.code|escape}</b> ?</p>
+{if $count > 1}
+    <p>{sprintf('This coupon connected with %d discount rules', $count)}</p>
+{/if}
+<div class="margin-block"><em class="errormsg"></em></div>
+<div class="margin-block">
+    <input type='submit' name='remove' class='button yellow catch-click' value='[`Delete coupon from discount rule. Coupon will be saved for other discounts`]'><br><br>
+    <input type='submit' name='delete' class='button red catch-click' value='[`Delete coupon from all discounts. Coupon will be removed totally`]'>
+</div>
+<p class="align-center margin-block big-loader" style="display: none"><img src="{$plugin_url}img/loading.gif" /></p>
+<script>
+    $(function() {
+        $(".catch-click").click(function() {
+            $(".catch-click").removeClass("clicked");
+            $(this).addClass("clicked");
+        });
+    });
+</script>

@@ -1,0 +1,20 @@
+<h1>
+	Мой отзыв о бренде {$brand.name}
+</h1>
+
+<form action="{$submit_review_action}">
+	<input type="hidden" name="review[brand_id]" value="{$brand.id}">
+
+	<input type="text" name="review[rate]" value="{$existing_review.rate|default:0}">
+
+	<input type="text" name="review[pros]" value="{$existing_review.pros|default:''}">
+	<input type="text" name="review[cons]" value="{$existing_review.cons|default:''}">
+	<input type="text" name="review[content]" value="{$existing_review.content|default:''}">
+</form>
+
+
+
+<form action="{$submit_instant_review_action}">
+	<input type="text" name="review[brand_id]" value="{$brand.id}">
+	<input type="text" name="review[rate]" value="{$existing_review.rate|default:0}">
+</form>

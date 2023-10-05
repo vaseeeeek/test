@@ -1,0 +1,23 @@
+<div class="f-tab-css" style="display: none;">
+
+    <!-- editor -->
+    <textarea name="storefront_settings[css]" id="f-quickorder-css-template">{if !empty($settings.css)}{$settings.css|escape}{else}/* [`Print Your CSS styles right here`] */{/if}</textarea>
+    <div>
+        <div id="f-quickorder-css-container"></div>
+    </div>
+
+    <script src="{$wa_url}wa-content/js/ace/ace.js"></script>
+    <script src="{$wa_url}wa-content/js/jquery-wa/wa.elrte.ace.js"></script>
+    <script>
+        $(function() {
+            waEditorAceInit({
+                'id': 'f-quickorder-css-template',
+                'ace_editor_container': 'f-quickorder-css-container',
+                'type': 'css'
+            });
+            $("#f-quickorder-css-template").data('editor', wa_editor);
+            $("#f-quickorder-css-template").data('editor').clearSelection();
+        });
+    </script>
+
+</div>

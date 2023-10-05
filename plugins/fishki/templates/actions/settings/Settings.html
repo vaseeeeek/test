@@ -1,0 +1,49 @@
+<h1>Fishki</h1>
+<div class="fishki">
+    <div class="function__list">
+        <div class="function__item">
+            Заменить переносы строк на пустоту
+            <a href="{$wa->currentUrl(true)}&fishki=transclear" class="function__btn">Применить</a>
+        </div>
+        <p><b>Используется запрос:</b> UPDATE shop_product SET summary=replace(summary,"\r\n","")</p>
+        <div class="function__item">
+            Заменить переносы строк на тег br
+            <a href="{$wa->currentUrl(true)}&fishki=transbr" class="function__btn">Применить</a>
+        </div>
+        <p><b>Используется запрос:</b> UPDATE shop_product SET summary=replace(summary,"\r\n","\<br\>")</p>
+    </div>
+</div>
+
+
+<style>
+    .fishki .function__item {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #ebebeb;
+        padding: 10px;
+    }
+    .fishki .function__item:nth-child(even) {
+        background: #ebebeb;
+    }
+    .fishki .function__btn {
+        padding: 10px 15px;
+        background: #000;
+        color: #fff;
+        margin-left: 20px;
+        border-radius: 5px;
+        cursor:pointer;
+    }
+</style>
+
+<script>
+    $('.fishki .function__btn').on('click',function(){
+        const actionPost = $(this).closest('.function__item').attr('action');
+
+        // $.ajax({
+        //     method: "POST",
+        //     url: location.href,
+        //     data: actionPost
+        // })
+
+    })
+</script>

@@ -1,0 +1,13 @@
+<div id="mount"></div>
+<script>
+	window.brand = {
+		resource_base_url: '{shopBrandHelper::getStaticUrl('assets')}',
+
+		brand_list: {$brand_list|json_encode},
+		list_filter: {$list_filter|json_encode},
+		use_additional_description: {$use_additional_description|json_encode},
+		brand_products_url_template: {$brand_products_url_template|json_encode}
+	};
+</script>
+<link rel="stylesheet" href="{shopBrandHelper::getStaticUrl('assets/brand_list_page.css')}?v={$asset_version}" />
+<script src="{shopBrandHelper::getStaticUrl('assets/brand_list_page.js')}?v={$asset_version}"></script>

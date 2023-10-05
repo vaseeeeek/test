@@ -1,0 +1,213 @@
+<h3>
+    [`Other settings`]
+    {$settings_other_toggle = !empty($settings.other_toggle) || !isset($settings.other_toggle)}
+    <a href="javascript:void(0)" class="js-paragraph-visibilty">{if $settings_other_toggle}&minus;{else}&plus;{/if}</a>
+    <input type="hidden" name="settings[other_toggle]" value='{if $settings_other_toggle}1{else}0{/if}' />
+</h3>
+<div class="field-group"{if !$settings_other_toggle} style='display: none;'{/if}>
+    <div class="margin-block">
+        <h4><span>[`Discounts in customer account`]</span></h4>
+        <div class="margin-block">
+            [`You can create a page with all available discounts in customer account.`]
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Create page`]:</div>
+        <div class="value">
+            <div class="ibutton-checkbox inline-block">
+                <ul class="menu-h">
+                    <li>
+                        <span class="switcher-off">[`No`]</span>
+                    </li>
+                    <li>
+                        <input class="switcher" type="checkbox" name="settings[flexdiscount_my_discounts][value]" value="1" {if !empty($settings.flexdiscount_my_discounts.value)}checked="checked"{/if} />
+                    </li>
+                    <li>
+                        <span class="switcher-on">[`Yes`]</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="onopen hidden inline-block">
+                [`Specify display type`]
+                <input type="text" name="settings[flexdiscount_my_discounts][type]" value="{if !empty($settings.flexdiscount_my_discounts.type)}{$settings.flexdiscount_my_discounts.type|escape}{/if}" class="small" /> [`(Default values 1, 2 or 3)`]
+            </div>
+            <div class="onopen hidden margin-block">
+                <div class="margin-block bottom semi">
+                    [`Page name`]:
+                    <input type="text" class="width250px" name="settings[flexdiscount_my_discounts][page_name]" value="{if !empty($settings.flexdiscount_my_discounts.page_name)}{$settings.flexdiscount_my_discounts.page_name|escape}{else}[`Your discounts`]{/if}" />
+                </div>
+                <div>
+                    <label><input type="checkbox" onchange='$(this).closest("div").find(".margin-block").toggle();' name='settings[flexdiscount_my_discounts][show_nav]' {if !empty($settings.flexdiscount_my_discounts.show_nav)}checked="checked"{/if}/> [`Show navigation bar`]</label>
+                    <div class="margin-block semi top"{if empty($settings.flexdiscount_my_discounts.show_nav)} style="display: none"{/if}>
+                        <label><input type="checkbox" name='settings[flexdiscount_my_discounts][show_nav_pos]' {if !empty($settings.flexdiscount_my_discounts.show_nav_pos)}checked="checked"{/if}/> [`Position navigation bar above the title`]</label>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="margin-block">
+                <div class="ibutton-checkbox inline-block">
+                    <ul class="menu-h">
+                        <li>
+                            <input class="switcher" type="checkbox" name="settings[flexdiscount_my_discounts][show_only_active]" value="1" {if !empty($settings.flexdiscount_my_discounts.show_only_active)} checked{/if} />
+                        </li>
+                        <li>
+                            <span class="switcher-on">[`Show only active discounts`]</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="onopen hidden margin-block top">
+                    [`Specify the parameters of an abstract product`]:
+                    <div class="hover-tooltip">
+                        <span>?</span>
+                        <div class="hover-content">
+                            <div>
+                                [`Plugin creates an abstract product and checks whether discounts will be applied for it. If there are, then he considers these discounts are active and shows them on the account page.`]
+                                <br>[`Make sure that your abstract product meets rules conditions.`]
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="name">[`Price`]</div>
+                        <div class="value">
+                            <input type="text" name="settings[abstract_product][price]" value="{ifempty($settings, 'abstract_product', 'price', 1000)}">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="name">[`Compare price`]</div>
+                        <div class="value">
+                            <input type="text" name="settings[abstract_product][compare_price]" value="{ifempty($settings, 'abstract_product', 'compare_price', 0)}">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="name">[`Purchase price`]</div>
+                        <div class="value">
+                            <input type="text" name="settings[abstract_product][purchase_price]" value="{ifempty($settings, 'abstract_product', 'purchase_price', 0)}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="margin-block">
+                <a href="javascript:void(0)" data-type="myDiscounts" data-param="my_discounts" title='[`Customize customer discount page`]' class='js-customize-block'><i class="icon16 edit"></i> [`Customize customer discount page`]</a>
+            </div>
+        </div>
+    </div>
+    <div class="margin-block">
+        <h4><span>[`CSS styles`]</span></h4>
+    </div>
+    <div class="field">
+        <div class="name">[`Output place`]:</div>
+        <div class="value js-styles-output">
+            <div class="margin-block bottom">
+                <label>
+                    <input type="radio"{if empty($settings.styles_output) || (!empty($settings.styles_output) && $settings.styles_output == 'head')} checked{/if} name="settings[styles_output]" value="head">
+                    [`Inside tag &lt;head&gt;`] ([`Template hook <i>frontend_head</i>`])
+                </label>
+            </div>
+            <div class="margin-block bottom">
+                <label>
+                    <input type="radio"{if !empty($settings.styles_output) && $settings.styles_output == 'footer'} checked{/if} name="settings[styles_output]" value="footer">
+                    [`In the footer`] ([`Template hook <i>frontend_footer</i>`])
+                </label>
+            </div>
+            <div class="margin-block bottom">
+                <label><input type="radio"{if !empty($settings.styles_output) && $settings.styles_output == 'helper'} checked{/if} name="settings[styles_output]" value="helper"> [`Use helper`]</label>
+                <div class="js-styles-helper"{if empty($settings.styles_output) || (!empty($settings.styles_output) && $settings.styles_output !== 'helper')} style="display:none"{/if}>
+                    <div class="margin-block top">
+                        <i class="icon16 exclamation"></i> [`Embed this helper into your theme template`]:
+                    </div>
+                    <div class='margin-block'>
+                        <span class='info-text'><code>&#123;shopFlexdiscountPluginHelper::getCssStyles()&#125;</code></span>
+                    </div>
+                </div>
+            </div>
+            <div class="margin-block">
+                [`You can`]
+                <a href="javascript:void(0)" data-type="styles" data-param="styles" title='[`customize plugin CSS styles`]' class='js-customize-block'><i class="icon16 edit"></i> [`customize plugin CSS styles`]</a>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Loader icon`]:</div>
+        <div class="value js-styles-output">
+            <div class="margin-block bottom">
+                <label><input type="radio"{if empty($settings.css_loader) || (!empty($settings.css_loader) && $settings.css_loader == 'loader1')} checked{/if} name="settings[css_loader]" value="loader1">
+                    <i class="flexdiscount-big-loading"></i></label></div>
+            <div class="margin-block bottom">
+                <label><input type="radio"{if !empty($settings.css_loader) && $settings.css_loader == 'loader2'} checked{/if} name="settings[css_loader]" value="loader2">
+                    <div class="inline-block fl-is-loading"></div>
+                </label></div>
+            <div class="margin-block bottom">
+                <label><input type="radio"{if !empty($settings.css_loader) && $settings.css_loader == 'loader3'} checked{/if} name="settings[css_loader]" value="loader3">
+                    <i class="icon16 loading"></i></label></div>
+            <div class="margin-block fl-hint">
+                [`Informational blocks of discounts and bonuses can be dynamically updated. You can choose type of loader.`]
+            </div>
+        </div>
+    </div>
+    <div class="margin-block">
+        <h4><span>[`Backend orders`]</span></h4>
+    </div>
+    <div class="field">
+        <div class="name">[`Add column with discount for each product`]:</div>
+        <div class="value">
+            <div class="ibutton-checkbox inline-block">
+                <ul class="menu-h">
+                    <li>
+                        <span class="switcher-off">[`No`]</span>
+                    </li>
+                    <li>
+                        <input type="hidden" name="settings[backend_product_discount]" value="0">
+                        <input class="switcher" type="checkbox" name="settings[backend_product_discount]" value="1" {if !empty($settings.backend_product_discount)}checked="checked"{/if} />
+                    </li>
+                    <li>
+                        <span class="switcher-on">[`Yes`]</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Always recalculate discounts when editing orders`]:</div>
+        <div class="value">
+            <div class="ibutton-checkbox inline-block">
+                <ul class="menu-h">
+                    <li>
+                        <span class="switcher-off">[`No`]</span>
+                    </li>
+                    <li>
+                        <input type="hidden" name="settings[boe_force_calcultate]" value="0">
+                        <input class="switcher" type="checkbox" name="settings[boe_force_calcultate]" value="1" {if !empty($settings.boe_force_calcultate)}checked="checked"{/if} />
+                    </li>
+                    <li>
+                        <span class="switcher-on">[`Yes`]</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="margin-block fl-hint">
+                [`Be careful! With this setting you cannot edit discount by yourself. Calculating will be automatically`]
+            </div>
+        </div>
+    </div>
+    <div class="margin-block">
+        <h4><span>[`Caching`]</span></h4>
+    </div>
+    <div class="field">
+        <div class="name">[`Enable caching for discount conditions`]:</div>
+        <div class="value">
+            <div class="ibutton-checkbox inline-block">
+                <ul class="menu-h">
+                    <li>
+                        <span class="switcher-off">[`No`]</span>
+                    </li>
+                    <li>
+                        <input class="switcher" type="checkbox" name="settings[cache_conditions]" value="1" {if !empty($settings.cache_conditions) || !isset($settings.cache_conditions)}checked="checked"{/if} />
+                    </li>
+                    <li>
+                        <span class="switcher-on">[`Yes`]</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,127 @@
+<div class="massupdating-switcher massupdating-skus">
+	{if count($input['stocks']) > 0}
+	<label style="display: block;">
+		<input type="checkbox" name="skus_by_stocks"/>
+		[`По складам`]
+	</label>
+	
+	<div style="margin-top: 10px; color: red;"><b>[`Внимание!`]</b> [`Если товары располагаются на нескольких складах, они будут просуммированы (за исключением складов, на которых количество товара установлено в бесконечность) и перенесены на основной склад. Если Вы хотите изменить количество строго по каждому складу, установите галочку "По складам".`]</div>
+	{/if}
+	<div id="massupdating-skus-common"{if count($input['stocks']) > 0} style="margin-top: 10px;"{/if}>
+		<a href="#" data-action="minus" data-input="massupdating-skus-action" class="selected">[`Уменьшить`] (-)</a>
+		<a href="#" data-action="plus" data-input="massupdating-skus-action">[`Увеличить`] (+)</a>
+		<input id="massupdating-skus-action" value="minus" type="hidden" name="skus[-1][action]">
+		[`количество товара на складах`]
+		<select id="massupdating-change-skus-type" name="skus[-1][type]">
+			<option value="1" selected>[`на`]</option>
+			<option value="2">[`дo`]</option>
+		</select>
+		<input id="massupdating-skus-to" type="text" name="skus[-1][to]" class="short"/>
+		[`единиц`]
+	</div>
+	{if count($input['stocks']) > 0}
+	<div id="massupdating-skus-by-stocks" style="margin-top: 10px; display: none;">
+		<table class="zebra">
+			<tr>
+				<th class="min-width"></th>
+				<th>[`Склад`]</th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+			{foreach $input['stocks'] as $stock}
+			<tr>
+				<td class="min-width"><input id="skus-stock-{$stock.id}" name="skus[{$stock.id}][on]" type="checkbox"/></td>
+				<td><label for="skus-stock-{$stock.id}">{$stock.name|escape:'html'}</label></td>
+				<td class="min-width" align="right">
+					<select name="skus[{$stock.id}][action]">
+						<option value="minus" selected>[`Уменьшить`] (-)</option>
+						<option value="plus">[`Увеличить`] (+)</option>
+					</select>
+				</td>
+				<td class="min-width">
+					<select name="skus[{$stock.id}][type]">
+						<option value="1" selected>[`на`]</option>
+						<option value="2">[`дo`]</option>
+					</select>
+				</td>
+				<td class="min-width">
+					<input type="text" name="skus[{$stock.id}][to]" class="short"/>
+				</td>
+				<td class="min-width" align="right">
+					[`единиц`]
+				</td>
+			</tr>
+			{/foreach}
+		</table>
+		{if count($input['stocks']) > 1}
+		<div style="margin-top: 10px; color: red;">[`Товары, находящиеся сейчас на основном складе, будут перемещены в первый склад из списка. В остальных складах отталкивающим значением, от которого можно изменять количество, будет 0. Если не указать количество на остальных (не первом) складах, оно установится в значение бесконечность.`]</div>
+		{/if}
+	</div>
+	{/if}
+	<div style="margin-top: 10px; color: blue;">[`Чтобы установить количество товара в бесконечность, укажите "до -1".`]</div>
+	<div style="margin-top: 10px;">
+		{if count($input['value']['count']) <= 1}
+		[`Текущее количество товара на складах у выбранных товаров совпадает:`]
+		<b>{ifempty($input['value']['count'][0], '&infin;')}</b> [`ед.`]
+		{else}
+		[`Текущее количество товара на складах у выбранных товаров варьируется от`]
+		<b>{min($input['value']['count'])}</b>
+		[`до`]
+		<b>{max($input['value']['count'])}</b>
+		{/if}
+	</div>
+	<label style="display: block; margin-top: 10px;">
+		<input type="checkbox" name="remove_empty_skus"/>
+		[`Удалить пустые артикулы`]
+	</label>
+	<span class="hint">[`Пустыми артикулами считаются те, у которых отсутствует Наименование, Код артикула и Количество на складах, а цена равна 0 или не указана`]</span>
+</div>
+
+</div>
+<div class="name">[`Вес артикулов`]</div>
+<div class="value massupdating-switcher massupdating-skus-weight">
+<div id="massupdating-skus-weight">
+	<a href="#" data-action="minus" data-input="massupdating-skus-weight-action" class="selected">[`Уменьшить`] (-)</a>
+	<a href="#" data-action="plus" data-input="massupdating-skus-weight-action">[`Увеличить`] (+)</a>
+	<input id="massupdating-skus-weight-action" value="minus" type="hidden" name="skus_weight[action]">
+	[`вес артикулов выбранных товаров`]
+	<select name="skus_weight[type]">
+		<option value="1" selected>[`на`]</option>
+		<option value="2">[`дo`]</option>
+	</select>
+	<input id="massupdating-skus-to" type="text" name="skus_weight[to]" class="short"/>
+	{$weight_units = shopDimension::getUnits('weight')}
+	<select name="skus_weight[unit]">
+		{foreach $weight_units as $unit}
+		<option value="{$unit['value']}">{$unit['title']}</option>
+		{/foreach}
+	</select>
+</div>
+<div style="margin-top: 10px;">
+	<label>
+		<input name="skus_weight[convert_to_unit]" type="checkbox"/>
+		[`Конвертировать в единую единицу измерения:`]
+		<select name="skus_weight[unit_for_convert]">
+			{foreach $weight_units as $unit}
+			<option value="{$unit['value']}">{$unit['title']}</option>
+			{/foreach}
+		</select>
+	</label>
+</div>
+<script type="text/javascript">
+(function() {
+	$('.massupdating-skus a, .massupdating-skus-weight a').click(function(e){
+		$(this).closest('div').find('a').removeClass('selected');
+		$(this).addClass('selected');
+		var action = $(this).data('action');
+		$('#' + $(this).data('input')).val(action);
+		e.preventDefault();
+	});
+	
+	$('[name="skus_by_stocks"]').change(function() {
+		$('#massupdating-skus-common, #massupdating-skus-by-stocks').toggle();
+	});
+})();
+</script>

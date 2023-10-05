@@ -1,0 +1,95 @@
+.dop-cat-links{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0;
+    list-style: none;
+    margin: 20px 0;
+}
+
+.dop-cat-links li {
+    position: relative;
+    margin-right: 20px;
+    margin-bottom: 15px;
+    width: 85px;
+    text-align: center;
+}
+
+.dop-cat-links li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 13px;
+    display: block;
+    line-height: 18px;
+}
+
+.dop-cat-links li img {
+    width: 75px;
+    height: 75px;
+    display: block;
+    margin: auto;
+}
+
+.dop-cat-links li a span {
+    max-width: 100px;
+    text-align: center;
+    background-size: 1px 1em;
+    box-shadow: inset 0 -0.175em #fff, inset 0 -0.2em #000;
+    display: inline;
+    padding-bottom: 4px;
+}
+
+.swiper-slide{
+    white-space: nowrap;
+    position: relative;
+    display: inline-flex;
+    width: auto;
+    height: auto;
+    max-width: 96vw;
+    padding: 0;
+    cursor: pointer;
+    transition: all linear .2s;
+    transform: translate3d(0,0,0);
+    flex-shrink: 1 !important;
+    margin-right: 30px;
+}
+
+.swiper-slide a:hover{
+    text-decoration: none;
+}
+
+.swiper-container{
+    border-bottom: 1px solid #cecece;
+    padding-bottom: 10px !important;
+}
+
+@media screen and (max-device-width: 480px){
+
+    .dop-cat-links{
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+    }
+
+    .dop-cat-links li{
+        width: 106px;
+    }
+}
+
+@media screen and (max-device-width: 375px){
+
+    .dop-cat-links li{
+        width: 95px;
+    }
+}
+
+
+@media screen and (max-device-width: 320px){
+
+    .dop-cat-links li{
+        width: 85px;
+        margin-right: 10px;
+    }
+}

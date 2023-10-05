@@ -1,0 +1,194 @@
+{$system_settings = shopFlexdiscountProfile::SETTINGS}
+{$default_settings = shopFlexdiscountProfile::DEFAULT_SETTINGS}
+
+<h3>[`System settings`]</h3>
+
+<div class="attention-block margin-block bottom">
+    <svg viewBox="0 0 451.74 451.74" class="width50">
+        <use xlink:href="{$plugin_url}img/svg/warning.svg#hey"></use>
+    </svg>
+    <div>[`Be carefull with that settings. If you are not sure, do not change them`]</div>
+</div>
+
+{$switcher_options = [
+    'ADD_FILENAME' => _wp('Add file basenames'),
+    'REVERSE' => _wp('Reverse backtrace'),
+    'PROFILE_PLUGINS' => _wp('Extended plugins reports'),
+    'PROFILE_TEMPLATE' => _wp('Extended template reports'),
+    'PROFILE_METHODS' => _wp('Extended methods reports')
+]}
+
+<div class="fields">
+    <div class="field">
+        <div class="name">
+            [`Profile mode`]
+            <span class="shop-tooltip">
+                <i class="icon16 info"></i>
+                <span>[`Read more in <a href="https://igaponov.com/docs/177/profile/" target="_blank">docs</a>`]</span>
+            </span>
+        </div>
+        <div class="value">
+            <div class="ibutton-checkbox">
+                <ul class="menu-h">
+                    <li>
+                        <span class="switcher-off">[`Off`]</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="{$system_settings['STATUS']}" class="js-system-settings-switcher main" value="1"{if !empty($settings[$system_settings['STATUS']])} checked{/if}>
+                    </li>
+                    <li>
+                        <span class="switcher-on">[`On`]</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="margin-block bottom">
+                [`Enable profile mode to collect information about usaging of plugin hooks.`]
+                <div class="gray">[`Relevant for frontend. Update the necessary page and get the report in flexdiscount.profile.log`]</div>
+            </div>
+            <div class="onopen">
+                <div class="s-info-block">
+                    [`Also use cookie to enable profiling: `]
+
+                    {if !empty($settings[$system_settings['COOKIE']])}
+                        {$profiling_cookie = $settings[$system_settings['COOKIE']]|escape}
+                    {else}
+                        {$profiling_cookie = shopFlexdiscountProfile::DEFAULT_COOKIE}
+                    {/if}
+                    <span class="f-profiling-cookie">{$profiling_cookie}</span>
+                    <input type="hidden" name="{$system_settings['COOKIE']}" class="f-profiling-cookie-input" value="{$profiling_cookie}">
+                </div>
+                <div class="field">
+                    <div class="name">[`Depth`]</div>
+                    <div class="value">
+                        <select name="{$system_settings['DEPTH']}">
+                            {for $i=1 to 20}
+                                <option value="{$i}"{if (!empty($settings[$system_settings['DEPTH']]) && $settings[$system_settings['DEPTH']] == $i) || (empty($settings[$system_settings['DEPTH']]) && $i == '1')} selected{/if}>{$i}</option>
+                            {/for}
+                        </select>
+                    </div>
+                </div>
+                {foreach $switcher_options as $option_key => $name}
+                    <div class="field">
+                        <div class="name">{$name}</div>
+                        <div class="value">
+                            <div class="ibutton-checkbox">
+                                <ul class="menu-h">
+                                    <li>
+                                        <span class="switcher-off">[`No`]</span>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" name="{$system_settings[$option_key]}" class="js-system-settings-switcher" value="1"{if !empty($settings[$system_settings[$option_key]])} checked{/if}>
+                                    </li>
+                                    <li>
+                                        <span class="switcher-on">[`Yes`]</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {/foreach}
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Maximum number of cached products`]</div>
+        <div class="value">
+            <select name="{$system_settings['CACHED_PRODUCTS']}">
+                {foreach [10, 30, 50, 100, 150, 200, 300, 500] as $max}
+                    <option value="{$max}" {if (!empty($settings[$system_settings['CACHED_PRODUCTS']]) && $settings[$system_settings['CACHED_PRODUCTS']] == $max) || (empty($settings[$system_settings['CACHED_PRODUCTS']]) && $default_settings['CACHED_PRODUCTS'] == $max)} selected{/if}>{$max}</option>
+                {/foreach}
+            </select>
+            <div class="gray margin-block top">
+                [`Plugin caches frontend products to get their features, category products, stock information.`]
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Cache backend calculations`]</div>
+        <div class="value">
+            <div class="ibutton-checkbox">
+                <ul class="menu-h">
+                    <li>
+                        <span class="switcher-off">[`Off`]</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="js-system-settings-switcher" name="{$system_settings['CACHE_BACKEND_CALCULATIONS']}" value="1"{if !empty($settings[$system_settings['CACHE_BACKEND_CALCULATIONS']]) || !isset($settings[$system_settings['CACHE_BACKEND_CALCULATIONS']])} checked{/if}>
+                    </li>
+                    <li>
+                        <span class="switcher-on">[`On`]</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="margin-block bottom">
+                <div class="gray">[`Cache the results of backend discount calculations in hook order_calculate_discount`]</div>
+            </div>
+        </div>
+    </div>
+
+    {if version_compare($wa->version(), '8.0.0', '>=')}
+    <div class="field">
+        <div class="name">[`Use converting dimensions for shipping plugins`]</div>
+        <div class="value">
+            <div class="ibutton-checkbox">
+                <ul class="menu-h">
+                    <li>
+                        <span class="switcher-off">[`Off`]</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="js-system-settings-switcher" name="{$system_settings['SHIPPING_CONVERTDIMENSIONS']}" value="1"{if !empty($settings[$system_settings['SHIPPING_CONVERTDIMENSIONS']]) || !isset($settings[$system_settings['SHIPPING_CONVERTDIMENSIONS']])} checked{/if}>
+                    </li>
+                    <li>
+                        <span class="switcher-on">[`On`]</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="margin-block bottom">
+                <div class="gray">[`Disable that option, if you have problems with discounts for shipping plugins. For some plugins it may helps. Option can disable method shopShipping::convertItemsDimensions`]</div>
+            </div>
+        </div>
+    </div>
+    {/if}
+    <div class="field">
+        <div class="name">[`Calculate only active skus on the catalog page and in the lists`]</div>
+        <div class="value">
+            {if !empty($plugin_settings.frontend_prices)}
+                <div class="ibutton-checkbox">
+                    <ul class="menu-h">
+                        <li>
+                            <span class="switcher-off">[`Off`]</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="js-system-settings-switcher" name="{$system_settings['CALCULATE_ONLY_ACTIVE_SKU_IN_CATALOG']}" value="1"{if !empty($settings[$system_settings['CALCULATE_ONLY_ACTIVE_SKU_IN_CATALOG']])} checked{/if}>
+                        </li>
+                        <li>
+                            <span class="switcher-on">[`On`]</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="margin-block bottom">
+                    <div class="gray">
+                        [`This option enables optimization on the catalog page and in the lists. If you have a lot of skus in products (10 000+) and you feel that catalog page is too slow, enable it.`]<br>
+                    </div>
+                </div>
+            {else}
+                [`This option only relevant if "Change product data on the storefront" is enabled`]
+            {/if}
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        var $switcher = $('.js-system-settings-switcher');
+        $.flexdiscount.initSwitcher($switcher);
+
+        /* Смена куки профилирования */
+        $switcher.filter('.main').change(function () {
+            var that = $(this);
+            if (that.prop('checked')) {
+                var cookieName = '{shopFlexdiscountProfile::DEFAULT_COOKIE}' + Date.now();
+                $('.f-profiling-cookie').text(cookieName);
+                $('.f-profiling-cookie-input').val(cookieName);
+            }
+        });
+    });
+</script>

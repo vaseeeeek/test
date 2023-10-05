@@ -1,0 +1,74 @@
+{* Editor *}
+<script src="{$wa_url}wa-content/js/jquery-wa/editor.js?v{$wa->version(true)}"></script>
+<script src="{$wa_url}wa-content/js/jquery-wa/wa.elrte.ace.js?v{$wa->version()}"></script>
+
+{$fields = [
+    'product_skus' => _wp('Skus popup template'),
+    'bundle' => _wp('Bundle template'),
+    'bundle_item' => _wp('Bundle item template'),
+    'bundle_single_item' => _wp('Bundle single item template'),
+    'bundle_total_block' => _wp('Bundle total block template'),
+    'userbundle' => _wp('Userbundle template'),
+    'userbundle_item' => _wp('Userbundle item template'),
+    'userbundle_group' => _wp('Userbundle group'),
+    'sets' => _wp('Sets template')
+]}
+
+{$name = _wp('Unknown template')}
+{if isset($template_key) && isset($fields[$template_key])}{$name = $fields[$template_key]}{/if}
+
+<div class="ig-dialog-wrap is-full-screen">
+    <div class="w-dialog-background"></div>
+    <div class="w-dialog-wrapper">
+        <div class="w-dialog-block gray-header compact-header ps-edit-template-block">
+            <form action="" method="post">
+                <header class="w-dialog-header">
+                    <h1>{$name}</h1>
+                </header>
+                <div class="w-dialog-content margin-block">
+                    {if !empty($is_changed)}
+                       <div class="mb bottom attention-block">
+                           [`ATTENTION! Template has been changed. Content may differ from original.`]
+                       </div>
+                    {/if}
+                    <div class="mb bottom align-right">
+                        <a href="javascript:void(0)" class="js-restore-template" data-id="{$template_key}">[`revert template to original`]</a>
+                    </div>
+                    {if isset($template_key)}
+                        <input type="hidden" name="key" value="{$template_key}">
+                        <textarea name="template" id="editor-{$template_key}" class="width100">{$template}</textarea>
+                    {else}
+                        [`Template not exists.`]
+                    {/if}
+                </div>
+                <footer class="w-dialog-footer">
+                    <div class="margin-block errormsg"></div>
+                    <div class="t-actions">
+                        <div class="t-layout">
+                            <div class="t-column left">
+                                {if isset($template_key)}<input type="submit" id="ps-edit-template-submit" class="button green t-button" value="[`Save`]"> [`or`] {/if}<a href="javascript:void(0)" class="js-close-dialog">[`cancel`]</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </form>
+        </div>
+    </div>
+</div>
+
+{if isset($template_key)}
+    <script>
+        var wa_url = "{$wa_url}";
+
+        $('#ps-edit-template-submit').click(function () {
+            waEditorUpdateSource({
+                'id': 'editor-{$template_key}'
+            });
+        });
+
+        waEditorAceInit({
+            id: 'editor-{$template_key}',
+            save_button: 'ps-edit-template-submit'
+        });
+    </script>
+{/if}

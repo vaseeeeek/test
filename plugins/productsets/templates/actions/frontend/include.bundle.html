@@ -1,0 +1,49 @@
+{strip}
+
+<div class='productsets-bundle not-inited productsets-controller'
+       data-bundle-id='{$bundle.id}'
+       data-set-id='{$set.id}'
+       data-settings="{json_encode($bundle.settings)|escape}"
+       data-include-product="{if !empty($bundle.active)}1{else}0{/if}"
+       data-skus-popup='{$popup_skus_type}'
+>
+    {* Текст перед комплектом *}
+    {if !empty($bundle.settings.html_before)}
+        <div class="productsets-bundle-before productsets-bundle-text">{$bundle.settings.html_before}</div>
+    {/if}
+
+    <div class="productsets-bundle-wrap">
+
+        {$i = 0}
+
+        {* Активный товар *}
+        {if !empty($bundle.active)}
+            {$i = $i + 1}
+            {* include.bundle.item.html *}
+            {include file=$templates.bundle_item.frontend_path bundle_item=$bundle.active is_active=1 i=$i}
+        {/if}
+
+        {* Товары из набора *}
+        {if !empty($bundle.items)}
+            {foreach $bundle.items as $bundle_item}
+                {* include.bundle.item.html *}
+                {$i = $i + 1}
+                {include file=$templates.bundle_item.frontend_path bundle_item=$bundle_item is_last=$bundle_item@last i=$i}
+            {/foreach}
+        {/if}
+
+        {if $total_layout !== 'tl-1'}
+            {* include.bundle.total.block.html *}
+            {include file=$templates.bundle_total_block.frontend_path set=$set bundle=$bundle}
+        {/if}
+
+    </div>
+
+    {* Текст после комплекта *}
+    {if !empty($bundle.settings.html_after)}
+        <div class="productsets-bundle-after productsets-bundle-text">{$bundle.settings.html_after}</div>
+    {/if}
+
+</div>
+
+{/strip}

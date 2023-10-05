@@ -1,0 +1,31 @@
+<div class="field-group">
+    <div class="field">
+        <div class="name">
+            <label>
+                [`Image`]
+            </label>
+        </div>
+        <div class="value">
+            {if $category.image}
+            <input type="hidden" name="image" value="{$category.image}">
+            <div style="width: 48px; text-align: center; display: inline-block">
+                <img style="max-width: 48px; max-height: 48px" src="{$image_url}"><br>
+                <a id="category-image-delete" class="small inline-link" href="#"><i class="icon10 delete"></i>[`delete`]</a>
+            </div>
+            <script type="text/javascript">
+                $("#category-image-delete").click(function () {
+                    var p = $(this).parent();
+                    p.prev().val('');
+                    p.remove();
+                    $("#s-product-list-settings-dialog .dialog-buttons input:submit").removeClass('green').addClass('yellow');
+                    return false;
+                });
+            </script>
+            {/if}
+            <div style="display: inline-block">
+                <input type="file" name="image_file"><br>
+                <span class="hint">*.jpg, *.jpeg, *.gif, *.png</span>
+            </div>
+        </div>
+    </div>
+</div>

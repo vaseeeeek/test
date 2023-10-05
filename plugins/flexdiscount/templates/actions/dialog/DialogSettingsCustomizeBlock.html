@@ -1,0 +1,96 @@
+{$types = [
+    'affiliateBlock' => [
+        'title' => '[`Affiliate output template`]',
+        'description' => '[`You can edit affiliate block template and use helper for output in your <b><em>cart.html</em></b> template <span class="grey">(Relevant for multi-step checkout)</span>.<br>Read more information in the article:`] <a href="[`https://igaponov.ru/docs/131/affiliate/`]" target="_blank" title="[`Affiliate program`]">[`Affiliate program`]</a>',
+        'key' => 'affiliate_block',
+        'contents' => $contents['affiliateBlock']
+    ],
+    'availDiscounts' => [
+        'title' => '[`Available discounts template`]',
+        'description' => '[`You can edit available discounts template and use helper for output.<br>Read more information in the article:`] <a href="[`https://igaponov.ru/docs/138/available-discounts/`]" target="_blank" title="[`Available discounts and bonuses`]">[`Available discounts and bonuses`]</a>',
+        'key' => 'available_discounts',
+        'contents' => $contents['availDiscounts']
+    ],
+    'couponForm' => [
+        'title' => '[`Coupon form template`]',
+        'description' => '[`You can edit coupon form template and use helper or copy and paste code below to your <b><em>cart.html</em></b> template <span class="grey">(Relevant for multi-step checkout)</span>.`]',
+        'key' => 'coupon_form',
+        'contents' => $contents['couponForm']
+    ],
+    'denyDiscounts' => [
+        'title' => '[`Deny rules template`]',
+        'description' => '[`You can edit deny rules template and use helper for output.<br>Read more information in the article:`] <a href="[`https://igaponov.ru/docs/141/deny-rules/`]" target="_blank" title="[`Deny rules`]">[`Deny rules`]</a>',
+        'key' => 'deny_discounts',
+        'contents' => $contents['denyDiscounts']
+    ],
+    'myDiscounts' => [
+        'title' => '[`Customer discount page template`]',
+        'description' => '[`You can edit customer discount page.<br>Read more information in the article:`] <a href="[`https://igaponov.ru/docs/147/discount-page/`]" target="_blank" title="[`Changing structure of discount page`]">[`Changing structure of discount page`]</a>',
+        'key' => 'my_discounts',
+        'contents' => $contents['myDiscounts']
+    ],
+    'priceDiscounts' => [
+        'title' => '[`Price output template`]',
+        'description' => '[`You can edit price with discount template and use helper for output.<br>Read more information in the article:`] <a href="[`https://igaponov.ru/docs/142/price-with-discount/`]" target="_blank" title="[`Price with discount`]">[`Price with discount`]</a>',
+        'key' => 'price_discounts',
+        'contents' => $contents['priceDiscounts']
+    ],
+    'productDiscounts' => [
+        'title' => '[`Active product discounts template`]',
+        'description' => '[`You can edit active product discounts template and use helper for output.<br>Read more information in the article:`] <a href="[`https://igaponov.ru/docs/139/product-active-discounts/`]" target="_blank" title="[`Product active discount and bonuses`]">[`Product active discount and bonuses`]</a>',
+        'key' => 'product_discounts',
+        'contents' => $contents['productDiscounts']
+    ],
+    'userDiscounts' => [
+        'title' => '[`Active discounts template`]',
+        'description' => '[`You can edit active discounts template and use helper for output in your <b><em>cart.html</em></b> template <span class="grey">(Relevant for multi-step checkout)</span>.<br>Read more information in the article:`] <a href="[`https://igaponov.ru/docs/140/active-discounts/`]" target="_blank" title="[`Active discounts and bonuses`]">[`Active discounts and bonuses`]</a>',
+        'key' => 'user_discounts',
+        'contents' => $contents['userDiscounts']
+    ],
+    'styles' => [
+        'title' => '[`CSS styles`]',
+        'description' => '[`You can customize plugin CSS styles`]',
+        'key' => 'styles',
+        'contents' => $contents['styles']
+    ]
+]}
+<h3>
+    {if isset($types[$type])}
+        {$types[$type].title}
+    {else}
+        [`Undefined type`]
+    {/if}
+    <a href="javascript:void(0)" onclick='$(this).closest(".dialog").trigger("close")' title="[`close`]" class="close">[`close`]</a>
+</h3>
+
+{if isset($types[$type])}
+    <div class="margin-block">
+        <p>{$types[$type].description}</p>
+
+        {if $type == 'couponForm'}
+            <p>
+                <i class="icon16 exclamation-red"></i> [`ATTENTION! Do not remove the following CSS classes in this code:`]
+                <em><u>flexdiscount-form</u></em>, <em><u>flexdiscount-coupon-code</u></em>, <em><u>flexdiscount-submit-button</u></em>,
+                <em><u>flexdiscount-coup-del-block</u></em>, <em><u>flexdiscount-coupon-delete</u></em>, <em><u>flexdiscount-coup-result</u></em>
+            </p>
+        {/if}
+
+        <div class="align-right"><a href="javascript:void(0)" class="js-revert-settings-template" title="[`revert to original`]">[`revert to original`]</a></div>
+
+        <div class="s-editor-core-wrapper">
+            <textarea id="template-textarea" style='width: 100%; height: 300px; background: #e3edf1; font-size: 1.2em;'>{if isset($settings[$types[$type].key])}{$settings[$types[$type].key]|escape}{else}{if $type == 'styles'}/{else}&#123;{/if}* [`Press "Revert to original"`] *{if $type == 'styles'}/{else}&#125;{/if}{/if}</textarea>
+            <script id="original-template" type="text/template">{$types[$type].contents}</script>
+        </div>
+
+        <div class="errormsg margin-block"></div>
+    </div>
+{/if}
+<script>
+    $(function () {
+        waEditorAceInit({
+            id: 'template-textarea',
+            save_button: 's-dialog-save-button'
+            {if $type == 'styles'},type: 'css'{/if}
+        });
+    });
+</script>

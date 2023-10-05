@@ -1,0 +1,99 @@
+{if !empty($service.points)}
+<div class="dp-service dp-service--points" id="dp-service-{$service.id}">
+    <div class="dp-service__sidebar js-dp-service-sidebar">
+        {if empty($service.groups) && $service.service_image}
+            <div class="dp-service__block dp-service__header">
+                <div class="dp-service__header-title">Служба доставки</div>
+                <img src="{$service.service_image}"/>
+            </div>
+        {/if}
+
+        {$is_filters = !empty($filter.payment) || !empty($filter.work)}
+
+        {if ($is_filters && $service.points|default:'') || $filter.search|default:''}
+            <div class="dp-service__block dp-service__selection">
+                {if $is_filters && $service.points|default:''}
+                    <div class="dp-service__filtering">
+                        <button class="dp-button dp-service__filtering-button">Фильтр</button>
+                        <div class="dp-service__filters-wrapper">
+                            <div class="dp-service__filters">
+                                {if !empty($filter.payment)}
+                                    <div class="dp-service__filter">
+                                        <div class="dp-service__filter-header">Оплата при получении</div>
+                                        <div class="dp-service__filter-body">
+                                            <div class="dp-service__filter-item">
+                                                <label class="dp-service__filter-item-label">
+                                                    <input class="js-dp-service-filter dp-service__filter-item-checkbox" data-filter-by="pay-on-ship" type="checkbox"/>
+                                                    <span class="dp-service__filter-item-custom-checkbox"></span>
+                                                    <span class="dp-service__filter-item-name">Наличный расчет</span>
+                                                </label>
+                                            </div>
+                                            <div class="dp-service__filter-item">
+                                                <label class="dp-service__filter-item-label">
+                                                    <input class="js-dp-service-filter dp-service__filter-item-checkbox" data-filter-by="pay-on-ship+cashless" type="checkbox"/>
+                                                    <span class="dp-service__filter-item-custom-checkbox"></span>
+                                                    <span class="dp-service__filter-item-name">Безналичный расчет</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {/if}
+                                {if !empty($filter.work)}
+                                    <div class="dp-service__filter">
+                                        <div class="dp-service__filter-header">Работает в выходной день</div>
+                                        <div class="dp-service__filter-body">
+                                            <div class="dp-service__filter-item">
+                                                <label class="dp-service__filter-item-label">
+                                                    <input class="js-dp-service-filter dp-service__filter-item-checkbox" data-filter-by="working-sat" type="checkbox"/>
+                                                    <span class="dp-service__filter-item-custom-checkbox"></span>
+                                                    <span class="dp-service__filter-item-name">Суббота</span>
+                                                </label>
+                                            </div>
+                                            <div class="dp-service__filter-item">
+                                                <label class="dp-service__filter-item-label">
+                                                    <input class="js-dp-service-filter dp-service__filter-item-checkbox" data-filter-by="working-sun" type="checkbox"/>
+                                                    <span class="dp-service__filter-item-custom-checkbox"></span>
+                                                    <span class="dp-service__filter-item-name">Воскресенье</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {/if}
+                            </div>
+                        </div>
+                    </div>
+                {/if}
+                {if $filter.search|default:''}
+                    <div class="dp-service__search">
+                        <div class="dp-service__search-wrapper dp-service__search-wrapper--points js-dp-service-search-wrapper">
+                            <input class="dp-service__search-field js-dp-service-search-field" type="search" autocomplete="off"
+                                   placeholder="Поиск по адресу"/>
+                        </div>
+                    </div>
+                {/if}
+            </div>
+        {/if}
+
+
+        <div class="dp-service__points-header js-dp-service-point-count-plural-forms" data-plural-forms='["пункт самовывоза", "пункта самовывоза", "пунктов самовывоза", "Пункты самовывоза по выбранным критериям отсутствуют"]'><b>{$service.available_points_count}</b> <span class="dp-service__empty-message">{shopDpPluginHelper::getPluralForm($service.available_points_count, ['пункт самовывоза', 'пункта самовывоза', 'пунктов самовывоза'])}</span></div>
+        <div class="dp-service__points js-dp-service-points">
+            <div class="dp-service__points-layout">
+                <ul class="dp-service__points-list js-dp-service-point-list">
+                    {foreach $service.points as $point}
+                        <li class="dp-service__points-item" data-hash="{$point.hash}" data-service="{$point.service}"{if $point.unavailable} style="display: none;"{/if}>
+                            <span>{if !empty($point.name)}{$point.name} ({$point.address}){else}{$point.address}{/if}</span>
+                        </li>
+                    {/foreach}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="dp-service__map-container">
+        <div class="dp-service__map-wrapper dp-loading js-dp-service-map-wrapper">
+            <div class="dp-service__map" id="dp-map-{$service.id}"></div>
+        </div>
+    </div>
+</div>
+{else}
+    Пункты выдачи по выбранному региону отсутствуют.
+{/if}

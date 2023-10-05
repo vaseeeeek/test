@@ -1,0 +1,239 @@
+<div class="f-tab-user_bundle" style="display: none;">
+
+    <div class="field">
+        <div class="name">[`Use user bundles`]</div>
+        <div class="value">
+            <div class="ibutton-checkbox">
+                <ul class="menu-h">
+                    <li>
+                        <span class="switcher-off-label">[`No`]</span>
+                    </li>
+                    <li>
+                        <input class="switcher f-tab-status not-inited" type="checkbox" name="status" value="1" {if !empty($pset.settings.user_bundle_status)}checked="checked"{/if} />
+                    </li>
+                    <li>
+                        <span class="switcher-on-label">[`Yes`]</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="onopen"{if empty($pset.settings.user_bundle_status)} style="display: none;"{/if}>
+        {* Настройка текстовых блоков *}
+        <div class="field mb bottom f-text-blocks">
+            <a href="javascript:void(0)" class="f-toggle-html inline-link"><b><i>[`Customize text blocks`]</i></b></a>
+            <div class="mb hidden">
+                {$text_settings = [
+                    'title' => ['title' => _wp('Title of selected products'), 'default' => _wp('Your bundle')],
+                    'discount' => ['title' => _wp('Discount'), 'default' => _wp('Discount')],
+                    'buy' => ['title' => _wp('Buy button'), 'default' => _wp('Buy')],
+                    'popup_button' => ['title' => _wp('Popup button'), 'default' => _wp('Create the set')],
+                    'blocks' => ['title' => _wp('Title of blocks'), 'default' => _wp('Bundles')],
+                    'required' => ['title' => _wp('Title of required block'), 'default' => _wp('Basic')],
+                    'add' => ['title' => _wp('Add button'), 'default' => _wp('Add')],
+                    'added' => ['title' => _wp('Added button'), 'default' => _wp('Added')]
+                ]}
+                {output_text_settings text_settings=$text_settings set=$pset setting_key='userbundle_text'}
+            </div>
+        </div>
+
+        {* Общие настройки для групп *}
+        <div class="userbundle-settings bundle__settings field">
+            <h3>[`Settings`]</h3>
+            {* Выбор скидок для комплекта *}
+            <div class="mb bottom">
+                [`Select discount type`]:
+                <select name="discount_type" class="userbundle-discount js-change-usergroup-discount">
+                    <option value="common" {if !empty($pset.user_bundle.settings.discount_type) && $pset.user_bundle.settings.discount_type == 'common'}selected{/if}>[`common discount`]</option>
+                    <option value="each" {if !empty($pset.user_bundle.settings.discount_type) && $pset.user_bundle.settings.discount_type == 'each'}selected{/if}>[`individual discount for each group`]</option>
+                    <option value="avail" {if !empty($pset.user_bundle.settings.discount_type) && $pset.user_bundle.settings.discount_type == 'avail'}selected{/if}>[`discount depending on the quantity of the products in the bundle`]</option>
+                </select>
+            </div>
+
+            {* Общая скидка *}
+            <div class="bundle__total-discount" {if (!empty($pset.user_bundle.settings.discount_type) && $pset.user_bundle.settings.discount_type == 'common') || empty($pset.user_bundle.settings.discount_type)} style="display: block"{/if}>
+                [`Discount`]
+                <input class="short" type="text" name="discount" value="{if !empty($pset.user_bundle.settings.discount)}{$pset.user_bundle.settings.discount|escape}{/if}" />
+                <select name="currency">
+                    <option value="%">%</option>
+                    {foreach $currencies as $c}
+                    <option value="{$c.code}"{if !empty($pset.user_bundle.settings.currency) && $pset.user_bundle.settings.currency == $c.code} selected{/if}>{$c.sign} {$c.code}</option>
+                    {/foreach}
+                </select>
+            </div>
+
+            {* Скидка от количества *}
+            <div class="bundle__avail-variant bundle__avail-variant_toggle"{if !empty($pset.user_bundle.settings.discount_type) && $pset.user_bundle.settings.discount_type == 'avail'} style="display: block"{/if}>
+                [`Discount`]
+                <div class="bundle__avail-variant-inner">
+                    <!-- Generated automatically --->
+                </div>
+            </div>
+
+            <div class="mb bottom bundle__settings-item">
+                <label><input type="checkbox" class="js-change-user-active-product" name="active_product"{if !empty($pset.user_bundle.settings.active_product)} checked{/if}> [`Add active product to the bundle`]</label>
+                <div class="hover-tooltip">
+                    <span>?</span>
+                    <div class="hover-content">
+                        <div>
+                            [`Product on the page of which the set is located will be automatically added to that set`]<br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb bottom bundle__settings-item">
+                <label><input type="checkbox" name="hide_button"{if !empty($pset.user_bundle.settings.hide_button)} checked{/if}> [`Hide popup button and show the set on the page`]</label>
+            </div>
+            <div class="mb bottom bundle__settings-item">
+                <label>
+                    <input type="checkbox" class="js-bundle-lifetime" name="lifetime"{if !empty($pset.user_bundle.settings.lifetime)} checked{/if}> <i class="icon16 clock"></i> [`Select bundle lifetime`]
+                </label>
+                <div class="bundle__settings-lifetime" style="{if !empty($pset.user_bundle.settings.lifetime)}display: block{else}display: none{/if}">
+                    <div class="mb hint">[`Server time`]: {date("Y-m-d H:i:s")}</div>
+                    <div class="bold mb top" style="color: green;">[`Start`]</div>
+                    <div class="schedule-time mb">
+                        <span>
+                            <input type="text" maxlength="2" onkeypress="$.productsets.isValid(event, /[0-9]/);" class="schedule-day width35px" name="schedule[start][day]" value="{if !empty($pset.user_bundle.settings.schedule.start.day)}{$pset.user_bundle.settings.schedule.start.day|escape}{/if}" />
+                            <label>[`DD`]</label>
+                        </span>
+                        <span>
+                            <input type="text" maxlength="2" onkeypress="$.productsets.isValid(event, /[0-9]/);" class="schedule-month width35px" name="schedule[start][month]" value="{if !empty($pset.user_bundle.settings.schedule.start.month)}{$pset.user_bundle.settings.schedule.start.month|escape}{/if}" />
+                            <label>[`MM`]</label>
+                        </span>
+                        <span>
+                            <input type="text" maxlength="4" onkeypress="$.productsets.isValid(event, /[0-9]/);" class="schedule-year width50px" name="schedule[start][year]" value="{if !empty($pset.user_bundle.settings.schedule.start.month)}{$pset.user_bundle.settings.schedule.start.year|escape}{/if}" />
+                            <label>[`YYYY`]</label>
+                        </span>
+                        <input type="text" style="width: 0 !important;min-width: 0!important;" class="f-datepicker outside">
+                        <span style="margin-left: 20px">
+                            <select name="schedule[start][hour]" class="schedule-select"{if !empty($pset.user_bundle.settings.schedule)} data-value="{$pset.user_bundle.settings.schedule.start.hour|escape}"{/if}>
+                                {$smarty.capture.hours}
+                            </select>
+                            <label>[`HH`]</label>
+                        </span>
+                        <span>
+                            <select name="schedule[start][minute]" class="schedule-select"{if !empty($pset.user_bundle.settings.schedule)} data-value="{$pset.user_bundle.settings.schedule.start.minute|escape}"{/if}>
+                                {$smarty.capture.minutes}
+                            </select>
+                            <label>[`MM`]</label>
+                        </span>
+                    </div>
+                    <div class='clear-both'></div>
+                    <div class="bold mb top" style="color: red;">[`End`]</div>
+                    <div class="schedule-time mb">
+                        <span>
+                            <input type="text" maxlength="2" onkeypress="$.productsets.isValid(event, /[0-9]/);" class="schedule-day width35px" name="schedule[end][day]" value="{if !empty($pset.user_bundle.settings.schedule.end.day)}{$pset.user_bundle.settings.schedule.end.day|escape}{/if}" />
+                            <label>[`DD`]</label>
+                        </span>
+                        <span>
+                            <input type="text" maxlength="2" onkeypress="$.productsets.isValid(event, /[0-9]/);" class="schedule-month width35px" name="schedule[end][month]" value="{if !empty($pset.user_bundle.settings.schedule.end.month)}{$pset.user_bundle.settings.schedule.end.month|escape}{/if}" />
+                            <label>[`MM`]</label>
+                        </span>
+                        <span>
+                            <input type="text" maxlength="4" onkeypress="$.productsets.isValid(event, /[0-9]/);" class="schedule-year width50px" name="schedule[end][year]" value="{if !empty($pset.user_bundle.settings.schedule.end.month)}{$pset.user_bundle.settings.schedule.end.year|escape}{/if}" />
+                            <label>[`YYYY`]</label>
+                        </span>
+                        <input type="text" style="width: 0 !important;min-width: 0 !important;" class="f-datepicker outside">
+                        <span style="margin-left: 20px">
+                            <select name="schedule[end][hour]" class="schedule-select"{if !empty($pset.user_bundle.settings.schedule)} data-value="{$pset.user_bundle.settings.schedule.end.hour|escape}"{/if}>
+                                {$smarty.capture.hours}
+                            </select>
+                            <label>[`HH`]</label>
+                        </span>
+                        <span>
+                            <select name="schedule[end][minute]" class="schedule-select"{if !empty($pset.user_bundle.settings.schedule)} data-value="{$pset.user_bundle.settings.schedule.end.minute|escape}"{/if}>
+                                {$smarty.capture.minutes}
+                            </select>
+                            <label>[`MM`]</label>
+                        </span>
+                    </div>
+                    <div class="mb clear-both">
+                        <label><input type="checkbox" name="delete_inactive"{if !empty($pset.user_bundle.settings.delete_inactive)} checked{/if}> [`Delete bundle when the time is over`]</label>
+                        <div class="hover-tooltip">
+                            <span>?</span>
+                            <div class="hover-content">
+                                <div>
+                                    [`By default the bundle will be hidden when the time is over.<br><i class="icon16 exclamation"></i> If you activate this option the bundle will be removed from the website and from the admin page.`]<br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb bottom bundle__settings-item">
+                [`Minimal quantity of products in the set`]
+                <input type="number" name="min" min="0" class="width50px" value="{if !empty($pset.user_bundle.settings.min)}{$pset.user_bundle.settings.min|escape}{/if}">
+                <div class="hover-tooltip">
+                    <span>?</span>
+                    <div class="hover-content">
+                        <div>
+                            [`Active sku is not counted`]<br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb bottom bundle__settings-item">
+                [`Maximal quantity of products in the set`]
+                <input type="number" name="max" min="0" class="width50px" value="{if !empty($pset.user_bundle.settings.max)}{$pset.user_bundle.settings.max|escape}{/if}">
+                <div class="hover-tooltip">
+                    <span>?</span>
+                    <div class="hover-content">
+                        <div>
+                            [`Active sku is not counted`]<br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb bottom bundle__settings-item">
+                <label><input type="checkbox" name="show_thumbs"{if !empty($pset.user_bundle.settings.show_thumbs)} checked{/if}> [`Show image thumbs of selected items`]</label>
+                <div class="hover-tooltip">
+                    <span>?</span>
+                    <div class="hover-content">
+                        <div>
+                            [`Would you like to show all selected image thumbs for customer? They will be shown near the total price for the user bundle.`]<br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <a href="javascript:void(0)" class="js-add-required-products" title="[`add required products`]"><i class="icon16 add"></i> [`add required products`]</a>
+            <div class="hover-tooltip s-small">
+                <span>?</span>
+                <div class="hover-content">
+                    <div>
+                        [`This products cannot be deleted by user`]<br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="f-user-groups s-groups userbundle-groups">
+            {* Обязательные товары *}
+            <div class="bundle__alternative field">
+                <div class="bundle__items bundle__alternative-items"><div></div></div>
+            </div>
+            <!-- Groups. Generated by JS -->
+        </div>
+
+        <div class="field">
+            <a href="javascript:void(0)" class="js-add-group" title="[`create group of products`]"><i class="icon16 add"></i> [`create group of products`]</a>
+        </div>
+
+        {if !empty($pset.user_bundle.id)}<input type="hidden" name="id" class="bundle__id" value="{$pset.user_bundle.id}">{/if}
+    </div>
+
+    {include file="./include.tab.user_bundle.tmpl.html"}
+
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        new ProductsetsUserBundlePlugin({
+            wrap: $('#productsets-form .f-tab-user_bundle'),
+            userbundle: {if !empty($pset.user_bundle)}{json_encode($pset.user_bundle)}{else}''{/if}
+        });
+    });
+</script>

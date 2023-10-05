@@ -1,0 +1,59 @@
+.brand-plugin-catalog-header__categories {
+	margin-bottom: 35px;
+}
+
+.brand-plugin-catalog-header__brand {
+	width: 100%;
+	table-layout: fixed;
+}
+
+.brand-plugin-catalog-header-brand__image-column {
+	width: 150px;
+	vertical-align: top;
+	text-align: center;
+	padding: 10px 25px;
+	float: left;
+}
+
+.brand-plugin-catalog-header-brand__image-box {
+	position: relative;
+}
+
+.brand-plugin-catalog-header-brand__description {
+	vertical-align: top;
+}
+
+.brand-plugin-catalog-header-brand__image {
+	max-width: 100%;
+}
+
+
+
+.brand-plugin-catalog-brand-categories {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+}
+
+.brand-plugin-catalog-brand-categories__column {
+	display: table-cell;
+	vertical-align: top;
+}
+
+.brand-plugin-catalog-brand-categories__list {
+
+}
+.brand-plugin-catalog-brand-categories__list_depth_0 > .brand-plugin-catalog-brand-categories__item {
+}
+.brand-plugin-catalog-brand-categories__list_depth_0 {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.brand-plugin-catalog-brand-categories__item {
+}
+
+.brand-plugin-catalog-brand-categories__list_depth_0 > .brand-plugin-catalog-brand-categories__item > .brand-plugin-catalog-brand-categories__link {
+	font-weight: bold;
+}

@@ -1,0 +1,67 @@
+<h2>[`Invites`]</h2>
+
+<div class="fields">
+    {foreach $plugin_settings_controls.invites as $name => $control}
+        <div class="field">
+            {$control}
+        </div>
+    {/foreach}
+</div>
+
+<hr />
+<div class="fields" id="invite-add">
+    <form id="invite-add-form" action="javascript:void(0);">
+        <div class="field">
+            <div class="name">
+                <label for="invite_shop_invite_add_email">[`E-mail`]</label>
+            </div>
+            <div class="value">
+                <input id="invite_shop_invite_add_email" class="input" type="text" value="" name="invite[email]" />
+                <span class="invite-validation-status" id="invite-validate-email-status"></span>
+                <br>
+                <span class="hint">[`Enter a user e-mail for the invitation`]</span>
+            </div>
+        </div>
+        <div class="field">
+            <div class="name">
+                <label for="invite_shop_invite_add_description">[`Description`]</label>
+            </div>
+            <div class="value">
+                <textarea id="invite_shop_invite_add_description" name="invite[description]"></textarea>
+                <br>
+                <span class="hint">[`Enter a description of the invitation`]</span>
+            </div>
+        </div>
+        <div class="field">
+            <div class="name">
+                <label for="invite_shop_invite_add_category">[`User category`]</label>
+            </div>
+            <div class="value">
+                <select id="invite_shop_invite_add_category" name="invite[category_id]">
+                    {foreach $user_categories as $category}
+                        <option value="{$category.id}">{$category.name|escape}</option>
+                    {/foreach}
+                </select>
+                <br>
+                <span class="hint">[`Select a user category for the invitation`]</span>
+            </div>
+        </div>
+        <div class="fields">
+            <div class="field">
+                <div class="value submit">
+                    <button id="invite-add-button" class="button gray" onclick="$.Invite.add(this);" type="button">
+                        [`Invite user`]
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<hr />
+
+<div class="block" id="invite-invitations-table">
+    {include file="./Invitations_table.html" inline}
+</div>
+
+<div class="clear-both"></div>
+

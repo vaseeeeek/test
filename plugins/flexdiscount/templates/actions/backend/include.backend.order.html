@@ -1,0 +1,30 @@
+{if $section == 'info_section'}
+
+    <script>
+        (function($) {
+            $(function() {
+                /* Добавляем поля скидки  */
+                $("#s-order-items tbody > tr:first th:last").before("<th class='align-right'>[`Discount`]</th>");
+                $("#s-order-items tr:not(:first)").each(function() {
+                    $(this).find("td:last").addClass("flexdiscount-total").before("<td class='flexdiscount-discount align-right nowrap'></td>");
+                });
+
+                var items = {json_encode($items)};
+                $.each(items, function(i, data) {
+                    var item = $("#s-order-items tr[data-id="+i+"]");
+                    if (item.length) {
+                        item.find(".flexdiscount-discount").html(data.total_discount_html);
+                        item.find(".flexdiscount-total").html(data.total_html);
+                    }
+                });
+            });
+        })(jQuery);
+    </script>
+
+{elseif $section == 'action_link'}
+
+    {foreach $coupons as $c}
+        <div class="flexdiscount-coupon-code-field">{$c.code|escape}</div>
+    {/foreach}
+
+{/if}

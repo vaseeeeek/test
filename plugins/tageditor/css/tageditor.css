@@ -1,0 +1,21 @@
+#tageditor-search { width: 250px; padding: 4px; }
+.tageditor .margin-left { margin-left: 0.5em; }
+.tageditor .icon16.middle { vertical-align: middle; }
+
+.tageditor .tag { border: 1px solid #a5d24a; display: inline-block; padding: 8px; text-decoration: none; background: #cde69c;
+    color: #638421; margin-right: 10px; margin-bottom: 10px; font-family: helvetica; font-size: 13px; border-radius: 4px; }
+.tageditor .tag.empty { background: #fca; border-color: #fa0; }
+.tageditor .tag.empty .name, .tageditor .tag.empty .delete { color: #c50; }
+.tageditor .tag .name { border-bottom: dotted 1px; cursor: pointer; margin-right: 1em; }
+.tageditor .tag:hover .name, .tageditor .tag:hover .delete { color: #555; border-bottom-style: solid; }
+.tageditor .tag.deleting .name { border-bottom: none; }
+.tageditor .tag .delete { font-weight: bold; color: #82ad2b; text-decoration: none; cursor: pointer; }
+
+.dialog.tageditor input.tag-name-edit { width: 95%; padding: 4px; }
+.dialog.tageditor .error { color: red!important; }
+.dialog.tageditor .error .tageditor-reload { text-decoration: underline; cursor: pointer; }
+.dialog.tageditor-red-border .dialog-window { border-color: red; }
+.dialog.tageditor .fields input[type="text"] { width: 400px; }
+.dialog.tageditor .field.description-field > .value { padding-top: 20px; }
+
+.dialog.tageditor-tag-index-update-dialog .dialog-buttons { display: none; }

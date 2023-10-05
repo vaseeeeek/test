@@ -1,0 +1,116 @@
+{literal}
+
+{if $wa->shop && class_exists('shopFlexdiscountPlugin') && shopFlexdiscountPlugin::isEnabled()}
+
+    {if $fl_discounts}
+        {if !$view_type || $view_type == '1' || $view_type == '2' || $view_type == '3'}
+            <div class='flexdiscount-alldiscounts'>
+                <div class="flexdiscount-alldiscounts-heading">
+                    <div class="h3">[`Your discounts`]</div>
+                </div>
+                <div class="flexdiscount-alldiscounts-body">
+
+                    {* [`NO VIEW TYPE`] *}
+
+                    {if !$view_type}
+                    <ul>
+                        {foreach $fl_discounts as $rule_id => $d}
+                            <li>
+                                {$d.name|escape}
+                            </li>
+                        {/foreach}
+                    </ul>
+
+                    {* [`VIEW TYPE`] 1 *}
+
+                    {elseif $view_type == '1'}
+                    <ul>
+                        {foreach $fl_discounts as $rule_id => $d}
+                            <li>
+                                {$d.name|escape} - {if $d.params.discount_percentage}{$d.params.discount_percentage}%{/if}{if $d.params.discount}{if $d.params.discount_percentage}, {/if}{$d.params.discount}{/if}
+                            </li>
+                        {/foreach}
+                    </ul>
+
+                    {* [`VIEW TYPE`] 2 *}
+
+                    {elseif $view_type == '2'}
+                        <table class="align-center">
+                            <thead>
+                                <tr>
+                                    <th>[`Name`]</th>
+                                    <th>[`Discount`]</th>
+                                    <th>[`Discount`], %</th>
+                                    <th>[`Affiliate`]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {foreach $fl_discounts as $rule_id => $d}
+                                    <tr>
+                                        <td>{$d.name|escape}</td>
+                                        <td>{if $d.params.discount}{$d.params.discount}{else}-{/if}</td>
+                                        <td>{if $d.params.discount_percentage}{$d.params.discount_percentage}{else}-{/if}</td>
+                                        <td>{if $d.params.affiliate}{$d.params.affiliate}{/if}</td>
+                                    </tr>
+                                {/foreach}
+                            </tbody>
+                        </table>
+
+                    {* [`VIEW TYPE`] 3 *}
+
+                    {elseif $view_type == '3'}
+                        {$head = '<th>[`Name`]</th>'}
+                        {$body = '<td>[`Discount`], %</td>'}
+                        {foreach $fl_discounts as $rule_id => $d}
+                            {$head = "`$head`<th>{$d.name|escape}</th>"}
+                            {$body = "`$body`<td>{$d.params.discount_percentage}</td>"}
+                        {/foreach}
+                        <table class="align-center flexdiscount-table" cellspacing="0" cellpadding="0">
+                            <thead>
+                                <tr>
+                                    {$head}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    {$body}
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    {* [`END`] *}
+
+                    {/if}
+                </div>
+            </div>
+
+        {* [`VIEW TYPE`] 4 *}
+
+        {elseif $view_type == '4'}
+        <div>
+
+            {* [`CREATE YOUR OWN VIEW TYPE RIGHT HERE`]  *}
+
+        </div>
+
+        {* [`VIEW TYPE`] 5 *}
+
+        {elseif $view_type == '5'}
+            <div>
+
+                {* [`CREATE YOUR OWN VIEW TYPE RIGHT HERE`]  *}
+
+            </div>
+
+        {* [`END`] *}
+
+        {/if}
+
+    {else}
+
+        [`You don't have any available discounts.`]
+
+    {/if}
+{/if}
+
+{/literal}

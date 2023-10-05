@@ -1,0 +1,40 @@
+.icon16.flexdiscount { background-image: url("./../img/flexdiscount.png"); }
+.icon16.flexdiscount-coupon { background: url("./../img/icons.png") 0 0 no-repeat; }
+.icon16-custom.exclamation { background: url("./../img/icons.png")  0 -64px no-repeat; }
+
+.s-flexdiscount-rule .s-section-description { margin-bottom: 30px; color: #aaa; }
+.s-flexdiscount-rule .chosen-container { width: 100%; }
+
+.s-flexdiscount-rule .s-coupons-list { display: table; width: 100%; font-size: 14px; line-height: 17px; }
+.s-flexdiscount-rule .s-coupons-list .s-name { font-weight: bold; }
+.s-flexdiscount-rule .s-coupons-list .s-label { color: #888; margin-right: 4px; }
+
+.s-flexdiscount-rule .s-coupon-wrapper { display: table-row; }
+.s-flexdiscount-rule .s-coupon-wrapper:nth-child(odd) { background: #f1f7ff; }
+.s-flexdiscount-rule .s-coupon-wrapper > *:first-child { padding-left: 10px; }
+.s-flexdiscount-rule .s-coupon-wrapper > * { display: table-cell; vertical-align: top; padding: 8px 10px 8px 0; }
+
+.s-flexdiscount-rule .s-checkbox-column { width: 10px; }
+
+.s-flexdiscount-rule .s-actions-column { text-align: right; }
+
+.s-flexdiscount-rule .s-checkbox { margin: 0; vertical-align: middle; }
+
+.s-flexdiscount-rule .s-details-column > * { display: inline-block; vertical-align: baseline; }
+.s-flexdiscount-rule .s-details-column > *:not(:last-child) { margin-right: 10px; }
+
+.s-flexdiscount-rule .s-discount { color: #000; }
+.s-flexdiscount-rule .s-action { display: inline-block; }
+
+.s-flexdiscount-rule .s-coupon-autocomplete { margin-top: 20px; line-height: 22px; }
+.s-flexdiscount-rule .s-coupon-autocomplete .s-label { color: #888; margin: 0 4px 0 0; }
+.s-flexdiscount-rule .s-coupon-autocomplete > * { display: inline-block; vertical-align: top; }
+.s-flexdiscount-rule .s-coupon-autocomplete .icon16 { margin: 0 4px 0 0; vertical-align: -2px; }
+.s-flexdiscount-rule .s-coupon-autocomplete .s-autocomplete { width: 200px; }
+
+.mb { margin: 10px 0; line-height: 1.5; }
+.mb.bottom { margin: 0 0 10px; }
+.mb.semi.bottom { margin: 0 0 5px; }
+.mb.top { margin: 10px 0 0; }
+.mb.top.semi { margin: 5px 0 0; }
+.mb.semi { margin: 5px 0; }

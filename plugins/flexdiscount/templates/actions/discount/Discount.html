@@ -1,0 +1,931 @@
+<script src="{$plugin_url}js/condition.js?v={$version}"></script>
+{* Switcher *}
+<link rel="stylesheet" href="{$wa_url}wa-content/js/jquery-plugins/ibutton/jquery.ibutton.min.css">
+<script src="{$wa_url}wa-content/js/jquery-plugins/ibutton/jquery.ibutton.min.js"></script>
+
+{* Chosen *}
+<link rel="stylesheet" href="{$plugin_url}js/chosen/chosen.min.css">
+<script src="{$plugin_url}js/chosen/chosen.jquery.min.js"></script>
+
+{* Fileupload *}
+<script src="{$plugin_url}/js/jquery-fileupload/js/vendor/jquery.ui.widget.js"></script>
+<script src="{$plugin_url}/js/jquery-fileupload/js/jquery.iframe-transport.js"></script>
+<script src="{$plugin_url}/js/jquery-fileupload/js/jquery.fileupload.js"></script>
+<script src="{$plugin_url}/js/jquery-fileupload/js/jquery.fileupload-process.js"></script>
+<script src="{$plugin_url}/js/jquery-fileupload/js/jquery.fileupload-validate.js"></script>
+
+<style>
+    .condition-block.show-cond-op > .conditions:before { content: '{_wp("AND")}'; }
+    .condition-block.show-cond-op.s-or > .conditions:before { content: '{_wp("OR")}'; }
+</style>
+
+{if !empty($discount.deny) || $wa->get('deny')}
+    {$deny = 1}
+{else}
+    {$deny = 0}
+{/if}
+
+{$attention}
+
+<h1>
+    <a class="back" href="#/" title="[`Back`]">← [`Back`]</a>
+    {if !empty($discount.enable_coupon)}<span class="s-coupon-code-field">{/if}{if !empty($discount.name)}{$discount.name|escape}{else}{if !$deny}[`No name discount`]{else}[`No name deny rule`]{/if}{/if}{if !empty($discount.enable_coupon)}</span>{/if}
+</h1>
+<div class="top-right15" style="right: 20px">
+    <ul class="menu-h">
+        <li>
+            <a href="[`https://igaponov.com/docs/flexdiscount/`]" title="[`Documentation`]" target="_blank"><i class="icon16 book-open"></i> [`Documentation`]</a>
+        </li>
+        <li style='margin-right:0'>
+            <a href="{$settings_url}" title="[`Settings`]"><i class="icon16 settings"></i> [`Settings`]</a>
+        </li>
+    </ul>
+</div>
+<form action="{$wa_app_url}?plugin=flexdiscount&module=discount&action=save" method="post" id="flexdiscount-save-form" class="flexdiscount-save-form">
+    {if !empty($discount)}
+        <a href="#/discount/delete/{$discount.id}" class="js-action top-right" style="z-index: 10" title="[`delete`]"><i class="icon16 delete" style="vertical-align: middle;"></i> [`delete`]</a>
+    {/if}
+    <input type="hidden" name="id" value="{if !empty($discount)}{$discount.id}{/if}" />
+    <div class="fields form">
+        <div class="field-group">
+            <div class="field">
+                <div class="name">[`Status`]</div>
+                <div class="value no-shift s-ibutton-checkbox">
+                    <ul class="menu-h">
+                        <li><span class="gray" id="s-discount-type-disabled-label">[`Disabled`]</span></li>
+                        <li>
+                            <input type="checkbox" class="switcher f-save-me" name="data[status]" value="1"{if !empty($discount.status)} checked{/if} />
+                        </li>
+                        <li><span id="s-discount-type-enabled-label">[`Enabled`]</span></li>
+                    </ul>
+                </div>
+            </div>
+            <h3>
+                [`Common settings`]
+                {$common_settings_toggle = !empty($discount.common_settings_toggle) || !isset($discount.common_settings_toggle)}
+                <a href="#/change/paragraphVisibility" class="js-action">{if $common_settings_toggle}&minus;{else}&plus;{/if}</a>
+                <input type="hidden" class="f-save-me" name="params[common_settings_toggle]" value='{if $common_settings_toggle}1{else}0{/if}' />
+            </h3>
+            <div class="field-group"{if !$common_settings_toggle} style='display: none;'{/if}>
+                <div class="field">
+                    <div class="name">
+                        [`Name`]
+                        <br><a href="javascript:void(0)" class="inline-link inline-block small" style="margin-top:10px" title="[`edit symbolic code`]" onclick="$(this).hide();$('.f-symbolic-code').show()"><i class="icon10 edit"></i><b><i>[`edit symbolic code`]</i></b></a>
+                    </div>
+                    <div class="value">
+                        <input type="text" name="data[name]" class="f-save-me" {if !empty($discount.name)}value="{$discount.name|escape}"{/if}/>
+                        <div class="margin-block semi grey">
+                            [`This field will be displayed in storefront`]
+                        </div>
+                    </div>
+                </div>
+                <div class="field f-symbolic-code" style="display: none;">
+                    <div class="name">[`Symbolic code`]</div>
+                    <div class="value">
+                        <input type="text" name="data[code]" onkeypress='$.flexdiscount.isValid(event, /[a-zA-Z0-9\-_]/);' class="width250px f-save-me" {if !empty($discount.code)}value="{$discount.code|escape}"{/if}/>
+                        <div class="hover-tooltip">
+                             <span>?</span>
+                             <div class="hover-content">
+                                 <div>
+                                     [`Use this code to control discount output in the template`]<br>
+                                     [`Available symbols`]: <b>a-z A-Z 0-9 - _</b>
+                                 </div>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">[`Frontend sort`]</div>
+                    <div class="value">
+                        <input type="text" name="data[frontend_sort]" onkeypress='$.flexdiscount.isValid(event, /[0-9]/);' class="width50px f-save-me" {if isset($discount.frontend_sort)}value="{$discount.frontend_sort|escape}"{/if}/>
+                        <div class="hover-tooltip">
+                            <span>?</span>
+                            <div class="hover-content">
+                                <div>[`In storefront discounts will be sorted by this field by ascending.`]</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">[`Description`]</div>
+                    <div class="value">
+                        <textarea type="text" class="f-save-me" name="data[description]">{if !empty($discount.description)}{$discount.description|escape}{/if}</textarea>
+                        <div class="margin-block semi grey">[`Use this field to describe the rule for yourself. It will be shown on the page with all rules.`]</div>
+                    </div>
+                </div>
+                {if !$deny}
+                    <div class="field">
+                        <div class="name">[`Active discounts`]</div>
+                        <div class="value">
+                            <div class="margin-block top semi">
+                                <label>
+                                    <input type="checkbox" class="f-save-me" value="1" name="params[show_in_ad]"{if !empty($discount.show_in_ad)} checked{/if} />
+                                    [`Always show rule in active discounts`]
+                                </label>
+                                <div class="hover-tooltip">
+                                    <span>?</span>
+                                    <div class="hover-content">
+                                        <div>
+                                            [`The rule will be shown in any case whether it has a discount or not`]
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="name">[`Available discounts`]</div>
+                        <div class="value">
+                            <div class="margin-block top semi">
+                                <label>
+                                    <input type="checkbox" class="f-save-me" value="1" onchange="$.flexdiscount.changeStorefrontVisibility($(this))" name="params[hide_storefront]"{if !empty($discount.hide_storefront)} checked{/if} />
+                                    [`Hide discount from available discounts`]
+                                </label>
+                                <div class="hover-tooltip">
+                                    <span>?</span>
+                                    <div class="hover-content">
+                                        <div>
+                                            [`Rule will be active, but no one can see it in Available discounts.`]
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="margin-block top semi"{if !empty($discount.hide_storefront)} style="display: none"{/if}>
+                                <label>
+                                    <input type="checkbox" class="f-save-me" value="1" name="params[show_shipping]"{if !empty($discount.show_shipping)} checked{/if} />
+                                    [`Show rule in available discounts, if target has shipping`]
+                                </label>
+                                <div class="hover-tooltip">
+                                    <span>?</span>
+                                    <div class="hover-content">
+                                        <div>
+                                            [`By default information about rules, which contains delivery in target, doesn't display in available discounts on storefront.`]
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="margin-block top semi">
+                                    <label>
+                                        <input type="checkbox" class="f-save-me" value="1" name="params[prod_meet_cond]"{if !empty($discount.prod_meet_cond)} checked{/if} />
+                                        [`Show rule in available discounts for products, that meets the conditions`]
+                                    </label>
+                                    <div class="hover-tooltip">
+                                        <span>?</span>
+                                        <div class="hover-content">
+                                            <div>
+                                                [`It's recommended to enable this option, if you are using categories/sets/types/features/products as targets, your conditions are filter-conditions(<i class="icon16 funnel"></i>) and you want to show information about discount in products, that meet conditions.<br>E.g, "if category A then set discount to category B". If you want to show information about discount rule in products from category A, enable this option`]
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="margin-block top semi">
+                                    [`Use individual settings for this rule`]
+                                    <div class="ibutton-checkbox inline-block">
+                                        <ul class="menu-h">
+                                            <li>
+                                                <span id="switcher-off-label">[`No`]</span>
+                                            </li>
+                                            <li>
+                                                <input class="switcher f-save-me" type="checkbox" name="params[available][status]" value="1" {if !empty($discount.available.status)}checked="checked"{/if} />
+                                            </li>
+                                            <li>
+                                                <span id="switcher-on-label">[`Yes`]</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="grey margin-block bottom">{sprintf(_wp('By default rule will use <a href="%s" class="s-link" title="%s">%s</a>'), "`$settings_url`", "[`common settings`]", "[`common settings`]")}</div>
+                                    <div class="onopen hidden">
+                                        <div class="field">
+                                            <div class='name'>
+                                                [`Filtering options:`]
+                                                <div class="hover-tooltip">
+                                                    <span>?</span>
+                                                    <div class="hover-content">
+                                                        <div>
+                                                            [`Choose filters, which should be used, while showing Available discounts block`]
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="value">
+                                                {$filter_by = [
+                                                    'user_group' => _wp('User (Show discounts available for current user)'),
+                                                    'date_group' => _wp('Date (Show discounts available for current date)'),
+                                                    'properties_group' => _wp('Product properties (Show discounts according to product properties conditions in you discount rules)'),
+                                                    'numsum_group' => _wp('Show discounts according to quantitative and total values of products from categories/sets/types/features')
+                                                ]}
+                                                <div class="margin-block semi bottom">
+                                                    <label>
+                                                        <input type="checkbox" value="0" checked disabled />
+                                                        [`Storefront`]
+                                                    </label>
+                                                </div>
+                                                {$discount_filter_by = []}
+                                                {if isset($discount.available.filter_by)}
+                                                    {$discount_filter_by = $discount.available.filter_by}
+                                                {elseif !isset($discount.available) && !empty($settings.flexdiscount_avail_discounts.filter_by)}
+                                                    {$discount_filter_by = $settings.flexdiscount_avail_discounts.filter_by}
+                                                {/if}
+                                                {foreach $filter_by as $filter_id => $filter_name}
+                                                    <div class="margin-block semi bottom">
+                                                        <label>
+                                                            <input type="checkbox" name="params[available][filter_by][]" class="f-save-me" value="{$filter_id}"{if $discount_filter_by && in_array($filter_id, $discount_filter_by)} checked{/if} />
+                                                            {$filter_name}
+                                                        </label>
+                                                        {if $filter_id == 'numsum_group'}
+                                                            <br><div class="hover-tooltip">
+                                                                <span>?</span>
+                                                                <div class="hover-content">
+                                                                    <div>
+                                                                        [`Conditions:`]<br>
+                                                                        <ul style="padding-left:15px;">
+                                                                          <li>[`Quantity of product from category`]</li>
+                                                                          <li>[`Quantity of product from category and subcategories`]</li>
+                                                                          <li>[`Quantity of product from set`]</li>
+                                                                          <li>[`Quantity of product from type`]</li>
+                                                                          <li>[`Quantity of all products from category`]</li>
+                                                                          <li>[`Quantity of all products from category and subcategories`]</li>
+                                                                          <li>[`Quantity of all products from set`]</li>
+                                                                          <li>[`Quantity of all products from type`]</li>
+                                                                          <li>[`Quantity of products with features`]</li>
+                                                                          <li>[`Total price of products from category`]</li>
+                                                                          <li>[`Total price of products from category and subcategories`]</li>
+                                                                          <li>[`Total price of all products with features`]</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        {/if}
+                                                    </div>
+                                                {/foreach}
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <div class='name'>
+                                                [`Ignore conditions in deny rules`]
+                                                <div class="hover-tooltip">
+                                                    <span>?</span>
+                                                    <div class="hover-content">
+                                                        <div>
+                                                            [`You can choose what conditions to ignore in deny rules while showing available discounts`]<br>
+                                                        </div>
+                                                    </div>
+                                                </div><br>
+                                                <a href="[`https://igaponov.com/docs/120/displaying-of-available-discounts-while-using-deny-rules/`]" title="[`Read more`]" target="_blank">[`Read more`] <i class="icon16 new-window"></i></a>
+                                            </div>
+                                            <div class="value">
+                                                {$ignore_deny = [
+                                                    'product_group' => _wp('Product conditions'),
+                                                    'properties_group' => _wp('Product properties conditions'),
+                                                    'cart_group' => _wp('Cart conditions')
+                                                ]}
+                                                {$discount_ignore_deny = []}
+                                                {if isset($discount.available.ignore_deny)}
+                                                    {$discount_ignore_deny = $discount.available.ignore_deny}
+                                                {elseif !isset($discount.available) && !empty($settings.flexdiscount_avail_discounts.ignore_deny)}
+                                                    {$discount_ignore_deny = $settings.flexdiscount_avail_discounts.ignore_deny}
+                                                {/if}
+                                                {foreach $ignore_deny as $filter_id => $filter_name}
+                                                    <div class="margin-block semi bottom">
+                                                        <label>
+                                                            <input type="checkbox" class="f-save-me" name="params[available][ignore_deny][]" value="{$filter_id}"{if ($discount_ignore_deny && in_array($filter_id, $discount_ignore_deny))} checked{/if} />
+                                                            {$filter_name}
+                                                        </label>
+                                                    </div>
+                                                {/foreach}
+                                            </div>
+                                        </div>
+                                        <div class="margin-block grey">[`Product price will never be lower than specified value.`]</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="name">[`Change product prices`]</div>
+                        <div class="value">
+                            {if !empty($settings['frontend_prices'])}
+                                <div class="ibutton-checkbox inline-block">
+                                    <ul class="menu-h">
+                                        <li>
+                                            <span id="switcher-off-label">[`No`]</span>
+                                        </li>
+                                        <li>
+                                            <input type="hidden" class="f-save-me" name="params[change_price]" value="0">
+                                            <input class="switcher f-save-me" type="checkbox" name="params[change_price]" data-dependency=".change-price-dependency" value="1" {if !empty($discount.change_price) || !isset($discount.change_price)}checked="checked"{/if} />
+                                        </li>
+                                        <li>
+                                            <span id="switcher-on-label">[`Yes`]</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            {else}
+                                {sprintf(_wp('Option is not enabled. You can change it on the <a href="%s" title="Settings">settings page</a>.'), $settings_url)}
+                            {/if}
+                            <div class="margin-block semi grey">{sprintf(_wp('Individual rule setting for the option <a href="%s" class="s-link" target="_blank">"Change product data on the storefront"</a>.'), $settings_url)}</div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="name required">
+                            [`Badge`]
+                            <div class="hover-tooltip">
+                                <span>?</span>
+                                <div class="hover-content">
+                                    <div>
+                                        [`Badge will be shown only for products, which has active discounts from the rule`]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="value no-shift ibutton-checkbox">
+                            {if !empty($settings['frontend_prices'])}
+                                <ul class="menu-h inline-block">
+                                    <li><span class="gray" class="off-label">[`No`]</span></li>
+                                    <li>
+                                        <input type="hidden" name="params[use_badge]" value="0" class="f-save-me">
+                                        <input type="checkbox" class="switcher f-save-me" name="params[use_badge]"
+                                               value="1"{if !empty($discount.use_badge)} checked{/if} />
+                                    </li>
+                                    <li><span class="on-label">[`Yes`]</span></li>
+                                </ul>
+                                <span class="shop-tooltip">
+                                    <i class="icon16 info"></i>
+                                    <span>[`Read more in <a href="https://igaponov.com/docs/173/badges/" target="_blank">docs</a>`]</span>
+                                </span>
+                            {else}
+                                {sprintf(_wp('Enable setting <a href="%s" title="Settings">"Change product data on the storefront"</a>.'), $settings_url)}
+                            {/if}
+                        </div>
+                        {if !empty($settings['frontend_prices'])}
+                            <div class="value onopen">
+                                <textarea name="params[badge]" class="f-save-me">{if !empty($discount.badge)}{$discount.badge|escape}{/if}</textarea>
+                                <div class="margin-block grey">[`Use HTML. Output place and appearance depends on your theme design.`]</div>
+                                <div class="margin-block top">
+                                    <input type="hidden" name="params[overwrite_default_badge]" value="0" class="f-save-me">
+                                    <label>
+                                        <input type="checkbox" class="f-save-me" name="params[overwrite_default_badge]"
+                                               value="1"{if !empty($discount.overwrite_default_badge)} checked{/if} />
+                                        [`Overwrite default badges`]
+                                    </label>
+                                </div>
+                            </div>
+                        {/if}
+                    </div>
+                {else}
+                    <div class="field">
+                        <div class="name">[`Use products in further calculations`]</div>
+                        <div class="value">
+                            <input type="checkbox" class="f-save-me" value='1' name='params[use_in_calc]'{if !empty($discount.use_in_calc)} checked{/if} />
+                            <div class="hover-tooltip">
+                                <span>?</span>
+                                <div class="hover-content">
+                                    <div>
+                                        [`Use this setting if you want to use the data of deny products. E.g, you have rules on the total amount of order. Deny products can be taken into total amount.`]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {/if}
+            </div>
+            {if !$deny}
+                {$base_values = ['price' => _wp('Product price'), 'compare_price' => _wp('Compare at price'), 'purchase' => _wp('Purchase price'), 'prodpurch' => sprintf("%s - %s", _wp('Product price'), _wp('Purchase price')), 'prodcomp' => sprintf("%s - %s", _wp('Compare at price'), _wp('Product price'))]}
+                <h3>
+                    [`Discount settings`]
+                    {$discount_settings_toggle = !empty($discount.discount_settings_toggle) || !isset($discount.discount_settings_toggle)}
+                    <a href="#/change/paragraphVisibility" class="js-action">{if $discount_settings_toggle}&minus;{else}&plus;{/if}</a>
+                    <input type="hidden" class="f-save-me" name="params[discount_settings_toggle]" value='{if $discount_settings_toggle}1{else}0{/if}' />
+                </h3>
+                <div class="field-group"{if !$discount_settings_toggle} style='display: none;'{/if}>
+                    <div class="field f-product-discount"{if $only_shipping} style="display: none;"{/if}>
+                        <div class="name">[`Product discount`]</div>
+                        <div class="value">
+                            {$is_product_discount_type_rule = empty($discount.product_discount_type) || $discount.product_discount_type == 'rule'}
+                            <div class="flexbox margin-block bottom">
+                                <label>
+                                    <input type="radio" name="params[product_discount_type]" class="f-discount-type f-save-me" value="rule" {if $is_product_discount_type_rule}checked{/if}>
+                                </label>
+                                <div>
+                                    <div class="margin-block bottom">
+                                        <span class="hint">[`percent`]</span>
+                                        <input type="text" class="width70px f-save-me" name="params[discount_percentage]" {if !empty($discount.discount_percentage)}value="{$discount.discount_percentage|escape}"{/if}/> %
+                                    </div>
+                                    <div>
+                                        <span class="hint">[`fixed value`]</span>
+                                        <input type="text" class="width100px f-save-me" name="params[discount]" {if !empty($discount.discount)}value="{$discount.discount|escape}"{/if}/>
+                                        <select name="params[discount_currency]" class="inherit f-save-me">
+                                            <option {if empty($discount.discount_currency)}selected{/if} value="">[`Select currency`]</option>
+                                            {foreach $currencies as $c}
+                                                <option {if !empty($discount.discount_currency) && $discount.discount_currency == $c.code}selected{/if} value="{$c.code}">{$c.sign} {$c.code}</option>
+                                            {/foreach}
+                                        </select>
+                                        <div class="condition-text">
+                                            <label><input type="checkbox" class="f-save-me f-useeachitem" name="params[discounteachitem]"{if !empty($discount.discounteachitem)} checked{/if}/> [`Set discount to each item`]</label>
+                                        </div>
+                                        <div class="condition-text hidden f-discounteachbundle">
+                                            <label><input type="checkbox" class="f-save-me f-useeachitem" name="params[discounteachbundle]"{if !empty($discount.discounteachbundle)} checked{/if}/> [`Set discount to each bundle`]</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flexbox">
+                                <label>
+                                    <input type="radio" name="params[product_discount_type]" class="f-discount-type f-save-me" value="field" {if !$is_product_discount_type_rule}checked{/if}>
+                                    [`Product field "Discount"`]
+                                </label>
+                            </div>
+                            <div class="margin-block top hidden" data-product-discount-type="field" {if !$is_product_discount_type_rule}style="display: block"{/if}>
+                                [`Fill in field "Discount" on the product edit page.`]
+                                <a href="[`https://igaponov.com/docs/202/how-to-make-discount-affiliate/`]" title="[`Read more`]" target="_blank">[`Read more`] <i class="icon16 new-window"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field f-product-discount" {if $only_shipping} style="display: none;"{/if}>
+                        <div class="name">[`Product discount formula`]</div>
+                        <div class="value">
+                            <div class="margin-block bottom">
+                                [`Price with discount`] =
+                                <select name="params[discount_base_main]" class="inherit f-save-me">
+                                    {foreach $base_values as $bv_id => $bv}
+                                        <option value="{$bv_id}"{if ($bv_id == 'price' && !isset($discount.discount_base_main)) || (isset($discount.discount_base_main) && $discount.discount_base_main == $bv_id)} selected{/if}>{$bv}</option>
+                                    {/foreach}
+                                </select>
+                                &minus;
+                                <select name="params[discount_base]" class="inherit f-save-me">
+                                    {foreach $base_values as $bv_id => $bv}
+                                        <option value="{$bv_id}"{if ($bv_id == 'price' && !isset($discount.discount_base)) || (isset($discount.discount_base) && $discount.discount_base == $bv_id)} selected{/if}>{$bv}</option>
+                                    {/foreach}
+                                </select>
+                                &times; <span class="fraction"><span class="fraction-top">[`discount %`]</span><span class="fraction-bottom">100</span></span> &minus; [`discount fixed value`]
+                            </div>
+                            <div class="margin-block semi grey">
+                                [`If price with discount will be more than product price, than discount will be equal to zero.`]
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field f-product-discount"{if $only_shipping} style="display: none;"{/if}>
+                        <div class="name">[`Product discount limit`]</div>
+                        <div class="value">
+                            <div class="ibutton-checkbox inline-block">
+                                <ul class="menu-h">
+                                    <li>
+                                        <span id="switcher-off-label">[`Off`]</span>
+                                    </li>
+                                    <li>
+                                        <input class="switcher f-save-me" type="checkbox" name="params[limit][status]" value="1" {if !empty($discount.limit.status)}checked="checked"{/if} />
+                                    </li>
+                                    <li>
+                                        <span id="switcher-on-label">[`On`]</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="onopen hidden s-limit-wrap">
+                                <div>
+                                    <label>
+                                        <input type="radio" name="params[limit][type]" class="f-limit-change f-save-me" value="formula" {if empty($discount.limit.type) || $discount.limit.type == 'formula'}checked{/if}>
+                                        [`Formula`]
+                                    </label>
+                                </div>
+                                <div data-type="formula" class="margin-block bottom f-limit-type-block"{if !empty($discount.limit.type) && $discount.limit.type == 'field'} style="display:none"{/if}>
+                                    <select name="params[limit][price1]" class="inherit f-save-me">
+                                        <option value=""{if empty($discount.limit.price1)} selected{/if}></option>
+                                        <option value="purchase"{if isset($discount.limit.price1) && $discount.limit.price1 == 'purchase'} selected{/if}>[`Purchase price`]</option>
+                                        <option value="compare_price"{if isset($discount.limit.price1) && $discount.limit.price1 == 'compare_price'} selected{/if}>[`Compare at price`]</option>
+                                    </select>
+                                    + <input type="text" name='params[limit][value]'{if isset($discount.limit.value)} value="{$discount.limit.value|escape}"{/if} class="width100px f-save-me" />
+                                    <select name="params[limit][currency]" class="inherit f-limit-currency f-save-me">
+                                        <option value="%"{if empty($discount.limit.currency) || (!empty($discount.limit.currency) && $discount.limit.currency == '%')} selected{/if}>%</option>
+                                        {foreach $currencies as $c}
+                                        <option {if !empty($discount.limit.currency) && $discount.limit.currency == $c.code}selected{/if} value="{$c.code}">{$c.sign} {$c.code}</option>
+                                        {/foreach}
+                                    </select>
+                                    <div class="inline-block f-percentage-value">
+                                        <div class="condition-text">[`from`]</div>
+                                        <select name="params[limit][price2]" class="inherit f-save-me">
+                                            <option value="purchase"{if isset($discount.limit.price2) && $discount.limit.price2 == 'purchase'} selected{/if}>[`purchase price`]</option>
+                                            <option value="price"{if isset($discount.limit.price2) && $discount.limit.price2 == 'price'} selected{/if}>[`product price`]</option>
+                                            <option value="compare_price"{if isset($discount.limit.price2) && $discount.limit.price2 == 'compare_price'} selected{/if}>[`compare at price`]</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>
+                                        <input type="radio" name="params[limit][type]" class="f-limit-change f-save-me" value="field" {if !empty($discount.limit.type) && $discount.limit.type == 'field'}checked{/if}>
+                                        [`Product Field`]
+                                    </label>
+                                </div>
+                                <div data-type="field" class="f-limit-type-block margin-block top semi"{if empty($discount.limit.type) || $discount.limit.type == 'formula'} style="display:none"{/if}>
+                                    [`Fill in field "Minimal price" on product edit page.`]
+                                    <a href="[`https://igaponov.com/docs/169/product-discount-limit/`]" title="[`Read more`]" target="_blank">[`Read more`] <i class="icon16 new-window"></i></a>
+                                </div>
+
+                                <div class="margin-block grey">[`Product price will never be lower than specified value.`]</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field f-shipping-discount"{if !$has_shipping} style="display: none;"{/if}>
+                        <div class="name">[`Shipping discount`]</div>
+                        <div class="value">
+                            <div class="margin-block bottom">
+                                <span class="hint">[`percent`]</span>
+                                <input type="text" class="width70px f-save-me" name="params[discount_shipping_percentage]" value="{if !empty($discount.discount_shipping_percentage)}{$discount.discount_shipping_percentage|escape}{elseif !isset($discount.discount_shipping_percentage) && !empty($discount.discount_percentage)}{$discount.discount_percentage|escape}{/if}"/>
+                                [`% from`]
+                                <select name="params[discount_shipping_base]" class="f-save-me inherit">
+                                    <option {if empty($discount.discount_shipping_base) || (!empty($discount.discount_shipping_base) && $discount.discount_shipping_base == 'shipping')}selected{/if} value="shipping">[`Shipping price`]</option>
+                                    <option {if !empty($discount.discount_shipping_base) && $discount.discount_shipping_base == 'order'}selected{/if} value="order">[`Order price`]</option>
+                                </select>
+                                <div class="hover-tooltip">
+                                    <span>?</span>
+                                    <div class="hover-content">
+                                        <div>
+                                            [`This is a shipping discount base. From that value user will get shipping discount. Total shipping discount value will never be more than shipping price.`]
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="hint">[`fixed value`]</span>
+                                <input type="text" class="width100px f-save-me" name="params[discount_shipping]" value="{if !empty($discount.discount_shipping)}{$discount.discount_shipping|escape}{elseif !isset($discount.discount_shipping) && !empty($discount.discount)}{$discount.discount|escape}{/if}"/>
+                                <select name="params[discount_shipping_currency]" class="inherit f-save-me">
+                                    <option {if empty($discount.discount_shipping_currency) || (!isset($discount.discount_shipping_currency) && empty($discount.discount_currency))}selected{/if} value="">[`Select currency`]</option>
+                                    {foreach $currencies as $c}
+                                    <option {if (!empty($discount.discount_shipping_currency) && $discount.discount_shipping_currency == $c.code) || (!isset($discount.discount_shipping_currency) && !empty($discount.discount_currency) && $discount.discount_currency == $c.code)}selected{/if} value="{$c.code}">{$c.sign} {$c.code}</option>
+                                    {/foreach}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="name">[`Maximum discount value for the rule`]</div>
+                        <div class="value">
+                            <input type="text" name="params[maximum][value]" {if !empty($discount.maximum.value)}value="{$discount.maximum.value|escape}"{/if} class="width100px f-save-me" />
+                            <select name="params[maximum][currency]" class="inherit f-save-me">
+                                {foreach $currencies as $c}
+                                    <option {if !empty($discount.maximum.currency) && $discount.maximum.currency == $c.code}selected{/if} value="{$c.code}">{$c.sign} {$c.code}</option>
+                                {/foreach}
+                            </select>
+                            <div class="hover-tooltip">
+                                <span>?</span>
+                                <div class="hover-content">
+                                    <div>[`Discount for all products in this rule will not be more, than specified value.`]</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>
+                    [`Affiliate settings`]
+                    {$affiliate_settings_toggle = !empty($discount.affiliate_settings_toggle) || !isset($discount.affiliate_settings_toggle)}
+                    <a href="#/change/paragraphVisibility" class="js-action">{if $affiliate_settings_toggle}&minus;{else}&plus;{/if}</a>
+                    <input type="hidden" class="f-save-me" name="params[affiliate_settings_toggle]" value='{if $affiliate_settings_toggle}1{else}0{/if}' />
+                </h3>
+                <div class="field-group"{if !$affiliate_settings_toggle} style='display: none;'{/if}>
+                    <div class="field f-product-discount"{if $only_shipping} style="display: none;"{/if}>
+                        <div class="name">[`Product affiliate bonus`]</div>
+                        <div class="value">
+                            {$is_product_affiliate_type_rule = empty($discount.product_affiliate_type) || $discount.product_affiliate_type == 'rule'}
+                            <div class="flexbox margin-block bottom">
+                                <label>
+                                    <input type="radio" name="params[product_affiliate_type]" class="f-affiliate-type f-save-me" value="rule" {if $is_product_affiliate_type_rule}checked{/if}>
+                                </label>
+                                <div>
+                                    <div class="margin-block bottom">
+                                        <span class="hint">[`percent`]</span>
+                                        <input type="text" class="width70px f-save-me" name="params[affiliate_percentage]" {if !empty($discount.affiliate_percentage)}value="{$discount.affiliate_percentage|escape}"{/if}/>
+                                        [`% from`]
+                                        <select name="params[affiliate_base]" class="inherit f-save-me">
+                                            {foreach $base_values as $bv_id => $bv}
+                                            <option value="{$bv_id}"{if ($bv_id == 'price' && !isset($discount.affiliate_base)) || (isset($discount.affiliate_base) && $discount.affiliate_base == $bv_id)} selected{/if}>{$bv}</option>
+                                            {/foreach}
+                                        </select>
+                                        <div class="hover-tooltip">
+                                            <span>?</span>
+                                            <div class="hover-content">
+                                                <div>[`From this value will be calculated affiliate bonus`]</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="hint">[`fixed value`]</span>
+                                        <input type="text" class="width100px f-save-me" name="params[affiliate]" {if !empty($discount.affiliate)}value="{$discount.affiliate|escape}"{/if}/> [`points`]
+                                        <div class="condition-text">
+                                            <label><input type="checkbox" class="f-save-me f-useeachitem" name="params[affiliateeachitem]"{if !empty($discount.affiliateeachitem)} checked{/if}/> [`Set affiliate bonus to each item`]</label>
+                                        </div>
+                                        <div class="condition-text hidden f-discounteachbundle">
+                                            <label><input type="checkbox" class="f-save-me f-useeachitem" name="params[affiliateeachbundle]"{if !empty($discount.affiliateeachbundle)} checked{/if}/> [`Set affiliate bonus to each bundle`]</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flexbox">
+                                <label>
+                                    <input type="radio" name="params[product_affiliate_type]" class="f-affiliate-type f-save-me" value="field" {if !$is_product_affiliate_type_rule}checked{/if}>
+                                    [`Product field "Affiliate"`]
+                                </label>
+                            </div>
+                            <div class="margin-block top hidden" data-product-affiliate-type="field" {if !$is_product_affiliate_type_rule}style="display: block"{/if}>
+                                [`Fill in field "Affiliate" on the product edit page.`]
+                                <a href="[`https://igaponov.com/docs/202/how-to-make-discount-affiliate/`]" title="[`Read more`]" target="_blank">[`Read more`] <i class="icon16 new-window"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field f-product-discount"{if $only_shipping} style="display: none;"{/if}>
+                        <div class="name">[`Product affiliate bonus limit`]</div>
+                        <div class="value">
+                            <input type="text" name="params[maximum_product_affiliate]" {if !empty($discount.maximum_product_affiliate)}value="{$discount.maximum_product_affiliate|escape}"{/if} class="width100px f-save-me" />
+                            <div class="hover-tooltip">
+                                <span>?</span>
+                                <div class="hover-content">
+                                    <div>[`Affiliate bonuses for every product will never be more, than specified value.`]</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field f-shipping-discount"{if !$has_shipping} style="display: none;"{/if}>
+                        <div class="name">[`Shipping affiliate`]</div>
+                        <div class="value">
+                            <div class="margin-block bottom">
+                                <span class="hint">[`percent`]</span>
+                                <input type="text" class="width70px f-save-me" name="params[affiliate_shipping_percentage]" value="{if !empty($discount.affiliate_shipping_percentage)}{$discount.affiliate_shipping_percentage|escape}{elseif !isset($discount.affiliate_shipping_percentage) && !empty($discount.affiliate_percentage)}{$discount.affiliate_percentage|escape}{/if}"/>
+                                [`% from`]
+                                <select name="params[affiliate_shipping_base]" class="f-save-me inherit">
+                                    <option {if empty($discount.affiliate_shipping_base) || (!empty($discount.affiliate_shipping_base) && $discount.affiliate_shipping_base == 'shipping')}selected{/if} value="shipping">[`Shipping price`]</option>
+                                    <option {if !empty($discount.affiliate_shipping_base) && $discount.affiliate_shipping_base == 'order'}selected{/if} value="order">[`Order price`]</option>
+                                </select>
+                                <div class="hover-tooltip">
+                                    <span>?</span>
+                                    <div class="hover-content">
+                                        <div>
+                                            [`This is a shipping affiliate base. From that value user will get shipping affiliate. Total shipping affiliate value will never be more than shipping price.`]
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="hint">[`fixed value`]</span>
+                                <input type="text" class="width100px f-save-me" name="params[affiliate_shipping]" value="{if !empty($discount.affiliate_shipping)}{$discount.affiliate_shipping|escape}{elseif !isset($discount.affiliate_shipping) && !empty($discount.affiliate)}{$discount.affiliate|escape}{/if}"/>
+                                [`points`]
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="name">[`Maximum affiliate bonus value for the rule`]</div>
+                        <div class="value">
+                            <input type="text" name="params[maximum_affiliate]" {if !empty($discount.maximum_affiliate)}value="{$discount.maximum_affiliate|escape}"{/if} class="width100px f-save-me" />
+                            <div class="hover-tooltip">
+                                <span>?</span>
+                                <div class="hover-content">
+                                    <div>[`The total value of affiliate bonuses in this rule will not be more, than specified value.`]</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {/if}
+            <h3>
+                [`Conditions`]
+                {$condition_settings_toggle = !empty($discount.condition_settings_toggle) || !isset($discount.condition_settings_toggle)}
+                <a href="#/change/paragraphVisibility" class="js-action">{if $condition_settings_toggle}&minus;{else}&plus;{/if}</a>
+                <input type="hidden" class="f-save-me" name="params[condition_settings_toggle]" value='{if $condition_settings_toggle}1{else}0{/if}' />
+            </h3>
+            <div class="field-group s-conditions-group{if $condition_settings_toggle} inited{/if}"{if !$condition_settings_toggle} style='display: none;'{/if}>
+                {if !$deny}
+                    <div class="field">
+                        <div class="name">[`Bundle discount`]</div>
+                        <div class="value">
+                            <label>
+                                <input type="checkbox" class="f-save-me f-bundle-checkbox" onchange="$.flexdiscount.bundleAction($(this))" value='1' name='params[bundle]'{if !empty($discount.bundle)} checked{/if} />
+                                [`Create a bundle from the conditions. Learn more about <a href="https://igaponov.com/docs/105/bundles/" target="_blank">bundles <i class="icon16 new-window"></i></a>`]
+                            </label>
+                        </div>
+                    </div>
+                {/if}
+                <div class="field s-conditions">
+                    <div class="value">
+                        <div class="margin-block">[`IF`]</div>
+                        <div class="condition-block">
+                            <div class="conditions">
+                                <!-- Autogenerated content -->
+                                <div class="align-center is-loading">[`Wait, please...`] <i class="icon16 loading"></i></div>
+                            </div>
+                            <a href="#/show/condition/" class="js-action" title="[`Add condition`]"><i class="icon16 add"></i> [`Add condition`]</a>
+                        </div>
+                        <input type="hidden" id="condition-input" class="f-save-me" name="data[conditions]" value="{if !empty($discount.conditions)}{$discount.conditions}{/if}" />
+                        <div class="margin-block">{if !$deny}[`Then set discount to`]{else}[`Then deny discount to`]{/if}</div>
+
+                        <input type="hidden" id="target-input" class="f-save-me" name="data[target]" value="{if !empty($discount.target)}{$discount.target}{/if}" />
+                        <div class="targets">
+                            {* Target *}
+                            {$target = [
+                                'all' => _wp('All products'),  'all_true' => _wp('All products that meet the conditions'),
+                                'all_false' => _wp('All products that failed conditions'), 'cat' => _wp('Category'),
+                                'cat_all' => _wp('Category and subcategories'), 'set' => _wp('Product set'), 'type' => _wp('Product type'),
+                                'product' => _wp('Product'), 'feature' => _wp('Product features')
+                            ]}
+                            {if !$deny}
+                                {$target['shipping'] = "[`Shipping`]"}
+                            {/if}
+                            <div class="align-center is-loading">[`Wait, please...`] <i class="icon16 loading"></i></div>
+                            <div class="target-row margin-block bottom">
+                                <div class="condition-text">
+                                    <select name="data[target]" class="target-chosen">
+                                        {foreach $target as $t_id => $t}
+                                            <option value="{$t_id}">{$t}</option>
+                                        {/foreach}
+                                    </select>
+                                    <div class="target-block hidden">
+                                        <!-- Autogenerated content -->
+                                    </div>
+                                    <a href="#/edit/target/" class='js-action inline-link' style='display: none;'><i class="icon16 edit"></i> <b>[`edit`]</b></a>
+                                </div>
+                                {* Details *}
+                                {$details = [
+                                    'every' => _wp('every similar n-product'), 'cheapest' => _wp('n cheapest products'),
+                                    'ncheapest' => _wp('every n-th cheapest products (in favor of the seller)'),
+                                    'ncheapest2' => _wp('every n-th cheapest products (in favor of the buyer)'),
+                                    'expensive' => _wp('n the most expensive products'),
+                                    'nexpensive' => _wp('every n-th the most expensive products (in favor of the seller)'),
+                                    'nexpensive2' => _wp('every n-th the most expensive products (in favor of the buyer)'),
+                                    'subsiquent' => _wp('all subsequent similar products following by n-product'),
+                                    'nsubsiquent' => _wp('n-th product and all subsequent products following by n-product (descending prices)'),
+                                    'multiple' => _wp('n products from z-similar')
+                                ]}
+                                <div class="condition-text s-details">
+                                    <select style='display: none;' data-placeholder='[`choose details if necessary`]' class="details-select">
+                                        <option value=""></option>
+                                        {foreach $details as $d_id => $d}
+                                            <option value="{$d_id}">{$d}</option>
+                                        {/foreach}
+                                    </select>
+                                    <div class="details-block inline-block hidden">
+                                        <!-- Autogenerated content -->
+                                    </div>
+                                    <a href="#/edit/discountDetails/" class='js-action inline-link' style="vertical-align: middle;"><i class="icon16 edit"></i> <b>[`clarify`]</b></a>
+                                </div>
+                            </div>
+                            <a href="#/add/target/" class="s-add-target js-action"><i class="icon16 add"></i> [`Add target`]</a>
+                        </div>
+                    </div>
+                    {* Conditions *}
+                    {$conditions = [
+                        [
+                            'name' => "[`Product`]",
+                            'fields' => ['cat' => "[`Category`]", 'cat_all' => "[`Category and subcategories`]",
+                            'set' => "[`Product set`]", 'type' => "[`Product type`]", 'product' => "[`Product`]", 'feature' => "[`Product features`]",
+                            'params' => "[`Product params`]"]
+                        ],
+                        [
+                            'name' => "[`Product properties`]",
+                            'fields' => ['product_name' => "[`Name`]", 'product_sku' => "[`SKU code`]", 'product_sku_name' => "[`SKU name`]",
+                            'product_summary' => "[`Summary`]", 'product_mt' => "[`META title`]", 'product_mk' => "[`META keywords`]",
+                            'product_md' => "[`META description`]", 'product_description' => "[`Description`]", 'product_create' => "[`Create datetime`]",
+                            'product_age' => "[`Product age`]", 'product_edit' => "[`Edit datetime`]", 'product_video' => "[`Has video`]",
+                            'product_image' => "[`Has image`]", 'product_rating' => "[`Rating`]", 'product_rating_count' => "[`Rating count`]",
+                            'product_price' => "[`Price`]", 'product_margin' => "[`Price`] - [`Purchase price`]",
+                            'product_margin_comp' => "[`Compare price`] - [`Price`]",
+                            'product_margin_perc' => "[`Price`] - [`Purchase price`] [`(in percents from price)`]",
+                            'product_margin_trade_perc' => "[`Price`] - [`Purchase price`] [`(in percents from purchase price)`]",
+                            'product_margin_comp_perc' => "[`Compare price`] - [`Price`] [`(in percents from compare price)`]",
+                            'product_margin_comp_trade_perc' => "[`Compare price`] - [`Price`] [`(in percents from product price)`]",
+                            'product_compare_price' => "[`Compare price`]", 'product_purchase_price' => "[`Purchase price`]",
+                            'product_min_price' => "[`Minimal price`]", 'product_max_price' => "[`Maximum price`]", 'product_stock' => "[`Stock count`]",
+                            'product_stock_total' => "[`Stock total`]",
+                            'product_total_sales' => "[`Total sales for period..`]", 'product_number_sales' => "[`Total number of sales for period..`]",
+                            'product_stock_change' => "[`Last changing of product stocks X days ago`]",
+                            'is_product_stock_change' => "[`If the any changing of product stocks for period..`]",
+                            'product_services' => "[`Services`]", 'product_tags' => "[`Tags`]"]
+                        ],
+                        [
+                            'name' => "[`Cart`]",
+                            'fields' => ['num_total' => "[`Total quantity of all products`]", 'num' => "[`Quantity of products`]", 'num_prod' => "[`Quantity of product`]",
+                            'num_cat' => "[`Quantity of product from category`]", 'num_cat_all' => "[`Quantity of product from category and subcategories`]",
+                            'num_set' => "[`Quantity of product from set`]", 'num_type' => "[`Quantity of product from type`]",
+                            'num_all_cat' => "[`Quantity of all products from category`]",
+                            'num_all_cat_all' => "[`Quantity of all products from category and subcategories`]",
+                            'num_all_set' => "[`Quantity of all products from set`]", 'num_all_type' => "[`Quantity of all products from type`]",
+                            'num_feat' => "[`Quantity of products with features`]", 'num_items' => "[`Quantity of unique items`]",
+                            'total' => "[`Order price without discount`]", 'total_with_discount' => "[`Order price with discount`]",
+                            'sum' => "[`Total price of all products`]", 'sum_cat' => "[`Total price of products from category`]",
+                            'sum_cat_all' => "[`Total price of products from category and subcategories`]",
+                            'sum_feat' => "[`Total price of all products with features`]", 'total_feat' => "[`Total sum of features values`]",
+                            'prod_each_price' => "[`Price of each product`]", 'services' => "[`Services`]"]
+                        ],
+                        [
+                            'name' => "[`User`]",
+                            'fields' => ['ucat' => "[`User category`]", 'user' => "[`User`]", 'user_date' => "[`Create datetime`]",
+                            'user_country' => "[`Country and region`]", 'user_city' => "[`User city`]", 'user_data' => "[`User data`]",
+                            'user_birthday' => "[`Birthday`]", 'user_auth' => "[`Check if user is authorized`]"]
+                        ],
+                        [
+                            'name' => "[`Completed user orders`]",
+                            'fields' => ['all_orders' => "[`Total sum of all orders`]", 'order_int' => "[`Sum of orders for period..`]",
+                            'count_orders' => "[`Quantity of all orders`]", 'order_count_int' => "[`Quantity of orders for period..`]", 'order_prod' => "[`Orders have product`]",
+                            'order_prod_int' => "[`Orders have product for period..`]", 'order_prod_cat' => "[`Orders have product from category`]",
+                            'order_prod_cat_all' => "[`Orders have product from category and subcategories`]", 'order_prod_cat_int' => "[`Orders have product from category for period..`]",
+                            'order_prod_cat_all_int' => "[`Orders have product from category and subcategories for period..`]"]
+                        ],
+                        [
+                            'name' => "[`Date and time`]",
+                            'fields' => ['date' => "[`Date`]", 'week' => "[`Day of week`]", 'time' => "[`Time`]"]
+                        ],
+                        [
+                            'name' => "[`Variables`]",
+                            'fields' => ['cookie' => "[`Cookie`]", 'session' => "[`Session`]", 'get' => '$_GET',
+                            'post' => '$_POST', 'server' => '$_SERVER', 'coupon' => "[`Coupon`]", 'coupon_deny' => "[`Coupon`]",
+                            'is_coupon_used' => "[`Has active coupon?`]", 'is_affiliate_used' => "[`Does affiliate used?`]"]
+                        ],
+                        [
+                            'name' => "[`Storefront`]",
+                            'fields' => ['storefront' => "[`Storefront`]", 'customer_source' => "[`Customer source`]", 'payment' => "[`Payment`]", 'shipping' => "[`Shipping`]",
+                            'has_active_rule_discounts' => "[`Has active rules with discounts?`]", 'has_active_rule_affiliates' => "[`Has active rules with affiliates?`]"]
+                        ]
+                    ]}
+                    <select id="condition-template" class="condition-template" data-placeholder="[`Select condition`]" style="display: none; width: 350px;">
+                        <option value=""></option>
+                        <option value="add">[`Add group of conditions`]</option>
+                        {foreach $conditions as $cond}
+                        <optgroup label="{$cond.name}">
+                            {foreach $cond.fields as $c_id => $c}
+                                {if ($deny && $c_id == 'coupon') || (!$deny && $c_id == 'coupon_deny')}{continue}{/if}
+                                <option value="{$c_id}">{$c}</option>
+                            {/foreach}
+                        </optgroup>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+        </div>
+        {if !$deny}
+            <h3>
+                [`Coupons`]
+                {$coupons_settings_toggle = !empty($discount.coupons_settings_toggle) || !isset($discount.coupons_settings_toggle)}
+                <a href="#/change/paragraphVisibility" class="js-action">{if $coupons_settings_toggle}&minus;{else}&plus;{/if}</a>
+                <input type="hidden" class="f-save-me" name="params[coupons_settings_toggle]" value='{if $coupons_settings_toggle}1{else}0{/if}' />
+            </h3>
+            <div class="field-group"{if !$coupons_settings_toggle} style='display: none;'{/if}>
+                <div class="field">
+                    <label><input type="checkbox" value="1" name="params[enable_coupon]"{if !empty($discount.enable_coupon)} checked{/if} class="f-save-me s-coupon-enable"/> [`Use coupons`] <i class="icon16-custom coupon"></i></label>
+                    <div class="margin-block s-coupon-block"{if empty($discount.enable_coupon)} style="display: none;"{/if}>
+                    <div class="margin-block">
+                        <label><input type="checkbox" value="1" name="params[clean_coupon]"{if !empty($discount.clean_coupon)} checked{/if} class="f-save-me"/> [`Automatically remove useless coupons`]</label>
+                        <div class="hover-tooltip">
+                            <span>?</span>
+                            <div class="hover-content">
+                                <div>
+                                    [`Expired or coupons which reached the limit`]
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                        {if !empty($discount.coupons)}
+                            <div class='margin-block bottom'>
+                                {$coupons_count = $discount.coupons.coupons}
+                                {$generators_count = $discount.coupons.generators}
+                                {sprintf(_wp('Coupons: %s; coupon generators: %s'), "<span class='coupon-item s-coupon'>`$coupons_count`</span>", "<span class='coupon-item s-generator'>`$generators_count`</span>")}
+                            </div>
+                        {/if}
+                        {if !empty($discount)}
+                            <ul class="menu-h">
+                                <li><a href="#/discount/couponList/" class="js-action" title="[`Manage coupons`]"><i class="icon16 view-table"></i> [`Manage coupons`]</a></li>
+                                <li><a href="#/discount/editCoupon/" class="js-action" data-type="coupon" title="[`Add new coupon`]"><i class="icon16-custom coupon-add"></i> [`Add new coupon`]</a></li>
+                                <li><a href="#/discount/editCoupon/" class="js-action" data-type="generator" title="[`Add generator`]"><i class="icon16 lightning"></i> [`Add generator`]</a></li>
+                                <li><a href="#/discount/importCoupons/" class="js-action" title="[`Import coupons`]">{$wa->shop->icon16('ss excel')} [`Import coupons`]</a></li>
+                            </ul>
+                        {else}
+                            [`If you want to create coupons`],
+                            <input class="button {if !$deny}green{else}red{/if}" type="submit" value="{if !$deny}[`Save discount rule`]{else}[`Save deny rule`]{/if}">
+                        {/if}
+                    </div>
+                </div>
+            </div>
+        {else}
+            <input type="hidden" name='data[deny]' value='1' class="f-save-me" />
+        {/if}
+        <div id="fixed-save-panel">
+            <div class="block bordered-top">
+                <input class="button {if !$deny}green{else}red{/if}" type="submit" disabled value="{if !$deny}[`Save`]{else}[`Save deny rule`]{/if}">
+            </div>
+        </div>
+    </div>
+    {if !empty($discount)}
+        <input type="hidden" name='id' value='{$discount.id}' class="f-save-me" />
+    {/if}
+</form>
+{$currency = $wa->shop->currency(true)}
+
+{include file="./include.importDialog.html"}
+
+<script>
+    $(function() {
+       $.flexdiscount.locale = "{$wa->locale()}";
+       $.flexdiscount.initDiscountPage({
+           {if !empty($discount)}discountId: {$discount.id}{/if}
+       });
+       $.flexdiscount_conditions.init({
+           conditions: {if !empty($discount.conditions)}{$discount.conditions}{else}""{/if},
+           target: {if !empty($discount.target)}{$discount.target}{else}""{/if},
+           deny: {$deny},
+           currency: {json_encode($currency.sign)}
+       });
+    });
+</script>

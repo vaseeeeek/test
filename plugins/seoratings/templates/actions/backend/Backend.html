@@ -1,0 +1,62 @@
+<script src="{$wa_url}wa-apps/shop/plugins/seoratings/js/libs/handlebars.min-v4.5.3.js"></script>
+<script src="{$wa_url}wa-apps/shop/plugins/seoratings/js/libs/underscore-min.js"></script>
+<script src="{$wa_url}wa-apps/shop/plugins/seoratings/js/libs/backbone-min.js"></script>
+<script src="{$wa_url}wa-apps/shop/plugins/seoratings/js/bootstrap.js"></script>
+<script src="{$wa_url}wa-apps/shop/plugins/seoratings/js/libs/slimselect.js"></script>
+<script src="{$wa_url}wa-apps/shop/plugins/seoratings/js/libs/pickr.min.js"></script>
+<script src="{$wa_url}wa-apps/shop/plugins/seoratings/js/libs/datepicker.js"></script>
+
+<link rel="stylesheet" href="{$wa_url}wa-apps/shop/plugins/seoratings/js/libs/pickr.nano.min.css">
+<link rel="stylesheet" href="{$wa_url}wa-apps/shop/plugins/seoratings/js/libs/datepicker.css">
+
+<script>
+  Seoratings.standard = {
+    html: {$standardHtml|json_encode},
+    css: {$standardCss|json_encode}
+  };
+</script>
+<script src="{$wa_url}wa-apps/shop/plugins/seoratings/js/backend/rating-backend.js"></script>
+<script>
+  Seoratings.frontend_urls = {$frontend_urls|json_encode};
+  Seoratings.seoratings_features = {$features|json_encode};
+  Seoratings.seoratings_shop_categories = {$categories|json_encode};
+  Seoratings.seoratings_sets = {$sets|json_encode};
+  Seoratings.seoratings_templates = new Seoratings.RatingTemplatesCollection({$seoratingsTemplates|json_encode});
+  Seoratings.seoratings_standard_templates = new Seoratings.RatingTemplatesCollection([
+    {
+      name: 'Список',
+      id: 'standard',
+    },
+    {
+      name: 'Таблица',
+      id: 'table'
+    },
+    {
+      name: 'Сетка',
+      id: 'grid'
+    }
+  ]);
+</script>
+<script src="{$wa_url}wa-apps/shop/plugins/seoratings/js/backend/backend.js"></script>
+{strip}
+  <div class="seoratings-backend">
+    <div class="seoratings-backend__title--main">
+      <div class="seoratings-backend__actions--left">
+        <a class="seoratings-backend__link--tabs -top" href="?plugin=seoratings&module=backendRating&action=edit" data-js="rating__new"><i class="icon16 add"></i> Добавить рейтинг</a>
+        <a class="seoratings-backend__link--tabs" data-js="handle__rating--templates"><i class="icon16 palette"></i> Шаблоны</a>
+      </div>
+    </div>
+    <div class="seoratings-backend__box">
+      <aside class="seoratings-backend__box--sidebar">
+        <div class="seoratings-backend__list--categories" data-js="rating__links"></div>
+      </aside>
+      <section class="seoratings-backend__box--content">
+        <section id="seoratings-content"></section>
+      </section>
+    </div>
+  </div>
+{/strip}
+
+{foreach $templates as $id => $template}
+  <script id="{$id}" type="template/hbs">{$template}</script>
+{/foreach}

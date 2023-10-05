@@ -1,0 +1,271 @@
+/***********************
+ *
+ * ru: Блок Доступных скидок и бонусов
+ * en: Available discount and bonuses
+ *
+************************/
+
+/**
+* Обертка
+* Wrap
+*/
+.flexdiscount-available-discount { }
+/**
+* Блок вывода Доступных скидок и бонусов
+* Available discount and bonuses
+*/
+.flexdiscount-alldiscounts { clear: none; background-color: #FFFFFF; border: 1px solid #DDDDDD; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; margin: 10px 0; }
+/**
+* Шапка
+* Header block
+*/
+.flexdiscount-alldiscounts-heading { background: #fff4b4; text-transform: uppercase; -webkit-border-top-left-radius: 3px; -moz-border-top-left-radius: 3px; border-top-left-radius: 3px; -webkit-border-top-right-radius: 3px; -moz-border-top-right-radius: 3px; border-top-right-radius: 3px; padding: 10px 15px;}
+/**
+* Заголовок шапки
+* Header text
+*/
+.flexdiscount-alldiscounts-heading .h3 { font-size: 14px; margin: 0; padding: 0; color: #444;}
+/**
+* Внутренний отступ основной части
+* Padding of the block body
+*/
+.flexdiscount-alldiscounts-body, .flexdiscount-alldiscounts .flexdiscount-body { padding: 15px; }
+/*
+* Ширина таблицы
+* Width table
+*/
+.flexdiscount-alldiscounts table { width: 100%; }
+/*
+* Внешний отступ неупорядоченных списков
+* Margin of unordered lists
+*/
+.flexdiscount-alldiscounts ul { margin: 0; }
+/*
+* Стили таблицы
+* Table styles
+*/
+.flexdiscount-alldiscounts .flexdiscount-table { border-left: 1px solid #000; border-top: 1px solid #000; width: 100%; margin: 0; }
+/*
+* Стили заголовков и ячеек таблицы
+* Table cells styles
+*/
+.flexdiscount-alldiscounts .flexdiscount-table td, .flexdiscount-alldiscounts .flexdiscount-table th { color: #000; border: 1px solid #000; padding: 5px; }
+.fl-discount-skus { margin-bottom: 10px; }
+tr.fl-discount-skus td { padding: 10px 5px; }
+
+/***********************
+ *
+ * ru: Блок Действующих скидок и бонусов
+ * en: Product active discounts and bonuses
+ *
+************************/
+
+/**
+* Обертка
+* Wrap
+*/
+.flexdiscount-product-discount { display: table; }
+/**
+* Блок вывода Действующих скидок и бонусов
+* Product active discounts and bonuses block
+*/
+.flexdiscount-pd-block { background-color: #FFFFFF; border: 1px solid #DDDDDD; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; margin: 10px 0; }
+/**
+* Шапка
+* Header block
+*/
+.flexdiscount-pd-block .flexdiscount-heading, #yourshop .flexdiscount-pd-block .flexdiscount-heading { background: #163bdb; text-transform: uppercase; border-color: #DDDDDD; color: #333333; -webkit-border-top-left-radius: 3px; -moz-border-top-left-radius: 3px; border-top-left-radius: 3px; -webkit-border-top-right-radius: 3px; -moz-border-top-right-radius: 3px; border-top-right-radius: 3px; padding: 10px 15px;}
+/**
+* Заголовок шапки
+* Header text
+*/
+.flexdiscount-pd-block .flexdiscount-heading .h3 { font-size: 14px; margin: 0; padding: 0; color: #fff;}
+/**
+* Внутренний отступ основной части
+* Padding of the block body
+*/
+.flexdiscount-pd-block .flexdiscount-body { padding: 15px; }
+/*
+* Внешний отступ неупорядоченных списков
+* Margin of unordered lists
+*/
+.flexdiscount-pd-block ul { margin: 0; }
+/*
+* Стили таблицы
+* Table styles
+*/
+.flexdiscount-pd-block .flexdiscount-table { border-left: 1px solid #000; border-top: 1px solid #000; width: 100%; margin: 0; }
+/*
+* Стили заголовков и ячеек таблицы
+* Table cells styles
+*/
+.flexdiscount-pd-block .flexdiscount-table td, .flexdiscount-pd-block .flexdiscount-table th { color: #000; border: 1px solid #000; padding: 5px; }
+
+/***********************
+ *
+ * ru: Активные скидок и бонусов
+ * en: Active discounts and bonuses block
+ *
+************************/
+
+/**
+* Обертка
+* Wrap
+*/
+.flexdiscount-user-discounts { }
+/**
+* Блок вывода активных скидок и бонусов
+* Active discounts and bonuses block
+*/
+.flexdiscount-discounts { clear: both; overflow: hidden; background-color: #FFFFFF; border: 1px solid #ddd; margin: 10px 0; }
+/**
+* Шапка
+* Header block
+*/
+.flexdiscount-discounts-heading { background: #eee; text-transform: uppercase; color: #333333; padding: 10px 15px; }
+/**
+* Заголовок шапки
+* Header text
+*/
+.flexdiscount-discounts-heading .h3 { font-size: 14px; margin: 0; color: #444; }
+/**
+* Внутренний отступ основной части
+* Padding of the block body
+*/
+.flexdiscount-discounts-body { padding: 0; }
+/*
+* Ширина таблицы
+* Width table
+*/
+.flexdiscount-discounts table { width: 100%; }
+/*
+* Стили неупорядоченных списков
+* Styles of unordered lists
+*/
+.flexdiscount-discounts-body ul { list-style: none; padding: 0; margin: 0; }
+.flexdiscount-discounts-body li { padding: 10px 15px; background-color: #fefce3; margin: 5px 0; }
+/*
+* Стили для размера скидки
+* Styles for discount
+*/
+.flexdiscount-discounts-price { color: #e8385c; display: inline-block; }
+
+/***********************
+ *
+ * ru: Дополнительная форма ввода купонов
+ * en: Additional coupon form
+ *
+************************/
+
+/*
+* Цвет сообщения о успешно введенном купоне
+* Message color about successfully entered coupon
+*/
+.flexdiscount-coup-result { color: green; }
+/*
+* Цвет сообщения о неверно введенном купоне
+* Message color about incorrectly entered coupon
+*/
+.flexdiscount-coup-result.flexdiscount-error { color: #ff0000; }
+/**
+* Крестик удаления купона
+* Delete coupon cross
+*/
+.flexdiscount-coupon-delete:before { content: 'x'; padding: 5px; -webkit-border-radius: 50%; -moz-border-radius: 50%; border-radius: 50%; border: 2px solid #ff0000; width: .5em; height: .5em; display: inline-block; text-align: center; line-height: .5em; margin-right: 5px; font-size: 1.3em; color: #ff0000; font-weight: bold; vertical-align: middle; }
+
+/***********************
+ *
+ * ru: Блок правил запрета
+ * en: Deny discounts block
+ *
+************************/
+
+/**
+* Обертка
+* Wrap
+*/
+.flexdiscount-deny-discount { }
+/**
+* Блок вывода правил запрета
+* Deny discounts block
+*/
+.flexdiscount-denydiscounts { clear: none; background-color: #FFFFFF; border: 1px solid #DDDDDD; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; margin: 10px 0; }
+/**
+* Шапка
+* Header block
+*/
+.flexdiscount-denydiscounts-heading { background: #ff0000; text-transform: uppercase; -webkit-border-top-left-radius: 3px; -moz-border-top-left-radius: 3px; border-top-left-radius: 3px; -webkit-border-top-right-radius: 3px; -moz-border-top-right-radius: 3px; border-top-right-radius: 3px; padding: 10px 15px;}
+/**
+* Заголовок шапки
+* Header text
+*/
+.flexdiscount-denydiscounts-heading .h3 { font-size: 14px; margin: 0; padding: 0; color: #fff;}
+/**
+* Внутренний отступ основной части
+* Padding of the block body
+*/
+.flexdiscount-denydiscounts-body, .flexdiscount-denydiscounts .flexdiscount-body { padding: 15px; }
+/*
+* Ширина таблицы
+* Width table
+*/
+.flexdiscount-denydiscounts table { width: 100%; }
+/*
+* Внешний отступ неупорядоченных списков
+* Margin of unordered lists
+*/
+.flexdiscount-denydiscounts ul { margin: 0; }
+/*
+* Стили таблицы
+* Table styles
+*/
+.flexdiscount-denydiscounts .flexdiscount-table { border-left: 1px solid #000; border-top: 1px solid #000; width: 100%; margin: 0; }
+/*
+* Стили заголовков и ячеек таблицы
+* Table cells styles
+*/
+.flexdiscount-denydiscounts .flexdiscount-table td, .flexdiscount-denydiscounts .flexdiscount-table th { color: #000; border: 1px solid #000; padding: 5px; }
+
+/***********************
+ *
+ * ru: Блок цены со скидкой
+ * en: Block of price with discount
+ *
+************************/
+
+/*
+* Обертка
+* Wrap
+*/
+.flexdiscount-price-block { display: inline-block; }
+
+/***********************
+ *
+ * ru: Скидки в личном кабинете
+ * en: Discounts in customer account
+ *
+************************/
+
+/*
+* Обертка
+* Wrap
+*/
+.flexdiscount-my-content > div { padding: 10px; }
+
+/***********************
+ *
+ * ru: Остальные стили
+ * en: Other styles
+ *
+************************/
+
+/*
+* Бонусы
+* Bonuses
+*/
+.flexdiscount-discounts-affiliate { color: #c03; background: #fff4b4; padding: 5px 10px; border-radius: 20px; }
+/**
+* Максимальное значение скидок и бонусов в блоках Доступных и Действующих скидок
+* Maximum value of discount and bonuses in Available discounts block and Product discounts block
+*/
+.flexdiscount-max-discount, .flexdiscount-max-affiliate { font-size: 1.3em; color: #c03; font-weight: 600; }

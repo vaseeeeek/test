@@ -1,0 +1,89 @@
+{if $product.sku_type || count($product.skus) > 1}
+{*  Для позиционирования опций товара поверх продукта добавьте в шаблоне перед выводом опций строку  {$wa->globals('salesku_options_fly', '1')}
+    Тогда опции будут показаны с классом абсолютного позиционирования вот так <div class="salesku_options fly">
+
+    Сами стили показа опций поверх продукта находятся в файле wa-apps/shop/plugins/salesku/css/saleskuFrontend.css
+    Стили вы можете настройить и переопределить в файле темы plugin.salesku.css
+*}
+<div class="salesku_options {if $wa->globals('salesku_options_fly')=='1'}fly{/if}">
+    {if $product.sku_type}
+    <!-- SELECTABLE FEATURES selling mode -->
+    {$default_sku_features = $product.sku_features}
+    {$product_available = $product.status}
+    <div class="options">
+        {foreach $product.features_selectable as $f}
+        <div class="salesku-feature-block">
+            {if $f.view_type == 'inline'}
+            <div class="inline-select salesku-feature-select {if $f.type == 'color'} color{/if}">
+                {if !empty($f.name)}<div>{$f.name}:</div>{/if}
+                {foreach $f.values as $v_id => $v}
+                {if !isset($default_sku_features[$f.id])}{$default_sku_features[$f.id]=$v_id}{/if}
+                <a data-value="{$v_id}" href="#"{if $v_id == ifset($default_sku_features[$f.id])} class="selected"{/if}{if $f.type == 'color'} style="{$v->style}; margin-bottom: 20px;"{/if}>
+                {if $f.type == 'color'}&nbsp;<i class="icon16 checkmark color_checkmark"></i>{/if}
+                {if $f.type == 'color'}&nbsp;<span class="color_name">{strip_tags($v)}</span>{else}{$v}{/if}
+                </a>
+                {/foreach}
+                <input type="hidden" data-feature-id="{$f.id}" class="sku-feature" name="features[{$f.id}]" value="{ifset($default_sku_features[$f.id])}">
+            </div>
+             {else}
+            <div class="salesku-feature-select">
+                   {if !empty($f.name)}{$f.name}:{/if}
+                <select data-feature-id="{$f.id}" class="sku-feature" name="features[{$f.id}]">
+                    {foreach $f.values as $v_id => $v}
+                    <option value="{$v_id}" {if $v_id == ifset($default_sku_features[$f.id])}selected{/if}>{$v}</option>
+                    {/foreach}
+                </select>
+            </div>
+            {/if}
+            {foreach $f.values as $v_id => $v}
+            <div class="salesku-feature-value salesku-feature-value-{$v_id}" style="display: none;">{if !empty($f.name)}{$f.name}:{/if} {$v}</div>
+            {/foreach}
+        </div>
+        {/foreach}
+    </div>
+{else}
+<!-- FLAT SKU LIST selling mode -->
+{$product_available = false}
+{if count($product.skus) > 1}
+    {if $product.skus_view_type=='select'}
+    <div class="salesku_skus">
+        <select name="salesku_skus">
+            {foreach $product.skus as $sku}
+            {$sku_available =  $product.status && $sku.available && ($wa->shop->settings('ignore_stock_count') || $sku.count === null || $sku.count > 0)}
+            <option value="{$sku.id}" {if !$sku_available}  class="" {/if} {if $sku.id == $product.sku_id} selected="selected"{/if}>
+            <span class="hint"> {$sku.name|escape} ({shop_currency_html($sku.price, $product.currency)})</span>
+            </option>
+            {/foreach}
+        </select>
+    </div>
+
+    {/if}
+    {* When there is more than one SKU, display selector *}
+    <ul class="skus {if $product.skus_view_type=='select'} salesku_skus_select salesku_skus_{$product->getUid()}{/if}" {if $product.skus_view_type=='select'} style="display: none !important;"{/if}>
+        {foreach $product.skus as $sku}
+        {$sku_available =  $product.status && $sku.available && ($wa->shop->settings('ignore_stock_count') || $sku.count === null || $sku.count > 0)}
+        <li itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+            <label{if !$sku.available} class="disabled"{/if}>
+            <input name="sku_id" type="radio" value="{$sku.id}" {if !$sku.available} disabled="true"{/if}{if !$sku_available}data-disabled="1"{/if}{if $sku.id == $product.sku_id} checked="checked"{/if} data-compare-price="{shop_currency($sku.compare_price, $product.currency, null, 0)}" data-price="{shop_currency($sku.price, $product.currency, null, 0)}"{if $sku.image_id} data-image-id="{$sku.image_id}"{/if}>
+            <span itemprop="name">{$sku.name|escape}</span>
+            {if $sku.sku}<span class="hint">{$sku.sku|escape}</span>{/if}
+            <meta itemprop="price" content="{$sku.price}">
+            <meta itemprop="priceCurrency" content="{$product.currency}">
+            <span class="price tiny nowrap">{shop_currency_html($sku.price, $product.currency)}</span>
+            {if (!($sku.count === null) && $sku.count <= 0)}
+            <link itemprop="availability" href="http://schema.org/OutOfStock" />
+            {else}
+            <link itemprop="availability" href="http://schema.org/InStock" />
+            {/if}
+            </label>
+        </li>
+        {$product_available = $product_available or $sku_available}
+        {/foreach}
+    </ul>
+{else}
+{* Товарное предложение там и так есть и его можно купить *}
+{/if}
+{/if}
+    <div class="salesku_options_head">Выберите опции товара</div>
+</div>
+{/if}

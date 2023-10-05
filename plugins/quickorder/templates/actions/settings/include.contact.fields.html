@@ -1,0 +1,61 @@
+<script type="text/x-tmpl" id="tmpl-field">
+    <div class="field">
+        <i class="icon16 sort" style="vertical-align: middle;"></i>
+        {literal}
+        <div class="inline-block {% if (!o.hide_name) { %} width25{% } %} vtop">
+            <input type="text" name="name" {% if (o.hide_name) { %}style="display: none"{% } %} class="width100 f-contact-field-name" value="{%=o.name%}" placeholder="[`Field name`]" />
+            <div class='margin-block top semi'>
+                <div><label class="f-contact-additional-field" {% if (!o.hide_name) { %}style="display: none"{% } %}><input type="checkbox" class="f-contact-hide-name" name="hide_name" value="1" {% if (o.hide_name) { %}checked="checked"{% } %} />[`Hide field name`]</label></div>
+                <a href="javascript:void(0)" {% if (o.hide_name && o.css_class) { %}style="display: none"{% } %} class="inline-link f-contact-field-additional"><b><i>[`additional settings`]</i></b></a>
+            </div>
+        </div>
+        <div class="inline-block vtop width25">
+            <input type="text" name="placeholder" class="width100" value="{%=o.placeholder%}" placeholder="[`Placeholder`]" />
+            {% if (o.type == 'phone')  { include('tmpl-field-extra-2', o); } %}
+        </div>
+        {/literal}
+        <div class="inline-block vtop width25">
+            <select name="type" class='f-contact-field-type width100'>
+                <option value="">[`Select field type`]</option>
+                {foreach $fields as $field}
+                    <option {ldelim}% if (o.type == '{$field->getId()}') { print('selected'); } %{rdelim} value="{$field->getId()}">{$field->getName()|escape}</option>
+                {/foreach}
+                <optgroup label="[`Address`]">
+                    {foreach $address as $addr}
+                        <option {ldelim}% if (o.type == 'address::{$addr->getId()}') { print('selected'); } %{rdelim} value="address::{$addr->getId()}">{$addr->getName()|escape}</option>
+                    {/foreach}
+                </optgroup>
+            </select>
+            {literal}
+            {% if (o.type == 'phone')  { include('tmpl-field-extra', o); } %}
+            {/literal}
+        </div>
+        {literal}
+        <input type="text" {% if (!o.css_class) { %}style="display: none"{% } %} class="short f-contact-additional-field s-contact-field-css" placeholder="[`css class`]" value="{%=o.css_class%}" name="css_class" />
+        <label class="nowrap"><input type="checkbox" name="required" value="1" {% if (o.required) { %}checked="checked"{% } %} /><em class="small">[`Required`]</em></label>
+        <a href="javascript:void(0)" title="[`delete`]" class="f-delete-form-fields"><i class="icon16 cross" style="vertical-align: middle"></i></a>
+        {/literal}
+    </div>
+</script>
+
+<script type="text/x-tmpl" id="tmpl-contact-fields">
+    {literal}
+    {% for (var i=0; i<o.fields.length; i++) { %}
+        {% include('tmpl-field', o.fields[i]); %}
+    {% } %}
+    {/literal}
+</script>
+<script type="text/x-tmpl" id="tmpl-field-extra">
+    {literal}
+    <div class="margin-block top semi f-contact-field-extra">
+        <input type="text" name="extra" value="{%=o.extra%}" class="width100" placeholder="+7(000)000-00-00">
+    </div>
+    {/literal}
+</script>
+<script type="text/x-tmpl" id="tmpl-field-extra-2">
+    {literal}
+    <div class="margin-block top align-right grey f-contact-field-extra2">
+        [`phone mask`]
+    </div>
+    {/literal}
+</script>

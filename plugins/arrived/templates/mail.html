@@ -1,0 +1,10 @@
+<p>Здравствуйте!</p>
+<p>Вами была подана заявка с просьбой уведомить вас о поступлении в продажу «<strong>{$product.name|escape}</strong>».
+<br>Сообщаем вам, что в данный момент товар имеется в наличии.</p>
+<p>Посмотреть и купить его вы можете на странице: <a href="{$product.frontend_url}">{$product.frontend_url}</a></p>
+<p>&nbsp;</p>
+<p>Спасибо, что выбрали магазин «{$wa->shop->settings("name")|escape}»!</p>
+<p>--<br>
+{$wa->shop->settings("name")|escape}<br>
+<a href="mailto:{$wa->shop->settings('email')}">{$wa->shop->settings('email')}</a><br>
+{$wa->shop->settings("phone")}<br></p>

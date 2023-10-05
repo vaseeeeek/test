@@ -1,0 +1,41 @@
+<h1>[`Transfer settings and prices from other plugins`]</h1>
+
+{if !empty($transfer)}
+<form id="complex-transfer-form" action="?plugin=complex&action=transfer" class="fields">
+	<div class="field">
+		<div class="name">
+			[`Plugin`]:
+		</div>
+		<div class="value">
+			{if count($transfer) == 1}
+			<input type="hidden" name="transfer_plugin" value="{$transfer[0]}"/>
+			{shopComplexPluginHelper::getNameOfPlugin($transfer[0])}
+			{else}
+			<select name="transfer_plugin">
+				{foreach $transfer as $transfer_plugin}
+				<option value="{$transfer_plugin}">{shopComplexPluginHelper::getNameOfPlugin($transfer_plugin)}</option>
+				{/foreach}
+			</select>
+			{/if}
+		</div>
+	</div>
+</form>
+<div id="progressbar-complex" class="complex-transfer-progress float-left" style="width: 100%; display: none;">
+	<span class="status">[`Preparing for transfer`]...</span> <i class="icon16 loading"></i>
+	<div class="progressbar small green" style="width: 97%; margin-top: 5px;">
+		<div class="progressbar-outer">
+			<div class="progressbar-inner" id="progressbar-complex-inner" style="width: 0%;">
+			</div>
+		</div>
+	</div>
+</div>
+<p id="complex-transfer-info" class="float-left">
+	[`All settings and price types from selected plugin will be transferred, as well as the existing prices for products.`]
+</p>
+
+<script type="text/javascript" src="{$plugin_url}js/event.stream.js"></script>
+{else}
+<p>
+	[`Plugins for managing wholesale and other prices were not found.`]
+</p>
+{/if}

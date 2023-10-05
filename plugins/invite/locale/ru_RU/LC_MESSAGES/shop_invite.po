@@ -1,0 +1,384 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/invite\n"
+"POT-Creation-Date: 2016-02-15 23:57+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: shop/plugins/invite <covoxx@inbox.ru>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n"
+"%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"Language: ru_RU\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: /wa-apps/shop/plugins/invite/templates/controls/feedbackControl.html:5
+msgid "QR code"
+msgstr "QR код"
+
+#: /wa-apps/shop/plugins/invite/templates/controls/feedbackControl.html:9
+msgid "Technical support"
+msgstr "Техническая поддержка"
+
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Invites.html:1
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Settings.html:5
+#: /wa-apps/shop/plugins/invite/lib/config/plugin.php:3
+#: /wa-apps/shop/plugins/invite/lib/shopInvitePlugin.class.php:80
+msgid "Invites"
+msgstr "Приглашения"
+
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Basic.html:1
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Settings.html:10
+msgid "Basic settings"
+msgstr "Основные настройки"
+
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Settings.html:28
+msgid "Save"
+msgstr "Сохранить"
+
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Settings.html:47
+msgid "Delete"
+msgstr "Удалить"
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:12
+msgid "Enable Invite Engine"
+msgstr "Включить обработку приглашений"
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:19
+msgid "Register by invitation only"
+msgstr "Регистрировать только приглашенных"
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:13
+msgid "If checked, then Invite Engine will be enabled."
+msgstr "Если отмечено, обработка приглашений будет включена."
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:20
+msgid "If checked, it will be possible to register by invitation only."
+msgstr ""
+"Если отмечено, зарегистрироваться смогут только приглашенные пользователи."
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:25
+msgid "Ask for technical support"
+msgstr "Запросить техническую поддержку"
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:26
+msgid "Click on the link to contact the developer."
+msgstr "Перейдите по ссылке чтобы связаться с разработчиком."
+
+#: /wa-apps/shop/plugins/invite/lib/config/plugin.php:4
+msgid "Allows you to register by invitation"
+msgstr "Позволяет регистрироваться по приглашениям"
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:26
+msgid "Allow users to invite each other"
+msgstr "Разрешать пользователям приглашать друг друга"
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:27
+msgid ""
+"If checked, the user will be able to invite friends in a personal cabinet."
+msgstr ""
+"Если отмечено, то у пользователя  в личном кабинете появится возможность "
+"приглашать друзей."
+
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Info.html:1
+#: /wa-apps/shop/plugins/invite/lib/shopInvitePlugin.class.php:84
+msgid "Information"
+msgstr "Информация"
+
+#: /wa-apps/shop/plugins/invite/templates/actions/frontend/Invites.html:9
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Invites.html:16
+msgid "E-mail"
+msgstr ""
+
+#: /wa-apps/shop/plugins/invite/templates/actions/frontend/Invites.html:15
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Invites.html:22
+msgid "Enter a user e-mail for the invitation"
+msgstr "Введите e-mail пользователя для приглашений"
+
+#: /wa-apps/shop/plugins/invite/templates/actions/frontend/Invites.html:20
+#: /wa-apps/shop/plugins/invite/templates/actions/frontend/Invitations_table.html:16
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Invites.html:27
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Invitations_table.html:16
+msgid "Description"
+msgstr "Описание"
+
+#: /wa-apps/shop/plugins/invite/templates/actions/frontend/Invites.html:25
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Invites.html:32
+msgid "Enter a description of the invitation"
+msgstr "Введите описание для приглашения"
+
+#: /wa-apps/shop/plugins/invite/templates/actions/frontend/Invites.html:30
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Invites.html:37
+msgid "User category"
+msgstr "Категория пользователя"
+
+#: /wa-apps/shop/plugins/invite/templates/actions/frontend/Invites.html:39
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Invites.html:46
+msgid "Select a user category for the invitation"
+msgstr "Выберите категорию пользователя для приглашений"
+
+#: /wa-apps/shop/plugins/invite/templates/actions/frontend/Invites.html:46
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Invites.html:53
+msgid "Invite user"
+msgstr "Пригласить пользователя"
+
+#: /wa-apps/shop/plugins/invite/templates/actions/frontend/my_tab.html:2
+#: /wa-apps/shop/plugins/invite/lib/actions/frontend/shopInvitePluginFrontendShow.action.php:53
+msgid "Invitations"
+msgstr "Приглашения"
+
+#: /wa-apps/shop/plugins/invite/templates/actions/frontend/Invitations_table.html:4
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Invitations_table.html:4
+msgid "Code"
+msgstr "Код"
+
+#: /wa-apps/shop/plugins/invite/templates/actions/frontend/Invitations_table.html:7
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Invitations_table.html:7
+msgid "E-Mail"
+msgstr ""
+
+#: /wa-apps/shop/plugins/invite/templates/actions/frontend/Invitations_table.html:10
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Invitations_table.html:10
+msgid "Category"
+msgstr "Категория"
+
+#: /wa-apps/shop/plugins/invite/templates/actions/frontend/Invitations_table.html:13
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Invitations_table.html:13
+msgid "Contact"
+msgstr "Контакт"
+
+#: /wa-apps/shop/plugins/invite/templates/actions/frontend/Invitations_table.html:19
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Invitations_table.html:19
+msgid "Datetime"
+msgstr "Дата"
+
+#: /wa-apps/shop/plugins/invite/templates/actions/frontend/Invitations_table.html:22
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Invitations_table.html:22
+msgid "Confirmed"
+msgstr "Подтвержден"
+
+#: /wa-apps/shop/plugins/invite/templates/actions/frontend/Invitations_table.html:25
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Invitations_table.html:25
+msgid "Registered"
+msgstr "Зарегистрирован"
+
+#: /wa-apps/shop/plugins/invite/templates/actions/frontend/Invitations_table.html:31
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Invitations_table.html:31
+msgid "No data available"
+msgstr "Нет данных"
+
+#: /wa-apps/shop/plugins/invite/lib/actions/backend/shopInvitePluginBackendConfirm.controller.php:29
+#: /wa-apps/shop/plugins/invite/lib/actions/backend/shopInvitePluginBackendAdd.controller.php:95
+msgid "Access denied"
+msgstr "Доступ запрещен"
+
+#: /wa-apps/shop/plugins/invite/lib/actions/backend/shopInvitePluginBackendAdd.controller.php:49
+msgid "Invitation code"
+msgstr "Код приглашения"
+
+#: /wa-apps/shop/plugins/invite/lib/actions/backend/shopInvitePluginBackendAdd.controller.php:106
+msgid "Invalid e-mail"
+msgstr "Не верный e-mail"
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:32
+msgid "User Categories"
+msgstr "Пользовательские категории"
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:25
+msgid "Domains"
+msgstr "Домены"
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:26
+msgid "Select the domain, for the work of invitations available."
+msgstr "Выберите домены, для которых доступны приглашения"
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:33
+msgid "Categories of users who are allowed to invite other users."
+msgstr "Категории пользователей, которые могут приглашать других пользователей"
+
+#: /wa-apps/shop/plugins/invite/lib/config/plugin.php:3
+msgid "invitations"
+msgstr "Приглашения"
+
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Invitations_table.html:13
+msgid "Owner"
+msgstr "Пригласивший"
+
+#: /wa-apps/shop/plugins/invite/templates/controls/templatesControl.html:14
+msgid "Name of the person that invites"
+msgstr "Имя пригласившего"
+
+#: /wa-apps/shop/plugins/invite/templates/controls/templatesControl.html:19
+msgid "Domain name"
+msgstr "Имя домена"
+
+#: /wa-apps/shop/plugins/invite/templates/controls/templatesControl.html:24
+msgid "Domain link"
+msgstr "Ссылка на сайт"
+
+#: /wa-apps/shop/plugins/invite/templates/controls/templatesControl.html:29
+msgid "Site link"
+msgstr "Ссылка на сайт"
+
+#: /wa-apps/shop/plugins/invite/templates/controls/templatesControl.html:34
+msgid "Invite link"
+msgstr "Ссылка на приглашение"
+
+#: /wa-apps/shop/plugins/invite/templates/controls/templatesControl.html:39
+msgid "Invite code"
+msgstr "Код приглашения"
+
+#: /wa-apps/shop/plugins/invite/templates/controls/templatesControl.html:46
+msgid "Warning! The default template has been changed."
+msgstr "Внимание! Шаблон по умолчанию был изменен. "
+
+#: /wa-apps/shop/plugins/invite/templates/controls/templatesControl.html:48
+msgid " - Reset changes, use the default template."
+msgstr "- Сбросить изменения. Использовать шаблон по умолчанию."
+
+#: /wa-apps/shop/plugins/invite/templates/actions/settings/Templates.html:1
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:59
+#: /wa-apps/shop/plugins/invite/lib/shopInvitePlugin.class.php:141
+msgid "Templates"
+msgstr "Шаблоны"
+
+#: /wa-apps/shop/plugins/invite/templates/Mail.html:127
+msgid "We will be glad to see you on our website "
+msgstr "Мы рады видеть Вас на нашем сайте "
+
+#: /wa-apps/shop/plugins/invite/templates/Mail.html:128
+msgid "You can register online with the invitation code: "
+msgstr "Вы можете зарегистрироваться с кодом приглашения: "
+
+#: /wa-apps/shop/plugins/invite/templates/Mail.html:179
+msgid "Accept invitation"
+msgstr "Принять приглашение"
+
+#: /wa-apps/shop/plugins/invite/lib/classes/shopInvitePluginMail.class.php:105
+msgid "Code %s has been sent successfully"
+msgstr "Код %s был успешно отправлен"
+
+#: /wa-apps/shop/plugins/invite/lib/classes/shopInvitePluginMail.class.php:108
+msgid "Code %s not been sended"
+msgstr "Код %s не был отправлен"
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:26
+msgid "Send invitation by e-mail"
+msgstr "Послать приглашение на e-mail"
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:33
+msgid "Invitation subject"
+msgstr "Тема приглашения"
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:40
+msgid "Log sended e-mails"
+msgstr "Вести лог отправки на e-mail"
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:27
+msgid "If checked, invitation will be sended by e-mail."
+msgstr "Если отмечено, приглашение будет отправленона e-mail."
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:32
+msgid "Invitation"
+msgstr "Приглашение"
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:34
+msgid "Set the invitation subject for e-mail."
+msgstr "Задайте тему приглашения, отправляемого на e-mail."
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:41
+msgid "If checked, sended e-mails will be logged."
+msgstr "Если отмечено, будет вестись лог отправленных сообщений."
+
+#: /wa-apps/shop/plugins/invite/lib/shopInvitePlugin.class.php:98
+msgid "Mail notification template (Mail.html)"
+msgstr "Шаблон почтовых уведомлений (Mail.html)"
+
+#: /wa-apps/shop/plugins/invite/templates/controls/templatesControl.html:19
+msgid "Site name"
+msgstr "Имя сайта"
+
+#: /wa-apps/shop/plugins/invite/templates/controls/templatesControl.html:24
+msgid "Site url"
+msgstr "Адрес сайта"
+
+#: /wa-apps/shop/plugins/invite/templates/controls/templatesControl.html:29
+msgid "Link to the website in html format (&lt;a href=...)"
+msgstr "Ссылка на сайт в формате html (&lt;a href=...)"
+
+#: /wa-apps/shop/plugins/invite/templates/controls/templatesControl.html:34
+msgid "Invite url"
+msgstr "Ссылка на приглашение"
+
+#: /wa-apps/shop/plugins/invite/templates/controls/templatesControl.html:39
+msgid "Link to the invite in html format (&lt;a href=...)"
+msgstr "Ссылка на приглашение в формате html (&lt;a href=...)"
+
+#: /wa-apps/shop/plugins/invite/templates/Mail.html:56
+msgid "From"
+msgstr "От"
+
+#: /wa-apps/shop/plugins/invite/templates/Mail.html:56
+msgid "From user"
+msgstr "От пользователя"
+
+#: /wa-apps/shop/plugins/invite/templates/controls/templatesControl.html:41
+msgid "Hint"
+msgstr "Подсказка"
+
+#: /wa-apps/shop/plugins/invite/templates/Deny.html:3
+msgid "Deny!"
+msgstr "Отказ!"
+
+#: /wa-apps/shop/plugins/invite/templates/Deny.html:4
+msgid "It is forbidden to register without invitation code."
+msgstr "Запрещено регистрироваться без кода приглашения."
+
+#: /wa-apps/shop/plugins/invite/lib/actions/frontend/shopInvitePluginFrontendDeny.action.php:20
+msgid "Deny"
+msgstr "Отказ"
+
+#: /wa-apps/shop/plugins/invite/lib/shopInvitePlugin.class.php:103
+msgid "Template refusal to register (Deny.html)"
+msgstr "Шаблон отказа в регистрации (Deny.html)"
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:53
+msgid "Domain for mail invitations"
+msgstr "Домен для приглашений"
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:54
+msgid "Select the domain that will be used to send mail."
+msgstr "Выберите домен, который будет использоваться в сообщениях"
+
+#: /wa-apps/shop/plugins/invite/lib/config/settings.php:54
+msgid "Select the domain to be used in messages."
+msgstr "Выберите домен, который будет использоваться в сообщениях."
+
+#: /wa-apps/shop/plugins/invite/lib/shopInvitePlugin.class.php:316
+msgid "Invitation_code"
+msgstr "Код приглашения"
+
+#: /wa-apps/shop/plugins/invite/lib/shopInvitePlugin.class.php:325
+msgid "Password"
+msgstr "Пароль"
+
+#: /wa-apps/shop/plugins/invite/lib/shopInvitePlugin.class.php:332
+msgid "shop"
+msgstr "Магазин"
+
+#: /wa-apps/shop/plugins/invite/lib/shopInvitePlugin.class.php:334
+msgid "Shop"
+msgstr "Магазин"
+
+#: /wa-apps/shop/plugins/invite/lib/shopInvitePlugin.class.php:334
+msgid "site"
+msgstr "Сайт"
+
+#: /wa-apps/shop/plugins/invite/lib/shopInvitePlugin.class.php:334
+msgid "Site"
+msgstr "Сайт"

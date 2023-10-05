@@ -1,0 +1,95 @@
+﻿{foreach $cities as $_city}
+<tr class="region__row" data-id="{$_city.id}">
+	{if $is_custom_sortable}
+		<td class="drag-handle">
+			<i class="icon16 sort"></i>
+		</td>
+	{/if}
+
+	<td class="min-width">
+		<label>
+			<input class="js-region_selected" type="checkbox"/>
+		</label>
+	</td>
+
+	<td>
+		<a class="link-box" href="?plugin=regions&action=edit&id={$_city.id}">
+			<div>{$_city.name|default:'<без названия>'}<i class="shortener"></i></div>
+		</a>
+		{if $_city.storefront && !$is_single_for_storefront.{$_city.id} && $_city.is_default_for_storefront}
+			<span class="default_storefront_hint">
+				По-умолчанию для
+				<a class="js-switch_region link-box" href="{$_city.change_region_url}" target="_blank">
+					<div>{$_city.storefront_title}<i class="shortener"></i></div>
+				</a>
+			</span>
+		{/if}
+	</td>
+
+	<td>
+		{if $_city.storefront}
+		<a class="js-switch_region link-box" href="{$_city.change_region_url}" target="_blank">
+			{$_city.storefront_title}
+		</a>
+		{else}
+		<span>
+			&lt;витрина не указана&gt;
+		</span>
+		{/if}
+	</td>
+
+	{if !$without_country_column}
+		<td>
+			{if isset($_city['country_name'])}
+                <div>{$_city['country_name']}<i class="shortener"></i></div>
+			{/if}
+		</td>
+	{/if}
+
+	{if !$without_region_column}
+		<td>
+			{if isset($_city['region_name'])}
+                 <div>{$_city['region_name']}<i class="shortener"></i></div>
+			{/if}
+		</td>
+	{/if}
+
+	<td class="align-center">
+
+		<i class="js-is_popular_icon icon16 yes {if !$_city.is_popular}hidden{/if}"></i>
+
+	</td>
+
+	<td class="align-center">
+
+		<i class="js-is_enable_icon icon16 yes {if !$_city.is_enable}hidden{/if}"></i>
+
+	</td>
+
+	<td class="align-center">
+		<a class="link-box region__edit-btn" href="?plugin=regions&action=edit&id={$_city.id}">
+			<i class="icon16 edit"></i>
+		</a>
+	</td>
+
+	<td class="align-center">
+		<a class="link-box js-delete-city delete-city">
+			<i class="icon16 no-bw"></i>
+		</a>
+	</td>
+
+	{*
+	<td class="align-center">
+		<span>
+			{$_city.create_datetime|wa_date:'datetime'}
+		</span>
+	</td>
+
+	<td class="align-center">
+		<span>
+			{$_city.update_datetime|wa_date:'datetime'}
+		</span>
+	</td>
+	*}
+</tr>
+{/foreach}

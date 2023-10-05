@@ -1,0 +1,132 @@
+{literal}
+
+{if $wa->shop && class_exists('shopFlexdiscountPlugin') && shopFlexdiscountPlugin::isEnabled()}
+
+    {if $fl_discounts}
+        {if !$view_type || $view_type == '1' || $view_type == '2' || $view_type == '3'}
+        <div class='flexdiscount-pd-block'>
+            <div class="flexdiscount-heading">
+                <div class="h3">[`Product discounts`]</div>
+            </div>
+            <div class="flexdiscount-body">
+                <div class='flexdiscount-interactive'>
+
+                {* [`VIEW TYPE`] 1 *}
+
+                {if $view_type == '1' || !$view_type}
+                    <ul>
+                        {foreach $fl_discounts as $d}
+                            <li>
+                                {if $d.name}{$d.name|escape} -{/if} {$d.discount}
+                            </li>
+                        {/foreach}
+                    </ul>
+
+                {* [`VIEW TYPE`] 2 *}
+
+                {elseif $view_type == '2'}
+                    <table class="flexdiscount-table align-center">
+                        <thead>
+                            <tr>
+                                <th>[`Name`]</th>
+                                <th>[`Discount`]</th>
+                                <th>[`Discount`], %</th>
+                                {if shopAffiliate::isEnabled()}
+                                <th>[`Affiliate`]</th>
+                                {/if}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {foreach $fl_discounts as $d}
+                            <tr>
+                                <td>{$d.name|escape}</td>
+                                <td{if !empty($d.max_discount)} class='flexdiscount-max-discount'{/if}>{$d.discount}</td>
+                                <td>{$d.params.discount_percentage}</td>
+                                {if shopAffiliate::isEnabled()}
+                                <td{if !empty($d.max_affiliate)} class='flexdiscount-max-affiliate'{/if}>{$d.affiliate}</td>
+                                {/if}
+                            </tr>
+                            {/foreach}
+                        </tbody>
+                    </table>
+
+                {* [`VIEW TYPE`] 3 *}
+
+                {elseif $view_type == '3'}
+                    {$head = '<th>[`Name`]</th>'}
+                    {$body = '<td>[`Discount`]</td>'}
+                    {foreach $fl_discounts as $d}
+                        {$head = "`$head`<th>{$d.name|escape}</th>"}
+                        {$body = "`$body`<td>{$d.discount}</td>"}
+                    {/foreach}
+                    <table class="align-center flexdiscount-table" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr>
+                                {$head}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                {$body}
+                            </tr>
+                        </tbody>
+                    </table>
+
+                {* [`END`] *}
+
+                {/if}
+                </div>
+            </div>
+        </div>
+
+        {* [`VIEW TYPE`] 4 *}
+
+        {elseif $view_type == '4'}
+            <div class="flexdiscount-body">
+                <table class="flexdiscount-table align-center">
+                    {foreach $fl_discounts as $d}
+                        <tr>
+                            <td>{$d.name|escape}</td>
+                            <td{if !empty($d.max_discount)} class='flexdiscount-max-discount'{/if}>{$d.discount}</td>
+                        </tr>
+                    {/foreach}
+                </table>
+            </div>
+
+        {* [`VIEW TYPE`] 5 *}
+
+        {elseif $view_type == '5'}
+            <div style='display: inline-block; font-size: 1.2em; color: #c03;'>
+                {if !empty($workflow.clear_discount)}
+                    [`Your discount`] {$workflow.discount}
+                {/if}
+            </div>
+
+        {* [`VIEW TYPE`] 6 *}
+
+        {elseif $view_type == '6'}
+            {if shopAffiliate::isEnabled()}
+                <div style='display: inline-block; font-size: 1.2em;'>
+                    {if !empty($workflow.affiliate)}
+                    <span class="flexdiscount-discounts-affiliate">+ {$workflow.affiliate} {_wd('shop_flexdiscount', 'bonus', 'bonuses', $workflow.affiliate)}</span>
+                    {/if}
+                </div>
+            {/if}
+
+
+        {* [`VIEW TYPE`] 7 *}
+
+        {elseif $view_type == '7'}
+            <div style='display: inline-block'>
+
+                {* [`CREATE YOUR OWN VIEW TYPE RIGHT HERE`]  *}
+
+            </div>
+
+        {* [`END`] *}
+
+        {/if}
+    {/if}
+{/if}
+
+{/literal}

@@ -1,0 +1,15 @@
+{if count($gifts)}
+<div class="gift-block">
+	<div class="gift-block-title" style="background-image:url('{$img_url}');">С этим товаром {if count($gifts)>1}идут подарки{else}идет подарок{/if}</div>
+	{foreach $gifts as $gift}
+	<div class="gift-block-content">
+		{$wa->shop->productImgHtml($gift, '96', ['alt' => $gift.name, 'default' => ''])}
+		<div class="gift-right">
+			<div class="gift-name"><a href="{$gift.frontend_url}">{$gift.name}</a></div>
+			<div class="gift-block-price">{shop_currency($gift.price)}</div>
+		</div>
+		<div class="clear-left"></div>
+	</div>
+	{/foreach}
+</div>
+{/if}

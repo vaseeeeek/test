@@ -1,0 +1,18 @@
+<link rel="stylesheet" type="text/css" href="{$plugin_url}css/complex.css?15"/>
+
+{if !empty($transfer)}
+<div id="c-transfer-block">
+	<div>
+		{if count($transfer) == 1}
+		[`Detected plugin`] <b>"{shopComplexPluginHelper::getNameOfPlugin($transfer[0])}"</b>. [`Transfer settings and product prices`][` iz nego`]?
+		{else}
+		[`Detected plugins`] {foreach from=$transfer item=transfer_plugin name=transfer_plugins}<b>"{shopComplexPluginHelper::getNameOfPlugin($transfer_plugin)}"</b>{if not $smarty.foreach.transfer_plugins.last}, {/if}{/foreach}. [`Transfer settings and product prices`][` iz nih`]?
+		{/if}
+	</div>
+	<div style="margin-top: 20px;">
+		 <a href="#" id="c-transfer-yes" class="button green">[`Transfer prices`]</a>
+	</div>
+</div>
+{/if}
+
+<script type="text/javascript" src="{$plugin_url}js/complex.transfer.js"></script>

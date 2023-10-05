@@ -1,0 +1,106 @@
+<form action="?module=plugins&id={$plugin_id}&action=save" method="post" class="js-sk-form shop-sk-form" enctype="multipart/form-data">
+
+    {$wa->csrf()}
+
+    <div class="field">
+        <div class="name">
+            <label>Заголовок формы</label>
+        </div>
+        <div class="value">
+            <input type="text" name="shop_skoneclick_defines[title]" value="{$defines.title|escape}" />
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">
+            <label>Текст кнопки отправки</label>
+        </div>
+        <div class="value">
+            <input type="text" name="shop_skoneclick_defines[button]" value="{$defines.button|escape}" />
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">
+            <label>Вступительный тескт</label>
+        </div>
+        <div class="value">
+            <textarea class="js-sk-editor" name="shop_skoneclick_defines[text]">{$defines.text}</textarea>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">
+            <label>Заголовок успешной отправки</label>
+        </div>
+        <div class="value">
+            <input type="text" name="shop_skoneclick_defines[title_success]" value="{$defines.title_success|escape}" />
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">
+            <label>Текст успешной отправки</label>
+        </div>
+        <div class="value">
+            <textarea class="js-sk-editor" name="shop_skoneclick_defines[text_success]">{$defines.text_success}</textarea>
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="name">
+            <label>Редактор полей</label>
+        </div>
+        <div class="value">
+
+            <div class="shop-sk-generate-form js-sk-generate-form">
+
+                <table class="shop-sk-generate-form__table js-sk-generate-form-table zebra mode-sales">
+                    <tbody class="shop-sk-generate-form__body js-sk-generate-form-body">
+                    {foreach $controls as $control}
+                            {include file="./SettingsField.html" control=$control}
+                        {/foreach}
+                    </tbody>
+                </table>
+
+                <div class="shop-sk-generate-form__add">
+                    <select class="shop-sk-generate-form__add-select js-sk-generate-form-add-select">
+                        <option value="">Выберите поле</option>
+                        {foreach $checkout_controls as $name_id => $control}
+                            {if isset($control.localized_names)}
+                                <option value="{$name_id}" {if isset($controls[$name_id])}style="display: none"{/if}>{$control.localized_names}</option>
+                            {/if}
+                        {/foreach}
+                    </select>
+                    &nbsp;&nbsp;
+                    <a href="javascript:void(0)" class="js-sk-generate-form-add-link">Добавить поле</a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    {literal}
+    <script type="text/javascript">
+
+        $(function () {
+
+            if ($().redactor !== undefined) {
+                 $('.js-sk-editor').redactor();
+            }
+
+            $('.js-sk-editor').data('uploadFields', {
+                '_csrf': "{waRequest::cookie('_csrf', '')}"
+            });
+
+            $( ".js-sk-generate-form-body" ).sortable();
+
+        })
+    </script>
+    {/literal}
+
+    <div class="field shop-sk-form__save">
+        <div class="value submit">
+            <input type="submit" class="button green" value="Сохранить">
+            <span class="shop-sk-form__status js-sk-form-status" style="display:none"></span>
+        </div>
+    </div>
+
+</form>

@@ -1,0 +1,857 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/bundling\n"
+"POT-Creation-Date: 2017-07-17 18:44+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator:  shop/plugins/bundling\n"
+"Language-Team:  shop/plugins/bundling\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-Language: ru_RU\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:4
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:7
+msgid "Back"
+msgstr "Назад"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:5
+#: /wa-apps/shop/plugins/bundling/lib/actions/shopBundlingPluginBackend.actions.php:35
+#: /wa-apps/shop/plugins/bundling/lib/shopBundlingPlugin.class.php:108
+msgid "Bundles"
+msgstr "Комплектации"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:10
+msgid "By category"
+msgstr "По категориям"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:10
+msgid "By product type"
+msgstr "По типу товара"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:15
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:65
+#: /wa-apps/shop/plugins/bundling/js/bundling.bundles.js:79
+#: /wa-apps/shop/plugins/bundling/js/bundling.dialog.js:43
+msgid "New"
+msgstr "Новый"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:15
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:65
+#: /wa-apps/shop/plugins/bundling/js/bundling.bundles.js:81
+#: /wa-apps/shop/plugins/bundling/js/bundling.editProductBundles.js:10
+msgid "Type of accessory"
+msgstr "Тип комплектующего"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:17
+msgid "For any"
+msgstr "Для всех"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:17
+msgid "product with type"
+msgstr "товаров типа"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:17
+msgid "product in category"
+msgstr "товаров категории"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:26
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:48
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:68
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:34
+#: /wa-apps/shop/plugins/bundling/js/bundling.bundles.js:46
+#: /wa-apps/shop/plugins/bundling/js/bundling.bundles.js:68
+#: /wa-apps/shop/plugins/bundling/js/bundling.bundles.js:85
+#: /wa-apps/shop/plugins/bundling/js/bundling.editProductBundles.js:12
+#: /wa-apps/shop/plugins/bundling/js/bundling.editProductBundles.js:55
+msgid "Multiple select"
+msgstr "Мультивыбор"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:30
+msgid "Add"
+msgstr "Добавить"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:54
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:45
+#: /wa-apps/shop/plugins/bundling/js/bundling.bundles.js:71
+#: /wa-apps/shop/plugins/bundling/js/bundling.editProductBundles.js:60
+msgid "delete"
+msgstr "удалить"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:57
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:48
+#: /wa-apps/shop/plugins/bundling/js/bundling.bundles.js:51
+#: /wa-apps/shop/plugins/bundling/js/bundling.bundles.js:73
+#: /wa-apps/shop/plugins/bundling/js/bundling.editProductBundles.js:62
+msgid "save"
+msgstr "сохранить"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:58
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:75
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:45
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:49
+#: /wa-apps/shop/plugins/bundling/js/backend.js:12
+#: /wa-apps/shop/plugins/bundling/js/bundling.bundles.js:51
+#: /wa-apps/shop/plugins/bundling/js/bundling.bundles.js:73
+#: /wa-apps/shop/plugins/bundling/js/bundling.bundles.js:92
+#: /wa-apps/shop/plugins/bundling/js/bundling.editProductBundles.js:13
+#: /wa-apps/shop/plugins/bundling/js/bundling.editProductBundles.js:59
+#: /wa-apps/shop/plugins/bundling/js/bundling.editProductBundles.js:63
+msgid "or"
+msgstr "или"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:59
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:76
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:50
+#: /wa-apps/shop/plugins/bundling/js/bundling.bundles.js:51
+#: /wa-apps/shop/plugins/bundling/js/bundling.bundles.js:73
+#: /wa-apps/shop/plugins/bundling/js/bundling.bundles.js:93
+#: /wa-apps/shop/plugins/bundling/js/bundling.editProductBundles.js:13
+#: /wa-apps/shop/plugins/bundling/js/bundling.editProductBundles.js:64
+msgid "cancel"
+msgstr "отмена"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:74
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:83
+#: /wa-apps/shop/plugins/bundling/js/bundling.bundles.js:91
+#: /wa-apps/shop/plugins/bundling/js/bundling.bundles.js:98
+msgid "add"
+msgstr "добавить"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:14
+msgid "Bundles of Product"
+msgstr "Комплектация товара"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:20
+msgid "No bundles found for this product. Set it in"
+msgstr "Для товара не найдено ни одной комплектации. Установите их в"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:20
+msgid "plugin settings"
+msgstr "настройках плагина"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:20
+msgid "or create individual for this product."
+msgstr "или создайте индивидуальные для этого товара."
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:37
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/Dialog.html:12
+msgid "determined"
+msgstr "определено"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:38
+msgid "by type"
+msgstr "по типу"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:39
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/Dialog.html:14
+msgid "by category"
+msgstr "из категории"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:44
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:44
+#: /wa-apps/shop/plugins/bundling/js/bundling.editProductBundles.js:58
+msgid "edit"
+msgstr "редактировать"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:66
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/Dialog.html:67
+#: /wa-apps/shop/plugins/bundling/js/bundling.editProductBundles.js:70
+msgid "Start typing product or SKU name"
+msgstr "Начните вводить название товара или артикул"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:80
+#: /wa-apps/shop/plugins/bundling/js/backend.js:12
+#: /wa-apps/shop/plugins/bundling/js/bundling.bundles.js:49
+#: /wa-apps/shop/plugins/bundling/js/bundling.editProductBundles.js:13
+msgid "Save"
+msgstr "Сохранить"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/Dialog.html:1
+#: /wa-apps/shop/plugins/bundling/lib/shopBundlingPlugin.class.php:109
+msgid "Set up Product Bundles"
+msgstr "Назначить комплектации"
+
+msgid "Remove all products bundles"
+msgstr "Удалить все комплектации"
+
+msgid "Are you sure? This action will REMOVE ALL bundles from selected products!"
+msgstr "Вы уверены? Это действие УДАЛИТ ВСЕ существующие комплектации выбранных товаров! Это действие НЕЛЬЗЯ ОТМЕНИТЬ!"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/Dialog.html:13
+msgid "by product type"
+msgstr "по типу товара"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/Dialog.html:18
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/Dialog.html:23
+msgid "amont selected in"
+msgstr "среди выбранных установлено у"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/Dialog.html:31
+msgid "Not found in none of the selected products"
+msgstr "Не установлено ни у одного из выбранных товаров"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/Dialog.html:33
+msgid "Among selected in"
+msgstr "Среди выбранных установлено у"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/Dialog.html:33
+msgid "all products"
+msgstr "всех товаров"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/Dialog.html:35
+msgid "all attached products are the same"
+msgstr "все прикрепленные товары одинаковые"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/Dialog.html:52
+msgid "Set in"
+msgstr "Установлен у"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/Dialog.html:57
+#: /wa-apps/shop/plugins/bundling/js/bundling.dialog.js:47
+msgid "Leave"
+msgstr "Оставить"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/Dialog.html:58
+#: /wa-apps/shop/plugins/bundling/js/bundling.dialog.js:48
+msgid "Set to all"
+msgstr "Присвоить всем"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/Dialog.html:59
+#: /wa-apps/shop/plugins/bundling/js/bundling.dialog.js:49
+msgid "Delete"
+msgstr "Удалить"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/error/error.html:1
+msgid "Error"
+msgstr "Ошибка"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/error/error.html:4
+msgid "There are no groups of acceccories for selected products. You can set it in \"Bundles\" menu."
+msgstr "Для выбранных товаров не установлено групп комплектов (типов комплектующих). Они устанавливаются в меню \"Комплектации\" слева."
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/error/error.html:6
+msgid "To Bundles"
+msgstr "К комплектациям"
+
+#: /wa-apps/shop/plugins/bundling/js/backend.js:8
+msgid "Please select at least one product"
+msgstr "Выберите хотя бы один товар"
+
+#: /wa-apps/shop/plugins/bundling/js/backend.js:12
+msgid "close"
+msgstr "закрыть"
+
+#: /wa-apps/shop/plugins/bundling/js/bundling.bundles.js:15
+msgid "Set up the title of type of accessory"
+msgstr "Укажите название для типа комплектующего"
+
+#: /wa-apps/shop/plugins/bundling/js/bundling.bundles.js:15
+msgid "Select option to attach the accessory"
+msgstr "Выберите опцию, к которой прикрепить комплектацию"
+
+#: /wa-apps/shop/plugins/bundling/js/bundling.bundles.js:20
+#: /wa-apps/shop/plugins/bundling/js/bundling.editProductBundles.js:34
+#: /wa-apps/shop/plugins/bundling/js/bundling.editProductBundles.js:140
+msgid "Min length of title is 3 symbols!"
+msgstr "Минимальная длина названия комплектации 3 символа!"
+
+#: /wa-apps/shop/plugins/bundling/js/bundling.bundles.js:128
+msgid "Delete this bundle?"
+msgstr "Удалить эту комплектацию?"
+
+#: /wa-apps/shop/plugins/bundling/js/bundling.editProductBundles.js:86
+msgid "Delete selected bundle?"
+msgstr "Удалить выбранную комплектацию?"
+
+#: /wa-apps/shop/plugins/bundling/js/bundling.editProductBundles.js:162
+msgid "Delete selected product from list?"
+msgstr "Удалить выбранный товар из списка?"
+
+#: /wa-apps/shop/plugins/bundling/lib/actions/shopBundlingPluginAddBundleGroup.controller.php:13
+msgid "Error! Groups can be determined only by category, product type or product feature"
+msgstr "Ошибка! Группы комплектации могут быть определены только по категории, типу товара или характеристике"
+
+#: /wa-apps/shop/plugins/bundling/lib/actions/shopBundlingPluginAddBundleGroup.controller.php:21
+msgid "Can't find selected type"
+msgstr "Выбранный тип товара не найден"
+
+#: /wa-apps/shop/plugins/bundling/lib/actions/shopBundlingPluginAddBundleGroup.controller.php:28
+msgid "Выбранная категория не найдена"
+msgstr ""
+
+#: /wa-apps/shop/plugins/bundling/lib/actions/shopBundlingPluginBackendSave.controller.php:8
+msgid "Unknown error!"
+msgstr "Неизвестная ошибка!"
+
+#: /wa-apps/shop/plugins/bundling/lib/actions/shopBundlingPluginBackendSave.controller.php:11
+#: /wa-apps/shop/plugins/bundling/lib/actions/shopBundlingPluginDeleteBundle.controller.php:11
+#: /wa-apps/shop/plugins/bundling/lib/actions/shopBundlingPluginEditBundle.controller.php:12
+msgid "CSRF error"
+msgstr "Ошибка CSRF"
+
+#: /wa-apps/shop/plugins/bundling/lib/classes/shopBundlingDeveloperInformation.class.php:13
+msgid "developed in"
+msgstr "разработано в"
+
+#: /wa-apps/shop/plugins/bundling/lib/classes/shopBundlingDeveloperInformation.class.php:14
+msgid "Shevsky Lab"
+msgstr "Лаборатории Шевского"
+
+#: /wa-apps/shop/plugins/bundling/lib/classes/shopBundlingDeveloperInformation.class.php:15
+msgid "Support"
+msgstr "Поддержка"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/plugin.php:3
+#: /wa-apps/shop/plugins/bundling/lib/shopBundlingPlugin.class.php:79
+msgid "Product Bundles"
+msgstr "Комплектация Товаров"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/plugin.php:4
+msgid "Bundles with accessories for each product"
+msgstr "Комплекты с аксессуарами для каждого товара"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:94
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:152
+msgid "Bundle"
+msgstr "Комплектация"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:115
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:122
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:176
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:201
+msgid "pc."
+msgstr "шт."
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:125
+msgid "About this product (in a new tab)"
+msgstr "Подробнее о выбранном товаре (в новой вкладке)"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:132
+msgid "Total price"
+msgstr "Итоговая цена"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:133
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:193
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:215
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:228
+msgid "Buy"
+msgstr "Купить"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:133
+msgid "selected bundle"
+msgstr "выбранный комплект"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:6
+msgid "Plugin is on"
+msgstr "Плагин включен"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:15
+msgid "Integration"
+msgstr "Интеграция"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:21
+msgid "Design and templates"
+msgstr "Дизайн и шаблоны"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:34
+msgid "Auto integration to product cart"
+msgstr "Интегрировать в карточку товара"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:39
+msgid "Place of integration"
+msgstr "Место интегрирования"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:42
+msgid "Content added next to links to custom product pages"
+msgstr "Содержимое рядом со ссылками на дополнительные страницы товара"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:46
+msgid "Content added next to the “Add to cart” button"
+msgstr "Содержимое рядом с кнопкой «В корзину»"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:62
+msgid "Use helper"
+msgstr "Используйте хелпер"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:72
+msgid "Bundles block"
+msgstr "Блок комплектации"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:78
+msgid "Bundles configurator"
+msgstr "Конфигуратор комплектации"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:92
+msgid "Template of Bundles block"
+msgstr "Шаблон блока комплектации"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:137
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:233
+msgid "Available variables"
+msgstr "Доступные переменные"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:138
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:234
+msgid "An array with available groups of accessories (bundles)"
+msgstr "Массив с доступными группами комплектующих (группы комплектов)"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:140
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:236
+msgid "Data of selected group of accessories (bundles)"
+msgstr "Данные о выбранной группе комплектующих (группы комплектов)"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:142
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:238
+msgid "Title of type of accessory"
+msgstr "Наименование типа комплектующего"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:143
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:239
+msgid "An array with information about attached products. Instance of the class"
+msgstr "Массив с информацией о прикрепленных товарах, представляет собой экземпляр класса"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:147
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:247
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:332
+msgid "Return the default value"
+msgstr "Вернуть значение по умолчанию"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:150
+msgid "Template of Bundles configurator"
+msgstr "Шаблон Конфигуратора комплектации"
+
+#: /wa-apps/shop/plugins/bundling/lib/actions/shopBundlingPluginAddBundleGroup.controller.php:28
+msgid "Can't find selected category"
+msgstr "Такая категория не найдена"
+
+#: /wa-apps/shop/plugins/bundling/lib/actions/shopBundlingPluginAddBundleGroup.controller.php:35
+msgid "Can't find selected feature"
+msgstr "Такая характеристика не найдена"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:50
+msgid "Informational block, usually in a sidebar"
+msgstr "Блок дополнительной информации в боковой части страницы"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:54
+msgid "Block of extra product details in main description area"
+msgstr "Блок дополнительной информации в основной части описания товара"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:63
+msgid "to include the table with bundles."
+msgstr "для вставки таблицы выбора комплектации."
+
+#: /wa-apps/shop/plugins/bundling/lib/shopBundlingPlugin.class.php:79
+msgid "Product Bundle"
+msgstr "Комплектация"
+
+msgid "product"
+msgid_plural "products"
+msgstr[0] "товара"
+msgstr[1] "товаров"
+msgstr[2] "товаров"
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:20
+msgid "Don't give discount"
+msgstr "Не предоставлять скидку"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:21
+msgid "Give fixed discount if customer has chosen products from selected bundles"
+msgstr "Предоставлять фиксированную скидку если покупатель выбрал товар из некоторых групп"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:22
+msgid "For each chosen bundled product various discounts"
+msgstr "Для каждого выбранного товара из группы комплектаций индивидуальная скидка"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:26
+msgid "Sum discounts"
+msgstr "Скидки суммируются"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:27
+msgid "Maximum from discount"
+msgstr "Максимальная скидка"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:31
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:73
+#: /wa-apps/shop/plugins/bundling/js/bundling.editProductBundles.js:66
+msgid "Discount"
+msgstr "Скидка"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:73
+#: /wa-apps/shop/plugins/bundling/js/bundling.editProductBundles.js:66
+msgid "for chosing any product from this bundle"
+msgstr "за выбор как минимум одного товара из этой группы"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:76
+#: /wa-apps/shop/plugins/bundling/js/bundling.editProductBundles.js:67
+msgid "Customer have to chose product from this bundle to get fixed discount"
+msgstr "Пользователю нужно выбрать товар из этой группы для получения фиксированной скидки"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:28
+msgid "Bundling table"
+msgstr "Таблица выборки комплектации"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:68
+msgid "Type of table with bundles"
+msgstr "Тип таблицы выбора комплектации"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:71
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:100
+msgid "Drop-down list"
+msgstr "Таблица с выпадающим списком"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:112
+msgid "Custom table"
+msgstr "Произвольная таблица Комплектации"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:126
+msgid "Template of Drop-down list"
+msgstr "Шаблон Таблицы с выпадающим списком"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:183
+msgid "Images is enabled"
+msgstr "Изображения включены"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:190
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:257
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:277
+msgid "Image 200 in width"
+msgstr "Изображение 200 по ширине"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:191
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:258
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:278
+msgid "Image 200x200"
+msgstr "Изображение 200x200"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:192
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:259
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:279
+msgid "Image 96x96"
+msgstr "Изображение 96x96"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:193
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:260
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:280
+msgid "Image 48x48"
+msgstr "Изображение 48x48"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:218
+msgid "Not selected"
+msgstr "Не выбрано"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:267
+msgid "Template of Custom table with bundles"
+msgstr "Шаблон Произвольной таблицы Комплектации"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:422
+msgid "Hide products if not in stock"
+msgstr "Скрывать товары не в наличии"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:427
+msgid "jQuery Sku selector"
+msgstr "jQuery селектор артикула"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:10
+msgid "By product feature"
+msgstr "По характеристике"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:18
+msgid "product with feature"
+msgstr "товаров с характеристикой"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:57
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/Dialog.html:17
+msgid "by feature"
+msgstr "по характеристике"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:438
+msgid "jQuery Services selector"
+msgstr "jQuery селектор услуг"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:443
+msgid "jQuery Product price selector"
+msgstr "jQuery селектор цены товара"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:21
+msgid "Products"
+msgstr "Товары"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:27
+msgid "Table templates"
+msgstr "Шаблоны таблицы"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:34
+msgid "\"Your bundle\" section"
+msgstr "Секция \"Ваш комплект\""
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:40
+msgid "Script params"
+msgstr "Параметры скрипта"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:46
+msgid "CSS"
+msgstr ""
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:108
+msgid "Integrate \"Your bundle\" section"
+msgstr "Интегрировать секцию \"Ваш комплект\""
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:115
+msgid "Before bundle table"
+msgstr "Перед таблицей комплектации"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:119
+msgid "After bundle table"
+msgstr "После таблицы комплектации"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:128
+msgid " to include the table with bundles manually."
+msgstr " для вставки таблицы выбора комплектации вручную."
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:458
+msgid "Image size"
+msgstr "Размер изображений"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:479
+msgid "Template of \"Your bundle\" section"
+msgstr "Шаблон секции \"Ваш комплект\""
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:482
+msgid "Your bundle"
+msgstr "Ваш комплект"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:482
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:482
+msgid "item"
+msgstr "товар"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:482
+msgid "items"
+msgstr "товара"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:482
+msgid "_items"
+msgstr "товаров"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:482
+msgid "_for"
+msgstr "на"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:502
+msgid "Bundle price will change after every \"change\" event and take product price from \"data-price\" attribute"
+msgstr "Стоимость комплекта будет обновлена при срабатывании event \"change\" и возьмет стоимость товара из атрибута \"data-price\" этого элемента"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:508
+msgid "Plugin will filter all :checked elements and add their \"data-price\" attributes to total price"
+msgstr "Плагин отфильтрует все выбранные (:checked) элементы и добавит к стоимости комплекта все их \"data-price\" значения"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:128
+msgid "to include the table with bundles manually."
+msgstr "для вставки таблицы выбора комплектации вручную"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:494
+msgid "Hide buy buttons from table"
+msgstr "Скрывает кнопку покупки комплекта из таблицы"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:24
+msgid "Manually set discounts for each product (only with primary product in order)"
+msgstr "Указать скидку для каждого товара (только если в заказе присутствует основной товар)"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:107
+msgid "Edit discount"
+msgstr "Редактировать скидку"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:110
+#: /wa-apps/shop/plugins/bundling/js/bundling.editProductBundles.js:304
+msgid "Default quantity"
+msgstr "Количество по умолчанию"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:11
+msgid "Discounts is on"
+msgstr "Скидки включены"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:32
+msgid "Tables design"
+msgstr "Внешний вид таблиц"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:138
+msgid "For including \"Your bundle\" section use helper"
+msgstr "Для вставки секции \"Ваш комплект\" используйте хелпер"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:252
+msgid "Show \"Buy\" button on each product"
+msgstr "Кнопка \"Купить\" у каждого товара"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:257
+msgid "Show \"Quantity\" field"
+msgstr "Показывать поле \"Количество\""
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:305
+msgid "Added to cart"
+msgstr "В корзине"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:561
+msgid "jQuery Quantity selector"
+msgstr "jQuery селектор количества"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:562
+msgid "Quantity of primary product will be got from value of this selector (by default 1 if doesn't exists or null)"
+msgstr "Количество основного товара будет использовано из значения этого поля (value, по умолчанию 1 если не существует или null)"
+
+#: /wa-apps/shop/plugins/bundling/lib/shopBundlingPlugin.class.php:151
+msgid "% for bundle"
+msgstr "% за комплект"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:128
+msgid "Before and after bundle table"
+msgstr "Перед и после таблицы комплектации"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/DialogChoose.html:1
+msgid "Choose action with selected products"
+msgstr "Выберите действие с выбранными товарами"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/DialogChoose.html:4
+msgid "Setup bundles for this products"
+msgstr "Установить выбранным товарам комплектующие"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/DialogChoose.html:5
+msgid "Setup this products as bundles for another products"
+msgstr "Назначить выбранные товары в качестве комплектующих другим товарам"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/DialogChoose.html:6
+msgid "Edit product bundles"
+msgstr "Редактировать существующие комплектации"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/DialogChoose.html:9
+msgid "Close"
+msgstr "Закрыть"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/DialogEditProductBundles.html:1
+msgid "Edit Product Bundles"
+msgstr "Редактор комплектов товаров"
+
+#: /wa-apps/shop/plugins/bundling/js/bundling.choose.js:6
+msgid "Select bundles for this products."
+msgstr "Выберите для этих товаров комплектующие."
+
+#: /wa-apps/shop/plugins/bundling/js/bundling.choose.js:6
+msgid "Select for what products set up those as bundles."
+msgstr "Выберите, каким товарам установить их как комплектующие."
+
+#: /wa-apps/shop/plugins/bundling/js/bundling.choose.js:7
+msgid "Setup as bundles"
+msgstr "Установить в качестве комплектующих"
+
+#: /wa-apps/shop/plugins/bundling/js/bundling.choose.js:7
+msgid "Setup previously chosen products as bundles"
+msgstr "Установить им ранее выбранные товары как комплектующие"
+
+#: /wa-apps/shop/plugins/bundling/js/bundling.choose.js:18
+msgid "Waiting products"
+msgstr "Ожидают товаров"
+
+#: /wa-apps/shop/plugins/bundling/js/bundling.choose.js:34
+msgid "Selected products"
+msgstr "Выбрано товаров"
+
+#: /wa-apps/shop/plugins/bundling/js/bundling.choose.js:52
+msgid "No selected products. Maybe you have leave the page where you had selected them."
+msgstr "Выбранные товары отсутствуют. Вероятно, Вы ушли со страницы, где отметили их галочками."
+
+#: /wa-apps/shop/plugins/bundling/lib/actions/shopBundlingPluginAutocomplete.controller.php:41
+#: /wa-apps/shop/plugins/bundling/lib/actions/shopBundlingPluginAutocomplete.controller.php:42
+msgid "Choose"
+msgstr "На выбор"
+
+#: /wa-apps/shop/plugins/bundling/lib/actions/shopBundlingPluginAutocomplete.controller.php:41
+#: /wa-apps/shop/plugins/bundling/lib/actions/shopBundlingPluginAutocomplete.controller.php:42
+msgid "user can choose sku and product params"
+msgstr "пользователь может выбрать артикул и параметры товара"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:571
+msgid "jQuery Quantity Plus/Minus selector"
+msgstr "jQuery селектор кнопки Плюс/Минус количества"
+
+#: /wa-apps/shop/plugins/bundling/lib/actions/shopBundlingPluginDialog.actions.php:59
+msgid "You can't choose the same product collections."
+msgstr "Вы не можете выбрать одни и те же наборы товаров."
+
+#: /wa-apps/shop/plugins/bundling/lib/actions/shopBundlingPluginDialog.actions.php:103
+msgid "No unique products in one product collection."
+msgstr "В одном из наборов не было обнаружено уникальных товаров (тех, которых нет в другом наборе), присвоить их друг к другу в качестве комплектующих невозможно."
+
+#: /wa-apps/shop/plugins/bundling/lib/actions/shopBundlingPluginDialog.actions.php:105
+msgid "No products."
+msgstr "В одном из наборов товары отсутствуют."
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:36
+msgid "Create for all subcategories"
+msgstr "Включая подкатегории"
+
+msgid "jQuery Sku \"Features Selectable\" selector (date-feature-id + value)"
+msgstr "jQuery селектор артикула при выборе параметров (date-feature-id + value)"
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:11
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundlesCategory.html:11
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:576
+msgid "Create custom bundle groups"
+msgstr "Использовать собственные группы комплектующих"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundles.html:12
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundlesCategory.html:12
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:580
+msgid "Use main category of product as bundle group"
+msgstr "Группировать по основной категории товаров"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundlesCategory.html:17
+msgid "Enabled bundle group by main product category. Here you can set names and \"multiple\" param for each category to show in frontend."
+msgstr "Включена группировка комплектующих по основной категории товара. Здесь Вы можете установить имя для группы, отображаемое во фронтенде, а так же параметр \"Мультивыбор\" для группы."
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundlesCategory.html:23
+msgid "Category"
+msgstr "Категория"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundlesCategory.html:30
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:123
+msgid "Main category is undefined"
+msgstr "Основная категория не определена"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendBundlesCategory.html:33
+#: /wa-apps/shop/plugins/bundling/lib/models/shopBundlingCategories.model.php:27
+msgid "Accessories"
+msgstr "Комплектующие"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:47
+msgid "Add products"
+msgstr "Добавить товары"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/backend/BackendEditProductBundles.html:52
+msgid "Products will be added to group of main category of product."
+msgstr "Товары будут сгруппированы по основной категории"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/DialogChoose.html:6
+msgid "Not available with bundle group by categories"
+msgstr "Недоступно с группировкой комплектующих по категориям"
+
+#: /wa-apps/shop/plugins/bundling/templates/actions/dialog/DialogEditProductBundles.html:83
+msgid "Update"
+msgstr "Обновить"
+
+#: /wa-apps/shop/plugins/bundling/lib/actions/shopBundlingPluginBackendSaveCategoryBundles.controller.php:20
+msgid "Undefined category"
+msgstr "Категория не определена"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:574
+msgid "Bundle groups"
+msgstr "Группировка комплектующих"
+
+#: /wa-apps/shop/plugins/bundling/lib/config/settings.php:588
+msgid "jQuery Form selector"
+msgstr "jQuery селектор формы"

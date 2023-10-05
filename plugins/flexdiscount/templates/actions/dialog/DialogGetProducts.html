@@ -1,0 +1,169 @@
+<h3>[`Select product`] <a href="javascript:void(0)" onclick='$(this).closest(".dialog").trigger("close")' title="[`close`]" class="close">[`close`]</a></h3>
+<div class="sidebar left350px">
+    {if !empty($categories)}
+    {$depth = -1}
+
+    {foreach $categories as $category}
+
+    {if $category.depth < $depth}
+    {section name="end-category" loop = $depth - $category.depth}
+</li>
+</ul>
+{/section}
+{$depth = $category.depth}
+{/if}
+
+{if $category.depth == $depth}
+</li>
+<li class="{if $category.type == shopCategoryModel::TYPE_DYNAMIC}dynamic{/if}">
+    {/if}
+
+    {if $category.depth > $depth}
+    <ul class="menu-v with-icons">
+        <li class="{if $category.type == shopCategoryModel::TYPE_DYNAMIC}dynamic{/if}">
+            {$depth = $category.depth}
+            {/if}
+            <span class="counters">
+                <span class="count subtree">
+                    {if $category.include_sub_categories}
+                        {$category.total_count}
+                    {else}
+                        {$category.count}
+                    {/if}
+                </span>
+        </span>
+
+        <a href="javascript:void(0)" data-id="{$category.id}" class="f-get-products{if !$category.status} gray{/if}">{strip}
+            <i class="icon16 {if $category.type == shopCategoryModel::TYPE_DYNAMIC}funnel{else}folder{/if}"></i><span>{$category.name|escape}</span>
+            <span class="hint" style='display: block'> {if !empty($category.routes)}{implode('<br>-', $category.routes)}{/if}</span>
+            {/strip}</a>
+
+        {/foreach}
+
+        {section name="end-category" loop = $depth + 1}
+    </li>
+</ul>
+{/section}
+{/if}
+</div>
+<div class="content s-categories-block left350px block">
+    <input style="padding: 10px; box-sizing: border-box; width: 100%" class="product-autocomplete" type="text" placeholder="{_w('Start typing product or SKU name')}">
+    <p class="margin-block"><label><input type="checkbox" class="f-autocomplete-skus" /> [`Show all skus in search`]</label></p>
+    <p class="margin-block top semi">[`or select the category to find product you need.`]</p>
+    <p class="align-center margin-block big-loader"><img src="{$plugin_url}img/loading.gif" /></p>
+</div>
+
+<script>
+    $(function () {
+        $.flexdiscount_conditions.initAutocomplete($(".product-autocomplete"), 'product');
+
+        // Получаем список товаров для категории
+        $(document).on("click", ".f-get-products", function () {
+            var btn = $(this);
+            var id = btn.data("id");
+            var page = btn.attr("data-page");
+            var categoriesBlock = btn.closest(".dialog-content").find(".s-categories-block");
+            if (!categoriesBlock.find(".cat-" + id).length || page !== undefined) {
+                if (!categoriesBlock.hasClass("is-loading")) {
+                    !btn.hasClass("button") && categoriesBlock.addClass("is-loading");
+                    btn.after("<i class='icon16 loading'></i>");
+                    $.post("?plugin=flexdiscount&action=handler", { data: 'getProducts', category: id, page: page }, function (response) {
+                        if (response.status == 'ok') {
+                            if (response.data && response.data.products) {
+                                var products = "";
+                                $.each(response.data.products, function (i, v) {
+                                    products += "<tr data-id='"+v.id+"' data-name='"+v.name_secure+"'><td><img style='max-width: 48px' src='" + (v.image ? v.image : '{$wa_app_static_url}img/image-fishki.png') + "'></td><td class='s-name'>" + v.name + "</td><td class='s-price'>" + (v.compare_price ? "<div class='small grey strike'>" + v.compare_price + "</div>" : "") + " " + v.price + "</td><td"+(v.sku_count > 1 ? " class='f-skus' title='[`Show product skus`]'" : "")+">"+(v.sku_count > 1 ? "<i class='icon16 view-thumb-list'></i>" : '')+"</td></tr>";
+                                });
+                                if (products) {
+                                    if (page === undefined && !categoriesBlock.find(".cat-" + id).length) {
+                                        var html = "<table class='zebra'>";
+                                        html += "<thead><th></th><th>[`Name`]</th><th class='align-right'>[`Price`]</th><th></th></tr></thead>";
+                                        html += "<tbody>";
+                                        html += products;
+                                        html += "</tbody>";
+                                        html += "</table>";
+                                        if (!response.data.end) {
+                                            html += "<div class='margin-block s-more top'><a href='javascript:void(0)' class='f-get-products button blue' data-id='" + id + "' data-page='" + (typeof response.data.page !== 'undefined' ? response.data.page : '1') + "'>[`More products`]</a></div>";
+                                        }
+                                        $("<div />", { class: 'cat-' + id }).html(html).appendTo(categoriesBlock);
+                                    } else {
+                                        categoriesBlock.find(".cat-" + id + " tbody").append(products);
+                                        if (response.data.end) {
+                                            categoriesBlock.find(".cat-" + id + " .s-more").remove();
+                                        } else {
+                                            categoriesBlock.find(".cat-" + id + " table").after("<div class='margin-block s-more top'><a href='javascript:void(0)' class='f-get-products button blue' data-id='" + id + "' data-page='" + (typeof response.data.page !== 'undefined' ? response.data.page : '1') + "'>[`More products`]</a></div>");
+                                        }
+                                    }
+                                } else {
+                                    var html = "<div class='bordered margin-block block align-center'>[`Products not found`]</div>";
+                                    $("<div />", { class: 'cat-' + id }).html(html).appendTo(categoriesBlock);
+                                }
+                            } else {
+                                var html = "<div class='bordered margin-block align-center'>[`Products not found`]</div>";
+                                $("<div />", { class: 'cat-' + id }).html(html).appendTo(categoriesBlock);
+                            }
+                            categoriesBlock.removeClass("is-loading");
+                            $("> div", categoriesBlock).hide();
+                            categoriesBlock.find(".cat-" + id).show();
+                            btn.next(".loading").remove();
+                            if (btn.hasClass("button")) {
+                                btn.remove();
+                            } else {
+                                $(".condition-dialog .sidebar li").removeClass('selected');
+                                btn.closest("li").addClass("selected");
+                            }
+                        } else {
+                            categoriesBlock.removeClass("is-loading");
+                            btn.next(".loading").remove();
+                        }
+                        !btn.hasClass("button") && $(".condition-dialog .dialog-content").scrollTop(0);
+                    });
+                }
+            } else if (categoriesBlock.find(".cat-" + id).length && page === undefined) {
+                $("> div", categoriesBlock).hide();
+                categoriesBlock.find(".cat-" + id).show();
+                $(".condition-dialog .sidebar li").removeClass('selected');
+                btn.closest("li").addClass("selected");
+                !btn.hasClass("button") && $(".condition-dialog .dialog-content").scrollTop(0);
+            }
+        });
+
+        /* Выбор артикула */
+        $(document).on("click", "#condition-dialog-product .s-categories-block td", function() {
+            var td = $(this);
+            var tr = td.closest("tr");
+            if (td.hasClass("f-skus")) {
+                $.flexdiscount.dialogShowSkusAction(td, tr, tr.attr("data-id"));
+            } else {
+                $.flexdiscount_conditions.dialogSelectProduct(tr, tr.attr("data-name"), tr.attr("data-id"), tr.attr("data-sku-name"), tr.attr("data-sku-id"));
+            }
+        });
+        $.flexdiscount.dialogShowSkusAction = function(btn, tr, productId) {
+            var tableInside = tr.next(".table-inside");
+            if (tableInside.length) {
+                if (!tableInside.is(":visible")) {
+                    tr.next(".table-inside").show().find("div").slideDown();
+                } else {
+                    tr.next(".table-inside").find("div").slideUp(function() {
+                        $(this).closest(".table-inside").hide();
+                    });
+                }
+            } else if (!$.flexdiscount.hasLoading(btn)) {
+                btn.find("i").removeClass("view-thumb-list").addClass("loading");
+                $.post("?plugin=flexdiscount&action=handler", { data: 'getProductSkus', id: productId }, function (response) {
+                    var html = "";
+                    if (response.status == 'ok' && response.data) {
+                        html += "<tr class='table-inside'><td colspan='4'><div><table class='zebra'>";
+                        $.each(response.data, function (i, v) {
+                            html += "<tr class='white' data-id='"+productId+"' data-sku-id='"+v.id+"' data-name='"+v.name_secure+"' data-sku-name='"+v.sku_name_secure+"'><td><img style='max-width: 48px' src='" + (v.image ? v.image : '{$wa_app_static_url}img/image-fishki.png') + "'></td><td class='s-sku'>" + v.sku + "</td><td class='s-name align-right'>" + v.sku_name + "</td><td class='s-price'>" + (v.compare_price ? "<div class='small grey strike'>" + v.compare_price + "</div>" : "") + " " + v.price + "</td></tr>";
+                        });
+                        html += "</table><div></td></tr>";
+                    }
+                    tr.after(html);
+                    tr.next(".table-inside").show().find("div").slideDown();
+                    btn.find("i").removeClass("loading").addClass("view-thumb-list");
+                });
+            }
+        };
+    });
+</script>

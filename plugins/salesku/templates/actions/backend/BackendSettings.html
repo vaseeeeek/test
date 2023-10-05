@@ -1,0 +1,509 @@
+{if $storefront == 'general'}
+{$storefront_name = 'общие'}
+{else}
+{$storefront_name = $storefront}
+{/if}
+<h1>Настройки {$storefront_name}   {if $storefront!='general'}<a href="http://{str_replace('*','',$storefront_name)}" target="_blank"><i class="icon16 new-window "></i></a>{/if}</h1>
+<div class=" form salesku_plugin-settings">
+    <form action="?plugin=salesku&action=settings&storefront={$storefront}" method="post" id="plugins-settings-form">
+        {$wa->csrf()}
+        {$templates = $settings->getTemplates()}
+        <ul class="tabs">
+            <li class="selected"><a href="#"  data-tab="tab-all">Общие настройки</a></li>
+            <li ><a href="#" data-tab="tab-smart_sku">Функция "Умный артикул"</a></li>
+            <li ><a href="#"  data-tab="tab-related_sku">Функция "Связанный выбор артикулов"</a></li>
+            <li ><a href="#"  data-tab="tab-view">Настройки Показа</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="block double-padded " id="tab-all">
+                {if $storefront =='general'}
+                <div class="field block double-padded " style="border: 1px #c00 solid; width: 400px;">
+                    <h3>Внимание!</h3>
+                <p>Общие настройки применяются только к витринам на которых не были установленны персональные настройки, а также для всех новых витрин!
+                    <br>Если для нужной вам витрины вы уже ставили настройки, выберите нужную вам витрину и меняйте настройки в ней.
+                </p>
+                </div>
+                {/if}
+                <div class="field-group">
+                    <div class="field">
+                        <div class="name">
+                            Плагин включен
+                        </div>
+                        <div class="value">
+                            <input type="hidden" name="settings[status]" value="0">
+                            <input type="checkbox" name="settings[status]" value="1"{if isset($settings.status) && $settings.status} checked{/if}>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">
+                    Вывод в мобильной версии
+                    </div>
+                    <div class="value">
+                        <input type="hidden" name="settings[status_mobile]" value="0">
+                        <input type="checkbox"  name="settings[status_mobile]" value="1" {if isset($settings.status_mobile) && $settings.status_mobile} checked {/if}>
+                        <p class="hint">Включите, если хотите выводить для мобильной версии</p>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">
+                       Функция "Умный артикул"
+                    </div>
+                    <div class="value">
+                        <input type="hidden" name="settings[smart_sku]" value="0">
+                        <input type="checkbox" name="settings[smart_sku]" value="1" {if isset($settings.smart_sku) && $settings.smart_sku} checked {/if}><br>
+                    <span class="hint">При выборе комбинации характеристик и отсутствии артикула (был удален) или при включенной опции скрытия недоступных для покупки артикулов,
+                        <br>покупателю будет предложен наиболее похожий артикул по выбранным параметрам товара. <br>Таким образом покупатель не увидит надпись: "Товар с выбранным набором характеристик недоступен для покупки".</span>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">
+                        Функция "Связанный выбор артикулов"
+                    </div>
+                    <div class="value">
+                        <input type="hidden" name="settings[related_sku]" value="0">
+                        <input type="checkbox" name="settings[related_sku]" value="1" {if isset($settings.related_sku) && $settings.related_sku} checked {/if}> <br>
+                    <span class="hint">Покупатель, изменяя характеристики одного продукта, будет менять те же характеристики для всех показанных продуктов в категории
+                    <br>Данная функция удобна для продажи товаров с одинаковыми характеристиками, например обувь, кровати и матрасы, одежда.
+                    <br>Например у вас в категории показана обувь, покупатель выбирает размер "40" для одного товара, у всех товаров у которых присутствует таже характеристика и такое же значение будет применен тот же размер.
+                    <br>Таким образом у всех продуктов поменяется размер и цена, и покупатель увидит актуальные цены на свой размер обуви.</span>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">
+                        Хук "frontend_products"
+                    </div>
+                    <div class="value">
+                        <input type="hidden" name="settings[frontend_products]" value="0">
+                        <input type="checkbox" name="settings[frontend_products]" value="1" {if isset($settings.frontend_products) && $settings.frontend_products} checked {/if}>
+                        <span>Включите для поддержки плагинов Оптовых цен, мультицен и скидочных плагинов.</span><br>
+                        <span class="hint">Хук используется плагинами для изменения цен продуктов и артикулов. Использование хука приводит к дополнительным запросам и дополнительной обработке данных продуктов и артикулов, что создает нагрузки. Если вы не используете плагины переформирования цен, рекомендуется не включать опцию.</span>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">
+                        Скрыть Услуги
+                    </div>
+                    <div class="value">
+                        <input type="hidden" name="settings[hide_services]" value="0">
+                        <input type="checkbox"  name="settings[hide_services]" value="1" {if isset($settings.hide_services) && $settings.hide_services} checked {/if}>
+                        При включении будет принудительно скрыт вывод услуг товаров в категориях
+                        <p class="hint">Скрытие будет произведено только у товаров в категории, в карточке товара и корзине выбор услуг будет доступен, согласно вашим шаблонам дизайна.</p>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">
+                        Скрыть Склады
+                    </div>
+                    <div class="value">
+                        <input type="hidden"   name="settings[hide_stocks]" value="0">
+                        <input type="checkbox" name="settings[hide_stocks]" value="1" {if isset($settings.hide_stocks) && $settings.hide_stocks =='1'} checked {/if}>
+                        При включении будет принудительно скрыт вывод наличия товаров на складах в категориях
+                        <p class="hint">Скрытие будет произведено только у товаров в категории, в карточке товара вывод наличия товара на складах будет доступен, согласно вашим шаблонам дизайна.</p>
+                    </div>
+                </div>
+                {if $storefront!='general' && isset($settings.template_type) && $settings.template_type=="theme" &&  !$templates->themesTemplatesExists()}
+                <div class="field block double-padded salesku_plugin-templates-notice" style="border: 1px #c00 solid; width: 400px;">
+                    <p style="font-weight: bold;">Внимание! Установлено использование шаблонов из тем дизайна витрины, файлы шаблонов не найдены!</p>
+                    <a href="?plugin=salesku&action=createFiles&storefront={$storefront}" class="salesku_plugin-create-templates button red">Создать файлы в темах витрины</a>
+                </div>
+                {/if}
+            </div>
+            <div class="block double-padded" id="tab-smart_sku" style="display: none;">
+                <div class="field">
+                    <div class="name">
+                        Установка доступного артикула продукта
+                    </div>
+                    <div class="value">
+                        <input type="hidden" name="settings[available_sku]" value="0">
+                        <input type="checkbox"  name="settings[available_sku]" value="1" {if isset($settings.available_sku) && $settings.available_sku} checked {/if}>
+                        <p class="hint">При включении у продуктов будет устанавливаться доступный "артикул по умолчанию". Данная опция ставит доступный артикул до загрузки страницы. Для динамической смены артикулов на доступные при выборе опций пользователем используйте настройку "Менять артикул на доступный к покупке".</p>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">
+                        Менять артикул на доступный к покупке
+                    </div>
+                    <div class="value">
+                        <input type="hidden" name="settings[smart_sku_replace]" value="0">
+                        <input type="checkbox"  name="settings[smart_sku_replace]" value="1" {if isset($settings.smart_sku_replace) && $settings.smart_sku_replace} checked {/if}>
+                        <p class="hint">При выборе несуществующего или недоступного для покупки артикула, покупателю будет подобран наиболее похожий артикул доступный к покупке</p>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">
+                        Скрытие комбинаций характеристик
+                    </div>
+                    <div class="value">
+                      <p> Для несуществующих артикулов
+                       <select name="settings[smart_sku_hide_non_existent_type]">
+                            <option value="0" {if isset($settings.smart_sku_hide_non_existent_type) && $settings.smart_sku_hide_non_existent_type=="0"} selected {/if}>не скрывать</option>
+                            <option value="1" {if isset($settings.smart_sku_hide_non_existent_type) && $settings.smart_sku_hide_non_existent_type=="1"} selected {/if}>выделять серым цветом</option>
+                            <option value="2" {if isset($settings.smart_sku_hide_non_existent_type) && $settings.smart_sku_hide_non_existent_type=="2"} selected {/if}>скрывать полностью(не показывать)</option>
+                        </select>
+                        <br><span class="hint">Будут скрыты или выделены серым недоступные комбинации характеристик несуществующих (удаленных) артикулов</span>
+                      </p>
+                        <p>Для артикулов c остатком 0 на складах
+                            <select name="settings[smart_sku_hide_not_available_type]">
+                                <option value="0" {if isset($settings.smart_sku_hide_not_available_type) && $settings.smart_sku_hide_not_available_type=="0"} selected {/if}>не скрывать</option>
+                                <option value="1" {if isset($settings.smart_sku_hide_not_available_type) && $settings.smart_sku_hide_not_available_type=="1"} selected {/if}>выделять серым цветом</option>
+                                <option value="2" {if isset($settings.smart_sku_hide_not_available_type) && $settings.smart_sku_hide_not_available_type=="2"} selected {/if}>скрывать полностью(не показывать)</option>
+                            </select>
+                            <br><span class="hint">Будут скрыты или выделены серым недоступные для покупки комбинации характеристик артикулов</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">
+                        Режим строгого скрытия
+                    </div>
+                    <div class="value">
+                        <input type="hidden" name="settings[smart_sku_hard_hide_type]" value="0">
+                        <input type="checkbox"  name="settings[smart_sku_hard_hide_type]" value="1" {if isset($settings.smart_sku_hard_hide_type) && $settings.smart_sku_hard_hide_type} checked {/if}>
+                        <p class="hint">Если в продукте более двух характеристик, режим строгого скрытия позволяет скрывать недоступные артикулы с учетом других выбранных опций товара. Будьте осторожны при выставлении данного режима и полного скрытия недоступных вариантов!</p>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">
+                        Скрывать характеристику с одним значением
+                    </div>
+                    <div class="value">
+                        <input type="hidden" name="settings[smart_sku_hide_single_feature]" value="0">
+                        <input type="checkbox"  name="settings[smart_sku_hide_single_feature]" value="1" {if isset($settings.smart_sku_hide_single_feature) && $settings.smart_sku_hide_single_feature} checked {/if}> Если в продукте одна характеристика
+                        <br><input type="hidden" name="settings[smart_sku_hide_multi_feature]" value="0">
+                        <input type="checkbox"  name="settings[smart_sku_hide_multi_feature]" value="1" {if isset($settings.smart_sku_hide_multi_feature) && $settings.smart_sku_hide_multi_feature} checked {/if}> Если в продукте несколько характеристик
+                        <p class="hint">Если включена опция замены недоступных артикулов и у характеристики будет всего один вариант выбора, она будет скрыта и покупатель не увидит ее. При включении в продукте с несколькими выбираемыми характеристиками, характеристики будут скрываться и появляться, в зависимости от выбора соседних характеристик</p>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">
+                       Свои классы скрытия характеристик
+                    </div>
+                    <div class="value">
+                       <p> <input type="hidden" name="settings[smart_sku_hide_style]" value="0">
+                        <input type="checkbox"  id="hide_sku_style" name="settings[smart_sku_hide_style]" value="1" {if isset($settings.smart_sku_hide_style) && $settings.smart_sku_hide_style} checked {/if}>
+                       </p>
+                        <p  class="hide_sku_style" {if isset($settings.smart_sku_hide_style) && $settings.smart_sku_hide_style}{else}style="display:none;"{/if}>
+                        <input type="text" name="settings[smart_sku_class_grey]" value="{if isset($settings.smart_sku_class_grey) && !empty($settings.smart_sku_class_grey)}{$settings.smart_sku_class_grey}{/if}" style="width: 150px;">
+                        Впишите название класса CSS для выделения "Серым" недоступных комбинаций характеристик
+                        <br>
+                        <span class="hint">Название класса CSS нужно указывать без точки вначале.</span>
+                        <br>
+                        <input type="text" name="settings[smart_sku_class_hide]" value="{if isset($settings.smart_sku_class_hide) && !empty($settings.smart_sku_class_hide)}{$settings.smart_sku_class_hide}{/if}" style="width: 150px;">
+                        Впишите название класса CSS для полного скрытия недоступных комбинаций характеристик
+                        <br>
+                        <span class="hint">Название класса CSS нужно указывать без точки вначале.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="block double-padded " id="tab-related_sku" style="display: none;">
+                <div class="field">
+                    <div class="name">
+                       Применить для:
+                    </div>
+                    <div class="value">
+                        <p>При включении опции в типе продуктов, во время выбора характеристик одного продукта в списке, будет выбран  артикул с такими же характеристиками у всех продуктов этого типа, если он существует в них.</p>
+                        {$related_sku = $settings->getRelatedSkuSettings()}
+                        <p>{foreach $related_sku->getProductTypes() as $id => $type}
+                            <input type="hidden" name="product_type_settings[{$id}][related_sku]" value="0">
+                            <label><input type="checkbox"  name="product_type_settings[{$id}][related_sku]" value="1"   {if isset($related_sku[$id]) && $related_sku[$id]=='1'} checked {/if}> {$type.name}</label>
+                        <br>
+                        {/foreach}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="block double-padded" id="tab-view" style="display: none;">
+                <ul class="tabs">
+                    <li class="selected"><a href="#"  data-tab="tab-view-all">Общие настройки</a></li>
+                    <li ><a href="#" data-tab="tab-view-features_selectable" >Настройки выбираемых характеристик</a></li>
+                    <li ><a href="#" data-tab="tab-view-product_types" >Настройки типов продуктов</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="block double-padded " id="tab-view-all">
+                        <div class="field">
+                            <div class="name">
+                                Вид показа артикулов товара:
+                            </div>
+                            <div class="value">
+                                <select name="settings[skus_view_type]" id="salesku_plugin-skus_view_type">
+                                    <option value="radio" {if isset($settings.skus_view_type) && $settings.skus_view_type=="radio"} selected {/if}>Радио кнопки</option>
+                                    <option value="select" {if (isset($settings.skus_view_type) && $settings.skus_view_type=="select")} selected {/if}>Выпадающий список (Select)</option>
+                              </select>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="name">
+                                Смена картинки артикула
+                            </div>
+                            <div class="value">
+                                <input type="hidden" class="sku_image"  name="settings[sku_image]" value="0">
+                                <input type="checkbox" class="sku_image" name="settings[sku_image]" value="1" {if isset($settings.sku_image) && $settings.sku_image} checked {/if}>
+                                При включении будут меняться картинка продукта на установленную в артикуле
+                                <p class="sku_image_content" {if isset($settings.sku_image) && $settings.sku_image}{else}style="display:none;"{/if}> <span class="hint">Для корректной смены картинок у контейнера в котором находится тег <strong>&lt;IMG&gt;</strong> должен быть css класс <strong>'image'</strong>.
+                                <br> Если вы используете сторонние плагины (например: "Картинка как на Али") для формирования изображений артикулов, для правильного вывода картинок проконсультируйтесь у разработчика плагина.</span>
+                                <br>
+                                <select name="settings[sku_image_size]">
+                                    {foreach $image_sizes as $i_size}
+                                    <option value="{$i_size}" {if isset($settings.sku_image_size) && $settings.sku_image_size==$i_size} selected {/if}>{$i_size}</option>
+                                    {/foreach}
+                                </select> Выберите размер изображений артикула для подстановки в продукт
+                                </p>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="name">
+                               Принудительно подключить файл стилей
+                            </div>
+                            <div class="value">
+                                <input type="hidden"   name="settings[style_default]" value="0">
+                                <input type="checkbox"  name="settings[style_default]" value="1" {if isset($settings.style_default) && $settings.style_default} checked {/if}>
+                               Включать при условии отсутствия стилей в теме дизайна
+                                <p class="hint">Если при выводе характеристик, складов и услуг продукта дизайн из темы не подгрузился, вы можете подключить данный файл дизайна.</p>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="name">
+                                Какие шаблоны использовать
+                            </div>
+                            <div class="value">
+                                <p>
+                                    <select name="settings[template_type]" id="salesku_plugin-template_type">
+                                        <option value="plugin" {if isset($settings.template_type) && $settings.template_type=="plugin"} selected {/if}>Шаблоны плагина</option>
+                                      <option value="theme" {if (isset($settings.template_type) && $settings.template_type=="theme") || !isset($settings.template_type)} selected {/if}>Шаблоны темы (Рекоммендуется)</option>
+                                        <option value="custom" {if isset($settings.template_type) && $settings.template_type=="custom"} selected {/if}>Свои шаблоны</option>
+                                    </select>
+                                </p>
+
+                                <div class="salesku_plugin-template_type" id="salesku_plugin-template_type-plugin" {if !isset($settings.template_type) || $settings.template_type!="plugin"} style="display: none;"{/if}>
+                                Будут использованы шаблоны плагина, их нельзя редактировать. Для возможности изменения шаблонов выберите тип "Шаблоны темы Дизайна" или "Свои шаблоны".
+                                </div>
+                                {$theme_templates = $templates->getThemeTemplates()}
+                                <div class="salesku_plugin-template_type" id="salesku_plugin-template_type-theme" {if isset($settings.template_type) && $settings.template_type!="theme"} style="display: none;"{/if}>
+                                {if $storefront!='general' && !$templates->themesTemplatesExists()}
+                                <div class="block double-padded salesku_plugin-templates-notice" style="border: 1px #c00 solid; width: 400px;">
+                                    <p style="font-weight: bold;">Внимание! Установлено использование шаблонов из тем дизайна витрины, файлы шаблонов не найдены!</p>
+                                    <a href="?plugin=salesku&action=createFiles&storefront={$storefront}" class="salesku_plugin-create-templates button red">Создать файлы в темах витрины</a>
+                                </div>
+
+                            {/if}
+                            {$themes = $settings->getStorefront()->getThemes()}
+                                {if !empty($themes)}
+                                    {foreach $themes as $key => $theme}
+                                    {if $theme}
+                                    <div class="salesku_plugin-theme" style="margin-top: 10px;">
+                                        <h3>{$theme->getName()}</h3>
+                                        {foreach $theme_templates as $t_key => $filename}
+
+                                        {if shopSaleskuPluginTemplates::getThemeTemplatePath($filename, $theme)}
+                                        <p><i class="icon16 yes"></i> {$filename} найден!
+                                            <a href="?action=storefronts#/design/theme={$theme->id}&file={$filename}" target="_blank">Редактировать</a>
+                                        </p>
+                                        {else}
+                                        <p><i class="icon16 no"></i> {$filename} не существует! </p>
+                                        {/if}
+                                        {/foreach}
+                                    </div>
+                                    {/if}
+                                    {/foreach}
+                                {else}
+                                <p>Для данной витрины невозможны настройки в темах дизайна</p>
+                                {/if}
+
+                                </div>
+                                <div class="salesku_plugin-template_type" id="salesku_plugin-template_type-custom" {if !isset($settings.template_type) || $settings.template_type!="custom"} style="display: none;"{/if}>
+                                    {foreach $theme_templates as $t_key => $filename}
+                                    <p>{$filename} <a href="#" class="salesku_plugin-template_custom-edit" data-id="salesku_plugin-template_custom-{$t_key}" data-mode="{if $t_key=='js'}javascript"{elseif $t_key=='css'}css{else}text/html{/if}">Редактировать</a>
+                                        <br>
+                                        {$settings_key = "template_`$t_key`"}
+                                        <textarea name="settings[{$settings_key}]" id="salesku_plugin-template_custom-{$t_key}" style="display: none;">{if isset($settings[$settings_key]) && !empty($settings[$settings_key])}{$settings[$settings_key]}{else}{shopSaleskuPluginTemplates::getTemplatePluginContent($t_key)|escape}{/if}</textarea>
+
+                                    </p>
+                                    {/foreach}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="name">
+                                Режим отладки
+                            </div>
+                            <div class="value">
+                                <input type="hidden" name="settings[debug]" value="0">
+                                <input type="checkbox"  name="settings[debug]" value="1" {if isset($settings.debug) && $settings.debug=='1'} checked {/if}>
+                                <p class="hint">При отладке используются не сжатые скрипты и шаблоны плагина</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block double-padded " id="tab-view-features_selectable" style="display: none;">
+                        <div class="field">
+                            <div class="name">
+                                Внешний вид
+                            </div>
+                            <div class="value">
+                                <p class="hint"><strong>Показывать все значения крупно в ряд</strong> - Для товаров в режиме продажи «Выбор характеристик» значения характеристик будут показаны одной строкой друг за другом. Рекомендуется, если названия значений относительно короткие и по ним однозначно можно определить, о какой характеристике товара идет речь, например, XL, 16 GB, 13”.</p>
+                                <p class="hint"><strong>Выбор из списка &lt;select&gt;</strong> - Для товаров в режиме продажи «Выбор характеристик» значения характеристик будут предложены на выбор с помощью стандартного выбора &lt;select&gt;. Рекомендуется, если названия значений характеристик содержат более одного-двух слов или по значениям нельзя однозначно понять, о какой характеристике товара идет речь, например, «до 10 часов», «не предусмотрено».</p>
+                            </div>
+                        </div>
+                        <div class="field" style="border-bottom: 2px #ccc solid;">
+                            <div class="name">
+                              Название
+                            </div>
+                            <div class="value">
+                                <p class="hint">Вы можете задать более короткое название для характеристики или скрыть полностью</p>
+                            </div>
+                        </div>
+                        {$features_settings = $settings->getFeaturesSettings()}
+                        {$features_selectable = $features_settings->getFeaturesSelectable()}
+                        {foreach $features_selectable as $feature_key => $feature}
+                            {$feature_settings = false}
+                            {if isset($features_settings[$feature.id])}
+                                {$feature_settings = $features_settings[$feature.id]}
+                            {/if}
+                        <div class="field salesku_plugin-settings-feature-selectable">
+                            <div class="name">
+                                {$feature.name}<br><span class="hint">[{$feature.code}]</span>
+                            </div>
+                            <div class="value">
+                                <p><div class="name">Внешний вид</div>
+                                    <select name="feature_settings[{$feature.id}][view_type]">
+                                        <option value="inline"
+                                                {if isset($features_settings[$feature.id]) && isset($features_settings[$feature.id]['view_type']) && $features_settings[$feature.id]['view_type']=='inline'} selected{/if}>Показывать все значения крупно в ряд</option>
+                                        <option value="select"  {if !isset($features_settings[$feature.id]) || !isset($features_settings[$feature.id]['view_type']) || $features_settings[$feature.id]['view_type']=='select'} selected{/if}>Выбор из списка &lt;select&gt;</option>
+                                    </select>
+                                </p>
+                                <p><div class="name">Название</div>
+      <input  value="{if $feature_settings && isset($feature_settings['view_name'])}{$feature_settings['view_name']}{/if}" name="feature_settings[{$feature.id}][view_name]">
+                                    <br>
+                                   <label><input  value="0"  type="hidden" name="feature_settings[{$feature.id}][view_name_hide]">
+                                    <input type="checkbox" value="1" {if $feature_settings && isset($feature_settings['view_name_hide']) && !empty($feature_settings['view_name_hide'])} checked{/if} name="feature_settings[{$feature.id}][view_name_hide]">
+                                    <span class="hint">Скрыть название</span></label>
+                                </p>
+                            </div>
+                        </div>
+                        {/foreach}
+                    </div>
+                    <div class="block double-padded " id="tab-view-product_types" style="display: none;">
+                        {$product_types_settings = $settings->getProductTypeSettings()}
+                        {foreach $product_types_settings->getProductTypes() as $id => $type}
+                        <div class="field" style="border-bottom: 2px #ccc solid;">
+                            <div class="name">
+                                {$type.name}
+                            </div>
+                            <div class="value">
+                                <div>
+                                    <div class="name">
+                                        Отключить плагин
+                                    </div>
+                                    <input type="hidden" name="product_type_settings[{$id}][status_off]" value="0">
+                                    <label><input type="checkbox"  name="product_type_settings[{$id}][status_off]" value="1" {if isset($product_types_settings[$id]) && $product_types_settings[$id]['status_off']==1} checked {/if}></label>
+                                    <div class="clear-both"></div>
+                                </div>
+                               <div>
+                                   <div class="name">
+                                       Отключить плагин<br>
+                                       <span class="hint">В моб. версии</span>
+                                   </div>
+                                   <input type="hidden" name="product_type_settings[{$id}][status_mobile_off]" value="0">
+                                   <label><input type="checkbox"  name="product_type_settings[{$id}][status_mobile_off]" value="1" {if isset($product_types_settings[$id]) && $product_types_settings[$id]['status_mobile_off']==1} checked {/if}></label>
+                                   <div class="clear-both"></div>
+                               </div>
+                                <div>
+                                    <div class="name">
+                                        Скрыть склады
+                                    </div>
+                                    <input type="hidden" name="product_type_settings[{$id}][hide_stocks]" value="0">
+                                    <label><input type="checkbox"  name="product_type_settings[{$id}][hide_stocks]" value="1" {if isset($product_types_settings[$id]) && $product_types_settings[$id]['hide_stocks']==1} checked {/if}></label>
+                                    <div class="clear-both"></div>
+                                </div>
+                                <div>
+                                    <div class="name">
+                                        Скрыть услуги
+                                    </div>
+                                    <input type="hidden" name="product_type_settings[{$id}][hide_services]" value="0">
+                                    <label><input type="checkbox"  name="product_type_settings[{$id}][hide_services]" value="1" {if isset($product_types_settings[$id]) && $product_types_settings[$id]['hide_services']==1} checked {/if}></label>
+                                    <div class="clear-both"></div>
+                                </div>
+                           </div>
+                        </div>
+                        {/foreach}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <div class="value submit">
+                <input type="submit" class="button green" value="[s`Save`]">
+                <span id="plugins-settings-status" style="display:none"></span>
+            </div>
+        </div>
+    </form>
+</div>
+<style>
+    .salesku_plugin-settings-feature-selectable {
+        border-bottom: 1px #ccc solid;
+    }
+    #salesku_plugin-template_type-custom {
+        margin-left: -165px;
+    }
+    .CodeMirror {
+        border: 1px solid #ccc;
+    }
+
+</style>
+<script type="text/javascript">
+    {literal}
+    $('.sku_image').change(function () {
+        if($(this).is(':checked')) {
+            $('.sku_image_content').show();
+        } else {
+            $('.sku_image_content').hide();
+        }
+    });
+    $('#hide_sku_style').change(function () {
+        if($(this).is(':checked')) {
+            $('.hide_sku_style').show();
+        } else {
+            $('.hide_sku_style').hide();
+        }
+    });
+    $('#salesku_plugin-template_type').change(function () {
+        var val = $(this).val();
+        $('.salesku_plugin-template_type').hide();
+        $('#salesku_plugin-template_type-'+val).show();
+    });
+    $(document).off('click','.salesku_plugin-create-templates').on('click','.salesku_plugin-create-templates', function () {
+        $.shopSaleskuPluginBackendSettings.createThemesTemplates($(this));
+        return false;
+    });
+    $(document).off('click','.salesku_plugin-settings .tabs a').on('click','.salesku_plugin-settings .tabs a',    function () {
+        $(this).closest('ul').children('li').removeClass('selected');
+        $(this).closest('li').addClass('selected');
+        $(this).closest('ul').next().children('.block').hide();
+        var tab = $(this).data('tab');
+        $('#'+tab).show();
+        return false;
+    });
+    var CodeMirror_editors = {};
+    $(document).off('click','.salesku_plugin-template_custom-edit').on('click','.salesku_plugin-template_custom-edit',    function () {
+        var id = $(this).data('id');
+        CodeMirror_editors[id] =  CodeMirror.fromTextArea(document.getElementById($(this).data('id')), {
+            mode: $(this).data('mode'),
+           //tabMode: "indent",
+            height: "auto",
+            lineNumbers: true,
+            //lineWrapping: true,
+            onChange: function () {
+                CodeMirror_editors[id].save();
+            },
+            showCursorWhenSelecting: true
+        });
+        $(this).hide();
+        return false;
+    });
+    {/literal}
+</script>
+
+
+

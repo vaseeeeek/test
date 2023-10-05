@@ -1,0 +1,12 @@
+<h1>[`Error`]!</h1>
+{if $error == 'no_bundles'}
+	<img align="left" src="{$wa_app_static_url}plugins/bundling/img/where-is-bundling-{$locale}.png"/>
+	[`There are no groups of acceccories for selected products. You can set it in "Bundles" menu.`]
+	<div style="margin-top: 20px;">
+		<a class="button blue" href="?plugin=bundling&action=bundles">[`To Bundles`] &rarr;</a>
+	</div>
+{elseif $error == 'zero'}
+	['Select at least one product.']
+{else}
+	{$error}
+{/if}

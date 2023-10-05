@@ -1,0 +1,26 @@
+.brand-plugin__all-reviews {
+	margin-bottom: 30px;
+}
+
+.brand-plugin__one-review {
+	padding: 30px;
+}
+
+.brand-plugin__one-review:nth-child(odd) {
+	background: #F5F4F4;
+}
+
+.brand-plugin__one-review-contact-name {
+	font-weight: bold;
+}
+
+.brand-plugin__one-review-title {
+	font-size: 13px;
+	font-weight: bold;
+	margin-top: 6px;
+}
+
+.brand-plugin__date-time {
+	font-size: 13px;
+	margin-top: 10px;
+}

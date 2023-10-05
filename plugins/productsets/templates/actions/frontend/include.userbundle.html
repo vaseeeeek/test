@@ -1,0 +1,142 @@
+{strip}
+
+{$show_button = empty($userbundle.settings.hide_button)}
+{if $force_form !== null}
+    {$show_button = empty($force_form)}
+{/if}
+
+{* Вывод кнопки *}
+{if $show_button}
+    {$button_text = _wp('Create the set')}
+    {if isset($set.settings.userbundle_text.popup_button)}
+        {$button_text = $set.settings.userbundle_text.popup_button}
+    {/if}
+    {$popup_close_on_click = 0}
+    {if !empty($set.settings.other.popup_close) || !isset($set.settings.other.popup_close)}
+        {$popup_close_on_click = 1}
+    {/if}
+    <div class="productsets-button purple"
+           data-productsets-userbundle-button="1"
+           title="{$button_text|strip_tags|escape}"
+           data-productsets-set-id="{$set.id}"
+           {shopProductsetsPluginGenerator::USERBUNDLE_BUTTON_ATTR}="1"
+           data-category="{if !empty($category_id)}{$category_id}{else}0{/if}"
+         {if $popup_close_on_click}  data-popup-close="1"{/if}
+        {if !empty($userbundle.active)}
+              data-productsets-product-id="{$userbundle.active.product_id}"
+        {/if}>
+        {$button_text}
+    </div>
+{else}
+
+    {* Вывод формы *}
+    <div class='productsets-userbundle-wrap productsets-controller not-inited'
+           data-set-id='{$set.id}'
+           data-settings="{json_encode($userbundle.settings)|escape}"
+           data-include-product="{if !empty($userbundle.active)}1{else}0{/if}"
+           data-skus-popup='{$userbundle_popup_skus_type}'
+    >
+
+        {* Шапка *}
+        <div class="productsets-userbundle-header">
+
+            {* Заголовок *}
+            {if isset($set.settings.userbundle_text.title)}
+                <div class="productsets-userbundle-title" {shopProductsetsPluginGenerator::USERBUNDLE_TITLES_ATTR}>
+                    <span {shopProductsetsPluginGenerator::USERBUNDLE_TITLE_LINES_ATTR}>{$set.settings.userbundle_text.title}</span>
+                </div>
+            {/if}
+
+            {* Блок оформления *}
+            <div class="productsets-userbundle-addtocart">
+                <!-- Generated automatically -->
+                <i class="productsets-loading"></i>
+
+                <div class="productsets-userbundle-info">
+                    {* Миниатюры выбранных товаров *}
+                    {if !empty($userbundle.settings.show_thumbs)}
+                        <div class="productsets-userbundle-thumbs"></div>
+                    {/if}
+
+                    <div class="productsets-userbundle-total-wrap">
+                        {* Сумма выбранных товаров с ценами *}
+                        <span class="productsets-userbundle-count" {shopProductsetsPluginGenerator::USERBUNDLE_COUNT_ATTR}></span> [`for`]
+                        <span class="productsets-userbundle-total">
+                            <span class="productsets-total-compare-price" {shopProductsetsPluginGenerator::USERBUNDLE_COMPARE_PRICE_ATTR}></span>
+                            <span class="productsets-userbundle-total-price" {shopProductsetsPluginGenerator::USERBUNDLE_PRICE_ATTR}></span>
+                        </span>
+
+                        {* Кнопка Купить *}
+                        <span class="productsets-userbundle-buy productsets-button orange" {shopProductsetsPluginGenerator::USERBUNDLE_SUBMIT_ATTR}>
+                            {if isset($set.settings.userbundle_text.buy)}{$set.settings.userbundle_text.buy}{else}[`Buy`]{/if}
+                        </span>
+                    </div>
+
+                    {* Скидка *}
+                    <div class="productsets-userbundle-saving-wrap">
+                        {if isset($set.settings.userbundle_text.discount)}{$set.settings.userbundle_text.discount} {else}[`Discount`] {/if}
+                        <span class="productsets-userbundle-saving" {shopProductsetsPluginGenerator::USERBUNDLE_DISCOUNT_ATTR}></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        {* Товары для создания набора *}
+        <div class="productsets-userbundle-body">
+
+            {* Заголовок *}
+            {if isset($set.settings.userbundle_text.blocks)}
+                <div class="productsets-userbundle-title" {shopProductsetsPluginGenerator::USERBUNDLE_TITLES_ATTR}>
+                    <span {shopProductsetsPluginGenerator::USERBUNDLE_TITLE_LINES_ATTR}>{$set.settings.userbundle_text.blocks}</span>
+                </div>
+            {/if}
+
+            <div class="productsets-userbundle-content">
+
+                {* Основная часть *}
+                {if !empty($userbundle.active) || !empty($userbundle.required)}
+                    <div class="productsets-userbundle-common productsets-userbundle-block" {shopProductsetsPluginGenerator::USERBUNDLE_BLOCKS_ATTR}>
+
+                        {* Заголовок *}
+                        {if isset($set.settings.userbundle_text.required)}
+                            <div class="productsets-userbundle-wrap-title" {shopProductsetsPluginGenerator::USERBUNDLE_TITLE_INSIDE_ATTR}>{$set.settings.userbundle_text.required}</div>
+                        {/if}
+
+                        {* Товары *}
+                        <div class="productsets-userbundle-items">
+
+                            {* Активный товар *}
+                            {if !empty($userbundle.active)}
+                                {* include.userbundle.item.html *}
+                                {include file=$templates.userbundle_item.frontend_path item=$userbundle.active is_active=1 is_locked=1}
+                            {/if}
+
+                            {* Обязательные товары *}
+                            {if !empty($userbundle.required)}
+                                {foreach $userbundle.required as $required}
+                                    {* include.userbundle.item.html *}
+                                    {include file=$templates.userbundle_item.frontend_path item=$required is_locked=1}
+                                {/foreach}
+                            {/if}
+
+                        </div>
+                    </div>
+                {/if}
+
+                {* Группы *}
+                {if !empty($userbundle.groups)}
+                    {foreach $userbundle.groups as $group}
+                        {if !empty($group.items)}
+                            {* include.userbundle.group.html *}
+                            {include file=$templates.userbundle_group.frontend_path group=$group}
+                        {/if}
+                    {/foreach}
+                {/if}
+            </div>
+        </div>
+
+    </div>
+{/if}
+
+{/strip}

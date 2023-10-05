@@ -1,0 +1,20 @@
+<script type="text/x-tmpl" id="tmpl-payment-field">
+    <div class="field">
+        <i class="icon16 sort" style="vertical-align: middle;"></i>
+        <select name="payment" class='width30'>
+            <option value="">[`Show all`]</option>
+            {foreach $payment as $pm}
+                <option {ldelim}% if (o.payment == '{$pm.id}') { print('selected'); } %{rdelim} value="{$pm.id}">{$pm.name|escape}</option>
+            {/foreach}
+        </select>
+        <a href="javascript:void(0)" title="[`delete`]" class="f-delete-form-fields"><i class="icon16 cross" style="vertical-align: middle"></i></a>
+    </div>
+</script>
+
+<script type="text/x-tmpl" id="tmpl-payment-fields">
+    {literal}
+    {% for (var i=0; i<o.fields.length; i++) { %}
+        {% include('tmpl-payment-field', o.fields[i]); %}
+    {% } %}
+    {/literal}
+</script>

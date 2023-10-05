@@ -1,0 +1,28 @@
+<div class="dp-service__points-switcher">
+    <a class="dp-service__points-switcher-current js-dp-service-switcher" href="javascript: void(0);" data-service="{$checked}">
+        {if $checked === 'all'}
+            Все
+        {else}
+            {foreach $groups as $group_service_id => $group_service}
+                {if $checked === $group_service_id}
+                    {$group_service.name}
+                    {break}
+                {/if}
+            {/foreach}
+        {/if}
+    </a>
+    <div class="dp-service__points-switcher-dropdown js-dp-service-switcher-dropdown">
+        <div class="dp-service__points-switcher-dropdown-item js-dp-service-switcher-item{if $checked === 'all'} dp-active{/if}" data-service="all">
+            <span class="js-dp-service-switcher-item-name">
+                Все
+            </span>
+        </div>
+        {foreach $groups as $group_service_id => $group_service}
+            <div class="dp-service__points-switcher-dropdown-item js-dp-service-switcher-item{if $checked === $group_service_id} dp-active{/if}" data-service="{$group_service_id}">
+                <span class="js-dp-service-switcher-item-name">
+                    {$group_service.name}
+                </span>
+            </div>
+        {/foreach}
+    </div>
+</div>

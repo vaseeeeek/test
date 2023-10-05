@@ -1,0 +1,14 @@
+<div class="dp-service dp-service--courier" id="dp-service-{$service.id}">
+    <div class="dp-service__courier-container">
+        <div class="dp-service__map-wrapper js-dp-service-map-wrapper dp-loading">
+            <div class="dp-service__search-wrapper dp-service__search-wrapper--courier js-dp-service-search-wrapper">
+                <input data-offset-x="-2" data-offset-y="5" id="dp-map-search-{$service.id}" class="dp-service__search-field" type="text" autocomplete="off" placeholder="Поиск по адресу"/>
+                <div class="dp-service__search-error js-dp-service-search-error">
+                    Данный адрес находится вне зоны доставки
+                </div>
+            </div>
+
+            <div class="dp-service__map" id="dp-map-{$service.id}"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1358 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/productsets\n"
+"POT-Creation-Date: 2014-09-16 15:16+0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: shop/plugins/productsets\n"
+"Language-Team: shop/plugins/productsets\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"Language: ru_RU\n"
+"X-Generator: Poedit 2.0.5\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+msgid "Product sets"
+msgstr "Комплекты товаров"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Total count"
+msgstr "Всего"
+
+msgid "Product set name"
+msgstr "Название комплекта"
+
+msgid "Number of selectable items"
+msgstr "Количество товаров в комплекте"
+
+msgid "Discount"
+msgstr "Скидка"
+
+msgid "Set price"
+msgstr "Стоимость комплекта"
+
+msgid "Enable?"
+msgstr "Включить?"
+
+msgid "Disable?"
+msgstr "Выключить?"
+
+msgid "You don't have any sets"
+msgstr "У Вас не создано ни одного комплекта"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "Color settings"
+msgstr "Настройка цветов"
+
+msgid "This color settings will be used for all product sets. If you would like to change color settings for any particular set, you can do it on the page of the set."
+msgstr "Данные цветовые настройки будут использованы для всех комплектов. Если Вы хотите задать другие цвета для какого-либо комплекта, это можно сделать непосредственно на странице самого комплекта."
+
+msgid "cancel custom settings"
+msgstr "сбросить настройки"
+
+msgid "\"Buy the set\" button"
+msgstr "Кнопка \"Купить комплект\""
+
+msgid "\"Buy the set\" hover button"
+msgstr "Кнопка \"Купить комплект\" при наведении"
+
+msgid "\"Buy the set\" text"
+msgstr "Текст кнопки \"Купить комплект\""
+
+msgid "\"Plus button\" (in popup window)"
+msgstr "Кнопка \"плюс\" (во всплывающем окне)"
+
+msgid "\"Plus button\" hover"
+msgstr "Кнопка \"плюс\" при наведении"
+
+msgid "\"Plus button\" text"
+msgstr "Текст кнопки \"плюс\""
+
+msgid "\"Create the set\" button"
+msgstr "Кнопка \"Создать комплект\""
+
+msgid "\"Create the set\" hover button"
+msgstr "Кнопка \"Создать комплект\" при наведении"
+
+msgid "\"Create the set\" text"
+msgstr "Текст кнопки \"Создать комплект\""
+
+msgid "\"Minus button\" (in popup window)"
+msgstr "Кнопка \"минус\" (во всплывающем окне)"
+
+msgid "\"Minus button\" hover"
+msgstr "Кнопка \"минус\" при наведении"
+
+msgid "\"Minus button\" text"
+msgstr "Текст кнопки \"минус\""
+
+msgid "Product price label"
+msgstr "Ценник товара"
+
+msgid "Product price label text"
+msgstr "Текст на ценнике товара"
+
+msgid "Line"
+msgstr "Линия"
+
+msgid "Total price label"
+msgstr "Общий ценник"
+
+msgid "Total price label text"
+msgstr "Текст на общем ценнике товаров"
+
+msgid "Price without discount"
+msgstr "Цена без скидки"
+
+msgid "Price with discount (in popup window)"
+msgstr "Цена со скидкой (по всплывющем окне)"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "This will drop all customizations made to the CSS file, and revert it to the original version. Are you sure?"
+msgstr "Это действие отменит все внесенные вами изменения в CSS файл и восстановит его оригинальную версию. Продолжить?"
+
+msgid "Css styles"
+msgstr "CSS стили"
+
+msgid "Revert to original"
+msgstr "Восстановить оригинал"
+
+msgid "Saved"
+msgstr "Сохранено"
+
+msgid "Something wrong"
+msgstr "Произошла ошибка"
+
+msgid "New product set"
+msgstr "Новый комплект"
+
+msgid "Status"
+msgstr "Активность"
+
+msgid "Off"
+msgstr "Выкл"
+
+msgid "On"
+msgstr "Вкл"
+
+msgid "My new complect"
+msgstr "Мой новый комплект"
+
+msgid "This name will be displayed in the list of product sets on admin page. Only you will see it"
+msgstr "Это название будет видно в списке Ваших комплектов. Только Вы сможете видеть его"
+
+msgid "Products set"
+msgstr "Комплект товаров"
+
+msgid "Create the set, which user could order"
+msgstr "Создайте комплект товаров, который пользователи смогут заказать у Вас на сайте"
+
+msgid "up"
+msgstr "вверх"
+
+msgid "down"
+msgstr "вниз"
+
+msgid "Unknown product"
+msgstr "Неизвестный товар"
+
+msgid "Show all skus in search"
+msgstr "Искать среди всех артикулов"
+
+msgid "Include product in the set"
+msgstr "Включить товар в комплект"
+
+msgid "Include product, on the page which appears set, to the set"
+msgstr "Включить автоматически товар в комплект, на странице которого отображается комплект"
+
+msgid "Allow users to choose product skus in the set"
+msgstr "Разрешить пользователям создавать комплекты"
+
+msgid "Users will be able to change the skus of products"
+msgstr "Пользователи смогут выбирать разные артикулы товара"
+
+msgid "Allow user to create set"
+msgstr "Разрешить пользователям создавать комплекты"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "Choose products, which user could add to the set"
+msgstr "Выберите товары, из которых пользователи смогут сформировать комплект"
+
+msgid "Specify the maximum number of items in the set, which user can order"
+msgstr "Укажите из скольки товаров будет состоять комплект при создании пользователем собственного"
+
+msgid "HTML before and after the set"
+msgstr "HTML-код перед и после комплекта"
+
+msgid "HTML before the set"
+msgstr "HTML-код перед комплектом"
+
+msgid "HTML after the set"
+msgstr "HTML-код после комплекта"
+
+msgid "Custom color settings"
+msgstr "Пользовательские настройки цветов"
+
+msgid "Localization"
+msgstr "Локализация"
+
+msgid "You can use you own locale and messages. Click 'Add locale', print locale identifier and add messages, which are using in the template (Product sets - Template)."
+msgstr "Вы можете настроить любую локаль и сообщения к ней. Нажмите 'Добавить локализацию', в заголовке впишите ее идентификатор и добавьте сообщения, которые используются  в шаблоне (Комплекты со скидкой - Шаблон)."
+
+msgid "If you want to add new message in the template use code:"
+msgstr "Если Вы хотите добавить новое сообщение в шаблон, используйте код:"
+
+msgid "MY MESSAGE"
+msgstr "МОЕ СООБЩЕНИЕ"
+
+msgid "Only 'MY MESSAGE' can be changed in this construction."
+msgstr "Только поле 'МОЕ СООБЩЕНИЕ' может быть изменено в этой конструкции."
+
+msgid "Then add printed message in the settings of localization below."
+msgstr "Далее добавьте вставленные Вами сообщения в настройки локализации ниже."
+
+msgid "delete"
+msgstr "удалить"
+
+msgid "Use as default"
+msgstr "Использовать по умолчанию"
+
+msgid "Add fields"
+msgstr "Добавить поля"
+
+msgid "Message"
+msgstr "Сообщение"
+
+msgid "Translation"
+msgstr "Перевод"
+
+msgid "Add locale"
+msgstr "Добавить локализацию"
+
+msgid "Select products, categories or sets, where would you like to display \"product set\""
+msgstr "Выберите товары, категории, списки товаров, в которых Вы желаете показывать комплект"
+
+msgid "Unknown set"
+msgstr "Неизвестный список"
+
+msgid "Unknown category"
+msgstr "Неизвестная категория"
+
+msgid "Everywhere"
+msgstr "Везде"
+
+msgid "On request"
+msgstr "По запросу"
+
+msgid "Sets"
+msgstr "Списки"
+
+msgid "Categories"
+msgstr "Категории"
+
+msgid "Products"
+msgstr "Товары"
+
+msgid "include children"
+msgstr "включить дочерние"
+
+msgid "Use code %s to insert the set into the template"
+msgstr "Используйте код %s для вставки комплекта в шаблон"
+
+msgid "Field \"Include product in the set\" will not work."
+msgstr "Поле \"Включить товар в комплект\" будет игнорироваться"
+
+msgid "YOUR_SET_ID"
+msgstr "ID_КОМПЛЕКТА"
+
+msgid "Press 'Save' to see the code with your set ID."
+msgstr "Нажмите 'Сохранить', чтобы увидеть код с идектификатором Вашего комплекта"
+
+msgid "This will drop all customizations made to the Js locale file, and revert it to the original version. Are you sure?"
+msgstr "Это действие отменит все внесенные вами изменения в файл локализации Javascript и восстановит его оригинальную версию. Продолжить?"
+
+msgid "JS frontend locale"
+msgstr "JS файл локализации"
+
+msgid "Instead of \"YOUR_LOCALE\" print the locale you want to add and change the translation. You can add as much locales as you want."
+msgstr "Вместо \"YOUR_LOCALE\" впишите локали, которую Вы хотите добавить. После этого измените перевод. Вы можете добавлять столько локализаций, сколько захотите."
+
+msgid "This will drop all customizations made to the template file, and revert it to the original version. Are you sure?"
+msgstr "Это действие отменит все внесенные вами изменения в файл шаблона и восстановит его оригинальную версию. Продолжить?"
+
+msgid "Template"
+msgstr "Шаблон"
+
+msgid "Add set"
+msgstr "Создать комплект"
+
+msgid "CSS styles"
+msgstr "CSS стили"
+
+msgid "exclude children"
+msgstr "исключить дочерние"
+
+msgid "Do you really want to delete product sets in amount of {ldelim}0{rdelim} pcs?"
+msgstr "Вы действительно хотите удалить комплекты в количестве {ldelim}0{rdelim} шт.?"
+
+msgid "Choose product sets to delete"
+msgstr "Выберите комплекты, которые хотите удалить"
+
+msgid "Don't forget to save!"
+msgstr "Не забудьте сохраниться!"
+
+msgid "Loading"
+msgstr "Загрузка"
+
+msgid "Specify locale name"
+msgstr "Укажите название локали"
+
+msgid "prev"
+msgstr "назад"
+
+msgid "next"
+msgstr "вперед"
+
+msgid "Cannot save color settings"
+msgstr "Не удалось сохранить цветовые настройки"
+
+msgid "Something wrong. Contact plugin developer: gapon2401@gmail.com"
+msgstr "Произошла ошибка. Сообщите об этом разработчику: gapon2401@gmail.com"
+
+msgid "Product set not saved"
+msgstr "Комплект не сохранен"
+
+msgid "Set is empty"
+msgstr "Комплект пуст"
+
+msgid "Set is not available"
+msgstr "Комплект недоступен"
+
+msgid "Product sets with discount"
+msgstr "Комплекты со скидкой"
+
+msgid "Creation and sale of product sets with discount"
+msgstr "Создание и продажа комплектов товаров со скидкой"
+
+msgid "Enable plugin"
+msgstr "Включить плагин"
+
+msgid "Enable default plugin display"
+msgstr "Использовать вывод по умолчанию"
+
+msgid "Use automatically plugin display on product page. If you would like to use custom display, uncheck this option and see Instructions, how to use \"Custom display\""
+msgstr "Использовать автоматический вывод комплектов на странице товара. Если Вы хотите сами выбирать, какой комплект выводить и где, то снимите галочку и используйте \"Ручной вывод\". Подробнее читайте в Инструкции"
+
+msgid "Items per page"
+msgstr "Количество комплектов на странице"
+
+msgid "Number of product sets in the list in admin area"
+msgstr "Количество отображаемых комплектов в списке на странице в администраторской части"
+
+msgid "Ruble symbol"
+msgstr "Символ рубля"
+
+msgid "rub."
+msgstr "руб."
+
+msgid "Display like text"
+msgstr "Отображать, как текст"
+
+msgid "Display like symbol"
+msgstr "Отображать, как символ"
+
+msgid "Delete the set"
+msgstr "Удалить набор"
+
+msgid "General"
+msgstr "Основные"
+
+msgid "Bundle"
+msgstr "Комплекты"
+
+msgid "User bundle"
+msgstr "Комплекты пользователя"
+
+msgid "Display"
+msgstr "Отображение"
+
+msgid "Appearance"
+msgstr "Внешний вид"
+
+msgid "add bundle"
+msgstr "добавить набор"
+
+msgid "Product bundle"
+msgstr "Набор товаров"
+
+msgid "add products to the bundle"
+msgstr "добавить товары в набор"
+
+msgid "Bundle settings"
+msgstr "Свойства набора"
+
+msgid "Select discount type for the bundle"
+msgstr "Выберите тип скидки для набора"
+
+msgid "common discount"
+msgstr "общая скидка"
+
+msgid "discount for each product"
+msgstr "скидка для каждого товара"
+
+msgid "discount depending on the availability of the product in the bundle"
+msgstr "скидка, зависящая от наличия товаров в наборе"
+
+msgid "common"
+msgstr "общая"
+
+msgid "If bundle will have 2, 3, 4 or more product-positions, then set discount to all products"
+msgstr "Если в наборе будет 2, 3, 4 или больше товарных позиций, тогда скидку получат все товары"
+
+msgid "on every position"
+msgstr "на каждую позицию"
+
+msgid "Set discount to each position of the bundle"
+msgstr "Установить скидку на каждую позицию в наборе"
+
+msgid "Add active product to the bundle"
+msgstr "Добавить активный товар в набор"
+
+msgid "Product on the page of which the set is located will be automatically added to that set"
+msgstr "Товар, на странице которого расположен набор, будет автоматически добавлен в набор"
+
+msgid "Select bundle lifetime"
+msgstr "Выбрать время жизни набора"
+
+msgid "Server time"
+msgstr "Серверное время"
+
+msgid "Start"
+msgstr "Начало"
+
+msgid "DD"
+msgstr "ДД"
+
+msgid "MM"
+msgstr "ММ"
+
+msgid "YYYY"
+msgstr "ГГГГ"
+
+msgid "HH"
+msgstr "ЧЧ"
+
+msgid "End"
+msgstr "Конец"
+
+msgid "Delete bundle when the time is over"
+msgstr "Удалить набор, когда время завершится"
+
+msgid "By default the bundle will be hidden when the time is over.<br><i class=\"icon16 exclamation\"></i> If you activate this option the bundle will be removed from the website and from the admin page."
+msgstr "По умолчанию, когда время закончится, набор будет скрыт.<br><i class=\"icon16 exclamation\"></i> Если вы активируете данную опцию, тогда набор будет полностью удален с витрины и со страницы администратора."
+
+msgid "If bundle has positions with empty stocks, then hide the bundle"
+msgstr "Если в наборе имеются позиции, которых нет в наличии и нельзя заказать, тогда скрыть набор"
+
+msgid "Name"
+msgstr "Название"
+
+msgid "Qty"
+msgstr "К-во"
+
+msgid "Price"
+msgstr "Цена"
+
+msgid "add alternative products"
+msgstr "добавить альтернативные товары"
+
+msgid "Customer will be able to change products in one position"
+msgstr "Покупатель будет иметь возможность выбирать другие товары в позиции"
+
+msgid "show additional settings"
+msgstr "показать дополнительные настройки"
+
+msgid "Allow to choose product skus"
+msgstr "Разрешить выбирать другие варианты товара"
+
+msgid "Allow to change product quantity"
+msgstr "Разрешить менять количество товара"
+
+msgid "Allow to delete product from the bundle"
+msgstr "Разрешить удалять товары из набора"
+
+msgid "If there is no product in the bundle, then cancel all discounts"
+msgstr "Отменить все скидки, если товара не будет в наборе"
+
+msgid "pos"
+msgstr "поз"
+
+msgid "on each pos"
+msgstr "на каждую поз"
+
+msgid "add"
+msgstr "добавить"
+
+msgid "* * * Active product * * *"
+msgstr "* * * Активный товар * * *"
+
+msgid "Storefronts"
+msgstr "Витрины"
+
+msgid "Select the storefronts where sets will be displayed"
+msgstr "Выберите витрины, где будут отображены наборы"
+
+msgid "equals"
+msgstr "равно"
+
+msgid "not equals"
+msgstr "не равно"
+
+msgid "Select storefronts"
+msgstr "Выберите витрины"
+
+msgid "All storefronts"
+msgstr "Все витрины"
+
+msgid "Product page"
+msgstr "Страница товара"
+
+msgid "Output place"
+msgstr "Место вывода"
+
+msgid "Next to the \"Add to cart\" button"
+msgstr "Рядом с кнопкой \"В корзину\""
+
+msgid "Block of extra product details in main description area"
+msgstr "Блок дополнительной информации в основной части описания товара"
+
+msgid "Output places depend on your Theme template."
+msgstr "Место вывода зависит от вашей Темы дизайна"
+
+msgid "Select the elements on the product pages of which sets will be displayed"
+msgstr "Выберите элементы, на страницах товаров которых будут отображены наборы"
+
+msgid "Wait, please, while data is loading..."
+msgstr "Подождите, пожалуйста, пока данные загружаются..."
+
+msgid "Select categories"
+msgstr "Выберите категории"
+
+msgid "Categories and subcategories"
+msgstr "Категории и подкатегории"
+
+msgid "Select product sets"
+msgstr "Выберите списки товаров"
+
+msgid "Product types"
+msgstr "Типы товаров"
+
+msgid "Select product types"
+msgstr "Выберите типы товаров"
+
+msgid "Category page"
+msgstr "Страница категории"
+
+msgid "Select categories where sets will be displayed"
+msgstr "Выберите категории, где будут отображены наборы"
+
+msgid "Product set title"
+msgstr "Заголовок набора"
+
+msgid "Complect title"
+msgstr "Это заголовок набора"
+
+msgid "This title will be displayed on the storefront"
+msgstr "Данный заголовок будет отображен на витрине"
+
+msgid "Text before the set"
+msgstr "Текст перед набором"
+
+msgid "Text after the set"
+msgstr "Текст после набора"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Select discount type"
+msgstr "Выберите тип скидки"
+
+msgid "individual discount for each group"
+msgstr "индивидуальная скидка для каждой группы"
+
+msgid "discount depending on the quantity of the products in the bundle"
+msgstr "скидка, зависящая от количества товаров в наборе"
+
+msgid "Minimal quantity of products in the set"
+msgstr "Минимальное количество товаров в наборе"
+
+msgid "Active sku is not counted"
+msgstr "Активный товар не учитывается"
+
+msgid "Maximal quantity of products in the set"
+msgstr "Максимальное количество товаров в наборе"
+
+msgid "add required products"
+msgstr "добавить обязательные товары"
+
+msgid "This products cannot be deleted by user"
+msgstr "Данные товары нельзя удалить из набора"
+
+msgid "create group of products"
+msgstr "создать группу товаров"
+
+msgid "Group of products"
+msgstr "Группа товаров"
+
+msgid "Group name"
+msgstr "Название группы"
+
+msgid "Multiple values (checkboxes)"
+msgstr "Множественный выбор (чекбоксы)"
+
+msgid "User will be able to check several products from the group"
+msgstr "Покупетель сможет выбрать несколько товаров из группы"
+
+msgid "add products to the group"
+msgstr "добавить товары в группу"
+
+msgid "add category to the group"
+msgstr "добавить категорию в группу"
+
+msgid "add set to the group"
+msgstr "добавить список в группу"
+
+msgid "add type to the group"
+msgstr "добавить тип товаров в группу"
+
+msgid "Types"
+msgstr "Типы"
+
+msgid "Select value"
+msgstr "Выберите значение"
+
+msgid "All products"
+msgstr "Все товары"
+
+msgid "First N-products"
+msgstr "Первые N-товаров"
+
+msgid "Last N-products"
+msgstr "Последние N-товаров"
+
+msgid "Random N-products"
+msgstr "Случайные N-товаров"
+
+msgid "Group discount"
+msgstr "Тип скидки для группы"
+
+msgid "Common for all products"
+msgstr "Общая для всех товаров"
+
+msgid "Discount for each product"
+msgstr "Скидка на каждый товар"
+
+msgid "Select products"
+msgstr "Выберите товары"
+
+msgid "show more"
+msgstr "показать еще"
+
+msgid "or select the category to find product you need."
+msgstr "или выберите категорию, чтобы найти нужный товар"
+
+msgid "or"
+msgstr "или"
+
+msgid "cancel"
+msgstr "отмена"
+
+msgid "Show product skus"
+msgstr "Показать варианты товара"
+
+msgid "More products"
+msgstr "Больше товаров"
+
+msgid "Product sets are used for embedding products into storefront info pages and design templates."
+msgstr "Списки товаров используются для размещения товаров в информационных страницах и в шаблонах дизайна."
+
+msgid "You have no product types in your online store. Create one in the store settings."
+msgstr "В вашем магазине отсутствуют типы товаров. Добавьте новый тип в настройках."
+
+msgid "This product is not available for purchase"
+msgstr "Данный товар не доступен для заказа"
+
+msgid "Pre-order only"
+msgstr "Только предзаказ"
+
+msgid "Out of stock"
+msgstr "Нет в наличии"
+
+msgid "In stock"
+msgstr "В наличии"
+
+msgid "Product with the selected option combination is not available for purchase"
+msgstr "Товар с выбранными характеристиками не доступен для заказа"
+
+msgid "This product is already selected"
+msgstr "Товар уже выбран"
+
+msgid "Select product sku"
+msgstr "Выбрать вариант товара"
+
+msgid "Active product"
+msgstr "Активный товар"
+
+msgid "select sku"
+msgstr "выберите вариант товара"
+
+msgid "Not in stock"
+msgstr "Нет в наличии"
+
+msgid "%d from %d"
+msgstr "%d из %d"
+
+msgid "Total price"
+msgstr "Итоговая цена"
+
+msgid "Saving"
+msgstr "Экономия"
+
+msgid "Add set to cart"
+msgstr "Добавить набор в корзину"
+
+msgid "sku ID"
+msgstr "ID артикула"
+
+msgid "Something wrong. Contact plugin developer"
+msgstr "Произола ошибка. Свяжитесь с разработчиком"
+
+msgid "Productsets"
+msgstr "Комплекты товаров"
+
+msgid "Set #"
+msgstr "Набор #"
+
+msgid "Total discount"
+msgstr "Общая скидка"
+
+msgid "Show more"
+msgstr "Показать еще"
+
+msgid "Other"
+msgstr "Другие"
+
+msgid "Duplicate"
+msgstr "Копировать"
+
+msgid "Change status"
+msgstr "Изменить активность"
+
+msgid "Set"
+msgstr "Комплект"
+
+msgid "enabled"
+msgstr "вкл"
+
+msgid "disabled"
+msgstr "выкл"
+
+msgid "Ended by schedule"
+msgstr "Закончено по расписанию"
+
+msgid "%d bundle"
+msgid_plural "%d bundles"
+msgstr[0] "%d комплект"
+msgstr[1] "%d комплекта"
+msgstr[2] "%d комплектов"
+
+msgid "Starts at %s"
+msgstr "Начать %s"
+
+msgid "Add bundle to the cart"
+msgstr "Добавить комплект в корзину"
+
+msgid "Product name"
+msgstr "Название товара"
+
+msgid "product sku"
+msgstr "артикул товара"
+
+msgid "Form"
+msgstr "Форма"
+
+msgid "3 products"
+msgstr "3 товара"
+
+msgid "for"
+msgstr "за"
+
+msgid "Buy"
+msgstr "Купить"
+
+msgid "Dicount"
+msgstr "Скидка"
+
+msgid "Title"
+msgstr "Заголовок"
+
+msgid "Inside title"
+msgstr "Внутренний заголовок"
+
+msgid "Add"
+msgstr "Добавить"
+
+msgid "Added"
+msgstr "Добавлено"
+
+msgid "Popup button"
+msgstr "Кнопка всплывающего окна"
+
+msgid "Create the set"
+msgstr "Создать комплект"
+
+msgid "User Bundle"
+msgstr "Комплекты пользователя"
+
+msgid "What should I do, if live demo is not the same as on the website?"
+msgstr "Что делать, если отображение на примере не соответствует отображению на сайте?"
+
+msgid "Use this option to force the CSS styles"
+msgstr "Используйте данную опцию, чтобы повысить приоритет CSS стилей (!important)"
+
+msgid "Select element"
+msgstr "Выберите элемент"
+
+msgid "Block"
+msgstr "Блок"
+
+msgid "Block header"
+msgstr "Шапка блока"
+
+msgid "Block content"
+msgstr "Содержимое блока"
+
+msgid "Total compare price"
+msgstr "Общая зачеркнутая цена"
+
+msgid "Product price"
+msgstr "Цена товара"
+
+msgid "Product compare price"
+msgstr "Зачеркнутая цена"
+
+msgid "Badge"
+msgstr "Наклейка"
+
+msgid "Quantity buttons"
+msgstr "Кнопки количества"
+
+msgid "Icon of skus selecting"
+msgstr "Иконка выбора вариаций"
+
+msgid "Wrap of icon of skus selecting"
+msgstr "Обертка иконки выбора вариаций"
+
+msgid "Sku variants"
+msgstr "Варианты товара"
+
+msgid "Submit button"
+msgstr "Кнопка отправления"
+
+msgid "Slider arrow"
+msgstr "Стрелка слайдера"
+
+msgid "Block of slider arrow"
+msgstr "Блок стрелки слайдера"
+
+msgid "Plus"
+msgstr "Плюс"
+
+msgid "Checkbox icon"
+msgstr "Иконка чекбокса"
+
+msgid "Blocks"
+msgstr "Блоки"
+
+msgid "Titles"
+msgstr "Заголовки"
+
+msgid "Title lines"
+msgstr "Линии заголовка"
+
+msgid "Title inside block"
+msgstr "Заголовок внутри блока"
+
+msgid "Add button"
+msgstr "Кнопка добавления"
+
+msgid "Add button of selected item"
+msgstr "Кнопка добавления выбранной позиции"
+
+msgid "clear all styles"
+msgstr "очистить все стили"
+
+msgid "Live demonstration"
+msgstr "Демонстрация внешнего вида"
+
+msgid "Use bundles"
+msgstr "Использовать комплекты"
+
+msgid "Customize text blocks"
+msgstr "Изменить текстовые блоки"
+
+msgid "Buy button"
+msgstr "Кнопка покупки"
+
+msgid "Custom"
+msgstr "Ручной вывод"
+
+msgid "Use code"
+msgstr "Используйте код"
+
+msgid "Default place"
+msgstr "Место по умолчанию"
+
+msgid "Output place on the template category.html depends on your Theme template."
+msgstr "Место вывода в шаблоне category.html зависит от вашей темы дизайна."
+
+msgid "On demand"
+msgstr "По запросу"
+
+msgid "Sets can be displayed on demand using helper and special ID"
+msgstr "Комплекты могут быть отображены по запросу при помощи хелпера или специального ID"
+
+msgid "Output ID"
+msgstr "ID вывода"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "This description will be displayed only in backend"
+msgstr "Данное описание будет доступно только в административной части"
+
+msgid "Ruble sign"
+msgstr "Знак рубля"
+
+msgid "Popup dialog closing"
+msgstr "Закрытие всплывающего окна"
+
+msgid "Close popup dialog, when user click outside the form"
+msgstr "Закрыть всплывающее окно, когда пользователь нажмет за пределами формы"
+
+msgid "Use user bundles"
+msgstr "Использовать комплекты пользователя"
+
+msgid "Hide popup button and show the set on the page"
+msgstr "Скрыть кнопку для открытия всплывающего окна и отобразить набор сразу на странице"
+
+msgid "Show image thumbs of selected items"
+msgstr "Показывать миниатюры выбранных позиций"
+
+msgid "Would you like to show all selected image thumbs for customer? They will be shown near the total price for the user bundle."
+msgstr "Вы бы хотели, чтобы покупатель видел миниатюры всех выбранных товаров? Они будут отображены рядом с общей стоимостью набора."
+
+msgid "Title of selected products"
+msgstr "Заголовок выбранных товаров"
+
+msgid "Your bundle"
+msgstr "Ваш набор"
+
+msgid "Title of blocks"
+msgstr "Заголовок блоков"
+
+msgid "Bundles"
+msgstr "Комплекты"
+
+msgid "Title of required block"
+msgstr "Загловок обязательного блока"
+
+msgid "Basic"
+msgstr "Основные"
+
+msgid "Added button"
+msgstr "Кнопка добавленного товара"
+
+msgid "N-products"
+msgstr "N-товаров"
+
+msgid "Inline"
+msgstr "Встроенное"
+
+msgid "Popup"
+msgstr "Всплываюшее окно"
+
+msgid "Image"
+msgstr "Изображение"
+
+msgid "delete image"
+msgstr "удалить изображение"
+
+msgid "Use hook frontend_products"
+msgstr "Использовать хук frontend_products"
+
+msgid "Some plugins can change the prices of products. By disabling this option, you refuse any changes to your products from third-party plugins."
+msgstr "Некоторые плагины могут изменять цены на продукты. Отключая эту опцию, вы отказываетесь от каких-либо изменений для ваших товаров со стороны сторонних плагинов."
+
+msgid "HTML text before and after the bundle"
+msgstr "HTML текст перед и после комплекта"
+
+msgid "HTML text before the bundle"
+msgstr "HTML текст перед комплектом"
+
+msgid "HTML text after the bundle"
+msgstr "HTML текст после комплекта"
+
+msgid "https://igaponov.ru/docs/productsets/"
+msgstr "https://igaponov.ru/docs/productsets/"
+
+msgid "Documentation"
+msgstr "Документация"
+
+msgid "Minimal quantity of products is"
+msgstr "Минимальное количество товаров"
+
+msgid "Maximal quantity of products is"
+msgstr "Максимальное количество товаров"
+
+msgid "Capacity"
+msgstr "Объем"
+
+msgid "Gb"
+msgstr "Гб"
+
+msgid "Color"
+msgstr "Цвет"
+
+msgid "Black"
+msgstr "Черный"
+
+msgid "White"
+msgstr "Белый"
+
+msgid "Stock"
+msgstr "Склад"
+
+msgid "Another stock"
+msgstr "Другой склад"
+
+msgid "Sku's popup"
+msgstr "Всплывающее окно артикулов"
+
+msgid "Close button"
+msgstr "Кнопка закрытия"
+
+msgid "Place of total block"
+msgstr "Расположение блока с итоговой стоимостью"
+
+msgid "At the top"
+msgstr "Вверху"
+
+msgid "At the bottom"
+msgstr "Внизу"
+
+msgid "Sticky block"
+msgstr "Прилипающий блок"
+
+msgid "Make block with total price sticky to window on scroll."
+msgstr "Сделайте блок с общей стоимостью прилипающим при прокрутке окна."
+
+msgid "ATTENTION! Template has been changed. Content may differ from original."
+msgstr "ВНИМАНИЕ! Шаблон был изменен. Содержимое может отличаться от оригинала."
+
+msgid "revert template to original"
+msgstr "вернуть оригинальный шаблон"
+
+msgid "Template not exists."
+msgstr "Шаблон не существует."
+
+msgid "Skus popup template"
+msgstr "Шаблон всплывающего окна артикулов"
+
+msgid "Bundle template"
+msgstr "Шаблон набора"
+
+msgid "Bundle item template"
+msgstr "Шаблон позиции набора"
+
+msgid "Bundle single item template"
+msgstr "Шаблон товарной единицы набора"
+
+msgid "Userbundle template"
+msgstr "Шаблон пользовательского набора"
+
+msgid "Userbundle item template"
+msgstr "Шаблон товарной единицы пользовательского набора"
+
+msgid "Userbundle group"
+msgstr "Шаблон группы пользовательского набора"
+
+msgid "Sets template"
+msgstr "Общий шаблон"
+
+msgid "Unknown template"
+msgstr "Неизвестный шаблон"
+
+msgid "Size of image thumbs"
+msgstr "Размер миниатюр изоражений"
+
+msgid "Width"
+msgstr "Ширина"
+
+msgid "Height"
+msgstr "Высота"
+
+msgid "Templates"
+msgstr "Шаблоны"
+
+msgid "Edit templates"
+msgstr "Редактировать шаблоны"
+
+msgid "Developer will not consult you about editing the templates."
+msgstr "Разработчик не будет оказывать консультации по редактированию шаблонов."
+
+msgid "I recognize the attention above and would like to edit plugin templates"
+msgstr "Я прочитал(а) и осознаю предупреждение выше, и хочу приступить к редактированию шаблонов"
+
+msgid "Show the template"
+msgstr "Показать шаблон"
+
+msgid "It's strongly recommended not to edit templates. After you save the copy of template, you will not be able to get updates for that template later. Developer not responsible for errors, caused by your editing and will not be able to help you."
+msgstr "Настоятельно не рекомендуется редактировать шаблоны. После того, как вы сохраните копию шаблона, вы не сможете получать его обновления. Разработчик не несет никакой ответственности за ошибки, возникшие по причине редактирования шаблонов, и не будет оказывать вам помощь в их устранении."
+
+msgid "Products has been successfully added to the cart"
+msgstr "Товары были успешно добавлены в корзину"
+
+msgid "Continue shopping"
+msgstr "Продолжить покупки"
+
+msgid "Proceed to checkout"
+msgstr "Оформить заказ"
+
+msgid "Popup with successful message"
+msgstr "Всплывающее окно при успешном оформлении заказа"
+
+msgid "Content"
+msgstr "Содержимое"
+
+msgid "Tick icon"
+msgstr "Иконка (галочка)"
+
+msgid "Continue shopping link"
+msgstr "Ссылка для продолжения покупок"
+
+msgid "Proceed to checkout button"
+msgstr "Кнопка оформления заказа"
+
+msgid "Hide empty stocks positions, where it is allowed to delete products"
+msgstr "Скрыть товары, которых нет в наличии, у позиций, где разрешено удаление товаров из набора"
+
+msgid "Reload page after checkout"
+msgstr "Перезагрузить страницу после успешного заказа набора"
+
+msgid "Reload page after successfull checkout, when user closes the popup window"
+msgstr "Перезагрузить страницу после успешного заказа набора, когда пользователь закроет всплывающее окно"
+
+msgid "set items"
+msgstr "комплектующие"
+
+msgid "Unknown product #"
+msgstr "Неизвестный товар #"
+
+msgid "pcs."
+msgstr "шт."
+
+msgid "In total discount included value, which is not distributed to products"
+msgstr "В общую скидку включено значение, которое не распределено по товарам, в размере"
+
+msgid "(copy)"
+msgstr "(копия)"
+
+msgid "Import appearance settings from other sets"
+msgstr "Импортировать настройки внешнего вида из другого комплекта"
+
+msgid "Import appearance settings"
+msgstr "Импортировать настройки внешнего вида"
+
+msgid "Import"
+msgstr "Импорт"
+
+msgid "Import appearance"
+msgstr "Импорт дизайна"
+
+msgid "Layout settings"
+msgstr "Настройки макета"
+
+msgid "Quantity field"
+msgstr "Поле для указания количества"
+
+msgid "close"
+msgstr "закрыть"
+
+msgid "Bundle layout settings"
+msgstr "Настройки макета для Комплектов"
+
+msgid "Product card layout"
+msgstr "Макет карточки товара"
+
+msgid "Layout"
+msgstr "Макет"
+
+msgid "Product card width"
+msgstr "Ширина карточки товара"
+
+msgid "Mobile product card layout"
+msgstr "Мобильный макет карточки товара"
+
+msgid "Checkbox type"
+msgstr "Тип чекбокса"
+
+msgid "Product Image"
+msgstr "Изображение товара"
+
+msgid "Type of alternative slider"
+msgstr "Тип альтернативного слайдера"
+
+msgid "Layout of total block"
+msgstr "Макет итогового блока"
+
+msgid "Place of the total block"
+msgstr "Расположение итогового блока"
+
+msgid "Displaying of selectable skus in popup window"
+msgstr "Отображение артикулов во всплывающем окне"
+
+msgid "User bundle layout settings"
+msgstr "Настройки макета для Комплектов пользователей"
+
+msgid "Small"
+msgstr "Маленькая"
+
+msgid "Medium"
+msgstr "Средняя"
+
+msgid "Large"
+msgstr "Большая"
+
+msgid "Circle"
+msgstr "Кружок"
+
+msgid "Square"
+msgstr "Квадрат"
+
+msgid "Show"
+msgstr "Показать"
+
+msgid "Hide"
+msgstr "Скрыть"
+
+msgid "Vertical"
+msgstr "Вертикальный"
+
+msgid "Horizontal"
+msgstr "Горизонтальный"
+
+msgid "Select list"
+msgstr "Выпадающий список"
+
+msgid "Inline in row"
+msgstr "В строку"
+
+msgid "Text near the checkbox"
+msgstr "Текст рядом с чекбоксом"
+
+msgid "Add product to the bundle"
+msgstr "Добавить товар в набор"
+
+msgid "Relevant for product card layout 2 or 3. Go to \"Appearance tab\" and check \"Layout settings\""
+msgstr "Актуально для 2 и 3 типов отображения товара. Откройте вкладку \"Внешний вид\" и проверьте \"Настройки макета\""
+
+msgid "Custom parameters"
+msgstr "Дополнительные параметры"
+
+msgid "add parameter"
+msgstr "добавить параметр"
+
+msgid "HTML text at the top and at the bottom of the total block"
+msgstr "HTML текст вверху и внизу итогового блока с ценой"
+
+msgid "Relavant for second and third layouts of the total block. Go to \"Appearance tab\" and check your \"Layout settings\""
+msgstr "Актуально для второго и третьего типов отображения итогового блока. Откройте вкладку \"Внешний вид\" и проверьте \"Настройки макета\""
+
+msgid "HTML text at the top of the total block"
+msgstr "HTML текст вверху итогового блока с ценой"
+
+msgid "HTML text at the bottom of the total block"
+msgstr "HTML текст внизу итогового блока с ценой"
+
+msgid "Return on Sales"
+msgstr "Рентабельность"
+
+msgid "ROS"
+msgstr "ROS"
+
+msgid "show on the page of products from the bundles"
+msgstr "отобразить на странице товаров, входящих в комплекты"
+
+msgid "Sets will be displayed on the pages of products, which were manually added to the bundles and user bundles"
+msgstr "Наборы будут отображены на страницах товаров, которые были вручную добавлены в обычные комплекты, а также комплекты пользователей"
+
+msgid "Start typing product or SKU name"
+msgstr "Начните печатать название товара или наименование артикула"
+
+msgid "Change product prices"
+msgstr "Изменить цены товаров"
+
+msgid "Show prices with discounts"
+msgstr "Показать цены товаров со скидкой"
+
+msgid "If you disable that option, products will be with original prices from the admin page despite the discounts"
+msgstr "Если отключить данную опцию, товары будут отображены с оригинальными ценами, указанными в административной части, несмотря на скидки"
+
+msgid "Press to select"
+msgstr "Нажмите, чтобы выбрать"
+
+msgid "Bundle total block template"
+msgstr "Шаблон итогового блока для Комплектов"
+
+msgid "Variables"
+msgstr "Переменные"
+
+msgid "Item variables"
+msgstr "Переменные товара"
+
+msgid "Read more in <a href=\"https://igaponov.ru/docs/193/layout-settings/\" target=\"_blank\">docs</a>"
+msgstr "Читайте подробнее в <a href=\"https://igaponov.ru/docs/193/layout-settings/\" target=\"_blank\">документации</a>"
+
+msgid "Read more in <a href=\"http://en.igaponov.ru/docs/178/custom-parameters/\" target=\"_blank\">docs</a>"
+msgstr "Читайте подробнее в <a href=\"https://igaponov.ru/docs/192/custom-parameters/\" target=\"_blank\">документации</a>"
+
+msgid "Discount rounding"
+msgstr "Округление скидок"
+
+msgid "not round"
+msgstr "не округлять"
+
+msgid "ceil"
+msgstr "в большую сторону"
+
+msgid "rounding to integer"
+msgstr "округлить до целого"
+
+msgid "floor"
+msgstr "в меньшую сторону"

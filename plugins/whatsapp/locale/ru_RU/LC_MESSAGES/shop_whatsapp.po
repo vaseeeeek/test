@@ -1,0 +1,177 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/whatsapp\n"
+"POT-Creation-Date: 2015-11-01 17:28+0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: shop/plugins/whatsapp\n"
+"Language-Team: shop/plugins/whatsapp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n"
+"%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"Language: ru_RU\n"
+"X-Generator: Poedit 2.0.5\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:26
+#: /wa-apps/shop/plugins/whatsapp/lib/config/plugin.php:7
+msgid "WhatsApp share button"
+msgstr "Кнопка поделиться WhatsApp"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:33
+msgid "Plugin status"
+msgstr "Статус плагина"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:38
+msgid "Off"
+msgstr "Выкл"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:44
+msgid "On"
+msgstr "Вкл"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:50
+msgid "Settings"
+msgstr "Настройки"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:52
+msgid "Button name"
+msgstr "Название кнопки"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:58
+msgid "Product page output places"
+msgstr "Вывод кнопки на странице товара"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:60
+msgid "Next to links to custom product pages"
+msgstr ""
+"Содержимое, добавляемое рядом со ссылками на дополнительные страницы товара"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:61
+msgid "Next to the \"Add to cart\" button"
+msgstr "Содержимое, добавляемое рядом с кнопкой \"В корзину\""
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:62
+msgid "Custom informational block, usually in a sidebar"
+msgstr "Блок дополнительной информации в боковой части страницы"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:63
+msgid "Block of extra product details in main description area"
+msgstr "Блок дополнительной информации в основной части описания товара"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:64
+msgid ""
+"Output places depend on your Theme template. Contact to your developer, if "
+"you would like to change it"
+msgstr ""
+"Места вывода зависят от Вашей темы дизайна. Свяжитесь с разработчиком темы, "
+"если хотите изменить их"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:68
+msgid "Onclick javascript code"
+msgstr "Атрибут onclick для javascript кода"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:71
+msgid "Use for analytics. Any javascript errors can affect the plugin"
+msgstr ""
+"Используйте для аналитики. Любые ошибки javascript могут повлиять на работу "
+"плагина"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:75
+msgid "Message text"
+msgstr "Сообщение, которое отправится в WhatsApp"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:77
+msgid "Use <b>%link%</b> as a product link and <b>%name%</b> as a product name"
+msgstr ""
+"Используйте <b>%link%</b> в качестве ссылки товара и <b>%name%</b> в "
+"качестве названия товара"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:79
+msgid "Symbols"
+msgstr "Символов"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:84
+msgid "Design"
+msgstr "Внешний вид"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:90
+msgid "Button background color"
+msgstr "Задний фон кнопки"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:96
+msgid "Button text color"
+msgstr "Цвет текста кнопки"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:102
+msgid "Button width"
+msgstr "Ширина кнопки"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:105
+msgid "Button height"
+msgstr "Высота кнопки"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:108
+msgid "Font size"
+msgstr "Размер шрифта"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:114
+msgid "Padding"
+msgstr "Внутренний отступ (padding)"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:118
+msgid "Border color"
+msgstr "Цвет обводки кнопки"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:124
+msgid "Border width"
+msgstr "Ширина обводки копки"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:127
+msgid "Button border radius"
+msgstr "Закругление кнопки (border-radius)"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:130
+msgid "Border style"
+msgstr "Стиль обводки (border-style)"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:150
+msgid "Save"
+msgstr "Сохранить"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:158
+#: /wa-apps/shop/plugins/whatsapp/js/whatsapp.js:37
+msgid "Something wrong"
+msgstr "Произошла ошибка"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:115
+msgid ""
+"Read more about padding <a href=\"http://www.w3schools.com/cssref/pr_padding."
+"asp\" target=\"_blank\">here</a>"
+msgstr ""
+"Узнайте больше про свойство padding <a href=\"https://webref.ru/css/padding"
+"\" target=\"_blank\">здесь</a>"
+
+#: /wa-apps/shop/plugins/whatsapp/lib/actions/shopWhatsappPluginSettingsSave.controller.php:46
+msgid "Cannot save settings"
+msgstr "Невозможно сохранить настройки"
+
+#: /wa-apps/shop/plugins/whatsapp/lib/config/config.php:11
+msgid "Hey! Look at this: %name% - %link%"
+msgstr "Тебе стоит взглянуть: %name% - %link%"
+
+#: /wa-apps/shop/plugins/whatsapp/lib/config/config.php:8
+msgid "Share"
+msgstr "Поделиться"
+
+#: /wa-apps/shop/plugins/whatsapp/lib/config/plugin.php:8
+msgid "Plugin lets the customers share the product in WhatsApp"
+msgstr "Плагин позволяет поделиться товаром в WhatsApp"
+
+#: /wa-apps/shop/plugins/whatsapp/templates/actions/settings/Settings.html:68
+msgid "Show only in mobile version"
+msgstr "Отображать только в мобильной версии"

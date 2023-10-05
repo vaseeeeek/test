@@ -1,0 +1,67 @@
+.bsui-page__content {
+    max-width: 1300px;
+}
+
+.settings-page__description {
+	font-size: 10pt;
+	color: #666666;
+	margin: 3px 0 14px;
+}
+
+.bsui-page-header__right {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	text-align: right;
+}
+
+.settings-page__links-link {
+	margin-left: 15px;
+}
+
+.settings-page__developer {
+	margin-top: 10px;
+}
+
+.icon-outsource-link {
+	width: 11px;
+	height: 11px;
+	background: url('../img/icons/outsource-link.png');
+}
+
+.icon-help,
+.icon-support,
+.icon-review {
+	width: 22px;
+	height: 22px;
+}
+
+.icon-support {
+	background: url('../img/icons/support.png');
+}
+
+.icon-review {
+	background: url('../img/icons/review.png');
+}
+
+.icon-help {
+	background: url('../img/icons/help.png');
+}
+
+.template_storefronts_header {
+	margin-bottom: 15px;
+	margin-top: 10px;
+}
+.check-box.checkbox_column {
+	display: inline-block;
+	width: 33%;
+}
+.check-box.checkbox_column_1 {
+
+}
+.check-box.checkbox_column_2 {
+
+}
+.check-box.checkbox_column_3 {
+
+}

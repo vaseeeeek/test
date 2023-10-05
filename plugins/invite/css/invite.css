@@ -1,0 +1,9 @@
+.invite-validation-error {
+    border-color: #ff0000 !important;
+    border: solid;
+}
+
+.invite-validation-status {
+    color: red;
+    font-style: italic;
+}

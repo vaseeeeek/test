@@ -1,0 +1,26 @@
+<h1>[`Change tag:`]</h1>
+<p>
+    <input class="tag-name-edit" name="name" value="{$tag.name|escape}">
+</p>
+<p>
+    <a target="_blank" class="no-underline" href="?action=products#/products/tag={$tag.url}/">{sprintf(_wp('View products with this tag'), $tag.name)}
+    <i class="icon16 new-window"></i></a>
+</p>
+<input type="hidden" name="id" value="{$tag.id}">
+<input type="hidden" id="wa_editor_lang" value="{$wa->locale()|substr:0:2}">
+{$wa->csrf()}
+<div class="fields">
+    {$controls}
+    <div class="field">
+        <div class="name"></div>
+        <div class="value hint">
+            <p>[`You can use any Smarty code in TITLE and META fields, and in SEO text HTML source; e.g.:`]</p>
+            <p>
+                <tt class="bold">{literal}{$wa-&gt;shop-&gt;settings('name')}{/literal}</tt> [`your store's name (from shop settings)`]<br>
+                <tt class="bold">{literal}{$wa-&gt;shop-&gt;settings('phone')}{/literal}</tt> [`your store's phone number`]<br>
+                <tt class="bold">{literal}{$wa-&gt;param('tag')}{/literal}</tt> [`current tag value`]<br>
+                <tt class="bold">{literal}{$wa-&gt;param('_name')}{/literal}</tt> [`storefront name (from settlement settings)`]
+            </p>
+        </div>
+    </div>
+</div>

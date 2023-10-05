@@ -1,0 +1,4 @@
+.salesku_plugin-product .skus {padding-top: 10px;}
+.salesku_plugin-product .skus li {padding-top: 0px;}
+.salesku_plugin-product .skus li .picker-radio {margin-bottom: 0px;}
+.salesku_plugin-product .options .inline-select a.selected {color: #2c3e50 !important;background: #fae46c;}

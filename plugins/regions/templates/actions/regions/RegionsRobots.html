@@ -1,0 +1,208 @@
+{$sidebar}
+
+
+<div class="content left200px block double-padded robots_edit">
+	<h1>Генерация файла robots.txt по шаблону</h1>
+
+	<form action="?plugin=regions&action=robots" class="js-robots_form">
+
+
+		<div class="field-group">
+			{if $warning}
+				<div class="regions_robots_warning">
+					<i class="icon16 exclamation"></i>
+					<span>{$warning}</span>
+				</div>
+			{/if}
+
+			<div class="form__description">
+				<div>С помощью данной формы вы можете сформировать и изменять файлы robots.txt по заданному шаблону для всех витрин.</div>
+				<div>Содержимое robots.txt до первого применения глобального шаблона будет сохранено в виде резервной копии.</div>
+				<div>В случае наличия персонального robots.txt у витрины, будет применяться оно.</div>
+			</div>
+
+			<div class="field-group field-group_tiny field-group_enable-helper">
+				<div class="field-group__fields">
+					<div class="field-box">
+
+						<label class="field-box__label" for="domain_select">
+							Домен
+						</label>
+
+						<div class="field-box__field">
+							<select id="domain_select" name="domain" class="js-domain_select float-left">
+								<option value="">Все (сгенерировать по шаблону)</option>
+
+								{foreach $domains as $_domain}
+								<option value="{$_domain.name}"
+									{if $_domain.is_custom} class="is_custom" title="Для домена есть персональное значение robots.txt" {/if}
+									{$_domain.selected}
+									>
+									{$_domain.name}
+								</option>
+								{/foreach}
+							</select>
+
+							<div class="js-select-box__status select-box__status float-left">
+
+								<span class="form-status form-status_loading form-status_hidden">
+									<span class="form-status__icon"><i class="icon16 loading"></i></span>
+									<span class="form-status__text">Загрузка</span>
+								</span>
+
+								<span class="form-status form-status_success form-status_hidden">
+									<span class="form-status__icon"><i class="icon16 yes"></i></span>
+									<span class="form-status__text">Загружено</span>
+								</span>
+
+								<span class="form-status form-status_error form-status_hidden">
+									<span class="form-status__icon"></span>
+									<span class="form-status__text">Произошла ошибка</span>
+								</span>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="domain form__description">
+						Для <span class="is_custom">помеченных доменов</span> задано персональное значение robots.txt
+					</div>
+
+					<div class="js-domain_checkbox_block">
+						<div class="domain_checkbox_block_wrap">
+							<div class="domain_checkbox_block">
+								<div>
+									<span>Выбор:</span>
+									<a href="#" class="js-mass_select" data-action="all">все</a>
+									<a href="#" class="js-mass_select" data-action="none">ни одного</a>
+									<a href="#" class="js-mass_select" data-action="invert">инвертировать</a>
+								</div>
+
+								{$_domains_chunked = array_chunk($domains, ceil(count($domains) / 2))}
+								{foreach $_domains_chunked as $_chunk}
+								<div class="column">
+									{foreach $_chunk as $_domain}
+									<div class="wrap">
+										<label {if $_domain.is_custom} class="is_custom" title="Для домена есть персональное значение robots.txt" {/if}>
+											<input class="js-domains" type="checkbox" name="domains[]" value="{$_domain.name}" {if !$_domain.is_custom}checked="checked"{/if} >
+											{$_domain.name}
+										</label>
+									</div>
+									{/foreach}
+								</div>
+								{/foreach}
+							</div>
+						</div>
+
+						<div class="js-block_folding domain_checkbox_fold">
+							<a class="js-unfold_prev_block" href="#">Выбрать домены</a>
+							<a class="js-fold_prev_block hidden" href="#">Скрыть</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="field-box field-box_linked field-group_enable-helper">
+			<div class="field-group__helper ">
+				<div class="helper">
+					<h3 class="helper__header">Переменные</h3>
+					<div class="helper__content">
+						<div class="variable">
+							<span class="variable__name">{ldelim}storefront_url{rdelim}</span> - <span class="variable__value">url витрины</span>
+						</div>
+					</div>
+
+					<h3 class="helper__header">Правила (для удобства вставки)</h3>
+					<div class="helper__content">
+						<div class="variable">
+							<span class="variable__name">&#13;&#10;Disallow: </span> - <span class="variable__value">запретить индексацию раздела</span>
+						</div>
+
+						<div class="variable">
+							<span class="variable__name">&#13;&#10;Sitemap: </span> - <span class="variable__value">пусть к карте сайта</span>
+						</div>
+
+						<div class="variable">
+							<span class="variable__name">&#13;&#10;Host: </span> - <span class="variable__value">главный хост сайта</span>
+						</div>
+
+						<div class="variable">
+							<span class="variable__name">&#13;&#10;Crawl-delay: </span> - <span class="variable__value">минимальный период времени (в секундах) между окончанием загрузки одной страницы и началом загрузки следующей</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="field-group__fields">
+				<label class="field-box__label" for="city_storefront_robots-txt">
+					Шаблон robots.txt
+				</label>
+
+				<div class="textarea_wrap">
+					<textarea
+						id="city_storefront_robots-txt"
+						class="js-robots_textarea robots_textarea"
+						name="robots_content"
+						rows="20"
+						cols="65"
+						placeholder="{$placeholder}"
+					>{$robots_content}</textarea>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="field-box field-box_linked js-robots_backup_wrap {if $backup === false}hidden{/if}">
+			<h6>Бекап robots.txt</h6>
+			<div class="field-group__fields">
+				<label class="field-box__label" for="city_storefront_robots-backup-txt">
+					Содержимое robots.txt до первого применения глобального шаблона
+				</label>
+
+				<div class="textarea_wrap">
+					<div class="copy_backup">
+						<i class="icon16 upload"></i>
+						<a href="#" class="js-copy_backup">скопировать</a>
+					</div>
+					<textarea
+						id="city_storefront_robots-backup-txt"
+						class="js-robots_backup_textarea robots_textarea"
+						name="robots_content"
+						rows="20"
+						cols="65"
+					>{$backup}</textarea>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="form__footer">
+
+			<input type="hidden" name="is_submit" value="1">
+
+			<div class="submit-box">
+
+				<button class="submit-box__button button green">Сохранить</button>
+
+				<div class="js-submit-box__status submit-box__status">
+					<span class="form-status form-status_loading form-status_hidden">
+						<span class="form-status__icon"><i class="icon16 loading"></i></span>
+						<span class="form-status__text">Загрузка</span>
+					</span>
+					<span class="form-status form-status_success form-status_hidden">
+						<span class="form-status__icon"><i class="icon16 yes"></i></span>
+						<span class="form-status__text">Сохранено</span>
+					</span>
+					<span class="form-status form-status_error form-status_hidden">
+						<span class="form-status__icon"></span>
+						<span class="form-status__text">Произошла ошибка</span>
+					</span>
+				</div>
+
+			</div>
+
+		</div>
+	</form>
+</div>

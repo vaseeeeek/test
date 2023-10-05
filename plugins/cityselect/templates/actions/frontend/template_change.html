@@ -1,0 +1,26 @@
+{strip}
+<div id="cityselect__change" class="b-cityselect__change b-cityselect__change--{$current_theme|escape} i-cityselect__change" >
+
+    <a href="" data-remodal-action="cancel"  class="remodal-close remodal_quickview b-cityselect__change_close i-cityselect__change_close"><i class="material-icons b-cityselect__change_icon">close</i><i class="fa fa-times b-cityselect__change_icon--prostore"></i></a>
+
+    <div class="b-cityselect__change_info">
+        <i class="fas fa fa-map-marker fa-map-marker-alt"></i> Ваш город: <span class="i-cityselect__city">{$location.city}</span>
+    </div>
+    {if empty($settings.token)}<div class="b-cityselect__change_error error text-danger">Ошибка! не указан API-ключ в настройках плагина</div>{/if}
+    <div class="b-cityselect__change_city_wrapper">
+        <input type="text" class="b-cityselect__change_input i-cityselect__input form-control" placeholder="[`Введите название Вашего города`]" value="">
+    </div>
+
+    {if !empty($settings.cities)}
+        <div class="b-cityselect__list_wrapper">
+            <ul class="b-cityselect__list">
+                {foreach $settings.cities as $city}
+                <li><a href="#" data-city="{$city.city|escape}" data-region_kladr_id="{$city.region|escape}" data-postal_code="{$city.zip|escape}" class="i-cityselect__set_city {if $city.bold}bold{/if}">{$city.city}</a></li>
+                {/foreach}
+            </ul>
+        </div>
+    {else}
+        <div class="b-cityselect__list_spacer"></div>
+    {/if}
+</div>
+{/strip}

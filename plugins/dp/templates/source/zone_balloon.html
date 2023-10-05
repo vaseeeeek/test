@@ -1,0 +1,25 @@
+<div class="dp-service-balloon dp-service-balloon_zone">
+    <div class="dp-service-balloon__header">
+        <div class="dp-service-balloon__header-label">{$service.title}</div>
+        {if !empty($zone.name)}
+            <div class="dp-service-balloon__header-label">{$zone.name|escape}</div>
+        {/if}
+    </div>
+    <div class="dp-service-balloon__row dp-service-balloon__cost-row">
+        <div class="dp-service-balloon__row-body">
+            {if isset($zone.cost_html)}{$zone.cost_html}{else}{$service.cost_html}{/if}
+        </div>
+    </div>
+    <div class="dp-service-balloon__row dp-service-balloon__payment-row">
+        <div class="dp-service-balloon__row-body">
+            {foreach $service.payment_methods as $payment}
+                <img alt="{$payment.name}" title="{$payment.name}" src="{$payment.image}"/>
+            {/foreach}
+        </div>
+    </div>
+    {if $service.estimated_date_html|default:''}
+        <div class="dp-service-balloon__row dp-service-balloon__estimated-date-row">
+            <div class="dp-service-balloon__row-body">{$service.estimated_date_html}</div>
+        </div>
+    {/if}
+</div>

@@ -1,0 +1,2432 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/flexdiscount\n"
+"POT-Creation-Date: 2017-02-24 12:32+0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: shop/plugins/flexdiscount\n"
+"Language-Team: shop/plugins/flexdiscount\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"Language: ru_RU\n"
+"X-Generator: Poedit 2.0.5\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+msgid "Loading..."
+msgstr "Идет загрузка..."
+
+msgid "https://igaponov.com/docs/flexdiscount/"
+msgstr "https://igaponov.com/docs/flexdiscount/"
+
+msgid "Documentation"
+msgstr "Документация"
+
+msgid "Delete from group"
+msgstr "Удалить из группы"
+
+msgid "Copy discount"
+msgstr "Копировать правило"
+
+msgid "Change status"
+msgstr "Изменить статус"
+
+msgid "Open discount"
+msgstr "Открыть правило"
+
+msgid "No name discount"
+msgstr "Правило без названия"
+
+msgid "Select currency"
+msgstr "Выберите валюту"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Create group"
+msgstr "Создать группу"
+
+msgid "Merge to group"
+msgstr "Добавить в группу"
+
+msgid "Split group"
+msgstr "Удалить из группы"
+
+msgid "Delete selected"
+msgstr "Удалить выделенные"
+
+msgid "Description, name"
+msgstr "Описание, название"
+
+msgid "Discount"
+msgstr "Скидка"
+
+msgid "Affiliate"
+msgstr "Бонусы"
+
+msgid "Sort"
+msgstr "Сортировка"
+
+msgid "MAX"
+msgstr "МАКС"
+
+msgid "MIN"
+msgstr "МИН"
+
+msgid "SUM"
+msgstr "СУММ"
+
+msgid "You don't have any discounts"
+msgstr "Не создано ни одного правила скидок"
+
+msgid "Create discount"
+msgstr "Создать скидку"
+
+msgid "Create deny rule"
+msgstr "Создать правило запрета"
+
+msgid "Drag discounts into group or select and merge"
+msgstr "Перетащите правила в группу или выделите их, а потом нажмите \"Добавить в группу\""
+
+msgid "New coupon"
+msgstr "Новый купон"
+
+msgid "New coupon generator"
+msgstr "Новый генератор купонов"
+
+msgid "Coupon"
+msgstr "Купон"
+
+msgid "Coupon generator"
+msgstr "Генератор купонов"
+
+msgid "close"
+msgstr "закрыть"
+
+msgid "Coupon generator creates new coupons automatically, when you call it."
+msgstr "Генератор купонов создает новые купоны автоматически, когда Вы обращаетесь к нему."
+
+msgid "Use code in Smarty templates to create coupon:"
+msgstr "Используйте конструкцию в шаблонах, чтобы создать купон:"
+
+msgid "Number of coupons"
+msgstr "Количество купонов"
+
+msgid "Coupon code"
+msgstr "Код купона"
+
+msgid "Generate code"
+msgstr "Сгенерировать код"
+
+msgid "Generator name"
+msgstr "Название генератора"
+
+msgid "This name will be visible only for you in admin area"
+msgstr "Данное название будет видно только в административной части сайта"
+
+msgid "Comment"
+msgstr "Комментарий"
+
+msgid "Code prefix"
+msgstr "Префикс"
+
+msgid "This code will be before coupon code"
+msgstr "Данный код будет перед основным кодом купона"
+
+msgid "Symbols for generating the coupons"
+msgstr "Символы для генерации купонов"
+
+msgid "Coupon length"
+msgstr "Длина купона"
+
+msgid "Maximum number of usage of EACH coupon"
+msgstr "Максимальное количество использований КАЖДОГО купона"
+
+msgid "Maximum number of usage of the coupon"
+msgstr "Максимальное количество использований купона"
+
+msgid "Coupon has been used"
+msgstr "Купон был использован"
+
+msgid "Show orders"
+msgstr "Показать заказы"
+
+msgid "points"
+msgstr "бонусов"
+
+msgid "Specify coupon lifetime"
+msgstr "Укажите время жизни купона"
+
+msgid "Server time"
+msgstr "Серверное время"
+
+msgid "Days"
+msgstr "Дни"
+
+msgid "Schedule"
+msgstr "Расписание"
+
+msgid "Start"
+msgstr "Начало"
+
+msgid "DD"
+msgstr "ДД"
+
+msgid "MM"
+msgstr "ММ"
+
+msgid "YYYY"
+msgstr "ГГГГ"
+
+msgid "HH"
+msgstr "ЧЧ"
+
+msgid "End"
+msgstr "Конец"
+
+msgid "days"
+msgstr "дней"
+
+msgid "Select coupons"
+msgstr "Выберите купоны"
+
+msgid "Search for coupons"
+msgstr "Искать купоны"
+
+msgid "Search"
+msgstr "Искать"
+
+msgid "Show all coupons and generators"
+msgstr "Показать все купоны и генераторы"
+
+msgid "Total count"
+msgstr "Общее количество"
+
+msgid "Code (name)"
+msgstr "Код (название)"
+
+msgid "Used"
+msgstr "Использован"
+
+msgid "Limit"
+msgstr "Ограничение"
+
+msgid "Type"
+msgstr "Тип"
+
+msgid "Rules"
+msgstr "Правила"
+
+msgid "Coupon is used by this rule"
+msgstr "Купон используется данным правилом"
+
+msgid "Coupon reached the limit"
+msgstr "Купон достиг предела использований"
+
+msgid "Coupon start at"
+msgstr "Купон будет активирован"
+
+msgid "Coupon time is expired"
+msgstr "Время действия купона закончилось"
+
+msgid "Generator"
+msgstr "Генератор"
+
+msgid "coupon"
+msgstr "купон"
+
+msgid "generator"
+msgstr "генератор"
+
+msgid "Rule doesn't have any coupons"
+msgstr "У правила нет ни одного купона"
+
+msgid "You don't have any created coupons"
+msgstr "Вы не создали ни одного купона"
+
+msgid "Add selected coupons to discount"
+msgstr "Добавить выбранные купоны к правилу"
+
+msgid "Remove selected coupons from discount"
+msgstr "Открепить выбранные купоны от правила"
+
+msgid "Delete selected coupons totally"
+msgstr "Удалить выбранные купоны безвозвратно"
+
+msgid "Coupon delete"
+msgstr "Удаление купона"
+
+msgid "Do you really want to delete coupon"
+msgstr "Вы действительно хотите удалить купон"
+
+msgid "Delete coupon from discount rule. Coupon will be saved for other discounts"
+msgstr "Открепить купон от правила скидок. Купон будет сохранен для других правил скидок"
+
+msgid "Delete coupon from all discounts. Coupon will be removed totally"
+msgstr "Удалить купон у всех правил скидок. Купон будет удален безвозвратно"
+
+msgid "Select product"
+msgstr "Выберите товар"
+
+msgid "Show all skus in search"
+msgstr "Показать все артикулы в результатах поиска"
+
+msgid "or select the category to find product you need."
+msgstr "или выберите категорию для поиска товаров"
+
+msgid "Show product skus"
+msgstr "Показать артикулы товара"
+
+msgid "Name"
+msgstr "Название"
+
+msgid "Price"
+msgstr "Цена"
+
+msgid "More products"
+msgstr "Больше товаров"
+
+msgid "Products not found"
+msgstr "Товары не найдены"
+
+msgid "Select user"
+msgstr "Выберите пользователя"
+
+msgid "All contacts"
+msgstr "Все контакты"
+
+msgid "or select the category to find user you need."
+msgstr "или выберите категорию для поиска пользователей"
+
+msgid "More users"
+msgstr "Больше пользователей"
+
+msgid "Users not found"
+msgstr "Пользователи не найдены"
+
+msgid "Start typing user name or email"
+msgstr "Начните печатать имя или email"
+
+msgid "Affiliate output template"
+msgstr "Шаблон вывода бонусов"
+
+msgid "You can edit affiliate block template and use helper for output in your <b><em>cart.html</em></b> template <span class=\"grey\">(Relevant for multi-step checkout)</span>.<br>Read more information in the article:"
+msgstr "Вы можете отредактировать блок вывода бонусов и использовать хелпер для вывода в шаблоне <b><em>cart.html</em></b> <span class=\"grey\">(Актуально для пошагового оформления заказа)</span>.<br>Читайте подробнее в статье:"
+
+msgid "Available discounts template"
+msgstr "Шаблон доступных скидок"
+
+msgid "You can edit available discounts template and use helper for output.<br>Read more information in the article:"
+msgstr "Вы можете отредактировать блок вывода доступных скидок и использовать хелпер для вывода в шаблоне. Читайте подробнее в статье:"
+
+msgid "Coupon form template"
+msgstr "Шаблон для вывода формы купона"
+
+msgid "You can edit coupon form template and use helper or copy and paste code below to your <b><em>cart.html</em></b> template <span class=\"grey\">(Relevant for multi-step checkout)</span>."
+msgstr "Вы можете отредактировать блок вывода формы купона и использовать хелпер для вывода в шаблоне <b><em>cart.html</em></b> <span class=\"grey\">(Актуально для пошагового оформления заказа)</span>.<br>Либо скопируйте все содержимое и вставьте в шаблон."
+
+msgid "Deny rules template"
+msgstr "Шаблон правил запрета"
+
+msgid "You can edit deny rules template and use helper for output.<br>Read more information in the article:"
+msgstr "Вы можете отредактировать блок вывода правил запрета и использовать хелпер для вывода в шаблоне. Читайте подробнее в статье:"
+
+msgid "Customer discount page template"
+msgstr "Шаблон страницы со скидками в личном кабинете"
+
+msgid "You can edit customer discount page.<br>Read more information in the article:"
+msgstr "Вы можете отредактировать блок вывода страницы со скидками в личном кабинете. Читайте подробнее в статье:"
+
+msgid "Price output template"
+msgstr "Шаблон вывода цены со скидкой"
+
+msgid "You can edit price with discount template and use helper for output.<br>Read more information in the article:"
+msgstr "Вы можете отредактировать блок вывода цены со скидкой и использовать хелпер для вывода в шаблоне. Читайте подробнее в статье:"
+
+msgid "Active product discounts template"
+msgstr "Шаблон действующих скидок"
+
+msgid "You can edit active product discounts template and use helper for output.<br>Read more information in the article:"
+msgstr "Вы можете отредактировать блок действующих скидок и использовать хелпер для вывода в шаблоне. Читайте подробнее в статье:"
+
+msgid "Active discounts template"
+msgstr "Шаблон активных (примененных) скидок"
+
+msgid "You can edit active discounts template and use helper for output in your <b><em>cart.html</em></b> template <span class=\"grey\">(Relevant for multi-step checkout)</span>.<br>Read more information in the article:"
+msgstr "Вы можете отредактировать блок вывода активных скидок и использовать хелпер для вывода в шаблоне <b><em>cart.html</em></b> <span class=\"grey\">(Актуально для пошагового оформления заказа)</span>.<br>Читайте подробнее в статье:"
+
+msgid "Undefined type"
+msgstr "Неизвестный тип"
+
+msgid "ATTENTION! Do not remove the following CSS classes in this code:"
+msgstr "ВНИМАНИЕ! Не удаляйте следующие CSS классы из кода"
+
+msgid "revert to original"
+msgstr "вернуть к оригиналу"
+
+msgid "Press \"Revert to original\""
+msgstr "Нажмите \"Вернуть к оригиналу\""
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "No name deny rule"
+msgstr "Правило запрета без названия"
+
+msgid "delete"
+msgstr "удалить"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "Disabled"
+msgstr "Выкл"
+
+msgid "Enabled"
+msgstr "Вкл"
+
+msgid "Basics"
+msgstr "Основные"
+
+msgid "This field will be displayed in storefront"
+msgstr "Это поле будет отображено на витрине сайта"
+
+msgid "Symbolic code"
+msgstr "Символьный код"
+
+msgid "Use this code to control discount output in the template"
+msgstr "Используйте данный код для идентификации скидки в шаблонах вывода"
+
+msgid "Available symbols"
+msgstr "Доступные символы"
+
+msgid "Frontend sort"
+msgstr "Сортировка на витрине"
+
+msgid "In storefront discounts will be sorted by this field by ascending."
+msgstr "На витрине сайта скидки будут отсортированы по возрастанию."
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Set discount to each item"
+msgstr "Установить скидку на каждый товар"
+
+msgid "Set affiliate bonus to each item"
+msgstr "Начислить бонусы на каждый товар"
+
+msgid "Discount base"
+msgstr "База скидки"
+
+msgid "Product price"
+msgstr "Цена товара"
+
+msgid "Compare at price"
+msgstr "Зачеркнутая цена товара"
+
+msgid "Purchase price"
+msgstr "Цена закупки"
+
+msgid "From this value will be calculated discount"
+msgstr "От выбранного значения будет рассчитана скидка"
+
+msgid "Hide discount from available discounts"
+msgstr "Скрыть правило из списка доступных скидок"
+
+msgid "Use products in further calculations"
+msgstr "Использовать данные товаров для расчета скидок"
+
+msgid "Conditions"
+msgstr "Условия"
+
+msgid "IF"
+msgstr "ЕСЛИ"
+
+msgid "Wait, please..."
+msgstr "Пожалуйста, подождите..."
+
+msgid "Add condition"
+msgstr "Добавить условие"
+
+msgid "Then set discount to"
+msgstr "Тогда установить скидку на"
+
+msgid "Then deny discount to"
+msgstr "Тогда запретить скидки на"
+
+msgid "All products"
+msgstr "Все товары"
+
+msgid "All products that meet the conditions"
+msgstr "Все товары, удовлетворяющие условиям"
+
+msgid "All products that failed conditions"
+msgstr "Все товары, не удовлетворяющие условиям"
+
+msgid "Category"
+msgstr "Категория"
+
+msgid "Category and subcategories"
+msgstr "Категория и ее подкатегории"
+
+msgid "Product set"
+msgstr "Список товаров"
+
+msgid "Product type"
+msgstr "Тип товаров"
+
+msgid "Product"
+msgstr "Товар"
+
+msgid "Product features"
+msgstr "Характеристики товара"
+
+msgid "Shipping"
+msgstr "Доставка"
+
+msgid "edit"
+msgstr "изменить"
+
+msgid "every similar n-product"
+msgstr "каждый n-одинаковый товар"
+
+msgid "n cheapest products"
+msgstr "n - самых дешевых товаров"
+
+msgid "n the most expensive products"
+msgstr "n - самых дорогих товаров"
+
+msgid "all subsequent similar products following by n-product"
+msgstr "каждый одинаковый последующий за n-товаром"
+
+msgid "n products from z-similar"
+msgstr "n-товаров из z-одинаковых"
+
+msgid "choose details if necessary"
+msgstr "уточните детали, если необходимо"
+
+msgid "clarify"
+msgstr "уточнить"
+
+msgid "Add target"
+msgstr "Добавить цель"
+
+msgid "Product properties"
+msgstr "Свойства товара"
+
+msgid "SKU code"
+msgstr "Артикул товара"
+
+msgid "SKU name"
+msgstr "Наименование артикула"
+
+msgid "Summary"
+msgstr "Краткое описание товара"
+
+msgid "META title"
+msgstr "Meta заголовок товара"
+
+msgid "META keywords"
+msgstr "Meta ключевые слова товара"
+
+msgid "META description"
+msgstr "Meta описание товара"
+
+msgid "Create datetime"
+msgstr "Дата создания"
+
+msgid "Edit datetime"
+msgstr "Дата изменения"
+
+msgid "Has video"
+msgstr "Имеет ли товар видео"
+
+msgid "Has image"
+msgstr "Имеет ли товар изображение"
+
+msgid "Rating"
+msgstr "Рейтинг"
+
+msgid "Rating count"
+msgstr "Количество отзывов у товара"
+
+msgid "Compare price"
+msgstr "Зачеркнутая цена товара"
+
+msgid "Minimal price"
+msgstr "Минимальная цена товара"
+
+msgid "Maximum price"
+msgstr "Максимальная цена товара"
+
+msgid "Stock count"
+msgstr "Количество остатков товара"
+
+msgid "Total sales"
+msgstr "Сумма продаж товара"
+
+msgid "Services"
+msgstr "Услуги"
+
+msgid "Tags"
+msgstr "Теги"
+
+msgid "Cart"
+msgstr "Корзина"
+
+msgid "Total quantity of all products"
+msgstr "Суммарное количество всех товаров"
+
+msgid "Quantity of product"
+msgstr "Количество определенного товара"
+
+msgid "Quantity of product from category"
+msgstr "Количество товара из категории"
+
+msgid "Quantity of product from category and subcategories"
+msgstr "Количество товара из категории и ее подкатегорий"
+
+msgid "Quantity of product from set"
+msgstr "Количество товара из списка"
+
+msgid "Quantity of product from type"
+msgstr "Количество товара с типом товаров"
+
+msgid "Quantity of all products from category"
+msgstr "Количество всех товаров из категории"
+
+msgid "Quantity of all products from category and subcategories"
+msgstr "Количество всех товаров из категории и ее подкатегорий"
+
+msgid "Quantity of all products from set"
+msgstr "Количество всех товаров из списка"
+
+msgid "Quantity of all products from type"
+msgstr "Количество всех товаров с типом товаров"
+
+msgid "Quantity of products with features"
+msgstr "Количество товаров с характеристиками"
+
+msgid "Quantity of unique items"
+msgstr "Количество уникальных товаров"
+
+msgid "Order price without discount"
+msgstr "Общая стоимость заказа без учета скидок"
+
+msgid "Total price of all products"
+msgstr "Общая стоимость всех товаров"
+
+msgid "Total price of products from category"
+msgstr "Общая стоимость товаров из категории"
+
+msgid "Total price of products from category and subcategories"
+msgstr "Общая стоимость товаров из категории и ее подкатегорий"
+
+msgid "Total price of all products with features"
+msgstr "Общая стоимость всех товаров с характеристиками"
+
+msgid "Total sum of features values"
+msgstr "Сумма значений характеристик товаров"
+
+msgid "Price of each product"
+msgstr "Цена каждого товара"
+
+msgid "User"
+msgstr "Пользователь"
+
+msgid "User category"
+msgstr "Категория пользователя"
+
+msgid "Completed user orders"
+msgstr "Выполненные заказы пользователя"
+
+msgid "Total sum of all orders"
+msgstr "Общая сумма всех заказов"
+
+msgid "Sum of orders for period.."
+msgstr "Сумма заказов за период.."
+
+msgid "Quantity of all orders"
+msgstr "Количество всех заказов"
+
+msgid "Quantity of orders for period.."
+msgstr "Количество заказов за период.."
+
+msgid "Orders have product"
+msgstr "Заказы содержат товар"
+
+msgid "Orders have product for period.."
+msgstr "Заказы содержат товар за период.."
+
+msgid "Orders have product from category"
+msgstr "Заказы содержат товар из категории"
+
+msgid "Orders have product from category and subcategories"
+msgstr "Заказы содержат товар из категории и ее подкатегорий"
+
+msgid "Orders have product from category for period.."
+msgstr "Заказы содержат товар из категории за период.."
+
+msgid "Orders have product from category and subcategories for period.."
+msgstr "Заказы содержат товар из категории и ее подкатегорий за период.."
+
+msgid "Date and time"
+msgstr "Дата и время"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Day of week"
+msgstr "День недели"
+
+msgid "Time"
+msgstr "Время"
+
+msgid "Variables"
+msgstr "Переменные"
+
+msgid "Cookie"
+msgstr "Куки"
+
+msgid "Session"
+msgstr "Сессия"
+
+msgid "Storefront"
+msgstr "Витрина"
+
+msgid "Select condition"
+msgstr "Выберите условие"
+
+msgid "Add group of conditions"
+msgstr "Добавить группу условий"
+
+msgid "Product discount limit"
+msgstr "Ограничение скидки для товара"
+
+msgid "Off"
+msgstr "Выкл"
+
+msgid "On"
+msgstr "Вкл"
+
+msgid "from"
+msgstr "из"
+
+msgid "purchase price"
+msgstr "цена закупки"
+
+msgid "product price"
+msgstr "цена товара"
+
+msgid "compare at price"
+msgstr "зачеркнутая цена"
+
+msgid "Product price will never be lower than specified value."
+msgstr "Цена товара никогда не опустится ниже указанного значения"
+
+msgid "Coupons"
+msgstr "Купоны"
+
+msgid "Use coupons"
+msgstr "Использовать купоны"
+
+msgid "Manage coupons"
+msgstr "Управлять купонами"
+
+msgid "Add new coupon"
+msgstr "Добавить новый купон"
+
+msgid "Add generator"
+msgstr "Добавить генератор купонов"
+
+msgid "If you want to create coupons"
+msgstr "Если Вы хотите создать купоны"
+
+msgid "Save discount rule"
+msgstr "Сохранить правило скидок"
+
+msgid "Save deny rule"
+msgstr "Сохранить правило запрета"
+
+msgid "AND"
+msgstr "И"
+
+msgid "OR"
+msgstr "ИЛИ"
+
+msgid "Coupons: %s; coupon generators: %s"
+msgstr "Купонов: %s; генераторов: %s"
+
+msgid "Flexdiscount"
+msgstr "Гибкие скидки"
+
+msgid "Discounts can be created on the <a href=\"%s\" title=\"%s\">Flexdiscount</a> screen."
+msgstr "Вы можете создать правила скидок на <a href=\"%s\" title=\"%s\">странице Скидок</a>."
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Discount rounding"
+msgstr "Округление скидок"
+
+msgid "not round"
+msgstr "не округлять"
+
+msgid "ceil"
+msgstr "в большую сторону"
+
+msgid "floor"
+msgstr "в меньшую сторону"
+
+msgid "Change product data on the storefront"
+msgstr "Изменение данных товаров на витрине"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "If product has discount, then product price (old price) will become price with discount and compare price will become product price without discount. E.g,"
+msgstr "Если у товара имеется скидка, тогда цена товара станет ценой со скидкой, а старая цена станет зачеркнутой. Например,"
+
+msgid "old price"
+msgstr "старая цена"
+
+msgid "price with discount"
+msgstr "цена со скидкой"
+
+msgid "Display flexdiscount coupon field"
+msgstr "Отображать поле для ввода купонов"
+
+msgid "Add special coupon field on the cart page. If you want to customize output place, disable that option and use construction"
+msgstr "Добавляет специальное поле для ввода купонов в корзине. Если Вы хотите изменить расположение, тогда отключите данную функцию и используйте конструкцию ниже"
+
+msgid "Customize coupon form"
+msgstr "Изменить блок для ввода купонов"
+
+msgid "Display affiliate bonus on the cart page"
+msgstr "Отображать партнерский бонус в корзине"
+
+msgid "Specify display type"
+msgstr "Укажите тип отображения"
+
+msgid "(Default values 0 or 1)"
+msgstr "(Значения по умолчанию 0 или 1)"
+
+msgid "If you want to customize output place, disable that option and use construction"
+msgstr "Если Вы хотите изменить расположение, тогда отключите данную функцию и используйте конструкцию ниже"
+
+msgid "Customize affiliate block"
+msgstr "Изменить блок вывода бонусов"
+
+msgid "Activate affiliate program"
+msgstr "Активируйте партнерскую программу"
+
+msgid "Show active discount on the cart page"
+msgstr "Отображать активные (примененные) скидки в корзине"
+
+msgid "Active discounts"
+msgstr "Активные скидки"
+
+msgid "Customize active discounts"
+msgstr "Изменить блок активных скидок"
+
+msgid "Show active product discounts"
+msgstr "Отображать действующие скидки товара"
+
+msgid "Product discounts"
+msgstr "Действующие скидки"
+
+msgid "Output place on product page"
+msgstr "Место вывода на странице товара"
+
+msgid "Next to links to custom product pages"
+msgstr "Рядом со ссылками на дополнительные страницы товара"
+
+msgid "Next to the \"Add to cart\" button"
+msgstr "Рядом с кнопкой \"В корзину\""
+
+msgid "Custom informational block, usually in a sidebar"
+msgstr "Блок дополнительной информации (обычно в боковой части)"
+
+msgid "Block of extra product details in main description area"
+msgstr "Блок дополнительной информации в основной части описания товара"
+
+msgid "Output places depend on your Theme template."
+msgstr "Места вывода зависят от вашей темы дизайна"
+
+msgid "(Default values 1, 2, 3, 4 or 5)"
+msgstr "(Значения по умолчанию 1, 2, 3, 4 или 5)"
+
+msgid "Customize active product discounts"
+msgstr "Изменить блок вывода действующих скидок"
+
+msgid "Show available discounts"
+msgstr "Отображать доступные скидки"
+
+msgid "Available discounts"
+msgstr "Доступные скидки"
+
+msgid "(Default values 1, 2, 3 or 4)"
+msgstr "(Значения по умолчанию 1, 2, 3 или 4)"
+
+msgid "Filter by"
+msgstr "Фильтровать по"
+
+msgid "Customize available discounts"
+msgstr "Изменить блок доступных скидок"
+
+msgid "Create page with available discounts in customer account"
+msgstr "Создать страницу с доступными скидками в личном кабинете пользователя"
+
+msgid "Page name"
+msgstr "Название страницы"
+
+msgid "Your discounts"
+msgstr "Ваши скидки"
+
+msgid "Show navigation bar"
+msgstr "Отображать меню навигации"
+
+msgid "(Default values 1, 2 or 3)"
+msgstr "(Значения по умолчанию 1, 2 или 3)"
+
+msgid "Customize customer discount page"
+msgstr "Изменить страницу со скидками"
+
+msgid "Show deny rules"
+msgstr "Отображать запрещающие правила"
+
+msgid "Deny rules"
+msgstr "Запрещающие правила"
+
+msgid "(Default values 1 or empty)"
+msgstr "(Значения по умолчанию 1 или пустота)"
+
+msgid "Customize deny rules"
+msgstr "Изменить блок запрещающих правил"
+
+msgid "Display price with discount on product page"
+msgstr "Отображать цену со скидкой на странице товара"
+
+msgid "Customize price output"
+msgstr "Изменить блок цены со скидкой"
+
+msgid "Something wrong. Check log files."
+msgstr "Произошла ошибка. Проверьте файлы логов."
+
+msgid "equal"
+msgstr "равно"
+
+msgid "not equal"
+msgstr "не равно"
+
+msgid "contains"
+msgstr "содержит"
+
+msgid "not contains"
+msgstr "не содержит"
+
+msgid "begins with"
+msgstr "начинается с"
+
+msgid "each sku is separate"
+msgstr "каждый артикул отдельно"
+
+msgid "summarize skus"
+msgstr "суммировать артикулы"
+
+msgid "No result text"
+msgstr "Ничего не найдено"
+
+msgid "select product"
+msgstr "выберите товар"
+
+msgid "any product"
+msgstr "любой товар"
+
+msgid "select contact"
+msgstr "выберите контакт"
+
+msgid "to"
+msgstr "до"
+
+msgid " to"
+msgstr "на"
+
+msgid "from category"
+msgstr "из категории"
+
+msgid "from category and subcategories of"
+msgstr "из категории и ее подкатегорий"
+
+msgid "Monday"
+msgstr "Понедельник"
+
+msgid "Tuesday"
+msgstr "Вторник"
+
+msgid "Wednesday"
+msgstr "Среда"
+
+msgid "Thursday"
+msgstr "Четверг"
+
+msgid "Friday"
+msgstr "Пятница"
+
+msgid "Saturday"
+msgstr "Суббота"
+
+msgid "Sunday"
+msgstr "Воскресенье"
+
+msgid "All conditions return true"
+msgstr "Все условия верны"
+
+msgid "Any of condition returns true"
+msgstr "Любое из условий верно"
+
+msgid "select"
+msgstr "выберите"
+
+msgid "reset selection"
+msgstr "сбросить выбор"
+
+msgid "Select category"
+msgstr "Выберите категорию"
+
+msgid "Select product set"
+msgstr "Выберите список товаров"
+
+msgid "Select product type"
+msgstr "Выберите тип товаров"
+
+msgid "Product feature"
+msgstr "Характеристика товара"
+
+msgid "Select product feature"
+msgstr "Выберите характеристику товара"
+
+msgid "Select feature value"
+msgstr "Выберите значение характеристики"
+
+msgid "Product name"
+msgstr "Название товара"
+
+msgid "Product summary"
+msgstr "Краткое описание товара"
+
+msgid "Product description"
+msgstr "Описание товара"
+
+msgid "Product create datetime"
+msgstr "Дата создания товара"
+
+msgid "Product edit datetime"
+msgstr "Дата изменения товара"
+
+msgid "has video"
+msgstr "имеет видео"
+
+msgid "has image"
+msgstr "имеет изображение"
+
+msgid "Product rating"
+msgstr "Рейтинг товара"
+
+msgid "Product rating count"
+msgstr "Количество отзывов у товара"
+
+msgid "Product compare price"
+msgstr "Зачеркнутая цена товара"
+
+msgid "Product purchase price"
+msgstr "Закупочная цена товара"
+
+msgid "Product minimal price"
+msgstr "Минимальная цена товара"
+
+msgid "Product maximum price"
+msgstr "Максимальная цена товара"
+
+msgid "Product stock count"
+msgstr "Количество остатков товара"
+
+msgid "Product total sales"
+msgstr "Сумма продаж товара"
+
+msgid "Product has service"
+msgstr "Товар имеет услугу"
+
+msgid "Select service"
+msgstr "Выберите услугу"
+
+msgid "Select service variant"
+msgstr "Выберите значение услуги"
+
+msgid "Product has tag"
+msgstr "Товар имеет тег"
+
+msgid "Select tags"
+msgstr "Выберите теги"
+
+msgid "from set"
+msgstr "из списка"
+
+msgid "from type"
+msgstr "с типом товаров"
+
+msgid "select category"
+msgstr "выберите категорию"
+
+msgid "Quantity of equal products"
+msgstr "Количество одинаковых товаров"
+
+msgid "Total price of products"
+msgstr "Общая цена всех товаров"
+
+msgid "Minimal value of feature"
+msgstr "Минимальное значение характеристики"
+
+msgid "Maximum value of feature"
+msgstr "Максимальное значение характеристики"
+
+msgid "Service"
+msgstr "Услуга"
+
+msgid "Select user category"
+msgstr "Выберите категорию пользователя"
+
+msgid "Contact"
+msgstr "Контакт"
+
+msgid "Contact create datetime"
+msgstr "Дата создания контакта"
+
+msgid "Select shipping"
+msgstr "Выберите доставку"
+
+msgid "Payment"
+msgstr "Оплата"
+
+msgid "Select payment"
+msgstr "Выберите оплату"
+
+msgid "Sum of orders for period from"
+msgstr "Сумма заказов за период с"
+
+msgid "Quantity of orders for period from"
+msgstr "Количество заказов за период с"
+
+msgid "for period from"
+msgstr "за период с"
+
+msgid "Select domain"
+msgstr "Выберите домен"
+
+msgid "Select route"
+msgstr "Выберите поселение"
+
+msgid "reset product"
+msgstr "сбросить товар"
+
+msgid "Select at least 1 discount rule"
+msgstr "Выберите хотя бы одно правило"
+
+msgid "Do you really want to split group"
+msgstr "Вы действительно хотите разъединить группу"
+
+msgid "Do you really want to delete discount rule?"
+msgstr "Вы действительно хотите удалить правило скидок?"
+
+msgid "Do you really want to delete discount rules?"
+msgstr "Вы действительно хотите удалить правила скидок?"
+
+msgid "Fill in required fields"
+msgstr "Заполните обязательные поля"
+
+msgid "Error"
+msgstr "Ошибка"
+
+msgid "Select at least one coupon"
+msgstr "Выберите хотя бы один купон"
+
+msgid "Coupons delete"
+msgstr "Удаление купонов"
+
+msgid "Do you really want to delete selected coupons?"
+msgstr "Вы действительно хотите удалить выбранные купоны?"
+
+msgid "Do you really want to delete condition group?"
+msgstr "Вы действительно хотите удалить группу условий?"
+
+msgid "every"
+msgstr "каждый"
+
+msgid "all subsequent similar products following by"
+msgstr "каждый одинаковый последующий за"
+
+msgid "similar"
+msgstr "одинаковых"
+
+msgid "Something wrong"
+msgstr "Произошла ошибка"
+
+msgid "Group name"
+msgstr "Название группы"
+
+msgid "Select group"
+msgstr "Выберите группу"
+
+msgid "coupon generators:"
+msgstr "генераторы:"
+
+msgid "th similar product"
+msgstr "-й одинаковый товар"
+
+msgid "cheapest products"
+msgstr "дешевых товаров"
+
+msgid "th cheapest products"
+msgstr "-й дешевый товар"
+
+msgid "the most expensive products"
+msgstr "наиболее дорогих товаров"
+
+msgid "th the most expensive products"
+msgstr "-й наиболее дорогой товар"
+
+msgid "th product"
+msgstr "-м товаром"
+
+msgid "products from"
+msgstr "товар из"
+
+msgid "prev"
+msgstr "назад"
+
+msgid "next"
+msgstr "вперед"
+
+msgid "No name"
+msgstr "Без имени"
+
+msgid "sku ID"
+msgstr "ID артикула"
+
+msgid "Delete error"
+msgstr "Ошибка удаления"
+
+msgid "Coupon ID is empty"
+msgstr "ID купона пустой"
+
+msgid "Coupon code must be unique"
+msgstr "Код купона должен быть уникальным"
+
+msgid "Coupon doesn't exist"
+msgstr "Купон не существует"
+
+msgid "What the hell is going on?! Where is discount ID???"
+msgstr "Какого черта?! Где ID правила скидок???"
+
+msgid "Discount #"
+msgstr "Скидка #"
+
+msgid "NO VIEW TYPE"
+msgstr "НЕТ ТИПА ОТОБРАЖЕНИЯ"
+
+msgid "Company presents you"
+msgstr "Компания дарит Вам"
+
+msgid "bonuses to your affiliate program"
+msgstr "бонусов к Вашей партнерской программе"
+
+msgid "VIEW TYPE"
+msgstr "ТИП ОТОБРАЖЕНИЯ"
+
+msgid "Your affiliate bonus is"
+msgstr "Ваш партнерский бонус равен"
+
+msgid "CREATE YOUR OWN VIEW TYPE RIGHT HERE"
+msgstr "СОЗДАЙТЕ СВОЙ СОБСТВЕННЫЙ ТИП ОТОБРАЖЕНИЯ ПРЯМО ЗДЕСЬ"
+
+msgid "END"
+msgstr "КОНЕЦ"
+
+msgid "ALL DISCOUNTS WITH NO VIEW TYPE"
+msgstr "ВСЕ СКИДКИ БЕЗ ТИПА ОТОБРАЖЕНИЯ"
+
+msgid "Apply"
+msgstr "Применить"
+
+msgid "delete coupon"
+msgstr "удалить купон"
+
+msgid "ALL DENY RULES WITH NO VIEW TYPE"
+msgstr "ВСЕ ПРАВИЛА ЗАПРЕТА БЕЗ ТИПА ОТОБРАЖЕНИЯ"
+
+msgid "Price with discount"
+msgstr "Цена со скидкой"
+
+msgid "Your price is"
+msgstr "Ваша цена"
+
+msgid "Your discount"
+msgstr "Ваша скидка"
+
+msgid "All types of discounts. Discount constructor"
+msgstr "Все типы скидок. Конструктор скидок"
+
+msgid "Flexdiscount coupons:"
+msgstr "Купоны Гибких скидок:"
+
+msgid "Discount name"
+msgstr "Название скидки"
+
+msgid "Including discount to all order"
+msgstr "Включая скидку на весь заказ"
+
+msgid "Flexdiscount bonus"
+msgstr "Бонусы Гибких скидок"
+
+msgid "Cancel flexdiscount bonus"
+msgstr "Отмена бонусов Гибких скидок"
+
+msgid "Total product discount"
+msgstr "Общий размер скидки товара"
+
+msgid "Total order discount"
+msgstr "Сумма скидок заказа"
+
+msgid "Total discount"
+msgstr "Общая сумма скидок"
+
+msgid "Access to discount rules"
+msgstr "Доступ к правилам скидок"
+
+msgid "Access to discount settings"
+msgstr "Доступ к настройкам"
+
+msgid "Show"
+msgstr "Отображать"
+
+msgid "rules per group"
+msgstr "правил на группу"
+
+msgid "Total quantity of rules"
+msgstr "Всего правил"
+
+msgid "customize columns"
+msgstr "изменить колонки"
+
+msgid "Show more"
+msgstr "Показать еще"
+
+msgid "MAX PROD"
+msgstr "МАКС ТОВ"
+
+msgid "Check columns"
+msgstr "Выберите колонки"
+
+msgid "Quantity of products"
+msgstr "Количество товаров"
+
+msgid "Summarize all active discounts"
+msgstr "Суммировать все активные скидки"
+
+msgid "Get maximum discount"
+msgstr "Получить максимальное значение"
+
+msgid "Get minimum discount"
+msgstr "Получить минимальное значение"
+
+msgid "Position navigation bar above the title"
+msgstr "Расположить меню навигации над заголовком"
+
+msgid "Sum of orders for"
+msgstr "Сумма заказов за"
+
+msgid "Quantity of orders for"
+msgstr "Количество заказов за"
+
+msgid "select value"
+msgstr "выберите значение"
+
+msgid "for"
+msgstr "за"
+
+msgid "period"
+msgstr "период"
+
+msgid "last n-days"
+msgstr "последние n-дней"
+
+msgid "previous week"
+msgstr "прошлую неделю"
+
+msgid "previous month"
+msgstr "прошлый месяц"
+
+msgid "previous quarter"
+msgstr "прошлый квартал"
+
+msgid "previous half a year"
+msgstr "прошлые полгода"
+
+msgid "previous 9 months"
+msgstr "прошлые 9 месяцев"
+
+msgid "previous year"
+msgstr "прошлый год"
+
+msgid "today"
+msgstr "сегодня"
+
+msgid "current week"
+msgstr "текущую неделю"
+
+msgid "current month"
+msgstr "текущий месяц"
+
+msgid "current quarter"
+msgstr "текущий квартал"
+
+msgid "current 6 months"
+msgstr "текущие 6 месяцев"
+
+msgid "current 9 months"
+msgstr "текущие 9 месяцев"
+
+msgid "current year"
+msgstr "текущий год"
+
+msgid "period from"
+msgstr "период с"
+
+msgid "the last"
+msgstr "последние"
+
+msgid "Customize columns"
+msgstr "Изменить колонки"
+
+msgid "or"
+msgstr "или"
+
+msgid "User (Show discounts available for current user)"
+msgstr "Пользователь (Отображать скидки, доступные только текущему пользователю)"
+
+msgid "Date (Show discounts available for current date)"
+msgstr "Дата (Отображать скидки, доступные на текущий момент времени)"
+
+msgid "Product properties (Show discounts according to product properties conditions in you discount rules)"
+msgstr "Свойства товара (Отображать скидки согласно условиям по свойствам товаров в Ваших правилах)"
+
+msgid "This condition will filter the result items"
+msgstr "Данное условие фильтрует товары"
+
+msgid "From this value will be calculated affiliate bonus"
+msgstr "От выбранного значения будут рассчитаны бонусы"
+
+msgid "If product doesn't have discount"
+msgstr "Если у товара нет скидки"
+
+msgid "Show product price without discount"
+msgstr "Показывать цену товара без скидки"
+
+msgid "cancel"
+msgstr "отмена"
+
+msgid "Export"
+msgstr "Экспорт"
+
+msgid "Export selected"
+msgstr "Экспорт выделенных"
+
+msgid "Export all"
+msgstr "Экспорт всех купонов"
+
+msgid "Created"
+msgstr "Создано"
+
+msgid "Select coupon"
+msgstr "Выберите купон"
+
+msgid "Coupons will be exported in CSV file. Please, don't close or update webpage"
+msgstr "Купоны будут экспортированы в CSV файл. Пожалуйста, не закрывайте и не обновляйте страницу"
+
+msgid "Export coupons"
+msgstr "Экспорт купонов"
+
+msgid "Storefront visibility"
+msgstr "Видимость на витрине"
+
+msgid "Rule will be active, but no one can see it in Available discounts."
+msgstr "Правило будет активно, но оно будет скрыто из блока Доступных скидок."
+
+msgid "By default information about rules, which contains delivery in target, doesn't display in available discounts on storefront."
+msgstr "По умолчанию информация о правиле скидок, которое содержит скидку на доставку, не отображается в Доступных скидках на витрине."
+
+msgid "Bundle discount"
+msgstr "Скидка на комплект"
+
+msgid "Automatically remove useless coupons"
+msgstr "Автоматически удалять ненужные купоны"
+
+msgid "Expired or coupons which reached the limit"
+msgstr "С истекшим сроком действия или достигшие предела применения"
+
+msgid "Import coupons"
+msgstr "Импорт купонов"
+
+msgid "Separator"
+msgstr "Разделитель"
+
+msgid "Semicolon"
+msgstr "Точка с запятой (;)"
+
+msgid "Comma"
+msgstr "Запятая (,)"
+
+msgid "Tab"
+msgstr "Табуляция"
+
+msgid "Encoding"
+msgstr "Кодировка"
+
+msgid "Choose only CSV or TXT files"
+msgstr "Выбирайте только CSV или TXT файлы"
+
+msgid "Example (separator - semicolon; encoding - UTF-8)"
+msgstr "Пример (разделитель - точка с запятой; кодировка - UTF-8)"
+
+msgid "rounding to integer"
+msgstr "округлить до целого"
+
+msgid "Uploading file..."
+msgstr "Загрузка файла..."
+
+msgid "Upload failed"
+msgstr "Загрузка не удалась"
+
+msgid "Please don't close your browser window until process is over"
+msgstr "Пожалуйста, не закрывайте вкладку пока процесс не завершится"
+
+msgid "Import"
+msgstr "Импорт"
+
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "Server error"
+msgstr "Ошибка сервера"
+
+msgid "Check discount rule or select all coupons."
+msgstr "Выберите правило скидок или отметьте все купоны."
+
+msgid "Not enough parameters for import"
+msgstr "Не достаточно параметров для импорта"
+
+msgid "Successfully imported coupons:"
+msgstr "Купоны успешно импортированы в количестве:"
+
+msgid "Download:"
+msgstr "Скачать:"
+
+msgid "with status"
+msgstr "со статусом"
+
+msgid "Select status"
+msgstr "Выберите статус"
+
+msgid "All statuses"
+msgstr "Все статусы"
+
+msgid "discount %"
+msgstr "скидка в %"
+
+msgid "discount fixed value"
+msgstr "фиксированный размер скидки"
+
+msgid "If price with discount will be more than product price, than discount will be equal to zero."
+msgstr "Если цена товара со скидкой будет больше обычной цены товара, то в таком случае скидка будет считаться равной нулю."
+
+msgid "Common settings"
+msgstr "Общие настройки"
+
+msgid "Use this field to describe the rule for yourself. It will be shown on the page with all rules."
+msgstr "Используйте данное поле, чтобы описать правило для себя. Ваше описание будет отображено на странице всех правил"
+
+msgid "Show rule in available discounts, if target has shipping"
+msgstr "Отобразить правило в блоке Доступных скидок, если в качестве цели указана Доставка"
+
+msgid "Use this setting if you want to use the data of deny products. E.g, you have rules on the total amount of order. Deny products can be taken into total amount."
+msgstr "Используйте данную настройку, если хотите, чтобы данные запрещенных товаров участвовали в расчетах. Например, Вы используете скидки по общей сумме заказа. Запрещенные товары могут быть взяты в расчет."
+
+msgid "Discount settings"
+msgstr "Настройки скидок"
+
+msgid "Maximum discount value for the rule"
+msgstr "Максимальное значение скидки для правила"
+
+msgid "Discount for all products in this rule will not be more, than specified value."
+msgstr "Общая скидка для всех товаров в этом правиле никогда не будет больше указанного значения"
+
+msgid "Affiliate settings"
+msgstr "Настройки бонусов"
+
+msgid "Affiliate bonus"
+msgstr "Бонусы"
+
+msgid "Affiliate bonus base"
+msgstr "База бонусов"
+
+msgid "Product affiliate bonus limit"
+msgstr "Ограничение бонусов для товара"
+
+msgid "Affiliate bonuses for every product will never be more, than specified value."
+msgstr "Размер бонусов для каждого товара никогда не будет выше указанного значения"
+
+msgid "Maximum affiliate bonus value for the rule"
+msgstr "Максимальное значение бонусов для правила"
+
+msgid "The total value of affiliate bonuses in this rule will not be more, than specified value."
+msgstr "Общее значение бонусов в этом правиле никогда не будет больше указанного значения"
+
+msgid "Ignore conditions in deny rules"
+msgstr "Игнорировать условия в правилах запрета"
+
+msgid "You can choose what conditions to ignore in deny rules while showing available discounts"
+msgstr "Вы можете выбрать, какие условия следует проигнорировать в правилах запрета при отображении блока Доступных скидок"
+
+msgid "https://igaponov.com/docs/120/displaying-of-available-discounts-while-using-deny-rules/"
+msgstr "https://igaponov.ru/docs/117/displaying-of-available-discounts-while-using-deny-rules/"
+
+msgid "Read more"
+msgstr "Подробнее"
+
+msgid "Product conditions"
+msgstr "Условия для Товара"
+
+msgid "Product properties conditions"
+msgstr "Свойства товара"
+
+msgid "Cart conditions"
+msgstr "Условия для корзины"
+
+msgid "Developer Igor Gaponov"
+msgstr "Разработчик Игорь Гапонов"
+
+msgid "Show rule in available discounts for products, that meets the conditions"
+msgstr "Отображать правило в Доступных скидках для товаров, которые удовлетворяют условиям"
+
+msgid "It's recommended to enable this option, if you are using categories/sets/types/features/products as targets, your conditions are filter-conditions(<i class=\"icon16 funnel\"></i>) and you want to show information about discount in products, that meet conditions.<br>E.g, \"if category A then set discount to category B\". If you want to show information about discount rule in products from category A, enable this option"
+msgstr "Рекомендуется включить данную опцию, если в качестве целей Вы используете категории, списки, типы, характеристики или товары, а также Ваши условия являются фильтрующими(<i class=\"icon16 funnel\"></i>), и Вы хотите отобразить информацию о скидках у товаров, удовлетворяющих условиям. Например, \"Если Категория А, тогда установить скидку на Категорию Б\". Если Вы хотите отображать информацию о правиле скидок у товаров из категории А, включите данную опцию"
+
+msgid "Use individual settings for this rule"
+msgstr "Использовать индивидуальные настройки для этого правила"
+
+msgid "common settings"
+msgstr "общие настройки"
+
+msgid "Filtering options:"
+msgstr "Настройки фильтрации:"
+
+msgid "Choose filters, which should be used, while showing Available discounts block"
+msgstr "Выберите фильтры, которые должны быть использованы при показе блока Доступных скидок"
+
+msgid "Conditions:"
+msgstr "Условия:"
+
+msgid "Set discount to each bundle"
+msgstr "Установить скидку на каждый комплект"
+
+msgid "Set affiliate bonus to each bundle"
+msgstr "Начислить бонусы на каждый комплект"
+
+msgid "Total sales for period.."
+msgstr "Сумма продаж товара за период.."
+
+msgid "Total number of sales for period.."
+msgstr "Количество продаж товара за период.."
+
+msgid "User data"
+msgstr "Данные пользователя"
+
+msgid "By default rule will use <a href=\"%s\" class=\"s-link\" title=\"%s\">%s</a>"
+msgstr "По умолчанию используются <a href=\"%s\" class=\"s-link\" title=\"%s\">%s</a>"
+
+msgid "Show discounts according to quantitative and total values of products from categories/sets/types/features"
+msgstr "Отображать правила скидок согласно количественным и суммарным значениям товаров из категорий, списков, типов, характеристик"
+
+msgid "List of plugins, where Flexdiscount calling should be ignored"
+msgstr "Список плагинов, где стоит игнорировать работу плагина Гибкие скидки и бонусы"
+
+msgid "Sometimes plugins call Flexdiscount plugin automatically, even if they do not need it. For example, when they try to work with products, order, cart or export/import."
+msgstr "Иногда другие плагины вызывают Гибкие скидки и бонусы автоматически, даже если в этом нет необходимости. Например, когда они работают с товарами, заказами, корзиной или импортом/экспортом."
+
+msgid "If you have problems, while using other plugins, choose them below to avoid unexpected errors and calculations."
+msgstr "Если у Вас возникают проблемы с вычислением скидок, отображением цен при использовании других плагинов, отметьте эти плагины ниже."
+
+msgid "No plugins are installed."
+msgstr "Нет ни одного плагина."
+
+msgid "virtual and real"
+msgstr "виртуальном и реальном"
+
+msgid "virtual"
+msgstr "виртуальном"
+
+msgid "real"
+msgstr "реальном"
+
+msgid "on "
+msgstr "на"
+
+msgid "all stocks"
+msgstr "всех складах"
+
+msgid "Select data"
+msgstr "Выберите данные"
+
+msgid "all time"
+msgstr "все время"
+
+msgid "Product total sales for"
+msgstr "Сумма продаж товара за"
+
+msgid "Product total quantity of sales for"
+msgstr "Количество продаж товара за"
+
+msgid "any stock"
+msgstr "любом складе"
+
+msgid "each stock"
+msgstr "каждом складе"
+
+msgid "edit symbolic code"
+msgstr "изменить символьный код"
+
+msgid "Product discount"
+msgstr "Скидка на товары"
+
+msgid "percent"
+msgstr "процент"
+
+msgid "fixed value"
+msgstr "фиксированное значение"
+
+msgid "Product discount formula"
+msgstr "Формула скидки для товаров"
+
+msgid "Shipping discount"
+msgstr "Скидка на доставку"
+
+msgid "% from"
+msgstr "% от"
+
+msgid "Shipping price"
+msgstr "Стоимости доставки"
+
+msgid "Order price"
+msgstr "Суммы заказа"
+
+msgid "This is a shipping discount base. From that value user will get shipping discount. Total shipping discount value will never be more than shipping price."
+msgstr "Это база скидки для доставки. От этого значения будет рассчитан размер скидки. Общее значение скидки на доставку никогда не будет больше, чем стоимость доставки."
+
+msgid "Product affiliate bonus"
+msgstr "Бонусы на товары"
+
+msgid "Product affiliate bonus base"
+msgstr "База бонусов для товаров"
+
+msgid "Shipping affiliate"
+msgstr "Бонусы на доставку"
+
+msgid "This is a shipping affiliate base. From that value user will get shipping affiliate. Total shipping affiliate value will never be more than shipping price."
+msgstr "Это база бонусов для доставки. От этого значения будет рассчитан размер бонусов. Общее значение бонусов на доставку никогда не будет больше, чем стоимость доставки."
+
+msgid "Main settings"
+msgstr "Основные настройки"
+
+msgid "Discount and bonus rounding"
+msgstr "Округление скидок и бонусов"
+
+msgid "This option changes prices only once, when the page loads. For dynamic price changing use <a href=\"javascript:void()\" onclick=\"$('html,body').scrollTop($('#fl-info-discount-aff-block').offset().top)\">Information blocks (Price with discount, Product discounts)</a>"
+msgstr "Данная функция изменяет цены только при загрузке страницы. Для динамического обновления цен используйте <a href=\"javascript:void()\" onclick=\"$('html,body').scrollTop($('#fl-info-discount-aff-block').offset().top)\">Информационные блоки (Цена со скидкой, Действующие скидки)</a>"
+
+msgid "Final rules calculating"
+msgstr "Итоговый расчет для правил"
+
+msgid "Select how to calculate discounts and bonuses between groups and rules without groups"
+msgstr "Выберите, как рассчитывать скидки и бонусы между группами и правилами скидок вне групп"
+
+msgid "Coupons and affiliate programm"
+msgstr "Купоны и партнерская программа"
+
+msgid "Display additional coupon field"
+msgstr "Отображать дополнительное поле для купонов"
+
+msgid "Add additional coupon field on the cart page."
+msgstr "Добавить дополнительное поле для ввода купонов на страницу корзины."
+
+msgid "Output place of this field depends on hook <i>frontend_cart</i> in your theme template."
+msgstr "Место вывода данного поля зависит от хука <i>frontend_cart</i>, расположенного в Вашей теме дизайна."
+
+msgid "If you want to customize output place, disable that option and use in the template <i>cart.html</i> construction"
+msgstr "Если Вы хотите изменить расположение, тогда отключите данную функцию и используйте в шаблоне <i>cart.html</i> конструкцию ниже"
+
+msgid "Display additional affiliate bonus block"
+msgstr "Отображать дополнительный блок информации о бонусах"
+
+msgid "Add additional affiliate bonus block on the cart page."
+msgstr "Добавить дополнительный блок информации о бонусах на страницу корзины."
+
+msgid "Information discount and affiliate blocks"
+msgstr "Информационные блоки скидок и бонусов"
+
+msgid "Active discounts and bonuses"
+msgstr "Активные скидки и бонусы"
+
+msgid "This block is displayed on the cart page and contains information about discounts and bonuses, which already has user."
+msgstr "Данный блок отображается на странице корзины и содержит информацию о скидках и бонусах, которые уже имеются у пользователя."
+
+msgid "Show active discount"
+msgstr "Отображать активные скидки"
+
+msgid "Product active discounts and bonuses"
+msgstr "Действующие скидки и бонусы"
+
+msgid "This block is displayed by default on the product page and contains information about discounts and bonuses, which product has at the moment or will get, if it will be bought right now."
+msgstr "Блок по умолчанию отображается на странице товара и содержит информацию о скидках и бонусах, которые начислены на товар в данный момент, или которые получит товар, если будет куплен прямо сейчас."
+
+msgid "Use custom output to display block on the catalog page, if it's necessary."
+msgstr "Используйте ручной вывод, чтобы отобразить блок на странице каталога, если это необходимо."
+
+msgid "If you want to customize output place, disable that option and use constructions"
+msgstr "Если Вы хотите изменить расположение, тогда отключите данную функцию и используйте конструкцию ниже"
+
+msgid "For product page"
+msgstr "Для страницы товара"
+
+msgid "For catalog page"
+msgstr "Для каталога"
+
+msgid "where 2 - view type (Default values 1, 2, 3, 4 or 5)"
+msgstr "где 2 - тип отображения (Значения по умолчанию 1, 2, 3, 4 или 5)"
+
+msgid "Available discounts and bonuses"
+msgstr "Доступные скидки и бонусы"
+
+msgid "This block is displayed by default on the product page and contains information about discounts and bonuses, which product can get in the future."
+msgstr "Данный блок по умолчанию отображается на странице товара и содержит информацию о скидках и бонусах, которые могут быть начислены на товар в будущем."
+
+msgid "where 2 - view type (Default values 1, 2, 3 or 4)"
+msgstr "где 2 - тип отображения (Значения по умолчанию 1, 2, 3 или 4)"
+
+msgid "This block is displayed on the product page and is shown for products that meet the conditions in deny rules"
+msgstr "Данный блок по умолчанию отображается на страницах товаров, которые удовлетворяют условиям у правил запрета."
+
+msgid "where 1 - view type (Default values 1 or empty)"
+msgstr "где 2 - тип отображения (Значения по умолчанию 1 или пустота)"
+
+msgid "This block is displayed on the product page and contains information about price with discount."
+msgstr "Данный блок отображается на странице товара и содержит информацию о цене со скидкой."
+
+msgid "Display price with discount"
+msgstr "Отображать цену со скидкой"
+
+msgid "Other settings"
+msgstr "Другие настройки"
+
+msgid "Discounts in customer account"
+msgstr "Скидки в личном кабинете"
+
+msgid "You can create a page with all available discounts in customer account."
+msgstr "Вы можете создать страницу со всеми доступными скидками в личном кабинете пользователя."
+
+msgid "Create page"
+msgstr "Создать страницу"
+
+msgid "Compatibility problems"
+msgstr "Проблемы совместимости"
+
+msgid "Other plugins in market due to specific software architecture can have compatibility problems with Flexdiscount plugin. If you will detect this, try first to choose that plugin below and check compatibility once more. If it doesn't help, write to plugin developer."
+msgstr "Некоторые плагины в Магазине из-за специфической архитектуры могут иметь проблемы с совместимостью. Если Вы это обнаружили, попробуйте выбрать данный плагин в списке ниже. Если это не поможет, напишите разработчику плагина."
+
+msgid "List of plugins"
+msgstr "Список плагинов"
+
+msgid "Specify shipping discount (or affiliate) in discount (or affiliate) settings above."
+msgstr "Укажите размер скидки (или бонусов) в настройках для скидок (или бонусов) выше."
+
+msgid "bonus"
+msgid_plural "bonuses"
+msgstr[0] "бонус"
+msgstr[1] "бонуса"
+msgstr[2] "бонусов"
+
+msgid "Hide default affiliate bonus block"
+msgstr "Скрыть блок бонусов темы дизайна"
+
+msgid "By default all your bonuses will be displayed in theme affiliate block on the cart page. You can hide that block and use \"additional affiliate bonus block\" instead."
+msgstr "По умолчанию все Ваши бонусы будут отображены в блоке темы дизайна на странице корзины. Вы можете скрыть этот блок и использовать вместо него \"дополнительный блок информации о бонусах\""
+
+msgid "where 2 - view type (Default values 1, 2, 3, 4, 5 or 6)"
+msgstr "где 2 - тип отображения (По умолчанию 1, 2, 3, 4, 5 или 6)"
+
+msgid "(Default values 1, 2, 3, 4, 5 or 6)"
+msgstr "(Значения по умолчанию 1, 2, 3, 4, 5 или 6)"
+
+msgid "to your affiliate program"
+msgstr "к Вашей партнерской программе"
+
+msgid "Affiliate program"
+msgstr "Партнерская программа"
+
+msgid "Changing structure of discount page"
+msgstr "Изменение структуры страницы со скидками"
+
+msgid "Product active discount and bonuses"
+msgstr "Действующие скидки и бонусы"
+
+msgid "CSS styles"
+msgstr "CSS стили"
+
+msgid "You can customize plugin CSS styles"
+msgstr "Вы можете изменить стили CSS плагина"
+
+msgid "Output place"
+msgstr "Место вывода"
+
+msgid "Inside tag &lt;head&gt;"
+msgstr "Внутри тега &lt;head&gt;"
+
+msgid "Template hook <i>frontend_head</i>"
+msgstr "Хук шаблона <i>frontend_head</i>"
+
+msgid "In the footer"
+msgstr "В подвале сайта"
+
+msgid "Template hook <i>frontend_footer</i>"
+msgstr "Хук шаблона <i>frontend_footer</i>"
+
+msgid "Use helper"
+msgstr "Использовать хелпер"
+
+msgid "Embed this helper into your theme template"
+msgstr "Встройте этот хелпер в шаблон Вашей темы дизайна"
+
+msgid "You can"
+msgstr "Вы можете"
+
+msgid "customize plugin CSS styles"
+msgstr "изменить стили CSS у плагина"
+
+msgid "Loader icon"
+msgstr "Иконка загрузки"
+
+msgid "Informational blocks of discounts and bonuses can be dynamically updated. You can choose type of loader."
+msgstr "Информационые блоки скидок и бонусов могут динамически обновляться. Вы можете выбрать тип иконки загрузки."
+
+msgid "Not enough symbols to create coupons"
+msgstr "Не достаточно символов для создания нового купона"
+
+msgid "(in percents from price)"
+msgstr "(в процентах от цены)"
+
+msgid "(in percents from compare price)"
+msgstr "(в процентах от зачеркнутой цены)"
+
+msgid "Log text in order history"
+msgstr "Текст в истории заказов"
+
+msgid "This text will be shown in order history on admin page and in user account on the storerfront, when bonuses will applied."
+msgstr "Данный текст будет отображен в истории заказов в административной части и в личном кабинете пользователя, когда будут применены бонусы."
+
+msgid "Show only active discounts"
+msgstr "Отображать только активные скидки"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "(in percents from purchase price)"
+msgstr "(в процентах от цены закупки)"
+
+msgid "(in percents from product price)"
+msgstr "(в процентах от цены товара)"
+
+msgid "Birthday"
+msgstr "День рождения"
+
+msgid "Use currency rounding settings from the Shop"
+msgstr "Использовать настройки округления валют Магазина"
+
+msgid "Birthday interval:"
+msgstr "Интервал:"
+
+msgid "Product age"
+msgstr "Возраст товара"
+
+msgid "Bonus rounding"
+msgstr "Округление бонусов"
+
+msgid "Customize product price output"
+msgstr "Изменить шаблон вывода цены без скидки"
+
+msgid "You can use HTML"
+msgstr "Вы можете использовать HTML"
+
+msgid "Use %s for price value or %s for using ruble sign"
+msgstr "Используйте %s для вывода цены или %s для цены со знаком рубля"
+
+msgid "equals"
+msgstr "равно"
+
+msgid "This coupon will be created and assigned to the rule, if you are using &quot;equal&quot; operator"
+msgstr "Купон будет создан автоматически и прикреплен к правилу, если Вы используете оператор &quot;равно&quot;"
+
+msgid "Last changing of product stocks X days ago"
+msgstr "Последнее изменение остатков товаров X дней назад"
+
+msgid "increase"
+msgstr "увеличение"
+
+msgid "decrease"
+msgstr "уменьшение"
+
+msgid "Last"
+msgstr "Последнее"
+
+msgid "of product stocks"
+msgstr "остатков товаров"
+
+msgid "days ago"
+msgstr "дней назад"
+
+msgid "Maximum number of usage per EACH user"
+msgstr "Максимальное количество использований купона КАЖДЫМ пользователем"
+
+msgid "Relevant for multi-step checkout"
+msgstr "Актуально для пошагового оформления заказа"
+
+msgid "Class not found"
+msgstr "Класс не найден"
+
+msgid "Backend orders"
+msgstr "Страница заказов (административная часть)"
+
+msgid "Add column with discount for each product"
+msgstr "Добавить колонку со скидкой для каждого товара"
+
+msgid "Stock total"
+msgstr "Общее количество всех остатков"
+
+msgid "Product stock total"
+msgstr "Общее количество всех остатков товара"
+
+msgid "Formula"
+msgstr "Формула"
+
+msgid "Product Field"
+msgstr "Поле товара"
+
+msgid "Fill in field \"Minimal price\" on product edit page."
+msgstr "Заполните поле \"Минимальная цена\" на странице редактирования товара"
+
+msgid "https://igaponov.com/docs/169/product-discount-limit/"
+msgstr "https://igaponov.ru/docs/169/product-discount-limit/"
+
+msgid "Create a bundle from the conditions. Learn more about <a href=\"https://igaponov.com/docs/105/bundles/\" target=\"_blank\">bundles <i class=\"icon16 new-window\"></i></a>"
+msgstr "Создать комплект из условий. Читайте подробнее в <a href=\"https://igaponov.ru/docs/104/bundles/\" target=\"_blank\">документации <i class=\"icon16 new-window\"></i></a>"
+
+msgid "Dynamically update information blocks"
+msgstr "Динамически обновлять информационные блоки"
+
+msgid "Caching"
+msgstr "Кеширование"
+
+msgid "Enable caching for discount conditions"
+msgstr "Включить кеширование для условий скидок"
+
+msgid "Price with all discounts (from plugin Flexdiscount) will never be lower than specified value. Make sure that setting \"Product discount limit\" is enabled and has value \"product field\""
+msgstr "Цена с учетом всех скидок (от плагина Гибкие скидки) не опустится ниже, чем указанное значение. Убедитесь, что настройка \"Ограничение скидки для товара\" активирована и выбрано значение \"Поле товара\""
+
+msgid "for all skus"
+msgstr "для всех артикулов"
+
+msgid "Change product prices"
+msgstr "Изменить цены товаров"
+
+msgid "Individual rule setting for the option <a href=\"%s\" class=\"s-link\" target=\"_blank\">\"Change product data on the storefront\"</a>."
+msgstr "Индивидуальная настройка для опции <a href=\"%s\" class=\"s-link\" target=\"_blank\">\"Изменение данных товаров на витрине\"</a>."
+
+msgid "You don't have any available discounts."
+msgstr "У вас нет доступных скидок."
+
+msgid "Ignore price changing in plugins below:"
+msgstr "Не использовать изменение цен для плагинов:"
+
+msgid "show more"
+msgstr "показать еще"
+
+msgid "Hide duplicate rules with \"Product active discounts and bonuses\""
+msgstr "Скрыть правила, повторяющиеся с блоком \"Действующих скидок и бонусов\""
+
+msgid "if product has already had active discount, plugin will hide this rule from information block"
+msgstr "если у товара уже имеется скидка по одному из правил, плагин скроет это правило из блока Доступных скидок и бонусов."
+
+msgid "Skip shop cart items processing in plugins below: (relevant for import/export plugins)"
+msgstr "Пропустить обработку корзины для плагинов: (актуально для плагинов импорта/экспорта)"
+
+msgid "System settings"
+msgstr "Системные настройки"
+
+msgid "Be carefull with that settings. If you are not sure, do not change them"
+msgstr "Будьте осторожны с данными настройкми. Если вы не уверены в их назначении, не меняйте их"
+
+msgid "Profile mode"
+msgstr "Режим профилирования"
+
+msgid "Enable profile mode to collect information about usaging of plugin hooks."
+msgstr "Активируйте режим профилирования для сбора информации об использовании хуков плагина."
+
+msgid "Relevant for frontend. Update the necessary page and get the report in flexdiscount.profile.log"
+msgstr "Актуально для фронтенда. Обновите нужную страницу в браузере и отчет будет сформирован в файле flexdiscount.profile.log"
+
+msgid "Also use cookie to enable profiling: "
+msgstr "Также используйте куку, чтобы активировать профилирование: "
+
+msgid "Depth"
+msgstr "Глубина"
+
+msgid "Add file basenames"
+msgstr "Добавить названия файлов"
+
+msgid "Extended plugins reports"
+msgstr "Расширенный отчет о вызовах из плагинов"
+
+msgid "Extended template reports"
+msgstr "Расширенный отчет о вызовах из шаблона"
+
+msgid "Extended methods reports"
+msgstr "Расширенный отчет о вызовах из методов"
+
+msgid "Plugin is disabled. <a href=\"%s\">Enable it</a>"
+msgstr "Плагин выключен. Вы можете <a href=\"%s\">включить его</a> прямо сейчас"
+
+msgid "Expires:"
+msgstr "Истекает:"
+
+msgid "Coupon settings"
+msgstr "Настройка купона"
+
+msgid "Select coupons for this promo. Orders with selected coupons will be automatically associated with this promo."
+msgstr "Выберите купоны, которые используются в акции. Заказы с выбранными купонами будут автоматически относиться к этой акции."
+
+msgid "Load coupons"
+msgstr "Загрузить купоны"
+
+msgid "Find coupon & add to promo"
+msgstr "Найти купон и добавить в акцию"
+
+msgid "No flexdiscount coupons."
+msgstr "В Гибких скидках не найдено купонов."
+
+msgid "Add a new rule and create a coupon"
+msgstr "Добавьте правило и создайте купон"
+
+msgid "Select rules for this promo. Orders with selected rules will be automatically associated with this promo."
+msgstr "Выберите правила, которые используются в акции. Заказы с выбранными правилами будут автоматически относиться к этой акции."
+
+msgid "Discount groups"
+msgstr "Группы скидок"
+
+msgid "All rules from the selected groups will be associated with this promo."
+msgstr "Все правила скидок из выбранных групп будут автоматически относиться к этой акции."
+
+msgid "Discount rules"
+msgstr "Правила скидок"
+
+msgid "All selected rules will be associated with this promo."
+msgstr "Все выбранные правила скидок будут автоматически относиться к этой акции."
+
+msgid "Ungrouped rules"
+msgstr "Негруппированные правила"
+
+msgid "No flexdiscount rules."
+msgstr "Не создано ни одного правила скидок"
+
+msgid "Add a new rule"
+msgstr "Добавить правило"
+
+msgid "Flexdiscount plugin rules"
+msgstr "Правила Гибких скидок"
+
+msgid "Flexdiscount plugin coupons"
+msgstr "Купоны Гибких скидок"
+
+msgid "Select at least one discount rule or group"
+msgstr "Выберите хотя бы одно правило скидок или группу"
+
+msgid "Select discount groups"
+msgstr "Выберите группы скидок"
+
+msgid "Select discount rules"
+msgstr "Выберите правила скидок"
+
+msgid "Reverse backtrace"
+msgstr "Обратный порядок вызовов"
+
+msgid "Enable experimental hook flexdiscount_filter_items"
+msgstr "Активировать экспериментальный хук flexdiscount_filter_items"
+
+msgid "Use original compare prices"
+msgstr "Использовать оригинальные зачеркнутые цены"
+
+msgid "Always recalculate discounts when editing orders"
+msgstr "Всегда пересчитывать скидки при редактировании заказа"
+
+msgid "Check if user is authorized"
+msgstr "Проверить, авторизован ли пользователь"
+
+msgid "authorized"
+msgstr "авторизован"
+
+msgid "Be careful! With this setting you cannot edit discount by yourself. Calculating will be automatically"
+msgstr "Будьте осторожны! С данной настройкой вы не сможете самостоятельно редактировать скидки в заказе. Они будут рассчитаны автоматически"
+
+msgid "You cannot edit discount. It will be calculated automatically after saving the order."
+msgstr "Вы не можете редактировать скидку. Она будет рассчитана автоматически после сохранения заказа."
+
+msgid "This behaviour can be changed in Flexdiscount settings."
+msgstr "Данное поведение может быть изменено в настройках плагина Гибкие скидки и бонусы."
+
+msgid "Badge"
+msgstr "Наклейка"
+
+msgid "Badge will be shown only for products, which has active discounts from the rule"
+msgstr "Наклейка будет отображаться только на тех товарах, у которых имеются активные скидки"
+
+msgid "Read more in <a href=\"https://igaponov.com/docs/173/badges/\" target=\"_blank\">docs</a>"
+msgstr "Читайте подробнее в <a href=\"https://igaponov.ru/docs/187/badges/\" target=\"_blank\">документации</a>"
+
+msgid "Use HTML. Output place and appearance depends on your theme design."
+msgstr "Используйте HTML. Места вывода и внешний вид зависят от вашей темы дизайна."
+
+msgid "Overwrite default badges"
+msgstr "Перезаписать стандарные наклейки"
+
+msgid "Order price with discount"
+msgstr "Общая стоимость заказа c учетом скидок"
+
+msgid "Country and region"
+msgstr "Страна и регион"
+
+msgid "User city"
+msgstr "Город доставки пользователя"
+
+msgid "Contact country and region"
+msgstr "Страна и регион доставки пользователя"
+
+msgid "Select country"
+msgstr "Выберите страну"
+
+msgid "Select region"
+msgstr "Выберите регион"
+
+msgid "Product params"
+msgstr "Дополнительные параметры товара"
+
+msgid "Select product params"
+msgstr "Выберите параметры товара"
+
+msgid "Use this condition only for shipping discounts."
+msgstr "Используйте данное условие только для скидок на доставку."
+
+msgid "coupon is used"
+msgstr "используется купон"
+
+msgid "Has active coupon?"
+msgstr "Имеется ли активный купон?"
+
+msgid "Read more in <a href=\"https://igaponov.com/docs/177/profile/\" target=\"_blank\">docs</a>"
+msgstr "Подробнее читайте в <a href=\"https://igaponov.ru/docs/191/profile/\" target=\"_blank\">документации</a>"
+
+msgid "Does affiliate used?"
+msgstr "Использовался ли партнерский бонус?"
+
+msgid "affiliate is used"
+msgstr "используется партнерский бонус"
+
+msgid "Customer source"
+msgstr "Источник покупателя"
+
+msgid "Discount distribution"
+msgstr "Распределение скидок"
+
+msgid "For each product"
+msgstr "На каждый товар"
+
+msgid "For entire order"
+msgstr "На весь заказ"
+
+msgid "Select how to distribute discounts. By default, if product has personal discount, it would be connected only with him."
+msgstr "Выберите, как будут распределяться скидки. По умолчанию, если у товара имеются персональные скидки, они будут связаны непосредственно только с этим товаром."
+
+msgid "You can depersonalize discounts by selecting the option \"For entire order\". Shop-Script will automatically spread it."
+msgstr "Вы можете обезличить скидки, выбрав пункт \"На весь заказ\". Shop-Script автоматически распределит скидки по всему заказу."
+
+msgid "Select source"
+msgstr "Выберите источник"
+
+msgid "Maximum number of cached products"
+msgstr "Максимальное количество кешируемых товаров"
+
+msgid "Plugin caches frontend products to get their features, category products, stock information."
+msgstr "Плагин кеширует товары с витрины, чтобы сразу получать всю информацию о характеристиках, категориях, остатках."
+
+msgid "Has active rules with discounts?"
+msgstr "Имеются ли активные правила со скидками?"
+
+msgid "Has active rules with affiliates?"
+msgstr "Имеются ли активные правила с бонусами?"
+
+msgid "has active rules with discounts"
+msgstr "имеются активные правила со скидками"
+
+msgid "Read more <a href=\"https://igaponov.com/docs/179/how-works-conditions-has-active-rules/\" target=\"_blank\">How it works</a>"
+msgstr "Читайте подробнее <a href=\"https://igaponov.ru/docs/195/how-works-conditions-has-active-rules/\" target=\"_blank\">особенности работы</a>"
+
+msgid "has active rules with affiliates"
+msgstr "имеются активные правила с бонусами"
+
+msgid "every n-th cheapest products (in favor of the seller)"
+msgstr "каждый n-й дешевый товар (в пользу продавца)"
+
+msgid "every n-th cheapest products (in favor of the buyer)"
+msgstr "каждый n-й дешевый товар (в пользу покупателя)"
+
+msgid "every n-th the most expensive products (in favor of the seller)"
+msgstr "каждый n-й самый дорогой товар (в пользу продавца)"
+
+msgid "every n-th the most expensive products (in favor of the buyer)"
+msgstr "каждый n-й самый дорогой товар (в пользу покупателя)"
+
+msgid "(in favor of the seller)"
+msgstr "(в пользу продавца)"
+
+msgid "(in favor of the buyer)"
+msgstr "(в пользу покупателя)"
+
+msgid "Use converting dimensions for shipping plugins"
+msgstr "Использовать конвертацию размеров для плагинов доставки"
+
+msgid "Disable that option, if you have problems with discounts for shipping plugins. For some plugins it may helps. Option can disable method shopShipping::convertItemsDimensions"
+msgstr "Отключите данную опцию, если у вас наблюдаются проблемы со скидками для плагинов доставки. В некоторых случаях это может помочь. Опция отключает метод shopShipping::convertItemsDimensions"
+
+msgid "Option is not enabled. You can change it on the <a href=\"%s\" title=\"Settings\">settings page</a>."
+msgstr "Опция не активна. Вы можете изменить ее на <a href=\"%s\" title=\"Настройки\">странице настроек</a>."
+
+msgid "Cache backend calculations"
+msgstr "Кешировать расчеты в бэкенде"
+
+msgid "Cache the results of backend discount calculations in hook order_calculate_discount"
+msgstr "Кешировать результаты расчетов скидок в хуке order_calculate_discount в бэкенде"
+
+msgid "If the any changing of product stocks for period.."
+msgstr "Было ли увеличение/уменьшение остатков за период.."
+
+msgid "If there any"
+msgstr "Было ли"
+
+msgid "among"
+msgstr "среди"
+
+msgid "product prices"
+msgstr "основных цен"
+
+msgid "compare prices"
+msgstr "зачеркнутых цен"
+
+msgid "n-th product and all subsequent products following by n-product (descending prices)"
+msgstr "n-й товар и все последующие товары (в порядке убывания цен)"
+
+msgid "th product and all subsequent products following by n-product (descending prices)"
+msgstr "-й товар и все последующие товары (в порядке убывания цен)"
+
+msgid "Always show rule in active discounts"
+msgstr "Всегда отображать правило в блоке Активных скидок"
+
+msgid "The rule will be shown in any case whether it has a discount or not"
+msgstr "Правило будет показано вне зависимости есть скидка или нет"
+
+msgid "Specify the parameters of an abstract product"
+msgstr "Укажите параметры абстрактного товара"
+
+msgid "Plugin creates an abstract product and checks whether discounts will be applied for it. If there are, then he considers these discounts are active and shows them on the account page."
+msgstr "Плагин создает абстрактный товар и проверяет, будут ли применены для него скидки. Если будут, тогда он считает эти скидки активными и отображает их в личном кабинете."
+
+msgid "Make sure that your abstract product meets rules conditions."
+msgstr "Убедитесь, что ваш абстрактный товар подходит под условия правил."
+
+msgid "Discount (from plugin Flexdiscount) will be applied, if you will select the type of the discount \"Product field\" in the plugin rule"
+msgstr "Скидка (от плагина Гибкие скидки и бонусы) будет применена, если вы в качестве типа скидки выберете значение \"Поле товара\" в настройках правила"
+
+msgid "Affiliate (from plugin Flexdiscount) will be applied, if you will select the type of the affiliate \"Product field\" in the plugin rule"
+msgstr "Бонусы (от плагина Гибкие скидки и бонусы) будут применены, если вы в качестве типа бонусов выберете значение \"Поле товара\" в настройках правила"
+
+msgid "Product field \"Discount\""
+msgstr "Поле товара \"Скидка\""
+
+msgid "Fill in field \"Discount\" on the product edit page."
+msgstr "Заполните поле \"Скидка\" на странице редактирования товара"
+
+msgid "Product field \"Affiliate\""
+msgstr "Поле товара \"Бонусы\""
+
+msgid "Fill in field \"Affiliate\" on the product edit page."
+msgstr "Заполните поле \"Бонусы\" на странице редактирования товара"
+
+msgid "https://igaponov.com/docs/202/how-to-make-discount-affiliate/"
+msgstr "https://igaponov.ru/docs/218/how-to-make-discount-affiliate/"
+
+msgid "https://igaponov.ru/docs/131/affiliate/"
+msgstr "https://igaponov.ru/docs/131/affiliate/"
+
+msgid "https://igaponov.ru/docs/138/available-discounts/"
+msgstr "https://igaponov.ru/docs/138/available-discounts/"
+
+msgid "https://igaponov.ru/docs/141/deny-rules/"
+msgstr "https://igaponov.ru/docs/141/deny-rules/"
+
+msgid "https://igaponov.ru/docs/147/discount-page/"
+msgstr "https://igaponov.ru/docs/147/discount-page/"
+
+msgid "https://igaponov.ru/docs/142/price-with-discount/"
+msgstr "https://igaponov.ru/docs/142/price-with-discount/"
+
+msgid "https://igaponov.ru/docs/139/product-active-discounts/"
+msgstr "https://igaponov.ru/docs/139/product-active-discounts/"
+
+msgid "https://igaponov.ru/docs/140/active-discounts/"
+msgstr "https://igaponov.ru/docs/140/active-discounts/"
+
+msgid "Calculate only active skus on the catalog page and in the lists"
+msgstr "Рассчитывать скидки только для главных артикулов на странице категорий и в списках"
+
+msgid "This option enables optimization on the catalog page and in the lists. If you have a lot of skus in products (10 000+) and you feel that catalog page is too slow, enable it."
+msgstr "Данная настройка включает оптимизацию на странице категорий и в списках товаров. Если у ваших товаров большое количество артикулов (10 000+) и списки товаров грузятся медленно, активируйте данную опцию."
+
+msgid "This option only relevant if \"Change product data on the storefront\" is enabled"
+msgstr "Данная настройка актуальна только, если у вас включено \"Изменение данных товаров на витрине\""
+
+msgid "Enable setting <a href=\"%s\" title=\"Settings\">\"Change product data on the storefront\"</a>."
+msgstr "Активируйте настройку <a href=\"%s\" title=\"Настройки\">\"Изменение данных товаров на витрине\"</a>."

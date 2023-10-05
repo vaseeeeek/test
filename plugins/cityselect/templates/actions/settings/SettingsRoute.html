@@ -1,0 +1,397 @@
+{if $is_reset}
+    <div style="color:green">[`Настройки были сброшены`]</div>
+{/if}
+
+<script>
+    $('.i-settings__reset').{if $route_changes}remove{else}add{/if}Class('green');
+</script>
+
+{$current_tab = waRequest::cookie("shop_`$plugin_id`__current_tab",'settings')}
+
+<input type="hidden" name="current_id" value="{$current_route|default:'0'|escape}">
+
+<div class="block i-settings__tabs" data-cookie="shop_{$plugin_id}__current_tab">
+
+    <ul class="tabs">
+        <li{if $current_tab=='settings'} class="selected"{/if}><a href="#" data-tab="settings">[`Настройки`]</a></li>
+        <li{if $current_tab=='view'} class="selected"{/if}><a data-tab="view" href="#">[`Список городов`]</a></li>
+        {*<li{if $current_tab=='variables'} class="selected"{/if}><a data-tab="variables" href="#">[`Переменные`]</a></li>*}
+        <li{if $current_tab=='template'} class="selected"{/if}><a data-tab="template" href="#">[`Шаблоны`]</a></li>
+        <li{if $current_tab=='css'} class="selected"{/if}><a data-tab="css" href="#">[`CSS/JS`]</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="block i-settings__tab" data-tab="settings" style="display: {if $current_tab=='settings'}block{else}none{/if};">
+
+            <div class="field">
+                <div class="name">
+                    <label for="current__enable">[`Включить плагин`]</label>
+                </div>
+
+                <div class="value">
+                    <label>
+                        <input id="current__enable" type="checkbox" class="i-settings__checkbox" {if !empty($current.enable)}checked{/if}>
+                        <input type="hidden" name="current[enable]" value="{if !empty($current.enable)}1{else}0{/if}">
+                    </label>
+                </div>
+            </div>
+            <br>
+            <div class="field">
+                <div class="name">
+                    <label for="current__disable_auto">[`Отключить автоопределение города`]</label>
+                </div>
+
+                    <div class="value">
+                    <label>
+                        <input id="current__disable_auto" type="checkbox" class="i-settings__checkbox" {if !empty($current.disable_auto)}checked{/if}>
+                        <input type="hidden" name="current[disable_auto]" value="{if !empty($current.disable_auto)}1{else}0{/if}">
+                    </label>
+                    <span class="hint">[`Необходимо на региональных витринах, чтобы пользователей и поисковых роботов не перенаправляло на другие витрины`]</span>
+
+                </div>
+            </div>
+            <br>
+            <div class="field">
+                <div class="name">
+                    <label for="current__disable_order_redirect">[`Отключить редирект в оформление заказа`]</label>
+                </div>
+
+                <div class="value">
+                    <label>
+                        <input id="current__disable_order_redirect" type="checkbox" class="i-settings__checkbox" {if !empty($current.disable_order_redirect)}checked{/if}>
+                        <input type="hidden" name="current[disable_order_redirect]" value="{if !empty($current.disable_order_redirect)}1{else}0{/if}">
+                    </label>
+                    <span class="hint">[`Если на странице заказа (в том числе при работе плагина Заказ в 1 шаг - buy1step) выбрать город к которому подключена витрина, перехода к ней не произойдет`]</span>
+
+                </div>
+            </div>
+            <br>
+
+
+
+            <div class="field">
+                <div class="name"><label for="current__token">[`API-ключ`]</label></div>
+                <div class="value">
+                    <input id="current__token" type="text" name="current[token]" class="input big" value="{$current.token|default:''|escape}"> <br>
+                    <span class="hint">[`Можно получить в личном кабинете DaData:`] <a href="https://dadata.ru/profile/" target="_blank">https://dadata.ru/profile/</a></span>
+                </div>
+            </div>
+            <br>
+            <div class="field">
+                <div class="name">
+                    <label for="current__enable_plugin">[`Подключить DaData`]</label>
+                </div>
+                <div class="value">
+                    <label>
+                        <input id="current__enable_plugin" type="checkbox" class="i-settings__checkbox" {if !empty($current.enable_plugin)}checked{/if}>
+                        <input type="hidden" name="current[enable_plugin]" value="{if !empty($current.enable_plugin)}1{else}0{/if}">
+                        <span class="hint">[`Отключите только если плагин конфликтует с другими плагинами использующими DaData`]</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="name">
+                    <label for="current__bounds">[`Точность`]</label>
+                </div>
+                <div class="value">
+                    <label>
+                        {$bounds = $current.bounds|default:'city'}
+                        <select id="current__bounds" name="current[bounds]" class="input">
+                            <option value="city" {if $bounds=='city'}selected{/if}>до города</option>
+                            <option value="city-settlement" {if $bounds=='city-settlement'}selected{/if}>до деревни</option>
+                        </select>
+                        <span class="hint">[`При ручном написании города. Автоопределение происходит с точностью до города`]</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="name">
+                    <label for="current__notifier">[`Показывать уведомление`]</label>
+                </div>
+                <div class="value">
+                    <label>
+                        {$notifier = $current.notifier|default:''}
+                        <select id="current__notifier" name="current[notifier]" class="input i-settings__select" data-target="i-notifier__custom">
+                            <option value="none" {if $notifier=='none'}selected{/if}>не показывать</option>
+                            <option value="" {if $notifier==''}selected{/if}>на всех страницах</option>
+                            <option value="custom" {if $notifier=='custom'}selected{/if}>выборочно</option>
+                        </select>
+                        <span class="hint">[`при автоматическом определении города`]</span>
+                    </label>
+                    <div class="i-notifier__custom i-notifier__custom--custom b-cityselect__custom" {if $notifier!='custom'}style="display:none"{/if}>
+                        <br>
+
+                        {$custom = $current.notifier_custom|default:['checkout','signup','onestep']}
+
+                        <label>
+                            <input type="checkbox" name="current[notifier_custom][]" value="cart" {if in_array('cart', $custom)}checked{/if}>
+                            Корзина
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="current[notifier_custom][]" value="checkout" {if in_array('checkout', $custom)}checked{/if}>
+                            Оформление заказа
+                        </label>
+
+
+                        <label>
+                            <input type="checkbox" name="current[notifier_custom][]" value="onestep" {if in_array('onestep', $custom)}checked{/if}>
+                            Плагин: Заказ на одной странице
+                        </label>
+
+
+                        <label>
+                            <input type="checkbox" name="current[notifier_custom][]" value="signup" {if in_array('signup', $custom)}checked{/if}>
+                            Регистрация
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="field">
+                <div class="name">
+                    <label for="current__in_checkout">[`Автодополнение адреса`]</label>
+                </div>
+                <div class="value">
+                    <label>
+                        <input id="current__in_checkout" type="checkbox" class="i-settings__checkbox" {if !empty($current.in_checkout)}checked{/if}>
+                        <input type="hidden" name="current[in_checkout]" value="{if !empty($current.in_checkout)}1{else}0{/if}">
+                        <span class="hint">[`при запросе адреса в оформление заказа`]</span>
+                    </label>
+                    <br>
+                    <br>
+                </div>
+                <div class="value">
+                    <label class="hint" for="current__custom_form">В произвольных формах:</label><br>
+                    <input id="current__custom_form" type="text" name="current[in_custom_form]" class="input big" value="{$current.in_custom_form|default:''|escape}"> <br>
+                    <span class="hint">
+                        CSS селекторы через запятую. Названия полей (name) для страны, региона, города, индекса и улицы должны заканчиваться
+                        на <b>country]</b>, <b>region]</b>,<b>city]</b>,<b>zip]</b> и <b>street]</b> соответственно<br>
+                        В качестве примера приведены формы регистрации и плагинов Купить в 1 клик (quickorder, storequickorder)
+                    </span>
+                    <br><br>
+                </div>
+                <div class="value">
+                    <label class="hint" for="current__custom_city">В произвольных полях (только город):</label><br>
+                    <input id="current__custom_city" type="text" name="current[in_custom_city]" class="input big" value="{$current.in_custom_city|default:''|escape}"> <br>
+                    <span class="hint">CSS селекторы через запятую</span>
+                </div>
+            </div>
+
+            <hr>
+            <div class="field">
+                <div class="name">[`Регион по умолчнию:`]</div>
+                <div class="value">
+                    <select name="current[default_region]">
+                        {foreach $regions as $region}
+                            <option value="{$region.code|escape}" {if $current.default_region==$region.code}selected{/if}>{$region.name|escape}</option>
+                        {/foreach}
+                    </select>
+                    <div class="hint">[`когда не получается определить регион по запросу`]</div>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="name"><label for="current__default_city">[`Город по умолчанию`]</label></div>
+                <div class="value">
+                    <input id="current__default_city" type="text" name="current[default_city]" class="input" value="{$current.default_city|default:''|escape}">
+                    <br><span class="hint">[`когда не получается определить город по запросу`]</span>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="name">
+                    <label for="current__default_zip">[`Индекс по умолчанию`]</label>
+                </div>
+                <div class="value">
+                    <input id="current__default_zip" type="text" name="current[default_zip]" class="input" value="{$current.default_zip|default:''|escape}">
+                </div>
+            </div>
+
+            <hr>
+            <div class="field">
+                <div class="name">
+                    [`Вывод плагина:`]
+                </div>
+                <div class="value">
+                    <select name="current[hook]">
+                        <option value="header" {if $current.hook=='header'}selected{/if}>[`В верхней части страницы (хук frontend_header)`]</option>
+                        <option value="null" {if $current.hook=='null'}selected{/if}>[`Вручную`]</option>
+                    </select>
+                    <div class="hint">
+                        [`Выберите хук для вывода ссылки с городом.`]
+                        [`Для вывода вручную используйте следующий код:`]<br>
+                        <span class="b-settings__copy_code i-settings__copy_code">{ldelim}if ($wa->shop and class_exists('shop{$plugin_id|ucfirst}Plugin')){rdelim}{literal}{{/literal}shop{$plugin_id|ucfirst}Plugin::showCity('{$current_route|escape}'){literal}}{/literal}{ldelim}/if{rdelim}</span>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="field">
+                <div class="name no-top">
+                    [`Интеграция с плагином "Информация о доставке и оплате":`]
+                </div>
+                <div class="value">
+                    <label>
+                        <input id="current__plugin_dp" type="checkbox" class="i-settings__checkbox" {if !empty($current.plugin_dp)}checked{/if}>
+                        <input type="hidden" name="current[plugin_dp]" value="{if !empty($current.plugin_dp)}1{else}0{/if}">
+                    </label>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="block i-settings__tab" data-tab="view" style="display: {if $current_tab=='view'}block{else}none{/if};">
+
+            <p>Данный список городов появляется ниже строки поиска при смене города, для возможности выстрого выбора</p>
+
+            <ul class="i-settings__city_list b-sortable">
+                {if !empty($current.cities)}
+                    {foreach $current.cities as $item}
+                        <script>settings__echo_company.addItem('{$item.city|escape}', '{$item.region|escape}', '{$item.zip|escape}', {$item.bold|escape});</script>
+                    {/foreach}
+                {/if}
+            </ul>
+            <br><br>
+            <h2>Добавить город</h2>
+            {if empty($current.token)}
+                <div class="hint">
+                    <span class="">Внимание!</span> для удобного добавления городов, укажите API-ключ на вкладке настройки
+                </div>
+            {/if}
+
+
+            <div class="i-settings__add_city">
+                <div style="float: left;width:250px;margin-right: 15px;">
+                    Город:<br>
+                    <input type="text" class="i-settings__city ">
+                </div>
+                <div style="float:left;width: 190px">
+                    Индекс:<br>
+                    <input type="text" class="i-settings__zip ">
+                </div>
+                <div>
+                    Код региона:<br>
+                    <input type="text" class="i-settings__region">
+                </div>
+                <br>
+                <div>
+                    <button type="button" class="button green small i-settings__add">[`Добавить`]</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label><input type="checkbox" class="i-settings__select" value="1"> [`выделить город`]</label>
+                </div>
+            </div>
+
+            <br><br><br><br><br>
+        </div>
+
+        {*<div class="block i-settings__tab" data-tab="variables" style="display: {if $current_tab=='variables'}block{else}none{/if};">*}
+            {*{include file="./element/tab__variables.html"}*}
+        {*</div>*}
+
+        <div class="block i-settings__tab" data-tab="template" style="display: {if $current_tab=='template'}block{else}none{/if};">
+
+            <div class="field">
+                <div class="name">
+                    <label for="current__user_template">[`Изменить шаблоны`]</label>
+                </div>
+                <div class="value">
+                    <label>
+                        <input id="current__user_template" type="checkbox" class="i-settings__checkbox" data-target="user_template" {if !empty($current.user_template)}checked{/if}>
+                        <input type="hidden" name="current[user_template]" value="{if !empty($current.user_template)}1{else}0{/if}">
+                        [`использовать пользовательские шаблоны`]
+                    </label>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+            <div data-relative="user_template" {if !$current.user_template} style="display: none;"{/if}>
+
+                {if $is_reset_templates}
+                    <div style="color:green">[`Шаблоны были сброшены`]</div>
+                {/if}
+
+
+                <p><a href="#" class="small i-settings__reset_templates" data-templates="template,template_change" data-confirm="[`Сбросить все изменения в шаблонах?`]">[`Сбросить по умолчанию`]</a></p>
+
+                <div class="field">
+                    <div class="name">
+                        [`Город и уведомление:`]
+                    </div>
+                    <div class="value">
+                        <textarea class="i-settings__code" name="current[template]" cols="30" rows="10">{$current.template}</textarea>
+                        <p class="hint">
+                            [`В шаблон передаются параметры:`]<br>
+                            <b>$location</b> - [`массив местонахождения`]<br>
+                            <b>$show_notifier</b> - [`показывать уведомления: none, force, all`]
+                            <b>$settings</b> - [`массив настроек плагина`]<br>
+                            <b>$current_theme</b> - id используемой темы
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="field">
+                    <div class="name">
+                        [`Всплывающее окно выбора города:`]
+                    </div>
+                    <div class="value">
+                        <textarea class="i-settings__code" name="current[template_change]" cols="30" rows="10">{$current.template_change}</textarea>
+                        <p class="hint">
+                            [`В шаблон передаются параметры:`]<br>
+                            <b>$location</b> - [`массив местонахождения`]<br>
+                            <b>$settings</b> - [`массив настроек плагина`]<br>
+                            <b>$current_theme</b> - id используемой темы
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="block i-settings__tab" data-tab="css" style="display: {if $current_tab=='css'}block{else}none{/if};">
+            <div class="field">
+                <div class="name">
+                    <label for="current__user_css">[`Изменить файлы`]</label>
+                </div>
+                <div class="value">
+                    <label>
+                        <input id="current__user_css" type="checkbox" class="i-settings__checkbox" data-target="user_css" {if !empty($current.user_css)}checked{/if}>
+                        <input type="hidden" name="current[user_css]" value="{if !empty($current.user_css)}1{else}0{/if}">
+                        [`использовать пользовательские файлы`]
+                    </label>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+            <div data-relative="user_css" {if !$current.user_css} style="display: none;"{/if}>
+
+                <div class="field">
+                    <div class="name">
+                        [`CSS:`]<br>
+                        <a href="#" class="small i-settings__reset_css" data-confirm="[`Сбросить все внесенные изменения?`]">[`Сбросить по умолчанию`]</a></p>
+                    </div>
+                    <div class="value">
+                        {if $is_reset_css}
+                            <div style="color:green">[`Файл был сброшен`]</div>
+                        {/if}
+                        <textarea class="i-settings__code" data-mode="text/css" name="current[css]" cols="30" rows="10">{$current.css}</textarea>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="name">
+                        [`JS`]<br>
+                        <a href="#" class="small i-settings__reset_js" data-confirm="[`Сбросить все внесенные изменения?`]">[`Сбросить по умолчанию`]</a></p>
+                    </div>
+                    <div class="value">
+                        {if $is_reset_js}
+                            <div style="color:green">[`Файл был сброшен`]</div>
+                        {/if}
+                        <textarea class="i-settings__code" data-mode="text/javascript" name="current[js]" cols="30" rows="10">{$current.js}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

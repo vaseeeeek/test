@@ -1,0 +1,181 @@
+<div class="featuresTips">
+<table class="zebra full-width ui-sortable" class="featuresTips_table">
+    <thead>
+        <tr class="header">
+            <th class="featuresTips_w1">{_wp('Feature name')}</th>
+            <th>&nbsp;</th>
+            <th>{_wp('Value of the tip')}</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody style="vertical-align: top !important;">
+        {foreach $all_features as $af}
+        <tr>
+            <td style="vertical-align: top;" class="featuresTips_w1">{$af.name|escape}</td>
+            <td style="vertical-align: top;" class="featuresTips_w2"><i class="icon16 rarr"></i></td>
+            <td class="featuresTips_w2 ft_item">
+                <div class="small featuresTips_small trunc">
+                    {$af.tip}
+                    <div class="featuresTips_small_end"></div>
+                </div>
+                {if $af.tipglobal == 1 && $af.tip != ""}
+                    <span class="hint">{_wp('Globally, for all products types')}</span>
+                {/if}
+            </td>
+            <td class="featuresTips_w3">
+                <span id="edit_tip"><a href="#" data-featureid="{$af.id}" data-typeid="{$type_id}"><i class="icon16 edit"></i></a></span>
+                {if $af.tip != "" && ($af.tipglobal != 1 || $type_id == "globaltips")}
+                    <span id="clear_tip"><a href="#" data-featureid="{$af.id}" data-typeid="{$type_id}"><i class="icon16 broom"></i></a></span>
+                {else}
+                    <span><i class="icon16 broom-bw"></i></span>
+                {/if}
+            </td>
+        </tr>
+        {/foreach}
+    </tbody>
+
+</table>
+</div>
+
+{literal}
+<style>
+.featuresTips_w1 { width: 220px; padding: 8px 5px 12px 15px !important; }
+.featuresTips_w2 { padding: 8px 5px 12px 5px !important; }
+.featuresTips_w3 { text-align: center; width: 60px; vertical-align: top !important; padding: 8px 5px 12px 5px !important; }
+.featuresTips_w3 A { display: inline !important; }
+.featuresTips_small { overflow: hidden; position: relative; }
+table.zebra tr:nth-child(odd) td.featuresTips_w2 .featuresTips_small_end {
+    background: -moz-linear-gradient(top,rgba(255,255,255,0) 0,rgba(242,247,255,1) 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(255,255,255,0)),color-stop(100%,rgba(242,247,255,1)));
+    background: -webkit-linear-gradient(top,rgba(255,255,255,0) 0,rgba(242,247,255,1) 100%);
+    background: -o-linear-gradient(top,rgba(255,255,255,0) 0,rgba(242,247,255,1) 100%);
+    background: -ms-linear-gradient(top,rgba(255,255,255,0) 0,rgba(242,247,255,1) 100%);
+    background: linear-gradient(to bottom,rgba(255,255,255,0) 0,rgba(242,247,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#f2f7ff', GradientType=0 );
+    bottom: 0;
+    height: 30px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+table.zebra tr:nth-child(even) td.featuresTips_w2 .featuresTips_small_end {
+    background: -moz-linear-gradient(top,rgba(255,255,255,0) 0,rgba(255,255,255,1) 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(255,255,255,0)),color-stop(100%,rgba(255,255,255,1)));
+    background: -webkit-linear-gradient(top,rgba(255,255,255,0) 0,rgba(255,255,255,1) 100%);
+    background: -o-linear-gradient(top,rgba(255,255,255,0) 0,rgba(255,255,255,1) 100%);
+    background: -ms-linear-gradient(top,rgba(255,255,255,0) 0,rgba(255,255,255,1) 100%);
+    background: linear-gradient(to bottom,rgba(255,255,255,0) 0,rgba(255,255,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0 );
+    bottom: 0;
+    height: 30px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+table.zebra tr:hover td.featuresTips_w2 .featuresTips_small_end {
+    background: -moz-linear-gradient(top,rgba(255,255,255,0) 0,rgba(255,255,229,1) 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(255,255,255,0)),color-stop(100%,rgba(255,255,229,1)));
+    background: -webkit-linear-gradient(top,rgba(255,255,255,0) 0,rgba(255,255,229,1) 100%);
+    background: -o-linear-gradient(top,rgba(255,255,255,0) 0,rgba(255,255,229,1) 100%);
+    background: -ms-linear-gradient(top,rgba(255,255,255,0) 0,rgba(255,255,229,1) 100%);
+    background: linear-gradient(to bottom,rgba(255,255,255,0) 0,rgba(255,255,229,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffe5', GradientType=0 );
+    bottom: 0;
+    height: 30px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+.featuresTips P { padding: 0 !important; margin: 4px 0 3px 0 !important; }
+</style>
+<script type="text/javascript">
+$(function(){
+    var c1 = $('.featuresTips_small');
+    var descHeight = "100px";
+    c1.each(function () {
+        var current = $(this);
+        current.attr("box_h", current.height());
+        if(current.height() < 100) {
+            $('div.featuresTips_small_end', this).css("visibility", "hidden");
+        } else {
+            $(this).css("cursor", "pointer");
+        }
+    });
+    c1.css("max-height", descHeight);
+    $('.ft_item', this).click(function() {
+        if($('div.featuresTips_small', this).attr("box_h") > 100) {
+            var open_height = $('div.featuresTips_small', this).attr("box_h") + "px";
+            $('div.featuresTips_small', this).stop(true,true);
+            $('div.featuresTips_small', this).animate({"max-height": open_height}, {duration: "slow" });
+            $('div.featuresTips_small_end', this).css("visibility", "hidden");
+            $('div.featuresTips_small', this).css("cursor", "");
+        }
+    })
+    $('#edit_tip a').click(function () {
+        var type_id = $(this).attr('data-typeid');
+        var myUrl = "?plugin=featurestips&module=settings&action=Edit&feature_id=" + $(this).attr('data-featureid') + "&type_id=" + $(this).attr('data-typeid');
+        $('<div></div>').waDialog({
+            height: "450px",
+            width: "650px",
+            esc: true,
+            buttons: '{/literal}<input type="submit" value="{_wp('Save')}" class="button green" /> {_wp('or')} <a href="#" class="button cancel">{_wp('Cancel')}</a>{literal}',
+            url: myUrl,
+            disableButtonsOnSubmit: false,
+            onSubmit: function (d) {
+                $.post("?plugin=featurestips&module=settings&action=saveedit", $(this).serialize(), function () {
+                    d.trigger("close");
+                }, "json");
+                return false;
+            },
+            onClose: function (d) {
+                $.ajax({
+                    url: "?plugin=featurestips&module=settings&action=List",
+                    data: { type_id: type_id },
+                    cache: false,
+                    success: function(html) {
+                        $('#featuresTips_mitem').html(html);
+                    }
+                });
+                $('div.dialog').remove();
+                $('span.redactor-toolbar-tooltip').remove();
+                return false;
+            }
+        });
+    });
+    $('#clear_tip a').click(function () {
+        var type_id = $(this).attr('data-typeid');
+        var feature_id = $(this).attr('data-featureid');
+        $('<div>{/literal}{_wp('Confirm deleting value of the tip')}{literal}</div>').waDialog({
+            esc: true,
+            width: "370px",
+            height: "100px",
+            title: "{/literal}{_wp('Confirmation')}{literal}",
+            buttons: '{/literal}<input type="submit" value="{_wp('Delete')}" class="button red" /> {_wp('or')} <a href="#" class="button cancel">{_wp('Cancel')}</a>{literal}',
+            onSubmit: function (d) {
+                $.ajax({
+                    url: "?plugin=featurestips&module=settings&action=Clear",
+                    type: "POST",
+                    data: { type_id: type_id, feature_id: feature_id },
+                    cache: false,
+                    success: function(html) {
+                        d.trigger("close");
+                    }
+                });
+                return false;
+            },
+            onClose: function (d) {
+                $.ajax({
+                    url: "?plugin=featurestips&module=settings&action=List",
+                    data: { type_id: type_id },
+                    cache: false,
+                    success: function(html) {
+                        $('#featuresTips_mitem').html(html);
+                    }
+                });
+                return false;
+            }
+        });
+    });
+});
+</script>
+{/literal}

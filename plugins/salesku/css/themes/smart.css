@@ -1,0 +1,81 @@
+.salesku_plugin-product:hover .salesku_options.fly .options, .salesku_plugin-product:hover .salesku_options.fly .skus, .salesku_plugin-product:hover .salesku_options.fly .salesku_skus {
+    bottom: 54px;
+}
+
+.product-list .salesku_plugin-product .salesku_options.fly {
+    position: inherit;
+    width: initial;
+    z-index: unset;
+    display: inline;
+}
+
+.salesku_plugin-product .salesku_options .salesku_options_head {
+    padding: 4px;
+    bottom: 39px;
+    top: auto;
+
+}
+/* Для линейного показа делаем не абсолютное позиционирование */
+.product-list .salesku_plugin-product .salesku_options.fly .options, .salesku_plugin-product .salesku_options.fly .skus, .salesku_plugin-product .salesku_options.fly .salesku_skus {
+    display: block !important;
+}
+
+.product-list .salesku_plugin-product:hover .salesku_options.fly .options, .salesku_plugin-product:hover .salesku_options.fly .skus, .salesku_plugin-product:hover .salesku_options.fly .salesku_skus {
+    display: block !important;
+    position: initial;
+    background: #fff;
+    bottom: -7px;
+    width: 100%;
+}
+
+.product-list  .salesku_plugin-product:hover .salesku_options.fly .salesku_options_head {
+    display: none !important;
+}
+
+.product-list .salesku_options .options {
+    border-top: 0px solid rgba(0,0,0,0.1);
+    border-bottom: 0px solid rgba(0,0,0,0.1);
+}
+
+
+
+
+.salesku_plugin-product:hover .salesku_options.fly .options, .salesku_plugin-product:hover .salesku_options.fly .skus, .salesku_plugin-product:hover .salesku_options.fly .salesku_skus {
+    bottom: 54px;
+}
+
+.product-list .salesku_plugin-product .salesku_options.fly {
+    position: inherit;
+    width: initial;
+    z-index: unset;
+    display: inline;
+}
+
+.salesku_plugin-product .salesku_options .salesku_options_head {
+    padding: 4px;
+    bottom: 39px;
+    top: auto;
+
+}
+/* Для линейного показа делаем не абсолютное позиционирование */
+.product-list .salesku_plugin-product .salesku_options.fly .options, .salesku_plugin-product .salesku_options.fly .skus, .salesku_plugin-product .salesku_options.fly .salesku_skus {
+    display: block !important;
+}
+
+.product-list .salesku_plugin-product:hover .salesku_options.fly .options, .salesku_plugin-product:hover .salesku_options.fly .skus, .salesku_plugin-product:hover .salesku_options.fly .salesku_skus {
+    display: block !important;
+    position: initial;
+    background: #fff;
+    bottom: -7px;
+    width: 100%;
+}
+
+.product-list  .salesku_plugin-product:hover .salesku_options.fly .salesku_options_head {
+    display: none !important;
+}
+
+.product-list .salesku_options .options {
+    border-top: 0px solid rgba(0,0,0,0.1);
+    border-bottom: 0px solid rgba(0,0,0,0.1);
+}
+

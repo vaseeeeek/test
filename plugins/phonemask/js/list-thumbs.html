@@ -1,0 +1,266 @@
+{strip}
+
+{if !empty($sorting)}
+<div class="products-sorting">
+    {$sort_fields = [
+        'price' => 'Цене',
+        'total_sales' => 'Популярности',
+        'rating' => 'Рейтингу',
+        'create_datetime'=> 'Дате',
+        'stock' => 'Наличию']}
+
+    {if !isset($active_sort)}
+        {$active_sort = $wa->get('sort', 'create_datetime')}
+    {/if}
+    <div class="sorting_title">Сортировать по:</div>
+    <ul class="sorting">
+        {foreach $sort_fields as $sort => $name}
+            <li{if $active_sort == $sort} class="selected"{/if}>{shopSeofilterViewHelper::sortUrl($sort, $name, $active_sort)}</li>
+            {if $wa->get('sort') == $sort}{$wa->title( $wa->title()|cat:' - '|cat:$name)}{/if}
+        {/foreach}
+    </ul>
+</div>
+{/if}
+
+{$_cart_url = $wa->getUrl('shop/frontend/cart')}
+{if method_exists($wa->shop, 'checkout')}
+    {$_cart_url = $wa->shop->checkout()->cartUrl()}
+{/if}
+
+{$favList = waRequest::cookie('shop_favorites')}
+{$favList = ","|explode:$favList}
+
+{$features = $wa->shop->features($products)}
+{$product_gallery = $wa->shop->images(array_keys($products), '400')}
+
+<div class="products-list">
+    {$count = '1'}
+    {foreach $products as $p}
+    {if !empty($limit) && $limit == $count}
+    {break}
+    {/if}
+
+    {if in_array($p.id, $favList)}
+		{$favClass = 'active'}
+	{else}
+		{$favClass = ''}
+	{/if}
+
+    {$p = shopAutobadgePlugin::getBadges($p)}
+	{if in_array($p.id, $favList)}
+		{$favClass = 'active'}
+	{else}
+		{$favClass = ''}
+	{/if}
+
+    {$available = $wa->shop->settings('ignore_stock_count') || $p.count === null || $p.count > 0}
+
+    {if !empty($p.skus) && !empty($p.skus[$p.sku_id])}
+        {$sku = $p.skus[$p.sku_id]}
+        {if empty($sku.available) && (count($p.skus) === 1)}{$available = false}{/if}
+    {/if}
+    <div class="product-item{if !empty($view)} {$view}{/if} js-products-gallery">
+        <div class="products-mask">
+            <div class="products-overlay">
+                <div class="products-image js-products-gallery-block">
+                    {*if count($product_gallery[$p.id]) > 1 && !$wa->isMobile()}
+                        <a href="{$p.frontend_url}" class="image-link" title="{$p.name}">
+                            <div class="thumb-item">
+                                {foreach $product_gallery[$p.id] as $image}
+                                <img src="{$image.url_350}" alt="{$p.name}" class="image-{$image@iteration}">
+                                {/foreach}
+                            </div>
+                            {if !empty($p.autobadge)}{$p.autobadge}{/if}
+                            {$currentStock = shopImportstocksPlugin::getStockLetter($p.id)}
+                            <div class="products-badges">
+                                {if $currentStock|strstr:'>A<'}
+                                <div class="badge shop">Магазин</div>
+                                {elseif $currentStock|strstr:'>B<' || $currentStock|strstr:'>C<' || $currentStock|strstr:'>C2<' || $currentStock|strstr:'>D<' || $currentStock|strstr:'>E<' || $currentStock|strstr:'>F<'}
+                                <div class="badge sklad">Склад</div>
+                                {/if}
+                                {if $p.cut || $p.cutbig}
+                                <div class="badge resize">На отрез</div>
+                                {/if}
+                            </div>
+                        </a>
+                    {else}
+                        <a href="{$p.frontend_url}" class="image-link single" title="{$p.name}">
+                            {$wa->shop->productImgHtml($p, '350', ['itemprop' => 'image', 'alt' => $p.name, 'default' => "`$wa_theme_url`img/dummy200.png"])}
+                            {if !empty($p.autobadge)}{$p.autobadge}{/if}
+                            {$currentStock = shopImportstocksPlugin::getStockLetter($p.id)}
+                            <div class="products-badges">
+                                {if $currentStock|strstr:'>A<' || $currentStock|strstr:'>A1<' || $currentStock|strstr:'>A2<' || $currentStock|strstr:'>A3<'}
+                                <div class="badge shop">Магазин</div>
+                                {elseif $currentStock|strstr:'>B<' || $currentStock|strstr:'>C<' || $currentStock|strstr:'>C2<' || $currentStock|strstr:'>D<' || $currentStock|strstr:'>E<' || $currentStock|strstr:'>F<'}
+                                <div class="badge sklad">Склад</div>
+                                {/if}
+                                {if $p.cut || $p.cutbig}
+                                <div class="badge resize">На отрез</div>
+                                {/if}
+                            </div>
+                        </a>
+                    {/if*}
+                    <a href="{$p.frontend_url}" class="image-link single" title="{$p.name}">
+                        {$wa->shop->productImgHtml($p, '400', ['itemprop' => 'image', 'alt' => $p.name, 'class' => 'js-products-image-preview', 'default' => "`$wa_theme_url`img/no-image.jpg"])}
+                        {if !$wa->isMobile()}
+                        <span class="tile-gallery__items js-products-gallery-items">
+                            {if count($product_gallery[$p.id]) > 1}
+                                {foreach $product_gallery[$p.id] as $image}
+                                    <span class="tile-gallery__item js-products-gallery-item" data-img="{$image.url_400}" style="width: calc(100%/{count($product_gallery[$p.id])});"></span>
+                                {/foreach}
+                            {/if}
+                        </span>
+                        {/if}
+                        {*if !empty($p.autobadge)}{$p.autobadge}{/if*}
+                        {$currentStock = shopImportstocksPlugin::getStockLetter($p.id)}
+                        <div class="products-badges">
+                            {if $currentStock|strstr:'>A<'}
+                            <div class="badge shop">Магазин</div>
+                            {elseif $currentStock|strstr:'>B<' || $currentStock|strstr:'>C<' || $currentStock|strstr:'>C2<' || $currentStock|strstr:'>D<' || $currentStock|strstr:'>E<' || $currentStock|strstr:'>F<'}
+                            <div class="badge sklad">Склад</div>
+                            {/if}
+                            {if $p.cut || $p.cutbig}
+                                {if $p.cut}
+                                    {$cutted = shopCutPlugin::getProductOrdered($p)}
+                                    {if $p.cut_hours<=0}
+                                        {$_settings = shopCutPlugin::settings()}
+                                        {$p.cut_hours = $_settings.hours}
+                                    {/if}
+                                    {if $cutted<=$p.cut_count}
+                                    <div class="badge resize">Режем ткань!</div>
+                                    {/if}
+                                {/if}
+                                {if $p.cutbig}
+                                    {$cuttedbig = shopCutbigPlugin::getProductOrdered($p)}
+                                    {if $p.cutbig_hours<=0}
+                                        {$_settings = shopCutbigPlugin::settings()}
+                                        {$p.cutbig_hours = $_settings.hours}
+                                    {/if}
+                                    {if $cuttedbig<=$p.cutbig_count}
+                                    <div class="badge resize">Режем ткань опт!</div>
+                                    {/if}
+                                {/if}
+                            {/if}
+                        </div>
+                    </a>
+                    <div class="products-actions">
+                        <ul class="actions">
+                            {if !empty($p.params.videos)}
+                                {$video_slider = $wa->slick->MultimediaArray($p.params.videos)}
+                                {foreach $video_slider as $video}
+                                <li>
+                                    <a data-fancybox href="{$video.url}">
+                                        <svg class="icon icon-youtube"><use xlink:href="#icon-youtube"></use></svg>
+                                    </a>
+                                </li>
+                                {break}
+                                {/foreach}
+                            {/if}
+                            <li>
+                                <a data-url="{$wa->getUrl('shop/frontend/search/')}?get=favorites" data-product-image="{$wa->shop->productImgUrl($p, '150')}" data-product-name="{$p.name}" data-product="{$p.id}" href="javascript:void(0);" class="to_favorites {$favClass}">
+                                    <svg class="icon icon-heart"><use xlink:href="#icon-heart"></use></svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a data-url="{$wa->getUrl('/frontend/compare/')}" data-product-image="{$wa->shop->productImgUrl($p, '150')}" data-product-name="{$p.name}" data-product="{$p.id}" href="javascript:void(0);" class="to_compare{if $wa->shop->inComparison($p.id)} active{/if}">
+                                    <svg class="icon icon-graph"><use xlink:href="#icon-graph"></use></svg>
+                                </a>
+                            </li>
+                            {*<li>
+                                <a href="javascript:;">
+                                    <svg class="icon icon-social-media"><use xlink:href="#icon-social-media"></use></svg>
+                                </a>
+                            </li>*}
+                        </ul>
+                    </div>
+                </div>
+                <div class="products-name">
+                    <a href="{$p.frontend_url}" title="{$p.name}">{$p.name}</a>
+                </div>
+                <div class="products-info">
+                    <div class="products-price">
+                        <div class="price-wrapper">
+                            <span class="price">{shop_currency_html($p.price)}<span class="price-count">{if !empty($p.features.tsena_za)}/{$p.features.tsena_za}{/if}</span></span>
+                            {if $p.compare_price > 0}<span class="compare-at-price">{shop_currency_html($p.compare_price)}</span>{/if}
+                        </div>
+                    </div>
+                    <div class="products-stocks">
+                        <div class="stocks-info">
+                            {if $available}
+                            <span class="stock yes">В наличии</span>
+                            {else}
+                            <span class="stock no">Нет в наличии</span>
+                            {/if}
+                        </div>
+                        <div class="stocks-minimal">
+                            {$minCount = 1}
+                            {if $p.features.minimalnoe_kol_vo > 1}
+                                {$minCount = $p.features.minimalnoe_kol_vo}
+                            {/if}
+                            <span>Мин. кол-во</span>
+                            <span>для заказа {$minCount} {if !empty($p.features.tsena_za)}/{$p.features.tsena_za}{/if}</span>
+                        </div>
+                    </div>
+                    {if $p.cut || $p.cutbig}
+                        {include file="cut_stats.html" inline p=$p cutted=$cutted}
+                        {include file="cutbig_stats.html" inline p=$p cutted=$cuttedbig}
+                    {/if}
+                </div>
+                <div class="products-buy">
+                    <form class="purchase addtocart" data-product-id="{$p.id}" data-cart-url="{$wa->getUrl('shop/frontend/cart')}" {if $p.sku_count > 1}data-url="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1"{/if} method="post" action="{$wa->getUrl('shop/frontendCart/add')}">
+                        {if $available}
+                        <button type="submit" class="btn btn-accent">
+                            <i class="addcart-loader"></i>
+                            <span class="btn-icon">
+                                <svg class="icon icon-cart"><use xlink:href="#icon-cart"></use></svg>
+                            </span>
+                            <span class="btn-text">В корзину</span>
+                        </button>
+                        {include file="cut_buttons.html" inline}
+                        {else}
+                        {shopPnoticePlugin::displayListButton($p)}
+                        {/if}
+                        {$multiplicity = shopMultiplicityPlugin::getProductMultiplicity($p)}
+                        {if isset($category)}
+                            {$countPrices = shopProductcountpricesPlugin::getProductPrices($p.id, $category.id)}
+                        {else}
+                            {$countPrices = shopProductcountpricesPlugin::getProductPrices($p.id)}
+                        {/if}
+                        {if isset($countPrices.0)}
+                            {$multiplicity = $countPrices.0.from}
+                            {$minCount = $multiplicity}
+                            <div class="productCountPrices{$p.id}" style="display:none;">{json_encode($countPrices)}</div>
+                        {/if}
+                        <input type="hidden" name="quantity" data-multiplicity="{$multiplicity}" data-min="{$minCount}" value="{$minCount}" class="qty">
+                        <input type="hidden" name="product_id" value="{$p.id}">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {$count = $count + 1}
+    {/foreach}								
+</div>
+
+
+{if (isset($pages_count) && $pages_count > 1) && $show_per_page == 1}
+    {if !empty($show_load) && $show_load == 1}
+    <div class="products-load">
+        <a href="javascript:;" id="loadMore" class="btn btn-accent">
+            <span class="btn-icon">
+                <svg class="icon icon-signs"><use xlink:href="#icon-signs"></use></svg>
+            </span>
+            <span class="btn-text">Показать еще</span>
+        </a>
+    </div>
+    {/if}
+    <div class="block pagination lazyloading-paging" data-loading-str="[`Loading...`]" style="text-align: center;">
+        {capture assign=pagination}
+            {wa_pagination total=$pages_count attrs=['class' => "menu-h"]}
+        {/capture}
+        {shopSeofilterViewHelper::paginationDecorate($pagination)}
+    </div>
+{/if}
+
+{/strip}
+

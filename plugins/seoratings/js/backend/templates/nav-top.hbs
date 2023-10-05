@@ -1,0 +1,12 @@
+{{#if ratingId}}
+  <div class="seoratings-backend__actions--tabs">
+    <div class="seoratings-backend__actions--left">
+      <a class="seoratings-backend__link--tabs" href="{{ratingId}}" data-js="handle__rating--settings"><i class="icon16 settings"></i> Настройки</a>
+      <a class="seoratings-backend__link--tabs" href="{{ratingId}}" data-js="handle__rating--products"><i class="icon16 view-table"></i> Элементы</a>
+    </div>
+    <div class="seoratings-backend__actions--right">
+      <a class="seoratings-backend__link--tabs" href="{{ratingId}}" data-js="duplicate__rating">Дублировать</a>
+      <a class="seoratings-backend__link--tabs" href="{{ratingId}}" data-js="delete__rating">Удалить</a>
+    </div>
+  </div>
+{{/if}}

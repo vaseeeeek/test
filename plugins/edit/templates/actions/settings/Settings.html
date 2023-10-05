@@ -1,0 +1,19 @@
+<script src="{shopEditHelper::getStaticUrl('js/vendor/codemirror/mode/smarty.js')}"></script>
+<script src="{shopEditHelper::getStaticUrl('js/vendor/codemirror/mode/smartymixed.js')}"></script>
+
+<script>
+	window.shop_edit_plugin_resource_base_url = '{shopEditHelper::getStaticUrl('assets')}';
+</script>
+
+<link rel="stylesheet" href="{shopEditHelper::getStaticUrl('assets/settings_page.css')}?v={$asset_version}" />
+<script src="{shopEditHelper::getStaticUrl('assets/settings_page.js')}?v={$asset_version}"></script>
+
+<div id="edit_plugin_mount"></div>
+
+<script>
+	$(function () {
+		var state = {$state|json_encode};
+
+		window.shop_edit_plugin_settings_controller.render(state, 'edit_plugin_mount');
+	});
+</script>

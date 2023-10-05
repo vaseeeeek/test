@@ -1,0 +1,126 @@
+{if $price_requests}
+
+    <style> 
+        #s-price-request-list-table-container {
+            overflow: auto;
+        }
+    </style>
+
+    <div id="s-price-request-list-table-container">
+        <table class="zebra single-lined" id="price-request-list">
+            <tr class="header">
+                <th class="min-width">[`ID`]</th>
+                <th colspan="2">
+                    <span title="[`Product`]">
+                        [`Product`]
+                    </span>
+                </th>
+                <th>
+                    <span title="[`Customer`]">
+                        [`Customer`]
+                    </span>
+                </th>
+                <th>
+                    <span title="[`Name`]">
+                        [`Name`]
+                    </span>
+                </th>
+                <th>
+                    <span title="[`Phone`]">
+                        [`Phone`]
+                    </span>
+                </th>
+                <th>
+                    <span title="[`Email`]">
+                        [`Email`]
+                    </span>
+                </th>
+                {if $pricereq_settings.comment_status === 'on'}
+                <th>
+                    <span title="[`Comment`]">
+                        [`Comment`]
+                    </span>
+                </th>
+                {/if}
+                <th>
+                    <span title="[`Request date`]">
+                        [`Request date`]
+                    </span>
+                </th>
+                <th class="min-width">
+                    <span title="[`Request status`]">
+                        [`Request status`]
+                    </span>
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+            {foreach $price_requests as $r}
+            <tr class="price-request {if $r.status === 'done'}gray{/if}">        
+                <td class="min-width">{$r.id}</td>    
+                <td class="short nowrap align-left" title="[`Product image`]" style="width: 48px;">
+                    {if $r.product_id}
+                        <a href="?action=products#/product/{$r.product.id}/" target="_blank">
+                            <img src="{$r.product.image_src}" title="{$r.product.name}" alt="{$r.product.name}">
+                        </a>
+                    {/if}
+                </td> 
+                <td class="short nowrap align-left" title="[`Product name`]">
+                    {if $r.product_id}
+                        <a href="{$r.product.frontend_url}" target="_blank" style="white-space: normal;">
+                            {$r.product.name}
+                        </a>
+                    {/if}
+                </td>
+                <td class="short nowrap align-left" title="[`Customer`]">
+                    {if $r.contact_id}
+                        <a href="?action=customers#/id/{$r.contact_id}">{$r.contact_name}</a>
+                        {if $r.contact_email}<span>{$r.contact_email}</span>{/if}
+                    {/if}
+                </td>
+                <td class="short nowrap align-left" title="[`Name`]"><span>{$r.name}</span></td>
+                <td class="short nowrap align-left" title="[`Phone`]"><span>{$r.phone}</span></td>
+                <td class="short nowrap align-left" title="[`Email`]"><span>{$r.email}</span></td>
+                {if $pricereq_settings.comment_status === 'on'}
+                <td class="short nowrap align-left" title="[`Comment`]"><span style="cursor: pointer; white-space: pre-wrap;" title="{$r.comment}">{$r.comment|truncate:100}</span></td>
+                {/if}
+                <td class="short nowrap align-left" title="[`Request date`]">{$r.create_datetime|wa_datetime:"humandatetime"}</td>                
+                <td class="short nowrap align-center" title="[`Request status`]">
+                    <span class="human-status">{$r.human_status}</span>
+                </td>
+                <td class="short nowrap align-right">
+                    {if $r.status !== 'done'}
+                    <a href="#" class="price-request-done" price-request-id="{$r.id}">
+                        <i class="icon16 yes"></i>[`execute`]
+                    </a>
+                    {/if}
+                </td>
+                <td class="short nowrap align-right">
+                    {if $r.status !== 'del'}
+                    <a href="#" class="price-request-delete" price-request-id="{$r.id}">
+                        <i class="icon16 delete"></i>[`delete`]
+                    </a>
+                    {/if}
+                </td>
+            </tr>
+            {/foreach}
+        </table>
+    </div>
+
+    {wa_pagination total=$pages_count attrs=['class' => "menu-h block top-padded"]}
+
+    <script type="text/javascript">
+        {include file="../../../js/pricereq.backend.requests.js"}
+    </script>
+
+    <script type="text/javascript">
+        (function ($) {
+            pricereqBackendRequests.initModule();
+        })(jQuery);
+    </script>
+
+{else}
+    <div class="block double-padded align-center gray">
+        <strong>[`No requests.`]</strong>
+    </div>
+{/if}

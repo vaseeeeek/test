@@ -1,0 +1,114 @@
+<tr class="c-price-type-tr {if $price.status == 0} hide{/if}" id="c-price-type-{$price.id}" data-id="{$price.id}">
+	<td style="padding: 0;">
+		<div class="s-ibutton-checkbox">
+			<ul class="menu-h">
+				<li><input type="checkbox" class="i-button-mini"{if $price.status == 1} checked{/if}></li>
+			</ul>
+		</div>
+	</td>
+	<td style="padding: 0;"><i class="c-price-type-sort icon16 sort"></i></td>
+	<td>
+		<strong class="view"><span class="gray">№{$price.id}</span> {$price.name|escape:'html'}</strong>
+		
+		<div class="float-right">
+			<a data-id="{$price.id}" href="#" class="c-price-type-helpers inline-link"><i class="icon16 cheatsheet"></i> <b><i>[`Helpers`]</i></b></a>
+		</div>
+		
+		<div class="edit" style="display: none;">
+			<input type="hidden" name="id" value="{$price.id}"/>
+			<input type="text" name="name" value="{$price.name|escape}">
+		</div>
+		
+		<div style="margin-top: 10px; border: 1px solid #ccc; padding: 15px; background: #fff;">
+			<div class="c-price-types-rule-output">{$price.rule}</div>
+			<div style="margin-top: 10px;">
+				<a data-rule-id="{$price.rule_id}" href="#" class="c-price-types-rules-link inline-link"><i class="icon16 hierarchical"></i> <b><i class="label">[`Edit conditions`]</i></b></a>
+			</div>
+		</div>
+		<div style="margin-top: 10px;">
+			<a href="?action=products#/products/hash=complex/{$price.id}" class="inline-link"><i class="icon16 search"></i> <b><i class="label">[`Search for products with this "complex" price`]</i></b></a>
+		</div>
+		<div class="c-price-type-save-buttons" style="margin-top: 20px; display: none;">
+			<a href="#" class="button green" data-action="save">[`Save`]</a>
+			[`or`]
+			<a href="#" class="cancel" data-action="cancel">[`cancel`]</a>
+		</div>
+		<div class="c-price-type-edit-buttons" style="margin-top: 20px;">
+			<a href="#" class="button blue" data-action="edit">[`Edit`]</a>
+			[`or`]
+			<a href="#" data-action="delete">[`delete`]</a>
+		</div>
+	</td>
+	<td>
+		<div class="edit" style="display: none;">
+			<select class="c-price-types-default-style" name="default_style">
+				<option value="0"{if $price.default_style == 0} selected{/if}>[`No`]</option>
+				<option value="1"{if $price.default_style == 1} selected{/if}>[`Nacenka k`]...</option>
+				<option value="-1"{if $price.default_style == -1} selected{/if}>[`Skidka ot`]...</option>
+			</select>
+			<div style="margin-top: 5px;{if $price.default_style == 0} display: none;{/if}">
+				<select name="default_from">
+					<option value="0"{if $price.default_from == 0} selected{/if}>[`Main price`]</option>
+					{* <option value="1"{if $price.default_from == 1} selected{/if}>Зачеркнутая цена</option> *}
+					<option value="-1"{if $price.default_from == -1} selected{/if}>[`Purchase price`]</option>
+				</select>
+			</div>
+			<div style="margin-top: 5px;{if $price.default_style == 0} display: none;{/if}">
+				[`v razmere`] <input class="short" type="text" name="default_value" value="{$price.default_value}"/> %
+			</div>
+		</div>
+		<div class="view">
+			{if $price.default_style}
+
+			{if $price.default_style == 1}
+			[`Nacenka`]
+			{else}
+			[`Discount`]
+			{/if}
+
+			<strong>{$price.default_value}%</strong>
+
+			<div style="margin-top: 5px;">
+				[`ot`]
+				{if $price.default_from == 1}
+				зачеркнутой
+				{elseif $price.default_from == -1}
+				[`zakupochnoi ceni`]
+				{else}
+				[`osnovnoi ceni`]
+				{/if}
+			</div>
+
+			{else}
+			<span class="gray">[`No`]</span>
+			{/if}
+		</div>
+	</td>
+	<td>
+		<div class="view">
+			<div>
+				{if in_array($price.rounding, ['100', '99', '10', '0.1', '0.1', '0.01'])}
+				[`Round to nearest`] {floatval($price.rounding)}
+				{elseif $price.rounding == '1'}
+				[`Round to nearest`] 1.00
+				{elseif $price.rounding == '0.99'}
+				[`Round to nearest`] .99
+				{else}
+				<span class="gray">[`Not round`]</span>
+				{/if}
+			</div>
+		</div>
+		<div class="edit" style="display: none;">
+			<select name="rounding">
+				<option value="100"{if $price.rounding == 100} selected{/if}>[`Round to nearest 100`]</option>
+				<option value="99"{if $price.rounding == 99} selected{/if}>[`Round to nearest 99`]</option>
+				<option value="10"{if $price.rounding == 10} selected{/if}>[`Round to nearest 10`]</option>
+				<option value="1"{if $price.rounding == 1} selected{/if}>[`Round to nearest 1.00`]</option>
+				<option value="0.99"{if $price.rounding == '0.99'} selected{/if}>[`Round to nearest .99`]</option>
+				<option value="0.1"{if $price.rounding == '0.1'} selected{/if}>[`Round to nearest 0.1`]</option>
+				<option value="0.01"{if $price.rounding == '0.01'} selected{/if}>[`Round to nearest 0.01`]</option>
+				<option value="0"{if $price.rounding == 0} selected{/if}>[`Not round`]</option>
+			</select>
+		</div>
+	</td>
+</tr>

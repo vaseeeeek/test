@@ -1,0 +1,90 @@
+<img src="https://igaponov.ru/wa-apps/shop/img/logo/logo.png?v={$ver}" alt="[`Developer Igor Gaponov`]" title='[`Developer Igor Gaponov`]' />
+{*
+<div id="developer-info">
+    <ul class="menu-h">
+        <li><a href="[`https://www.webasyst.com/store/plugin/shop/delpayfilter/reviews/`]"  target="_blank" title="[`Leave a review`]"><i class="icon16 star"></i> [`Leave a review`]</a></li>
+        <li><a href="[`https://www.webasyst.com/store/vendor/969712/`]"  target="_blank" title="[`Other products of developer`]"><img style="vertical-align: middle" src="{$plugin_url}img/developer.png" /> [`Other products of developer`]</a></li>
+    </ul>
+</div>
+*}
+<h1 class="align-center">[`Delivery and payment filter`]</h1>
+<div id="delpayfilter-interactive-block">
+    {if $first}
+        [`Loading...`]
+        <i class="icon16 loading"></i>
+    {else}
+        {if !empty($filters)}
+
+            {function name="build_filter"}
+                <tr class="filter-row" data-id="{$filter.id}">
+                    <td class="filter-name">
+                        <input type="checkbox" value="{$filter.id}" class="f-checker" />
+                        <a href="#/filter/copy/{$filter.id}" class="js-action" title="[`Copy filter`]"><i class="icon16 ss orders-all"></i></a>
+                        <a href="#/filter/status/{$filter.id}" class="js-action" title='[`Change status`]'><i class="icon16-custom lightbulb{if empty($filter.status)}-off{/if}"></i></a>
+                        <a href="#/delpayfilter/filter/{$filter.id}" title='[`Open filter`]'>{if !empty($filter.description)}{$filter.description|escape}{if !empty($filter.name)}, {/if}{/if}{if !empty($filter.name)}{$filter.name|escape}{/if}{if empty($filter.description) && empty($filter.name)}[`No name filter`]{/if}</a>
+                    </td>
+                    <td class="filter-target s-shipping">
+                        {if !empty($filter.shipping)}
+                            {foreach $filter.shipping as $s}
+                                <div>{$s}</div>
+                            {/foreach}
+                        {/if}
+                    </td>
+                    <td class="filter-target s-payment">
+                        {if !empty($filter.payment)}
+                            {foreach $filter.payment as $p}
+                                <div>{$p}</div>
+                            {/foreach}
+                        {/if}
+                    </td>
+                    <td class="filter-icon"><a href="#/filter/delete/{$filter.id}" class="js-action" title="[`Delete`]"><i class="icon16 delete"></i></a></td>
+                </tr>
+            {/function}
+
+            {if $total_pages_num > 1}
+                <div id="pagination">
+                    {include file="./../../pagination.html" total_pages_num = $total_pages_num current_page_num= $current_page_num}
+                </div>
+            {/if}
+            <div class="margin-block align-right">
+                <ul class="menu-h">
+                    <li><a href="#/filter/delete/" class="js-action" title="[`Delete selected`]"><i class="icon16 delete"></i> [`Delete selected`]</a></li>
+                </ul>
+            </div>
+            <table class="zebra filter-list">
+                <thead>
+                    <tr>
+                        <th class="filter-name">[`Description, name`]</th>
+                        <th class="filter-target"><i class="icon16 ss shipping-bw"></i> [`Hide shipping`]</th>
+                        <th class="filter-target"><i class="icon16 ss payment-bw"></i> [`Hide payment`]</th>
+                        <th class="filter-icon"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach $filters as $f}
+                        {build_filter filter=$f}
+                    {/foreach}
+                </tbody>
+            </table>
+            <div id="delpayfilter-dialog"></div>
+        {else}
+            <p class="align-center">[`You don't have any filters`]</p>
+        {/if}
+        <div class="block align-center">
+           <a class="button green" href="#/delpayfilter/new/" title="[`Create filter`]">[`Create filter`]</a>
+        </div>
+    {/if}
+</div>
+{if $first}
+    <link rel="stylesheet" href="{$plugin_url}css/delpayfilter.css?v={$wa->version()}" />
+    <script type="text/javascript" src="{$plugin_url}js/delpayfilter.js?v{$wa->version()}"></script>
+
+    <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-plugins/jquery.store.js"></script>
+    <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-plugins/jquery.history.js"></script>
+    <script type="text/javascript">
+        {include file="./../../include.jslocale.html"}
+        $.delpayfilter.init({
+            hash: "{$ver}"
+        });
+    </script>
+{/if}

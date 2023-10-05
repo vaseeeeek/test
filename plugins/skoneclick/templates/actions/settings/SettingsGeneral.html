@@ -1,0 +1,20 @@
+<form action="?module=plugins&id={$plugin_id}&action=save" method="post" class="js-sk-form shop-sk-form" enctype="multipart/form-data">
+
+    {$wa->csrf()}
+
+    {foreach $settings_controls as $name => $control}
+        <div class="field">
+            {$control}
+        </div>
+    {/foreach}
+
+    <iframe style="display:none" name="plugins-settings-iframe" id="plugins-settings-iframe"></iframe>
+
+    <div class="field shop-sk-form__save">
+        <div class="value submit">
+            <input type="submit" class="button green" value="Сохранить">
+            <span class="shop-sk-form__status js-sk-form-status" style="display:none"></span>
+        </div>
+    </div>
+
+</form>

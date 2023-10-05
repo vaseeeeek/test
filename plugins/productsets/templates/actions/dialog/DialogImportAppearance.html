@@ -1,0 +1,35 @@
+<div class="ig-dialog-wrap is-full-screen">
+    <div class="w-dialog-background"></div>
+    <div class="w-dialog-wrapper">
+        <div class="w-dialog-block gray-header compact-header">
+            <form action="" method="post">
+                <header class="w-dialog-header">
+                    <h1>[`Import appearance settings`]</h1>
+                </header>
+                <div class="w-dialog-content margin-block">
+                    <div class="fields">
+                        <div class="field">
+                            {if !empty($sets)}
+                                <select>
+                                    {foreach $sets as $set_id => $set}
+                                        <option value="{$set_id}">{if !empty($set.name)}{$set.name|escape}{else}[`Set #`]{$set_id}{/if}</option>
+                                    {/foreach}
+                                </select>
+                            {/if}
+                        </div>
+                    </div>
+                </div>
+                <footer class="w-dialog-footer">
+                    <div class="margin-block errormsg"></div>
+                    <div class="t-actions">
+                        <div class="t-layout">
+                            <div class="t-column left">
+                                {if !empty($sets)}<input type="submit" class="button green t-button" value="[`Import`]"> [`or`] {/if}<a href="javascript:void(0)" class="js-close-dialog">[`cancel`]</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </form>
+        </div>
+    </div>
+</div>

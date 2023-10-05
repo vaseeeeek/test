@@ -1,0 +1,6 @@
+<div class="product-groups">
+	{foreach $groups as $group}
+		{$template_path = $block_templates_path[$group.group.markup_template_id]|default:''}
+		{include file=$template_path group=$group inline}
+	{/foreach}
+</div>

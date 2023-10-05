@@ -1,0 +1,110 @@
+<h1>[`Favorites`]</h1>
+<form action="?module=plugins&id=favorites&action=save" method="post" id="plugins-settings-form">
+
+
+    <div class="field">
+        <div class="name">
+            [`Link to add to favorites`]
+        </div>
+        <div class="value">
+            <input class="long" type="text" name="shop_favorites[add]" value="{$settings.add|escape}">
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">
+            [`Link to remove from favorites`]
+        </div>
+        <div class="value">
+            <input class="long" type="text" name="shop_favorites[del]" value="{$settings.del|escape}">
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="name">
+            [`Link to favorites in "My account"`]
+        </div>
+        <div class="value">
+            <input class="long" type="text" name="shop_favorites[my]" value="{$settings.my|escape}">
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="name">
+            [`Hook`]<br />
+            <span class="hint">[`Select the place to show link to add to favorites`]</span>
+
+        </div>
+        <div class="value">
+            <select name="shop_favorites[hook]">
+                <option {if $settings.hook =='cart'}selected{/if} value="cart">[`Next to the button "Add to Cart"`] (.cart)</option>
+                <option {if $settings.hook=='block_aux'}selected{/if} value="block_aux">[`Additional information block in the sidebar`] (.block_aux)</option>
+                <option {if $settings.hook=='block'}selected{/if} value="block">[`Additional information block in the main part of the product description`] (.block)</option>
+                <option {if !$settings.hook}selected{/if} value="">[`Don't use hook (other place, manual)`]</option>
+            </select><br><br>
+            <span class="hint">[`To show the links to add to favorites in any place in product.html use the code:`]<br>
+            <b>{literal}{shopFavoritesPlugin::product($product)}{/literal}</b></span>
+        </div>
+    </div>
+
+
+    <div class="field">
+        <div class="name">
+            [`Template file of the design theme`]
+        </div>
+        <div class="value">
+            <input class="long" type="text" name="shop_favorites[template]" value="{ifset($settings.template)}" placeholder="">
+            <br>
+            <span class="hint">
+                [`By default to display favorites products the plugin uses file search.html of your design theme.`]<br>
+                [`If you have any doubts, it is better not to change this setting, and ask for help to the developer of the plugin.`]
+            </span>
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="value submit">
+            <input type="submit" class="button green" value="[`Save`]">
+            <span id="plugins-settings-form-status" style="display:none">
+            <i style="vertical-align:middle" class="icon16 yes"></i> [`Saved`]
+        </span>
+        </div>
+    </div>
+
+</form>
+
+{if $settings}
+<br><br>
+<h2>[`Favorites products`]</h2>
+{if $products}
+    <p>
+        [`Favorites count`]: <b>{$count}</b><br>
+        <span class="hint">[`If two users have added the same product to favorites, it's two entries.`]</span>
+    </p>
+
+    <b>[`TOP 10]`</b><br>
+    <table class="zebra">
+        <tr>
+            <th></th>
+            <th>[`Product`]</th>
+            <th>[`Users count`]</th>
+        </tr>
+        {foreach $products as $p}
+        <tr>
+            <td>
+                <a href="?action=products#/product/{$p.id}">
+                {if $p.image_id}
+                <img src="{shopImage::getUrl(['id' => $p.image_id, 'product_id' => $p.id, 'ext' => $p.ext], '48x48', false)}">
+                {else}
+                <img src="{$wa_app_static_url}img/image-dummy-small.png">
+                {/if}
+                </a>
+            </td>
+            <td><a href="?action=products#/product/{$p.id}">{$p.name|escape}</a></td>
+            <td>{$p.users}</td>
+        </tr>
+        {/foreach}
+    </table>
+{else}
+    <p>[`There are no products in favorites.`]</p>
+{/if}
+{/if}

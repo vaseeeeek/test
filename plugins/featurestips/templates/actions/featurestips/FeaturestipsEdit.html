@@ -1,0 +1,31 @@
+<h2>{$feature_name|escape} <span style="padding-left: 25px; font-size: 14px;">({$type_name|escape})</span></h2>
+<hr>
+<link type="text/css" rel="stylesheet" href="{$wa_url}wa-content/js/redactor/redactor.css">
+<script src="{$wa_url}wa-content/js/redactor/redactor.min.js"></script>
+{$lang = substr($wa->locale(), 0, 2)}
+{if $lang != 'en'}<script src="{$wa_url}wa-content/js/redactor/{$lang}.js"></script>{/if}
+{literal}
+<style type="text/css">
+.redactor-toolbar {
+    background: #f7f7f7;
+}
+.featurestips_redactor_item {    display: none;
+}
+</style>
+<script type="text/javascript">
+$(function(){    var redactor_item = $('.featurestips_redactor_item').html();
+    $('#content').text(redactor_item);
+    $('#content').redactor({
+        minHeight: 200,
+        maxHeight: 200,
+        buttons: ['formatting', 'bold', 'italic', 'deleted', 'unorderedlist', 'orderedlist', 'alignment', 'horizontalrule'],
+        formatting: ['p', 'h1', 'h2', 'h3'],
+        lang: {/literal}'{$lang}'{literal}
+    });
+});
+</script>
+{/literal}
+<div class="featurestips_redactor_item">{$tip_value}</div>
+<input type="hidden" name="feature_id" value="{$feature_id}">
+<input type="hidden" name="type_id" value="{$type_id}">
+<div><textarea name="value" style="width: 90%; height: 170px;" id="content" placeholder="{_wp('Enter a value here')}"></textarea></div>

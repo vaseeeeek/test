@@ -1,0 +1,23 @@
+<div id="import-dialog" style="display:none">
+    <div class="margin-block align-center upload-block" style="margin-top: 30px;">
+        <div class="margin-block bottom">
+            [`Separator`]
+            <select name="delimiter" style='margin-right: 20px'>
+                <option value="semicolon" selected>[`Semicolon`]</option>
+                <option value="comma">[`Comma`]</option>
+                <option value="tab">[`Tab`]</option>
+            </select>
+            [`Encoding`]
+            <select name="encoding">
+                {foreach $encoding as $e}
+                <option value="{$e}"{if $e == 'UTF-8'} selected{/if}>{$e}</option>
+                {/foreach}
+            </select>
+        </div>
+        <input type="file" name="csv" class="fileupload">
+        <div class="margin-block align-center top progressfield-block hidden"></div>
+        <div class="grey small margin-block">[`Choose only CSV or TXT files`]</div>
+        <span class="grey">[`Example (separator - semicolon; encoding - UTF-8)`]:</span>
+        <a href="{$wa_app_url}?plugin=flexdiscount&module=coupons&action=exportDownload&file=import_example{if $wa->locale() !== 'ru_RU'}_en{/if}.csv"><i class="icon16 ss excel" style="vertical-align: middle;"></i> import_example.csv</a>
+    </div>
+</div>

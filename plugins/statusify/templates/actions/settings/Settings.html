@@ -1,0 +1,76 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+<div>
+    <h1 class="mb-4">Настройки плагина Statusify</h1>
+
+    <h2 class="mb-2">Типы товаров:</h2>
+    <ul class="list-group"">
+        {foreach $product_types as $type}
+            <li class="list-group-item">{$type.name}</li>
+        {/foreach}
+    </ul>
+    <h2>Существующие статусы:</h2>
+    {foreach $existing_statuses as $type => $statuses}
+        <h3>{$type}</h3>
+        <ul class="list-group mb-4"  data-type="{$statuses['type_id']}">
+            {foreach $statuses['statuses'] as $status}
+                <li class="list-group-item">{$status}<button class="delete-status btn btn-primary" data-type-id="{$statuses['type_id']}" data-status-name="{$status}">Удалить</button>
+            {/foreach}
+        </ul>
+    {/foreach}
+
+
+    <h2>Добавить новый статус:</h2>
+    <form id="add-status-form" action="?plugin=statusify&action=addstatus" method="post" class="form-inline mt-3 mb-3">
+        <select name="type" class="form-control mr-2">
+            {foreach $product_types as $type}
+                <option value="{$type.id}">{$type.name}</option>
+            {/foreach}
+        </select>
+        <input type="text" name="status_name" placeholder="Новый статус" class="form-control mr-2">
+        <button type="submit" class="btn btn-primary">Добавить</button>
+    </form>
+</div>
+{literal}
+<script>
+    $(document).on('click', '.delete-status', function() {
+        var type_id = $(this).data('type-id');
+        var status_name = $(this).data('status-name');
+        const li = $(this).closest('li');
+        
+        $.post('?plugin=statusify&action=deletestatus', { type_id: type_id, status_name: status_name })
+        .done(function(response) {
+            console.log("Успешный ответ:", response);
+            li.remove();
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            console.log("Ошибка AJAX:", textStatus, errorThrown);
+        })
+        .always(function() {
+            console.log("Запрос завершен");
+        });
+    });
+    
+    // Добавление статуса
+    $('#add-status-form').submit(function(e) {
+        e.preventDefault();
+        var type = $(this).find('select[name="type"]').val();
+        var status_name = $(this).find('input[name="status_name"]').val();
+        
+        $.post('?plugin=statusify&action=addstatus', { type: type, status_name: status_name })
+            .done(function(response) {
+                console.log("Успешный ответ:", response);
+                $(`ul[data-type="${type}"]`).append(`<li class="form-control">${status_name}</li>`);
+            })
+            .fail(function(jqXHR, textStatus, errorThrown) {
+                console.log("Ошибка AJAX:", textStatus, errorThrown);
+            })
+            .always(function() {
+                console.log("Запрос завершен");
+            });
+        
+    })
+</script>
+{/literal}

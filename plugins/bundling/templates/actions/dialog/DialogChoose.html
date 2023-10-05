@@ -1,0 +1,42 @@
+<h1>[`Choose action with selected products`] <span class="gray">({count($product_ids)})</span></h1>
+
+<ul class="bundling-choose">
+	<li><a data-action="set-up" class="bundling-set" href="#">[`Setup bundles for this products`]</a></li>
+	<li><a data-action="set-as" class="bundling-set" href="#">[`Setup this products as bundles for another products`]</a></li>
+	<li><a {if $bundle_groups == 'main_category'}class="gray" {/if}href="{if $bundle_groups == 'main_category'}javascript:// {else}javascript: $.bundling.editProductBundles();{/if}">[`Edit product bundles`]{if $bundle_groups == 'main_category'}<div class="hint">[`Not available with bundle group by categories`]</div>{/if}</a></li>
+	<li><a href="javascript: $.bundlingDialog.trigger('close');"><i class="icon16 no" style="
+    margin-top: 1px;
+"></i> [`Close`]</a></li>
+</ul>
+<script type="text/javascript" src="{$wa_app_static_url}plugins/bundling/js/bundling.choose.js"></script>
+<script type="text/javascript">
+(function($) {
+	$.bundlingChooser = {
+		count: {count($product_ids)},
+		{if !$hash}product_ids: [{implode(',', $product_ids)}],{/if}
+		{if $hash}hash: '{$hash}'{/if}
+	};
+
+	$('.bundling-set').click($.bundlingSetAction);
+})(jQuery);
+</script>
+<style type="text/css">
+.bundling-choose {
+	padding: 0;
+}
+.bundling-choose li {
+	list-style: none;
+}
+.bundling-choose li .hint {
+	margin-top: 10px;
+}
+.bundling-choose li a {
+	display: block;
+	padding: 20px;
+	border-bottom: 2px dashed #ccc;
+	font-size: 20px;
+}
+.bundling-choose li a:hover {
+	background: #f3f3f3;
+}
+</style>

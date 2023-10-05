@@ -1,0 +1,33 @@
+{strip}
+<div class="brand-plugin-alphabet">
+	<ul class="brand-plugin-alphabet__list brand-plugin-alphabet-list">
+		<li class="brand-plugin-alphabet-list__item brand-plugin-alphabet-list__item--title">
+			[`Бренды`]:
+		</li>
+		<li class="brand-plugin-alphabet-list__item">
+			<ul class="brand-plugin-alphabet-list brand-plugin-alphabet-list--letters">
+				{foreach $groups as $letter => $group}
+					<li class="brand-plugin-alphabet-list__item brand-plugin-alphabet-list__item--letter">
+						<span class="brand-plugin-alphabet-list__letter">{$letter}</span>
+						<div class="brand-plugin-alphabet-list__brands brand-plugin-alphabet-brands">
+							<div class="brand-plugin-alphabet-brands__title">
+		                        {$letter}
+							</div>
+							<ul class="brand-plugin-alphabet-brands__list">
+		                        {foreach $group.brands as $brand}
+									<li class="brand-plugin-alphabet-brands__item">
+										<a href="{$brand.url}">{$brand.name}</a>
+									</li>
+								{/foreach}
+							</ul>
+						</div>
+					</li>
+				{/foreach}
+			</ul>
+		</li>
+		<li class="brand-plugin-alphabet-list__item brand-plugin-alphabet-list__item--show-all">
+			<a href="{$wa->getUrl('shop/frontend/brands')|escape}">[`Все бренды`]</a>
+		</li>
+	</ul>
+</div>
+{/strip}

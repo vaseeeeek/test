@@ -1,0 +1,1373 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/autobadge\n"
+"POT-Creation-Date: 2017-06-22 23:10+0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: shop/plugins/autobadge\n"
+"Language-Team: shop/plugins/autobadge\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"Language: ru_RU\n"
+"X-Generator: Poedit 2.0.5\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+msgid "Select product"
+msgstr "Выберите товар"
+
+msgid "close"
+msgstr "закрыть"
+
+msgid "Show all skus in search"
+msgstr "Показать все артикулы в результатах поиска"
+
+msgid "or select the category to find product you need."
+msgstr "или выберите категорию для поиска товаров."
+
+msgid "Show product skus"
+msgstr "Показать артикулы товара"
+
+msgid "Name"
+msgstr "Название"
+
+msgid "Price"
+msgstr "Цена"
+
+msgid "More products"
+msgstr "Больше товаров"
+
+msgid "Products not found"
+msgstr "Товары не найдены"
+
+msgid "Select user"
+msgstr "Выберите пользователя"
+
+msgid "All contacts"
+msgstr "Все контакты"
+
+msgid "or select the category to find user you need."
+msgstr "или выберите категорию для поиска пользователей."
+
+msgid "More users"
+msgstr "Больше пользователей"
+
+msgid "Users not found"
+msgstr "Пользователи не найдены"
+
+msgid "Start typing user name or email"
+msgstr "Начните печатать имя или email"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Automatically add \"position: relative\" to parent element"
+msgstr "Автоматически добавлять \"position: relative\" для родительского элемента"
+
+msgid "Need for CSS. Use it, if you want to position badge relative to parent element."
+msgstr "Необходимо для CSS. Используйте данную функцию, если хотите, чтобы наклейки располагались относительно родительского контейнера."
+
+msgid "Automatically add \"overflow: visible\" to parent element"
+msgstr "Автоматически добавлять \"overflow: visible\" для родительского элемента"
+
+msgid "Need for CSS. Use it, if your badges are cutted by the parent block. If it doesn't help, ask me for help."
+msgstr "Необходимо для CSS. Используйте данную функцию, если наклейки обрезаются родительским элементом. Если это не помогает, напишите нам в поддержку."
+
+msgid "Show badge loaders"
+msgstr "Отображать иконку загрузки"
+
+msgid "Plugin updates badges each time, when you change product quantity or skus. If you don't want to see loader, disable this option."
+msgstr "При каждом изменении количества или артикула плагин обновляет данные. Если Вы не хотите, чтобы каждый раз появлялась иконка ожидания, отключите данную функцию."
+
+msgid "Increase CSS \"z-index\" value for badges"
+msgstr "Увеличить значение \"z-index\" для наклеек."
+
+msgid "Need for CSS. If some elements of your theme design cover badges, increase the value"
+msgstr "Необходимо для CSS. Если некоторые элементы Вашей темы дизайна перекрывают наклейки, увеличьте данное значение"
+
+msgid "Use <i>\"frontend_products\"</i> hook"
+msgstr "Использовать хук <i>\"frontend_products\"</i>"
+
+msgid "This option automatically changes product badges in Storefront. If you disable it, use <a href='https://www.webasyst.com/store/plugin/shop/autobadge/custom_call' style='color:#03c' target='_blank'>custom call</a>"
+msgstr "Данная функция автоматически изменяет наклейки у товаров на Витрине. Если отключить ее, то Вам необходимо использовать <a href='https://www.webasyst.ru/store/plugin/shop/autobadge/custom_call' style='color:#03c' target='_blank'>ручной вызов плагина</a>"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "No name rule"
+msgstr "Правило без названия"
+
+msgid "Delete filter"
+msgstr "Удалить фильтр"
+
+msgid "delete"
+msgstr "удалить"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "Disabled"
+msgstr "Выкл"
+
+msgid "Enabled"
+msgstr "Вкл"
+
+msgid "Conditions"
+msgstr "Условия"
+
+msgid "IF"
+msgstr "ЕСЛИ"
+
+msgid "Wait, please..."
+msgstr "Пожалуйста, подождите..."
+
+msgid "Add condition"
+msgstr "Добавить условие"
+
+msgid "Then add badges"
+msgstr "Тогда добавить наклейки"
+
+msgid "Container width"
+msgstr "Ширина контейнера"
+
+msgid "W:"
+msgstr "Ш:"
+
+msgid "Container height"
+msgstr "Высота контейнера"
+
+msgid "H:"
+msgstr "В:"
+
+msgid "Add badge"
+msgstr "Добавить наклейку"
+
+msgid "Import badge"
+msgstr "Импортировать"
+
+msgid "Select shape"
+msgstr "Выберите форму"
+
+msgid "Ribbon text"
+msgstr "Ваш текст"
+
+msgid "Text"
+msgstr "Текст"
+
+msgid "Use default settings of badge shape"
+msgstr "Использовать настройки наклейки по умолчанию"
+
+msgid "Text/Image"
+msgstr "Текст/Изображение"
+
+msgid "Available variables"
+msgstr "Доступные переменные"
+
+msgid "change color"
+msgstr "изменить цвет"
+
+msgid "Font family"
+msgstr "Семейство шрифтов"
+
+msgid "Google fonts"
+msgstr "Шрифты Google"
+
+msgid "Font style"
+msgstr "Стиль шрифта"
+
+msgid "Normal"
+msgstr "Нормальный"
+
+msgid "Bold"
+msgstr "Жирный"
+
+msgid "Italic"
+msgstr "Курсив"
+
+msgid "Bold/Italic"
+msgstr "Жирный/курсив"
+
+msgid "Align"
+msgstr "Выравнивание"
+
+msgid "Left"
+msgstr "Слева"
+
+msgid "Right"
+msgstr "Справа"
+
+msgid "Center"
+msgstr "По центру"
+
+msgid "Justify"
+msgstr "По ширине"
+
+msgid "Shadow"
+msgstr "Тень"
+
+msgid "Margins"
+msgstr "Отступы"
+
+msgid "Top"
+msgstr "Сверху"
+
+msgid "Width"
+msgstr "Ширина"
+
+msgid "remove"
+msgstr "удалить"
+
+msgid "Specify image URL"
+msgstr "Укажите URL картинки"
+
+msgid "Available images"
+msgstr "Доступные изображения"
+
+msgid "or"
+msgstr "или"
+
+msgid "Bottom"
+msgstr "Снизу"
+
+msgid "Height"
+msgstr "Высота"
+
+msgid "Attention! Image dimensions will be changed with the help of CSS. Filesize will be the same. Don't use large images."
+msgstr "Внимание! Размеры изображения будут изменены при помощи CSS. Размер файла останется без изменений. Не используйте большие изображения."
+
+msgid "Attention! Be careful with HTML-code. Any syntax errors can cause problems in your theme design."
+msgstr "Внимание! Будьте осторожны с HTML-кодом. Любые синтаксические ошибки могут вызвать проблемы в верстке темы дизайна."
+
+msgid "add text line"
+msgstr "добавить строку текста"
+
+msgid "add image"
+msgstr "добавить изображение"
+
+msgid "Save template"
+msgstr "Сохранить шаблон"
+
+msgid "Remove template"
+msgstr "Удалить шаблон"
+
+msgid "Export"
+msgstr "Экспортировать"
+
+msgid "Product"
+msgstr "Товар"
+
+msgid "Category"
+msgstr "Категория"
+
+msgid "Category and subcategories"
+msgstr "Категория и ее подкатегории"
+
+msgid "Product set"
+msgstr "Список товаров"
+
+msgid "Product type"
+msgstr "Тип товаров"
+
+msgid "Product features"
+msgstr "Характеристики товара"
+
+msgid "Product params"
+msgstr "Параметры товара"
+
+msgid "Product properties"
+msgstr "Свойства товара"
+
+msgid "SKU code"
+msgstr "Артикул товара"
+
+msgid "SKU name"
+msgstr "Наименование артикула"
+
+msgid "Summary"
+msgstr "Краткое описание товара"
+
+msgid "META title"
+msgstr "Meta заголовок товара"
+
+msgid "META keywords"
+msgstr "Meta ключевые слова товара"
+
+msgid "META description"
+msgstr "Meta описание товара"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Create datetime"
+msgstr "Дата создания"
+
+msgid "Edit datetime"
+msgstr "Дата изменения"
+
+msgid "Has video"
+msgstr "Имеет ли товар видео"
+
+msgid "Has image"
+msgstr "Имеет ли товар изображение"
+
+msgid "Rating"
+msgstr "Рейтинг"
+
+msgid "Rating count"
+msgstr "Количество отзывов у товара"
+
+msgid "Purchase price"
+msgstr "Цена закупки товара"
+
+msgid "Compare price"
+msgstr "Зачеркнутая цена товара"
+
+msgid "Minimal price"
+msgstr "Минимальная цена товара"
+
+msgid "Maximum price"
+msgstr "Максимальная цена товара"
+
+msgid "Stock count"
+msgstr "Количество остатков товара"
+
+msgid "Total sales for period.."
+msgstr "Сумма продаж товара за период.."
+
+msgid "Total number of sales for period.."
+msgstr "Количество продаж товара за период.."
+
+msgid "Services"
+msgstr "Услуги"
+
+msgid "Tags"
+msgstr "Теги"
+
+msgid "Cart"
+msgstr "Корзина"
+
+msgid "Total quantity of all products"
+msgstr "Суммарное количество всех товаров"
+
+msgid "Quantity of products"
+msgstr "Количество товаров"
+
+msgid "Quantity of product"
+msgstr "Количество определенного товара"
+
+msgid "Quantity of product from category"
+msgstr "Количество товара из категории"
+
+msgid "Quantity of product from category and subcategories"
+msgstr "Количество товара из категории и ее подкатегорий"
+
+msgid "Quantity of product from set"
+msgstr "Количество товара из списка"
+
+msgid "Quantity of product from type"
+msgstr "Количество товара с типом товаров"
+
+msgid "Quantity of all products from category"
+msgstr "Количество всех товаров из категории"
+
+msgid "Quantity of all products from category and subcategories"
+msgstr "Количество всех товаров из категории и ее подкатегорий"
+
+msgid "Quantity of all products from set"
+msgstr "Количество всех товаров из списка"
+
+msgid "Quantity of all products from type"
+msgstr "Количество всех товаров с типом товаров"
+
+msgid "Quantity of products with features"
+msgstr "Количество товаров с характеристиками"
+
+msgid "Quantity of unique items"
+msgstr "Количество уникальных товаров"
+
+msgid "Order price without discount"
+msgstr "Общая стоимость заказа без учета скидок"
+
+msgid "Total price of all products"
+msgstr "Общая стоимость всех товаров"
+
+msgid "Total price of products from category"
+msgstr "Общая стоимость товаров из категории"
+
+msgid "Total price of products from category and subcategories"
+msgstr "Общая стоимость товаров из категории и ее подкатегорий"
+
+msgid "Total price of all products with features"
+msgstr "Общая стоимость всех товаров с характеристиками"
+
+msgid "Total sum of features values"
+msgstr "Сумма значений характеристик товаров"
+
+msgid "Price of each product"
+msgstr "Цена каждого товара"
+
+msgid "User"
+msgstr "Пользователь"
+
+msgid "User category"
+msgstr "Категория пользователя"
+
+msgid "Completed user orders"
+msgstr "Выполненные заказы пользователя"
+
+msgid "Total sum of all orders"
+msgstr "Общая сумма всех заказов"
+
+msgid "Sum of orders for period.."
+msgstr "Сумма заказов за период.."
+
+msgid "Quantity of all orders"
+msgstr "Количество всех заказов"
+
+msgid "Quantity of orders for period.."
+msgstr "Количество заказов за период.."
+
+msgid "Orders have product"
+msgstr "Заказы содержат товар"
+
+msgid "Orders have product for period.."
+msgstr "Заказы содержат товар за период.."
+
+msgid "Orders have product from category"
+msgstr "Заказы содержат товар из категории"
+
+msgid "Orders have product from category and subcategories"
+msgstr "Заказы содержат товар из категории и ее подкатегорий"
+
+msgid "Orders have product from category for period.."
+msgstr "Заказы содержат товар из категории за период.."
+
+msgid "Orders have product from category and subcategories for period.."
+msgstr "Заказы содержат товар из категории и ее подкатегорий за период.."
+
+msgid "Date and time"
+msgstr "Дата и время"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Day of week"
+msgstr "День недели"
+
+msgid "Time"
+msgstr "Время"
+
+msgid "Variables"
+msgstr "Переменные"
+
+msgid "Cookie"
+msgstr "Куки"
+
+msgid "Session"
+msgstr "Сессия"
+
+msgid "Storefront"
+msgstr "Витрина"
+
+msgid "Payment"
+msgstr "Оплата"
+
+msgid "Shipping"
+msgstr "Доставка"
+
+msgid "Select condition"
+msgstr "Выберите условие"
+
+msgid "Add group of conditions"
+msgstr "Добавить группу условий"
+
+msgid "Select badge"
+msgstr "Выберите наклейку"
+
+msgid "Create new badge"
+msgstr "Создать новую наклейку"
+
+msgid "edit badge"
+msgstr "редактировать"
+
+msgid "Save filter"
+msgstr "Сохранить фильтр"
+
+msgid "Copy and paste variables into the text field. Also you can use Smarty."
+msgstr "Копируйте и вставляйте переменные в текстовое поле. Также Вы можете использовать Smarty"
+
+msgid "product name"
+msgstr "название товара"
+
+msgid "Product summary"
+msgstr "Краткое описание товара"
+
+msgid "Product create datetime"
+msgstr "Дата создания товара"
+
+msgid "Product edit datetime"
+msgstr "Дата изменения товара"
+
+msgid "Product rating"
+msgstr "Рейтинг товара"
+
+msgid "Product rating count"
+msgstr "Количество отзывов у товара"
+
+msgid "Product price"
+msgstr "Цена товара"
+
+msgid "Product compare price"
+msgstr "Зачеркнутая цена товара"
+
+msgid "Product purchase price"
+msgstr "Закупочная цена товара"
+
+msgid "with currency"
+msgstr "со знаком валюты"
+
+msgid "with ruble sign"
+msgstr "с символом рубля"
+
+msgid "Datetime. <a href=\"https://developers.webasyst.com/cookbook/basics/functions/#function-wa_date\" target=\"_blank\">Read more</a>"
+msgstr "Дата и время. <a href=\"https://developers.webasyst.ru/cookbook/basics/functions/#function-wa_date\" target=\"_blank\">Подробнее</a>"
+
+msgid "Discount percentage."
+msgstr "Процентная скидка товара. Вычисляется от зачеркнутой цены."
+
+msgid "Countdown. <a href=\"https://www.webasyst.com/store/plugin/shop/autobadge/text/\" target=\"_blank\">Read more</a>"
+msgstr "Счетчик. <a href=\"https://www.webasyst.ru/store/plugin/shop/autobadge/text/\" target=\"_blank\">Подробнее</a>"
+
+msgid "You can use optional set of custom <em>key=value</em> parameters which can be used as <em>&#123;$product.params.key&#125;</em>"
+msgstr "Вы можете использовать набор дополнительных параметров <em>key=value</em> в виде <em>&#123;$product.params.key&#125;</em>"
+
+msgid "This is your uploaded images. You can select one."
+msgstr "Это Ваши загруженные изображения. Вы можете выбрать любое."
+
+msgid "Also you can manage this images in"
+msgstr "Также Вы можете управлять этими изображениями в разделе"
+
+msgid "Manage images"
+msgstr "Управлять изображениями"
+
+msgid "Site - File manager"
+msgstr "Сайт - Файл-менеджер"
+
+msgid "Select image"
+msgstr "Выберите изображение"
+
+msgid "AND"
+msgstr "И"
+
+msgid "OR"
+msgstr "ИЛИ"
+
+msgid "Automatic creation of badges"
+msgstr "Автоматическое создание наклеек"
+
+msgid "https://www.webasyst.com/store/plugin/shop/autobadge/documentation/"
+msgstr "https://www.webasyst.ru/store/plugin/shop/autobadge/documentation/"
+
+msgid "Documentation"
+msgstr "Документация"
+
+msgid "Loading..."
+msgstr "Идет загрузка..."
+
+msgid "Copy filter"
+msgstr "Дублировать фильтр"
+
+msgid "Change status"
+msgstr "Изменить статус"
+
+msgid "Open filter"
+msgstr "Открыть фильтр"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Delete selected"
+msgstr "Удалить выделенные"
+
+msgid "You don't have any conditions"
+msgstr "Не создано ни одного условия"
+
+msgid "Create condition"
+msgstr "Создать условие"
+
+msgid "Properties"
+msgstr "Характеристики"
+
+msgid "Background"
+msgstr "Задний фон"
+
+msgid "Border"
+msgstr "Рамка"
+
+msgid "Box shadow"
+msgstr "Тени"
+
+msgid "Size"
+msgstr "Размер"
+
+msgid "Position"
+msgstr "Расположение"
+
+msgid "Text orientation"
+msgstr "Направление текста"
+
+msgid "Orientation"
+msgstr "Направление"
+
+msgid "Additional"
+msgstr "Дополнительно"
+
+msgid "Gradient"
+msgstr "Градиент"
+
+msgid "Solid color"
+msgstr "Цвет"
+
+msgid "Transparent"
+msgstr "Прозрачный"
+
+msgid "Start"
+msgstr "Начало"
+
+msgid "End"
+msgstr "Конец"
+
+msgid "Transparency"
+msgstr "Прозрачность"
+
+msgid "linear"
+msgstr "линейный"
+
+msgid "radial"
+msgstr "радиальный"
+
+msgid "toggle"
+msgstr "поменять"
+
+msgid "Max width"
+msgstr "Макс ширина"
+
+msgid "Max height"
+msgstr "Макс высота"
+
+msgid "Thickness"
+msgstr "Толщина"
+
+msgid "Style"
+msgstr "Стиль"
+
+msgid "Solid"
+msgstr "Сплошной"
+
+msgid "Dotted"
+msgstr "Точки"
+
+msgid "Dashed"
+msgstr "Пунктир"
+
+msgid "Double"
+msgstr "Двойная сплошная"
+
+msgid "Values"
+msgstr "Значения"
+
+msgid "X offset"
+msgstr "X-сдвиг"
+
+msgid "Y offset"
+msgstr "Y-сдвиг"
+
+msgid "Blur"
+msgstr "Размытие"
+
+msgid "Spread"
+msgstr "Растяжение"
+
+msgid "Inset"
+msgstr "Внутренняя тень"
+
+msgid "Choose position"
+msgstr "Выберите расположение"
+
+msgid "Horizontal"
+msgstr "Горизонтальное"
+
+msgid "Vertical"
+msgstr "Вертикальное"
+
+msgid "Top right angle"
+msgstr "Правый верхний угол"
+
+msgid "Top left angle"
+msgstr "Левый верхний угол"
+
+msgid "Bottom left angle"
+msgstr "Левый нижний угол"
+
+msgid "Bottom right angle"
+msgstr "Правый нижний угол"
+
+msgid "From left to right"
+msgstr "Слева направо"
+
+msgid "From right to left"
+msgstr "Справа налево"
+
+msgid "From top to bottom"
+msgstr "Сверху вниз"
+
+msgid "From bottom to top"
+msgstr "Снизу вверх"
+
+msgid "Dashed line"
+msgstr "Штрихпунктирная линия"
+
+msgid "Border radius"
+msgstr "Радиус скругления"
+
+msgid "Tail"
+msgstr "Хвост"
+
+msgid "Tongue"
+msgstr "Язык"
+
+msgid "Tails"
+msgstr "Хвосты"
+
+msgid "Show"
+msgstr "Показать"
+
+msgid "hide"
+msgstr "скрыть"
+
+msgid "Radius"
+msgstr "Радиус"
+
+msgid "Top-left"
+msgstr "Верхний-левый"
+
+msgid "Top-right"
+msgstr "Верхний-правый"
+
+msgid "Bottom-left"
+msgstr "Нижний-левый"
+
+msgid "Bottom-right"
+msgstr "Нижний-правый"
+
+msgid "Color"
+msgstr "Цвет"
+
+msgid "Top right"
+msgstr "Верхний правый"
+
+msgid "Top left"
+msgstr "Верхний левый"
+
+msgid "Bottom right"
+msgstr "Нижний правый"
+
+msgid "Bottom left"
+msgstr "Нижний левый"
+
+msgid "show"
+msgstr "показать"
+
+msgid "Select at least 1 filter rule"
+msgstr "Выберите хотя бы одно правило"
+
+msgid "Do you really want to delete filter rule?"
+msgstr "Вы действительно хотите удалить правило?"
+
+msgid "No result text"
+msgstr "Ничего не найдено"
+
+msgid "Do you really want to delete condition group?"
+msgstr "Вы действительно хотите удалить группу условий?"
+
+msgid "You can use only one default Webasyst badge in rule"
+msgstr "Разрешено использовать только одну стандартную наклейку"
+
+msgid "Something wrong"
+msgstr "Произошла ошибка"
+
+msgid "Save badge template"
+msgstr "Сохранение шаблона"
+
+msgid "Template name"
+msgstr "Название шаблона"
+
+msgid "Save as new template"
+msgstr "Сохранить, как новый шаблон"
+
+msgid "Save changes"
+msgstr "Сохранить изменения"
+
+msgid "Remove badge template"
+msgstr "Удаление шаблона"
+
+msgid "Do you really want to remove badge template?"
+msgstr "Вы действительно хотите удалить шаблон?"
+
+msgid "Settings for the current badge will not be changed."
+msgstr "Настройки для активной наклейки не сохранены."
+
+msgid "Remove"
+msgstr "Удалить"
+
+msgid "Import badge settings"
+msgstr "Импортирование шаблона"
+
+msgid "Export badge settings"
+msgstr "Экспортирование шаблона"
+
+msgid "Import"
+msgstr "Импорт"
+
+msgid "Choose only CSV files"
+msgstr "Используйте только CSV файлы (разделитель ;)"
+
+msgid "Badge template name"
+msgstr "Название шаблона наклейки"
+
+msgid "Something wrong. Check log files"
+msgstr "Произошла ошибка. Проверьте файлы логов"
+
+msgid "Upload failed"
+msgstr "Загрузка не удалась"
+
+msgid "Uploading file..."
+msgstr "Загрузка файла..."
+
+msgid "Templates added successfully!"
+msgstr "Шаблоны добавлены успешно!"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Saved"
+msgstr "Сохранено"
+
+msgid "equal"
+msgstr "равно"
+
+msgid "not equal"
+msgstr "не равно"
+
+msgid "contains"
+msgstr "содержит"
+
+msgid "not contains"
+msgstr "не содержит"
+
+msgid "begins with"
+msgstr "начинается с"
+
+msgid "select"
+msgstr "выберите"
+
+msgid "each sku is separate"
+msgstr "каждый артикул отдельно"
+
+msgid "summarize skus"
+msgstr "суммировать артикулы"
+
+msgid "This condition will filter the result items"
+msgstr "Данное условие фильтрует товары"
+
+msgid "reset selection"
+msgstr "сбросить выбор"
+
+msgid "Select category"
+msgstr "Выберите категорию"
+
+msgid "Select product set"
+msgstr "Выберите список товаров"
+
+msgid "Select product type"
+msgstr "Выберите тип товаров"
+
+msgid "select product"
+msgstr "выберите товар"
+
+msgid "Product feature"
+msgstr "Характеристика товара"
+
+msgid "Select product feature"
+msgstr "Выберите характеристику товара"
+
+msgid "Select feature value"
+msgstr "Выберите значение характеристики"
+
+msgid "Select product params"
+msgstr "Выберите параметры товара"
+
+msgid "Product name"
+msgstr "Название товара"
+
+msgid "Product description"
+msgstr "Описание товара"
+
+msgid "has video"
+msgstr "имеет видео"
+
+msgid "has image"
+msgstr "имеет изображение"
+
+msgid "Product minimal price"
+msgstr "Минимальная цена товара"
+
+msgid "Product maximum price"
+msgstr "Максимальная цена товара"
+
+msgid "Product stock count"
+msgstr "Количество остатков товара"
+
+msgid "Product total sales for"
+msgstr "Сумма продаж товара за"
+
+msgid "Product total quantity of sales for"
+msgstr "Количество продаж товара за"
+
+msgid "Product has service"
+msgstr "Товар имеет услугу"
+
+msgid "Select service"
+msgstr "Выберите услугу"
+
+msgid "Select service variant"
+msgstr "Выберите значение услуги"
+
+msgid "Product has tag"
+msgstr "Товар имеет тег"
+
+msgid "Select tags"
+msgstr "Выберите теги"
+
+msgid "any product"
+msgstr "любой товар"
+
+msgid "from category"
+msgstr "из категории"
+
+msgid "select category"
+msgstr "выберите категорию"
+
+msgid "from category and subcategories of"
+msgstr "из категории и ее подкатегорий"
+
+msgid "from set"
+msgstr "из списка"
+
+msgid "from type"
+msgstr "с типом товаров"
+
+msgid "Total price of products"
+msgstr "Общая цена всех товаров"
+
+msgid "Service"
+msgstr "Услуга"
+
+msgid "Select user category"
+msgstr "Выберите категорию пользователя"
+
+msgid "Contact"
+msgstr "Контакт"
+
+msgid "select contact"
+msgstr "выберите контакт"
+
+msgid "Contact create datetime"
+msgstr "Дата создания контакта"
+
+msgid "Select shipping"
+msgstr "Выберите доставку"
+
+msgid "Select payment"
+msgstr "Выберите оплату"
+
+msgid "Sum of orders for"
+msgstr "Сумма заказов за"
+
+msgid "Quantity of orders for"
+msgstr "Количество заказов за"
+
+msgid "for"
+msgstr "за"
+
+msgid "Monday"
+msgstr "Понедельник"
+
+msgid "Tuesday"
+msgstr "Вторник"
+
+msgid "Wednesday"
+msgstr "Среда"
+
+msgid "Thursday"
+msgstr "Четверг"
+
+msgid "Friday"
+msgstr "Пятница"
+
+msgid "Saturday"
+msgstr "Суббота"
+
+msgid "Sunday"
+msgstr "Воскресенье"
+
+msgid "Select domain"
+msgstr "Выберите домен"
+
+msgid "Select route"
+msgstr "Выберите поселение"
+
+msgid "All conditions return true"
+msgstr "Все условия верны"
+
+msgid "Any of condition returns true"
+msgstr "Любое из условий верно"
+
+msgid "HH"
+msgstr "ЧЧ"
+
+msgid "MM"
+msgstr "ММ"
+
+msgid "select value"
+msgstr "выберите значение"
+
+msgid "period"
+msgstr "период"
+
+msgid "last n-days"
+msgstr "последние n-дней"
+
+msgid "previous week"
+msgstr "прошлую неделю"
+
+msgid "previous month"
+msgstr "прошлый месяц"
+
+msgid "previous quarter"
+msgstr "прошлый квартал"
+
+msgid "previous half a year"
+msgstr "прошлые полгода"
+
+msgid "previous 9 months"
+msgstr "прошлые 9 месяцев"
+
+msgid "previous year"
+msgstr "прошлый год"
+
+msgid "today"
+msgstr "сегодня"
+
+msgid "current week"
+msgstr "текущую неделю"
+
+msgid "current month"
+msgstr "текущий месяц"
+
+msgid "current quarter"
+msgstr "текущий квартал"
+
+msgid "current 6 months"
+msgstr "текущие 6 месяцев"
+
+msgid "current 9 months"
+msgstr "текущие 9 месяцев"
+
+msgid "current year"
+msgstr "текущий год"
+
+msgid "period from"
+msgstr "период с"
+
+msgid "the last"
+msgstr "последние"
+
+msgid "days"
+msgstr "дней"
+
+msgid "to"
+msgstr "до"
+
+msgid "Example"
+msgstr "Пример"
+
+msgid "Thanks for reminder!"
+msgstr "Спасибо за напоминание!"
+
+msgid "prev"
+msgstr "назад"
+
+msgid "next"
+msgstr "вперед"
+
+msgid "reset product"
+msgstr "сбросить товар"
+
+msgid "No name"
+msgstr "Без имени"
+
+msgid "sku ID"
+msgstr "ID артикула"
+
+msgid "No name template"
+msgstr "Шаблон без названия"
+
+msgid "Download:"
+msgstr "Скачать:"
+
+msgid "Your template badges"
+msgstr "Ваши шаблоны наклеек"
+
+msgid "Default Webasyst badges"
+msgstr "Стандартные наклейки Вебасист"
+
+msgid "Delete from group"
+msgstr "Удалить из группы"
+
+msgid "Low price"
+msgstr "Низкая цена"
+
+msgid "Simple green badge with discount"
+msgstr "Обычная зеленая наклейка со скидкой"
+
+msgid "Discount percentage on image"
+msgstr "Скидка в процентах на изображении"
+
+msgid "Circle 50%"
+msgstr "Кружок 50%"
+
+msgid "100% money back guarantee"
+msgstr "100% возврат гарантирован"
+
+msgid "Sale"
+msgstr "Распродажа"
+
+msgid "Promo"
+msgstr "Акция"
+
+msgid "Bestseller"
+msgstr "Лучшее предложение"
+
+msgid "Present"
+msgstr "Подарок"
+
+msgid "Present - ribbon"
+msgstr "Подарок - ленточка"
+
+msgid "Free delivery"
+msgstr "Бесплатная доставка"
+
+msgid "2 ribbons"
+msgstr "2 ленточки"
+
+msgid "Too much ribbons"
+msgstr "Слишком много лент"
+
+msgid "50% in black circle"
+msgstr "50% в черном кружке"
+
+msgid "Counter and image badge"
+msgstr "Счетчик обратного отсчета и наклейка-изображение"
+
+msgid "Composite difficult badge"
+msgstr "Составная сложная наклейка"
+
+msgid "discount"
+msgstr "скидка"
+
+msgid "Discount"
+msgstr "Скидка"
+
+msgid "moneyback"
+msgstr "возврат"
+
+msgid "Guarantee"
+msgstr "Гарантирован"
+
+msgid "Best"
+msgstr "Лучшее"
+
+msgid "seller"
+msgstr "предложение"
+
+msgid "Free"
+msgstr "Бесплатная"
+
+msgid "delivery"
+msgstr "доставка"
+
+msgid "Ribbon"
+msgstr "Лента"
+
+msgid "Only today"
+msgstr "Только сегодня"
+
+msgid "Ends in"
+msgstr "Конец"
+
+msgid "price off"
+msgstr "экономия"
+
+msgid "Badges"
+msgstr "Наклейки"
+
+msgid "Automatic creation of badges for products"
+msgstr "Автоматическое создание наклеек"
+
+msgid "Do not forget to make <a href=\"https://www.webasyst.com/store/plugin/shop/autobadge/setup\" target=\"_blank\">changes to your theme design</a>"
+msgstr "Не забудьте внести изменения <a href=\"https://www.webasyst.ru/store/plugin/shop/autobadge/setup\" target=\"_blank\">в Вашу тему дизайна</a>"
+
+msgid "Product age"
+msgstr "Возраст товара"
+
+msgid "Badge type"
+msgstr "Тип наклейки"
+
+msgid "Mobile version"
+msgstr "Мобильная версия"
+
+msgid "Theme design"
+msgstr "Тема дизайна"
+
+msgid "Product page"
+msgstr "Страница товара"
+
+msgid "Number of skus"
+msgstr "Количество артикулов"
+
+msgid "Select theme design"
+msgstr "Выберите тему дизайна"
+
+msgid "Changing of product stocks for"
+msgstr ""
+
+msgid "virtual and real"
+msgstr "виртуальном и реальном"
+
+msgid "virtual"
+msgstr "виртуальном"
+
+msgid "real"
+msgstr "реальном"
+
+msgid "on "
+msgstr "на"
+
+msgid "all stocks"
+msgstr "всех складах"
+
+msgid "any stock"
+msgstr "любом складе"
+
+msgid "each stock"
+msgstr "каждом складе"
+
+msgid "Delayed loading of badges"
+msgstr "Отложенная загрузка наклеек"
+
+msgid "Make sure that you deal with <a href=\"https://igaponov.com/docs/85/setup/\" style=\"color:#03c\" target=\"_blank\">Mandatory customization of theme design</a>"
+msgstr "Убедитесь, что вы выполнили <a href=\"https://igaponov.ru/docs/76/setup/\" style=\"color:#03c\" target=\"_blank\">Обязательные настройки шаблона</a>"
+
+msgid "Disable plugin on cart/order page"
+msgstr "Отключить плагин на странице оформления/корзины"
+
+msgid "If you have problems with speed on cart/order page, try to use this option to disable plugin on that page."
+msgstr "Если у вас имеются проблемы со скоростью на странице оформления/корзины, используйте данную настройку, чтобы отключить плагин на данных страницах."
+
+msgid "Average user rating: %s / 5"
+msgstr "Средний рейтинг пользователя: %s / 5"
+
+msgid "System settings"
+msgstr "Системные настройки"
+
+msgid "Be carefull with that settings. If you are not sure, do not change them"
+msgstr "Будьте осторожны с данными настройкми. Если вы не уверены в их назначении, не меняйте их"
+
+msgid "Add file basenames"
+msgstr "Добавить названия файлов"
+
+msgid "Reverse backtrace"
+msgstr "Обратный порядок вызовов"
+
+msgid "Extended plugins reports"
+msgstr "Расширенный отчет о вызовах из плагинов"
+
+msgid "Extended template reports"
+msgstr "Расширенный отчет о вызовах из шаблона"
+
+msgid "Extended methods reports"
+msgstr "Расширенный отчет о вызовах из методов"
+
+msgid "Profile mode"
+msgstr "Режим профилирования"
+
+msgid "Off"
+msgstr "Выкл"
+
+msgid "On"
+msgstr "Вкл"
+
+msgid "Enable profile mode to collect information about usaging of plugin hooks."
+msgstr "Активируйте режим профилирования для сбора информации об использовании хуков плагина."
+
+msgid "Relevant for frontend. Update the necessary page and get the report in autobadge.profile.log"
+msgstr "Актуально для фронтенда. Обновите нужную страницу в браузере и отчет будет сформирован в файле autobadge.profile.log"
+
+msgid "Also use cookie to enable profiling: "
+msgstr "Также используйте куку, чтобы активировать профилирование: "
+
+msgid "Depth"
+msgstr "Глубина"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "Ignore calls from plugins:"
+msgstr "Игнорировать вызовы от плагинов:"
+
+msgid "No plugins are installed."
+msgstr "Нет ни одного плагина."
+
+msgid "show more"
+msgstr "показать еще"
+
+msgid "Ignore calls from methods"
+msgstr "Игнорировать вызовы от методов"
+
+msgid "%d time"
+msgid_plural "%d times"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "%d call"
+msgid_plural "%d calls"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "Show badges after pages load"
+msgstr "Отобразить наклейки после загрузки страницы"
+
+msgid "Badges will be showed after the page content is loaded. Use this function, if badges have wrong position for the first milliseconds, to prevent unnecessary badge moving."
+msgstr "Наклейки будут отображены после полной загрузки страницы. Используйте эту функцию, если первые миллисекуды наклейки расположены не правильно, и вам не нравится, что пользователь видит, как они позиционируются."
+
+msgid "Badges will be loaded by ajax after the page content is loaded. Use this function to speed up page loading."
+msgstr "Наклейки будут динамически подгружены после полной загрузки страницы. Используйте эту функцию, чтобы увеличить скорость загрузки страницы."

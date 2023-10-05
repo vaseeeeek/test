@@ -1,0 +1,216 @@
+<div class="f-tab-addons">
+    <div class="field-group">
+        <h3 class="heading-v1">[`Minimal price of order`]</h3>
+        <div class="field">
+            <div class="name">[`Minimal sum`]</div>
+            <div class="value">
+                <input type="text" name="storefront_settings[minimal][price]" class="short"{if !empty($settings.minimal.price)} value="{$settings.minimal.price|escape}"{/if} />
+                {$wa->shop->primaryCurrency()}
+            </div>
+        </div>
+        <div class="field">
+            <div class="name">[`Minimal sum of each product`]</div>
+            <div class="value">
+                <input type="text" name="storefront_settings[minimal][product_sum]" class="short"{if !empty($settings.minimal.product_sum)} value="{$settings.minimal.product_sum|escape}"{/if} />
+                {$wa->shop->primaryCurrency()}
+            </div>
+        </div>
+        <div class="field">
+            <div class="name">[`Minimal total quantity`]</div>
+            <div class="value">
+                <input type="text" name="storefront_settings[minimal][total_quantity]" class="short"{if !empty($settings.minimal.total_quantity)} value="{$settings.minimal.total_quantity|escape}"{/if} />
+            </div>
+        </div>
+        <div class="field">
+            <div class="name">[`Minimal quantity of each product`]</div>
+            <div class="value">
+                <input type="text" name="storefront_settings[minimal][product_quantity]" class="short"{if !empty($settings.minimal.product_quantity)} value="{$settings.minimal.product_quantity|escape}"{/if} />
+            </div>
+        </div>
+    </div>
+    <div class="field-group">
+        <h3 class="heading-v1">[`Address autodetection (Sypex Geo)`]</h3>
+        <div class="field">
+            <div class="margin-block bottom">[`This addon will automatically detect country, region and city for customers, which doesn't have them`]</div>
+            <div class="field">
+                <div class="name">[`Use`]</div>
+                <div class="value">
+                    <div class="ibutton-checkbox">
+                        <ul class="menu-h">
+                            <li>
+                                <span class="switcher-off-label">[`No`]</span>
+                            </li>
+                            <li>
+                                <input class="switcher not-inited" type="checkbox" name="storefront_settings[use_sypex_geo]" value="1" {if !empty($settings.use_sypex_geo)}checked="checked"{/if} />
+                            </li>
+                            <li>
+                                <span class="switcher-on-label">[`Yes`]</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="field-group">
+        <h3 class="heading-v1">[`Phone mask`]</h3>
+        <div class="field">
+            <div class="field">
+                <div class="name">[`Replace +78 to +7`]</div>
+                <div class="value">
+                    <div class="ibutton-checkbox">
+                        <ul class="menu-h">
+                            <li>
+                                <span class="switcher-off-label">[`No`]</span>
+                            </li>
+                            <li>
+                                <input class="switcher not-inited" type="checkbox" name="storefront_settings[replace_78]" value="1" {if !empty($settings.replace_78)}checked="checked"{/if} />
+                            </li>
+                            <li>
+                                <span class="switcher-on-label">[`Yes`]</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="margin-block top">
+                        [`When you use mask with +7, people sometimes enter phones like 8-012-345-67-89 and you get +7-801-234-56-78`]<br>
+                        [`If you want to get +7-012-345-67-89, enable this option`]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="field-group">
+        <h3 class="heading-v1">[`Plugins`]</h3>
+        <h4 class="heading-v2"><span>[`Delivery and payment filter`]</span></h4>
+        <div class="field">
+            {if $has_delpayfilter}
+                <div class="name">[`Use plugin`]</div>
+                <div class="value">
+                    <label><input type="checkbox" name="storefront_settings[use_delpayfilter]"{if !empty($settings.use_delpayfilter)} checked{/if}> {if !isset($plugins.delpayfilter)} <span class="hint">[`plugin disabled`]</span>{/if}</label>
+                </div>
+            {else}
+                [`Plugin not found`]
+            {/if}
+        </div>
+        <div class="field">
+        <h4 class="heading-v2"><span>[`Flexdiscount`]</span></h4>
+            <div class="field">
+                <div class="name">[`Show active discounts`]</div>
+                <div class="value">
+                    {if $has_flexdiscount}
+                        <div class="ibutton-checkbox">
+                            <ul class="menu-h">
+                                <li>
+                                    <span class="switcher-off-label">[`No`]</span>
+                                </li>
+                                <li>
+                                    <input class="switcher not-inited" type="checkbox" name="storefront_settings[use_flexdiscount_ad]" value="1" {if !empty($settings.use_flexdiscount_ad)}checked="checked"{/if} />
+                                </li>
+                                <li>
+                                    <span class="switcher-on-label">[`Yes`]</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="onopen" style="margin-left: 50px;margin-top: 20px;display: {if !empty($settings['use_flexdiscount_ad'])}block{else}none{/if};">
+                            <div class="field">
+                                <div class="name">[`Collapse information`]</div>
+                                <div class="value">
+                                    <input type="checkbox" class="f-collapse-fl" name="storefront_settings[collapse_flexdiscount]"{if !empty($settings.collapse_flexdiscount)} checked{/if}>
+                                    <div class="inline-block" style="margin-left: 10px; {if empty($settings.collapse_flexdiscount)}display:none{/if}">
+                                        [`Collapse link`]: <input type="text" name="storefront_settings[collapse_link]" value="{if !empty($settings.collapse_link)}{$settings.collapse_link|escape}{else}[`show more`]{/if}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="name">[`View type`]</div>
+                                <div class="value">
+                                    <input type="text" class="short" name="storefront_settings[flexdiscount_avt]"{if !empty($settings.flexdiscount_avt)} value="{$settings.flexdiscount_avt|escape}"{/if}>
+                                    <div class="grey margin-block top">[`More information about view type read in Flexdiscount docs.`]</div>
+                                </div>
+                            </div>
+                        </div>
+                    {else}
+                        [`Plugin not found`]
+                    {/if}
+                </div>
+            </div>
+            <div class="field">
+                <div class="name">[`Show product prices with discount`]</div>
+                <div class="value">
+                    {if $has_flexdiscount}
+                        <div class="ibutton-checkbox">
+                            <ul class="menu-h">
+                                <li>
+                                    <span class="switcher-off-label">[`No`]</span>
+                                </li>
+                                <li>
+                                    <input class="switcher not-inited" type="checkbox" name="storefront_settings[flexdiscount_prices]" value="1" {if !empty($settings.flexdiscount_prices)}checked="checked"{/if} />
+                                </li>
+                                <li>
+                                    <span class="switcher-on-label">[`Yes`]</span>
+                                </li>
+                            </ul>
+                        </div>
+                    {else}
+                        [`Plugin not found`]
+                    {/if}
+                </div>
+                {if $has_flexdiscount}
+                    <div class="field">
+                        <div class="onopen" style="display: {if !empty($settings['flexdiscount_prices'])}block{else}none{/if};">
+                            <div class="field">
+                                <div class="name">[`Change compare prices`]</div>
+                                <div class="value">
+                                    <div class="ibutton-checkbox">
+                                        <ul class="menu-h">
+                                            <li>
+                                                <span class="switcher-off-label">[`No`]</span>
+                                            </li>
+                                            <li>
+                                                <input class="switcher not-inited" type="checkbox" name="storefront_settings[flexdiscount_prices_com]" value="1" {if !empty($settings.flexdiscount_prices_com)}checked="checked"{/if} />
+                                            </li>
+                                            <li>
+                                                <span class="switcher-on-label">[`Yes`]</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {/if}
+            </div>
+        </div>
+    </div>
+    <div class="field-group">
+        <h3 class="heading-v1">[`Other settings`]</h3>
+        <div class="field">
+            <div class="name">[`Update information, when contact fields had been changed`]</div>
+            <div class="value">
+                <label><input type="checkbox" name="storefront_settings[contact_update]"{if !empty($settings.contact_update)} checked{/if}></label>
+            </div>
+        </div>
+        <div class="field">
+            <div class="name">[`Popup dialog closing`]</div>
+            <div class="value">
+                <label>
+                    <input type="checkbox" name="storefront_settings[popup_close]"{if !empty($settings.popup_close) || !isset($settings.collapse_link)} checked{/if}>
+                    [`Close popup dialog, when user click outside the form`]
+                </label>
+            </div>
+        </div>
+        <div class="field"{if !waRequest::cookie('quickorder_extended_settings')} style="display: none"{/if}>
+            <div class="name">[`Delay for stabilization on mobile devices, when we click on the input field`]</div>
+            <div class="value">
+                <label>
+                    <input type="text" name="storefront_settings[mobile_device_stab_delay]" class="short" value="{if !empty($settings.mobile_device_stab_delay)}{$settings.mobile_device_stab_delay|escape}{else}500{/if}" />
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    new QuickorderPluginAddons({
+        wrap: $('.f-tab-addons')
+    });
+</script>

@@ -1,0 +1,45 @@
+<link href="{$wa_app_static_url}plugins/listfeatures/css/settings.css?v{$version}" type="text/css" rel="stylesheet">
+
+<script type="text/javascript" src="{$wa_app_static_url}plugins/listfeatures/js/settings.js?v{$version}"></script>
+<script type="text/javascript" src="{$wa_backend_url}shop/?plugin=listfeatures&action=loc&v{$version}"></script>
+
+<script type="text/javascript">
+var wa_url = '{$wa_url}'; //for template source editor
+</script>
+<script src="{$wa_url}wa-content/js/jquery-wa/wa.elrte.ace.js?v{$wa->version(true)}"></script>
+
+<div class="listfeatures">
+    <h1 class="no-bold">[`Product features in lists`]</h1>
+    {if $settlements}
+        <form class="settings">
+            <input type="hidden" class="set-id-value" name="set_id">
+            <div class="fields">
+                <div class="field settlements">
+                    <div class="name">[`Choose settlement`]</div>
+                    <div class="value">
+                        <select name="settlement">
+                            {foreach $settlements as $hash => $settlement}
+                                <option value="{$hash}">{$settlement}</option>
+                            {/foreach}
+                        </select>
+                    </div>
+                </div>
+                <div class="field sets">
+                    <div class="name">[`Feature sets available for this settlement`]</div>
+                    <div class="value"></div>
+                </div>
+                <div class="field buttons">
+                    <div class="name"></div>
+                    <div class="value">
+                        <input type="submit" class="button green" value="[`Save`]">
+                        <span class="delete-set-link red hidden">[`delete set`]</span>
+                        <span class="cancel-new-set-link hidden">[`cancel`]</span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    {else}
+        <p><strong>[`No settlements for Shop-Script 5 found.`]</strong><br>
+        [`Set up storefront settlements in <a href="{$wa_backend_url}site/#/routing/">Site</a> app`]</p>
+    {/if}
+</div>

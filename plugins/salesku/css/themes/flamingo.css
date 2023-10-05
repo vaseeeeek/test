@@ -1,0 +1,5 @@
+.salesku_plugin_product_list { display: table;}
+.salesku_plugin_product_list .salesku_plugin-product {height: inherit;/* min-height: 600px !important;*/  display: inline-block ; vertical-align: top; float: inherit; }
+.salesku_plugin-product .add2cart {margin-top: 10px;}
+.salesku_plugin-product .options .inline-select a.selected {background: #bb247d;}
+.salesku_plugin-product .options .inline-select a {border: 1px solid #bb247d; }

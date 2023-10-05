@@ -1,0 +1,7 @@
+{capture assign="dialog"}
+	{include file="shop_dp:{$current_theme_id}/dialog" inline}
+{/capture}
+{capture assign="overlay"}
+	{include file="shop_dp:{$current_theme_id}/overlay" inline}
+{/capture}
+<input class="js-dp-dialog-layout" type="hidden" data-overlay="{$overlay|escape|strip}" data-wrapper="{$dialog|escape|strip}"/>

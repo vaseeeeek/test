@@ -1,0 +1,47 @@
+{strip}
+
+{$coupon_code = $wa->storage("flexdiscount-coupon")}
+
+{* Стили плагина в шапке сайта *}
+{if (!empty($settings['styles_output']) && $settings['styles_output'] == 'head') || !isset($settings['styles_output'])}
+    {$helper->getCssStyles()}
+{/if}
+
+{$plugin_settings = shopFlexdiscountApp::get('settings')}
+
+<script>
+    $(function() {
+        $.flexdiscountFrontend = new FlexdiscountPluginFrontend({
+            urls: {
+                couponAddUrl: '{$wa->getUrl("shop/frontend/couponAdd", ["plugin" => $plugin_id])}',
+                updateDiscountUrl: '{$wa->getUrl("shop/frontend/updateDiscount", ["plugin" => $plugin_id])}',
+                refreshCartUrl: '{$wa->getUrl("shop/frontend/updateCart", ["plugin" => $plugin_id])}',
+                deleteUrl: '{$wa->getUrl("shop/frontend/couponDelete", ["plugin" => $plugin_id])}',
+                cartSaveUrl: {
+                    shop: '{$helper->cleanUrl($wa->getUrl("shop/frontendCart", ["action" => "save"]), true)}',
+                    plugin: '{$helper->cleanUrl($wa->getUrl("shop/frontend/cartSave"), true)}'
+                },
+                cartDeleteUrl: {
+                    shop: '{$helper->cleanUrl($wa->getUrl("shop/frontendCart", ["action" => "delete"]), true)}',
+                    plugin: '{$helper->cleanUrl($wa->getUrl("shop/frontend/cartDelete"), true)}'
+                },
+                cartAddUrl: {
+                    shop: '{$helper->cleanUrl($wa->getUrl("shop/frontendCart", ["action" => "add"]), true)}',
+                    plugin: '{$helper->cleanUrl($wa->getUrl("shop/frontend/cartAdd"), true)}'
+                }
+            },
+            updateInfoblocks: {if !empty($settings['update_infoblocks']) || !isset($settings['update_infoblocks'])}1{else}0{/if},
+            hideDefaultAffiliateBlock: '{if !empty($plugin_settings['default_affiliate_bonus'])}{$plugin_settings['default_affiliate_bonus']}{/if}',
+            ss8forceUpdate: '{waRequest::param("flexdiscount_ss8_force_update", 0)}',
+            addAffiliateBlock: {if shopAffiliate::isEnabled() && !empty($settings['flexdiscount_affiliate_bonus']['value'])}1{else}0{/if},
+            loaderType: '{if !empty($plugin_settings['css_loader'])}{$plugin_settings['css_loader']}{/if}',
+            locale: '{$wa->locale()}',
+            settings: {json_encode($helper->prepareJsSettings($settings))},
+            ss8UpdateAfterPayment: {if $helper->checkOnestepCartForceReloadForShipping()}1{else}0{/if},
+            shopVersion: '{$wa->version("shop")}'
+            {if !empty($coupon_code)}, couponCode: '{$coupon_code}'{/if}
+        });
+    });
+</script>
+
+{/strip}

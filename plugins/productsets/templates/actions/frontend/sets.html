@@ -1,0 +1,87 @@
+{strip}
+
+{$is_mobile = $wa->isMobile()}
+
+{foreach $sets_list as $set}
+    {* include.vars.html *}
+    {include file=$templates.vars.frontend_path inline}
+
+    {* ---------- Captures ---------- *}
+    {capture name='title'}
+        {if !empty($set.general.title) && !waRequest::param('productsets_hide_title')}
+            <div class='productsets-title'>{$set.general.title}</div>
+        {/if}
+    {/capture}
+
+    {* -------------------- *}
+
+    <div class='productsets-wrap not-inited{if $is_mobile} productsets-mobile{/if}{if $sticky_block && $total_layout == 'tl-1'} ps-sticky{/if}'
+           data-id='{$set.id}'
+           data-ruble="{if !empty($set.general.ruble_sign)}{$set.general.ruble_sign}{else}rub{/if}"
+           data-reload="{if !empty($set.settings.other.reload_after_checkout)}1{else}0{/if}"
+           data-change-price="{$change_price}"
+           data-round="{$round}"
+    >
+
+        {* Текст перед комплектом *}
+        {if !empty($set.general.html_before) && $show_before_after_html}
+            <div class='productsets-html-before'>
+                {$set.general.html_before}
+            </div>
+        {/if}
+
+        {* Заголовок *}
+        {if empty($set.bundle) && !empty($set.user_bundle)}
+            {$smarty.capture.title}
+        {/if}
+
+        {* Наборы *}
+        {if !empty($set.bundle)}
+
+            <div class='productsets-wrap-inner' {shopProductsetsPluginGenerator::BUNDLE_BLOCK_ATTR}>
+
+                {* Блок с общей стоимостью *}
+                {if $total_block_output == 'top' && $total_layout == 'tl-1'}
+                    {* include.bundle.total.block.html *}
+                    {include file=$templates.bundle_total_block.frontend_path set=$set}
+                {/if}
+
+                <div class="productsets-body" {shopProductsetsPluginGenerator::BUNDLE_BLOCK_CONTENT_ATTR}>
+
+                    {* Заголовок *}
+                    {$smarty.capture.title}
+
+                    <div class='productsets-bundles-wrap pl0 pr0 card-layout-{$card_layout} productsets-total-{$total_layout}'>
+                        {foreach $set.bundle as $bundle}
+                            {* include.bundle.html *}
+                            {include file=$templates.bundle.frontend_path inline}
+                        {/foreach}
+                    </div>
+                </div>
+
+                {* Блок с общей стоимостью *}
+                {if $total_block_output == 'bottom' && $total_layout == 'tl-1'}
+                    {* include.bundle.total.block.html *}
+                    {include file=$templates.bundle_total_block.frontend_path set=$set}
+                {/if}
+
+            </div>
+        {/if}
+
+        {* Наборы пользователя *}
+        {if !empty($set.user_bundle)}
+            {* include.userbundle.html *}
+            {include file=$templates.userbundle.frontend_path userbundle=$set.user_bundle}
+        {/if}
+
+        {* Текст после комплекта *}
+        {if !empty($set.general.html_after) && $show_before_after_html}
+            <div class='productsets-html-after'>
+                {$set.general.html_after}
+            </div>
+        {/if}
+
+    </div>
+{/foreach}
+
+{/strip}

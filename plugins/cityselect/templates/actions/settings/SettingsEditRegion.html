@@ -1,0 +1,65 @@
+<div class="i-cityselect__form_region b-settings__middle_dialog b-settings__small_editor">
+    <h3>Регион</h3>
+    <p>Если оставить город пустым - переменные будут по умолчанию для всего региона, если оставить и регион и город
+        пустыми - для всего сайта</p>
+    <input name="id" class="i-cityselect__form_region_id" type="hidden" value="{$region->id|default:'0'}">
+
+    <div class="field">
+        <div class="name">
+            <label for="cityselect__region_region">Регион</label>
+        </div>
+        <div class="value">
+            <input type="text" id="cityselect__region_region" name="region" value="{$region->region|escape}">
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">
+            <label for="cityselect__region_city">Город</label>
+        </div>
+        <div class="value">
+            <input type="text" id="cityselect__region_city" name="city" value="{$region->city|escape}">
+        </div>
+    </div>
+
+    <div class="hint i-cityselect__form_region_token" style="display: none">
+        <span class="">Внимание!</span> для удобного добавления городов, укажите API-ключ на вкладке "Настойки" общих настроек
+    </div>
+
+    <br>
+    <div class="field">
+        <div class="name">
+            <label>Редирект на витрину</label>
+        </div>
+        <div class="value">
+            <select name="redirect">
+                <option value="">не перенаправлять</option>
+                {foreach $storefronts as $storefront}
+                    <option {if $region->redirect == $storefront}selected{/if} value="{$storefront}">{waIdna::dec($storefront)}</option>
+                {/foreach}
+            </select>
+        </div>
+    </div>
+    <br>
+
+    <div class="field">
+        <div class="name">
+            <b>Переменные:</b>
+        </div>
+    </div>
+
+    {foreach $region->variables as $type}
+    <div class="field">
+        <div class="name" style="width: 100%">
+
+            <label>
+                <span class="b-settings__right"><span class="b-settings__copy_code i-settings__copy_code">{ldelim}shop{$plugin_id|ucfirst}Plugin::variable('{$type.code|escape}'){rdelim}</span></span>
+                {$type.name}
+            </label>
+        </div>
+        <div class="value no-left">
+            <textarea class="i-settings__code"  name="variable[{$type.id}]">{$type.value|escape}</textarea>
+        </div>
+        {if !$type@last}<br>{/if}
+    </div>
+    {/foreach}
+</div>

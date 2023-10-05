@@ -1,0 +1,972 @@
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendAddCondition.html:9
+msgid "Select condition"
+msgstr "Выберите условие"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendAddCondition.html:11
+msgid "New condition group"
+msgstr "Новая группа условий"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:25
+msgid "Edit conditions"
+msgstr "Редактировать правила применения"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:29
+msgid "Search for products with this \"complex\" price"
+msgstr "Найти товары с этой комплексной ценой"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:32
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:46
+msgid "Save"
+msgstr "Сохранить"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:34
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:48
+#: /wa-apps/shop/plugins/complex/js/complex.transfer.js:53
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:110
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:252
+msgid "cancel"
+msgstr "отмена"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:38
+msgid "Edit"
+msgstr "Редактировать"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:40
+msgid "delete"
+msgstr "удалить"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:46
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:55
+msgid "Nacenka k"
+msgstr "Наценка к"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:47
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:56
+msgid "Skidka ot"
+msgstr "Скидка от"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:51
+#: /wa-apps/shop/plugins/complex/templates/controls/productSkuSettings.html:41
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:60
+msgid "Main price"
+msgstr "Основная цена"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:54
+#: /wa-apps/shop/plugins/complex/templates/controls/productSkuSettings.html:43
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:62
+msgid "Purchase price"
+msgstr "Закупочная цена"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:67
+#: /wa-apps/shop/plugins/complex/templates/controls/productSkuSettings.html:26
+msgid "Nacenka"
+msgstr "Наценка"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:69
+msgid "Discount"
+msgstr "Скидка"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:73
+msgid "ot"
+msgstr "от"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:78
+msgid "zacherknutoi ceni"
+msgstr "зачеркнутой цены"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:83
+msgid "osnovnoi ceni"
+msgstr "основной цены"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:88
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:17
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:54
+msgid "No"
+msgstr "Отсутствует"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:92
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:94
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:97
+msgid "Round to nearest"
+msgstr "Округлять до"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:101
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:113
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:80
+msgid "Not round"
+msgstr "Не округлять"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:104
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:73
+msgid "Round to nearest 100"
+msgstr "Округлять до 100"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:105
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:74
+msgid "Round to nearest 99"
+msgstr "Округлять до 99"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:106
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:75
+msgid "Round to nearest 10"
+msgstr "Округлять до 10"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:107
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:76
+msgid "Round to nearest 1.00"
+msgstr "Округлять до 1.00"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:108
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:77
+msgid "Round to nearest .99"
+msgstr "Округлять до .99"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:109
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:78
+msgid "Round to nearest 0.1"
+msgstr "Округлять до 0.1"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:110
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:79
+msgid "Round to nearest 0.01"
+msgstr "Округлять до 0.01"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendRulesDialog.html:11
+#: /wa-apps/shop/plugins/complex/templates/actions/rule/RuleView.html:45
+#: /wa-apps/shop/plugins/complex/templates/actions/rule/RuleView.html:55
+#: /wa-apps/shop/plugins/complex/js/complex.rules.js:211
+msgid "All conditions are met"
+msgstr "Все условия выполнены"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendRulesDialog.html:14
+#: /wa-apps/shop/plugins/complex/templates/actions/rule/RuleView.html:50
+#: /wa-apps/shop/plugins/complex/templates/actions/rule/RuleView.html:59
+#: /wa-apps/shop/plugins/complex/js/complex.rules.js:212
+msgid "At least one condition is met"
+msgstr "Хотя бы одно условие выполнено"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendRulesDialog.html:20
+msgid "Add conditions."
+msgstr "Создайте условия."
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendRulesDialog.html:25
+#: /wa-apps/shop/plugins/complex/templates/actions/rule/RuleView.html:85
+#: /wa-apps/shop/plugins/complex/templates/actions/rule/RuleView.html:116
+#: /wa-apps/shop/plugins/complex/js/complex.rules.js:216
+msgid "Add condition"
+msgstr "Добавить условие"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendTransferDialog.html:1
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:107
+msgid "Transfer settings and prices from other plugins"
+msgstr "Перенос настроек и цен из других плагинов"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendTransferDialog.html:7
+msgid "Plugin"
+msgstr "Плагин"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendTransferDialog.html:24
+msgid "Preparing for transfer"
+msgstr "Подготовка к переносу"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendTransferDialog.html:33
+msgid "All settings and price types from selected plugin will be transferred, as well as the existing prices for products."
+msgstr "Будут перенесены все настройки и типы цены из выбранного плагина, а так же перенесены существующие цены, заданные для товаров."
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendTransferDialog.html:39
+msgid "Plugins for managing wholesale and other prices were not found."
+msgstr "Плагины для управления оптовыми и другими ценами не найдены."
+
+#: /wa-apps/shop/plugins/complex/templates/actions/rule/RuleConditionSimple.html:1
+msgid "is not"
+msgstr "не"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/rule/RuleView.html:124
+msgid "After saving the rule will be edited and selected for the selected price type."
+msgstr "После сохранения правило будет отредактировано и выбрано для выбранного типа цен."
+
+#: /wa-apps/shop/plugins/complex/templates/actions/rule/RuleViewSimple.html:2
+#: /wa-apps/shop/plugins/complex/templates/actions/rule/RuleViewSimple.html:9
+msgid "AND"
+msgstr "И"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/rule/RuleViewSimple.html:4
+#: /wa-apps/shop/plugins/complex/templates/actions/rule/RuleViewSimple.html:11
+msgid "OR"
+msgstr "ИЛИ"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/availablePrices.html:5
+msgid "Price name"
+msgstr "Название цены"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/availablePrices.html:6
+msgid "Conditions for customer"
+msgstr "Условия для покупателя"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/orderEdit.html:5
+msgid "Default prices"
+msgstr "Цены по умолчанию"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/orderEdit.html:17
+msgid "You can use"
+msgstr "Можно применить"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/orderEdit.html:17
+msgid "complex prices"
+msgstr "комплексные цены"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/orderEdit.html:17
+msgid "for this product and order"
+msgstr "для этого товара в заказе"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/productEdit.html:3
+msgid "Complex prices algorithm"
+msgstr "Режим работы комплексных цен"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/productEdit.html:7
+msgid "Algorithm enabled"
+msgstr "Алгоритм включен"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/productEdit.html:8
+msgid "Complex prices will be applied in accordance with established conditions"
+msgstr "Комплексные цены будут применены в соответствии с установленными правилами применения"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/productEdit.html:9
+#: /wa-apps/shop/plugins/complex/templates/controls/productEdit.html:12
+msgid "Algorithm disabled"
+msgstr "Алгоритм отключен"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/productEdit.html:9
+msgid "use main price"
+msgstr "используется основная цена"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/productEdit.html:10
+msgid "Regardless of the established conditions, \"complex\" prices will not apply to this product"
+msgstr "Вне зависимости от установленных правил, комплексная цена не будет применяться на этот товар"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/productEdit.html:12
+msgid "use complex price"
+msgstr "использовать комплексную цену"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/productEdit.html:12
+msgid "for this product"
+msgstr "для этого товара"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/productEdit.html:15
+msgid "Switching these values will not affect the discounts applied and other price handlers."
+msgstr "Переключение этих значений ни коим образом не повлияет на применяемые скидки и прочие обработчики цен товаров."
+
+#: /wa-apps/shop/plugins/complex/templates/controls/productSkuSettings.html:3
+#: /wa-apps/shop/plugins/complex/lib/config/plugin.php:3
+#: /wa-apps/shop/plugins/complex/lib/shopComplexPlugin.class.php:315
+msgid "Complex prices"
+msgstr "Комплексные цены"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/productSkuSettings.html:24
+msgid "Fixed price"
+msgstr "Цена"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/productSkuSettings.html:25
+msgid "Skidka"
+msgstr "Скидка"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/transfer.html:7
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:10
+msgid "Detected plugin"
+msgstr "Обнаружен плагин"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/transfer.html:7
+#: /wa-apps/shop/plugins/complex/templates/controls/transfer.html:9
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:10
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:12
+msgid "Transfer settings and product prices"
+msgstr "Переместить настройки и цены товаров"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/transfer.html:7
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:10
+msgid " iz nego"
+msgstr " из него"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/transfer.html:9
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:12
+msgid "Detected plugins"
+msgstr "Обнаружены плагины"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/transfer.html:9
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:12
+msgid " iz nih"
+msgstr " из них"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/transfer.html:13
+msgid "Transfer prices"
+msgstr "Перенести цены"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:16
+msgid "Yes"
+msgstr "Да"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:26
+msgid "Price type"
+msgstr "Тип цены"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:27
+msgid "Default value"
+msgstr "По умолчанию"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:28
+msgid "Rounding"
+msgstr "Округление"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:38
+msgid "Wholesale price"
+msgstr "Оптовая цена"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:43
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:190
+msgid "Set rules for using this price"
+msgstr "Задать правила применения"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:47
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:252
+msgid "or"
+msgstr "или"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:66
+msgid "v razmere"
+msgstr "в размере"
+
+#: /wa-apps/shop/plugins/complex/templates/controls/types.html:88
+msgid "New price type"
+msgstr "Новый тип цен"
+
+#: /wa-apps/shop/plugins/complex/js/complex.rules.js:193
+msgid "Control type"
+msgstr "Тип контроллера"
+
+#: /wa-apps/shop/plugins/complex/js/complex.rules.js:193
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginBackend.actions.php:232
+msgid "is not found"
+msgstr "не определен"
+
+#: /wa-apps/shop/plugins/complex/js/complex.rules.js:215
+msgid "Add conditions"
+msgstr "Добавить условие"
+
+#: /wa-apps/shop/plugins/complex/js/complex.rules.js:219
+msgid "It is not possible to create a condition group inside an existing one"
+msgstr "Невозможно создать группу условий внутри уже существующей"
+
+#: /wa-apps/shop/plugins/complex/js/complex.transfer.js:21
+msgid "Transfer settings and prices"
+msgstr "Переместить цены и настройки"
+
+#: /wa-apps/shop/plugins/complex/js/complex.transfer.js:35
+msgid "Transfering of prices and settings..."
+msgstr "Перенос цен и настроек..."
+
+#: /wa-apps/shop/plugins/complex/js/complex.transfer.js:35
+msgid "End of transfering..."
+msgstr "Завершение переноса..."
+
+#: /wa-apps/shop/plugins/complex/js/complex.transfer.js:42
+msgid "Preparing for transfer..."
+msgstr "Подготовка к переносу..."
+
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:69
+msgid "On"
+msgstr "Вкл"
+
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:70
+msgid "Off"
+msgstr "Выкл"
+
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:85
+msgid "Save rules"
+msgstr "Сохранить правила"
+
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:167
+msgid "Helpers"
+msgstr "Хелперы"
+
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:167
+msgid "To display \"complex\" prices together with main one, you can use special helpers"
+msgstr "Для отображения комплексной цены товара вместе с основной, можно использовать специальные хелперы"
+
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:167
+msgid "will return price of the main sku, or nothing, if there is no"
+msgstr "вернет цену для товара основного артикула, либо ничего, если отсутствует"
+
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:167
+msgid "will return formatted price of the main sku, or nothing, if there is no"
+msgstr "вернет отформатированную цену для товара основного артикула, либо ничего, если отсутствует"
+
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:167
+msgid "will return price for selected sku, or nothing, if there is no"
+msgstr "вернет цену для выбранного артикула товара, либо ничего, если отсутствует"
+
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:167
+msgid "will return formatted price for selected sku, or nothing, if there is no"
+msgstr "вернет отформатированную цену для выбранного артикула товара, либо ничего, если отсутствует"
+
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:167
+msgid "returns the status of algorithm to use \"complex\" prices"
+msgstr "возвращает статус работы алгоритма для использования комплексной цены"
+
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:167
+msgid "algorithm is enabled and will change the price in accordance with the established conditions"
+msgstr "алгоритм включен и изменит цену в соответствии с установленными правилами"
+
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:167
+msgid "algorithm is disabled, product will ALWAYS use main price (also returned if the complex price is disabled)"
+msgstr "алгоритм отключен, для товара ВСЕГДА будет использоваться основная цена (также возвращается если комплексная цена отключена)"
+
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:167
+msgid "algorithm is disabled, product will ALWAYS use \"complex\" price"
+msgstr "алгоритм отключен, для товара ВСЕГДА будет использоваться комплексная цена"
+
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:167
+msgid "is enabled selected \"complex\" price"
+msgstr "включена ли выбранная комплексная цена"
+
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:168
+msgid "Close"
+msgstr "Закрыть"
+
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:234
+msgid "Delete price"
+msgstr "Удалить тип цен"
+
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:234
+msgid "If you delete this price, then <strong>ALL</strong> existing prices for products will be deleted at the same time.</p><p>This action can't be undone. Are you sure you want to do this?"
+msgstr "Если удалить этот тип цены, то одновременно с ним будут удалены <strong>ВСЕ</strong> существующие такие цены у товаров.</p><p>Это действие нельзя отменить. Вы уверены, что хотите это сделать?"
+
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:235
+msgid "Permanently delete"
+msgstr "Удалить безвозвратно"
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginBackend.actions.php:25
+msgid "Enter price name"
+msgstr "Укажите название цены"
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginBackend.actions.php:34
+msgid "Set price rules"
+msgstr "Задайте правила применения цены"
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginBackend.actions.php:40
+msgid "Form sending error"
+msgstr "Ошибка отправки формы"
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginBackend.actions.php:45
+msgid "Set the size of"
+msgstr "Укажите размер"
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginBackend.actions.php:45
+msgid "nacenki"
+msgstr "наценки"
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginBackend.actions.php:45
+msgid "skidki"
+msgstr "скидки"
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginBackend.actions.php:79
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginBackend.actions.php:93
+msgid "Price type not found"
+msgstr "Тип цены не найден"
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginBackend.actions.php:149
+msgid "Select country!"
+msgstr "Выберите страну!"
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginBackend.actions.php:177
+msgid "Select shipping!"
+msgstr "Выберите способ доставки!"
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginBackend.actions.php:184
+msgid "Can't found shipping rates"
+msgstr "Не найдено вариантов доставки"
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginBackend.actions.php:232
+msgid "Field type"
+msgstr "Тип поля"
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginBackend.actions.php:250
+msgid "Choose a feature!"
+msgstr "Выберите характеристику!"
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginBackend.actions.php:258
+msgid "Feature is not found"
+msgstr "Характеристика не найдена"
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginBackend.actions.php:307
+msgid "Product not found"
+msgstr "Товар не найден"
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginRule.actions.php:59
+msgid "Set up at least one condition!"
+msgstr "Задайте хотя бы одно условие!"
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginRule.actions.php:143
+msgid "Rule not found. Maybe it was deleted."
+msgstr "Правило не найдено. Возможно, оно было удалено."
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginRule.actions.php:245
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginRule.actions.php:262
+msgid "Some fields are not filled correctly"
+msgstr "Некоторые поля заполнены неправильно"
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginRule.actions.php:259
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginRule.actions.php:271
+msgid "Control"
+msgstr "Контроллер"
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginRule.actions.php:267
+msgid "Inside the group there must be at least one condition"
+msgstr "Внутри группы должно быть хотя бы одно условие"
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginRule.actions.php:271
+msgid "does not exists"
+msgstr "не существует"
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginTransferDefault.controller.php:159
+msgid "Transfer is complete"
+msgstr "Перенос завершен"
+
+#: /wa-apps/shop/plugins/complex/lib/actions/shopComplexPluginTransferDefault.controller.php:161
+msgid "Parameters for this plugin not found"
+msgstr "Параметры для этого плагина не найдены"
+
+#: /wa-apps/shop/plugins/complex/lib/classes/shopComplexPluginControls.class.php:62
+msgid "NOT"
+msgstr "НЕ"
+
+#: /wa-apps/shop/plugins/complex/lib/classes/shopComplexPluginControls.class.php:62
+msgid "ALL"
+msgstr "ВСЕ"
+
+#: /wa-apps/shop/plugins/complex/lib/classes/shopComplexPluginControls.class.php:342
+msgid "Any storefront"
+msgstr "Любая витрина"
+
+#: /wa-apps/shop/plugins/complex/lib/classes/shopComplexPluginControls.class.php:375
+#: /wa-apps/shop/plugins/complex/lib/classes/shopComplexPluginControls.class.php:388
+msgid "Any category"
+msgstr "Любая категория"
+
+#: /wa-apps/shop/plugins/complex/lib/classes/shopComplexPluginControls.class.php:399
+msgid "Российская Федерация"
+msgstr ""
+
+#: /wa-apps/shop/plugins/complex/lib/classes/shopComplexPluginControls.class.php:400
+msgid "Украина"
+msgstr ""
+
+#: /wa-apps/shop/plugins/complex/lib/classes/shopComplexPluginHelper.class.php:8
+msgid "Wholesale prices"
+msgstr "Оптовые цены"
+
+#: /wa-apps/shop/plugins/complex/lib/classes/shopComplexPluginHelper.class.php:9
+msgid "Multi prices"
+msgstr "Мульти цены"
+
+#: /wa-apps/shop/plugins/complex/lib/classes/shopComplexPluginProduct.class.php:273
+msgid "Could not determine required currency conversions"
+msgstr "Не удалось определить необходимые преобразования валют"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:5
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:8
+msgid "Shipping"
+msgstr "Доставка"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:14
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:17
+msgid "Payment"
+msgstr "Оплата"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:23
+msgid "Cart"
+msgstr "Корзина"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:25
+msgid "Order sum"
+msgstr "Сумма заказа"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:26
+msgid "Discounted order sum"
+msgstr "Сумма заказа с учетом примененных скидок"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:30
+msgid "Product"
+msgstr "Товар"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:33
+msgid "Product type"
+msgstr "Тип товара"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:37
+msgid "Product main category"
+msgstr "Основная категория товара"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:41
+msgid "Product placed in category"
+msgstr "Товар находится в категории"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:45
+msgid "Product feature"
+msgstr "Характеристика товара"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:49
+msgid "Product feature value"
+msgstr "Значение характеристики"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:53
+msgid "Product rating"
+msgstr "Рейтинг товара"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:57
+msgid "Product skus count"
+msgstr "Число артикулов товара"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:61
+msgid "Any product"
+msgstr "Любой товар"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:67
+msgid "Products in cart"
+msgstr "Товары в корзине"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:69
+msgid "Product count of units in cart"
+msgstr "Количество товарных единиц в корзине"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:70
+msgid "Product count in cart"
+msgstr "Количество товара в корзине в общем"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:73
+msgid "Product count from category"
+msgstr "Количество товаров из категории"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:77
+msgid "Product count with type"
+msgstr "Количество товаров с типом товара"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:123
+msgid "User"
+msgstr "Пользователь"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:125
+msgid "User category"
+msgstr "Категория пользователя"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:129
+msgid "User region"
+msgstr "Регион пользователя"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:132
+msgid "User region (shipping)"
+msgstr "Регион пользователя (shipping)"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:139
+msgid "User region (billing)"
+msgstr "Регион пользователя (billing)"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:144
+msgid "Storefront"
+msgstr "Витрина"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:144
+msgid "Current storefront"
+msgstr "Используется витрина"
+
+#: /wa-apps/shop/plugins/complex/lib/config/plugin.php:4
+msgid "Advanced management of wholesale and other prices"
+msgstr "Расширенное управление оптовыми и другими ценами"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:6
+msgid "Plugin is on"
+msgstr "Плагин включен"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:15
+msgid "Price types"
+msgstr "Типы цен"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:21
+msgid "Basic settings"
+msgstr "Основные настройки"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:27
+msgid "Product page"
+msgstr "Страница товара"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:50
+msgid "Change product prices when viewing"
+msgstr "Изменять цены у товаров при просмотре"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:51
+msgid "If product have at least one \"complex\" price, main price will be replaced to \"complex\""
+msgstr "Если на товар будет действовать какая-либо \"комплексная\" цена, то основная будет заменена на нее.<br/>Цена в корзине и заказе будет изменена в любом случае.<br/>Это может пригодиться, если Вы хотите показывать пользователю как основную, так и \"комплексные\" цены на странице товара (см. ниже)"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:57
+msgid "Reload \"Sum\" value in cart"
+msgstr "Перезагружать значение \"Суммы\" в корзине"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:58
+msgid "If you select this parameter, \"Sum\" value in cart (stored in user session) will be reload every price changes to \"complex\".<br/>This parameter can be turned on when using complex conditions for the applying a \"complex\" price, when its applying depends on the specific actions of user"
+msgstr "Выбрав этот параметр, значение \"Суммы\" в корзине, которое хранится в сессии пользователя, будет каждый раз обновляться при подмене цен на комплексные.<br/>Этот параметр можно включить при использовании сложных условий применения комплексной цены, когда ее применение зависит от конкретных действий пользователя"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:63
+msgid "Allow to enable/disable price \"swap\" algorithm"
+msgstr "Разрешить включать/отключать алгоритм подмены цен в товарах"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:64
+msgid "It will be possible for some products to switch the operating mode of the plugin algorithm. <br/>You can use, for example, to sell a product by wholesale price, or to disable wholesale prices for a while"
+msgstr "Если включить, то можно будет некоторым товарам переключать режим работы алгоритма плагина.<br/>Можно использовать, например, чтобы продавать какой-то товар всегда по оптовой цене, либо отключать оптовые цены на какое-то время"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:69
+msgid "Show the main price as compare"
+msgstr "Показывать основную цену как зачеркнутую"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:70
+msgid "If the algorithm of the plugin calculated that there is some \"complex\" price for this product, the main will become a \"compare\""
+msgstr "Если алгоритм плагина посчитал, что на этот товар действует какая-либо \"комплексная\" цена, то основная станет \"зачеркнутой\""
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:75
+msgid "Only if \"compare price\" > \"final price\""
+msgstr "Только если зачеркнутая будет больше итоговой"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:76
+msgid "Don't set a \"compare price\" if it is less than a \"final price\""
+msgstr "Не устанавливать зачеркнутую цену, если она окажется меньше итоговой"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:81
+msgid "If \"compare price\" already exists..."
+msgstr "Если зачеркнутая уже существует..."
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:84
+msgid "Leave main \"compare price\""
+msgstr "Оставлять существующую зачеркнутую цену"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:88
+msgid "Change to \"main price\""
+msgstr "Подменять на основную цену"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:96
+msgid "Allow to use of \"complex\" prices in backend"
+msgstr "Разрешить использование комплексных цен в бекенде"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:97
+msgid "If you enable this option, when creating and editing orders in the backend, you can \"sell\" products by a certain \"complex\" price"
+msgstr "Если включить этот параметр, при создании и редактировании заказов в бекенде можно будет \"продавать\" товар по определенной комплексной цене"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:113
+msgid "Integrate table with available prices on product page"
+msgstr "Интегрировать таблицу с доступными ценами на страницу товара"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:118
+msgid "Place of integration"
+msgstr "Место интегрирования"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:121
+msgid "Content added next to links to custom product pages"
+msgstr "Содержимое рядом со ссылками на дополнительные страницы товара"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:125
+msgid "Content added next to the “Add to cart” button"
+msgstr "Содержимое рядом с кнопкой «В корзину»"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:129
+msgid "Informational block, usually in a sidebar"
+msgstr "Блок дополнительной информации в боковой части страницы"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:133
+msgid "Block of extra product details in main description area"
+msgstr "Блок дополнительной информации в основной части описания товара"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:141
+msgid "Hide not available for current storefront \"complex\" prices"
+msgstr "Скрывать цены, недоступные для текущей витрины"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:146
+msgid "Hide not available for current user \"complex\" prices"
+msgstr "Скрывать цены, недоступные для текущего пользователя"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:147
+msgid "\"Complex\" prices not available by category or user region will be hidden"
+msgstr "Будут скрыты цены, недоступные по категории или региону пользователя"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:152
+msgid "Show \"main\" price if \"complex\" is not filled"
+msgstr "Показывать цену по умолчанию если комплексная не указана"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:153
+msgid "If the complex price is missing and default value is not filled, the price will be specified by \"main\" price"
+msgstr "Если комплексная цена отсутствует и не указано значение по умолчанию, будет указана цена товара по умолчанию"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:158
+msgid "Use helper"
+msgstr "Используйте хелпер"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:159
+msgid " to include the table with available prices."
+msgstr " для вставки таблицы с доступными ценами"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:168
+msgid "Available prices"
+msgstr "Доступные цены"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:174
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:197
+msgid "Template of the table with available prices"
+msgstr "Шаблон таблицы с доступными ценами"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:180
+msgid "Script params"
+msgstr "Параметры скрипта"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:198
+msgid "This product is available at special prices"
+msgstr "Этот товар доступен по специальным ценам"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:222
+msgid "Available variables"
+msgstr "Доступные переменные"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:223
+msgid "Price name is enabled"
+msgstr "Названия цен включены"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:224
+msgid "Conditions is enabled"
+msgstr "Условия цен включены"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:225
+msgid "Default product price value"
+msgstr "Основная цена товара"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:226
+msgid "Formatted default product price value"
+msgstr "Отформатированная основная цена товара"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:227
+msgid "HTML formatted default product price value"
+msgstr "Отформатированная в HTML основная цена товара"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:228
+msgid "An array with available prices"
+msgstr "Массив с доступными ценами"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:230
+msgid "Data of selected price"
+msgstr "Данные о выбранной цене"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:232
+msgid "Name of price"
+msgstr "Название цены"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:233
+msgid "Conditions for using selected price"
+msgstr "Условия для использования выбранной цены"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:234
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:266
+msgid "Value of price"
+msgstr "Рассчитанное значение комплексной цены"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:235
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:270
+msgid "Formatted value of price"
+msgstr "Отформатированное в HTML значение цены"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:236
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:274
+msgid "HTML formatted value of price"
+msgstr "Отформатированное в HTML значение цены"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:240
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:247
+msgid "Return the default value"
+msgstr "Вернуть значение по умолчанию"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:243
+msgid "CSS"
+msgstr ""
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:252
+msgid "jQuery Sku selector"
+msgstr "jQuery селектор артикула"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:257
+msgid "jQuery Sku \"Features Selectable\" selector (date-feature-id + value)"
+msgstr "jQuery селектор артикула при выборе параметров (date-feature-id + value)"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:262
+msgid "Price format when sku is changing"
+msgstr "Формат цены при смене артикула"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:263
+msgid "When changing a sku of product, the price in the table (.value) will be displayed in selected format"
+msgstr "При изменении артикула на странице товара, цены в таблице будут изменены в соответствии с выбранным форматом"
+
+#: /wa-apps/shop/plugins/complex/lib/shopComplexPlugin.class.php:316
+msgid "Format of complex price"
+msgstr "Формат комплексной цены"
+
+#: /wa-apps/shop/plugins/complex/lib/shopComplexPlugin.class.php:392
+msgid "Products with filled price"
+msgstr "Товары с установленной ценой"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:8
+msgid "_Shipping"
+msgstr "Способ доставки"
+
+#: /wa-apps/shop/plugins/complex/lib/config/data/controls.php:17
+msgid "_Payment"
+msgstr "Способ оплаты"
+
+#: /wa-apps/shop/plugins/complex/templates/actions/backend/BackendPriceTypeView.html:78
+msgid "zakupochnoi ceni"
+msgstr "закупочной цены"
+
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:167
+msgid "are the conditions met for this product"
+msgstr "выполнены ли условия для применения комплексной цены для этого товара"
+
+#: /wa-apps/shop/plugins/complex/js/complex.types.js:168
+msgid "price name"
+msgstr "название цены"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:152
+msgid "Hide if product is not suitable for \"Products in cart\" conditions"
+msgstr "Скрывать если товар не проходит по условиям \"Товары в корзине\""
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:153
+msgid "\"Complex\" prices not available by conditions \"Products in cart\" will be hidden"
+msgstr "Будут скрыты цены, недоступные для этого товара в случае его покупки с установленными условиями \"Товары в корзине\""
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:69
+msgid "Export \"Complex\" prices"
+msgstr "Экспортировать комплексные цены"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:70
+msgid "When export products with changed price \"swap\" algorithm to \"use complex price\", their prices will be set for them"
+msgstr "При экспорте товаров с измененным алгоритмом подмены цен на \"всегда использовать комплексную цену\", то у таких товаров при экспорте будет указана она"
+
+#: /wa-apps/shop/plugins/complex/lib/config/settings.php:170
+msgid "Don't show prices more than main"
+msgstr "Не показывать цены больше основной"
+
+msgid "Product count with feature value"
+msgstr "Количество товаров со значением характеристики"
+
+msgid "Sum of products in category"
+msgstr "Общая сумма товаров из категории"
+
+msgid "Sum of products with type"
+msgstr "Общая сумма товаров типа"
+
+msgid "Product count compares with feature value"
+msgstr "Количество товаров сравнивается со значением характеристики"
+
+msgid "Current product count of units in cart"
+msgstr "Количество единиц товара на который применяется комплексная цена"

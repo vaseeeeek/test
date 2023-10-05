@@ -1,0 +1,41 @@
+<h1 class="relative">
+    [`Product sets`]
+    <ul class="menu-h list-actions">
+        <li>
+            <a href="javascript:void(0)" class="js-productsets-delete"><i class="icon16 delete"></i> [`Delete`] <span class="indicator productsets-indicator"></span></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)" class="js-import-appearance"><i class="icon16 design"></i> [`Import appearance`] <span class="indicator productsets-indicator"></span></a>
+        </li>
+    </ul>
+</h1>
+
+<div class="total-count">[`Total count`]: {$count}</div>
+<table class="zebra productsets-list">
+    <thead>
+        <tr>
+            <th class="min-width"></th>
+            <th class="min-width"><input type="checkbox" class="f-selector-all"/></th>
+            <th>[`Name`]</th>
+            <th>[`Bundle`]</th>
+            <th>[`User bundle`]</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {if $sets}
+            {foreach $sets as $set}
+                {include file='./include.backend.set.row.html' set=$set}
+            {/foreach}
+            {if $total_pages_num > 1 && $total_pages_num > $current_page_num}
+                <tr class="f-load-more white">
+                    <td colspan="6" class="grey"><a href="javascript:void(0)" data-page="{$current_page_num}" class="js-load-more s-load-more button blue">[`Show more`]</a></td>
+                </tr>
+            {/if}
+        {else}
+            <tr>
+                <td colspan="6" class="grey">[`You don't have any sets`]</td>
+            </tr>
+        {/if}
+    </tbody>
+</table>

@@ -1,0 +1,66 @@
+{* Editor *}
+<script src="{$wa_url}wa-content/js/jquery-wa/editor.js?v{$wa->version(true)}"></script>
+<script src="{$wa_url}wa-content/js/jquery-wa/wa.elrte.ace.js?v{$wa->version()}"></script>
+
+{$name = _wp('Unknown template')}
+{if isset($template_key) && !empty($templates[$template_key])}{$name = $templates[$template_key].name}{/if}
+
+<div class="ig-dialog-wrap is-full-screen">
+    <div class="w-dialog-background"></div>
+    <div class="w-dialog-wrapper">
+        <div class="w-dialog-block gray-header compact-header qo-edit-template-block">
+            <form action="" method="post" data-id="editor-{$template_key}">
+                <header class="w-dialog-header">
+                    <h1>{$name}</h1>
+                </header>
+                <div class="w-dialog-content margin-block">
+                    {if !empty($is_changed)}
+                       <div class="mb bottom attention-block">
+                           [`ATTENTION! Template has been changed. Content may differ from original.`]
+                       </div>
+                    {/if}
+                    <div class="mb bottom align-right">
+                        <a href="javascript:void(0)" class="js-restore-template" data-id="{$template_key}">[`revert template to original`]</a>
+                    </div>
+                    {if isset($template_key)}
+                        <input type="hidden" name="key" value="{$template_key}">
+                        <textarea name="template" id="editor-{$template_key}" class="width100">{$template|escape}</textarea>
+                    {else}
+                        [`Template not exists.`]
+                    {/if}
+                    <input type="hidden" name="storefront" value="{$storefront}">
+                </div>
+                <footer class="w-dialog-footer">
+                    <div class="margin-block errormsg"></div>
+                    <div class="t-actions">
+                        <div class="t-layout">
+                            <div class="t-column left">
+                                {if isset($template_key)}<input type="submit" id="qo-edit-template-submit" class="button green t-button" value="[`Save`]"> [`or`] {/if}<a href="javascript:void(0)" class="js-close-dialog">[`cancel`]</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </form>
+        </div>
+    </div>
+</div>
+
+{if isset($template_key)}
+    <script>
+        var wa_url = "{$wa_url}";
+
+        $('#qo-edit-template-submit').click(function () {
+            waEditorUpdateSource({
+                'id': 'editor-{$template_key}'
+            });
+        });
+
+        waEditorAceInit({
+            id: 'editor-{$template_key}',
+            save_button: 'qo-edit-template-submit'
+        });
+
+        $("#editor-{$template_key}").data('editor', wa_editor);
+
+    </script>
+{/if}

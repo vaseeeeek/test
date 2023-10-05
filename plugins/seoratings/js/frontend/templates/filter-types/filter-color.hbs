@@ -1,0 +1,7 @@
+<div class="seoratings__module__filter__title">{{name}}</div>
+{{#each values}}
+  <label class="seoratings__module__filter__label">
+    <input data-type="color" class="seoratings__module__filter__input--color" type="checkbox" name="{{../code}}" value="{{@key}}" data-color="{{this}}" data-title="{{../name}}">
+    <span class="seoratings__module__filter__span--color" style="background-color: {{this}};"></span>
+  </label>
+{{/each}}

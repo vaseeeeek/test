@@ -1,0 +1,139 @@
+{function name=review_replies replies=[]}
+	{if $replies|count}
+		<div style="margin-left: 35px; margin-top: 15px;">
+			{foreach $replies as $reply}
+				<div class="brand-plugin__one-review-contact-name">{$reply.contact_name}</div>
+				<div>{$reply.content}</div>
+				<div class="brand-plugin__date-time">{$reply.datetime|wa_date:'humandate'} {$reply.datetime|wa_date:'H:i'}</div>
+				<div>
+					{review_replies replies=$reply.replies|default:[]}
+				</div>
+			{/foreach}
+		</div>
+	{/if}
+{/function}
+
+<script>
+	window.brand_reviews_params = {
+		add_review_url: {$add_review_url|json_encode}
+	};
+</script>
+
+<div>
+	<h1>{$h1}</h1>
+
+	{$pages_tabs}
+
+	<div class="brand-plugin__all-reviews">
+		{foreach $reviews as $review}
+			<div class="brand-plugin__one-review">
+				{if $review.product|default:false}
+					<div class="brand-plugin__one-review-product-name">
+						Отзыв о товаре
+						<a href="{$review.product.url}">{$review.product.name}</a>
+					</div>
+				{else}
+					<div class="brand-plugin__one-review-product-name">
+						Отзыв о бренде {$brand.name}
+					</div>
+				{/if}
+				<div></div>
+				<div class="brand-plugin__one-review-contact-name">{$review.contact_name}</div>
+				<div class="rating">
+					{for $i = 1 to 5}<i class="icon16 {if $i <= $review.rate}star{else}star-empty{/if}"></i>{/for}
+				</div>
+
+				{if $review.product|default:false}
+					<div class="brand-plugin__one-review-title">Отзыв</div>
+					<div>{$review.content}</div>
+				{else}
+					<div class="brand-plugin__one-review-title">Достоинства</div>
+					<div>{$review.pros}</div>
+					<div class="brand-plugin__one-review-title">Недостатки</div>
+					<div>{$review.cons}</div>
+					<div class="brand-plugin__one-review-title">Комментарий</div>
+					<div>{$review.content}</div>
+				{/if}
+
+				<div class="brand-plugin__date-time">{$review.datetime|wa_date:'humandate'} {$review.datetime|wa_date:'H:i'}</div>
+
+				<div>
+					{review_replies replies=$review.replies|default:[]}
+				</div>
+			</div>
+		{/foreach}
+	</div>
+
+	<div>
+		<div id="brand-add-form-wrapper" style="display: none;">
+			<form action="{$add_review_url}" id="brand-add-form" method="post" style="">
+				{$wa->csrf()}
+				<input type="hidden" name="review[brand_id]" value="{$brand.id}">
+				<div class="wa-form">
+					<div class="wa-field wa-required">
+						<div class="wa-name">
+							Имя
+						</div>
+						<div class="wa-value">
+							<input type="text" name="review[name]" class="form-control" required="">
+						</div>
+					</div>
+
+					<div class="wa-field js-brand-review-wrapper wa-required">
+						<div class="wa-name">
+							Общий рейтинг
+						</div>
+						<div class="wa-value">
+							<span class="no-underline rate js-brand-review-stars" data-rate="0" style="cursor: pointer;">
+								<i class="icon16 star star-empty"></i>
+								<i class="icon16 star star-empty"></i>
+								<i class="icon16 star star-empty"></i>
+								<i class="icon16 star star-empty"></i>
+								<i class="icon16 star star-empty"></i>
+							</span>
+							<input name="review[rate]" type="hidden" value="0" class="rate-field js-brand-review-input">
+						</div>
+					</div>
+
+					<div class="wa-field wa-required">
+						<div class="wa-name">
+							Достоинства
+						</div>
+						<div class="wa-value">
+							<textarea name="review[pros]" class="form-control" required=""></textarea>
+						</div>
+					</div>
+					<div class="wa-field wa-required">
+						<div class="wa-name">
+							Недостатки
+						</div>
+						<div class="wa-value">
+							<textarea name="review[cons]" class="form-control" required=""></textarea>
+						</div>
+					</div>
+					<div class="wa-field">
+						<div class="wa-name">
+							Произвольный комментарий
+						</div>
+						<div class="wa-value">
+							<textarea name="review[content]" class="form-control"></textarea>
+						</div>
+					</div>
+				</div>
+
+				<div style="clear: both;"></div>
+				{if !$disable_add_review_captcha}{$wa->captcha()}{/if}
+
+				<div class="brand-plugin__review-submit">
+					<input type="submit" class="btn btn-primary" value="Добавить отзыв">
+				</div>
+			</form>
+		</div>
+
+		<div class="js-brand-submit-result" style="display: none; width: 95%;"></div>
+
+		<div>
+			<input type="button" class="btn btn-primary js-brand-reviews-add-review" value="Написать отзыв" />
+		</div>
+	</div>
+</div>

@@ -1,0 +1,54 @@
+/*Стиль для иконки пояснения*/
+.fiwex-popup-hint{
+    color: #353535;
+    border: 1px solid #ccc !important;
+    padding: 0px 3px;
+    border-radius: 10px;
+    font-size: 8px;
+    cursor: pointer;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+	 
+/*Стили для облака пояснения*/
+.fiwex-tooltip-content{
+    z-index:9999;
+    background: #feffd6;
+    position: absolute;
+    width: 457px;
+    min-height: 50px;
+    display:none;
+    box-shadow: 0px 0px 3px #000;
+}
+
+.fiwex-tooltip-tail{
+    position: absolute;
+    right:15px;
+    top:-10px;
+    width:21px;
+    height: 10px;
+    background: url({$path}plugins/fiwex/img/tail.png) no-repeat;
+}
+  
+.fiwex-tooltip-title{
+    font-weight: bold;
+    float: left;
+    margin: 0 32px -2px 0;
+    padding: 8px 13px;
+}
+  
+.fiwex-tooltip-close{
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 14px;
+    height: 14px;
+    background: url({$path}plugins/fiwex/img/close.png) no-repeat;
+    cursor: pointer;
+}
+  
+.fiwex-tooltip-body{
+    clear: both;
+    padding: 0 13px 10px;
+    overflow: hidden;
+}

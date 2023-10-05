@@ -1,0 +1,179 @@
+.dialog-window {
+	min-height: 200px !important;
+}
+.block.massupdating {
+	background: #eee;
+	margin-bottom: 10px;
+}
+.block.massupdating.loading {
+	background: #eee url('../img/loader.gif?2') no-repeat center center;
+}
+.massupdating.loading a, .massupdating.loading li {
+	color: #aaa !important;
+	opacity: 0.6;
+}
+h1.massupdating {
+	background: linear-gradient(to top, #f6f6f6, #fff);
+	padding: 20px;
+	margin: -20px;
+	margin-bottom: 15px;
+}
+.massupdating-dialog span.variable {
+	font-family: 'Monaco', Menlo, 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+	background: #eee;
+	padding: 3px;
+}
+.massupdating-dialog .s-wysiwyg-html-toggle {
+	top: 0;
+	right: 0;
+	margin-right: 0;
+}
+.massupdating-dialog .redactor-box {
+	margin-top: 22px;
+}
+.massupdating-load {
+	width: 165px;
+	height: 35px;
+	background: url('../img/load.gif?1') no-repeat center;
+	float: right;
+}
+.massupdating-small-load {
+	width: 16px;
+	height: 16px;
+	background: url('../img/small-load.gif') no-repeat center;
+	position: absolute;
+	left: -30px;
+	margin-top: -18px !important;
+	display: block !important;
+}
+.massupdating .icon10.user {
+	background: url('../img/icons.png?8');
+}
+.massupdating .icon10.video {
+	background-position: 60px 0;
+}
+.massupdating .icon10.tags {
+	background-position: 50px 0;
+}
+.massupdating .icon10.photo {
+	background-position: 40px 0;
+}
+.massupdating .icon10.badge-icon {
+	background-position: 30px 0;
+}
+.massupdating .icon10.sku {
+	background-position: 20px 0;
+}
+.massupdating .icon10.stock {
+	background-position: 10px 0;
+}
+.massupdating-switcher a {
+	padding: 5px;
+	display: inline-block;
+	background: #f3f3f3;
+	margin-bottom: 5px;
+}
+.massupdating-switcher a.hover {
+	color: red;
+}
+.massupdating-switcher a.selected {
+	background: #555;
+	color: #fff;
+}
+.massupdating-switcher a.pre.selected {
+	background: #333;
+}
+.massupdating-switcher a.selected:hover, .massupdating-switcher a.selected.hover {
+	color: #bbb !important;
+}
+.massupdating-switcher a.disabled, .massupdating-switcher a.disabled:hover {
+	background: #ccc !important;
+	color: #fff !important;
+}
+.massupdating-switcher a.selected.disabled {
+	background: #ccc !important;
+}
+.massupdating-switcher a.pre.selected.disabled {
+	background: #aaa !important;
+}
+.massupdating-freeze {
+	float: left;
+	clear: left;
+	width: 180px;
+	position: relative;
+	top: 0.3em;
+	margin-bottom: -1em;
+}
+a.massupdating-freeze-button {
+	position: relative;
+	display: block;
+	clear: left;
+	float: right;
+	margin-right: 10px;
+	background: #fff;
+	opacity: 0.3;
+	transition: 0.5s;
+}
+a.massupdating-freeze-button:hover {
+	opacity: 1;
+}
+#massupdating-features-button {
+	margin-left: 5px;
+}
+.massupdating-features-arrow {
+	position: absolute;
+	margin-left: 5px;
+	background: url('../img/arrow.gif');
+	width: 31px;
+	height: 19px;
+	display: inline-block;
+	opacity: 0.5;
+}
+.massupdating-features-wrapper {
+	border-left: 2px solid #ddd;
+	margin-bottom: 10px;
+}
+.massupdating-feature-field {
+	margin-left: 18px;
+	overflow: hidden;
+}
+.massupdating-feature-field .value {
+	margin-left: 160px;
+}
+#massupdating-photo-preview {
+	padding: 0;
+	overflow-x: auto;
+	white-space: nowrap;
+	overflow-y: hidden;
+	height: 120px;
+	margin-top: 10px;
+	list-style: none;
+}
+#massupdating-photo-preview li {
+	max-width: 125px;
+	height: 100px;
+	margin-right: 10px;
+	display: inline-block;
+	overflow: hidden;
+}
+#massupdating-photo-preview canvas {
+	display: inline-block;
+	vertical-align: top;
+}
+#massupdating-search-results .found {
+	font-weight: bold;
+	background: #fff037;
+}
+
+.massupdating-search-results tr.odd td {
+	background: #f2f7ff !important;
+}
+.massupdating-search-results tr.even td {
+	background: #fff !important;
+}
+.massupdating-search-results tr:hover td {
+	background: #ffffe5 !important;
+}
+.massupdating-progressbar .progressbar {
+	margin-bottom: 0;
+}

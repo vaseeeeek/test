@@ -1,0 +1,136 @@
+{$system_settings = shopAutobadgeProfile::SETTINGS}
+
+<h3>[`System settings`]</h3>
+
+<div class="attention-block margin-block bottom">
+    <svg viewBox="0 0 451.74 451.74" class="width50">
+        <use xlink:href="{$plugin_url}img/svg/warning.svg#hey"></use>
+    </svg>
+    <div>[`Be carefull with that settings. If you are not sure, do not change them`]</div>
+</div>
+
+{$switcher_options = [
+    'ADD_FILENAME' => "[`Add file basenames`]",
+    'REVERSE' => "[`Reverse backtrace`]",
+    'PROFILE_PLUGINS' => "[`Extended plugins reports`]",
+    'PROFILE_TEMPLATE' => "[`Extended template reports`]",
+    'PROFILE_METHODS' => "[`Extended methods reports`]"
+]}
+
+<div class="fields">
+    <div class="field">
+        <div class="name">[`Profile mode`]</div>
+        <div class="value">
+            <div class="ibutton-checkbox">
+                <ul class="menu-h">
+                    <li>
+                        <span class="switcher-off">[`Off`]</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="{$system_settings['STATUS']}" class="js-system-settings-switcher main" value="1"{if !empty($settings[$system_settings['STATUS']])} checked{/if}>
+                    </li>
+                    <li>
+                        <span class="switcher-on">[`On`]</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="margin-block bottom">
+                [`Enable profile mode to collect information about usaging of plugin hooks.`]
+                <div class="gray">[`Relevant for frontend. Update the necessary page and get the report in autobadge.profile.log`]</div>
+            </div>
+            <div class="onopen">
+                <div class="s-info-block">
+                    [`Also use cookie to enable profiling: `]
+
+                    {if !empty($settings[$system_settings['COOKIE']])}
+                        {$profiling_cookie = $settings[$system_settings['COOKIE']]|escape}
+                    {else}
+                        {$profiling_cookie = shopAutobadgeProfile::DEFAULT_COOKIE}
+                    {/if}
+                    <span class="f-profiling-cookie">{$profiling_cookie}</span>
+                    <input type="hidden" name="{$system_settings['COOKIE']}" class="f-profiling-cookie-input" value="{$profiling_cookie}">
+                </div>
+                <div class="field">
+                    <div class="name">[`Depth`]</div>
+                    <div class="value">
+                        <select name="{$system_settings['DEPTH']}">
+                            {for $i=1 to 20}
+                                <option value="{$i}"{if (!empty($settings[$system_settings['DEPTH']]) && $settings[$system_settings['DEPTH']] == $i) || (empty($settings[$system_settings['DEPTH']]) && $i == '1')} selected{/if}>{$i}</option>
+                            {/for}
+                        </select>
+                    </div>
+                </div>
+                {foreach $switcher_options as $option_key => $name}
+                    <div class="field">
+                        <div class="name">{$name}</div>
+                        <div class="value">
+                            <div class="ibutton-checkbox">
+                                <ul class="menu-h">
+                                    <li>
+                                        <span class="switcher-off">[`No`]</span>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" name="{$system_settings[$option_key]}" class="js-system-settings-switcher" value="1"{if !empty($settings[$system_settings[$option_key]])} checked{/if}>
+                                    </li>
+                                    <li>
+                                        <span class="switcher-on">[`Yes`]</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {/foreach}
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Ignore calls from plugins:`]</div>
+        <div class="value">
+            <ul class="menu-v plugin-list">
+                {foreach $plugins as $plugin}
+                    {$is_selected = (!empty($settings.ignore_plugins) && in_array($plugin.id, $settings.ignore_plugins)) || !isset($settings.ignore_plugins)}
+                    <li{if $is_selected} class="selected"{/if}>
+                        <label>
+                            <input type="checkbox" name="ignore_plugins[]" value="{$plugin.id}" {if $is_selected}checked{/if} />
+                            <i class="icon16{if !isset($plugin.img)} plugins{else}"
+                               style="background-image: url('{wa_url()}{$plugin.img}'); background-size: 16px 16px;{/if}"></i> {$plugin.name|escape}
+                        </label>
+                    </li>
+                    {foreachelse}
+                    <li>[`No plugins are installed.`]</li>
+                {/foreach}
+            </ul>
+            {if $plugins|count > 4}
+                <a href="#/show/morePlugins" class="js-action inline-link"><b><i>[`show more`]</i></b></a>
+            {/if}
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Ignore calls from methods`]</div>
+        <div class="value">
+                <textarea name="ignore_methods">{strip}
+                    {if !empty($settings.ignore_methods)}
+                        {implode(', ', $settings.ignore_methods)|escape}
+                    {elseif !isset($settings.ignore_methods)}
+                        shopcartitemsmodel::total, shopcart::discount, shopcart::items
+                    {/if}
+                {/strip}</textarea>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        var $switcher = $('.js-system-settings-switcher');
+        $.autobadge.initSwitcher($switcher);
+
+        /* Смена куки профилирования */
+        $switcher.filter('.main').change(function () {
+            var that = $(this);
+            if (that.prop('checked')) {
+                var cookieName = '{shopAutobadgeProfile::DEFAULT_COOKIE}' + Date.now();
+                $('.f-profiling-cookie').text(cookieName);
+                $('.f-profiling-cookie-input').val(cookieName);
+            }
+        });
+    });
+</script>

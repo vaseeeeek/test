@@ -1,0 +1,49 @@
+<script>
+
+    function shopCityselectRenderRegion() {
+
+        var that = this;
+
+        // that.location = {$location|json_encode};
+        //
+        // $(document).one('wa_order_form_ready', function (e, data) {
+        //
+        //     var $form = $('.wa-step-region-section');
+        //     var $city = $form.find('.js-city-field');
+        //     var $region = $form.find('.js-region-field');
+        //     var $zip = $form.find('.js-zip-field');
+        //
+        //     if (($city.val() == '') || ($region.val() == '')) {
+        //
+        //         $region.val(that.location.region);
+        //         $city.val(that.location.city);
+        //
+        //         if ($zip.length) {
+        //             $zip.val(that.location.zip);
+        //         }
+        //
+        //         //form.js навешивает on после данного события
+        //         setTimeout(function () {
+        //             data.$wrapper.trigger('region_change');
+        //         }, 100);
+        //
+        //     }
+        // });
+        //
+        //
+        // $(document).on('wa_order_form_details_changed wa_order_form_ready', function () {
+        //
+        //     var $zip = $('[name="details[shipping_address][zip]"]');
+        //
+        //     if ($zip.length && $zip.val() == '') {
+        //         $zip.val(that.location.zip);
+        //     }
+        // });
+        //
+        // $(document).on('cityselect__set_city', function (e, data) {
+        //     that.location = data;
+        // })
+    }
+
+    var shop_cityselect__render_region = new shopCityselectRenderRegion();
+</script>

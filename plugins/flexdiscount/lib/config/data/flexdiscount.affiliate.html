@@ -1,0 +1,33 @@
+{literal}
+
+{if $wa->shop && class_exists('shopFlexdiscountPlugin') && shopFlexdiscountPlugin::isEnabled() && shopAffiliate::isEnabled()}
+    {if !empty($fl_affiliate)}
+
+        {* [`NO VIEW TYPE`] *}
+
+        {if empty($view_type)}
+            <div class="flexdiscount-affiliate">
+                <em>[`Company presents you`] <b class="flexdiscount-discounts-affiliate">+{$fl_affiliate}</b>  {_wd('shop_flexdiscount' ,'bonus', 'bonuses', $fl_affiliate)} [`to your affiliate program`].</em>
+            </div>
+
+        {* [`VIEW TYPE`] 1 *}
+
+        {elseif $view_type == '1'}
+            <div class="flexdiscount-affiliate">
+                <p>[`Your affiliate bonus is`] <b class="flexdiscount-discounts-affiliate">+{$fl_affiliate}</b></p>
+            </div>
+
+        {* [`VIEW TYPE`] 2 *}
+
+        {elseif $view_type == '2'}
+
+            {* [`CREATE YOUR OWN VIEW TYPE RIGHT HERE`]  *}
+
+        {* [`END`] *}
+
+        {/if}
+
+    {/if}
+{/if}
+
+{/literal}

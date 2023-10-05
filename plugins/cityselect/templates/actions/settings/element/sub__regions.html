@@ -1,0 +1,11 @@
+<p><button type="button" class="button small green i-cityselect__change_region" data-id=""><i class="icon16 add"></i> Добавить регион</button></p>
+
+<h3>Переменные для региона:</h3>
+
+<ul class="zebra i-cityselect__regions_list">
+    {foreach $regions as $region}
+        {include file="./regions__item.html"}
+    {/foreach}
+</ul>
+
+<br><br>

@@ -1,0 +1,28 @@
+{if count($group.elements) > 1 || $group.group_settings.show_on_primary_product_only}
+	<div class="product-group">
+        {if $group.group_settings.show_header}
+			<div class="product-group__title">
+				{$group.group.name|escape}
+			</div>
+        {/if}
+		<div class="product-group__items product-group-photos">
+            {if !$group.have_current_product_element_in_elements && $group.current_product_element}
+				<div class="product-group__item product-group-photos__item product-group-photos__item--active product-group__item--active">
+					<img class="product-group-photos__image" src="{$group.current_product_element.image_frontend_url|escape}" alt="{$group.current_product_element.product.name|escape}" />
+				</div>
+            {/if}
+
+			{foreach $group.elements as $element}
+				{if $element.product.id == $current_product.id}
+					<div class="product-group__item product-group-photos__item product-group-photos__item--active product-group__item--active">
+						<img class="product-group-photos__image" src="{$element.image_frontend_url|escape}" alt="{$element.product.name|escape}" />
+					</div>
+				{else}
+					<a class="product-group__item product-group-photos__item " href="{$element.frontend_url|escape}">
+						<img class="product-group-photos__image" src="{$element.image_frontend_url|escape}" alt="{$element.product.name|escape}" />
+					</a>
+				{/if}
+			{/foreach}
+		</div>
+	</div>
+{/if}

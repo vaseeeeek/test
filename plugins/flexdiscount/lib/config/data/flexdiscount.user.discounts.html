@@ -1,0 +1,73 @@
+{literal}
+
+{if $wa->shop && class_exists('shopFlexdiscountPlugin') && shopFlexdiscountPlugin::isEnabled()}
+
+    {if !empty($fl_discounts)}
+
+        {* [`NO VIEW TYPE`] *}
+
+        {if empty($view_type)}
+            <div class='flexdiscount-discounts'>
+                <div class="flexdiscount-discounts-heading">
+                    <div class="h3">[`Active discounts`]</div>
+                </div>
+                <div class="flexdiscount-discounts-body flexdiscount-interactive">
+                    <ul>
+                        {foreach $fl_discounts as $fl_d}
+                        <li>{if $fl_d.name}{$fl_d.name} - {/if}
+                            {if $fl_d.discount}<span class='flexdiscount-discounts-price'>{shop_currency($fl_d.discount, true)}</span>{/if}
+                            {if $fl_d.discount && $fl_d.affiliate},{/if}
+                            {if $fl_d.affiliate}<span class='flexdiscount-discounts-affiliate'>{$fl_d.affiliate}  {_wd('shop_flexdiscount', 'bonus', 'bonuses', $fl_d.affiliate)}</span>{/if}
+                        </li>
+                        {/foreach}
+                    </ul>
+                </div>
+            </div>
+
+        {* [`VIEW TYPE`] 1 *}
+
+        {elseif $view_type == '1'}
+
+         <div class='flexdiscount-discounts'>
+            <div class="flexdiscount-discounts-heading">
+                <div class="h3">[`Your discounts`]</div>
+            </div>
+            <div class="flexdiscount-discounts-body flexdiscount-interactive">
+                <table class="align-center">
+                    <thead>
+                        <tr>
+                            <th>[`Name`]</th>
+                            <th>[`Discount`]</th>
+                            {if shopAffiliate::isEnabled()}
+                            <th>[`Affiliate`]</th>
+                            {/if}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {foreach $fl_discounts as $fl_d}
+                            <tr class='fl-discount-skus'>
+                                <td>{$fl_d.name|escape}</td>
+                                <td>{if $fl_d.discount}{shop_currency($fl_d.discount, true)}{else}-{/if}</td>
+                                {if shopAffiliate::isEnabled()}
+                                <td>{if $fl_d.affiliate}{$fl_d.affiliate}{else}-{/if}</td>
+                                {/if}
+                            </tr>
+                        {/foreach}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        {* [`VIEW TYPE`] 2 *}
+
+        {elseif $view_type == '2'}
+
+            {* [`CREATE YOUR OWN VIEW TYPE RIGHT HERE`]  *}
+
+        {* [`END`] *}
+
+        {/if}
+    {/if}
+{/if}
+
+{/literal}

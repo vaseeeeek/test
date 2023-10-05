@@ -1,0 +1,33 @@
+{literal}
+
+{if $wa->shop && class_exists('shopFlexdiscountPlugin') && shopFlexdiscountPlugin::isEnabled()}
+
+    {* [`NO VIEW TYPE`] *}
+
+    {if empty($view_type)}
+        {if !empty($workflow.clear_discount)}
+            <div style="display: inline-block; margin: 5px 0;">
+                [`Price with discount`] <span class="price">{shop_currency($fl_price, true)}</span>
+            </div>
+        {/if}
+
+    {* [`VIEW TYPE`] 1 *}
+
+    {elseif $view_type == '1'}
+        <div style="display: inline-block; margin: 5px 0;">
+            [`Your price is`] <span class="price">{shop_currency($fl_price, true)}</span>
+        </div>
+
+    {* [`VIEW TYPE`] 2 *}
+
+    {elseif $view_type == '2'}
+
+        {* [`CREATE YOUR OWN VIEW TYPE RIGHT HERE`]  *}
+
+    {* [`END`] *}
+
+    {/if}
+
+{/if}
+
+{/literal}

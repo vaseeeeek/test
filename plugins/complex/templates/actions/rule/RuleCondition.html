@@ -1,0 +1,45 @@
+{if !isset($in_group)}
+{$in_group = 0}
+{/if}
+<span class="field-title field no-shift">
+	{if in_array($view_type, ['copy', 'edit'])}
+	{if $in_group}
+	{$depth = 2}
+	{else}
+	{$depth = 1}
+	{/if}
+	{include '../backend/BackendAddCondition.html' depth=$depth control_groups=$control_groups selected=$condition.field return_select=true}
+	{else}
+	{$condition.field_title}
+	{/if}
+</span>
+{if in_array($view_type, ['copy', 'edit'])}
+{shopComplexPluginControls::workupCondition($condition)}
+{/if}
+{foreach $condition.value as $control => $value}
+<span class="condition-field field field-output no-shift{if $control == 'feature_value'} feature_value" data-name="{if $in_group}group_{/if}conditions[{$i}]{if $in_group}[{$n}]{/if}[{$control}]{/if}">
+{if in_array($view_type, ['copy', 'edit'])}
+	{if in_array($control, ['input', 'value', 'key'])}
+	<input class="text" type="text" name="{if $in_group}group_{/if}conditions[{$i}]{if $in_group}[{$n}]{/if}[{$control}]" value="{$value}"/>
+	{else}
+	<select class="selectize field{if $control == 'compare'} symbol{/if}{if $control == 'feature_key'} feature_key{/if}" name="{if $in_group}group_{/if}conditions[{$i}]{if $in_group}[{$n}]{/if}[{$control}]">
+		<option></option>
+		{foreach $condition.control_all_values[$control] as $control_params}
+		{$control_value = $control_params.id}
+		{if $control == 'feature_key'}
+		{$control_value = $control_value|cat:':':ifempty($control_params.selectable, 0):':':ifempty($control_params.type)}
+		{/if}
+		<option value="{$control_value}"{if $control_value == $value} selected{/if}>{if !empty($control_params['depth'])}{str_repeat('–', $control_params['depth'])}{/if}{$control_params.name|escape:'html'}</option>
+		{/foreach}
+	</select>
+	{/if}
+{else}
+	{if $control == 'feature_value'}<b>{/if}{ifset($condition.control_values[$control], $value)}{if $control == 'feature_value'}</b>{/if}
+{/if}
+</span>
+{/foreach}
+{if in_array($view_type, ['copy', 'edit'])}
+<span class="field-output">
+	<input type="hidden" value="{$condition.field}" name="{if $in_group}group_{/if}conditions[{$i}]{if $in_group}[{$n}]{/if}[control]">
+</span>
+{/if}

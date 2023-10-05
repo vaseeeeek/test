@@ -1,0 +1,26 @@
+<script type="text/x-tmpl" id="tmpl-display-autocomplete-item">
+    {literal}
+    <tr class="item-product-{% print(o.id); %}-{% print(o.sku_id); %}" data-id="{% print(o.id); %}" data-sku-id="{% print(o.sku_id); %}">
+        <td><a href="#/product/{% print(o.id); %}/"><i class="icon16 cart"></i>{% print(o.label, true); %}</a></td>
+        <td class="align-right nowrap">{% print(o.price, true); %}</td>
+        <td class="min-width">
+            <input type="hidden" name="product[products][s{% print(o.sku_id); %}]" value="{% print(o.id); %}" >
+            <a href="javascript:void(0)" onclick="$(this).closest('tr').remove();"><i class="icon16 delete"></i></a>
+        </td>
+    </tr>
+    {/literal}
+</script>
+<script type="text/x-tmpl" id="tmpl-display-fill-products">
+    <div class='productsets-autocomplete-result mb'>
+        <table class='zebra'>
+            {literal}
+                {% if (o.products) {
+                       for (var i in o.products) {
+                           include('tmpl-display-autocomplete-item', o.products[i]);
+                       }
+                   }
+                %}
+            {/literal}
+        </table>
+    </div>
+</script>

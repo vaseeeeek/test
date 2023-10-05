@@ -1,0 +1,996 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/massupdating\n"
+"POT-Creation-Date: 2016-07-04 00:00+0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator:  shop/plugins/massupdating\n"
+"Language-Team:  shop/plugins/massupdating\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-Language: ru_RU\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: /wa-apps/shop/plugins/massupdating/js/backend.js:62
+msgid "Saving..."
+msgstr "Сохраняем..."
+
+#: /wa-apps/shop/plugins/massupdating/js/backend.js:32
+#: /wa-apps/shop/plugins/massupdating/js/backend.js:72
+msgid "Save"
+msgstr "Сохранить"
+
+#: /wa-apps/shop/plugins/massupdating/js/backend.js:32
+msgid "or"
+msgstr "или"
+
+#: /wa-apps/shop/plugins/massupdating/js/backend.js:32
+msgid "cancel"
+msgstr "отмена"
+
+#: /wa-apps/shop/plugins/massupdating/lib/shopMassupdating.plugin.php:81
+msgid "Description"
+msgstr "Описание"
+
+#: /wa-apps/shop/plugins/massupdating/lib/shopMassupdating.plugin.php:81
+msgid "Summary"
+msgstr "Краткое описание"
+
+#: /wa-apps/shop/plugins/massupdating/lib/shopMassupdating.plugin.php:82
+msgid "Video URL on YouTube or Vimeo"
+msgstr "Адрес видео на YouTube или Vimeo"
+
+#: /wa-apps/shop/plugins/massupdating/js/backend.js:85
+msgid "Access denied for this user"
+msgstr "Этому пользователю для редактирования доступ запрещен"
+#: /wa-apps/shop/plugins/massupdating/templates/actions/dialog/Dialog.html:7
+msgid "В описании, кратком описании, заголовке страницы и META-полях можно использовать переменные:"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/dialog/Dialog.html:11
+msgid "название товара"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/dialog/Dialog.html:12
+msgid "название магазина"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/dialog/Dialog.html:13
+msgid "стоимость товара"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/dialog/Dialog.html:17
+msgid "краткое описание, только для заголовка title и META-полей"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/dialog/Dialog.html:26
+msgid "Не обновлять оставленные пустыми поля"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/dialog/Dialog.html:35
+msgid "Значения этого параметра у выбранных товаров отличаются."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/dialog/Dialog.html:58
+msgid "Значения этого параметра у выбранных продуктов отличаются."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:2
+msgid "Уменьшить"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:3
+msgid "Увеличить"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:4
+msgid "Установить фиксированные"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:6
+msgid "или"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:7
+msgid "Вернуть зачеркнутые цены"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:11
+msgid "Цены выбранных товаров"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:12
+msgid "на"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:20
+msgid "от"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:22
+msgid "текущей цены"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:25
+msgid "закупочной цены"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:27
+msgid "Внимание!"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:27
+msgid "У выбранных товаров отличаются валюты. При изменении в валюте цена будет преобразована по установленному курсу в валюту товара."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:33
+msgid "В такой ситуации рекомендуется изменять цены в процентах (%)."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:35
+msgid "Конечная цена будет округлена после валютных преобразований."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:42
+msgid "Текущие цены выбранных товаров совпадают:"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:46
+msgid "Текущие цены варьируются от"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:49
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:65
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:99
+msgid "до"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:54
+msgid "Закупочные цены выбранных товаров совпадают:"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:61
+msgid "Закупочные цены варьируются от"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:72
+msgid "Округлять до"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:75
+msgid "десятков"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:75
+msgid "сотен"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:76
+msgid "тысяч"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:77
+msgid "десятичных знаков"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:81
+msgid "в меньшую сторону"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:83
+msgid "в большую сторону"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:90
+msgid "Вычесть из конечного числа 1 единицу"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:97
+msgid "Цены будут округлены с, например,"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:102
+msgid "Установить старые цены как зачеркнутые"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:104
+msgid "Оставить текущие зачеркнутые цены"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:105
+msgid "Удалить зачеркнутые цены"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/tags.html:4
+msgid "У выбранных товаров имеются общие теги:"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/tags.html:12
+msgid "Добавить к текущим тегам"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/tags.html:14
+msgid "Заменить теги"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/js/backend.js:9
+msgid "Please select at least one product"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/shopMassupdatingPluginDialog.action.php:137
+#: /wa-apps/shop/plugins/massupdating/lib/shopMassupdating.plugin.php:183
+msgid "Массовое редактирование"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/shopMassupdatingPluginDialogSave.controller.php:14
+msgid "Ошибка при отправке данных"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/shopMassupdatingPluginDialogSave.controller.php:40
+#: /wa-apps/shop/plugins/massupdating/lib/actions/shopMassupdatingPluginDialogSave.controller.php:73
+msgid "Доступ к редактированию выбранных товаров запрещен"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/shopMassupdatingPluginDialogSave.controller.php:62
+msgid "Неизвестная ошибка"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/shopMassupdatingPluginDialogSave.controller.php:85
+msgid "Неверные параметры для загрузки изображений"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/shopMassupdatingPluginDialogSave.controller.php:101
+msgid "Некорректная ссылка на видео"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/shopMassupdatingPluginDialogSave.controller.php:114
+msgid "Неверные параметры для изменения цен"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/shopMassupdatingPluginDialogSave.controller.php:136
+msgid "Нельзя изменять цену относительно закупочной цены, когда она не установлена"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/shopMassupdatingPluginDialogSave.controller.php:144
+msgid "Фиксированная цена не может быть в процентах"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/shopMassupdatingPluginDialogSave.controller.php:201
+msgid "Неверные параметры для тегов"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/shopMassupdatingPluginVideoCheck.controller.php:20
+msgid "Функция \"Видео\" есть только в версиях Shop-Script 7 и выше"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/shopMassupdating.plugin.php:186
+msgid "редактировать по отдельности..."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/classes/shopMassupdatingControlBuilder.class.php:13
+msgid "Значения этой характеристики у выбранных товаров отличаются."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/classes/shopMassupdatingControlBuilder.class.php:25
+msgid "добавить значение"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/dialog/Dialog.html:29
+msgid "Редактировать характеристику..."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/features.html:13
+msgid "В настройках"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/features.html:13
+msgid "Вы можете задать характеристики, которые будут отображаться здесь по умолчанию."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/dialog/Dialog.html:74
+#: /wa-apps/shop/plugins/massupdating/templates/actions/dialog/Dialog.html:84
+msgid "Заморозить"
+msgstr "Заморозить"
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/features.html:16
+msgid "Поля, которые Вы \"заморозите\", не будут затрагиваться при сохранении ни при каких условиях."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/js/backend.js:102
+msgid "Freeze"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/js/backend.js:102
+msgid "Unfreeze"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/js/backend.js:107
+#: /wa-apps/shop/plugins/massupdating/js/backend.js:112
+msgid "Feature value"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/classes/shopMassupdatingControlBuilder.class.php:20
+msgid "Добавить к текущим"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/classes/shopMassupdatingControlBuilder.class.php:21
+msgid "Заменить на выбранные значения"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/classes/shopMassupdatingControlBuilder.class.php:125
+msgid "Да"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/classes/shopMassupdatingControlBuilder.class.php:125
+msgid "Нет"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/classes/shopMassupdatingControlBuilder.class.php:127
+msgid "Не определено"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/js/backend.js:106
+msgid "Разморозить"
+msgstr "Разморозить"
+
+msgid "Заморозить"
+msgstr "Заморозить"
+
+#: /wa-apps/shop/plugins/massupdating/js/backend.js:107
+#: /wa-apps/shop/plugins/massupdating/js/backend.js:112
+msgid "Значение характеристики"
+msgstr "Значение характеристики"
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/cross/Cross.html:9
+#: /wa-apps/shop/plugins/massupdating/templates/actions/dialog/Dialog.html:34
+msgid "Обновить страницу после сохранения"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/cross/Cross.html:15
+msgid "Перекрестные продажи (Cross-selling)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/cross/Cross.html:22
+#: /wa-apps/shop/plugins/massupdating/templates/actions/cross/Cross.html:101
+msgid "По умолчанию"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/cross/Cross.html:22
+#: /wa-apps/shop/plugins/massupdating/templates/actions/cross/Cross.html:103
+msgid "Значения не будут затрагиваться и останутся прежними."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/cross/Cross.html:32
+#: /wa-apps/shop/plugins/massupdating/templates/actions/cross/Cross.html:113
+msgid "Вкл"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/cross/Cross.html:38
+#: /wa-apps/shop/plugins/massupdating/templates/actions/cross/Cross.html:117
+msgid "Выкл"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/cross/Cross.html:42
+#: /wa-apps/shop/plugins/massupdating/templates/actions/cross/Cross.html:118
+msgid "Выбрать товары вручную"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/cross/Cross.html:79
+#: /wa-apps/shop/plugins/massupdating/templates/actions/cross/Cross.html:155
+msgid "Связать выбранные товары между собой"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/cross/Cross.html:92
+#: /wa-apps/shop/plugins/massupdating/templates/actions/cross/Cross.html:171
+msgid "Удалить предыдущие (текущие) пересечения"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/cross/Cross.html:94
+msgid "Схожие и альтернативные товары"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/js/backend.js:113
+msgid "Вы выбрали \"Ввести товары вручную\", но так и не заполнили их. Продолжить?"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/shopMassupdatingPluginCross.action.php:108
+#: /wa-apps/shop/plugins/massupdating/lib/shopMassupdating.plugin.php:331
+msgid "Перекрестные и схожие товары"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/photo.html:4
+msgid "Вы можете загрузить сразу несколько фотографий."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/photo.html:8
+msgid "Добавить к существующим фото"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/photo.html:8
+msgid "в начало"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/photo.html:9
+msgid "в конец"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/photo.html:10
+msgid "Заменить фото на загруженные"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/photo.html:11
+msgid "Удалить все фото"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/photo.html:66
+msgid "Превышен максимальный размер допустимых загружаемых данных ("
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/photo.html:69
+msgid "для передаваемых данных"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/photo.html:70
+msgid "для загружаемых файлов"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/photo.html:88
+#: /wa-apps/shop/plugins/massupdating/lib/actions/shopMassupdatingPluginDialogSave.controller.php:84
+msgid "Разрешается загружать не более 10 изображений за раз"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/shopMassupdatingPluginDialogSave.controller.php:90
+msgid "Неверные параметры для редактирования изображений"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/shopMassupdatingPluginDialogSave.controller.php:106
+msgid "Код ошибки #"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/photo.html:78
+#: /wa-apps/shop/plugins/massupdating/js/backend.js:78
+msgid "Files with extensions *.gif, *.jpg, *.jpeg, *.png are allowed only."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/dialog/Dialog.html:9
+msgid "В описании, кратком описании, заголовке страницы, META-полях и дополнительных параметрах можно использовать переменные:"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/dialog/Dialog.html:75
+msgid "минимальная стоимость товара"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/dialog/Dialog.html:80
+msgid "максимальная стоимость товара"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/dialog/Dialog.html:83
+msgid "значение характеристики, где"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/dialog/Dialog.html:83
+msgid "код характеристики"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/dialog/Dialog.html:83
+msgid "а"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/actions/dialog/Dialog.html:85
+msgid "выводимое значение характеристики (доступно: value, value_base_unit, unit, code, begin, end)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:12
+msgid "Цены"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:14
+msgid "Закупочные цены"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/prices.html:16
+msgid "выбранных товаров"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:10
+msgid "Обновить страницу после замены"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:18
+msgid "Найти..."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:26
+msgid "Выберите, где искать -"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:28
+msgid "Наименование"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:29
+msgid "Краткое описание"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:30
+msgid "Описание"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:31
+msgid "Заголовок страницы"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:33
+msgid "META Keywords"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:34
+msgid "META Description"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:36
+msgid "Характеристика"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:39
+msgid "Выберите характеристику"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:51
+msgid "Заменить на..."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:56
+msgid "Использовать переменные"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:71
+msgid "Переменные"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:71
+msgid "Подробнее о переменных..."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:81
+msgid "Учитывать регистр"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:82
+msgid "Искать"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:84
+msgid "Все совпадения"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:90
+msgid "Первое совпадение"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:93
+msgid "Режим поиска"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:93
+msgid "Обычный"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:94
+msgid "Расширенный"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:100
+msgid "Расширенный режим"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:100
+msgid "Подробнее о расширенном режиме..."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:112
+#: /wa-apps/shop/plugins/massupdating/js/massupdating.findAndReplace.js:19
+msgid "Подготовка к поиску..."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:129
+#: /wa-apps/shop/plugins/massupdating/js/massupdating.findAndReplace.js:75
+msgid "Подготовка к замене..."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:145
+#: /wa-apps/shop/plugins/massupdating/js/massupdating.findAndReplace.js:32
+msgid "Результаты поиска"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:146
+msgid "найдено в"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:146
+msgid "товарах"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:150
+msgid "ID товара"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/far.html:151
+msgid "Совпадение"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/skus.html:5
+msgid "По складам"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/skus.html:8
+msgid "Если товары располагаются на нескольких складах, они будут просуммированы (за исключением складов, на которых количество товара установлено в бесконечность) и перенесены на основной склад. Если Вы хотите изменить количество строго по каждому складу, установите галочку \"По складам\"."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/skus.html:19
+msgid "количество товара на складах"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/skus.html:33
+#: /wa-apps/shop/plugins/massupdating/templates/fields/skus.html:59
+msgid "единиц"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/skus.html:36
+msgid "Склад"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/skus.html:63
+msgid "Товары, находящиеся сейчас на основном складе, будут перемещены в первый склад из списка. В остальных складах отталкивающим значением, от которого можно изменять количество, будет 0. Если не указать количество на остальных (не первом) складах, оно установится в значение бесконечность."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/skus.html:76
+msgid "Чтобы установить количество товара в бесконечность, укажите \"до -1\"."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/skus.html:79
+msgid "Текущее количество товара на складах у выбранных товаров совпадает:"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/skus.html:86
+msgid "ед."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/skus.html:86
+msgid "Текущее количество товара на складах у выбранных товаров варьируется от"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/skus.html:96
+msgid "Удалить пустые артикулы"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/skus.html:96
+msgid "Пустыми артикулами считаются те, у которых отсутствует Наименование, Код артикула и Количество на складах, а цена равна 0 или не указана"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/help/farAdvancedSearchType.html:2
+msgid "Расширенный режим поиска поможет вам найти нужную часть текста с использованием специальных символов."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/help/farAdvancedSearchType.html:5
+#: /wa-apps/shop/plugins/massupdating/templates/help/farAdvancedSearchType.html:8
+#: /wa-apps/shop/plugins/massupdating/templates/help/farAdvancedSearchType.html:11
+msgid "Символ"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/help/farAdvancedSearchType.html:5
+#: /wa-apps/shop/plugins/massupdating/templates/help/farAdvancedSearchType.html:8
+#: /wa-apps/shop/plugins/massupdating/templates/help/farAdvancedSearchType.html:11
+msgid "означает"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/help/farAdvancedSearchType.html:5
+msgid "ИЛИ"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/help/farAdvancedSearchType.html:8
+msgid "найдет содержимое"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/help/farAdvancedSearchType.html:8
+msgid "в тексте"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/help/farAdvancedSearchType.html:10
+msgid "ЛЮБОЙ СИМВОЛ"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/help/farAdvancedSearchType.html:11
+msgid "найдет в тексте"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/help/farAdvancedSearchType.html:14
+msgid "Возможность НАЛИЧИЯ ИЛИ ОТСУТСТВИЯ ПРЕДЫДУЩЕГО СИМВОЛА"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/help/farAdvancedSearchType.html:17
+msgid "найдет в тексте как"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/help/farAdvancedSearchType.html:17
+msgid "так и"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/help/farAdvancedSearchType.html:17
+msgid "Вы можете комбинировать специальные символы любым способом, например:"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/help/farAdvancedSearchType.html:18
+msgid "найдет в тексте, где между De и is должен находиться один любой символ и может находиться или не находиться еще один другой, например:"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/help/farAdvancedSearchType.html:18
+msgid "но не"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/help/farVariables.html:2
+msgid "В качестве замены вы можете использовать некоторые переменные. Они автоматически будут заменены на соответствующие им значения."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/help/farVariables.html:21
+msgid "выводимое значение характеристики (доступно: value, values, value_base_unit, unit, code, begin, end)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/js/backend.js:363
+msgid "Сохранить"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/js/backend.js:385
+#: /wa-apps/shop/plugins/massupdating/lib/shopMassupdating.plugin.php:351
+msgid "Найти и заменить"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/js/event.stream.js:47
+msgid "из"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/js/massupdating.findAndReplace.js:15
+msgid "Поиск..."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/js/massupdating.findAndReplace.js:15
+msgid "Завершение поиска..."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/js/massupdating.findAndReplace.js:31
+msgid "Первые 100 результатов поиска"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/dialog/shopMassupdatingPluginFar.actions.php:24
+msgid "Вы выбрали слишком много товаров, обработать их не удастся"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/shopMassupdatingPluginHelp.action.php:11
+msgid "Ошибка"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/skus.html:26
+#: /wa-apps/shop/plugins/massupdating/templates/fields/skus.html:59
+msgid "дo"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/edit.html:13
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/edit.html:86
+msgid "наименование товара"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/edit.html:74
+msgid "Для подстановки в название Вы можете использовать Smarty вместе с этими переменными (условные конструкции так же доступны):"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/edit.html:85
+msgid "Кириллические символы будут транслитерованы. Разрешено использовать Smarty вместе с этими переменными:"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/edit.html:90
+msgid "наименования категорий, в которые входит товар (по вложенности, от последней до первой)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/edit.html:98
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/generator.html:36
+msgid "URL категорий"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/edit.html:99
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/generator.html:36
+msgid "и"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/edit.html:99
+msgid "обратный массив с информациями по категориям (от первой до последней)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/generator.html:7
+#: /wa-apps/shop/plugins/massupdating/lib/shopMassupdating.plugin.php:377
+msgid "Генератор артикулов"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/generator.html:7
+msgid "позволит Вам в автоматическом режиме присвоить названия артикулов тем товарам, у которых они отсутствуют. Настройте маску для генерации артикула и нажмите кнопку \"Генерировать\"!"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/generator.html:12
+msgid "Только для артикулов без названия"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/generator.html:15
+msgid "Маска артикула"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/generator.html:16
+msgid "Транслитеровать символы"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/generator.html:22
+msgid "Перевести все в ВЕРХНИЙ РЕГИСТР"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/generator.html:23
+msgid "Разрешен к использованию Smarty. Доступные переменные:"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/generator.html:27
+msgid "ID артикула"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/generator.html:28
+msgid "Дополнительно..."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/generator.html:29
+msgid "Следующие переменные можно использовать в связке с функциями нахождения подстроки, например, чтобы использовать первую букву категории."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/generator.html:31
+msgid "Название товара"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/generator.html:32
+msgid "Наименования категорий, в которые входит товар (по вложенности, от последней до первой)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/generator.html:36
+msgid "Обратный массив с информациями по категориям (от первой до последней)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/dialog/generator.html:36
+msgid "Первые 2 буквы наименования категории товара"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/currencies.html:2
+msgid "У выбранных товаров отличаются исходные валюты."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/currencies.html:4
+msgid "Все выбранные товары находятся в одной валюте."
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/currencies.html:10
+msgid "Преобразовать валюту товаров"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/currencies.html:17
+msgid "в"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/currencies.html:18
+msgid "Выберите валюту"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/currencies.html:30
+msgid "Преобразовать цены по заданному курсу"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/currencies.html:32
+msgid "Если вы хотите ТОЛЬКО поменять валюту, но оставить старые цены, снимите эту галочку"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/skus.html:98
+msgid "Вес артикулов"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/skus.html:115
+msgid "вес артикулов выбранных товаров"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/skus.html:127
+msgid "Конвертировать в единую единицу измерения:"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/tags.html:5
+msgid "Обновить существующие тэги при изменении регистра"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/js/backend.js:386
+msgid "Генерировать!"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/dialog/shopMassupdatingPluginEditSave.controller.php:47
+msgid "Артикулы успешно сгенерированы!"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/dialog/shopMassupdatingPluginEditSave.controller.php:88
+msgid "Не могу обновить фотографии"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/dialog/shopMassupdatingPluginEditSave.controller.php:107
+msgid "Не могу обновить видео"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/dialog/shopMassupdatingPluginEditSave.controller.php:116
+msgid "Не могу обновить наклейки"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/dialog/shopMassupdatingPluginEditSave.controller.php:140
+msgid "Не могу обновить цены"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/dialog/shopMassupdatingPluginEditSave.controller.php:156
+msgid "Не могу обновить состояние складов"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/dialog/shopMassupdatingPluginEditSave.controller.php:165
+msgid "Не могу обновить вес артикулов"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/dialog/shopMassupdatingPluginEditSave.controller.php:176
+msgid "Не могу обновить тэги"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/dialog/shopMassupdatingPluginEditSave.controller.php:191
+msgid "Не могу обновить характеристики"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/dialog/shopMassupdatingPluginEditSave.controller.php:205
+msgid "Не могу обновить валюту товаров"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/dialog/shopMassupdatingPluginEditSave.controller.php:228
+#: /wa-apps/shop/plugins/massupdating/lib/actions/dialog/shopMassupdatingPluginEditSave.controller.php:244
+msgid "Не могу обновить дополнительные параметры товаров"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/dialog/shopMassupdatingPluginEditSave.controller.php:229
+msgid "Допущена синтаксическая ошибка в поле для ввода дополнительных товаров!"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/dialog/shopMassupdatingPluginEditSave.controller.php:297
+msgid "Не могу обновить наименования товаров"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/dialog/shopMassupdatingPluginEditSave.controller.php:299
+msgid "Допущена синтаксическая ошибка в поле для ввода наименования!"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/dialog/shopMassupdatingPluginEditSave.controller.php:349
+msgid "Не могу сгенерировать артикулы для товаров"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/dialog/shopMassupdatingPluginEditSave.controller.php:351
+msgid "Синтаксическая ошибка в поле для ввода маски артикула!"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/dialog/shopMassupdatingPluginEditSave.controller.php:366
+msgid "Не могу обновить URL товаров"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/lib/actions/dialog/shopMassupdatingPluginEditSave.controller.php:366
+msgid "Допущена синтаксическая ошибка в поле для ввода URL!"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/tax_id.html:2
+msgid "Не изменять"
+msgstr ""
+
+#: /wa-apps/shop/plugins/massupdating/templates/fields/tax_id.html:3
+msgid "Не облагается"
+msgstr ""

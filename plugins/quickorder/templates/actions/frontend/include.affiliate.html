@@ -1,0 +1,15 @@
+{$checkout = $wa->storage('shop/checkout')}
+{if empty($checkout.use_affiliate)}
+    {if !empty($settings.affiliate_text)}{$settings.affiliate_text}{/if}
+    {if !empty($affiliate.affiliate_discount)}
+        <button href="javascript:void(0)" class="gray quickorder-js-affiliate">{$settings.affiliate_button}</button>
+        <input type="hidden" name="quickorder_affiliate[use]" value="0">
+    {/if}
+{else}
+    <div class="quickorder-affiliate-success">{$settings.affiliate_success}</div>
+    <a href="javascript:void(0)" class="quickorder-cancel-affiliate quickorder-js-affiliate" title="[`cancel`]">[`cancel`]</a>
+    <input type="hidden" name="quickorder_affiliate[cancel]" value="0">
+{/if}
+{if !empty($affiliate.add_affiliate_bonus) && !empty($settings.affiliate_info)}
+    <div class="quickorder-row">{$settings.affiliate_info}</div>
+{/if}

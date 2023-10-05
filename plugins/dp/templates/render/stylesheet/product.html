@@ -1,0 +1,54 @@
+{capture assign="styles"}
+    <style>
+        {if !empty($settings.design_product_background_color)}
+        .dp-product { background-color: {$settings.design_product_background_color}; }
+        {/if}
+        {if !empty($settings.design_product_border_color)}
+        .dp-product { border-color: {$settings.design_product_border_color}; }
+        {/if}
+        {if !empty($settings.design_product_general_color)}
+        .dp-product { color: {$settings.design_product_general_color}; }
+        {/if}
+        {if !empty($settings.design_product_general_color)}
+        .dp-product { color: {$settings.design_product_general_color}; }
+        {/if}
+        {if !empty($settings.design_product_link_color)}
+        .dp-product a, .dp-product a:hover {
+            color: {$settings.design_product_link_color};
+        }
+        {/if}
+        {if !empty($settings.design_product_loading_color)}
+        .dp-product__service-title_link.dp-loading:after {
+            background-image: url("data:image/svg+xml;charset=utf-8,<svg width='50' height='50' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid' class='lds-rolling' style='background:0 0'><circle cx='50' cy='50' fill='none' stroke='{$settings.design_product_loading_color|escape|urlencode}' stroke-width='10' r='44' stroke-dasharray='207.34511513692632 71.11503837897544' transform='rotate(104 50 50)'><animateTransform attributeName='transform' type='rotate' calcMode='linear' values='0 50 50;360 50 50' keyTimes='0;1' dur='1.5s' begin='0s' repeatCount='indefinite'/></circle></svg>");
+        }
+        {/if}
+        {if !empty($settings.design_product_gray_color)}
+        .dp-product__service-hint {
+            color: {$settings.design_product_gray_color};
+        }
+        {/if}
+        {if !empty($settings.design_product_delimiter_color)}
+        .dp-product__content {
+            border-top-color: {$settings.design_product_delimiter_color};
+        }
+        .dp-product__tabs-header {
+            border-bottom-color: {$settings.design_product_delimiter_color};
+        }
+        {/if}
+        {if !empty($settings.design_product_tab_color)}
+        .dp-product__tab {
+            color: {$settings.design_product_tab_color};
+        }
+        {/if}
+        {if !empty($settings.design_product_tab_active_color)}
+        .dp-product__tab.dp-active, .dp-product__tab:hover {
+            color: {$settings.design_product_tab_active_color};
+        }
+        {/if}
+        {if !empty($settings.design_product_tab_border_color)}
+        .dp-product__tab.dp-active:after, .dp-product__tab:hover:after {
+            background-color: {$settings.design_product_tab_border_color};
+        }
+        {/if}
+    </style>
+{/capture}{$styles|regex_replace:'/<\/?style>/':''|strip}

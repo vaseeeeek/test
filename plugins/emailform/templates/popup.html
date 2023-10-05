@@ -1,0 +1,99 @@
+
+
+<div id="emailform_popup" class="emailform emailform_popup" style="display:none;">
+	<div class="overlay"></div>
+	<div class="visible">
+
+		<div class="ef-plugin-template">
+			<div class="ef-plugin-template__left">
+				<div class="ef-user-template">
+					{$templateForm}
+				</div>
+				{if $field_name > 0}
+				<div class="ef-input-wrap ef-name">
+					<input placeholder='Имя{if $field_name == 2}*{/if}' type='text'
+						class='ef-name-value {if $field_name == 2}ef-required{/if}' value=''>
+				</div>
+				{/if}
+				{if $field_email > 0}
+				<div class="ef-input-wrap ef-email">
+					<input placeholder='E-mail{if $field_email == 2}*{/if}' type='text'
+						class='ef-email-value {if $field_email == 2}ef-required{/if}' value=''>
+				</div>
+				{/if}
+				{if $field_phone > 0}
+				<div class="ef-input-wrap ef-phone">
+					<input placeholder='Телефон{if $field_phone == 2}*{/if}' type='text'
+						class='ef-phone-value {if $field_phone == 2}ef-required{/if}' value=''>
+				</div>
+				{/if}
+
+				{if $pdn || $pdn_text}
+				<div class="ef-pdn">
+					<label>
+						{if $pdn}<input type="checkbox" class="ef-pdn-cbox ef-required">{/if}
+						{if $pdn_text}
+						<span class="ef-pdn-text">{$pdn_text}</span>
+						{/if}
+					</label>
+				</div>
+				{/if}
+
+				<div class="ef-submit">
+					<input type="submit" class="ef-submit-input" value="{$submit_value}">
+				</div>
+
+				{if $carts_url}
+					<input type="hidden" name="carts_url" value="{$carts_url}">
+				{/if}
+				{if $subscribe_url}
+					<input type="hidden" name="subscribe_url" value="{$subscribe_url}">
+				{/if}
+				{if $mailer_form_id}
+					<input type="hidden" name="mailer_form_id" value="{$mailer_form_id}">
+				{/if}
+			</div>
+			<div class="ef-plugin-template__img">
+				<img src="/img/cat.svg" alt="">
+			</div>
+		</div>
+		<div class="ef-slose">Закрыть</div>
+	</div>
+</div>
+
+<style>
+	.ef-plugin-template {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.ef-submit{
+		width: 100%;
+	}
+	.ef-plugin-template__img {
+		width: 212px;
+		margin: 0 auto;
+	}
+	.emailform .visible{
+		background-image: none;
+		background-color: #fff;
+	}
+	.ef-text, .ef-pdn{
+		max-width: 300px;
+	}
+
+	@media (max-width: 768px) {
+		.ef-plugin-template__img{
+			order: 1;
+		}
+		.ef-plugin-template__left{
+			order: 2;
+		}
+		.ef-plugin-template__img{
+			width:40px
+		}
+
+		.ef-plugin-template {
+			flex-direction: column;
+		}
+	}
+</style>

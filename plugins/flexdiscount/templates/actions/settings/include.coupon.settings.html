@@ -1,0 +1,125 @@
+<h3>
+    [`Coupons and affiliate programm`]
+    {$settings_coupons_toggle = !empty($settings.coupons_toggle) || !isset($settings.coupons_toggle)}
+    <a href="javascript:void(0)" class="js-paragraph-visibilty">{if $settings_coupons_toggle}&minus;{else}&plus;{/if}</a>
+    <input type="hidden" name="settings[coupons_toggle]" value='{if $settings_coupons_toggle}1{else}0{/if}' />
+</h3>
+<div class="field-group"{if !$settings_coupons_toggle} style='display: none;'{/if}>
+    <div class="field">
+        <div class="name">[`Display additional coupon field`]</div>
+        <div class="value">
+            <div class="ibutton-checkbox">
+                <ul class="menu-h">
+                    <li>
+                        <span id="switcher-off-label">[`No`]</span>
+                    </li>
+                    <li>
+                        <input class="switcher" type="checkbox" id='switcher' name="settings[enable_frontend_cart_hook]" value="1" {if !empty($settings.enable_frontend_cart_hook)}checked="checked"{/if} />
+                    </li>
+                    <li>
+                        <span id="switcher-on-label">[`Yes`]</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="margin-block fl-hint">
+                [`Add additional coupon field on the cart page.`]<br>
+                [`Output place of this field depends on hook <i>frontend_cart</i> in your theme template.`]
+                <div class="hover-tooltip small rtl super"><span>?</span><div class="hover-content"><div>[`Relevant for multi-step checkout`]</div></div></div>
+            </div>
+            <hr>
+            <div class="margin-block bottom semi">
+                [`If you want to customize output place, disable that option and use in the template <i>cart.html</i> construction`]
+                <div class="hover-tooltip small rtl super"><span>?</span><div class="hover-content"><div>[`Relevant for multi-step checkout`]</div></div></div>
+                <div class='margin-block'>
+                    <span class='info-text'><code>&#123;shopFlexdiscountPluginHelper::getCouponForm()&#125;</code></span>
+                </div>
+                <a href="javascript:void(0)" data-type="couponForm" data-param="coupon_form" title='[`Customize coupon form`]' class='js-customize-block'><i class="icon16 edit"></i> [`Customize coupon form`]</a>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Hide default affiliate bonus block`]</div>
+        <div class="value">
+            {if shopAffiliate::isEnabled()}
+                <div class="ibutton-checkbox inline-block">
+                    <ul class="menu-h">
+                        <li>
+                            <span id="switcher10-off-label">[`No`]</span>
+                        </li>
+                        <li>
+                            <input class="switcher" type="checkbox" id='switcher10' name="settings[default_affiliate_bonus]" value="1" {if isset($settings.default_affiliate_bonus) && !empty($settings.default_affiliate_bonus)}checked="checked"{/if} />
+                        </li>
+                        <li>
+                            <span id="switcher10-on-label">[`Yes`]</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="margin-block fl-hint">
+                    [`By default all your bonuses will be displayed in theme affiliate block on the cart page. You can hide that block and use "additional affiliate bonus block" instead.`]
+                </div>
+            {else}
+                <div class="margin-block">
+                    <a href='{$wa_app_url}?action=settings#/affiliate/' title="[`Activate affiliate program`]"><i class="icon16 exclamation-red"></i> [`Activate affiliate program`]</a>
+                </div>
+            {/if}
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Display additional affiliate bonus block`]</div>
+        <div class="value">
+            {if shopAffiliate::isEnabled()}
+                <div class="ibutton-checkbox inline-block">
+                    <ul class="menu-h">
+                        <li>
+                            <span class="switcher-off">[`No`]</span>
+                        </li>
+                        <li>
+                            <input class="switcher" type="checkbox" name="settings[flexdiscount_affiliate_bonus][value]" value="1" {if !empty($settings.flexdiscount_affiliate_bonus.value)}checked="checked"{/if} />
+                        </li>
+                        <li>
+                            <span class="switcher-on">[`Yes`]</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="onopen hidden inline-block">
+                    [`Specify display type`]
+                    <input type="text" name="settings[flexdiscount_affiliate_bonus][type]" value="{if !empty($settings.flexdiscount_affiliate_bonus.type)}{$settings.flexdiscount_affiliate_bonus.type|escape}{/if}" class="small" /> [`(Default values 0 or 1)`]
+                </div>
+                <div class="margin-block fl-hint">
+                    [`Add additional affiliate bonus block on the cart page.`]<br>
+                    [`Output place of this field depends on hook <i>frontend_cart</i> in your theme template.`]
+                    <div class="hover-tooltip small rtl super"><span>?</span><div class="hover-content"><div>[`Relevant for multi-step checkout`]</div></div></div>
+                </div>
+                <hr>
+                <div class="margin-block">
+                    [`If you want to customize output place, disable that option and use in the template <i>cart.html</i> construction`]
+                    <div class="hover-tooltip small rtl super"><span>?</span><div class="hover-content"><div>[`Relevant for multi-step checkout`]</div></div></div>
+                    <div class='margin-block'>
+                        <span class='info-text'><code>&#123;shopFlexdiscountPluginHelper::getUserAffiliate(0)&#125;</code></span>
+                        <div class="margin-block semi top">[`(Default values 0 or 1)`]</div>
+                    </div>
+                    <a href="javascript:void(0)" data-type="affiliateBlock" data-param="affiliate_block" title='[`Customize affiliate block`]' class='js-customize-block'><i class="icon16 edit"></i> [`Customize affiliate block`]</a>
+                </div>
+            {else}
+                <div class="margin-block">
+                    <a href='{$wa_app_url}?action=settings#/affiliate/' title="[`Activate affiliate program`]"><i class="icon16 exclamation-red"></i> [`Activate affiliate program`]</a>
+                </div>
+            {/if}
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Log text in order history`]</div>
+        <div class="value">
+            {if shopAffiliate::isEnabled()}
+                <input type="text" name="settings[flexdiscount_affiliate_bonus][text]" value="{if !empty($settings.flexdiscount_affiliate_bonus.text)}{$settings.flexdiscount_affiliate_bonus.text|escape}{else}[`Flexdiscount bonus`]{/if}">
+                <div class="margin-block fl-hint">
+                    [`This text will be shown in order history on admin page and in user account on the storerfront, when bonuses will applied.`]
+                </div>
+            {else}
+                <div class="margin-block">
+                    <a href='{$wa_app_url}?action=settings#/affiliate/' title="[`Activate affiliate program`]"><i class="icon16 exclamation-red"></i> [`Activate affiliate program`]</a>
+                </div>
+            {/if}
+        </div>
+    </div>
+</div>

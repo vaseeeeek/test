@@ -1,0 +1,39 @@
+{strip}
+
+{* Подготавливаем массив заказанных товаров *}
+{$products = []}
+{foreach $items as $item}
+    {if $item.type == 'product'}
+        {$products[$item.sku_id] = $item}
+    {/if}
+{/foreach}
+
+<div class='productsets-discounts-title'>[`Product sets`]</div>
+<div class="productsets-discounts">
+    {foreach $workflow.cart_ids as $row}
+        <div class="productsets-discounts__row">
+            <div class="productsets-discounts__row_inner">
+                <div class="productsets-discounts__name">{$row.name|escape}</div>
+                <div class="productsets-discounts__discount">{shop_currency_html($row.total_discount)}</div>
+            </div>
+            <div class="productsets-discounts__more">
+                <a href="javascript:void(0)" onclick="$(this).hide().next().show()" class="inline-link"><b><i>[`set items`]</i></b></a>
+                <ul class="productsets-discounts__items">
+                    {foreach $row.products as $sku_id => $quantity}
+                            <li class="productsets-discounts__item">
+                                {if isset($products[$sku_id])}
+                                    <a href="?action=products#/product/{$products[$sku_id].product_id}/">{$products[$sku_id].name|escape}</a>
+                                {else}
+                                    [`Unknown product #`] {$sku_id}
+                                {/if} - {$quantity} [`pcs.`]
+                            </li>
+                    {/foreach}
+                </ul>
+            </div>
+        </div>
+    {/foreach}
+    <div class="productsets-total-discount">[`Total discount`] - {shop_currency_html($workflow.total_discount)}</div>
+</div>
+<span class="productsets-not-distributed">[`In total discount included value, which is not distributed to products`]</span>
+
+{/strip}

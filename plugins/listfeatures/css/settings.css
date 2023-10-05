@@ -1,0 +1,22 @@
+.listfeatures .field { padding: 1em; }
+.listfeatures .field:nth-child(even) { background: #fafafa; }
+.listfeatures .field .name { font-size: 1em; color: #777; }
+.listfeatures .error .value { color: red; }
+.listfeatures .settlement-sets .set { background: #eee; padding: 6px 10px; color: blue; cursor: pointer;
+    display: inline-block; margin-bottom: 10px; margin-right: 4px; }
+.listfeatures .settlement-sets .set.selected { font-weight: bold; color: black; background: #ccc; }
+.listfeatures .set-description input { width: 300px; }
+.listfeatures .add-set-link,
+.listfeatures .delete-set-link,
+.listfeatures .cancel-new-set-link { text-decoration: underline; color: blue; cursor: pointer; }
+.listfeatures .red { color: red; }
+.listfeatures .left-margin { margin-left: 0.5em!important; }
+.listfeatures .right-margin { margin-right: 0.5em!important; }
+.listfeatures .icon10.edit { cursor: pointer; }
+.listfeatures .set-options.features ul { list-style: none; margin: 0; padding: 0; }
+.listfeatures .show-hint { color: #aaa; border: solid 1px silver; padding: 0px 4px; border-radius: 50%; }
+.listfeatures .hidden-hint { padding: 0.5em; margin-top: 0.5em; border-radius: 6px; color: #555; font-size: 0.9em; max-width: 600px; }
+
+.dialog.listfeatures .ace_editor { border: 1px solid #ddd; }
+.dialog.listfeatures .hidden { display: none!important; }
+.dialog.listfeatures .loading.middle { vertical-align: middle; }

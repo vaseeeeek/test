@@ -1,0 +1,17 @@
+{capture name=flexdiscount_navigation}
+    {if $show_nav}{$wa->myNav('menu-h bottom-padded my-nav')}{/if}
+{/capture}
+<div class="wrap flexdiscount-my-content">
+    <div>
+
+        {if $show_nav_above}{$smarty.capture.flexdiscount_navigation}{/if}
+
+        <h1>{$title|escape}</h1>
+
+        {if !$show_nav_above}{$smarty.capture.flexdiscount_navigation}{/if}
+
+        {$plugin_content}
+
+        {$wa->globals('isMyAccount', true)}
+    </div>
+</div>

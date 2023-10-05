@@ -1,0 +1,1 @@
+{if !$errors}{json_encode(['status'=>'ok', 'response'=>$response])}{else}{json_encode(['status'=>'fail', 'errors'=>$errors])}{/if}

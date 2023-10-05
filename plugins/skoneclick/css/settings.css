@@ -1,0 +1,103 @@
+.shop-sk-main{
+    padding-top: 30px;
+}
+.shop-sk-tabs__contents{
+    padding-top: 16px;
+}
+.shop-sk-tabs__item{
+    display: none;
+}
+.shop-sk-tabs__item.selected{
+    display: block;
+}
+/* START FORM */
+.shop-sk-form .redactor-box{
+    border: 1px solid #ddd;
+}
+.shop-sk-form .field{
+    padding-top: 16px;
+    overflow: hidden;
+}
+.shop-sk-form__save.field{
+    padding-top: 30px;
+}
+.shop-sk-form__status .success{
+    color: green;
+}
+.shop-sk-form__status .error{
+    color: red;
+}
+.shop-sk-form__status .error i{
+    margin-left: 4px;
+    vertical-align: -2px !important;
+}
+/* END FORM */
+
+/* START GENERATOR */
+.shop-sk-generate-form{
+
+}
+.shop-sk-generate-form__zag{
+    font-weight: bold;
+    font-size: 15px;
+}
+.shop-sk-generate-form__table{
+    width: auto !important;
+}
+.shop-sk-generate-form__table td{
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    font-size: 14px !important;
+}
+.shop-sk-generate-form__tr.error{
+    border-left: 1px solid red;
+    border-right: 1px solid red;
+}
+.shop-sk-generate-form__tr.error td{
+    border-top: 1px solid red !important;
+    border-bottom: 1px solid red !important;
+}
+.shop-sk-generate-form__tr label > *{
+    vertical-align: middle;
+    display: inline-block;
+}
+td.shop-sk-generate-form__sort{
+    width: 50px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: center;
+    cursor: pointer;
+}
+td.shop-sk-generate-form__name{
+    padding-left: 0 !important;
+    width: 180px;
+}
+.shop-sk-generate-form__name .hint{
+    display: block;
+}
+.shop-sk-generate-form__value{
+    width: 240px;
+}
+table .shop-sk-generate-form__value input{
+    width: 100% !important;
+}
+table input.shop-sk-generate-form__input-small{
+    width: 50px !important;
+}
+.shop-sk-generate-form__add{
+    margin-top: 14px;
+}
+.shop-sk-generate-form__add > *{
+    vertical-align: middle;
+}
+.shop-sk-generate-form__add a{
+    font-size: 13px;
+}
+/* END GENERATOR */
+
+.value__two input[type=text]{
+    width: 100px !important;
+    margin-right: 10px !important;
+}
+
+

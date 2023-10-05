@@ -1,0 +1,12 @@
+<script src="{shopBrandHelper::getStaticUrl('js/vendor/codemirror/mode/smarty.js')}"></script>
+<script src="{shopBrandHelper::getStaticUrl('js/vendor/codemirror/mode/smartymixed.js')}"></script>
+
+<script>
+	window.brand = {$state|json_encode};
+
+	window.brand.resource_base_url = '{shopBrandHelper::getStaticUrl('assets')}';
+</script>
+<link rel="stylesheet" href="{shopBrandHelper::getStaticUrl('assets/settings_page.css')}?v={$asset_version}" />
+<script src="{shopBrandHelper::getStaticUrl('assets/settings_page.js')}?v={$asset_version}"></script>
+
+<div id="brand_plugin_mount"></div>

@@ -1,0 +1,10 @@
+<table class="features listfeatures{if $set.class_name|default:''} {$set.class_name}{/if}">
+    <tbody>
+        {foreach $features as $feature}
+            <tr{if $feature.class_names} class="{$feature.class_names}"{/if}>
+                <td class="name">{$feature.name}</td>
+                <td class="value">{$feature.values}</td>
+            </tr>
+        {/foreach}
+    </tbody>
+</table>

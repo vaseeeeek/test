@@ -1,0 +1,74 @@
+<script type="text/javascript" src="{$wa_url}wa-content/js/jquery-plugins/fileupload/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="{$wa_url}wa-content/js/jquery-plugins/fileupload/jquery.fileupload.js"></script>
+<script type="text/javascript" src="{$wa_app_static_url}plugins/syrattach/js/syrattach.js"></script>
+<div id="s-plugin-syrattach-fileupload" class="block double-padded s-plugin-syrattach-upload-dropzone" data-url="?plugin=syrattach&amp;module=attachments&amp;action=upload">
+    <a href="javascript:void(0);" id="s-plugin-syrattach-upload-files-link"{* class="fileinput-button"*}>
+        <i class="icon16 upload"></i>
+        {_wp('Select files')}
+        <input type="file" name="files[]" multiple>
+    </a>
+    <span class="gray">{_w('or drag them here to start upload')}</span>
+    {_wp("Max. file size for upload:")}
+    {$max_file_size|wa_format_file_size}
+    {$wa->csrf()}
+    <input type="hidden" name="syrattach_product_id" value="{$product.id}">
+    <span id="s-plugin-syrattach-upload-progress" style="display:none">
+        <div class="progressbar small yellow" style="width:150px;display:inline-block; margin:0;vertical-align:middle">
+            <div class="progressbar-outer">
+                <div class="progressbar-inner" id="s-plugin-syrattach-upload-progressbar-id" style="width:0">
+                </div>
+            </div>
+        </div>
+    </span>
+</div>
+
+<ul id="s-plugin-syrattach-product-files-list">
+</ul>
+{* Init tab *}
+<script type="text/javascript"><!--
+    $.product_syrattachments.init({
+        container: 's-product-form.syrattachments',
+        counter: '#s-product-edit-menu li.syrattachments span.hint',
+        product_id: {$product.id},
+        attachments: {json_encode($attachments)},
+        count: {$count},
+        placeholder: '{_wp('Add file description')|escape:javascript}',
+        maxFileSize: {$max_file_size}
+    });
+    $(function(){
+    });
+//--></script>
+{* Templates *}
+<script id="template-syrattach-attachments" type="text/html">
+    {literal}
+        {% for(var i=0, cnt=o.attachments.length, attachment=o.attachments[0]; i < cnt; attachment = o.attachments[++i]) { %}
+        <li data-attachment-id="{%=attachment.id%}">
+            <div class="s-plugin-syrattach-filelink-container">
+                <a href="{%=attachment.url%}" class="s-plugin-syrattach-filelink" target="_blank">{%=attachment.name%}</a>
+                <span class="hint">({%=o.formatFileSize(attachment.size)%})</span>
+            <div>
+            {% if(attachment.description) { %}
+            <div class="s-plugin-syrattach-file-description editable">{%=attachment.description%}</div>
+            {% } else { %}
+            <div class="s-plugin-syrattach-file-description gray editable">{%=o.placeholder%}</div>
+            {% } %}
+            <div class="s-plugin-syrattach-attachmant-actions">
+                <a href="javascript:void(0);" class="s-plugin-syrattach-delete-action" data-id="{%=attachment.id%}">
+                    <i class="icon16 delete"></i>
+                    {/literal}{_wp('Delete')}{literal}
+                </a>
+            </div>
+        </li>
+        {% } %}
+    {/literal}
+</script>
+{* Additional styles *}
+<style type="text/css">
+    .s-plugin-syrattach-upload-dropzone { border: 2px dashed #ccc; margin-bottom: 20px}
+    #s-plugin-syrattach-product-files-list { padding-left:0;list-style-type: none}
+    #s-plugin-syrattach-product-files-list li { display: block; margin-bottom: 15px; padding: 5px; border: 1px solid #ccc}
+    #s-plugin-syrattach-product-files-list .s-plugin-syrattach-filelink { font-size: 146%}
+    #s-plugin-syrattach-product-files-list .s-plugin-syrattach-file-description { margin: 10px 0; padding: 3px; line-height: 120%}
+    #s-plugin-syrattach-upload-files-link input[type=file] { position: absolute;top:0;right:0;margin:0;padding:0;opacity:0;filter:alpha(opacity=0);cursor:pointer}
+    #s-plugin-syrattach-upload-files-link { position: relative;overflow: hidden}
+</style>

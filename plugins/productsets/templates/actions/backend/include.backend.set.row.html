@@ -1,0 +1,53 @@
+<tr data-id="{$set.id}">
+    <td><i class="icon16 sort"></i></td>
+    <td><input type="checkbox" class="f-selector" value="{$set.id}"/></td>
+    <td>
+        <a href="javascript:void(0)" data-id="{$set.id}" class="js-productsets-copy" title="[`Duplicate`]">
+            <i class="icon16 stack"></i>
+        </a>
+        <a href="javascript:void(0)" data-id="{$set.id}" class="js-productsets-status" title="[`Change status`]">
+            <i class="icon16 productsets-pl lightbulb{if empty($set.general.status)}-off{/if}"></i>
+        </a>
+        <a href="#/productsets/edit/{$set.id}/">{if !empty($set.general.name)}{$set.general.name|escape}{else}[`Set`] {$set.id}{/if}</a>
+        {if !empty($set.general.description)}
+            <div class="semi-small mb top semi gray">{$set.general.description|escape}</div>
+        {/if}
+    </td>
+    <td>
+        {if !empty($set.settings.bundle_status)}
+            <i class="icon16 status-green-tiny"></i>
+            [`enabled`]
+        {else}
+            <i class="icon16 status-red-tiny"></i>
+            [`disabled`]
+        {/if}
+        <div class="semi-small mb top semi gray">
+            {sprintf(_wp('%d bundle', '%d bundles', $set.bundle|count), $set.bundle|count)}
+        </div>
+    </td>
+    <td>
+        {$start = null}
+        {$end = null}
+        {if !empty($set.user_bundle.settings.lifetime)}
+            {if !empty($set.user_bundle.settings.schedule.start) && !empty($set.user_bundle.settings.schedule.start.year) && !empty($set.user_bundle.settings.schedule.start.month) && !empty($set.user_bundle.settings.schedule.start.day)}
+                {$start = "`$set.user_bundle.settings.schedule.start.year`-`$set.user_bundle.settings.schedule.start.month`-`$set.user_bundle.settings.schedule.start.day` `$set.user_bundle.settings.schedule.start.hour`:`$set.user_bundle.settings.schedule.start.minute`:00"}
+            {/if}
+            {if !empty($set.user_bundle.settings.schedule.end) && !empty($set.user_bundle.settings.schedule.end.year) && !empty($set.user_bundle.settings.schedule.end.month) && !empty($set.user_bundle.settings.schedule.end.day)}
+                {$end = "`$set.user_bundle.settings.schedule.end.year`-`$set.user_bundle.settings.schedule.end.month`-`$set.user_bundle.settings.schedule.end.day` `$set.user_bundle.settings.schedule.end.hour`:`$set.user_bundle.settings.schedule.end.minute`:00"}
+            {/if}
+            {if $start && $start|wa_datetime:'U' > $smarty.now}<i class="icon16 clock" title='{sprintf(_wp('Starts at %s'), $start|wa_datetime:'humandatetime')}'></i> {/if}
+            {if $end && $end|wa_datetime:'U' < $smarty.now}
+                <i class="icon16 exclamation-red" title='[`Ended by schedule`]'></i>
+            {/if}
+        {/if}
+        {if !empty($set.settings.user_bundle_status) && (!$end || $end|wa_datetime:'U' > $smarty.now)}
+        <i class="icon16 status-green-tiny"></i>
+        [`enabled`]
+        {else}
+        <i class="icon16 status-red-tiny"></i>
+    [`disabled`]
+        {/if}<br>
+    </td>
+    <td class="min-width"><a href="javascript:void(0)" title="[`Delete`]" data-id="{$set.id}"
+                             class="js-productsets-delete single-deletion"><i class="icon16 delete"></i></a></td>
+</tr>

@@ -1,0 +1,60 @@
+{capture assign="async_assets"}
+    {if $asset_mode === 'async' && !empty($output_assets)}
+        <script type="text/javascript">
+			(function() {
+				var loadCssCallback = function () {
+                    {foreach $output_assets as $asset}
+                    {if $asset.type === 'css'}
+					window.shop_dp.loader.loadCSS({$asset.url|json_encode});
+                    {/if}
+                    {/foreach}
+				};
+
+				if (window.shop_dp) {
+					loadCssCallback();
+				} else {
+					$(document).on('shop_dp_asset_loaded_core', loadCssCallback);
+				}
+			})();
+        </script>
+    {/if}
+{/capture}
+{capture assign="inline_assets"}
+    {if !empty($assets.js)}
+        <script type="text/javascript">
+			jQuery(function($) {
+				if(!('shop_dp' in window)) {
+					return;
+				}
+
+				var asset_name;
+				var onProductAssetLoad = function (is_from_cache) {
+					if (is_from_cache && this.init) {
+						this.init();
+					}
+				};
+
+				{foreach $assets.js as $js}
+				asset_name = {$js|json_encode};
+
+				if (asset_name === 'product') {
+					window.shop_dp.loader.load(asset_name, onProductAssetLoad);
+				} else {
+					window.shop_dp.loader.load(asset_name);
+				}
+                {/foreach}
+			});
+        </script>
+    {/if}
+{/capture}
+
+{$async_assets|strip}
+{$inline_assets|strip}
+
+{if $wrapper}
+	<div class="{$wrapper}" {foreach $data as $field => $value} data-{$field}="{$value|escape|strip}" {/foreach}>
+	    {/if}
+	    {$content}
+	    {if $wrapper}
+	</div>
+{/if}

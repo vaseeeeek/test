@@ -1,0 +1,32 @@
+{if count($input['currency']) > 1}
+<span class="red">[`У выбранных товаров отличаются исходные валюты.`]</span>
+{else}
+<span style="color: green;">[`Все выбранные товары находятся в одной валюте.`]</span>
+{/if}
+<div style="margin-top: 10px;">
+	[`Преобразовать валюту товаров`]
+	{if count($input['currency']) == 1}
+	[`из`]
+	<select name="currency_from" disabled>
+		<option>{shopMassupdatingPlugin::getCurrencySign(ifset($input['currency'][0], 'RUB'))}</option>
+	</select>
+	{/if}
+	[`в`]
+	<select name="set_currencies">
+		<option value="" selected>- [`Выберите валюту`] -</option>
+	{foreach shopMassupdatingPlugin::getAllCurrencies() as $key => $currency}
+		{if !(count($input['currency']) == 1 && ifset($input['currency'][0]) == {$key})}<option value="{$key}">
+			{$currency['sign']}
+			(курс {$currency['rate']} к 1)
+		</option>{/if}
+	{/foreach}
+	</select>
+	<div style="margin-top: 10px;">
+	<label>
+		<input name="update_prices_by_rate" type="checkbox" checked>
+		[`Преобразовать цены по заданному курсу`]
+	</label>
+	<br/>
+	<span class="hint">[`Если вы хотите ТОЛЬКО поменять валюту, но оставить старые цены, снимите эту галочку`]</span>
+	</div>
+</div>

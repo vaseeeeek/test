@@ -1,0 +1,295 @@
+<div>
+    <div class="dialog-content">
+        <h3>[`Select coupons`] <a href="javascript:void(0)" onclick='$(this).closest(".dialog").trigger("close")' title="[`close`]" class="close">[`close`]</a></h3>
+        <div class="margin-block">
+            <form action="#" onsubmit='$.flexdiscount.findCoupons($(this)); return false;'>
+                <input style="padding: 10px; box-sizing: border-box; width: 84%" type="text" placeholder="[`Search for coupons`]">
+                <input type='submit' class="button" value='[`Search`]' style="width: 14%">
+            </form>
+        </div>
+        <div class="s-coupons-list-block s-categories-block margin-block">
+            <p class="align-center margin-block big-loader"><img src="{$plugin_url}img/loading.gif" /></p>
+            <div class="interactive-block margin-block" style='position: relative'>
+                <div class="margin-block bottom float-left" style="padding: 10px; border: 1px dashed #999;">
+                    <label><input type="checkbox" onchange='$.flexdiscount.showAllCoupons($(this));' class="f-show-all"{if !empty($show_all)} checked{/if}/> [`Show all coupons and generators`]</label>
+                </div>
+                {if !empty($coupons)}
+                <div class="margin-block top float-left" style="margin-left: 10px;">
+                    <ul class="menu-h">
+                        <li class="f-button-export"><a href="#/coupons/exportAll/1" class="js-action js-disable-router f-choose">{$wa->shop->icon16('ss excel')} [`Export`]..</a></li>
+                        <li class="f-button-export" style="display:none"><a href="#/coupons/exportAll/2" class="js-action js-disable-router f-selected">{$wa->shop->icon16('ss excel')} [`Export selected`] <span class="indicator"></span></a></li>
+                        <li class="f-button-export" style="display:none"><a href="#/coupons/exportAll/3" class="js-action js-disable-router f-all">{$wa->shop->icon16('ss excel')} [`Export all`]</a></li>
+                    </ul>
+                </div>
+                {/if}
+                <div class="margin-block top float-right">
+                    <div class="inline-block">[`Total count`]: <span class="s-count" data-count="{$count}">{$count}</span></div>
+                    {if $total_pages_num > 1}
+                        <div id="pagination" class="inline-block">
+                            {include file="./../../pagination.html" total_pages_num = $total_pages_num current_page_num= $current_page_num url="plugin=flexdiscount&module=dialog&action=couponList"}
+                        </div>
+                    {/if}
+                </div>
+                <div class="clear-both"></div>
+                {if !empty($coupons)}
+                <table class="zebra">
+                    <thead>
+                        <tr data-href="{$wa_app_url}?plugin=flexdiscount&module=dialog&action=couponList{if !empty($search)}&search={$search}{/if}&page={$current_page_num}">
+                            <th class="min-width"><input type="checkbox" class="checker" /></th>
+                            <th class="hover" onclick="$.flexdiscount.orderCouponsBy(this, 'code')">[`Code (name)`]{if !empty($order) && $order == 'code'} <i class='icon16 {if !empty($designator) && $designator == 'desc'}d{else}u{/if}arr'></i>{/if}</th>
+                            {if !empty($columns.used)}<th onclick="$.flexdiscount.orderCouponsBy(this, 'used')" class="align-center hover">[`Used`]{if !empty($order) && $order == 'used'} <i class='icon16 {if !empty($designator) && $designator == 'desc'}d{else}u{/if}arr'></i>{/if}</th>{/if}
+                            {if !empty($columns.limit)}<th onclick="$.flexdiscount.orderCouponsBy(this, 'limit')" class="align-center hover">[`Limit`]{if !empty($order) && $order == 'limit'} <i class='icon16 {if !empty($designator) && $designator == 'desc'}d{else}u{/if}arr'></i>{/if}</th>{/if}
+                            {if !empty($columns.type)}<th onclick="$.flexdiscount.orderCouponsBy(this, 'type')" class="align-center hover">[`Type`]{if !empty($order) && $order == 'type'} <i class='icon16 {if !empty($designator) && $designator == 'desc'}d{else}u{/if}arr'></i>{/if}</th>{/if}
+                            {if !empty($columns.rules)}<th class="hover" onclick="$.flexdiscount.orderCouponsBy(this, 'rules')">[`Rules`]{if !empty($order) && $order == 'rules'} <i class='icon16 {if !empty($designator) && $designator == 'desc'}d{else}u{/if}arr'></i>{/if}</th>{/if}
+                            {if !empty($columns.comment)}<th onclick="$.flexdiscount.orderCouponsBy(this, 'comment')" class="align-center hover">[`Comment`]{if !empty($order) && $order == 'comment'} <i class='icon16 {if !empty($designator) && $designator == 'desc'}d{else}u{/if}arr'></i>{/if}</th>{/if}
+                            {if !empty($columns.created)}<th onclick="$.flexdiscount.orderCouponsBy(this, 'create_datetime')" class="align-center hover">[`Created`]{if !empty($order) && $order == 'create_datetime'} <i class='icon16 {if !empty($designator) && $designator == 'desc'}d{else}u{/if}arr'></i>{/if}</th>{/if}
+                            <th class="align-right"><a href="#/customize/columns/" data-type="coupon" title="[`customize columns`]" class="js-action js-disable-router"><i class="icon16 settings"></i></a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {foreach $coupons as $c}
+                            {$coupon_status = shopFlexdiscountHelper::getCouponStatus($c)}
+                            <tr class="{if $coupon_status == -3} red{/if}{if !empty($show_all) && !empty($c.is_used)} bold{/if}"{if !empty($c.is_used)} title="[`Coupon is used by this rule`]"{/if}>
+                                <td>
+                                    <input type="checkbox"{if $c.type == 'coupon'} onchange="$.flexdiscount.updateIndicator()"{/if} class="f-checkbox" data-type="{$c.type}" value="{$c.id}" />
+                                </td>
+                                <td>
+                                    {if $coupon_status == -3}
+                                        <i class='icon16-custom exclamation' title='[`Coupon reached the limit`]'></i>
+                                    {elseif $coupon_status == -1}
+                                        <i class='icon16 clock' title='[`Coupon start at`] {$c.start|wa_datetime:"humandate"}'></i>
+                                    {elseif $coupon_status == -2}
+                                        <i class='icon16 exclamation' title='[`Coupon time is expired`]'></i>
+                                    {/if}
+                                    {if $c.type !== 'coupon'}
+                                        <i class="icon16 lightning" title='[`Generator`]'></i>
+                                    {/if}
+                                    <span class="s-name">{if $c.type == 'coupon'}{$c.code|escape}{else}{$c.name|escape}{/if}</span>
+                                </td>
+                                {if !empty($columns.used)}
+                                    <td class="align-center">{if $c.type == 'coupon'}{$c.used}{else}-{/if}</td>
+                                {/if}
+                                {if !empty($columns.limit)}
+                                    <td class="align-center s-limit">{if $c.type == 'coupon'}{if $c.limit <= 0}∞{else}{$c.limit}{/if}{else}-{/if}</td>
+                                {/if}
+                                {if !empty($columns.type)}
+                                    <td class="align-center">{if $c.type == 'coupon'}[`coupon`]{else}[`generator`]{/if}</td>
+                                {/if}
+                                {if !empty($columns.rules)}
+                                    <td>
+                                        {if !empty($c.rules)}
+                                            {foreach $c.rules as $cr}
+                                                <a href="#/discount/{$cr.id}" target="_blank"><i class="icon16 new-window"></i> {$cr.name|escape}</a>
+                                            {/foreach}
+                                        {/if}
+                                    </td>
+                                {/if}
+                                {if !empty($columns.comment)}
+                                    <td class="align-center">{if $c.comment}{$c.comment|escape}{/if}</td>
+                                {/if}
+                                {if !empty($columns.created)}
+                                    <td class="align-center">{if $c.create_datetime}{$c.create_datetime|wa_datetime:'date'}{/if}</td>
+                                {/if}
+                                <td class="f-edit" onclick="$.flexdiscount.dialogShowCouponsEditAction($(this), {$c.id})"><i class="icon16 edit"></i></td>
+                            </tr>
+                        {/foreach}
+                    </tbody>
+                </table>
+                {else}
+                    <div class='margin-block align-center' style='font-size: 18px;'>{if empty($show_all)}[`Rule doesn't have any coupons`]{else}[`You don't have any created coupons`]{/if}</div>
+                {/if}
+            </div>
+        </div>
+        <div id="flexdiscount-coupon-columns-dialog" style='display: none'>
+            <div class="fields margin-block top">
+                <div class="field">
+                    <div class="name">[`Check columns`]</div>
+                    <div class="value">
+                        <div class="margin-block bottom"><label><input type="checkbox" disabled checked /> [`Code (name)`]</label></div>
+                        {foreach ['used' => _wp('Used'), 'limit' => _wp('Limit'), 'type' => _wp('Type'), 'rules' => _wp('Rules'), 'comment' => _wp('Comment'), 'created' => _wp('Created')] as $k => $v}
+                            <div class="margin-block bottom">
+                                <label><input type="checkbox" value='{$k}' name='columns[]'{if !empty($columns[$k])} checked{/if} /> {$v}</label>
+                            </div>
+                        {/foreach}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(function () {
+                /* Постраничная навигация */
+                $(document).on("click", ".s-coupons-list-block #pagination a", function() {
+                    var params = $.flexdiscount.getParams($(this).attr("href"));
+                    $.flexdiscount.getCoupons(params);
+                    return false;
+                });
+                /* Выбор всех купонов */
+                $(document).on('change', '.checker', function() {
+                    var that = $(this);
+                    if (that.prop('checked')) {
+                       that.closest("table").find("input:not('.checker')").prop("checked", true);
+                   } else {
+                       that.closest("table").find("input:not('.checker')").prop("checked", false);
+                   }
+                   $.flexdiscount.updateIndicator();
+                });
+
+                /* Обновление списка купонов */
+                $.flexdiscount.getCoupons = function(params) {
+                    var block = $(".s-coupons-list-block");
+                    params['show_all'] = block.find('.f-show-all').prop('checked') ? 1 : 0;
+                    if (!block.hasClass("is-loading")) {
+                        block.addClass("is-loading");
+                        $.get("?plugin=flexdiscount&module=dialog&action=couponList&id={$f_id}" + (params ? '&' + $.param(params) : ''), function(response) {
+                            var tmp = $("<div></div>");
+                            tmp.append(response);
+                            block.find(".interactive-block").html(tmp.find(".interactive-block"));
+                            block.removeClass("is-loading");
+                            if (block.find(".zebra").length) {
+                                $("#coupon-dialog-list").find(".dialog-buttons div").show();
+                            } else {
+                                $("#coupon-dialog-list").find(".dialog-buttons div").hide();
+                            }
+                        }, "html");
+                    }
+                    return false;
+                };
+
+                {literal}
+                /* Обработчик для поиска купонов */
+                $.flexdiscount.findCoupons = function (form) {
+                    var search = form.find("input[type='text']").val();
+                    $.flexdiscount.getCoupons({ search: search });
+                    return false;
+                };
+
+                /* Показать все купоны */
+                $.flexdiscount.showAllCoupons = function () {
+                    var params = $(".s-coupons-list-block .zebra thead tr").length ? $.flexdiscount.getParams($(".s-coupons-list-block .zebra thead tr").attr("data-href")) : {};
+                    $.flexdiscount.getCoupons(params);
+                    return false;
+                };
+
+                /* Получение параметров из ссылки */
+                $.flexdiscount.getParams = function (href) {
+                    var hrefObj = JSON.parse('{"' + decodeURI(href).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+                    var params = { };
+                    if (typeof hrefObj.page !== 'undefined' && hrefObj.page) {
+                        params['page'] = hrefObj.page;
+                    }
+                    if (typeof hrefObj.search !== 'undefined' && hrefObj.search) {
+                        params['search'] = hrefObj.search;
+                    }
+                    if (typeof hrefObj.order !== 'undefined' && hrefObj.order) {
+                        params['order'] = hrefObj.order;
+                    }
+                    if (typeof hrefObj.designator !== 'undefined' && hrefObj.designator) {
+                        params['designator'] = hrefObj.designator;
+                    }
+                    return params;
+                };
+
+                /* Сортировка купонов */
+                $.flexdiscount.orderCouponsBy = function(btn, param) {
+                    btn = $(btn);
+                    var params = $.flexdiscount.getParams(btn.closest("tr").attr('data-href'));
+                    params['order'] = param;
+                    params['designator'] = btn.find("i").hasClass("darr") ? 'ASC' : 'DESC';
+                    $.flexdiscount.getCoupons(params);
+                    return false;
+                };
+
+                /* Открытие блока для редактирования купона */
+                $.flexdiscount.dialogShowCouponsEditAction = function(btn, couponId) {
+                    var tr = btn.closest("tr");
+                    var tableInside = tr.next(".table-inside");
+                    if (tableInside.length) {
+                        if (!tableInside.is(":visible")) {
+                            tr.next(".table-inside").show().find("> td > div").slideDown();
+                        } else {
+                            tr.next(".table-inside").find("> td > div").slideUp(function() {
+                                $(this).closest(".table-inside").hide();
+                            });
+                        }
+                    } else if (!$.flexdiscount.hasLoading(btn)) {
+                        btn.find("i").removeClass("edit").addClass("loading");
+                        $.post("?plugin=flexdiscount&module=dialog&action=couponEdit&id=" + couponId + "&type=coupon", function (response) {
+                            var html = "";
+                            var tmp = $("<div></div>");
+                            tmp.append(response);
+                            tmp.append("<div class='clear-both'><input type='submit' value='[`Save`]' class='button green'></div>");
+                            html += "<tr class='table-inside white'><td colspan='"+tr.children().length+"'><div><form style='padding: 20px 0' onsubmit='$.flexdiscount.couponListEditHandlerAction($(this)); return false;'>";
+                            html += tmp.html();
+                            html += "</form><div></td></tr>";
+                            tr.after(html);
+                            tr.next(".table-inside").show().find("> td > div").slideDown();
+                            btn.find("i").removeClass("loading").addClass("edit");
+                        }, "html");
+                    }
+                };
+                /* Сохранение купонов */
+                $.flexdiscount.couponListEditHandlerAction = function(form) {
+                    $.flexdiscount.couponSaveHandler(form, function() {
+                        var name = form.find('.s-coupon-code').length ? form.find('.s-coupon-code').val() : form.find('.s-coupon-name').val();
+                        var tr = form.closest("tr").prev();
+                        var limit = parseInt(form.find("input[name='coupon[limit]']").val());
+                        tr.find(".s-name").text(name);
+                        tr.find(".s-limit").text(limit <= 0 || isNaN(limit) ? '∞' : limit);
+                    });
+                };
+
+                // Экспорт записей
+                $.flexdiscount.couponsExportAllAction = function (btn) {
+                    if (btn.hasClass("f-selected") || btn.hasClass("f-all")) {
+                        var params = {};
+                        if (btn.hasClass("f-selected")) {
+                            var ids = $.makeArray($(".s-coupons-list-block .zebra tbody .f-checkbox[data-type='coupon']:checked").map(function () {
+                                return $(this).val();
+                            }));
+                            if (!ids.length) {
+                                alert($__("Select coupon"));
+                                return false;
+                            }
+                            params['coupon_ids'] = ids;
+                        } else {
+                            params['all'] = 1;
+                            params['params'] = $.flexdiscount.getParams($(".s-coupons-list-block .zebra > thead > tr").attr('data-href'));
+                            if (!$(".s-coupons-list-block .zebra tbody .f-checkbox[data-type='coupon']").length) {
+                                alert($__("Rule doesn't have any coupons"));
+                                return false;
+                            }
+                        }
+
+                        /* Экспорт */
+                        $.flexdiscount.longaction.setParams(
+                            "?plugin=flexdiscount&module=coupons&action=imexport",
+                            { type: 'export', params: params, fl_id: $("#coupon-dialog-list").data('fl-id') !== '' ? $("#coupon-dialog-list").data('fl-id') : $.flexdiscount.discount.id, show_all: $(".s-coupons-list-block .f-show-all").prop('checked') ? 1 : 0 }
+                        );
+                        $.flexdiscount.longaction.onLoad = null;
+                        $.flexdiscount.longaction.openDialog(
+                            $__('Export'),
+                            $__('Export coupons'),
+                            '<p class="margin-block align-center" style="margin-top: 50px;">' + $__("Coupons will be exported in CSV file. Please, don't close or update webpage") + '</p>'
+                        );
+
+                    }  else {
+                        btn.parent().hide().siblings(".f-button-export").show();
+                    }
+                };
+                // Обновление индикатора выделенных записей
+                $.flexdiscount.updateIndicator = function(number) {
+                    number = number || $(".s-coupons-list-block .zebra tbody .f-checkbox[data-type='coupon']:checked").length;
+                    $(".s-coupons-list-block .f-button-export .f-selected .indicator").text(number);
+                };
+            });
+            {/literal}
+        </script>
+    </div>
+    <div class="dialog-buttons">
+        <div class="align-center"{if empty($coupons)} style="display: none"{/if}>
+            <a href="#/discount/couponsAdd/" class="js-action js-disable-router button green">[`Add selected coupons to discount`]</a>
+            <a href="#/discount/couponsRemove/" class="js-action js-disable-router button yellow">[`Remove selected coupons from discount`]</a>
+            <a href="#/discount/couponsDelete/" class="js-action js-disable-router button red">[`Delete selected coupons totally`]</a>
+        </div>
+    </div>
+</div>

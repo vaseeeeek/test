@@ -1,0 +1,1 @@
+$.saleskuPluginProductElements._Selectors.image = '.product-image-container';

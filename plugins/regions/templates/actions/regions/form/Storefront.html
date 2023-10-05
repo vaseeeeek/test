@@ -1,0 +1,254 @@
+﻿<div class="shop-region_edit_storefront">
+	<div class="field-box field-box_linked field-box_sep">
+		<h6 class="subcategory_header">Валюта</h6>
+
+		<label class="field-box__label" for="city_storefront_stock">
+			{if !$for_specific_settings}<i class="icon16 link" title="Наследуется из настроек витрины"></i>{/if}
+			Основная валюта
+		</label>
+
+		<div class="field-box__field">
+			<div class="select-box">
+				<select class="select-box__input city-storefront__currency" id="city_storefront_currency"
+						name="{$form_attribute_name}[currency]">
+					{foreach $currencies|default:array() as $_id => $_currency}
+						<option value="{$_id}"
+								{if $_id == $storefront_settings['currency']|default:''}selected{/if}>
+							{$_currency.title}
+						</option>
+					{/foreach}
+				</select>
+			</div>
+		</div>
+	</div>
+
+	<div class="field-box field-box_linked field-box_sep">
+		<h6 class="subcategory_header">Настройки Склада</h6>
+
+		<label class="field-box__label" for="city_storefront_stock">
+			{if !$for_specific_settings}<i class="icon16 link" title="Наследуется из настроек витрины"></i>{/if}
+			Основной склад
+		</label>
+
+		<div class="field-box__field">
+			<div class="select-box">
+				<select class="select-box__input city-storefront__stock" id="city_storefront_stock"
+					name="{$form_attribute_name}[stock]">
+					{foreach $stocks|default:array() as $_id => $_name}
+					<option value="{$_id}"
+						{if $_id == $storefront_settings['stock']|default:''}selected{/if}>
+					{$_name}
+					</option>
+					{/foreach}
+				</select>
+			</div>
+		</div>
+
+		<div class="field-group__description">
+			Выберите основной склад, с которым будет связана эта витрина. При
+			обработке заказов, оформленных через эту витрину, выбранный здесь склад будет предлагаться по умолчанию
+			для обновления складских остатков.
+		</div>
+	</div>
+
+	<div class="field-box field-box_linked">
+		<label class="field-box__label" for="city_storefront_stock">
+			{if !$for_specific_settings}<i class="icon16 link" title="Наследуется из настроек витрины"></i>{/if}
+			Показывать склады
+		</label>
+
+		<div class="field-box__field js-storefront_public_stock_block">
+			<div class="radio-box-set">
+				<label class="radio-box-set__item radio-box">
+					<input class="radio-box__input js-radio" type="radio" name="{$form_attribute_name}[public_stocks]" value="0" {if $storefront_settings['public_stocks']|default:'' == '0'}checked="checked"{/if}>
+					<span class="radio-box__description">Все склады, видимые покупателям</span>
+				</label>
+
+				<label class="radio-box-set__item radio-box">
+					<input class="radio-box__input js-radio" type="radio" name="{$form_attribute_name}[public_stocks]" value="" {if is_array($storefront_settings['public_stocks']|default:'')}checked="checked"{/if}>
+					<span class="radio-box__description">Только выбранные</span>
+				</label>
+
+				{$_is_disabled = $storefront_settings['public_stocks']|default:'0' == '0'}
+				<div class="block">
+					<ul class="menu-v compact small">
+						{foreach $public_stocks as $_id => $_name}
+						<li>
+							<label class="s-label-with-check">
+								<input
+									class="js-checkbox check-box__input"
+									type="checkbox"
+									name="{$form_attribute_name}[public_stocks][]"
+									value="{$_id}"
+									{if is_array($storefront_settings['public_stocks']|default:'') && in_array($_id, $storefront_settings['public_stocks']|default:'')}
+								checked="checked"
+								{/if}
+								{if $_is_disabled}
+								disabled="disabled"
+								{/if}
+								><span class="radio-box__description">{$_name}</span>
+							</label>
+						</li>
+						{/foreach}
+					</ul>
+				</div>
+
+				<div class="block">
+					<ul class="menu-v compact small"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="field-box field-box_linked">
+		<label class="field-box__label" for="city_storefront_stock">
+			{if !$for_specific_settings}<i class="icon16 link" title="Наследуется из настроек витрины"></i>{/if}
+			Нет на складе
+		</label>
+
+		<div class="field-box__field js-drop_out_of_stock_block">
+			<div class="radio-box-set">
+				<label class="radio-box-set__item radio-box">
+					<input class="radio-box__input js-radio" type="radio" {if $storefront_settings['drop_out_of_stock']|default:'0' == '1'}checked="checked"{/if} name="{$form_attribute_name}[drop_out_of_stock]" value="1">
+					<span class="radio-box__description">Автоматически перемещать вниз списка все товары, которых нет на складе</span>
+					<span class="hint radio-box__description">Товары, которых нет на складе, будут автоматически перемещены вниз всех списков товаров на витрине интернет-магазина: в результатах поиска, в списках товаров внутри категорий, в результатах фильтрации товаров и т. д.</span>
+				</label>
+
+				<label class="radio-box-set__item radio-box">
+					<input class="radio-box__input js-radio" type="radio" {if $storefront_settings['drop_out_of_stock']|default:'0' == '2'}checked="checked"{/if} name="{$form_attribute_name}[drop_out_of_stock]" value="2">
+					<span class="radio-box__description">Скрыть все товары, которых нет на складе</span>
+					<span class="hint radio-box__description">Товары, которых нет на складе, будут опубликованы и доступны на витрине по прямой ссылке, но будут скрыты из всех списков товаров: из результатов поиска, из категорий, из результатов фильтрации товаров и т. д.</span>
+				</label>
+
+				<label class="radio-box-set__item radio-box">
+					<input class="radio-box__input js-radio" type="radio" {if $storefront_settings['drop_out_of_stock']|default:'0' == '0'}checked="checked"{/if} name="{$form_attribute_name}[drop_out_of_stock]" value="0">
+					<span class="radio-box__description">Показывать как есть</span>
+					<span class="hint radio-box__description">Списки товаров на этой витрине будут содержать все товары вне зависимости от их остатка на складе.</span>
+				</label>
+
+				<div class="block">
+					<ul class="menu-v compact small"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="">
+	<div class="field-box field-box_linked">
+		<h6 class="subcategory_header">Способы доставки и оплаты</h6>
+
+		<label class="field-box__label">
+			{if !$for_specific_settings}<i class="icon16 link" title="Наследуется из настроек витрины"></i>{/if}
+			Способы оплаты
+		</label>
+
+		<div class="field-box__field">
+			<div class="radio-box-set city-storefront__payment" id="city_storefront_payment">
+
+				<label class="radio-box-set__item radio-box">
+
+					<input class="radio-box__input city-storefront__payment-value_0" id="city_storefront_payment-0"
+						name="{$form_attribute_name}[payment]" type="radio"
+						value="0"
+						{if $storefront_settings['payment']|default:'0' == '0'}checked{/if}>
+
+					<span class="radio-box__description">Все доступные способы оплаты</span>
+
+				</label>
+
+				<div class="option-set">
+
+					<label class="option-set__trigger radio-box-set__item radio-box">
+
+						<input class="radio-box__input city-storefront__payment-value_array" id="city_storefront_payment-array"
+							name="{$form_attribute_name}[payment]" type="radio"
+							{if $storefront_settings['payment']|default:'0' == 'on'
+						or is_array($storefront_settings['payment']|default:'0')} checked{/if}>
+
+						<span class="radio-box__description">Только выбранные</span>
+
+					</label>
+
+					<div class="option-set__items check-box-set">
+						{foreach $payments as $id => $payment}
+						<label class="option-set__item check-box-set__item check-box">
+
+							<input class="check-box__input city-storefront__payment-value_{$id}"
+								id="city_storefront_payment-{$id}"
+								name="{$form_attribute_name}[payment][]" type="checkbox"
+								value="{$id}"
+								{if is_array($storefront_settings['payment']|default:'0')
+							and in_array($id, $storefront_settings['payment'])}checked{/if}>
+
+							<span class="check-box__description">{$payment.name}</span>
+
+						</label>
+						{/foreach}
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="field-box field-box_linked">
+
+		<label class="field-box__label">
+			{if !$for_specific_settings}<i class="icon16 link" title="Наследуется из настроек витрины"></i>{/if}
+			Способы доставки
+		</label>
+
+		<div class="field-box__field">
+			<div class="radio-box-set city-storefront__shipping" id="city_storefront_shipping">
+
+				<label class="radio-box-set__item radio-box">
+
+					<input class="radio-box__input city-storefront__shipping-value_0" id="city_storefront_shipping-0"
+						name="{$form_attribute_name}[shipping]" type="radio"
+						value="0"
+						{if $storefront_settings['shipping']|default:'0' == '0'}checked{/if}>
+
+					<span class="radio-box__description">Все доступные способы доставки</span>
+
+				</label>
+
+				<div class="option-set">
+
+					<label class="option-set__trigger radio-box-set__item radio-box">
+
+						<input class="radio-box__input city-storefront__shipping-value_array" id="city_storefront_shipping-array"
+							name="{$form_attribute_name}[shipping]" type="radio"
+							{if $storefront_settings['shipping']|default:'0' == 'on'
+						or is_array($storefront_settings['shipping']|default:'0')}checked{/if}>
+
+						<span class="radio-box__description">Только выбранные</span>
+
+					</label>
+
+					<div class="option-set__items check-box-set">
+						{foreach $shipping as $id => $_shipping}
+						<label class="option-set__item check-box-set__item check-box">
+
+							<input class="check-box__input city-storefront__shipping-value_{$id}" id="city_storefront_shipping-{$id}"
+								name="{$form_attribute_name}[shipping][]" type="checkbox"
+								value="{$id}"
+								{if is_array($storefront_settings['shipping']|default:'0')
+							and in_array($id, $storefront_settings['shipping'])} checked{/if}>
+
+							<span class="check-box__description">{$_shipping.name}</span>
+
+						</label>
+						{/foreach}
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,76 @@
+{strip}
+	<style>
+		.link-box {
+			display: inline-block;
+			cursor: pointer;
+		}
+
+		.link-box__icon {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.link-box__link {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.hide-indicator .indicator {
+			display: none;
+		}
+
+		.shop-regions__button_hidden {
+			opacity: 0;
+		}
+
+		.shop-regions__ip-analyzer-variants_hidden {
+			display: none;
+		}
+	</style>
+
+	<link rel="stylesheet" href="{$regions.style_src}{$regions.version}">
+
+	<script type="text/javascript">
+		if (typeof shopRegions != 'object')
+		{
+			shopRegions = { };
+		}
+
+		shopRegions.cookie_domain = {json_encode($regions.cookie_domain)};
+		shopRegions.current_region_id = {json_encode($regions.current.id)};
+		shopRegions.current_region_code = {json_encode($regions.current.country_iso3|cat: $regions.current.region_code)};
+		shopRegions.number_of_columns = {json_encode($regions.settings.window_columns)};
+		shopRegions.regions_sidebar_enable = {json_encode($regions.settings.window_regions_sidebar_enable|default:'0' == '1')};
+		shopRegions.enable_group_by_letter = {json_encode($regions.settings.window_group_by_letter_enable|default:'0' == '1')};
+
+		shopRegions.trigger_environment_restore_url = {json_encode($regions.trigger_environment_restore_url)};
+		shopRegions.request_redirect_url = {json_encode($regions.request_redirect_url)};
+		shopRegions.load_popup_content_url = {json_encode($regions.load_popup_content_url)};
+		shopRegions.current_city = {json_encode($regions.current)};
+		shopRegions.cities = {json_encode([$regions.current])};
+
+		{if isset($regions.ip_analyzer)}
+			shopRegions.suggested_region_id = {json_encode($regions.ip_analyzer.id)};
+		{else}
+			shopRegions.suggested_region_id = 0;
+		{/if}
+	</script>
+{*	<script type="text/javascript" src="{$wa_url}wa-content/js/jquery-plugins/jquery.cookie.js" defer></script>*}
+	<script type="text/javascript" src="{$regions.js_src}{$regions.version}" defer></script>
+
+
+	<div class="shop-regions">
+		{* Button *}
+		<div class="shop-regions__button shop-regions__button_hidden js-shop-regions__button">
+			{$regions.button_html}
+		</div>
+
+		{* IP analyzer variants *}
+		{if isset($regions.ip_analyzer_html)}
+			<div class="shop-regions__ip-analyzer-variants shop-regions__ip-analyzer-variants_hidden js-shop-regions__ip-analyzer-variants">
+				{$regions.ip_analyzer_html}
+			</div>
+		{/if}
+
+	</div>
+{/strip}

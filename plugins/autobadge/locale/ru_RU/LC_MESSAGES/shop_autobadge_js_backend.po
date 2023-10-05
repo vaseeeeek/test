@@ -1,0 +1,714 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/autobadge\n"
+"POT-Creation-Date: 2019-10-16T17:17:49.142Z\n"
+"Last-Translator: shop/plugins/autobadge\n"
+"Language-Team: shop/plugins/autobadge\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; "
+"plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%"
+"100)<10)||((n%100)>=20)))?(1):2));\n"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:366
+msgid "Loading..."
+msgstr "Идет загрузка..."
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:438
+msgid "Select at least 1 filter rule"
+msgstr "Выберите хотя бы одно правило"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:447
+msgid "Wait, please..."
+msgstr "Пожалуйста, подождите..."
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:451
+msgid "Delete"
+msgstr "Удалить"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:452
+msgid "Delete filter"
+msgstr "Удалить фильтр"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:452
+msgid "close"
+msgstr "закрыть"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:452
+msgid "Do you really want to delete filter rule?"
+msgstr "Вы действительно хотите удалить правило?"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:547
+msgid "No result text"
+msgstr "Ничего не найдено"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:570
+msgid "Do you really want to delete condition group?"
+msgstr "Вы действительно хотите удалить группу условий?"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:622
+msgid "You can use only one default Webasyst badge in rule"
+msgstr "Разрешено использовать только одну стандартную наклейку"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:666
+msgid "delete"
+msgstr "удалить"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:708
+msgid "Something wrong"
+msgstr "Произошла ошибка"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:830
+msgid "Save badge template"
+msgstr "Сохранение шаблона"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:832
+msgid "Template name"
+msgstr "Название шаблона"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:834
+msgid "Save as new template"
+msgstr "Сохранить, как новый шаблон"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:835
+msgid "Save changes"
+msgstr "Сохранить изменения"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:836
+msgid "or"
+msgstr "или"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:874
+msgid "Remove badge template"
+msgstr "Удаление шаблона"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:876
+msgid "Do you really want to remove badge template?"
+msgstr "Вы действительно хотите удалить шаблон?"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:876
+msgid "Settings for the current badge will not be changed."
+msgstr "Настройки для активной наклейки не сохранены."
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:878
+msgid "Remove"
+msgstr "Удалить"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:917
+msgid "Import badge settings"
+msgstr "Импортирование шаблона"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:917
+msgid "Export badge settings"
+msgstr "Экспортирование шаблона"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:919
+msgid "Import"
+msgstr "Импорт"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:919
+msgid "Choose only CSV files"
+msgstr "Используйте только CSV файлы (разделитель ;)"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:919
+msgid "Example"
+msgstr "Пример"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:919
+msgid "Export"
+msgstr "Экспортировать"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:919
+msgid "Badge template name"
+msgstr "Название шаблона наклейки"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:931
+msgid "Something wrong. Check log files"
+msgstr "Произошла ошибка. Проверьте файлы логов"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:1073
+msgid "Upload failed"
+msgstr "Загрузка не удалась"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:1087
+msgid "Uploading file..."
+msgstr "Загрузка файла..."
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:1099
+msgid "Templates added successfully!"
+msgstr "Шаблоны добавлены успешно!"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:1183
+msgid "Save"
+msgstr "Сохранить"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:1195
+msgid "Saved"
+msgstr "Сохранено"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:1212
+msgid ""
+"Do not forget to make <a "
+"href=\"https://www.webasyst.com/store/plugin/shop/autobadge/setup\" "
+"target=\"_blank\">changes to your theme design</a>"
+msgstr ""
+"Не забудьте внести изменения <a "
+"href=\"https://www.webasyst.ru/store/plugin/shop/autobadge/setup\" "
+"target=\"_blank\">в Вашу тему дизайна</a>"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\autobadge.js:1213
+msgid "Thanks for reminder!"
+msgstr "Спасибо за напоминание!"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:29
+msgid "equal"
+msgstr "равно"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:30
+msgid "not equal"
+msgstr "не равно"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:55
+msgid "contains"
+msgstr "содержит"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:56
+msgid "not contains"
+msgstr "не содержит"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:57
+msgid "begins with"
+msgstr "начинается с"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:64
+msgid "select"
+msgstr "выберите"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:85
+msgid "each sku is separate"
+msgstr "каждый артикул отдельно"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:86
+msgid "summarize skus"
+msgstr "суммировать артикулы"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:95
+msgid "virtual and real"
+msgstr "виртуальном и реальном"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:96
+msgid "virtual"
+msgstr "виртуальном"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:97
+msgid "real"
+msgstr "реальном"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:100
+msgid "This condition will filter the result items"
+msgstr "Данное условие фильтрует товары"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:101
+msgid "reset selection"
+msgstr "сбросить выбор"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:105
+msgid "Select category"
+msgstr "Выберите категорию"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:107
+msgid "Category"
+msgstr "Категория"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:108
+msgid "Category and subcategories"
+msgstr "Категория и ее подкатегории"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:109
+msgid "Product set"
+msgstr "Список товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:109
+msgid "Select product set"
+msgstr "Выберите список товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:110
+msgid "Product type"
+msgstr "Тип товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:110
+msgid "Select product type"
+msgstr "Выберите тип товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:111
+msgid "Product"
+msgstr "Товар"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:111
+msgid "select product"
+msgstr "выберите товар"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:113
+msgid "Product feature"
+msgstr "Характеристика товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:114
+msgid "Select product feature"
+msgstr "Выберите характеристику товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:116
+msgid "Select feature value"
+msgstr "Выберите значение характеристики"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:121
+msgid "Product params"
+msgstr "Параметры товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:122
+msgid "Select product params"
+msgstr "Выберите параметры товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:127
+msgid "Product name"
+msgstr "Название товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:128
+msgid "SKU code"
+msgstr "Артикул товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:129
+msgid "SKU name"
+msgstr "Наименование артикула"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:130
+msgid "Product summary"
+msgstr "Краткое описание товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:131
+msgid "META title"
+msgstr "Meta заголовок товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:132
+msgid "META keywords"
+msgstr "Meta ключевые слова товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:133
+msgid "META description"
+msgstr "Meta описание товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:134
+msgid "Product description"
+msgstr "Описание товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:135
+msgid "Product create datetime"
+msgstr "Дата создания товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:136
+msgid "Product age"
+msgstr "Возраст товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:136
+msgid "days"
+msgstr "дней"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:137
+msgid "Product edit datetime"
+msgstr "Дата изменения товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:138
+msgid "has video"
+msgstr "имеет видео"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:139
+msgid "has image"
+msgstr "имеет изображение"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:140
+msgid "Product rating"
+msgstr "Рейтинг товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:141
+msgid "Product rating count"
+msgstr "Количество отзывов у товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:142
+msgid "Product price"
+msgstr "Цена товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:143
+msgid "Product compare price"
+msgstr "Зачеркнутая цена товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:144
+msgid "Product purchase price"
+msgstr "Закупочная цена товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:147
+msgid "Product minimal price"
+msgstr "Минимальная цена товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:148
+msgid "Product maximum price"
+msgstr "Максимальная цена товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:151
+msgid "Product stock count"
+msgstr "Количество остатков товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:153
+msgid "on "
+msgstr "на"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:154
+msgid "all stocks"
+msgstr "всех складах"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:161
+msgid "Product total sales for"
+msgstr "Сумма продаж товара за"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:162
+msgid "Product total quantity of sales for"
+msgstr "Количество продаж товара за"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:164
+msgid "Product has service"
+msgstr "Товар имеет услугу"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:166
+msgid "Select service"
+msgstr "Выберите услугу"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:167
+msgid "Select service variant"
+msgstr "Выберите значение услуги"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:172
+msgid "Product has tag"
+msgstr "Товар имеет тег"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:174
+msgid "Select tags"
+msgstr "Выберите теги"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:177
+msgid "Badge type"
+msgstr "Тип наклейки"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:178
+msgid "Total quantity of all products"
+msgstr "Суммарное количество всех товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:179
+msgid "Quantity of products"
+msgstr "Количество товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:180
+msgid "Quantity of product"
+msgstr "Количество определенного товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:180
+msgid "any product"
+msgstr "любой товар"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:181
+msgid "from category"
+msgstr "из категории"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:181
+msgid "select category"
+msgstr "выберите категорию"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:182
+msgid "from category and subcategories of"
+msgstr "из категории и ее подкатегорий"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:183
+msgid "from set"
+msgstr "из списка"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:184
+msgid "from type"
+msgstr "с типом товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:185
+msgid "Quantity of all products from category"
+msgstr "Количество всех товаров из категории"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:186
+msgid "Quantity of all products from category and subcategories"
+msgstr "Количество всех товаров из категории и ее подкатегорий"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:187
+msgid "Quantity of all products from set"
+msgstr "Количество всех товаров из списка"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:188
+msgid "Quantity of all products from type"
+msgstr "Количество всех товаров с типом товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:190
+msgid "Quantity of products with features"
+msgstr "Количество товаров с характеристиками"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:199
+msgid "Quantity of unique items"
+msgstr "Количество уникальных товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:200
+msgid "Order price without discount"
+msgstr "Общая стоимость заказа без учета скидок"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:201
+msgid "Total price of all products"
+msgstr "Общая стоимость всех товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:202
+msgid "Total price of products"
+msgstr "Общая цена всех товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:205
+msgid "Total price of all products with features"
+msgstr "Общая стоимость всех товаров с характеристиками"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:216
+msgid "Total sum of features values"
+msgstr "Сумма значений характеристик товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:221
+msgid "Price of each product"
+msgstr "Цена каждого товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:223
+msgid "Service"
+msgstr "Услуга"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:229
+msgid "User category"
+msgstr "Категория пользователя"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:229
+msgid "Select user category"
+msgstr "Выберите категорию пользователя"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:230
+msgid "Contact"
+msgstr "Контакт"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:230
+msgid "select contact"
+msgstr "выберите контакт"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:231
+msgid "Contact create datetime"
+msgstr "Дата создания контакта"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:232
+msgid "Shipping"
+msgstr "Доставка"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:232
+msgid "Select shipping"
+msgstr "Выберите доставку"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:233
+msgid "Payment"
+msgstr "Оплата"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:233
+msgid "Select payment"
+msgstr "Выберите оплату"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:234
+msgid "Total sum of all orders"
+msgstr "Общая сумма всех заказов"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:235
+msgid "Sum of orders for"
+msgstr "Сумма заказов за"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:236
+msgid "Quantity of all orders"
+msgstr "Количество всех заказов"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:237
+msgid "Quantity of orders for"
+msgstr "Количество заказов за"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:238
+msgid "Orders have product"
+msgstr "Заказы содержат товар"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:239
+msgid "for"
+msgstr "за"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:244
+msgid "Date"
+msgstr "Дата"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:245
+msgid "Day of week"
+msgstr "День недели"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:245
+msgid "Monday"
+msgstr "Понедельник"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:245
+msgid "Tuesday"
+msgstr "Вторник"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:245
+msgid "Wednesday"
+msgstr "Среда"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:245
+msgid "Thursday"
+msgstr "Четверг"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:245
+msgid "Friday"
+msgstr "Пятница"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:245
+msgid "Saturday"
+msgstr "Суббота"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:245
+msgid "Sunday"
+msgstr "Воскресенье"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:246
+msgid "Time"
+msgstr "Время"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:253
+msgid "Storefront"
+msgstr "Витрина"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:255
+msgid "Select domain"
+msgstr "Выберите домен"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:256
+msgid "Select route"
+msgstr "Выберите поселение"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:259
+msgid "Mobile version"
+msgstr "Мобильная версия"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:261
+msgid "Theme design"
+msgstr "Тема дизайна"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:263
+msgid "Select theme design"
+msgstr "Выберите тему дизайна"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:265
+msgid "Product page"
+msgstr "Страница товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:469
+msgid "All conditions return true"
+msgstr "Все условия верны"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:469
+msgid "Any of condition returns true"
+msgstr "Любое из условий верно"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:472
+msgid "Add condition"
+msgstr "Добавить условие"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:535
+msgid "reset product"
+msgstr "сбросить товар"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:547
+msgid "HH"
+msgstr "ЧЧ"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:548
+msgid "MM"
+msgstr "ММ"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:552
+msgid "select value"
+msgstr "выберите значение"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:554
+msgid "period"
+msgstr "период"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:555
+msgid "last n-days"
+msgstr "последние n-дней"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:556
+msgid "previous week"
+msgstr "прошлую неделю"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:557
+msgid "previous month"
+msgstr "прошлый месяц"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:558
+msgid "previous quarter"
+msgstr "прошлый квартал"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:559
+msgid "previous half a year"
+msgstr "прошлые полгода"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:560
+msgid "previous 9 months"
+msgstr "прошлые 9 месяцев"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:561
+msgid "previous year"
+msgstr "прошлый год"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:562
+msgid "today"
+msgstr "сегодня"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:563
+msgid "current week"
+msgstr "текущую неделю"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:564
+msgid "current month"
+msgstr "текущий месяц"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:565
+msgid "current quarter"
+msgstr "текущий квартал"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:566
+msgid "current 6 months"
+msgstr "текущие 6 месяцев"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:567
+msgid "current 9 months"
+msgstr "текущие 9 месяцев"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:568
+msgid "current year"
+msgstr "текущий год"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:764
+msgid "period from"
+msgstr "период с"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:764
+msgid "to"
+msgstr "до"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\autobadge\js\condition.js:767
+msgid "the last"
+msgstr "последние"

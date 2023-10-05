@@ -1,0 +1,78 @@
+{$sticky_block = 0}
+{if !empty($set.settings.other.sticky_block) || !isset($set.settings.other.sticky_block)}
+    {$sticky_block = 1}
+{/if}
+{assign var="sticky_block" value=$sticky_block scope=global}
+
+{$change_price = 1}
+{if isset($set.settings.other.change_price)}
+    {$change_price = $set.settings.other.change_price}
+{/if}
+{assign var="change_price" value=$change_price scope=global}
+
+{$round = 'not'}
+{if isset($set.settings.other.round)}
+    {$round = $set.settings.other.round}
+{/if}
+{assign var="round" value=$round scope=global}
+
+{$card_layout = 'cl-1'}
+{if !empty($set.settings.layout.bundle.card_layout)}
+    {$card_layout = $set.settings.layout.bundle.card_layout}
+{/if}
+{if $is_mobile && !empty($set.settings.layout.bundle.mobile_card_layout)}
+    {$card_layout = $set.settings.layout.bundle.mobile_card_layout}
+{/if}
+{assign var="card_layout" value=$card_layout scope=global}
+
+{$card_layout_width = 'small'}
+{if !empty($set.settings.layout.bundle.card_layout_width)}
+    {$card_layout_width = $set.settings.layout.bundle.card_layout_width}
+{/if}
+{assign var="card_layout_width" value=$card_layout_width scope=global}
+
+{$checkbox_type = 'circle'}
+{if !empty($set.settings.layout.bundle.checkbox_type)}
+    {$checkbox_type = $set.settings.layout.bundle.checkbox_type}
+{/if}
+{assign var="checkbox_type" value=$checkbox_type scope=global}
+
+{$show_image = 'show'}
+{if !empty($set.settings.layout.bundle.show_image)}
+    {$show_image = $set.settings.layout.bundle.show_image}
+{/if}
+{assign var="show_image" value=$show_image scope=global}
+
+{$alternative_slider = 'vertical'}
+{if !empty($set.settings.layout.bundle.alternative_slider)}
+    {$alternative_slider = $set.settings.layout.bundle.alternative_slider}
+{/if}
+{assign var="alternative_slider" value=$alternative_slider scope=global}
+
+{$total_block_output = 'top'}
+{if !empty($set.settings.layout.bundle.total_block_output)}
+    {$total_block_output = $set.settings.layout.bundle.total_block_output}
+{/if}
+{assign var="total_block_output" value=$total_block_output scope=global}
+
+{$total_layout = 'tl-1'}
+{if !empty($set.settings.layout.bundle.total_layout)}
+    {$total_layout = $set.settings.layout.bundle.total_layout}
+{/if}
+{assign var="total_layout" value=$total_layout scope=global}
+
+{$popup_skus_type = 'select'}
+{if !empty($set.settings.layout.bundle.popup_skus_type)}
+    {$popup_skus_type = $set.settings.layout.bundle.popup_skus_type}
+{/if}
+{assign var="popup_skus_type" value=$popup_skus_type scope=global}
+
+{$ignore_stock_count = $wa->shop->settings('ignore_stock_count')}
+{assign var="ignore_stock_count" value=$ignore_stock_count scope=global}
+
+{* Userbundle *}
+{$userbundle_popup_skus_type = 'select'}
+{if !empty($set.settings.layout.userbundle.popup_skus_type)}
+    {$userbundle_popup_skus_type = $set.settings.layout.userbundle.popup_skus_type}
+{/if}
+{assign var="userbundle_popup_skus_type" value=$userbundle_popup_skus_type scope=global}

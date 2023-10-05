@@ -1,0 +1,157 @@
+<div class="sidebar left250px" id="s-sidebar">
+    <div class="block">
+        <ul class="menu-v with-icons">
+            <li id="s-all-products"{if $status == "active"} class="selected"{/if}>
+            <a href="?plugin=clicklite" class="s-product-list">
+                <span class="count">{$count}</span>
+                <i class="icon16 ss new"></i>Все заказы
+            </a>
+            </li>
+            <li id="s-all-products"{if $status == "export"} class="selected"{/if}>
+            <a href="?plugin=clicklite&status=export" class="s-product-list">
+                <i class="icon16 ss excel"></i>Экспорт в CSV
+            </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<link rel="stylesheet" href="{$wa_app_static_url}css/charts.css?v={$wa->version()}">
+<script src="{$wa_app_static_url}js/charts/d3.min.js?v{$wa->version()}"></script>
+
+<div class="sidebar right300px">
+    {if !empty($pie_data)}
+    <div class="graph-wrapper">
+        <div class="pie-wrapper"></div>
+        <div class="hint-wrapper"></div>
+    </div>
+    <script>
+        (function() {
+            if (typeof showPieGraph == 'undefined') {
+                return $.ajax({
+                    dataType: "script",
+                    url: "{$wa_url}wa-apps/shop/js/charts/d3chart-pie.js?{$wa->version()}",
+                    cache: true
+                });
+            } else {
+                return $.Deferred(function(d) {
+                    d.resolve();
+                });
+            }
+        })().done(function() {
+            showPieGraph({json_encode($pie_data)}, {
+                color_type: "products"
+            });
+        });
+    </script>
+    {/if}
+</div>
+
+<div class="content left250px right300px blank">
+    <div class="block double-padded">
+        <h1>{$title}</h1>
+
+        {if $status == 'export'}
+        <form method="post">
+            {$wa->csrf()}
+            <div class="field-group">
+                <div class="field">
+                    <div class="name">
+                        Кодировка
+                    </div>
+                    <div class="value">
+                        <select name="encoding">
+                            {foreach $encoding as $enc}
+                            <option>{$enc|escape}</option>
+                            {/foreach}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="name">
+                        Разделитель данных
+                    </div>
+                    <div class="value">
+                        <select name="delimiter">
+                            <option value=";" selected="selected">Точка с запятой (;)</option>
+                            <option value=",">Запятая (,)</option>
+                            <option value="tab">Табуляция</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="name">
+                        Статус
+                    </div>
+                    <div class="value">
+                        <select name="status">
+                            <option value="all">Все</option>
+                            {foreach $states as $s}
+                            <option value="{$s->getId()}">{$s->getName()}</option>
+                            {/foreach}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="name">
+                        Количество последних
+                    </div>
+                    <div class="value">
+                        <input type="number" name="count" value="1000" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="field-group">
+                <div class="field">
+                    <div class="value submit">
+                        <input type="hidden" name="plugin_export" value="1" />
+                        <input type="submit" class="button green" value="Экспортировать">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <style>
+            .field-group input[type="number"],
+            .field-group select { box-sizing:border-box; width:200px; height:24px; }
+        </style>
+        {else}
+            {if $list}
+                <style>
+                    table.zebra td { border-bottom:1px solid #f1f1f1!important; }
+                </style>
+                <table class="zebra single-lined">
+                    <tr class="header">
+                        <th>id заказа</th>
+                        <th>Дата создания</th>
+                        <th>Статус</th>
+                        <th>Ссылка</th>
+                    </tr>
+                    {foreach $list as $id => $l}
+                    <tr>
+                        <td>{$l.order_id}</td>
+                        <td>{$l.create_datetime}</td>
+                        <td>{$l.state_id}</td>
+                        <td><a href="{$app_url}?action=orders#/orders/id={$id}/" target="_blank">ссылка</a></td>
+                    </tr>
+                    {/foreach}
+                </table>
+
+                <script type="text/javascript">
+                    {include file="../../../js/backend.list.js"}
+                </script>
+
+                {if $pagesCount>1}
+                <div class="block pagination">
+                    {wa_pagination total=$pagesCount attrs=['class' => "menu-h block top-padded"]}
+                </div>
+                {/if}
+            {else}
+                <p>Список пуст.</p>
+            {/if}
+        {/if}
+    </div>
+</div>

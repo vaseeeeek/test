@@ -1,0 +1,25 @@
+<div class="f-tab-appearance" style="display: none;">
+   <div class="field f-shared-settings-tabs" data-tab="appearance">
+      <ul class="menu-h">
+         <li class="selected"><a href="javascript:void(0)" data-page="bundle">[`Bundle`]</a></li>
+         <li><a href="javascript:void(0)" data-page="userbundle">[`User Bundle`]</a></li>
+      </ul>
+   </div>
+   <div class="mb bottom">
+      {if empty($pset.settings.appearance.use_important)}
+         <a href="javascript:void(0)" class="inline-link" onclick="$(this).hide().next().show()"><i class="icon16 info"></i> <b><i>[`What should I do, if live demo is not the same as on the website?`]</i></b></a>
+      {/if}
+      <div {if empty($pset.settings.appearance.use_important)}class="hidden"{/if}>
+         <label>
+            <input type="checkbox" class="f-appearance-use-important" {if !empty($pset.settings.appearance.use_important)} checked{/if}> [`Use this option to force the CSS styles`]
+         </label>
+      </div>
+   </div>
+   <div class="mb bottom">
+      <a href="javascript:void(0)" class="js-import-appearance"><i class="icon16 design"></i> [`Import appearance settings from other sets`]</a>
+   </div>
+   <div>
+      {include file='./include.tab.appearance.settings.html' tab="bundle"}
+      {include file='./include.tab.appearance.settings.html' tab="userbundle"}
+   </div>
+</div>

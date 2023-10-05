@@ -1,0 +1,15 @@
+<form class="seoratings-backend__form" id="seoratings-category-edit-form">
+  <nav id="seoratings-nav-top"></nav>
+  {{#if collection.length}}
+    <div id="products-list"></div>
+    <!--    <div class="seoratings-backend__field">-->
+    <!--      <div class="seoratings-backend__view--actions">-->
+    <!--        <a class="seoratings-backend__button--save" data-js="save">&lt;!&ndash;<i class="icon16 yes"></i> &ndash;&gt;Сохранить</a>-->
+    <!--      </div>-->
+    <!--    </div>-->
+  {{else}}
+    <div class="seoratings-backend__main">
+      Выберите нужные товары из <a href="#products">списка товаров</a> (стандартный функционал Shop-Script) и нажмите добавить в рейтинг.
+    </div>
+  {{/if}}
+</form>

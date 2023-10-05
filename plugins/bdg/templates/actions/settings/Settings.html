@@ -1,0 +1,162 @@
+<script src="{$wa_url}wa-apps/shop/plugins/bdg/js/plugin.js"></script>
+<script src="{$wa_url}wa-apps/shop/plugins/bdg/js/jquery.colorhelpers.js"></script>
+<script src="{$wa_url}wa-content/js/farbtastic/farbtastic.js" type="text/javascript"></script>
+<link rel="stylesheet" href="{$wa_url}wa-apps/shop/plugins/bdg/css/plugin.css">
+<link href="{$wa_url}wa-content/js/farbtastic/farbtastic.css" rel="stylesheet" type="text/css">
+
+<style>{$css}</style>
+<h1>
+	Настройка плагина
+	<a href="http://wa-ap.ru" title="wa-ap.ru" target="blank"><i class="icon16 waapru"></i>Разработчик</a>
+	<a href="mailto:waapru@gmail.com" title="waapru@gmail.com"><i class="icon16 status-green"></i>Поддержка</a>
+</h1>
+<div class="bdg-plugin-settins">
+
+<div id="desc-block">
+{literal}
+<p>Плагин позволяет создавать и назначать оригинальные ярлыки для товаров. За каждым ярлыком закрепляется определенный цвет для удобного назначения в разделе "Товары" административной части магазина. Товару можно назначить сразу несколько ярлыков. Стиль ярлыков и позиционирование их на изображении товара и друг относительно друга задается с помощью css-стилей, доступных для редактировани для каждой темы магазина.</p>
+
+<p>Плагин <em>работает</em> только с теми ярлыками, которые обернуты в тег с классами <b>badge_</b> или <b>.-b-</b>, например<br>
+<b>&lt;div class="badge_"&gt;&lt;/div&gt;</b> или <b>&lt;div class="-b-"&gt;&lt;/div&gt;</b>
+</p>
+
+<p>Для ярлыков с классом <b>-b-</b> цвет ярлыка автоматически назначается цвету ярлыка на витрине, а также автоматически формируется дизайн ярлыка как в предустановленных ярлыках. Для ярлыков с классом <b>-b-</b> дополнительным артибутом необходимо указать основной цвет ярлыка и для создания ярлыка достаточно прописать код следующего вида:<br>
+<b>&lt;div class="-b-" c="#1cbe29"&gt;Новинка&lt;/div&gt;</b>
+<p>
+
+<p>Для вывода ярлыков в пользователькой часть достаточно использовать стандартное свойство переменной $product.badge. В шаблоне темы дизайна поместить <b>&#123;$product.badge&#125;</b> (или <b>&#123;$p.badge&#125;</b> в списках товаров) внутри тега с относительным позиционированием.</p>
+<p>Для того, чтобы была возможность запретить вывод ярлыков на витрине магазина необходимо переменную <b>$product.badge</b> обернуть в условие:<br>
+<b>{if shopBdgPlugin::on()}{$product.badge}{/if}</b> (или <b>{if shopBdgPlugin::on()}{$p.badge}{/if}</b> в списках товаров)
+</p>
+
+
+{/literal}
+</div>
+
+<div class="block block-frontend-design">
+	<h4>
+		<i class="icon16 palette"></i>Дизайн плагина на витрине для темы 
+		<select name="theme" id="select-frontend-design-theme">
+			<option value="_">Для всех тем</option>
+			{foreach $themes as $theme}
+			<option value="{$theme}">{$theme}</option>
+			{/foreach}
+		</select>
+	</h4>
+	<a href="#" class="inline-link" data-mode="css" data-name="css">css-стили</a>
+	<a href="#" class="inline-link" data-mode="javascript" data-name="js">js-скрипты</a>
+	<a href="#" class="inline-link" data-mode="smarty" data-name="head">блок head</a>
+	<div id="frontend-design-dialog" style="display:none;">
+		<textarea style="display:none;"></textarea>
+		{$wa->csrf()}
+	</div>
+	<div>
+		<span class="hint">По умолчанию дизайн плагина на витрине один и тот же для всех витрин. Если требуется настоить индивидуальный дизайн для каждой витрины, выберите тему в выпадающем списке, кликните на нужный блок и внесите необходимые правки.</span>
+	</div>
+</div>
+
+<div class="fields form" id="bdg-form">
+	<form action="{*?plugin=bdg&module=save*}?module=plugins&id=bdg&action=save" method="post" id="plugins-settings-form">
+		{$wa->csrf()}
+		<div class="field-group">
+			<div class="field">
+				<div class="name">
+					Включить плагин
+				</div>
+				<div class="value">
+					<input type="checkbox" name="shop_bdg[on]" value="1"{if $settings.on|default:0} checked{/if}>
+				</div>
+			</div>
+		</div>
+		{$cn = 1}
+		{if $badges}
+		{foreach $badges as $b}
+		<div class="field-group" data-cn="{$cn}" style="margin-bottom:0px;">
+			<div class="field">
+				<div class="name" style="display:none;">Имя</div>
+				<div class="value" style="margin-left:0px;">
+					<input type="text" class="name-input" name="shop_bdg[badges][{$cn}][name]" value="{$b.name}" style="display:none">
+					<span class="shop-bdg-name-span"><i class="icon16 color" style="background:{$b.color}"></i>{$b.name}</span>
+					<input type="hidden" name="shop_bdg[badges][{$cn}][id]" value="{$b.id}">
+					<a style="float:right" class="bdg-delete">
+						&nbsp;&nbsp;<i class="delete icon16"></i>удалить
+					</a>
+					<a style="display:none;float:right" class="bdg-up">
+						<i class="icon16 minus"></i>свернуть
+					</a>
+					<a style="float:right" class="bdg-down">
+						<i class="icon16 edit"></i>редактировать
+					</a>
+				</div>
+			</div>
+			<div class="field" style="display:none;">
+				<div class="name">Цвет</div>
+				<div class="value">
+					<input type="text" class="color_bg colorwell" name="shop_bdg[badges][{$cn}][color]" value="{$b.color}" >
+					<span class="colorreplacer" style="background:{$b.color}"></span>
+				</div>
+			</div>
+			<div class="field" style="display:none;">
+				<div class="name">Код ярлыка (html)</div>
+				<div class="value">
+					<textarea name="shop_bdg[badges][{$cn}][code]">{$b.code}</textarea>
+				</div>
+			</div>
+			<div class="bdg-image"  style="display:none;">
+				<div>{str_replace('#text#','-10%',$b.code)}</div>
+			</div>
+		</div>
+		{$cn = $cn + 1}
+		{/foreach}
+		{/if}
+		<div class="field-group">
+			<br>
+			<a href="#" class="add-badge"><i class="add icon16"></i> добавить новый ярлык</a>
+		</div>
+		<hr>
+		<div class="field">
+			<input type="submit" class="button green" value="Сохранить" id="plugin-submit-btn" data-plugin-id="bdg">
+			<span id="plugins-settings-form-status" style="display:none">
+				<i style="vertical-align:middle" class="icon16 yes"></i> [`Saved`]
+			</span>
+		</div>
+	</form>
+</div>
+
+</div>
+
+<script type="text/html" id="new-badge">
+<div class="field-group" style="margin-top:30px;">
+	<div class="field">
+		<div class="name">Имя</div>
+		<div class="value">
+			<input type="text" class="name-input" name="shop_bdg[badges][#cn#][name]" value="Новый">
+			<input type="hidden" name="shop_bdg[badges][#cn#][id]" value="0">
+			<span style="float:right" class="bdg-delete">
+				<i class="delete icon16"></i> удалить
+			</span>
+		</div>
+	</div>
+	<div class="field">
+		<div class="name">Цвет</div>
+		<div class="value">
+			<input type="text" class="color_bg" name="shop_bdg[badges][#cn#][color]" value="#123456" >
+			<span class="colorreplacer" style="background:#123456"></span>
+		</div>
+	</div>
+	<div class="field">
+		<div class="name">Код ярлыка (html)</div>
+		<div class="value">
+			<textarea name="shop_bdg[badges][#cn#][code]"><div class="-b-" c="#fe3341">Новый</div></textarea>
+		</div>
+	</div>
+	<div class="bdg-image">
+		<div><div class="-b-" c="#123456">Новый</div></div>
+	</div>
+</div>
+</script>
+
+<script type="text/javascript">
+var wa_url = '{$wa_url}';
+$.shop.bdgPlugin.init();
+</script>

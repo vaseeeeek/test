@@ -1,0 +1,12 @@
+{strip}
+<script src="{$shopSkOneclickPathJS}{if $skoneclick_defines.minimization}shopSkOneclick.min.js{else}shopSkOneclick.js{/if}"></script>
+
+{literal}
+<script>
+    $(function(){
+        window.shopSkOneclickInit = new shopSkOneclick({/literal}{$skoneclick_init|json_encode}{literal});
+    });
+</script>
+{/literal}
+
+{/strip}

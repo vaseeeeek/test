@@ -1,0 +1,109 @@
+.gift-block {
+display: inline-block;
+margin-bottom: 20px;
+}
+.gift-block-title {
+font:19px/40px 'Myriad Pro';
+color:#403f3f;
+background:transparent url('') left center no-repeat;
+height:40px;
+border-bottom:#e1e1e1 solid 1px;
+padding-left:50px;
+}
+.gift-block-content {
+font:16px/20px 'Myriad Pro';
+color:#4f5357;
+margin-top:16px;
+}
+.gift-block-price {
+background: #FF724A;
+padding: 3px;
+color: #fff;
+font: 16px/20px 'Myriad Pro';
+margin-top: 10px;
+display: inline-block;
+}
+.gift-block .gift-right {
+margin-left: 120px;
+padding-top: 25px;
+position:relative;
+}
+.gift-block-content img {
+float:left;
+}
+.gft-p-list {
+list-style:none;
+}
+.gift-block .clear-left {
+clear:left;
+}
+
+.gft-p-list > li{
+display:inline-block;
+margin: 0 10px 10px 0;
+}
+.modal-block {
+min-width: 600px;
+background: #fff;
+padding: 20px;
+position: relative;
+}
+.modal-block ul {
+padding:0;
+display:inline-block;
+}
+.modal-block li {
+display: block;
+width: 150px;
+height: 175px;
+text-align: center;
+float:left;
+}
+.modal-block {
+width: 50px;
+display: block;
+margin: 10px auto 0;
+}
+.modal-block .name {
+padding: 10px 0;
+}
+.modal-block .btn-wr {
+text-align:center;
+}
+.modal-block .close-btn {
+position:absolute;
+top:0;
+right:0;
+font-size:10px;
+color:silver;
+padding:5px;
+cursor:pointer;
+}
+.modal-block .avail {
+font-size: 10px;
+padding: 3px;
+color: rgb(221, 3, 3);
+}
+.gift-products-list {
+list-style:none;
+display:inline-block;
+border: #EFE4E4 solid 1px;
+padding:0;
+}
+.gift-products-list li {
+float:left;
+padding:10px;
+}
+.gift-products-list li .name{
+height: 32px;
+overflow:hidden;
+font-size:12px;
+line-height:16px
+}
+.gift-products-list .image {
+text-align: center;
+display: block;
+}
+#gift-products-list-wr p {
+margin: 0;
+}

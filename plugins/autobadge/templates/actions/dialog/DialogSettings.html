@@ -1,0 +1,71 @@
+<h1 class="align-center">[`Settings`] <a href="javascript:void(0)" onclick='$(this).closest(".dialog").trigger("close")' title="[`close`]" style="right: 20px" class="close dialog-close">[`close`]</a></h1>
+
+<div class="block">
+    <div class="fields">
+        <div class="field">
+            <div class="name">[`Automatically add "position: relative" to parent element`]</div>
+            <div class="value">
+                <input type="checkbox" value="1" name="parent_relative"{if !isset($settings.parent_relative) || !empty($settings.parent_relative)} checked{/if} />
+                <div class="grey">[`Need for CSS. Use it, if you want to position badge relative to parent element.`]</div>
+            </div>
+        </div>
+        <div class="field">
+            <div class="name">[`Automatically add "overflow: visible" to parent element`]</div>
+            <div class="value">
+                <input type="checkbox" value="1" name="parent_visible"{if !empty($settings.parent_visible)} checked{/if} />
+                <div class="grey">[`Need for CSS. Use it, if your badges are cutted by the parent block. If it doesn't help, ask me for help.`]</div>
+            </div>
+        </div>
+        <div class="field">
+            <div class="name">[`Show badge loaders`]</div>
+            <div class="value">
+                <input type="checkbox" value="1" name="show_loader"{if !isset($settings.show_loader) || !empty($settings.show_loader)} checked{/if} />
+                <div class="grey">[`Plugin updates badges each time, when you change product quantity or skus. If you don't want to see loader, disable this option.`]</div>
+            </div>
+        </div>
+        <div class="field">
+            <div class="name">[`Increase CSS "z-index" value for badges`]</div>
+            <div class="value">
+                + <input type="number" class='width70px' name="z_index" min="0" value="{if !empty($settings.z_index)}{$settings.z_index}{else}0{/if}"  />
+                <div class="grey">[`Need for CSS. If some elements of your theme design cover badges, increase the value`]</div>
+            </div>
+        </div>
+        <div class="field">
+            <div class="name">[`Show badges after pages load`]</div>
+            <div class="value">
+                <input type="checkbox" value="1" name="delay_loading"{if !empty($settings.delay_loading)} checked{/if} />
+                <div class="grey">
+                    [`Badges will be showed after the page content is loaded. Use this function, if badges have wrong position for the first milliseconds, to prevent unnecessary badge moving.`]
+                    <br>[`Make sure that you deal with <a href="https://igaponov.com/docs/85/setup/" style="color:#03c" target="_blank">Mandatory customization of theme design</a>`]
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <div class="name">[`Delayed loading of badges`]</div>
+            <div class="value">
+                <input type="checkbox" value="1" name="delay_loading_ajax"{if !empty($settings.delay_loading_ajax)} checked{/if} />
+                <div class="grey">
+                    [`Badges will be loaded by ajax after the page content is loaded. Use this function to speed up page loading.`]
+                </div>
+            </div>
+        </div>
+        {if (float)$wa->version('shop') >= 7}
+            <div class="field">
+                <div class="name">[`Use <i>"frontend_products"</i> hook`]</div>
+                <div class="value">
+                    <input type="checkbox" value="1" name="frontend_products"{if !isset($settings.frontend_products) || !empty($settings.frontend_products)} checked{/if} />
+                    <div class="grey">[`This option automatically changes product badges in Storefront. If you disable it, use <a href='https://www.webasyst.com/store/plugin/shop/autobadge/custom_call' style='color:#03c' target='_blank'>custom call</a>`]</div>
+                </div>
+            </div>
+        {/if}
+        <div class="field">
+            <div class="name">[`Disable plugin on cart/order page`]</div>
+            <div class="value">
+                <input type="checkbox" value="1" name="cart_disable"{if !empty($settings.cart_disable)} checked{/if} />
+                <div class="grey">
+                    [`If you have problems with speed on cart/order page, try to use this option to disable plugin on that page.`]
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

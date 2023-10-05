@@ -1,0 +1,146 @@
+<h1>[`Edit Product Bundles`] <span class="gray">({count($product_ids)})</span></h1>
+
+<div id="bundling-bundles" class="fields">
+	{foreach $bundles as $bundle_id => $bundle}
+	<div class="field bundle" id="bundling-bundle-{$bundle_id}" data-bundle-id="{$bundle_id}">
+		<div class="name">
+			<label>
+				<input type="checkbox" name="on[{$bundle_id}]" value="1"/>
+				{$bundle.title|escape:'html'}
+			</label>
+			<div class="hint">
+				{if !$bundle['product_id']}
+					[`determined`]
+					
+					{if $bundle['type_id']}[`by product type`] {$bundle['type_name']}{/if}
+					{if $bundle['category_id']}[`by category`] {$bundle['category_name']}{/if}
+					{if $bundle['feature_id']}[`by feature`] {$bundle['feature_name']}: {$bundle['feature_title']}{/if}
+					
+					<br/><br/>
+					
+					{if $bundle['category_id']}
+						{if $category_ids[$bundle['category_id']] != count($product_ids)}
+						[`amont selected in`] <b>{$category_ids[$bundle['category_id']]}</b> {_wp('product', 'products', $category_ids[$bundle['category_id']])}
+						{/if}
+					{/if}
+					{if $bundle['type_id']}
+						{if $type_ids[$bundle['type_id']] != count($product_ids)}
+						[`amont selected in`] <b>{$type_ids[$bundle['type_id']]}</b> {_wp('product', 'products', $type_ids[$bundle['type_id']])}
+						{/if}
+					{/if}
+					{if $bundle['feature_id']}
+						{if $features[$bundle['feature']] != count($product_ids)}
+						[`amont selected in`] <b>{$features[$bundle['feature']]}</b> {_wp('product', 'products', $features[$bundle['feature']])}
+						{/if}
+					{/if}
+				{/if}
+			</div>
+		</div>
+		<div class="value">
+			<input type="hidden" value="{if !empty($bundle_products[$bundle_id])}{implode(',', array_keys($bundle_products[$bundle_id]['products']))}{/if}" name="product_ids"/>
+			{if empty($bundle_products[$bundle_id])}
+			[`Not found in none of the selected products`]
+			<br/><br/>
+			{else}
+			{if count($product_ids) > 1}[`Among selected in`] <b>{if count($bundle_products[$bundle_id]['has']) == count($product_ids)}[`all products`]</b>{else}{count($bundle_products[$bundle_id]['has'])}</b> {_wp('product', 'products', $bundle_products[$bundle_id]['has'])}{/if}
+			{if count($bundle_products[$bundle_id]['has']) == count($product_ids) && $bundle_products[$bundle_id]['products_is_similar']}
+			([`all attached products are the same`])
+			{/if}
+			<br/><br/>
+			{/if}
+			{/if}
+			<table class="bundling-bundle-products">
+				<tbody>
+					{if !empty($bundle_products[$bundle_id])}
+					{$result = arsort($bundle_products[$bundle_id]['products'])}
+					{foreach $bundle_products[$bundle_id]['products'] as $id => $data}
+					{$product = $data['product']}
+					{$count = count($data['has'])}
+					<tr class="{if $count == count($product_ids)}all{else}leave{/if}" id="bundling-bundle-{$bundle_id}-product-{$id}">
+						<td>
+							{$product['title']|escape}{if $product['sku_count'] > 1}{if !empty($product['sku']['name'])} - <b>{$product['sku']['name']}</b>{/if} <span class="gray">sku id {$product['sku_id']}</span>{/if}
+						</td>
+						<td width="200">
+							<div align="right">
+								{if empty($product['discount'])}<a class="bundling-edit-discount-link" href="#">{/if}
+									{shopRounding::roundCurrency($product['price'], $currency)|wa_format_amount:$currency:'%{h}'}
+								{if empty($product['discount'])}</a>{/if}
+								×
+								<input title="[`Default quantity`]" class="short" name="default_quantity[{$bundle_id}][{$id}]" type="text" value="{if !empty($product['quantity'])}{$product['quantity']}{else}1{/if}"/>
+							</div>
+							<div align="right" class="bundling-edit-discount" style="margin-top: 5px;{if empty($product['discount'])} display: none;{/if}">
+								<b class="red">-</b>
+								<input style="min-width: 43px !important; width: 43px !important;" placeholder="[`Discount`], %" class="short" name="discount[{$bundle_id}][{$id}]" type="text" value="{if !empty($product['discount'])}{$product['discount']}{/if}"/>
+								<b class="red">%</b>
+							</div>
+						</td>
+						<td align="right">
+							[`Set in`] <b>{$count}</b> {_wp('product', 'products', $count)}
+						</td>
+						<td align="right" width="370">
+							<input class="bundle-product-action" type="hidden" name="bundles[{$bundle_id}][{$id}]" value="{if $count != count($product_ids)}leave{else}all{/if}"/>
+							<ul class="actions menu-h">
+								<li{if $count != count($product_ids)} class="selected"{/if}><a href="#" data-action="leave">[`Leave`]</a></li><li{if $count != count($product_ids)} class="selected"{/if}><a href="#" data-action="update">[`Update`]</a></li><li{if $count == count($product_ids)} class="selected"{/if}><a href="#" data-action="all">[`Set to all`]</a></li><li><a href="#" data-action="delete">[`Delete`]</a></li>
+							</ul>
+						</td>
+					</tr>
+					{/foreach}
+					{/if}
+					<tr class="add">
+						<td colspan="4">
+							<input class="product-autocomplete long ui-autocomplete-input" data-bundle-id="{$bundle_id}" type="text" placeholder="[`Start typing product or SKU name`]" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	{/foreach}
+</div>
+<script type="text/javascript" src="{$wa_app_static_url}plugins/bundling/js/bundling.massEditProductBundles.js"></script>
+<script type="text/javascript">$.bundlingMassEditProductBundles.init();</script>
+<style type="text/css">
+#bundling-bundles.fields {
+	width: 100%;
+}
+
+.bundling-bundle-products {
+	border: 0;
+	margin: 0;
+	width: 100%;
+}
+.bundling-bundle-products td {
+	padding: 5px;
+	border: 0;
+	vertical-align: middle;
+	background: #fff;
+}
+.bundling-bundle-products .leave td {
+	background: #eee;
+}
+.bundling-bundle-products .leave:hover td {
+	background: #f5f5f5;
+}
+.bundling-bundle-products .all td {
+	background: #d9ffde;
+}
+.bundling-bundle-products .all:hover td {
+	background: #eaffed;
+}
+.bundling-bundle-products .delete td {
+	background: #ffdfdf;
+}
+.bundling-bundle-products .delete:hover td {
+	background: #ffeded;
+}
+.bundling-bundle-products .add td {
+	background: #f2f7ff;
+}
+.bundling-bundle-products tr:hover td {
+	background: #ffffe5;
+}
+
+.bundling-bundle-products ul.menu-h li.disabled a {
+	color: #ccc !important;
+}
+</style>

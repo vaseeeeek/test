@@ -1,0 +1,1456 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/autobadge\n"
+"POT-Creation-Date: 2017-06-22 23:10+0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: shop/plugins/autobadge\n"
+"Language-Team: shop/plugins/autobadge\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"Language: en_US\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+msgid "Select product"
+msgstr ""
+
+msgid "close"
+msgstr ""
+
+msgid "Show all skus in search"
+msgstr ""
+
+msgid "or select the category to find product you need."
+msgstr ""
+
+msgid "Show product skus"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Price"
+msgstr ""
+
+msgid "More products"
+msgstr ""
+
+msgid "Products not found"
+msgstr ""
+
+msgid "Select user"
+msgstr ""
+
+msgid "All contacts"
+msgstr ""
+
+msgid "or select the category to find user you need."
+msgstr ""
+
+msgid "More users"
+msgstr ""
+
+msgid "Users not found"
+msgstr ""
+
+msgid "Start typing user name or email"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Automatically add \"position: relative\" to parent element"
+msgstr ""
+
+msgid "Need for CSS. Use it, if you want to position badge relative to parent element."
+msgstr ""
+
+msgid "Automatically add \"overflow: visible\" to parent element"
+msgstr ""
+
+msgid "Need for CSS. Use it, if your badges are cutted by the parent block. If it doesn't help, <a href='http://en.igaponov.ru/info/contacts/' target='_blank'>ask me</a> for help."
+msgstr ""
+
+msgid "Show badge loaders"
+msgstr ""
+
+msgid "Plugin updates badges each time, when you change product quantity or skus. If you don't want to see loader, disable this option."
+msgstr ""
+
+msgid "Increase CSS \"z-index\" value for badges"
+msgstr ""
+
+msgid "Need for CSS. If some elements of your theme design cover badges, increase the value"
+msgstr ""
+
+msgid "Use <i>\"frontend_products\"</i> hook"
+msgstr ""
+
+msgid "This option automatically changes product badges in Storefront. If you disable it, use <a href='#' style='color:#03c' target='_blank'>custom call</a>"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "No name condition"
+msgstr ""
+
+msgid "Delete filter"
+msgstr ""
+
+msgid "delete"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Conditions"
+msgstr ""
+
+msgid "IF"
+msgstr ""
+
+msgid "Wait, please..."
+msgstr ""
+
+msgid "Add condition"
+msgstr ""
+
+msgid "Then add badges"
+msgstr ""
+
+msgid "Container width"
+msgstr ""
+
+msgid "W:"
+msgstr ""
+
+msgid "Container height"
+msgstr ""
+
+msgid "H:"
+msgstr ""
+
+msgid "Add badge"
+msgstr ""
+
+msgid "Import badge"
+msgstr ""
+
+msgid "Select shape"
+msgstr ""
+
+msgid "Ribbon text"
+msgstr ""
+
+msgid "Text"
+msgstr ""
+
+msgid "Use default settings of badge shape"
+msgstr ""
+
+msgid "Text/Image"
+msgstr ""
+
+msgid "Available variables"
+msgstr ""
+
+msgid "change color"
+msgstr ""
+
+msgid "Font family"
+msgstr ""
+
+msgid "Google fonts"
+msgstr ""
+
+msgid "Font style"
+msgstr ""
+
+msgid "Normal"
+msgstr ""
+
+msgid "Bold"
+msgstr ""
+
+msgid "Italic"
+msgstr ""
+
+msgid "Bold/Italic"
+msgstr ""
+
+msgid "Align"
+msgstr ""
+
+msgid "Left"
+msgstr ""
+
+msgid "Right"
+msgstr ""
+
+msgid "Center"
+msgstr ""
+
+msgid "Justify"
+msgstr ""
+
+msgid "Shadow"
+msgstr ""
+
+msgid "Margins"
+msgstr ""
+
+msgid "Top"
+msgstr ""
+
+msgid "Width"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+msgid "Specify image URL"
+msgstr ""
+
+msgid "Available images"
+msgstr ""
+
+msgid "or"
+msgstr ""
+
+msgid "Bottom"
+msgstr ""
+
+msgid "Height"
+msgstr ""
+
+msgid "Attention! Image dimensions will be changed with the help of CSS. Filesize will be the same. Don't use large images."
+msgstr ""
+
+msgid "Attention! Be careful with HTML-code. Any syntax errors can cause problems in your theme design."
+msgstr ""
+
+msgid "add text line"
+msgstr ""
+
+msgid "add image"
+msgstr ""
+
+msgid "Save template"
+msgstr ""
+
+msgid "Remove template"
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
+msgid "Product"
+msgstr ""
+
+msgid "Category"
+msgstr ""
+
+msgid "Category and subcategories"
+msgstr ""
+
+msgid "Product set"
+msgstr ""
+
+msgid "Product type"
+msgstr ""
+
+msgid "Product features"
+msgstr ""
+
+msgid "Product params"
+msgstr ""
+
+msgid "Product properties"
+msgstr ""
+
+msgid "SKU code"
+msgstr ""
+
+msgid "SKU name"
+msgstr ""
+
+msgid "Summary"
+msgstr ""
+
+msgid "META title"
+msgstr ""
+
+msgid "META keywords"
+msgstr ""
+
+msgid "META description"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Create datetime"
+msgstr ""
+
+msgid "Edit datetime"
+msgstr ""
+
+msgid "Has video"
+msgstr ""
+
+msgid "Has image"
+msgstr ""
+
+msgid "Rating"
+msgstr ""
+
+msgid "Rating count"
+msgstr ""
+
+msgid "Purchase price"
+msgstr ""
+
+msgid "Compare price"
+msgstr ""
+
+msgid "Minimal price"
+msgstr ""
+
+msgid "Maximum price"
+msgstr ""
+
+msgid "Stock count"
+msgstr ""
+
+msgid "Total sales for period.."
+msgstr ""
+
+msgid "Total number of sales for period.."
+msgstr ""
+
+msgid "Services"
+msgstr ""
+
+msgid "Tags"
+msgstr ""
+
+msgid "Cart"
+msgstr ""
+
+msgid "Total quantity of all products"
+msgstr ""
+
+msgid "Quantity of products"
+msgstr ""
+
+msgid "Quantity of product"
+msgstr ""
+
+msgid "Quantity of product from category"
+msgstr ""
+
+msgid "Quantity of product from category and subcategories"
+msgstr ""
+
+msgid "Quantity of product from set"
+msgstr ""
+
+msgid "Quantity of product from type"
+msgstr ""
+
+msgid "Quantity of all products from category"
+msgstr ""
+
+msgid "Quantity of all products from category and subcategories"
+msgstr ""
+
+msgid "Quantity of all products from set"
+msgstr ""
+
+msgid "Quantity of all products from type"
+msgstr ""
+
+msgid "Quantity of products with features"
+msgstr ""
+
+msgid "Quantity of unique items"
+msgstr ""
+
+msgid "Order price without discount"
+msgstr ""
+
+msgid "Total price of all products"
+msgstr ""
+
+msgid "Total price of products from category"
+msgstr ""
+
+msgid "Total price of products from category and subcategories"
+msgstr ""
+
+msgid "Total price of all products with features"
+msgstr ""
+
+msgid "Total sum of features values"
+msgstr ""
+
+msgid "Price of each product"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "User category"
+msgstr ""
+
+msgid "Completed user orders"
+msgstr ""
+
+msgid "Total sum of all orders"
+msgstr ""
+
+msgid "Sum of orders for period.."
+msgstr ""
+
+msgid "Quantity of all orders"
+msgstr ""
+
+msgid "Quantity of orders for period.."
+msgstr ""
+
+msgid "Orders have product"
+msgstr ""
+
+msgid "Orders have product for period.."
+msgstr ""
+
+msgid "Orders have product from category"
+msgstr ""
+
+msgid "Orders have product from category and subcategories"
+msgstr ""
+
+msgid "Orders have product from category for period.."
+msgstr ""
+
+msgid "Orders have product from category and subcategories for period.."
+msgstr ""
+
+msgid "Date and time"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Day of week"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "Variables"
+msgstr ""
+
+msgid "Cookie"
+msgstr ""
+
+msgid "Session"
+msgstr ""
+
+msgid "Storefront"
+msgstr ""
+
+msgid "Payment"
+msgstr ""
+
+msgid "Shipping"
+msgstr ""
+
+msgid "Select condition"
+msgstr ""
+
+msgid "Add group of conditions"
+msgstr ""
+
+msgid "Select badge"
+msgstr ""
+
+msgid "Create new badge"
+msgstr ""
+
+msgid "edit badge"
+msgstr ""
+
+msgid "Save filter"
+msgstr ""
+
+msgid "Copy and paste variables into the text field. Also you can use Smarty."
+msgstr ""
+
+msgid "product name"
+msgstr ""
+
+msgid "Product summary"
+msgstr ""
+
+msgid "Product create datetime"
+msgstr ""
+
+msgid "Product edit datetime"
+msgstr ""
+
+msgid "Product rating"
+msgstr ""
+
+msgid "Product rating count"
+msgstr ""
+
+msgid "Product price"
+msgstr ""
+
+msgid "Product compare price"
+msgstr ""
+
+msgid "Product purchase price"
+msgstr ""
+
+msgid "with currency"
+msgstr ""
+
+msgid "with ruble sign"
+msgstr ""
+
+msgid "Datetime. <a href=\"\">Read more</a>"
+msgstr ""
+
+msgid "Discount percentage. <a href=\"\">Read more</a>"
+msgstr ""
+
+msgid "Countdown. <a href=\"\">Read more</a>"
+msgstr ""
+
+msgid "You can use optional set of custom <em>key=value</em> parameters which can be used within a frontend's theme template as <em>&#123;$product.params.key&#125;</em>"
+msgstr ""
+
+msgid "This is your uploaded images. You can select one."
+msgstr ""
+
+msgid "Also you can manage this images in"
+msgstr ""
+
+msgid "Manage images"
+msgstr ""
+
+msgid "Site - File manager"
+msgstr ""
+
+msgid "Select image"
+msgstr ""
+
+msgid "AND"
+msgstr ""
+
+msgid "OR"
+msgstr ""
+
+msgid "Automatic creation of badges"
+msgstr ""
+
+msgid "http://en.igaponov.ru/docs/"
+msgstr ""
+
+msgid "Documentation"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Copy filter"
+msgstr ""
+
+msgid "Change status"
+msgstr ""
+
+msgid "Open filter"
+msgstr ""
+
+msgid "No name filter"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Delete selected"
+msgstr ""
+
+msgid "You don't have any conditions"
+msgstr ""
+
+msgid "Create condition"
+msgstr ""
+
+msgid "Properties"
+msgstr ""
+
+msgid "Background"
+msgstr ""
+
+msgid "Border"
+msgstr ""
+
+msgid "Box shadow"
+msgstr ""
+
+msgid "Size"
+msgstr ""
+
+msgid "Position"
+msgstr ""
+
+msgid "Text orientation"
+msgstr ""
+
+msgid "Orientation"
+msgstr ""
+
+msgid "Additional"
+msgstr ""
+
+msgid "Gradient"
+msgstr ""
+
+msgid "Solid color"
+msgstr ""
+
+msgid "Transparent"
+msgstr ""
+
+msgid "Start"
+msgstr ""
+
+msgid "End"
+msgstr ""
+
+msgid "Transparency"
+msgstr ""
+
+msgid "linear"
+msgstr ""
+
+msgid "radial"
+msgstr ""
+
+msgid "toggle"
+msgstr ""
+
+msgid "Max width"
+msgstr ""
+
+msgid "Max height"
+msgstr ""
+
+msgid "Thickness"
+msgstr ""
+
+msgid "Style"
+msgstr ""
+
+msgid "Solid"
+msgstr ""
+
+msgid "Dotted"
+msgstr ""
+
+msgid "Dashed"
+msgstr ""
+
+msgid "Double"
+msgstr ""
+
+msgid "Values"
+msgstr ""
+
+msgid "X offset"
+msgstr ""
+
+msgid "Y offset"
+msgstr ""
+
+msgid "Blur"
+msgstr ""
+
+msgid "Spread"
+msgstr ""
+
+msgid "Inset"
+msgstr ""
+
+msgid "Choose position"
+msgstr ""
+
+msgid "Horizontal"
+msgstr ""
+
+msgid "Vertical"
+msgstr ""
+
+msgid "Top right angle"
+msgstr ""
+
+msgid "Top left angle"
+msgstr ""
+
+msgid "Bottom left angle"
+msgstr ""
+
+msgid "Bottom right angle"
+msgstr ""
+
+msgid "From left to right"
+msgstr ""
+
+msgid "From right to left"
+msgstr ""
+
+msgid "From top to bottom"
+msgstr ""
+
+msgid "From bottom to top"
+msgstr ""
+
+msgid "Dashed line"
+msgstr ""
+
+msgid "Border rounding"
+msgstr ""
+
+msgid "Tail"
+msgstr ""
+
+msgid "Tongue"
+msgstr ""
+
+msgid "Tails"
+msgstr ""
+
+msgid "Show"
+msgstr ""
+
+msgid "hide"
+msgstr ""
+
+msgid "Radius"
+msgstr ""
+
+msgid "Top-left"
+msgstr ""
+
+msgid "Top-right"
+msgstr ""
+
+msgid "Bottom-left"
+msgstr ""
+
+msgid "Bottom-right"
+msgstr ""
+
+msgid "Color"
+msgstr ""
+
+msgid "Top right"
+msgstr ""
+
+msgid "Top left"
+msgstr ""
+
+msgid "Bottom right"
+msgstr ""
+
+msgid "Bottom left"
+msgstr ""
+
+msgid "show"
+msgstr ""
+
+msgid "Select at least 1 filter rule"
+msgstr ""
+
+msgid "Do you really want to delete filter rule?"
+msgstr ""
+
+msgid "No result text"
+msgstr ""
+
+msgid "Do you really want to delete condition group?"
+msgstr ""
+
+msgid "You can use only one default Webasyst badge in rule"
+msgstr ""
+
+msgid "Something wrong"
+msgstr ""
+
+msgid "Save badge template"
+msgstr ""
+
+msgid "Template name"
+msgstr ""
+
+msgid "Save as new template"
+msgstr ""
+
+msgid "Save changes"
+msgstr ""
+
+msgid "Remove badge template"
+msgstr ""
+
+msgid "Do you really want to remove badge template?"
+msgstr ""
+
+msgid "Settings for the current badge will not be changed."
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Import badge settings"
+msgstr ""
+
+msgid "Export badge settings"
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "Choose only CSV files"
+msgstr ""
+
+msgid "Badge template name"
+msgstr ""
+
+msgid "Something wrong. Check log files"
+msgstr ""
+
+msgid "Upload failed"
+msgstr ""
+
+msgid "Uploading file..."
+msgstr ""
+
+msgid "Templates added successfully!"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Saved"
+msgstr ""
+
+msgid "equal"
+msgstr ""
+
+msgid "not equal"
+msgstr ""
+
+msgid "contains"
+msgstr ""
+
+msgid "not contains"
+msgstr ""
+
+msgid "begins with"
+msgstr ""
+
+msgid "select"
+msgstr ""
+
+msgid "each sku is separate"
+msgstr ""
+
+msgid "summarize skus"
+msgstr ""
+
+msgid "This condition will filter the result items"
+msgstr ""
+
+msgid "reset selection"
+msgstr ""
+
+msgid "Select category"
+msgstr ""
+
+msgid "Select product set"
+msgstr ""
+
+msgid "Select product type"
+msgstr ""
+
+msgid "select product"
+msgstr ""
+
+msgid "Product feature"
+msgstr ""
+
+msgid "Select product feature"
+msgstr ""
+
+msgid "Select feature value"
+msgstr ""
+
+msgid "Select product params"
+msgstr ""
+
+msgid "Product name"
+msgstr ""
+
+msgid "Product description"
+msgstr ""
+
+msgid "has video"
+msgstr ""
+
+msgid "has image"
+msgstr ""
+
+msgid "Product minimal price"
+msgstr ""
+
+msgid "Product maximum price"
+msgstr ""
+
+msgid "Product stock count"
+msgstr ""
+
+msgid "Product total sales for"
+msgstr ""
+
+msgid "Product total quantity of sales for"
+msgstr ""
+
+msgid "Product has service"
+msgstr ""
+
+msgid "Select service"
+msgstr ""
+
+msgid "Select service variant"
+msgstr ""
+
+msgid "Product has tag"
+msgstr ""
+
+msgid "Select tags"
+msgstr ""
+
+msgid "any product"
+msgstr ""
+
+msgid "from category"
+msgstr ""
+
+msgid "select category"
+msgstr ""
+
+msgid "from category and subcategories of"
+msgstr ""
+
+msgid "from set"
+msgstr ""
+
+msgid "from type"
+msgstr ""
+
+msgid "Order price with discount"
+msgstr ""
+
+msgid "Total price of products"
+msgstr ""
+
+msgid "Service"
+msgstr ""
+
+msgid "Select user category"
+msgstr ""
+
+msgid "Contact"
+msgstr ""
+
+msgid "select contact"
+msgstr ""
+
+msgid "Contact create datetime"
+msgstr ""
+
+msgid "Select shipping"
+msgstr ""
+
+msgid "Select payment"
+msgstr ""
+
+msgid "Sum of orders for"
+msgstr ""
+
+msgid "Quantity of orders for"
+msgstr ""
+
+msgid "for"
+msgstr ""
+
+msgid "Monday"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Wednesday"
+msgstr ""
+
+msgid "Thursday"
+msgstr ""
+
+msgid "Friday"
+msgstr ""
+
+msgid "Saturday"
+msgstr ""
+
+msgid "Sunday"
+msgstr ""
+
+msgid "Select domain"
+msgstr ""
+
+msgid "Select route"
+msgstr ""
+
+msgid "All conditions return true"
+msgstr ""
+
+msgid "Any of condition returns true"
+msgstr ""
+
+msgid "HH"
+msgstr ""
+
+msgid "MM"
+msgstr ""
+
+msgid "select value"
+msgstr ""
+
+msgid "period"
+msgstr ""
+
+msgid "last n-days"
+msgstr ""
+
+msgid "previous week"
+msgstr ""
+
+msgid "previous month"
+msgstr ""
+
+msgid "previous quarter"
+msgstr ""
+
+msgid "previous half a year"
+msgstr ""
+
+msgid "previous 9 months"
+msgstr ""
+
+msgid "previous year"
+msgstr ""
+
+msgid "today"
+msgstr ""
+
+msgid "current week"
+msgstr ""
+
+msgid "current month"
+msgstr ""
+
+msgid "current quarter"
+msgstr ""
+
+msgid "current 6 months"
+msgstr ""
+
+msgid "current 9 months"
+msgstr ""
+
+msgid "current year"
+msgstr ""
+
+msgid "period from"
+msgstr ""
+
+msgid "the last"
+msgstr ""
+
+msgid "days"
+msgstr ""
+
+msgid "to"
+msgstr ""
+
+msgid "prev"
+msgstr ""
+
+msgid "next"
+msgstr ""
+
+msgid "reset product"
+msgstr ""
+
+msgid "No name"
+msgstr ""
+
+msgid "sku ID"
+msgstr ""
+
+msgid "No name template"
+msgstr ""
+
+msgid "Download:"
+msgstr ""
+
+msgid "Your template badges"
+msgstr ""
+
+msgid "Default Webasyst badges"
+msgstr ""
+
+msgid "Delete from group"
+msgstr ""
+
+msgid "Copy discount"
+msgstr ""
+
+msgid "Open discount"
+msgstr ""
+
+msgid "No name discount"
+msgstr ""
+
+msgid "Select currency"
+msgstr ""
+
+msgid "Select target"
+msgstr ""
+
+msgid "Low price"
+msgstr ""
+
+msgid "Simple green badge with discount"
+msgstr ""
+
+msgid "Discount percentage on image"
+msgstr ""
+
+msgid "Circle 50%"
+msgstr ""
+
+msgid "100% money back guarantee"
+msgstr ""
+
+msgid "Sale"
+msgstr ""
+
+msgid "Promo"
+msgstr ""
+
+msgid "Bestseller"
+msgstr ""
+
+msgid "Present"
+msgstr ""
+
+msgid "Present - ribbon"
+msgstr ""
+
+msgid "Free delivery"
+msgstr ""
+
+msgid "2 ribbons"
+msgstr ""
+
+msgid "Too much ribbons"
+msgstr ""
+
+msgid "50% in black circle"
+msgstr ""
+
+msgid "Counter and image badge"
+msgstr ""
+
+msgid "Composite difficult badge"
+msgstr ""
+
+msgid "discount"
+msgstr ""
+
+msgid "Discount"
+msgstr ""
+
+msgid "moneyback"
+msgstr ""
+
+msgid "Guarantee"
+msgstr ""
+
+msgid "Best"
+msgstr ""
+
+msgid "seller"
+msgstr ""
+
+msgid "Free"
+msgstr ""
+
+msgid "delivery"
+msgstr ""
+
+msgid "Ribbon"
+msgstr ""
+
+msgid "Only today"
+msgstr ""
+
+msgid "Ends in"
+msgstr ""
+
+msgid "price off"
+msgstr ""
+
+msgid "Badges"
+msgstr ""
+
+msgid "Automatic creation of badges for products"
+msgstr ""
+
+msgid "This option automatically changes product badges in Storefront. If you disable it, use <a href='http://en.igaponov.ru/docs/82/custom_call/' style='color:#03c' target='_blank'>custom call</a>"
+msgstr ""
+
+msgid "No name rule"
+msgstr ""
+
+msgid "Datetime. <a href=\"https://developers.webasyst.com/cookbook/basics/functions/#function-wa_date\" target=\"_blank\">Read more</a>"
+msgstr ""
+
+msgid "Discount percentage."
+msgstr ""
+
+msgid "Countdown. <a href=\"http://en.igaponov.ru/docs/83/text/\" target=\"_blank\">Read more</a>"
+msgstr ""
+
+msgid "You can use optional set of custom <em>key=value</em> parameters which can be used as <em>&#123;$product.params.key&#125;</em>"
+msgstr ""
+
+msgid "http://en.igaponov.ru/docs/autobadge/"
+msgstr ""
+
+msgid "Border radius"
+msgstr ""
+
+msgid "Example"
+msgstr ""
+
+msgid "Do not forget to make <a href=\"http://en.igaponov.ru/docs/85/setup/\" target=\"_blank\">mandatory customization of theme design</a> and <a href=\"http://en.igaponov.ru/docs/84/output/\" target=\"_blank\">embed plugin</a> in your template"
+msgstr ""
+
+msgid "Thanks for reminder!"
+msgstr ""
+
+msgid "Need for CSS. Use it, if your badges are cutted by the parent block. If it doesn't help, ask me for help."
+msgstr ""
+
+msgid "This option automatically changes product badges in Storefront. If you disable it, use <a href='https://www.webasyst.com/store/plugin/shop/autobadge' style='color:#03c' target='_blank'>custom call</a>"
+msgstr ""
+
+msgid "Countdown. <a href=\"https://www.webasyst.com/store/plugin/shop/autobadge/text/\" target=\"_blank\">Read more</a>"
+msgstr ""
+
+msgid "https://www.webasyst.com/store/plugin/shop/autobadge/documentation/"
+msgstr ""
+
+msgid "Do not forget to make <a href=\"https://www.webasyst.com/store/plugin/shop/autobadge/setup\" target=\"_blank\">changes to your theme design</a>"
+msgstr ""
+
+msgid "This option automatically changes product badges in Storefront. If you disable it, use <a href='https://www.webasyst.com/store/plugin/shop/autobadge/custom_call' style='color:#03c' target='_blank'>custom call</a>"
+msgstr ""
+
+msgid "Product age"
+msgstr ""
+
+msgid "Number of skus"
+msgstr ""
+
+msgid "Changing of product stocks for"
+msgstr ""
+
+msgid "Badge type"
+msgstr ""
+
+msgid "Mobile version"
+msgstr ""
+
+msgid "Theme design"
+msgstr ""
+
+msgid "Product page"
+msgstr ""
+
+msgid "Select theme design"
+msgstr ""
+
+msgid "virtual and real"
+msgstr ""
+
+msgid "virtual"
+msgstr ""
+
+msgid "real"
+msgstr ""
+
+msgid "on"
+msgstr ""
+
+msgid "all stocks"
+msgstr ""
+
+msgid "any stock"
+msgstr ""
+
+msgid "each stock"
+msgstr ""
+
+msgid "Delayed loading of badges"
+msgstr ""
+
+msgid "Badges will be loaded after the page content is loaded. Use this function, if badges have wrong position for the first milliseconds, to prevent unnecessary badge moving."
+msgstr ""
+
+msgid "Make sure that you deal with <a href=\"http://en.igaponov.ru/docs/85/setup/\" style=\"color:#03c\" target=\"_blank\">Mandatory customization of theme design</a>"
+msgstr ""
+
+msgid "Disable plugin on cart/order page"
+msgstr ""
+
+msgid "If you have problems with speed on cart/order page, try to use this option to disable plugin on that page."
+msgstr ""
+
+msgid "Average user rating: %s / 5"
+msgstr ""
+
+msgid "System settings"
+msgstr ""
+
+msgid "Be carefull with that settings. If you are not sure, do not change them"
+msgstr ""
+
+msgid "Add file basenames"
+msgstr ""
+
+msgid "Reverse backtrace"
+msgstr ""
+
+msgid "Extended plugins reports"
+msgstr ""
+
+msgid "Extended template reports"
+msgstr ""
+
+msgid "Extended methods reports"
+msgstr ""
+
+msgid "Profile mode"
+msgstr ""
+
+msgid "Off"
+msgstr ""
+
+msgid "On"
+msgstr ""
+
+msgid "Enable profile mode to collect information about usaging of plugin hooks."
+msgstr ""
+
+msgid "Relevant for frontend. Update the necessary page and get the report in autobadge.profile.log"
+msgstr ""
+
+msgid "Also use cookie to enable profiling: "
+msgstr ""
+
+msgid "Depth"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Ignore calls from plugins:"
+msgstr ""
+
+msgid "No plugins are installed."
+msgstr ""
+
+msgid "show more"
+msgstr ""
+
+msgid "Ignore calls from methods"
+msgstr ""
+
+msgid "%d time"
+msgid_plural "%d times"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "%d call"
+msgid_plural "%d calls"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "Start typing product or SKU name"
+msgstr ""
+
+msgid "Show badges after pages load"
+msgstr ""
+
+msgid "Badges will be showed after the page content is loaded. Use this function, if badges have wrong position for the first milliseconds, to prevent unnecessary badge moving."
+msgstr ""
+
+msgid "Badges will be loaded by ajax after the page content is loaded. Use this function to speed up page loading."
+msgstr ""
+
+msgid "Cannot upload file. Try to upload image"
+msgstr ""
+
+msgid "Files with extensions %s are allowed only."
+msgstr ""
+
+msgid "Upload only images"
+msgstr ""
+
+msgid "Cannot upload file. Try to upload CSV file"
+msgstr ""
+
+msgid "Make sure that you deal with <a href=\"https://igaponov.com/docs/85/setup/\" style=\"color:#03c\" target=\"_blank\">Mandatory customization of theme design</a>"
+msgstr ""

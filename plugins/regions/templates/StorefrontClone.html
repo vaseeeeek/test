@@ -1,0 +1,113 @@
+<div>
+	<h1>
+		Клонирование витрины
+	</h1>
+
+	<form class="form form_ajax city__storefront-clone-form"
+			action="?plugin=regions&module=data&action=clone"
+			method="post"
+			data-datatype="json">
+		<div class="form__description">
+			Для клонирования настроек витрины выберите витрин-источник и введите адрес новой витрины. Новая витрина будет создана на основе выбранной.
+		</div>
+
+		<div class="field-group">
+			<div class="field-group__fields">
+
+				<div class="field-box">
+
+					<label class="field-box__label" for="city_clone_storefront">
+						Исходная витрина:
+					</label>
+
+					<div class="field-box__field">
+						<div class="select-box">
+							<select class="select-box__input clone-storefront__storefront" id="city_clone_storefront" name="storefront">
+								{foreach $storefronts as $storefront}
+									<option data-domain="{$storefront.domain|escape}" data-route="{$storefront.route|escape}" value="{$storefront.name|escape}">
+										{$storefront.title|escape}
+									</option>
+								{/foreach}
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="field-box">
+
+					<label class="field-box__label" for="city_clone_new-domain">
+						Новая витрина:
+					</label>
+
+					<div class="field-box__field">
+
+						<input class="large clone-storefront__new-domain" id="city_clone_new-domain"
+								name="new_domain" type="text"
+								placeholder="domain.ru">
+
+						<span class="large">/</span>
+
+						<input class="large clone-storefront__new-route"
+								name="new_route" type="text"
+								placeholder="shop/*">
+
+					</div>
+				</div>
+
+				<div class="field-box">
+
+					<div>Клонировать настройки приложений</div>
+
+					<div>
+						{foreach $apps as $app_id => $app}
+							<label class="check-box checkbox_column">
+								<input class="check-box__input app_checkbox"
+										name="selected_apps[]" type="checkbox"
+										value="{$app_id}" {if $selected_apps[$app_id]|default:false}checked="checked"{/if}>
+								<span class="check-box__description">
+									<img class="app_icon" src="{$app.icon}" alt="{$app.name|escape}" title="{$app.name|escape}">
+								</span>
+							</label>
+						{/foreach}
+					</div>
+				</div>
+
+				<div class="field-box">
+					<div class="field-box__field">
+						<div class="submit-box">
+
+							<button class="submit-box__button button green" type="submit">
+								Клонировать
+							</button>
+
+	                    <span class="submit-box__cancel">
+		                    или <a class="link-box clone-storefront-dialog__trigger-close">отмена</a>
+	                    </span>
+
+							<div class="submit-box__status">
+
+	                        <span class="form-status form-status_loading form-status_hidden">
+	                            <span class="form-status__icon"><i class="icon16 loading"></i></span>
+	                            <span class="form-status__text">Загрузка</span>
+	                        </span>
+
+	                        <span class="form-status form-status_success form-status_hidden">
+	                            <span class="form-status__icon"><i class="icon16 yes"></i></span>
+	                            <span class="form-status__text">Сохранено</span>
+	                        </span>
+
+	                        <span class="form-status form-status_error form-status_hidden">
+	                            <span class="form-status__icon"></span>
+	                            <span class="form-status__text">Произошла ошибка</span>
+	                        </span>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</form>
+</div>

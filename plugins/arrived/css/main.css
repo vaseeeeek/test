@@ -1,0 +1,65 @@
+.plugin_arrived-box {
+display:none;
+background-color:#fff;
+border:1px solid #bcbcbc;
+-webkit-border-radius:2px;
+-moz-border-radius:2px;
+border-radius:2px;
+-webkit-box-shadow:0 10px 25px 0 #262626;
+-moz-box-shadow:0 10px 25px 0 #262626;
+box-shadow:0 10px 25px 0 #262626;
+left:50%;
+top:50%;
+position:fixed;
+width:380px;
+z-index:8011;
+font-family:Arial;
+}
+.plugin_arrived-header { height: 40px; width: 100%; background: rgb(96,108,136); text-shadow: 0 -1px 1px #000000; font-family: Arial; font-size: 13px; color: #fff; font-weight: 600;
+background: -moz-linear-gradient(top, rgba(96,108,136,1) 0%, rgba(63,76,107,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(96,108,136,1)), color-stop(100%,rgba(63,76,107,1)));
+background: -webkit-linear-gradient(top, rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%);
+background: -o-linear-gradient(top, rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%);
+background: -ms-linear-gradient(top, rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%);
+background: linear-gradient(to bottom, rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606c88', endColorstr='#3f4c6b',GradientType=0 ); }
+.plugin_arrived-header span { padding: 13px 0 0 20px; float: left; }
+.plugin_arrived-header .plugin_arrived-close { display: inline-block; width: 16px; float: right; margin: 11px 15px 0 0; cursor: pointer; height: 16px; background: url("../img/close.png") no-repeat; }
+.plugin_arrived-body { padding: 20px; overflow: auto; }
+.plugin_arrived-body .errormsg { display: block; color: #ff0000; font-size:12px; }
+.plugin_arrived-value { margin-bottom: 15px; }
+.plugin_arrived-value input, .quickorder-value select, .quickorder-value textarea { padding-left:10px;padding-right:10px;width:318px; font-size:12px; }
+.plugin_arrived-value.submit { width:auto;margin-bottom:0; }
+.plugin_arrived-value.submit input { width:auto; }
+.plugin_arrived-name { font-weight:bold; margin-bottom: 5px; font-size:12px; }
+.plugin_arrived-name.required:before { content: '*'; color: #ff0000; margin-right: 2px; }
+.plugin_arrived-name.not_bold { font-weight:normal;padding-bottom:5px; }
+.plugin_arrived-loading {background:url("../../../../../wa-content/img/loading16.gif") no-repeat 0 0; display:inline-block;min-width:16px;height:16px;vertical-align:middle;padding-left:20px;font:normal normal 12px/16px Tahoma;color:#333;display:none;}
+.plugin_arrived-button a {
+text-decoration:none;
+border-bottom-width:1px;
+border-bottom-style:dotted;
+}
+.msg_errors {
+color:#f00;
+margin-bottom:10px;
+}
+.plugin_arrived-box .plugin_arrived-success {
+display:none;
+font-family:Arial;
+font-size:12px;
+line-height:18px;
+}
+.plugin_arrived-overlay {
+display:block;
+height:100%;
+width:100%;
+bottom:0;
+position:fixed;
+right:0;
+z-index:8010;
+background:url("../img/overlay.png") repeat;
+}
+.plugin_arrived-popup .plugin_arrived-box {
+display:block;
+}

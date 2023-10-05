@@ -1,0 +1,1 @@
+{$condition.field_title} {foreach $condition.value as $control => $value}{if $control == 'input'}{$value}{elseif $control == 'compare'}{if $value == '!='}[`is not`]{else}{$value}{/if}{else}{if $control == 'feature_value'}<b>{/if}{ifset($condition.control_values[$control], $value)}{if $control == 'feature_value'}</b>{/if}{/if} {/foreach}

@@ -1,0 +1,17 @@
+ce9123f5745ab746e23ce3bbd34b7db3 *img/whatsapp.png
+8c9a580a5568da54395d32a8283146c9 *img/whatsapp24.png
+0fa0c7b1b7dcde6fa48dad282329231f *img/whatsapp48.png
+21633fa02a3b510433f768e96d62718a *js/whatsapp.js
+a285da79a1cf95556e4eb1fd40059097 *lib/.htaccess
+febb88768bc1424d38e658e2f62e6608 *lib/actions/shopWhatsappPluginSettings.action.php
+ff3bc8664c8ab9e54a43eaa22fb839a0 *lib/actions/shopWhatsappPluginSettingsSave.controller.php
+0c690ecd6453d4b04622a4c96e9160ac *lib/config/config.php
+9eab3fb53c5d5a0652658bd7ec2de7e6 *lib/config/plugin.php
+7d6692efb6e283c0303e5880d5d6c647 *lib/shopWhatsapp.plugin.php
+a1751e1f10a3b96b05d0401c97e72008 *locale/.htaccess
+5bfa882aeb64b6a5cb5c13cbe469321a *locale/en_US/LC_MESSAGES/shop_whatsapp.mo
+3027dbb79cc0bfb4ee51148abafe6431 *locale/en_US/LC_MESSAGES/shop_whatsapp.po
+accb379580effef552648089e6dc35e4 *locale/ru_RU/LC_MESSAGES/shop_whatsapp.mo
+9a333254eb253c7938e2d26a4e2f4965 *locale/ru_RU/LC_MESSAGES/shop_whatsapp.po
+a285da79a1cf95556e4eb1fd40059097 *templates/.htaccess
+2b14ed60031fd192098cdf950c37a4e5 *templates/actions/settings/Settings.html

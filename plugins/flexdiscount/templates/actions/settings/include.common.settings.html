@@ -1,0 +1,134 @@
+<h3>
+    [`Main settings`]
+    {$settings_main_toggle = !empty($settings.main_toggle) || !isset($settings.main_toggle)}
+    <a href="javascript:void(0)" class="js-paragraph-visibilty">{if $settings_main_toggle}&minus;{else}&plus;{/if}</a>
+    <input type="hidden" name="settings[main_toggle]" value='{if $settings_main_toggle}1{else}0{/if}' />
+</h3>
+<div class="field-group"{if !$settings_main_toggle} style='display: none;'{/if}>
+    <div class="field">
+        <div class="name">[`Discount rounding`]:</div>
+        {$rounding = ['not' => _wp('not round'), 'ceil' => _wp('ceil'), 'round' => _wp('rounding to integer'), 'floor' => _wp('floor'), 'tens' => "10", 'hund' => "100", 'dec1' => "0.1", 'dec2' => "0.01"]}
+        <div class="value">
+            {foreach $rounding as $r_id => $r}
+                <div style='margin-bottom: 5px'><label><input type="radio" name="settings[round]" value="{$r_id}" {if (isset($settings.round) && $settings.round == $r_id) || (empty($settings.round) && $r_id == 'not')}checked='checked'{/if} /> {$r}</label></div>
+            {/foreach}
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Bonus rounding`]:</div>
+        <div class="value">
+            {foreach $rounding as $r_id => $r}
+                <div style='margin-bottom: 5px'><label><input type="radio" name="settings[affiliate_round]" value="{$r_id}" {if (isset($settings.affiliate_round) && $settings.affiliate_round == $r_id) || (empty($settings.affiliate_round) && $r_id == 'not')}checked='checked'{/if} /> {$r}</label></div>
+            {/foreach}
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Use currency rounding settings from the Shop`]</div>
+        <div class="value">
+            <div class="ibutton-checkbox">
+                <ul class="menu-h">
+                    <li>
+                        <span class="switcher-off">[`No`]</span>
+                    </li>
+                    <li>
+                        <input class="switcher" type="checkbox" name="settings[currency_rounding]" value="1"{if !empty($settings.currency_rounding)} checked="checked"{/if} />
+                    </li>
+                    <li>
+                        <span class="switcher-on">[`Yes`]</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Change product data on the storefront`]</div>
+        <div class="value">
+            <div class="ibutton-checkbox">
+                <ul class="menu-h">
+                    <li>
+                        <span class="switcher-off">[`No`]</span>
+                    </li>
+                    <li>
+                        <input class="switcher" type="checkbox" name="settings[frontend_prices]" value="1"{if !empty($settings.frontend_prices)} checked="checked"{/if} />
+                    </li>
+                    <li>
+                        <span class="switcher-on">[`Yes`]</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="margin-block fl-hint">
+                [`If product has discount, then product price (old price) will become price with discount and compare price will become product price without discount. E.g,`] <span class='grey smaller' style="text-decoration: line-through; margin-right: 5px;">[`old price`]</span><span style="color: #e8385c; font-weight: bold;">[`price with discount`]</span>
+                <br>[`This option changes prices only once, when the page loads. For dynamic price changing use <a href="javascript:void()" onclick="$('html,body').scrollTop($('#fl-info-discount-aff-block').offset().top)">Information blocks (Price with discount, Product discounts)</a>`]
+            </div>
+            <div class="onopen">
+                <div class="margin-block bottom">[`Ignore price changing in plugins below:`]</div>
+                <div class="margin-block bottom">
+                    <ul class="menu-v plugin-list">
+                        {foreach $plugins as $plugin}
+                            <li{if !empty($settings.ignore_plugins) && in_array($plugin.id, $settings.ignore_plugins)} class="selected"{/if}>
+                                <label>
+                                    <input type="checkbox" name="settings[ignore_plugins][]"
+                                           value="{$plugin.id}"
+                                           {if !empty($settings.ignore_plugins) && in_array($plugin.id, $settings.ignore_plugins)}checked{/if} />
+                                    <i class="icon16{if !isset($plugin.img)} plugins{else}"
+                                       style="background-image: url('{wa_url()}{$plugin.img}'); background-size: 16px 16px;{/if}"></i> {$plugin.name|escape}
+                                </label>
+                            </li>
+                            {foreachelse}
+                            <li>[`No plugins are installed.`]</li>
+                        {/foreach}
+                    </ul>
+                    {if $plugins|count > 4}
+                        <a href="javascript:void(0)" class="js-show-more-plugins inline-link"><b><i>[`show more`]</i></b></a>
+                    {/if}
+                </div>
+                <div class="field">
+                    <div class="name">[`Use original compare prices`]</div>
+                    <div class="value">
+                        <div class="ibutton-checkbox">
+                            <ul class="menu-h">
+                                <li>
+                                    <span class="switcher-off">[`No`]</span>
+                                </li>
+                                <li>
+                                    <input type="hidden" name="settings[use_original_compare_pr]" value="0">
+                                    <input class="switcher" type="checkbox" name="settings[use_original_compare_pr]" value="1"{if !empty($settings.use_original_compare_pr)} checked="checked"{/if} />
+                                </li>
+                                <li>
+                                    <span class="switcher-on">[`Yes`]</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Final rules calculating`]</div>
+        <div class="value">
+            <select name="settings[combine_type]" class='inherit'>
+                <option value="sum"{if !isset($settings.combine_type) || (isset($settings.combine_type) && $settings.combine_type == 'sum')} selected{/if}>[`Summarize all active discounts`]</option>
+                <option value="max"{if !empty($settings.combine_type) && $settings.combine_type == 'max'} selected{/if}>[`Get maximum discount`]</option>
+                <option value="min"{if !empty($settings.combine_type) && $settings.combine_type == 'min'} selected{/if}>[`Get minimum discount`]</option>
+            </select>
+            <div class="margin-block fl-hint">
+                [`Select how to calculate discounts and bonuses between groups and rules without groups`].
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Discount distribution`]</div>
+        <div class="value">
+            <select name="settings[distribute_type]" class='inherit'>
+                <option value="product"{if !isset($settings.distribute_type) || (isset($settings.distribute_type) && $settings.distribute_type == 'product')} selected{/if}>[`For each product`]</option>
+                <option value="order"{if !empty($settings.distribute_type) && $settings.distribute_type == 'order'} selected{/if}>[`For entire order`]</option>
+            </select>
+            <div class="margin-block fl-hint">
+                [`Select how to distribute discounts. By default, if product has personal discount, it would be connected only with him.`]<br>
+                [`You can depersonalize discounts by selecting the option "For entire order". Shop-Script will automatically spread it.`]
+            </div>
+        </div>
+    </div>
+</div>

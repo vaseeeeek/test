@@ -1,0 +1,17 @@
+<div class="field">
+	<div class="name">
+		[`Complex prices algorithm`]
+		<a href="?action=plugins#/complex" target="_blank"><i class="icon16 plugins"></i></a>
+	</div>
+	<div class="value">
+		<label><input name="product[complex_plugin_toggle_prices]" type="radio" value="0"{if $product.complex_plugin_toggle_prices == 0} checked{/if}> [`Algorithm enabled`]</label><br/>
+		<span class="hint">[`Complex prices will be applied in accordance with established conditions`]</span><br/>
+		<label><input name="product[complex_plugin_toggle_prices]" type="radio" value="-1"{if $product.complex_plugin_toggle_prices == -1} checked{/if}> [`Algorithm disabled`], [`use main price`]</label><br/>
+		<span class="hint">[`Regardless of the established conditions, "complex" prices will not apply to this product`]</span><br/>
+		{foreach $prices as $price}
+		<label><input name="product[complex_plugin_toggle_prices]" type="radio" value="{$price.id}"{if $product.complex_plugin_toggle_prices == $price.id} checked{/if}> [`Algorithm disabled`], [`use complex price`] <b>"{$price.name|escape:'html'}"</b> [`for this product`]</label><br/>
+		{/foreach}
+		<br/>
+		<span class="hint">[`Switching these values will not affect the discounts applied and other price handlers.`]</span>
+	</div>
+</div>

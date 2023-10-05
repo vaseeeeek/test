@@ -1,0 +1,124 @@
+{strip}
+
+<div class="shop-sk-oneclick js-sk-oneclick">
+    {if $skoneclick_defines.title}
+        <div class="shop-sk-oneclick__title">{$skoneclick_defines.title}</div>
+    {/if}
+
+    {if $skoneclick_defines.text}
+        <div class="shop-sk-oneclick__text">{$skoneclick_defines.text}</div>
+    {/if}
+    <form class="shop-sk-oneclick__form js-sk-oneclick-form">
+        <input type="hidden" name="type" value="{$skoneclick_type}" />
+        {if $skoneclick_products && ($skoneclick_type != "cart" || $skoneclick_settings.cart_goods_show)}
+            <div class="shop-sk-oneclick-cart js-sk-oneclick-cart">
+                <div class="shop-sk-oneclick-cart__table">
+                    <div class="shop-sk-oneclick-cart__item _title">
+                        <div class="shop-sk-oneclick-cart__img">&nbsp;</div>
+                        <div class="shop-sk-oneclick-cart__name">&nbsp;</div>
+                        <div class="shop-sk-oneclick-cart__price">Стоимость</div>
+                        <div class="shop-sk-oneclick-cart__count">Количество</div>
+                        <div class="shop-sk-oneclick-cart__total">Сумма</div>
+                    </div>
+                    {foreach $skoneclick_products.items as $item}
+                        <input type="hidden" name="cart[{$item@iteration}][product_id]" value="{$item.product_id}" />
+                        <input type="hidden" name="cart[{$item@iteration}][sku_id]" value="{$item.sku_id}" />
+                        <div class="shop-sk-oneclick-cart__item js-sk-oneclick-cart-item" data-sku-id="{$item.sku_id}">
+                            <div class="shop-sk-oneclick-cart__img">{if $item.image_url}<img src="{$item.image_url}" alt="{$item.product_name|escape}">{/if}</div>
+                            <div class="shop-sk-oneclick-cart__name">
+                                <div class="shop-sk-oneclick-cart__full-name">{$item.product_name|escape}{if !empty($item.sku_name)} {$item.sku_name}{/if}</div>
+                                {if $item.services}
+                                    <div class="shop-sk-oneclick-cart__services">
+                                        {foreach $item.services as $service}
+                                            <div class="shop-sk-oneclick-cart__service js-sk-oneclick-cart-service hint">
+                                                <label>
+                                                    <input type="checkbox" name="cart[{$item@iteration}][services][]" value="{$service.service_id}" checked="checked" class="_no-styler" />
+                                                    {$service.service_name} <span>(+ {$service.price})</span>
+                                                </label>
+                                            </div>
+                                            <input type="hidden" name="cart[{$item@iteration}][service_variant][{$service.service_id}]" value="{$service.service_variant_id}" />
+                                        {/foreach}
+                                    </div>
+                                {/if}
+                            </div>
+                            <div class="shop-sk-oneclick-cart__price">{$item.price}</div>
+                            <div class="shop-sk-oneclick-cart__count">
+                                <div class="shop-sk-oneclick-counter js-sk-oneclick-counter">
+                                    <a href="javascript:void(0)" class="shop-sk-oneclick-counter__control shop-sk-oneclick-counter__control_left js-sk-oneclick-counter-left">
+                                        <i class="fa fa-caret-left" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="javascript:void(0)" class="shop-sk-oneclick-counter__control shop-sk-oneclick-counter__control_right js-sk-oneclick-counter-right">
+                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                    </a>
+                                    <input type="text" name="cart[{$item@iteration}][quantity]" class="shop-sk-oneclick-counter__input js-sk-oneclick-counter-input" value="{if !empty($item.quantity)}{$item.quantity}{else}1{/if}">
+                                </div>
+                            </div>
+                            <div class="shop-sk-oneclick-cart__total js-sk-oneclick-cart-total">{$item.full_price}</div>
+                        </div>
+                    {/foreach}
+                </div>
+                <div class="shop-sk-oneclick-cart__error js-sk-oneclick-cart-error"></div>
+            </div>
+            <div class="shop-sk-oneclick-final">
+                {if $skoneclick_settings.coupon_show}
+                    <div class="shop-sk-oneclick-final__coupon js-sk-oneclick-final-coupon{if $skoneclick_products.discount_numeric && $skoneclick_products.coupon_code} _is-coupon{/if}">
+                        <a href="javascript:void(0)" class="shop-sk-oneclick-final__coupon-link js-sk-oneclick-final-coupon-link">Использовать купон</a>
+                        <span class="shop-sk-oneclick-final__coupon-block js-sk-oneclick-final-coupon-block">
+                            <input type="text" name="coupon_code" value="{if $skoneclick_products.discount_numeric && $skoneclick_products.coupon_code}{$skoneclick_products.coupon_code}{/if}" class="shop-sk-oneclick-final__coupon-input js-sk-oneclick-final-coupon-input"/>
+                            <a href="javascript:void(0)" class="shop-sk-oneclick-final__coupon-apply js-sk-oneclick-final-coupon-apply">Применить</a>
+                            <a href="javascript:void(0)" class="shop-sk-oneclick-final__coupon-clear js-sk-oneclick-final-coupon-clear">Сбросить</a>
+                        </span>
+                    </div>
+                {/if}
+                <div class="shop-sk-oneclick-final__discount js-sk-oneclick-final-discount{if (int)$skoneclick_products.discount} _show{/if}">Скидка:&nbsp;&nbsp;<span class="js-sk-oneclick-final-discount-price">- {$skoneclick_products.discount}</span></div>
+            </div>
+        {/if}
+
+        <div class="shop-sk-oneclick__form-block">
+
+            {$skoneclick_form->html()}
+
+            {if $skoneclick_settings.add_comment}
+                <div class="shop-sk-oneclick__pole">
+                    <div class="shop-sk-oneclick__name">Комментарий</div>
+                    <div class="shop-sk-oneclick__control">
+                        <textarea name="additional[comment]" value=""></textarea>
+                    </div>
+                </div>
+            {/if}
+
+            {if $skoneclick_settings.personal_data_active}
+                <div class="shop-sk-oneclick__pole">
+                    <div class="shop-sk-oneclick__control">
+                        <label>
+                            <input name="additional[agree]" type="checkbox" {if $skoneclick_settings.personal_data_default}checked="checked"{/if} />
+                            <span>&nbsp;&nbsp;{$skoneclick_settings.personal_data_text}</span>
+                        </label>
+                    </div>
+                </div>
+            {/if}
+
+            <div class="shop-sk-oneclick-form__error js-sk-oneclick-form-error"></div>
+
+            <div class="shop-sk-oneclick-total">Итого: <span class="shop-sk-oneclick-total__price js-sk-oneclick-total-price">{$skoneclick_products.total}</span></div>
+
+            <div class="shop-sk-oneclick__pole shop-sk-oneclick__pole_submit">
+                <div class="shop-sk-oneclick__control">
+                    <input type="submit" class="shop-sk-oneclick__submit js-sk-oneclick-submit" value="{$skoneclick_defines.button}" />
+                    &nbsp;&nbsp;
+                    <span class="shop-sk-oneclick__preloader-form js-sk-oneclick-preloader-form"><i class="fa fa-spinner fa-spin fa-2x fa-fw"></i></span>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+    {literal}
+    <script>
+        window.shopSkOneclickInit.fields = {/literal}{$skoneclick_fields|json_encode}{literal}
+    </script>
+    {/literal}
+
+</div>
+
+{/strip}

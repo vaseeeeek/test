@@ -1,0 +1,122 @@
+<link href="{$wa_url}wa-apps/shop/plugins/seoratings/css/backend/seoratings.css" rel="stylesheet">
+<h1>SEO-Топы и списки</h1>
+<div class="seoratings-backend" style="padding: 0; border: 0;">
+  <div class="seoratings-backend__form">
+    <form id="plugins-settings-form" action="?module=plugins&id=seoratings&action=save" method="post" enctype="multipart/form-data">
+      {$wa->csrf()}
+      <div class="seoratings-backend__field">
+        <label for="slug" class="seoratings-backend__caption">URL плагина</label>
+        <div class="seoratings-backend__control">
+          <input class="seoratings-backend__input--text" id="slug" type="text" name="shop_seoratings[slug]" value="{$settings['slug']|default:'seoratings'}">
+          <span class="seoratings-backend__hint">Первая часть url для плагина <b>seoratings</b>/ссылка_на_рейтинг</span>
+        </div>
+      </div>
+      <div class="seoratings-backend__field">
+        <label for="breadcrumbs_category_title" class="seoratings-backend__caption">Название</label>
+        <div class="seoratings-backend__control">
+          <input class="seoratings-backend__input--text" id="breadcrumbs_category_title" type="text" name="shop_seoratings[breadcrumbs_category_title]" value="{$settings['breadcrumbs_category_title']|default:'Рейтинги'}">
+          <span class="seoratings-backend__hint">Глобальное название рейтингов</span>
+        </div>
+      </div>
+      <div class="seoratings-backend__field">
+        <label class="seoratings-backend__caption" for="category_badge">Бейджик в категории</label>
+        <div class="seoratings-backend__control">
+          <label class="seoratings-backend__field--checkbox">
+            <input id="category_badge" class="seoratings-backend__checkbox" name="shop_seoratings[category_badge]" {if $settings['category_badge']|default:false}checked{/if} type="checkbox" value="1">
+            <span>Выводить бейджик у товаров в категории</span>
+          </label>
+          <span class="seoratings-backend__hint">Необходима доработка темы</span>
+        </div>
+      </div>
+      <div class="seoratings-backend__field">
+        <div class="seoratings-backend__caption">
+          <span>Выводить через хуки</span>
+        </div>
+        <div class="seoratings-backend__control">
+          {foreach $hooks as $value}
+            <label class="seoratings-backend__field--checkbox">
+              <input class="seoratings-backend__checkbox" name="shop_seoratings[hooks][]" {if in_array($value, $settings.hooks|default:[])}checked{/if} type="checkbox" value="{$value}">
+              <span>{$value}</span>
+            </label>
+          {/foreach}
+        </div>
+      </div>
+      <hr class="seoratings-backend__divider">
+      <h2>Мета информация списка</h2>
+      <div class="seoratings-backend__field">
+        <label class="seoratings-backend__caption" for="ratings_list_meta_title">Meta title</label>
+        <div class="seoratings-backend__control">
+          <input class="seoratings-backend__input--text" id="ratings_list_meta_title" type="text" name="shop_seoratings[ratings_list_meta_title]" value="{$settings['ratings_list_meta_title']}">
+        </div>
+      </div>
+      <div class="seoratings-backend__field">
+        <label class="seoratings-backend__caption" for="ratings_list_meta_description">Meta description</label>
+        <div class="seoratings-backend__control">
+          <textarea class="seoratings-backend__input--textarea" id="ratings_list_meta_description" name="shop_seoratings[ratings_list_meta_description]">{$settings['ratings_list_meta_description']}</textarea>
+        </div>
+      </div>
+      <div class="seoratings-backend__field">
+        <label class="seoratings-backend__caption" for="ratings_list_meta_keywords">Meta keywords</label>
+        <div class="seoratings-backend__control">
+          <textarea class="seoratings-backend__input--textarea" id="ratings_list_meta_keywords" name="shop_seoratings[ratings_list_meta_keywords]">{$settings['ratings_list_meta_keywords']}</textarea>
+        </div>
+      </div>
+      <div class="seoratings-backend__field">
+        <label class="seoratings-backend__caption" for="rating_css_styles">Дополнительные стили</label>
+        <div class="seoratings-backend__control">
+          <textarea class="seoratings-backend__input--textarea" id="rating_css_styles" name="shop_seoratings[rating_css_styles]">{$settings['rating_css_styles']}</textarea>
+          <span class="seoratings-backend__hint">Эти стили будут добавлены на страницы списка рейтингов и одного рейтинга</span>
+        </div>
+      </div>
+    </form>
+    <div class="seoratings-backend" style="padding: 0; border: 0;">
+      <div class="seoratings-backend__form">
+        <form id="plugins-settings-form" action="?plugin=seoratings&module=settings&action=load" method="post" enctype="multipart/form-data">
+          {$wa->csrf()}
+          <div class="seoratings-backend__field">
+            <label class="seoratings-backend__caption" for="developer_templates_file">Шаблоны разработчика</label>
+            <div class="seoratings-backend__control">
+              <input id="developer_templates_file" class="seoratings-backend__button--file" type="file" name="developer_templates_file">
+              <span class="seoratings-backend__hint">Загрузить шаблоны помеченные как "для разработчиков", которые впоследствии можно удалить</span>
+              <div class="seoratings-backend__field--control">
+                <input data-js="import-developer-templates" class="seoratings-backend__button -empty" type="submit" value="Импорт">
+                <button data-js="export-developer-templates" type="button" class="seoratings-backend__button">Экспорт</button>
+                <button data-js="clear-developer-templates" type="button" class="seoratings-backend__button -primary">Удалить</button>
+              </div>
+            </div>
+            <script>
+              $('[data-js="clear-developer-templates"]').on('click', function() {
+                if (confirm('Все шаблоны разработчика будут удалены"')) {
+                  $.post('?plugin=seoratings&module=settings&action=clear', function(data) {
+                    alert('Шаблоны удалены');
+                  });
+                }
+              });
+              $('[data-js="export-developer-templates"]').on('click', () => location.replace('?plugin=seoratings&module=settings&action=export'));
+              $('[data-js="import-developer-templates"]').on('click', () => {
+                if (!$('[name="developer_templates_file"]').val()) {
+                  alert('Выберите файл для загрузки');
+                  return false;
+                }
+              });
+            </script>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="seoratings-backend__field">
+      <div class="value submit">
+        <input id="plugins-settings-form-submit" type="submit" class="button green" value="{_w('Save')}">
+        <span id="plugins-settings-form-status" style="display:none">
+          <i style="vertical-align:middle" class="icon16 yes"></i> [`Saved`]
+        </span>
+      </div>
+    </div>
+    <script>
+      $('#plugins-settings-form-submit').on('click', function() {
+        $('#plugins-settings-form').trigger('submit');
+      });
+    </script>
+    <iframe style="display:none" name="plugins-settings-iframe" id="plugins-settings-iframe"></iframe>
+  </div>
+</div>

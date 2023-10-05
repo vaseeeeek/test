@@ -1,0 +1,137 @@
+<div class="massupdating-switcher massupdating-prices">
+	<a href="#" data-action="minus" class="selected">[`Уменьшить`] (-)</a>
+	<a href="#" data-action="plus">[`Увеличить`] (+)</a>
+	<a href="#" data-action="fix">[`Установить фиксированные`]</a>
+	[`или`]
+	<a href="#" data-action="compare">[`Вернуть зачеркнутые цены`]</a>
+	<input id="massupdating-prices-action" value="minus" type="hidden" name="prices_action">
+	<br/>
+	<div id="massupdating-area">
+		<select id="massupdating-change-price-type" name="price_type">
+			<option value="price" selected>[`Цены`]</option>
+			<option value="purchase">[`Закупочные цены`]</option>
+		</select>
+		<span class="massupdating-change-selected">[`выбранных товаров`]</span>
+		<span class="massupdating-change-to">[`на`]</span>
+		<input id="massupdating-change-to" type="text" name="prices" class="short"/>
+		<select id="massupdating-currency-select" class="massupdating-currency-select" name="currency">
+			<option value="%" selected>%</option>
+			{foreach from=$input['currency'] item=currency}
+			<option value="{$currency}">{shopMassupdatingPlugin::getCurrencySign($currency)}</option>
+			{/foreach}
+		</select>
+		<span class="massupdating-change-from">[`от`]</span>
+		<select id="massupdating-change-from" class="massupdating-change-from-select" name="from"{if (min($input['value']['purchase_price']) == 0) || max($input['value']['purchase_price']) == 0} disabled{/if}>
+			<option value="current" selected>[`текущей цены`]</option>
+			<option value="purchase"{if (min($input['value']['purchase_price']) == 0) || max($input['value']['purchase_price']) == 0} disabled{/if}>[`закупочной цены`]</option>
+		</select>
+		{if count($input['currency']) > 1}
+		<div style="color: red; margin-top: 10px;">
+		<b>[`Внимание!`]</b>
+		[`У выбранных товаров отличаются валюты. При изменении в валюте цена будет преобразована по установленному курсу в валюту товара.`]
+		[`В такой ситуации рекомендуется изменять цены в процентах (%).`]
+		[`Конечная цена будет округлена после валютных преобразований.`]
+		</div>
+		{/if}
+		{if count($products) > 1}
+		<div class="massupdating-vary-info" style="color: #aaa; margin-top: 10px;">
+			<i class="hint massupdating-vary massupdating-vary-current">
+				{if count($input['value']['price']) == 1}
+				[`Текущие цены выбранных товаров совпадают:`]
+				<b>{$input['value']['price'][0]|wa_format_number:0}</b>
+				{else}
+				[`Текущие цены варьируются от`]
+				<b id="massupdating-vary-current-from">{min($input['value']['price'])|wa_format_number:0}</b>
+				[`до`]
+				<b id="massupdating-vary-current-to">{max($input['value']['price'])|wa_format_number:0}</b>
+				{/if}
+				{shopMassupdatingPlugin::getDefaultCurrency('sign')}
+			</i>
+			<i style="display: none;" class="hint massupdating-vary massupdating-vary-purchase">
+				{if count($input['value']['price']) == 1}
+				[`Закупочные цены выбранных товаров совпадают:`]
+				<b>{$input['value']['purchase_price'][0]|wa_format_number:0}</b>
+				{else}
+				[`Закупочные цены варьируются от`]
+				<b id="massupdating-vary-purchase-from">{min($input['value']['purchase_price'])|wa_format_number:0}</b>
+				[`до`]
+				<b id="massupdating-vary-purchase-to">{max($input['value']['purchase_price'])|wa_format_number:0}</b>
+				{/if}
+				{shopMassupdatingPlugin::getDefaultCurrency('sign')}
+			</i>
+		</div>
+		{/if}
+		<div id="massupdating-round-area" style="margin-top: 10px;">
+			[`Округлять до`]
+			<select id="massupdating-precision-to" name="precision">
+				<option value="0" selected>0</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="10">[`десятков`]</option>
+				<option value="100">[`сотен`]</option>
+				<option value="1000">[`тысяч`]</option>
+			</select>
+			<span id="massupdating-round-decimal">[`десятичных знаков`]</span>
+			<select id="massupdating-mode-select" name="mode">
+				<option value="down" selected>[`в меньшую сторону`]</option>
+				<option value="up">[`в большую сторону`]</option>
+			</select>
+			<label id="massupdating-round-minus-label" style="display: {if count($input['currency']) > 1}none{else}block{/if}; margin-top: 10px; opacity: 0.2;">
+				<input id="massupdating-round-minus" type="checkbox" name="minus" disabled/>
+				[`Вычесть из конечного числа 1 единицу`]
+			</label>
+			<i style="display: block; margin-top: 10px;" class="hint">
+				[`Цены будут округлены с, например,`]
+				<b id="massupdating-round-from">27 318,57</b>
+				[`до`]
+				<b id="massupdating-round-to">27 318</b>
+			</i>
+		</div>
+	</div>
+	<div style="margin-top: 10px;">
+		<select id="massupdating-compare-select" name="compare">
+			<option value="1" selected>[`Установить старые цены как зачеркнутые`]</option>
+			<option value="2">[`Оставить текущие зачеркнутые цены`]</option>
+			<option value="3">[`Удалить зачеркнутые цены`]</option>
+		</select>
+	</div>
+</div>
+<script type="text/javascript">
+(function() {
+	$('.massupdating-prices a').click(function(e){
+		$('.massupdating-prices a').removeClass('selected');
+		$(this).addClass('selected');
+		var action = $(this).data('action');
+		$('#massupdating-compare-select').val((action == 'plus' || action == 'compare') ? 3 : 1);
+		$('#massupdating-round-area').css('opacity', action == 'fix' ? 0.2 : 1);
+		$('#massupdating-area').css('opacity', action == 'compare' ? 0.2 : 1);
+		$('#massupdating-prices-action').val(action);
+		$('.massupdating-change-to, .massupdating-change-from, .massupdating-change-from-select')[action == 'fix' ? 'hide' : 'show']();
+		$('#massupdating-currency-select').val(action == 'fix' ? '{$input['currency'][0]}' : '%').attr('disabled', action == 'compare').find('option[value=\'%\']').attr('disabled', action == 'fix');
+		$('.massupdating-vary-info')[action == 'fix' ? 'hide' : 'show']();
+		$('#massupdating-change-to').attr('disabled', action == 'compare').focus();
+		$('#massupdating-mode-select, #massupdating-precision-to, #massupdating-round-minus').attr('disabled', (action == 'compare' || action == 'fix'));
+		e.preventDefault();
+	});
+	
+	$('#massupdating-change-price-type').change(function(){
+		$('#massupdating-compare-select').css('opacity', $(this).val() == 'purchase' ? 0.2 : 1).attr('disabled', $(this).val() == 'purchase');
+	});
+
+	$('#massupdating-precision-to').change(function(){
+		$('#massupdating-round-minus-label').css('opacity', $.inArray($(this).val(), ['1000', '100', '10']) == -1 ? 0.2 : 1);
+		$('#massupdating-round-minus').attr('disabled', $.inArray($(this).val(), ['1000', '100', '10']) == -1);
+		$('#massupdating-round-decimal')[$(this).val() > 2 ? 'hide' : 'show']();
+		$('#massupdating-round-to').html($.massupdating.round('27318.57', $(this).val(), $('#massupdating-mode-select').val(), $('#massupdating-round-minus:checked').length).toString().replace{literal}(/(\d{1,3}(?=(\d{3})+(?:\.\d|\b)))/g,"\$1 "){/literal}.replace('.', ','));
+	});
+
+	$('#massupdating-mode-select, #massupdating-round-minus').change(function(){
+		$('#massupdating-round-to').html($.massupdating.round('27318.57', $('#massupdating-precision-to').val(), $('#massupdating-mode-select').val(), $('#massupdating-round-minus:checked').length).toString().replace{literal}(/(\d{1,3}(?=(\d{3})+(?:\.\d|\b)))/g,"\$1 "){/literal}.replace('.', ','));
+	});
+
+	$('#massupdating-change-from').change(function(){
+		$('.massupdating-vary').hide();
+		$('.massupdating-vary-' + $(this).val()).show();
+	});
+})();
+</script>

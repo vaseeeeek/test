@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="{$wa_url}wa-apps/shop/plugins/colorfeaturespro/css/backend.css" />
+
+<h1>Настройка характеристик цвета</h1>
+
+<div>
+  <a href="https://cssgradient.io/" target="_blank"
+    ><h3>Генератор css градиентов <i class="icon16 new-window mg0"></i></h3>
+  </a>
+</div>
+<div>
+  <a href="https://www.toptal.com/developers/css/sprite-generator/" target="_blank"
+    ><h3>Генератор css спрайтов <i class="icon16 new-window mg0"></i></h3>
+  </a>
+</div>
+<div>
+  <a href="https://codebeautify.org/image-to-base64-converter" target="_blank"
+    ><h3>Конвертер картинки в css + base64 <i class="icon16 new-window mg0"></i></h3
+  ></a>
+</div>
+
+{literal}
+<script type="text/javascript">
+  $('.style-color-value').change(function (e) {
+    var styleBlock = $(this).parents('tr').find('.style-color');
+    var val = $(this).val();
+    console.log(styleBlock);
+    styleBlock.attr('style', val);
+  });
+</script>
+{/literal}
+
+<div class="fields form plugins plugins_colorfeaturespro">
+  <form action="" method="post">
+    {$wa->csrf()} {foreach $colorFeatures as $feature_id=>$features}
+
+    <h3>{$features.name}</h3>
+    <table class="zebra" style="width: 600px">
+      <tbody>
+        {foreach $features.values as $data}
+        <tr>
+          <td><div class="style-color-origin" style="background: {$data.hex}"></div></td>
+          <td width="100">{$data.value}</td>
+          <td width="20">→</td>
+          <td width="350">
+            <textarea
+              type="text"
+              class="style-color-value"
+              name="colors[{$data.id}][style]"
+              style="width: 350px !important"
+            >
+{$data.style}</textarea
+            >
+            <input type="hidden" name="colors[{$data.id}][name]" value="{$data.value}" />
+          </td>
+          <td width="20">→</td>
+          <td><div class="style-color" style="{$data.style}"></div></td>
+        </tr>
+        {/foreach}
+      </tbody>
+    </table>
+    {/foreach}
+
+    <div id="s-product-edit-save-panel" style="display: block">
+      <div class="block bordered-top" style="padding-left: 225px">
+        <input
+          type="submit"
+          class="button green plugins__save"
+          value="Сохранить"
+          style="margin-right: 10px"
+        />
+        <em class="errormsg" style="display: inline-block"></em>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script src="{$wa_url}wa-apps/shop/plugins/colorfeaturespro/js/backend.js?1"></script>

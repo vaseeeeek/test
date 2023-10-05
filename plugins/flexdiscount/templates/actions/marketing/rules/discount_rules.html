@@ -1,0 +1,114 @@
+{strip}
+
+    {$_uniqid = uniqid()}
+
+    {$_rule_name = ""}
+    {if !empty($rule.id)}
+        {$_rule_name = "rules[{$rule.id}]"}
+
+    {else}
+        {$_rule_name = "rules[new]"}
+        {if isset($options.ident)}
+            {$_rule_name = "{$_rule_name}[{$options.ident}]"}
+        {/if}
+    {/if}
+
+    {function name="_render_discount_rules" _rules=[]}
+        {foreach $_rules as $_rule}
+            <option value="{$_rule.id}"{if !empty($rule.rule_params.rules) && in_array($_rule.id, $rule.rule_params.rules)} selected{/if}>
+                {if !empty($_rule.name)}
+                    {$_rule.name|escape}
+                {else}
+                    [`No name discount`] #{$_rule.id}
+                {/if}
+            </option>
+        {/foreach}
+    {/function}
+
+{/strip}
+
+<div class="s-{$_rule_type}-rule-section s-flexdiscount-rule js-{$_rule_type}-rule-section" id="js-{$_rule_type}-rule-section-{$_uniqid}">
+    <div class="s-section-description">
+        [`Select rules for this promo. Orders with selected rules will be automatically associated with this promo.`]
+    </div>
+
+    {if !empty($discounts)}
+        <div class="field-group">
+            {if count($discounts) > 1}
+                <div class="field">
+                    <div class="name">[`Discount groups`]</div>
+                    <div class="value">
+                        <div class="mb bottom grey">[`All rules from the selected groups will be associated with this promo.`]
+                        </div>
+                        <select name="{$_rule_name}[rule_params][groups][]" multiple class="chosen-container" data-placeholder="[`Select discount groups`]">
+                            {foreach $discounts as $group_id => $d}
+                                {if $group_id !== 0}
+                                    <option value="{$group_id}"
+                                            {if !empty($rule.rule_params.groups) && in_array($group_id, $rule.rule_params.groups)}selected{/if}
+                                    >{$d.name|escape} ({$d.items|count})</option>
+                                {/if}
+                            {/foreach}
+                        </select>
+                    </div>
+                </div>
+            {/if}
+            <div class="field">
+                <div class="name">[`Discount rules`]</div>
+                <div class="value">
+                    <div class="mb bottom grey">[`All selected rules will be associated with this promo.`]</div>
+                    <select name="{$_rule_name}[rule_params][rules][]" multiple class="chosen-container" data-placeholder="[`Select discount rules`]">
+
+                        {foreach $discounts as $group_id => $d}
+                            {if $group_id !== '0' && !empty($d.items)}
+                                <optgroup label="{$d.name|escape}">
+                                    {_render_discount_rules _rules=$d.items}
+                                </optgroup>
+                            {else}
+                                <optgroup label="[`Ungrouped rules`]">
+                                    {_render_discount_rules _rules=$d}
+                                </optgroup>
+                            {/if}
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+        </div>
+    {else}
+        <div class="">
+            <span class="gray">[`No flexdiscount rules.`]</span>
+            <a href="{$wa_app_url}?plugin=flexdiscount&action=discounts#/discount/new/">[`Add a new rule`]</a>
+        </div>
+    {/if}
+
+    <input class="js-rule-type" type="hidden" name="{$_rule_name}[rule_type]" value="{$_rule_type}">
+
+    <script>
+        (function ($) {
+            var $wrapper = $("#js-{$_rule_type}-rule-section-{$_uniqid}").removeAttr('id');
+
+            var sources = [{
+                id: "chosen-jquery-css",
+                type: "css",
+                uri: "{$plugin_url}js/chosen/chosen.min.css"
+            }, {
+                id: "chosen-jquery-js",
+                type: "js",
+                uri: "{$plugin_url}js/chosen/chosen.jquery.min.js"
+            }, {
+                    id: "translate-flexdiscount",
+                    type: "js",
+                    uri: "{$plugin_url}js/translate.js"
+            }];
+
+            var ready_promise = $("#js-promo-page").data("ready");
+            ready_promise.then(function () {
+                $.shop.marketing.load(sources).then(function () {
+                    new FlexdiscountPluginMarketing({
+                        $wrapper: $wrapper,
+                        localeStrings: {if $js_locale_strings}{$js_locale_strings}{else}null{/if}
+                    });
+                });
+            });
+        })(jQuery);
+    </script>
+</div>

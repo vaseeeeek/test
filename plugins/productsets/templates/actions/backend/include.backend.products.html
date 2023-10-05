@@ -1,0 +1,10 @@
+{$plugin_url = $plugin->getPluginStaticUrl()}
+{$plugin_version = $plugin->getVersion()}
+<li id="s-productsets">
+    <span class="count">{$count}</span>
+    <a href="#/productsets/"><i class="icon16" style="background-image: url('{$plugin_url}img/productsets.png')"></i> [`Product sets`]</a>
+    <link rel="stylesheet" type="text/css" href="{$plugin_url}css/productsets.css?v={$plugin_version}"/>
+    <script src="{$plugin_url}js/translate.js"></script>
+    <script>$.ig_locale = $.extend({$localeStrings}, $.ig_locale);if (typeof $__ === "undefined") { window.$__ = puttext($.ig_locale); }</script>
+    <script src="{$plugin_url}js/productsetsBackend.js?v={$plugin_version}"></script>
+</li>

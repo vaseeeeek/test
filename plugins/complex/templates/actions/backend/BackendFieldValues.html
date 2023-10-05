@@ -1,0 +1,4 @@
+<option></option>
+{foreach $values as $value}
+<option value="{$value.id}{if $type == 'feature_key'}:{ifempty($value.selectable, 0)}:{$value.type}{/if}">{if !empty($value['depth'])}{str_repeat('–', $value['depth'])}{/if}{$value.name|escape:'html'}</option>
+{/foreach}

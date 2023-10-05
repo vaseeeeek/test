@@ -1,0 +1,78 @@
+<div class="f-tab-general">
+    <div class="field">
+        <div class="name">[`Status`]</div>
+        <div class="value">
+            <div class="ibutton-checkbox">
+                <ul class="menu-h">
+                    <li>
+                        <span class="switcher-off-label">[`Off`]</span>
+                    </li>
+                    <li>
+                        <input class="switcher not-inited" type="checkbox" name="storefront_settings[status]" value="1" {if !empty($settings.status)}checked="checked"{/if} />
+                    </li>
+                    <li>
+                        <span class="switcher-on-label">[`On`]</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Terms and agreement`]</div>
+        <div class="value">
+            <div class="ibutton-checkbox">
+                <ul class="menu-h">
+                    <li>
+                        <span class="switcher-off-label">[`No`]</span>
+                    </li>
+                    <li>
+                        <input class="switcher not-inited" type="checkbox" name="storefront_settings[terms]" value="1" {if !empty($settings.terms)}checked="checked"{/if} />
+                    </li>
+                    <li>
+                        <span class="switcher-on-label">[`Yes`]</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="onopen" style="margin-left: 50px;margin-top: 20px;display: {if !empty($settings['terms'])}block{else}none{/if};">
+            <div class="field">
+                <div class="name">[`Text`]</div>
+                <div class="value">
+                    <textarea class="width100 f-redactor" data-height="150" name="storefront_settings[terms_text]">{if !empty($settings['terms_text'])}{$settings['terms_text']}{else}[`I am agree to the terms of service`]{/if}</textarea>
+                </div>
+            </div>
+            <div class="field">
+                <div class="name">[`Error message`]</div>
+                <div class="value">
+                    <textarea class="width100 f-redactor" data-height="150" name="storefront_settings[terms_error]">{if !empty($settings['terms_error'])}{$settings['terms_error']}{else}[`You must read and agree to the Terms of service to place an order.`]{/if}</textarea>
+                </div>
+            </div>
+            <div class="field">
+                <div class="name">[`Tick by default`]</div>
+                <div class="value"><label><input type="checkbox" name="storefront_settings[terms_default]"{if !empty($settings.terms_default)} checked{/if}> [`Agree`]</label></div>
+            </div>
+        </div>
+    </div>
+    <div class='field'>
+        <div class='name'>[`Unauthorized checkout with existing customer profiles`]</div>
+        <div class='value'>
+            <div class='margin-block bottom'>
+                <label><input type='radio' name='storefront_settings[unauthorized_checkout]' value='create_new' {if !empty($settings.unauthorized_checkout) && $settings.unauthorized_checkout == 'create_new'} checked{/if}> [`Create new customer profile for every guest order`]</label>
+            </div>
+            <div>
+                <label><input type='radio' name='storefront_settings[unauthorized_checkout]' value='find_user' {if !isset($settings.unauthorized_checkout) || (!empty($settings.unauthorized_checkout) && $settings.unauthorized_checkout == 'find_user')} checked{/if}> [`Add an order to existing customer profile with the same phone number or email address`]</label>
+            </div>
+        </div>
+    </div>
+    <div class='field'>
+        <div class='name'>[`After clicking the button "1-Click Ordering" on the product page or category page`]</div>
+        <div class='value'>
+            <div class='margin-block bottom'>
+                <label><input type='radio' name='storefront_settings[after_click]' value='nothing' {if !isset($settings.after_click) || (!empty($settings.after_click) && $settings.after_click == 'nothing')} checked{/if}> [`Do not add product to the cart`]</label>
+            </div>
+            <div>
+                <label><input type='radio' name='storefront_settings[after_click]' value='addtocart' {if !empty($settings.after_click) && $settings.after_click == 'addtocart'} checked{/if}> [`Add product to the cart`]</label>
+            </div>
+        </div>
+    </div>
+</div>

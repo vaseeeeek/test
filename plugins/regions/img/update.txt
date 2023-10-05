@@ -1,0 +1,57 @@
+2016-01-25T11:18:39+05:0000001	E3F	WARNING	5,20Mb	5,28Mb	copy_error
+error on copy from wa-content/img/country/tun.gif to wa-data/protected/wa-installer/E3F/update/wa-content/img/country/tun.gif
+{------------------------------------------------------------
+array (
+  'update_list' => 
+  array (
+    'wa-installer' => 
+    array (
+      'source' => 'http://www.webasyst.com/download/archive/wa-installer/?hash=291d3c10c058fd349fafa7d08fc2e12f&domain=YXZ0b2RwLnJ1&signature=eyJwaHAiOiI1LjMuMjkiLCJjIjo4LCJhcGkiOiJjZ2ktZmNnaSIsIm9zIjoiTGludXgiLCJyIjoiMy4xNi4wLTAuYnBvLjQtYW1kNjQifQ%3D%3D&locale=ru_RU',
+      'target' => 'wa-installer/',
+      'slug' => 'wa-installer',
+      'md5' => NULL,
+      'extract_path' => 'wa-data/protected/wa-installer/E3F/update/wa-installer/',
+      'pass' => false,
+      'skipped' => false,
+      'dependent' => false,
+      'current_size' => 406725,
+    ),
+    'wa-content' => 
+    array (
+      'source' => 'http://www.webasyst.com/download/archive/wa-content/?hash=291d3c10c058fd349fafa7d08fc2e12f&domain=YXZ0b2RwLnJ1&signature=eyJwaHAiOiI1LjMuMjkiLCJjIjo4LCJhcGkiOiJjZ2ktZmNnaSIsIm9zIjoiTGludXgiLCJyIjoiMy4xNi4wLTAuYnBvLjQtYW1kNjQifQ%3D%3D&locale=ru_RU',
+      'target' => 'wa-content/',
+      'slug' => 'wa-content',
+      'md5' => NULL,
+      'extract_path' => 'wa-data/protected/wa-installer/E3F/update/wa-content/',
+      'pass' => false,
+      'skipped' => false,
+      'dependent' => false,
+      'current_size' => 6266047,
+    ),
+    'wa-system' => 
+    array (
+      'source' => 'http://www.webasyst.com/download/archive/wa-system/?hash=291d3c10c058fd349fafa7d08fc2e12f&domain=YXZ0b2RwLnJ1&signature=eyJwaHAiOiI1LjMuMjkiLCJjIjo4LCJhcGkiOiJjZ2ktZmNnaSIsIm9zIjoiTGludXgiLCJyIjoiMy4xNi4wLTAuYnBvLjQtYW1kNjQifQ%3D%3D&locale=ru_RU',
+      'target' => 'wa-system/',
+      'slug' => 'wa-system',
+      'md5' => NULL,
+      'extract_path' => 'wa-data/protected/wa-installer/E3F/update/wa-system/',
+      'pass' => false,
+      'skipped' => false,
+      'dependent' => false,
+      'current_size' => 4299052,
+    ),
+    'wa-apps/installer' => 
+    array (
+      'source' => 'http://www.webasyst.com/download/archive/wa-apps/installer/?hash=291d3c10c058fd349fafa7d08fc2e12f&domain=YXZ0b2RwLnJ1&signature=eyJwaHAiOiI1LjMuMjkiLCJjIjo4LCJhcGkiOiJjZ2ktZmNnaSIsIm9zIjoiTGludXgiLCJyIjoiMy4xNi4wLTAuYnBvLjQtYW1kNjQifQ%3D%3D&locale=ru_RU',
+      'target' => 'wa-apps/installer/',
+      'slug' => 'wa-apps/installer',
+      'md5' => NULL,
+      'extract_path' => 'wa-data/protected/wa-installer/E3F/update/wa-apps/installer/',
+      'pass' => false,
+      'skipped' => false,
+      'dependent' => false,
+      'current_size' => 778959,
+    ),
+  ),
+)
+}------------------------------------------------------------

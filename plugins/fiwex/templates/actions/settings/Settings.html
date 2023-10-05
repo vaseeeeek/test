@@ -1,0 +1,56 @@
+<script type="text/javascript" src="{$wa_app_static_url}plugins/fiwex/JS/fiwex_settings.js"></script>
+<style type="text/css" rel="stylesheet" id="wm-fiwex-tooltip-style">
+ {$tooltip_style}
+</style>
+
+<ul class="tabs">
+ <li  class="selected wm-explanations-content"><a href="javascript: void(0);">Настройки пояснений</a></li>
+ <li class="wm-explanations-view"><a href="javascript: void(0);">Настройки внешнего вида</a></li>
+</ul>
+<div class="tab-content">
+
+ <div class="block" id="wm-explanations-content">
+ <p class="hint"><a href="http://wm-site.ru/shop/podskazki-dlya-kharakteristik-v-filtre-tovarov/?page=9" target="_blank">Что необходимо сделать что бы отобразились подсказки для характеристик</a></p>
+  <h1>Вкл/Выкл плагина</h1>
+  <p>{$enable_flag}</p>
+  <h1>Редактирование описания характеристик</h1>
+<table class="zebra" id="feature_list" style="width: 600px;">
+ {$features}
+</table>
+
+<div id="fiwex-feat-editing-dialog" style="display: none;">
+ <div class="dialog-contents">
+Редактировать пояснение к следующей характеристике <span class="feat-name" style="color: red;"></span>  
+  <p><textarea class="explanations-edit" style="margin-top: 40px;" rows="7" cols="40" placeholder="Вставьте сюда пояснение для характеристики">
+  </textarea></p>
+ </div>
+</div>
+
+<!--Диалог для редактирования пояснения-->
+<div id="fiwex-feat-values-editing-dialog" style="display: none;">
+ <div class="dialog-contents">
+Редактировать пояснение к следующей характеристике <span class="feat-name" style="color: red;"></span>:
+<span class="feat-values-name" style="color: green;"></span>  
+  <p><textarea class="explanations-edit" style="margin-top: 40px;" rows="7" cols="40" placeholder="Вставьте сюда пояснение для характеристики">
+  </textarea></p>
+ </div>
+</div>
+
+
+ </div>
+ 
+  <div class="block" id="wm-explanations-view" style="display: none;">
+  <h1>Настройка внешнего вида облака пояснений</h1> 
+  <p><a href="javascript: void(0);" class="button blue" id="wm-preview-panel">Предпросмотр</a></p> 
+  <p><fieldset style="display: none; width: 200px;" id="wm-preview-panel-content"><legend>Просмотр результата</legend><em>Кликните на иконке ----></em> <span class="fiwex-popup-hint" style="display: inline;" data-type="feat">?</span></fieldset></p>
+  <textarea id="wm-tooltip-view" cols="70" rows="30">{$tooltip_style}</textarea><br/><br/>
+  <p><a href="javascript: void(0);" class="wm-save-explanations-view button green">Сохранить</a> или <a href="javascript: void(0);" id = "wm-fiwex-reset" data-path="{$wa_app_static_url}">Сброс до начального значения</a></p>
+ </div>
+ 
+ <div class="fiwex-tooltip-content">
+ <div class="fiwex-tooltip-tail"></div>
+ <div class="fiwex-tooltip-title"></div>
+ <div class="fiwex-tooltip-close" title="Закрыть/ESC"></div>
+ <div class="fiwex-tooltip-body"></div>
+</div> 
+</div>

@@ -1,0 +1,70 @@
+<div class="field f-analytics-{$tab}"{if $tab == 'cart'} style="display: none;"{/if}>
+    <div class="field-group">
+        <h3>[`Yandex metrica`]</h3>
+        <div class="field">
+            <div class="name">[`Counter ID`]</div>
+            <div class="value"><input type="text" name="storefront_settings[{$tab}][ya_counter]" {if !empty($settings[$tab].ya_counter)}value="{$settings[$tab].ya_counter|escape}"{/if}></div>
+        </div>
+        <div class="field">
+            <label><input type="checkbox" class="f-analytics-yaecom" name="storefront_settings[{$tab}][yaecom]" value="1"{if !empty($settings[$tab].yaecom)} checked{/if}> [`Activate Ecommerce`]</label>
+        </div>
+        <div class="f-analytics-yecom-settings"{if empty($settings[$tab].yaecom)} style="display: none;"{/if}>
+            <div class="field">
+                <div class="name">[`Goal ID`]</div>
+                <div class="value"><input type="text" name="storefront_settings[{$tab}][yaecom_goal_id]" value="{if !empty($settings[$tab].yaecom_goal_id)}{$settings[$tab].yaecom_goal_id|escape}{/if}"></div>
+            </div>
+            <div class="field">
+                <div class="name">[`Data container name`]</div>
+                <div class="value"><input type="text" name="storefront_settings[{$tab}][yaecom_container]" placeholder="dataLayer" {if !empty($settings[$tab].yaecom_container)}value="{$settings[$tab].yaecom_container|escape}"{/if}></div>
+            </div>
+        </div>
+        <div class="field">
+            <div class="name">[`Form opening`]</div>
+            <div class="value"><input type="text" name="storefront_settings[{$tab}][ya_fopen]" placeholder="[`Goal ID`]" {if !empty($settings[$tab].ya_fopen)}value="{$settings[$tab].ya_fopen|escape}"{/if}></div>
+        </div>
+        <div class="field">
+            <div class="name">[`Form submit`]</div>
+            <div class="value"><input type="text" name="storefront_settings[{$tab}][ya_submit]" placeholder="[`Goal ID`]" {if !empty($settings[$tab].ya_submit)}value="{$settings[$tab].ya_submit|escape}"{/if}></div>
+        </div>
+        <div class="field">
+            <div class="name">[`Form submit error`]</div>
+            <div class="value"><input type="text" name="storefront_settings[{$tab}][ya_submit_error]" placeholder="[`Goal ID`]" {if !empty($settings[$tab].ya_submit_error)}value="{$settings[$tab].ya_submit_error|escape}"{/if}></div>
+        </div>
+    </div>
+    <div class="field-group">
+        <h3>[`Google analytics`]</h3>
+        <div class="field">
+            <div class="name">[`Google analytics ID`]</div>
+            <div class="value">
+                <input type="text" name="storefront_settings[{$tab}][ga_counter]" {if !empty($settings[$tab].ga_counter)}value="{$settings[$tab].ga_counter|escape}"{/if}>
+                <div class="margin-block top semi grey">Example, UA-XXXXX-Y</div>
+            </div>
+        </div>
+        <div class="field">
+            <div class="name">[`Form opening`]</div>
+            <div class="value">
+                <input type="text" class="width150px" name="storefront_settings[{$tab}][ga_category_fopen]" placeholder="[`Category`]" {if !empty($settings[$tab].ga_category_fopen)}value="{$settings[$tab].ga_category_fopen|escape}"{/if}>
+                <input type="text" class="width150px" name="storefront_settings[{$tab}][ga_action_fopen]" placeholder="[`Action`]" {if !empty($settings[$tab].ga_action_fopen)}value="{$settings[$tab].ga_action_fopen|escape}"{/if}>
+            </div>
+        </div>
+        <div class="field">
+            <div class="name">[`Form submit`]</div>
+            <div class="value">
+                <input type="text" class="width150px" name="storefront_settings[{$tab}][ga_category_submit]" placeholder="[`Category`]" {if !empty($settings[$tab].ga_category_submit)}value="{$settings[$tab].ga_category_submit|escape}"{/if}>
+                <input type="text" class="width150px" name="storefront_settings[{$tab}][ga_action_submit]" placeholder="[`Category`]" {if !empty($settings[$tab].ga_action_submit)}value="{$settings[$tab].ga_action_submit|escape}"{/if}>
+            </div>
+        </div>
+        <div class="field">
+            <div class="name">[`Form submit error`]</div>
+            <div class="value">
+                <input type="text" class="width150px" name="storefront_settings[{$tab}][ga_category_submit_error]" placeholder="[`Category`]" {if !empty($settings[$tab].ga_category_submit_error)}value="{$settings[$tab].ga_category_submit_error|escape}"{/if}>
+                <input type="text" class="width150px" name="storefront_settings[{$tab}][ga_action_submit_error]" placeholder="[`Category`]" {if !empty($settings[$tab].ga_action_submit_error)}value="{$settings[$tab].ga_action_submit_error|escape}"{/if}>
+            </div>
+        </div>
+    </div>
+    <script>
+        new QuickorderPluginAnalytics({
+            wrap: $('.f-analytics-{$tab}')
+        });
+    </script>
+</div>

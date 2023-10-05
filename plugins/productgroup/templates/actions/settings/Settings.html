@@ -1,0 +1,20 @@
+<script>
+	window.shop_productgroup = {
+		resource_base_url: {"{$wa_app_static_url}plugins/productgroup/"|json_encode},
+	};
+</script>
+
+<link rel="stylesheet" href="{$wa_app_static_url}plugins/productgroup/assets/settings_page.css?v={shopProductgroupWaHelper::getAssetVersion()}" />
+<script src="{$wa_app_static_url}plugins/productgroup/assets/settings_page.js?v={shopProductgroupWaHelper::getAssetVersion()}"></script>
+
+<div id="shop-productgroup-settings-page"></div>
+
+<script>
+	jQuery(function() {
+		var state = {$state|json_encode};
+
+		if (window.shop_productgroup_plugin_settings_controller) {
+			window.shop_productgroup_plugin_settings_controller.init(state, 'shop-productgroup-settings-page')
+		}
+	});
+</script>

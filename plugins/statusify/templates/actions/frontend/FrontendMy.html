@@ -1,0 +1,11 @@
+
+{$wa->globals('isMyAccount', true)}
+<h2>Мои товары и их статусы</h2>
+{foreach $grouped_statuses as $type_name => $products}
+    <h3>{$type_name}</h3>
+    <ul>
+        {foreach $products as $product}
+            <li>{$product.product_name} - {$product.status_name}</li>
+        {/foreach}
+    </ul>
+{/foreach}

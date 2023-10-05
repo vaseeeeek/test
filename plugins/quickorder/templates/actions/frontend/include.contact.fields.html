@@ -1,0 +1,91 @@
+{function name=buildField}
+    <div class='quickorder-row{if !empty($field.required)} quickorder-required{/if}'>
+        {* Название поля *}
+        {if empty($field.hide_name)}
+            <div class="quickorder-field-name" {$form_titles_attr}>
+                {if $field.name}{$field.name|escape}{else}{$fields[$field.type]->getName()}{/if}
+            </div>
+        {/if}
+        {* Значение поля *}
+        <div class="quickorder-field-value{if !empty($field.hide_name)} quickorder-full-width{/if}{if ($fields[$field.type]|is_a:'waContactRegionField')} quickorder-flex-value{/if}">
+            {* Для региона необходим отдельный вывод *}
+            {if ($fields[$field.type]|is_a:'waContactRegionField')}
+                {$contact_region = ''}
+                {if !empty($contact_address.data.region)}
+                    {$contact_region = $contact_address.data.region}
+                {/if}
+                {$params = [
+                    'value' => $contact_region,
+                    'composite_value' => $contact_address.data,
+                    'parent' => 'quickorder_fields',
+                    'id' => "{$type}{$field.type|escape}"
+                ]}
+                {$fields[$field.type]->getHtmlOne($params, 'data-quickorder-pfs data-quickorder-replace-shipping')}
+            {* Если имеются опции *}
+            {elseif ($fields[$field.type]|is_a:'waContactSelectField')}
+                {$options = $fields[$field.type]->getOptions()}
+                {if $field.type == 'country'}{$type = ''}{/if}
+                <select{if $field.css_class} class="{$field.css_class|escape}"{/if} name="quickorder_fields[{$type}{$field.type|escape}]" {$form_fields_attr}{if $field.type == 'country'} data-quickorder-replace-shipping{/if}>
+                    {foreach $options as $opt_id => $opt}
+                        <option value='{$opt_id|escape}'{if (isset($contact_fields[$field.type]) && $contact_fields[$field.type] == $opt_id) || (isset($contact_address.data[$field.type]) && $contact_address.data[$field.type] == $opt_id)} selected{/if}>{$opt|escape}</option>
+                    {/foreach}
+                </select>
+            {* Если передано поле контакта, а не адреса, и оно имеет несколько значений, то выводим их списком *}
+            {elseif !empty($contact_fields[$field.type]) && is_array($contact_fields[$field.type])}
+                {$ext = $fields[$field.type]->getParameter('ext')}
+                {foreach $contact_fields[$field.type] as $cf_id => $cf}
+                    <div class="quickorder-row semi"{if $cf@index > 0} style="display: none;"{/if}>
+                        {if $cf.ext}
+                            {$ext_value = ""}
+                            {if isset($ext[$cf.ext|lower])}{$ext_value = $ext[$cf.ext|lower]}{/if}
+                            <input type='hidden' name='quickorder_fields[{$type}{$fields[$field.type]->getId()}][{$cf_id}][ext]' value='{$ext_value|escape}'>
+                        {/if}
+                        <input{if !empty($field.extra)} data-extra="{$field.extra}"{/if} data-type="{$field.type}" type='text'{if $field.css_class} class="{$field.css_class|escape}"{/if}{if $field.placeholder} placeholder="{$field.placeholder|escape}"{/if} name='quickorder_fields[{$type}{$fields[$field.type]->getId()}][{$cf_id}][value]' value='{$cf.value}' {$form_fields_attr}>
+                    </div>
+                {/foreach}
+            {* Если передано обычное строковое поле *}
+            {else}
+                {$value =''}
+                {if !empty($contact_fields[$field.type])}
+                    {$value = $contact_fields[$field.type]}
+                {elseif isset($contact_address.data[$field.type])}
+                    {$value = $contact_address.data[$field.type]}
+                {/if}
+                {* Если передано поле типа TEXT, то выводим значение в textarea *}
+                {if $fields[$field.type]|is_a:'waContactTextField'}
+                    <textarea{if $field.css_class} class="{$field.css_class|escape}"{/if}{if $field.placeholder} placeholder="{$field.placeholder|escape}"{/if} name='quickorder_fields[{$type}{$fields[$field.type]->getId()}]' {$form_fields_attr}>{$value}</textarea>
+                {else}
+                    <input{if !empty($field.extra)} data-extra="{$field.extra}"{/if} data-type="{$field.type}" type='text'{if $field.css_class} class="{$field.css_class|escape}"{/if}{if $field.placeholder} placeholder="{$field.placeholder|escape}"{/if} name ='quickorder_fields[{$type}{$fields[$field.type]->getId()}]' value='{$value}' {$form_fields_attr}{if $field.type == 'city' || $field.type == 'street'} data-quickorder-replace-shipping{/if} />
+                {/if}
+            {/if}
+        </div>
+    </div>
+{/function}
+
+<div class="quickorder-fields">
+
+    {* Если существует адрес, то получаем последний адрес из списка или адрес доставки *}
+    {$contact_address = []}
+    {if isset($contact_fields.address)}
+        {foreach $contact_fields.address as $addr}
+            {if $addr.ext == 'shipping' && !empty($addr.data)}
+                {$contact_address = $addr}
+                {break}
+            {else}
+                {$contact_address = $addr}
+            {/if}
+        {/foreach}
+    {/if}
+    {$contact_address = $contact_address + $default_address}
+
+    {* Выводим поля *}
+    {foreach $fields as $f}
+        {if isset($all_fields[$f.type])}
+            {buildField fields=$all_fields field=$f type=""}
+        {elseif isset($f.address_type) && isset($address_fields[$f.address_type])}
+            {$f.type = $f.address_type}
+            {buildField fields=$address_fields field=$f type="address::"}
+        {/if}
+    {/foreach}
+</div>
+

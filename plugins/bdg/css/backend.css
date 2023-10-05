@@ -1,0 +1,16 @@
+#product-list .badge-clr {
+width: 10px;
+height: 5px;
+display: block;
+margin: 0 3px 0 0;
+float: left;
+}
+
+#bar .progress {
+height: 12px;
+width: 0;
+background: rgb(2, 155, 26);
+text-align: center;
+color: #fff;
+font-size: 9px;
+}

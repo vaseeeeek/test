@@ -1,0 +1,20 @@
+<tr class="shop-sk-generate-form__tr js-sk-generate-form-tr s-summary-row" data-row-id="{$control.control_id}">
+    <td class="shop-sk-generate-form__sort"><i class="icon16 sort"></i></td>
+    <td class="shop-sk-generate-form__name js-sk-generate-form-name">
+        <a href="javascript:void(0)" class="inline-link">{if trim($control.title)}{$control.title|escape}{else}-{/if}</a>
+        <input type="hidden" name="shop_skoneclick_fields[{$control.control_id}][title]" value="{$control.title|escape}">
+        <span class="hint">(id: {$control.control_id})</span>
+    </td>
+    <td class="shop-sk-generate-form__value">
+        {if $control.is_mask}
+            <input type="text" name="shop_skoneclick_fields[{$control.control_id}][mask]" value="{if $control.mask}{$control.mask|escape}{/if}" placeholder="+7(###)###-##-##" />
+        {/if}
+    </td>
+    <td class="shop-sk-generate-form__require">
+        <label><input type="checkbox" value="1" name="shop_skoneclick_fields[{$control.control_id}][require]" {if $control.require}checked="checked"{/if} />&nbsp;&nbsp;<span>Обязательное</span></label>
+    </td>
+    <td>
+        <input type="hidden" name="shop_skoneclick_fields[{$control.control_id}][class]" value="{$control.class}">
+        <a href="javascript:void(0)" class="gray inline-link js-sk-generate-form-delete" data-id="{$control.control_id}" title="Удалить поле"><i class="icon16 delete"></i></a>
+    </td>
+</tr>

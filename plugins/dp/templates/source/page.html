@@ -1,0 +1,130 @@
+<div class="dp-page">
+    {foreach $groups as $group}
+        <div class="dp-page__group{if $group.params.id|default:''} dp-page__group_{$group.params.id}{/if}">
+            {if $group.params.show_column_headers}
+                <div class="dp-page__row dp-page__group-header">
+                    {if $columns.name}
+                        <div class="dp-page__col dp-page__col_header {if $group.params.is_title_bold|default:true}dp-page__group-header-caption-title{/if}">
+                            {$group.params.title}
+                            {if $group.params.id == 'points'}
+                                <a href="javascript: void(0);"
+                                   class="dp-page__group-view-all-points-link js-dp-service-view-all-points">
+                                <span class="dp-page__group-view-all-points-text">
+                                    Все пункты самовывоза
+                                </span>
+                                </a>
+                            {/if}
+                        </div>
+                    {/if}
+                    {if $columns.date}
+                        <div class="dp-page__col dp-page__col_header dp-page__group-header-caption-estimated-date">
+                            Сроки
+                        </div>
+                    {/if}
+                    {if $columns.cost}
+                        <div class="dp-page__col dp-page__col_header dp-page__group-header-caption-cost">
+                            Стоимость
+                        </div>
+                    {/if}
+                    {if $columns.payment}
+                        <div class="dp-page__col dp-page__col_header dp-page__group-header-caption-payment">
+                            Оплата
+                        </div>
+                    {/if}
+                </div>
+            {/if}
+
+            {foreach $group.services as $service}
+                <div class="dp-page__row dp-page__service">
+                    {if $columns.name}
+                        <div class="dp-page__col dp-page__service-caption">
+                            <div class="dp-page__service-caption-inner">
+                                <div class="dp-page__service-caption-col">
+                                    <div class="dp-page__service-caption-icon"
+                                         style="background-image: url({$service.image});"></div>
+                                </div>
+                                <div class="dp-page__service-caption-col">
+                                    <div class="dp-page__service-caption-name dp-page__col-name">
+                                        {$service.title}
+                                    </div>
+                                    {if !empty($service.description)}
+                                        <div class="dp-page__service-caption-description dp-page__col-description">
+                                            {$service.description}
+                                        </div>
+                                    {/if}
+
+                                    {if $service.is_map}
+                                        <div class="dp-page__service-caption-view-on-map">
+                                            <a href="javascript: void(0);"
+                                               class="dp-page__service-caption-view-on-map-link js-dp-service"
+                                               data-id="{$service.id}"
+                                               data-params="{$service.params|@json_encode|escape}">
+                                        <span class="dp-page__service-caption-view-on-map-text">
+                                            {if $service.type === 'courier'}
+                                                Зоны доставки
+                                            {else}
+                                                Показать на карте
+                                            {/if}
+                                        </span>
+                                            </a>
+                                        </div>
+                                    {/if}
+                                </div>
+                            </div>
+                        </div>
+                    {/if}
+                    {if $columns.date}
+                        <div class="dp-page__col dp-page__service-estimated-date">
+                            {if $service.estimated_date}
+                                {if $service.estimated_date_html}
+                                    <div class="dp-page__col-name">
+                                        {if $service.estimated_date.type != 'order-time-variable'}
+                                            {if $service.type === 'courier'}
+                                                Курьер доставит
+                                            {elseif $service.type === 'points'}
+                                                Можно забрать
+                                            {else}
+                                                Доставка заказа
+                                            {/if}
+
+                                            {$service.estimated_date_html|lower}
+                                        {else}
+                                            {$service.estimated_date_html}
+                                        {/if}
+                                    </div>
+                                {/if}
+                                {if $service.worktime && $service.worktime_string}
+                                    <div class="dp-page__service-estimated-date-worktime dp-page__col-description">
+                                        {$service.worktime_string|lower|regex_replace:'/\n/':', '}
+                                    </div>
+                                {/if}
+                            {/if}
+                        </div>
+                    {/if}
+                    {if $columns.cost}
+                        <div class="dp-page__col dp-page__service-cost">
+                            {$service.cost_html}
+                            {if !$service.pay_on_ship}
+                                <div class="dp-page__service-payment-is-pay-on-ship-disabled dp-page__col-description">
+                                    по предоплате
+                                </div>
+                            {/if}
+                        </div>
+                    {/if}
+                    {if $columns.payment}
+                        <div class="dp-page__col dp-page__service-payment">
+                            {foreach $service.payment_methods as $payment}
+                                {if $payment_style === 'icon'}
+                                    <img class="dp-page__service-payment-icon" title="{$payment.title}"
+                                         src="{$payment.image}"/>
+                                {else}
+                                    <div class="dp-page__service-payment-title">{$payment.title}</div>
+                                {/if}
+                            {/foreach}
+                        </div>
+                    {/if}
+                </div>
+            {/foreach}
+        </div>
+    {/foreach}
+</div>

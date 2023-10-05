@@ -1,0 +1,67 @@
+{if $arrived_link_type eq "product"}
+	{if $arrived_product.sku_type && isset($sku_features_selectable)}
+		{$arrived_sku_features_selectable = $sku_features_selectable}
+		{foreach $arrived_sku_features_selectable as $f=>$v}
+			{$id = $v.id}
+			{$arrived_sku_features_selectable[$f].count = $arrived_product.skus[$id].count}
+		{/foreach}
+		<script> var arrived_sku_features = {json_encode($arrived_sku_features_selectable)}; </script>
+	{else}
+		{if isset($arrived_product.skus) && count($arrived_product.skus) > 1}
+			{foreach $arrived_product.skus as $sku}
+				{$arrived_sku_count[$sku.id] = $sku.count}
+			{/foreach}
+			<script> var arrived_sku_count = {json_encode($arrived_sku_count)}; </script>
+		{/if}
+	{/if}
+{/if}
+<span class="plugin_arrived-button custom{if $arrived_link_type eq 'product'} is-product-page{/if}"><a href="javascript:void(0);">{if $arrived_link_type eq "list"}{$arrived_settings.clink_title}{else}{$arrived_settings.plink_title}{/if}</a></span>
+<div class="plugin_arrived-custom">
+	<div class="plugin_arrived-box{if $arrived_link_type eq 'product'} is-product-page{/if}" data-action="{$arrived_action_url}">
+		<div class="plugin_arrived-header">
+			<div class="plugin_arrived-close" onClick="plugin_arrived_close();"></div>
+			<span>{$arrived_settings.popup_title}</span>
+		</div>
+		<div class="plugin_arrived-body">
+			<div class="plugin_arrived-success">
+				{$arrived_settings.popup_success}
+			</div>
+			<div class="plugin_arrived-request">
+				{if $arrived_settings.send_type ne "sms"}<div class="plugin_arrived-field">
+					<div class="plugin_arrived-name required">Ваш E-Mail</div>
+					<div class="plugin_arrived-value"><input type="text" name="email" value="{if $wa->user()->isAuth()}{$wa->user('email',true)}{/if}" /></div>
+				</div>{/if}
+				{if $arrived_settings.send_type ne "email"}<div class="plugin_arrived-field">
+					<div class="plugin_arrived-name required">Номер  моб. телефона (SMS)</div>
+					<div class="plugin_arrived-value"><input type="text" name="phone" value="{if $wa->user()->isAuth()}{$wa->user('phone',true)}{/if}" /></div>
+				</div>{/if}
+				{if count($arrived_settings.expiration)>1}
+				<div class="plugin_arrived-field">
+					<div class="plugin_arrived-name">Актуальность</div>
+					<div class="plugin_arrived-value">
+						<select name="expiration">
+							{foreach $arrived_settings.expiration as $item}<option value="{$item}">{$item} {shopArrivedPlugin::getRuDaysWord($item)}</option>{/foreach}
+						</select>
+					</div>
+				</div>
+				{else}
+					<input type="hidden" name="expiration" value="{$arrived_settings.expiration[0]}" />
+				{/if}
+				<div class="plugin_arrived-field">
+					<div class="plugin_arrived-name required not_bold"> - обязательно к заполнению{if $arrived_settings.send_type eq "email_or_sms"} минимум одно из полей{/if}</div>
+				</div>
+				{if !empty($arrived_settings.terms_url)}
+				<div class="plugin_arrived-field">
+					<div class="plugin_arrived-name not_bold"><label><input type="checkbox" name="terms" value="1" /> Я ознакомился (ознакомилась) с <a href="{$arrived_settings.terms_url}" target="_blank">Условиями предоставления услуг</a> и принимаю их</label></div>
+				</div>
+				{/if}
+				<input type="hidden" name="plugin_arrived_pid" value="{$arrived_product.id}" />
+				<input type="hidden" name="plugin_arrived_skuid" value="{$arrived_product.sku_id}" />
+				<div class="msg_errors"></div>
+				<div class="plugin_arrived-field">
+					<div class="plugin_arrived-value submit"><input type="submit" value="Уведомить меня" /><div class="plugin_arrived-loading">Проверка...</div></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

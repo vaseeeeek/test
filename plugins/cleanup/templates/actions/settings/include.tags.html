@@ -1,0 +1,46 @@
+{if !empty($tags)}
+    {literal}
+    <script>
+        $("#btn-tag-submit").click(function() {$("#s-cleanup-form-tag").submit();});
+        $('#s-cleanup-form-tag').submit(function(e){
+                    e.preventDefault();
+                    var $form = $( this ),
+                    url = $form.attr( "action" ),
+                    csrf = $('[name=_csrf]').attr("value");
+                    searchIDs = $('#s-cleanup-form-tag input[type="checkbox"]:checked').map(function(){return this.id;});
+                    if(!searchIDs.length) { alert($.cleanup.l('No tags selected.'));return false; }
+                    if (confirm($.cleanup.l('Are you sure you want to remove')+" "+searchIDs.length+" "+$.cleanup.l('tags')+"?")){
+                        $('#s-cleanup-form-tag input[type="checkbox"]:checked').closest('li').hide();
+                        var posting = $.post( url, {_csrf:csrf,TAGs:searchIDs.get()});
+                        posting.done(function( data ) {
+                            if (data!='OK') $('#s-cleanup-error').empty().append( data );
+                        });
+                    };
+                });
+        $('#tag-checkAll').click(function(){$('#s-cleanup-form-tag input[type="checkbox"]').attr('checked', true);});
+        $('#tag-uncheckAll').click(function(){$('#s-cleanup-form-tag input[type="checkbox"]').attr('checked', false);});
+    </script>
+    {/literal}
+        <button class="button" id="tag-checkAll"> ☑</button> |
+        <button class="button" id="tag-uncheckAll">☐</button> |
+        <input class="button red" type="submit" id="btn-tag-submit" value="{_wp('Remove')}">
+        <form method="POST" id="s-cleanup-form-tag" action="?plugin=cleanup&action=run">
+                {$wa->csrf()}
+            <input type="submit" style="display:none">
+            <hr>
+            <section class="container">
+        <div class="align-center">
+            <ul class="tags blue">
+            {foreach $tags as $tag}
+                <li id="li-{$tag.id}">
+                    <label><a>{$tag.name|escape} <input type="checkbox" id="tag-{$tag.id}"><span>{$tag.count}</span></a></label>
+                </li>
+            {/foreach}
+            </ul>
+        </div>
+        </section>
+        </form>
+        <hr>
+{else}
+    <h3>[`No tags exist.`]</h3>
+{/if}

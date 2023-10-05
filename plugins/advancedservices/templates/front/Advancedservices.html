@@ -1,0 +1,404 @@
+
+<script type="text/javascript" name="script_advs_services">
+
+
+(function ($) {
+
+	'use strict';
+	
+	{if $settings}
+		var advancedservices_plugin_service_settings = {$settings};
+	{else}
+		var advancedservices_plugin_service_settings = null;
+	{/if}
+	
+	{if ((isset($product))&&($product.category_id !=null))}
+		var advancedservices_plugin_service_category = {$product.category_id}
+	{else}
+		var advancedservices_plugin_service_category = null;
+	{/if}
+	
+	
+	//constructor
+	function AdvService(param) {
+			this.id = 	param.id;
+			this.enabled = param.enabled;
+			this.name = param.name;
+			this.link =  param.link;
+			this.category_filter =  param.category_filter;
+			this.popup =  param.popup;
+			this.ondefault =  param.ondefault;
+			this.divider =  param.divider;
+			this.tooltip =  param.tooltip;
+	}
+		
+	// html generator method for objects
+	AdvService.prototype.settingsView = function() {
+		
+			var foo = $(".service-"+this.id);
+			var obj  =  this;
+			//console.log(foo);
+			
+			
+			// is service on page	
+			if ((foo.length>0)) {
+			
+			
+			//its a divider ??
+			if (this.divider == true) {
+				 foo.find('input[type=checkbox]').filter(':first').hide();
+				 foo.find('.service-price').text('');
+				 var ltxt = foo.find('label').text();
+				
+				 foo.find('label').filter(':first').text(ltxt.replace(' (+)',':')).css("font-weight","Bold").append('<hr>').addClass('advs_divider');
+			}	
+			
+			else {
+					
+				
+				 if (this.link > '') {
+					 
+					 var target = '';
+					 var link = '';
+					 
+					 if ((this.popup == true) && (this.link.match(/\.(jpg|png|gif)/g)) && ! foo.parents('#dialog').length ) {
+							 link = '#';
+							// console.log("have image inside object and popup on");
+						 }
+					 
+					 else {
+							target = ' target = "_blank" ';
+							link  = this.link;
+						 }
+					 
+					 foo.find('label').append('<a class="advancedservices_plugin_object_link advancedservices_plugin_icon" id="advancedservices_plugin_object_link_'+this.id+'" href="'+link+'"'+target+'>i</a>');
+				  }
+				  
+				  
+					
+				  if (this.tooltip > '') {
+					  if (this.popup == true  && ! foo.parents('#dialog').length) {
+					  	 foo.find('label').append('<a class="advancedservices_plugin_object_tooltip_link advancedservices_plugin_icon" id="advancedservices_plugin_object_tooltip_link_'+this.id+'" href="#" target="_blank">?</a>');
+						  }
+					  else {
+					  	 foo.find('label').append('<a class="advancedservices_plugin_object_tooltip_link advancedservices_plugin_icon"\
+						 id="advancedservices_plugin_object_tooltip_link_'+this.id+'" \
+						 href="{$wa_app_url}advancedservices/'+this.id+'/" \
+						 target="_blank">?</a>');
+						 }
+						 }
+					//category filter
+					
+					if 	((advancedservices_plugin_service_category != null) && (this.category_filter.indexOf(advancedservices_plugin_service_category.toString()) > -1) ) {
+						foo.hide();
+					}
+					
+			  		// has dafault on params
+			  	 	if ((this.ondefault == true ) && (foo.is(":visible")) ) {
+			  	 				 // console.log('obj.ondef='+obj.ondefault+JSON.stringify(foo));
+			  	 			  	
+			   				foo.find('input[type=checkbox]').filter(':first').trigger('click');
+			   				//$('input[name="services[]"]').trigger('click');	
+		   				
+		   				}
+			  		//console.log();
+			  		//console.log(obj.category_filter.indexOf('1'));
+			  	
+			  
+			
+				 }					  
+				
+				
+			}
+			
+		
+				
+		}
+			
+	AdvService.prototype.createEvents = function () { 
+			
+			 
+	 		//events listen for links and popup
+	 		var id = this.id;
+	 		var index = this.index;
+	 		var obj = this;
+	 		
+	 		
+	 		//console.log('This obj id = ' + id);
+	 	 		
+	 		$('#advancedservices_plugin_object_link_'+id).on('click', function (event){
+	 				event = event || window.event;
+	 				event.preventDefault();
+	 				var link = $(this).attr("href");
+	 				if (link == "#"){
+	 					
+	 					
+	 					var dialog = $("#advancedservices_plugin_popup");
+							
+						dialog.append('<div class="advancedservices_plugin_imageblock"><img class="" width="380px" src = "'+obj.link+'" /></div>');
+					
+					
+	 					
+	 			
+						$('#advancedservices_plugin_overlay').fadeIn(300, 	function(){
+								dialog
+									.css('display', 'block') 
+									.animate({
+										opacity: 1,
+										top: '50%'
+											}, 100); 
+						});	
+	 					
+	 					
+	 			
+	 				
+	 				}
+	 				else {
+	 						window.open(link, '_blank');
+	 					}
+	 			
+	 		});	
+				
+				
+	 		 function htmlUnescape(value){
+						 return String(value)
+							.replace(/&quot;/g, '"')
+							.replace(/&#39;/g, "'")
+							.replace(/&lt;/g, '<')
+							.replace(/&gt;/g, '>')
+							.replace(/&amp;/g, '&');
+					}
+			 
+			 $("#advancedservices_plugin_object_tooltip_link_"+id).on('click', function(event){
+			 		event = event || window.event;
+			 		event.preventDefault();
+			 		
+			 	
+			 		
+			 		if (obj.popup == true) {
+			 			var dialog = $("#advancedservices_plugin_popup");
+							
+						dialog.append('<div class="advancedservices_plugin_textblock">'+htmlUnescape(obj.tooltip)+'</div>');
+					
+						$('#advancedservices_plugin_overlay').fadeIn(300, 	function(){
+								dialog
+									.css('display', 'block') 
+									.animate({
+										opacity: 1,
+										top: '50%'
+											}, 100); 
+						});	
+			 			}
+			 		else {
+							link = $(this).attr("href");
+	 						window.open(link, '_blank');
+	 					}
+					
+			 });
+				 
+		
+		}
+	
+	
+	
+	 var initServices = function() {
+ 		
+ 		 //service objects		
+	 	var advs_objects = []; 
+		
+	 	if (advancedservices_plugin_service_settings) {
+		 
+	 	// create objects 
+	 		  
+	 	advs_objects = createObjects(advancedservices_plugin_service_settings);
+	 		 
+				 for (var i=0; i < advs_objects.length; i++) {
+				 		if (advs_objects[i].enabled) {
+							advs_objects[i].settingsView(); 
+						 	advs_objects[i].createEvents(); 
+					 	}
+					}
+		
+		  }
+ 		 
+ 		 else {
+ 		 		console.log ("No setting - No objects - or Cart page");
+ 		 }
+	
+	
+		function createObjects(settings) {
+					
+				var advancedservices_plugin_objects = [];
+				
+					
+				// initilize all services with default options
+				for (var i = 0; i < settings.length; ++i) {
+					var cat_filter = [];
+					if (settings[i].category_filter != undefined) {
+						cat_filter = settings[i].category_filter.split(",");
+					}
+					var service_obj = {
+						id : settings[i].id,
+							name : settings[i].name, 
+							enabled : settings[i].enabled,
+							link : settings[i].link,
+							category_filter : cat_filter,
+							ondefault : settings[i].ondefault,
+							popup : settings[i].popup,
+							divider : settings[i].divider,
+							tooltip : settings[i].tooltip,
+					}
+					
+					var advancedservices_plugin_object = new AdvService(service_obj);
+					advancedservices_plugin_objects.push(advancedservices_plugin_object);
+					//	console.log('New  Object ID = ' + JSON.stringify(advancedservices_plugin_object));
+				}
+			return advancedservices_plugin_objects; 
+	  	}
+	  	
+	return advs_objects; 
+	
+	}
+	
+
+
+	
+	{if $use_mobile==1}	 
+			 window.AdvServices = initServices();
+	{else}
+	{if !$wa->isMobile()}
+				 window.AdvServices = initServices();
+		{/if}
+	{/if}
+			
+			
+	$('body').append('<div id="advancedservices_plugin_popup">\
+     			<span id="advancedservices_plugin_close">X</span>\
+    		</div><div id="advancedservices_plugin_overlay"></div>');
+    			
+	
+	$('body').on('click', '#advancedservices_plugin_close, #advancedservices_plugin_overlay', function(){ 
+		$('#advancedservices_plugin_popup')
+			.animate({
+				opacity: 0,
+				top: '45%'
+					}, 100, function(){ 
+						$(this).css('display', 'none');
+						$(this).html('<span id="advancedservices_plugin_close">X</span>');
+						$('#advancedservices_plugin_overlay').fadeOut(100); 
+				}
+			);
+	});	 
+	
+	
+
+})(jQuery);
+		
+</script>		
+
+
+
+<style>
+
+/*mail popup block*/
+#advancedservices_plugin_popup {
+	width: 400px; 
+	height: 400px; /* Рaзмеры дoлжны быть фиксирoвaны */
+	border-radius: 10px;
+	border: 1px #ccc solid;
+	background: #fff;
+	position: fixed; 
+	top: 45%; 
+	left: 45%; 
+	padding: 14px 14px;
+	display: none; 
+	opacity: 0; 
+	z-index: 20; 
+	margin-top: -150px;
+	margin-left: -150px; 
+
+	
+}
+/*close button span*/
+#advancedservices_plugin_popup #advancedservices_plugin_close {
+	position: absolute;
+	top: 7px;
+    right: 8px;
+	cursor: pointer;
+	display: block;
+	width: 21px;
+	height: 21px;
+}
+
+/* overlay css */
+#advancedservices_plugin_overlay {
+	display:none;
+	width:100%; 
+	height:100%;
+	background-color:#000;
+	position:fixed; 
+	-moz-opacity:0.8; 
+	filter:alpha(opacity=80);
+	opacity:0.7; 
+	top:0; 
+	left:0;
+	cursor:pointer;
+ 	z-index:11; 
+}
+
+/*icons near services etc*/
+
+.advancedservices_plugin_icon {
+	text-align: center;
+	background: black;
+	color: white;
+	margin-left: 3px;
+	font-size: 12px;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	line-height:18px;
+	text-decoration:none !important;
+}
+
+.advancedservices_plugin_icon:visited{
+	color: white !important;
+}
+
+.advancedservices_plugin_icon:hover{
+	color: orange !important;
+}
+
+
+
+
+.advancedservices_plugin_object_input{
+	display:none;
+}
+
+
+.advancedservices_plugin_imageblock img {
+		max-width:475px;
+}
+
+.advancedservices_plugin_textblock  {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;	
+	padding: 10px 2px;
+}
+
+
+.advancedservices_plugin_textblock img {
+	max-width:85%;
+}
+
+.advancedservices_plugin_textblock p {
+	overflow: auto;
+    max-height: 400px
+}
+
+
+</style>

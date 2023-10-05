@@ -1,0 +1,167 @@
+{$settings = $form_settings}
+
+{if !empty($settings.product_image)}
+    <style>[{$form_attr}] .quickorder-product img, [{$form_attr}] .quickorder-main-image img { max-width: {if $image_width}{$image_width}px{else}inherit{/if}; max-height: {if $image_height}{$image_height}px{else}inherit{/if}; }</style>
+{/if}
+{if !empty($use_phone_mask)}
+    <script src='{$plugin_url}/js/jquery.mask.js?v={$version}'></script>
+{/if}
+
+<div class="quickorder-form not-inited"{if $form_inline} data-quickorder-inline-form{/if} data-multiply="{if !empty($settings.product_quantity_mult)}1{else}0{/if}" data-ruble-sign="{if !empty($settings.ruble_sign) && $settings.ruble_sign == 'html'}1{else}0{/if}"{if !empty($use_flexdiscount) && !empty($all_settings.flexdiscount_prices)} data-flexdiscount-pr="1"{/if}{if isset($image_size)} data-image-size="{$image_size}"{/if} {$form_attr}>
+    {* Шапка формы *}
+    <div class="quickorder-form-head" {$form_head_attr}>
+        {* Заголовок формы *}
+        {if !empty($settings.form_title)}{$settings.form_title}{/if}
+        {* Выводим крестик закрытия формы только во всплывающем окне *}
+        <span data-quickorder-close class="js-close-dialog"></span>
+    </div>
+    {* Тело формы *}
+    <div class="quickorder-form-content" {$form_layout_attr}>
+
+        {* Текст после заголовка *}
+        {include file = "string: `$settings.form_after_title`" assign=text_after_title}
+        {if $text_after_title}<div class="quickorder-block">{$text_after_title}</div>{/if}
+
+        {* Информация о товарах *}
+        {foreach $products as $key => $p}
+
+            {* include.product.html *}
+            {include file = "string: `$templates.product.frontend_template`" product=$p key=$key}
+
+        {/foreach}
+
+        {* При наличии способов доставки или оплаты выводим заголовок для контактных полей *}
+        {if !empty($shipping.methods) || !empty($payment.methods)}<div class="quickorder-heading">[`Contact fields`]</div>{/if}
+
+        {* Поля контакной информации *}
+        {if !empty($fields)}
+            {* include.contact.fields.html *}
+            {include file = "string: `$templates.contact.frontend_template`"}
+        {/if}
+
+        {* Поля доставки *}
+        {if !empty($shipping.methods)}
+            <div class="quickorder-shipping-wrap">
+                {* include.shipping.methods.html *}
+                {include file = "string: `$templates.shipping.frontend_template`"}
+            </div>
+        {/if}
+
+        {* Поля оплаты *}
+        {if !empty($payment.methods)}
+            <div class="quickorder-payment-wrap">
+                {* include.payment.methods.html *}
+                {include file = "string: `$templates.payment.frontend_template`"}
+            </div>
+        {/if}
+
+        {* Комментарий пользователя *}
+        {if !empty($settings.user_comment)}
+            <div class="quickorder-row quickorder-comment">
+                <div class="quickorder-name" {$form_titles_attr}>[`Order comment`]</div>
+                <div class="quickorder-value"><textarea name="quickorder[comment]" {$form_fields_attr}></textarea></div>
+            </div>
+        {/if}
+
+        {* Поле для ввода купона *}
+        {if !empty($settings.coupon_field)}
+            <div class="quickorder-row quickorder-coupon-wrap">
+                <div class="quickorder-name" {$form_titles_attr}>{if !empty($settings.coupon_text)}{$settings.coupon_text|escape}{else}[`Coupon code`]{/if}</div>
+                <div class="quickorder-value">
+                    <input type="text"{if !empty($coupon_code)} value="{$coupon_code|escape}"{/if} name="quickorder[coupon]" {$form_fields_attr}>
+                    <a href='javascript:void(0)' class='quickorder-coupon-button'>[`Apply`]</a>
+                </div>
+                {* Если введен верный купон *}
+                <div class="quickorder-coupon-success{if !empty($coupon_error) || empty($coupon_code)} quickorder-hidden{/if}">[`Coupon applied`]</div>
+                {* Если введен неверный купон *}
+                <div class="quickorder-coupon-error{if empty($coupon_error)} quickorder-hidden{/if}">[`Invalid coupon code`]</div>
+            </div>
+        {/if}
+
+        {* Бонусные баллы *}
+        {if !empty($settings.use_affiliate) && shopAffiliate::isEnabled()}
+            <div class="quickorder-row quickorder-affiliate-wrap">
+                {* include.affiliate.html *}
+                {include file = "string: `$templates.affiliate.frontend_template`"}
+            </div>
+        {/if}
+
+        {* Поле скидки *}
+
+        {* Проверяем есть ли скидки от плагина *}
+        {$show_fl_discount = 0}
+        {if !empty($use_flexdiscount)}
+            {$workflow = shopFlexdiscountData::getOrderCalculateDiscount()}
+            {if !empty($workflow['active_rules'])}
+                {$show_fl_discount = 1}
+            {/if}
+        {/if}
+
+        {if !empty($settings.discount_info)}
+            <div class="quickorder-row quickorder-discount-wrap"{if $discount <= 0} style="display: none;"{/if}>
+                <div class="quickorder-name" data-quickorder-discount-title {$form_titles_attr}>[`Discount`]</div>
+                <div class="quickorder-value" data-quickorder-discount>
+                    {if !empty($settings.ruble_sign) && $settings.ruble_sign == 'html'}{shop_currency_html($discount, true)}{else}{shop_currency($discount, true)}{/if}
+                </div>
+                {* Активные скидки от Гибких скидок. Выводим ссылку на показ скидок *}
+                {if !empty($use_flexdiscount) && !empty($all_settings.collapse_flexdiscount)}
+                    {if !empty($all_settings.collapse_link)}{$link = $all_settings.collapse_link}{else}{$link = _wp('show more')}{/if}
+                    <div class="quickorder-value quickorder-right"{if !$show_fl_discount} style="display:none"{/if}>
+                        <a href="javascript:void(0)" title="{$link|escape}" class="quickorder-js-show-ad quickorder-show-ad quickorder-inline-link quickorder-inline">{$link|escape}</a>
+                    </div>
+                {/if}
+            </div>
+        {/if}
+
+        {* Активные скидки от Гибких скидок  *}
+        {if !empty($use_flexdiscount)}
+            <div class="quickorder-fl-ad"{if !$show_fl_discount || !empty($all_settings.collapse_flexdiscount)} style="display:none"{/if}>
+                {if !empty($all_settings.flexdiscount_avt)}{$view_type = (int)$all_settings.flexdiscount_avt}{else}{$view_type = 0}{/if}
+                {shopFlexdiscountPluginHelper::getUserDiscounts($view_type)}
+            </div>
+        {/if}
+
+        {* Поле "Итого" *}
+        {if !empty($settings.total_price)}
+            <div class="quickorder-row quickorder-total-wrap">
+                <div class="quickorder-name" data-quickorder-total-title {$form_titles_attr}>[`Total`]</div>
+                <div class="quickorder-value" data-quickorder-total>
+                    {if !empty($settings.ruble_sign) && $settings.ruble_sign == 'html'}{shop_currency_html($total, true)}{else}{shop_currency($total, true)}{/if}
+                </div>
+            </div>
+        {/if}
+        <div style="display: none;" data-quickorder-total-data data-total="{$total}"></div>
+
+        {* Капча *}
+        {if !empty($settings.captcha)}
+            <div class="quickorder-row quickorder-captcha-wrap">
+                <div class="quickorder-name" {$form_titles_attr}>[`Captcha`]</div>
+                <div class="quickorder-value" data-quickorder-captcha>{$wa->captcha()}</div>
+            </div>
+        {/if}
+
+        {* Текст перед кнопкой оформления *}
+        {include file = "string: `$settings.form_before_submit`" assign=text_before_submit}
+        {if $text_before_submit}<div class="quickorder-block quickorder-text-before">{$text_before_submit}</div>{/if}
+
+        {* Соглашение *}
+        {if !empty($all_settings.terms) && !empty($all_settings.terms_text)}
+            <div class="quickorder-row quickorder-terms">
+                <label>
+                    <input type="checkbox" name="quickorder[terms]" value="1"{if !empty($all_settings.terms_default)} checked{/if}>
+                    <div style="display: inline-block;">{$all_settings.terms_text}</div>
+                </label>
+                {if !empty($all_settings.terms_error)}
+                    <div class="quickorder-terms-error quickorder-row">{$all_settings.terms_error}</div>
+                {/if}
+            </div>
+        {/if}
+
+        <div class="quickorder-error-block quickorder-row" style="display: none;"></div>
+    </div>
+    {* Подвал формы *}
+    <div class="quickorder-form-footer" {$form_footer_attr}>
+        <div class="quickorder-submit">{$q_button}</div>
+    </div>
+</div>
+

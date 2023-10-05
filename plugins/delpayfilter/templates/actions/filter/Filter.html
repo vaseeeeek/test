@@ -1,0 +1,183 @@
+<script src="{$plugin_url}js/condition.js?v={$wa->version()}"></script>
+{* Switcher *}
+<link rel="stylesheet" href="{$wa_url}wa-content/js/jquery-plugins/ibutton/jquery.ibutton.min.css">
+<script src="{$wa_url}wa-content/js/jquery-plugins/ibutton/jquery.ibutton.min.js"></script>
+
+{* Chosen *}
+<link rel="stylesheet" href="{$plugin_url}js/chosen/chosen.min.css">
+<script src="{$plugin_url}js/chosen/chosen.jquery.min.js"></script>
+
+{* Datepicker *}
+<link rel="stylesheet" href="{$plugin_url}js/datepicker/css/metallic.css">
+<script src="{$plugin_url}js/datepicker/javascript/zebra_datepicker.src.js"></script>
+
+<style type="text/css">
+    .condition-block.show-cond-op > .conditions:before { content: '{_wp("AND")}'; }
+    .condition-block.show-cond-op.s-or > .conditions:before { content: '{_wp("OR")}'; }
+</style>
+
+<h2 class="relative">
+    <a class="back" href="#/delpayfilter/" title="[`Back`]">← [`Back`]</a>
+    {if !empty($filter.name)}{$filter.name|escape}{else}[`No name filter`]{/if}
+    {if !empty($filter)}
+        <a href="#/filter/delete/{$filter.id}" class="js-action delete" title="[`Delete filter`]"><i class="icon16 delete"></i> [`delete`]</a>
+    {/if}
+</h2>
+<form action="?plugin=delpayfilter&module=filter&action=save" method="post" id="delpayfilter-save-form">
+    <input type="hidden" name="id" value="{if !empty($filter)}{$filter.id}{/if}" />
+    <div class="fields form">
+        <div class="field-group">
+            <div class="field">
+                <div class="name">[`Status`]</div>
+                <div class="value no-shift s-ibutton-checkbox">
+                    <ul class="menu-h">
+                        <li><span class="gray" id="s-filter-type-disabled-label">[`Disabled`]</span></li>
+                        <li>
+                            <input type="checkbox" class="switcher f-save-me" name="data[status]" value="1"{if !empty($filter.status) || !isset($filter.status)} checked{/if} />
+                        </li>
+                        <li><span id="s-filter-type-enabled-label">[`Enabled`]</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="field">
+                <div class="name">[`Name`]</div>
+                <div class="value"><input type="text" name="data[name]" class="f-save-me" {if !empty($filter.name)}value="{$filter.name|escape}"{/if}/></div>
+            </div>
+            <div class="field">
+                <div class="name">[`Description`]</div>
+                <div class="value"><textarea type="text" class="f-save-me" name="data[description]">{if !empty($filter.description)}{$filter.description|escape}{/if}</textarea></div>
+            </div>
+            <div class="field">
+                <div class="name">[`Error shipping text`]</div>
+                <div class="value">
+                    <textarea type="text" class="f-save-me" name="data[error_shipping]">{if !empty($filter.error_shipping)}{$filter.error_shipping|escape}{/if}</textarea>
+                    <div class="margin-block semi grey">[`Keep field blank, if you want to hide shipping methods`]</div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="name">[`Error payment text`]</div>
+                <div class="value">
+                    <textarea type="text" class="f-save-me" name="data[error_payment]">{if !empty($filter.error_payment)}{$filter.error_payment|escape}{/if}</textarea>
+                    <div class="margin-block semi grey">[`Keep field blank, if you want to hide payment methods`]</div>
+                </div>
+            </div>
+            <div class="field s-conditions">
+                <div class="name">[`Conditions`]</div>
+                <div class="value">
+                    <div class="field">
+                        <div class="margin-block">[`IF user not authorized`]</div>
+                        <div class="value">
+                            <div class="margin-block semi bottom">
+                                <label>
+                                    <input type="checkbox" class="f-save-me" value='1' name='data[check_email]'{if !empty($filter.check_email)} checked{/if} />
+                                    <i class="icon16 email"></i>
+                                    [`in case of a contact with the entered email address, use the data of this contact.`]
+                                </label>
+                            </div>
+                            <div class="margin-block semi bottom">
+                                <label>
+                                    <input type="checkbox" class="f-save-me" value='1' name='data[check_phone]'{if !empty($filter.check_phone)} checked{/if} />
+                                    <i class="icon16 phone"></i>
+                                    [`in case of a contact with the entered phone, use the data of this contact.`]
+                                </label>
+                            </div>
+                        </div>
+                        <div class="margin-block semi grey">
+                            [`For example, if at the purchase the customer is not authorized, you can check information about the orders, using entered email or the phone as the fields on which the user will be identified.`]
+                        </div>
+                    </div>
+                    <div class="margin-block">[`IF`]</div>
+                    <div class="condition-block">
+                        <div class="conditions">
+                            <!-- Autogenerated content -->
+                            <div class="align-center is-loading">[`Wait, please...`] <i class="icon16 loading"></i></div>
+                        </div>
+                        <a href="#/show/condition/" class="js-action" title="[`Add condition`]"><i class="icon16 add"></i> [`Add condition`]</a>
+                    </div>
+                    <input type="hidden" id="condition-input" class="f-save-me" name="data[conditions]" value="{if !empty($filter.conditions)}{$filter.conditions}{/if}" />
+                    <div class="margin-block">[`Then hide methods`]</div>
+
+                    <input type="hidden" id="target-input" class="f-save-me" name="data[target]" value="{if !empty($filter.target)}{$filter.target}{/if}" />
+                    <div class="targets">
+                        {* Target *}
+                        {$target = ['shipping' => "[`Shipping`]",  'payment' => "[`Payment`]"]}
+                        <div class="align-center is-loading">[`Wait, please...`] <i class="icon16 loading"></i></div>
+                        <a href="#/add/target/" class="s-add-target js-action"><i class="icon16 add"></i> [`Add target`]</a>
+                    </div>
+                </div>
+                {* Conditions *}
+                {$conditions = [
+                    ['name' => "[`Product`]", 'fields' => ['cat' => "[`Category`]", 'cat_all' => "[`Category and subcategories`]",
+                    'set' => "[`Product set`]", 'type' => "[`Product type`]", 'product' => "[`Product`]", 'feature' => "[`Product features`]",
+                    'services' => "[`Services`]", 'product_stock' => "[`Stock count`]"]],
+                    ['name' => "[`Cart`]", 'fields' => ['num' => "[`Total quantity of all products`]", 'num_prod' => "[`Quantity of product`]",
+                    'num_cat' => "[`Quantity of product from category`]", 'num_cat_all' => "[`Quantity of product from category and subcategories`]", 'num_set' => "[`Quantity of product from set`]", 'num_type' => "[`Quantity of product from type`]",
+                    'num_all_cat' => "[`Quantity of all products from category`]", 'num_all_cat_all' => "[`Quantity of all products from category and subcategories`]", 'num_all_set' => "[`Quantity of all products from set`]", 'num_all_type' => "[`Quantity of all products from type`]",
+                    'num_feat' => "[`Quantity of products with features`]", 'num_items' => "[`Quantity of unique items`]",
+                    'total' => "[`Order price with discount`]",
+                    'sum' => "[`Total price of all products`]", 'sum_cat' => "[`Total price of products from category`]",
+                    'sum_cat_all' => "[`Total price of products from category and subcategories`]",
+                    'sum_feat' => "[`Total price of all products with features`]", 'total_feat' => "[`Total sum of features values`]", 'prod_price' => "[`Price of any product`]",
+                    'prod_each_price' => "[`Price of each product`]"]],
+                    ['name' => "[`User`]", 'fields' => ['ucat' => "[`User category`]", 'user' => "[`User`]", 'user_date' => "[`Create datetime`]", 'user_country' => "[`Country and region`]",
+                    'user_city' => "[`User city`]", 'user_data' => "[`User data`]", 'user_auth' => "[`Check if user is authorized`]"]],
+                    ['name' => "[`Completed orders`]", 'fields' => ['all_orders' => "[`Total sum of all orders`]", 'order_int' => "[`Sum of orders for period..`]",
+                    'count_orders' => "[`Quantity of all orders`]", 'order_count_int' => "[`Quantity of orders for period..`]", 'order_prod' => "[`Orders have product`]",
+                    'order_prod_int' => "[`Orders have product for period..`]", 'order_prod_cat' => "[`Orders have product from category`]",
+                    'order_prod_cat_all' => "[`Orders have product from category and subcategories`]", 'order_prod_cat_int' => "[`Orders have product from category for period..`]",
+                    'order_prod_cat_all_int' => "[`Orders have product from category and subcategories for period..`]",
+                    'order_status' => "[`Status of any order`]"]],
+                    ['name' => "[`Date and time`]", 'fields' => ['date' => "[`Date`]", 'week' => "[`Day of week`]", 'time' => "[`Time`]"]],
+                    ['name' => "[`Variables`]", 'fields' => ['cookie' => "[`Cookie`]", 'session' => "[`Session`]", 'get' => '$_GET',
+                    'post' => '$_POST', 'not_isset_post' => '[`Not isset`] $_POST', 'not_isset_get' => '[`Not isset`] $_GET']],
+                    ['name' => "[`Storefront`]", 'fields' => ['storefront' => "[`Storefront`]", 'shipping' => "[`Shipping`]", 'shipping_price' => "[`Shipping price`]"]]
+                ]}
+                <select id="condition-template" class="condition-template" data-placeholder="[`Select condition`]" style="display: none; width: 350px;">
+                    <option value=""></option>
+                    <option value="add">[`Add group of conditions`]</option>
+                    {foreach $conditions as $cond}
+                    <optgroup label="{$cond.name}">
+                        {foreach $cond.fields as $c_id => $c}
+                            <option value="{$c_id}">{$c}</option>
+                        {/foreach}
+                    </optgroup>
+                    {/foreach}
+                </select>
+                <div class="target-row margin-block bottom" id="target-template" style="display: none;">
+                    <div class="condition-text">
+                        <select name="data[target]" style="width: 350px;" class="target-chosen" data-placeholder="[`Select target`]">
+                            <option value=""></option>
+                            {foreach $target as $t_id => $t}
+                                <option value="{$t_id}">{$t}</option>
+                            {/foreach}
+                        </select>
+                        <div class="target-block hidden">
+                            <!-- Autogenerated content -->
+                        </div>
+                        <a href="#/edit/target/" class='js-action inline-link' style='display: none;'><i class="icon16 edit"></i> <b>[`edit`]</b></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="fixed-save-panel">
+            <div class="block bordered-top">
+                <input class="button green" type="submit" disabled value="[`Save`]">
+            </div>
+        </div>
+    </div>
+    {if !empty($filter)}
+        <input type="hidden" name='id' value='{$filter.id}' class="f-save-me" />
+    {/if}
+</form>
+{$currency = $wa->shop->currency(true)}
+<script type="text/javascript">
+    $(function() {
+       $.delpayfilter.locale = "{$wa->locale()}";
+       $.delpayfilter.initFilterPage({if !empty($filter)}{$filter.id}{/if});
+       $.delpayfilter_conditions.init({
+           conditions: {if !empty($filter.conditions)}{$filter.conditions}{else}""{/if},
+           target: {if !empty($filter.target)}{$filter.target}{else}""{/if},
+           currency: '{$currency.sign}'
+       });
+    });
+</script>

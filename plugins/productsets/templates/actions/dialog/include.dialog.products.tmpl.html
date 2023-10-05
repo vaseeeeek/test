@@ -1,0 +1,86 @@
+<script type="text/x-tmpl" id="tmpl-selected-product">
+    {literal}
+    <div class="selected-products__item" data-sku-id="{% print(o.skuId); %}" data-id="{% print(o.id); %}" data-type="{% print(o.type); %}">
+        <a href="javascript:void(0)" class="js-delete-product selected-products_delete" title="[`delete`]">X</a>
+        <div class="selected-products__item-inner">
+            <div class="selected-products__img-container">
+                <img src='{% if (o.image) { print(o.image); } else { %}{/literal}{$wa_app_static_url}{literal}img/image-dummy.png{% } %}'>
+            </div>
+        </div>
+        <div class="selected-products__name selected-products__name_text-overflow mb semi top" title="{% print(o.name, true); %}">
+            <a href="#/product/{% print(o.id); %}">{% print(o.name, true); %}</a>
+        </div>
+        {% if (o.skuName && o.type == 'sku') { %}
+        <div class="selected-products__sku-name selected-products__name_text-overflow" title="{% print(o.skuName, true); %}">
+            {% print(o.skuName, true); %}
+        </div>
+        {% } %}
+    </div>
+    {/literal}
+</script>
+<script type="text/x-tmpl" id="tmpl-products-table">
+    {literal}
+        <table class='zebra'>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>[`Name`]</th>
+                    <th class='align-right'>[`Price`]</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% print(o.rows, true); %}
+            </tbody>
+        </table>
+        {% if (!o.end) { include('tmpl-products-more', o); } %}
+    {/literal}
+</script>
+<script type="text/x-tmpl" id="tmpl-products-table-inside">
+    {literal}
+        <tr class='table-inside'>
+            <td colspan='4'>
+                <div>
+                    <table class='zebra'>
+                        {% print(o.rows, true); %}
+                    </table>
+                <div>
+            </td>
+        </tr>
+    {/literal}
+</script>
+<script type="text/x-tmpl" id="tmpl-products-tr">
+    {literal}
+        <tr {% if (o.inside) { %}class='white'{% } %} data-type='{% if (o.inside || o.findInSkus) { print("sku"); } else { print("product"); } %}' data-id='{% print(o.id); %}' data-sku-id='{% print(o.sku_id); %}' data-name='{% print(o.name); %}' data-sku-name='{% if (o.sku_name) { print(o.sku_name); } else if (o.inside) { print("ID: #"); print(o.sku_id); } %}' data-stocks='{% print(o.stocks_with_text); %}' data-image="{% if (o.image) { print(o.image); } %}" data-price="{% print(o.price); %}" data-compare_price="{% if (o.compare_price) { print(o.compare_price); } %}">
+            <td>
+                <img style='max-width: 48px' src='{% if (o.image) { print(o.image); } else { %}{/literal}{$wa_app_static_url}{literal}img/image-dummy.png{% } %}'>
+            </td>
+            {% if (o.inside) { %}
+                <td class='s-sku'>{% print(o.sku, true); %}</td>
+            {% } %}
+            {% if (o.inside) { %}
+                <td class='s-name align-right'>{% print(o.sku_name, true); %}</td>
+            {% } else { %}
+                <td class='s-name'>{% print(o.label, true); %} {% print(o.stocks, true); %}</td>
+            {% } %}
+            <td class='s-price'>
+                {% if (o.compare_price) { %}
+                    <div class='small grey strike'>{% print(o.compare_price, true); %}</div>
+                {% } %}
+                {% print(o.price, true); %}
+            </td>
+            <td{% if (o.sku_count > 1) { %} class='f-skus' title='[`Show product skus`]'{% } %}>
+                {% if (o.sku_count > 1) { %}
+                    <i class='icon16 view-thumb-list'></i>
+                {% } %}
+            </td>
+        </tr>
+    {/literal}
+</script>
+<script type="text/x-tmpl" id="tmpl-products-more">
+    {literal}
+        <div class='mb f-more top'>
+            <a href='javascript:void(0)' class='f-get-products button blue' data-type='{% if (o.type) { print(o.type) } %}' data-id='{% if (o.id) { print(o.id) } %}' data-page='{% if (o.page) { print(o.page) } %}'>[`More products`]</a>
+        </div>
+    {/literal}
+</script>

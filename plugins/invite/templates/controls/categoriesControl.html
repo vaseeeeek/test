@@ -1,0 +1,14 @@
+<table class="zebra">
+    {foreach $user_categories as $category}
+        <tr style="vertical-align: middle">
+            <td style="padding: 5px;">
+                {_wp($category.name)|escape}
+            </td>
+            <td style="padding: 5px;">
+                {foreach $user_categories as $c}
+                    <input type="checkbox" name="shop_invite[categories][{$category.id}][{$c.id}]" {if isset($settings['categories'][{$category.id}][{$c.id}])}checked{/if} /> {_wp($c.name)|escape} <br />
+                {/foreach}
+            </td>
+        </tr>
+    {/foreach}
+</table>

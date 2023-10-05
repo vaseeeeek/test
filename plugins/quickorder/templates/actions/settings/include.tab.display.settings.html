@@ -1,0 +1,339 @@
+<div class="field f-display-{$tab}"{if $tab == 'cart'} style="display: none;"{/if}>
+    <div class="field">
+        <div class="name">[`Use default hook for output`]</div>
+        <div class="value">
+            <div class="ibutton-checkbox">
+                <ul class="menu-h">
+                    <li>
+                        <span class="switcher-off-label">[`No`]</span>
+                    </li>
+                    <li>
+                        <input class="switcher not-inited" type="checkbox" name="storefront_settings[{$tab}][use_hook]" value="1" {if !empty($settings[$tab].use_hook) || !isset($settings[$tab].button_name)}checked="checked"{/if} />
+                    </li>
+                    <li>
+                        <span class="switcher-on-label">[`Yes`]</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="onopen f-revert" style="font-size: .95em;display: {if empty($settings[$tab].use_hook) && isset($settings[$tab].button_name)}block{else}none{/if};">
+                [`Use helper in your template`]:
+                <span class="info-text">{ldelim}shopQuickorderPlugin::{if $tab == 'cart'}cartButton{else}button{/if}(){rdelim}</span>
+            </div>
+        </div>
+    </div>
+    <div class="field-group">
+        <h3>[`Button`]</h3>
+        <div class="field">
+            <label><input type="checkbox" class="f-hide-button-checkbox" name="storefront_settings[{$tab}][hide_button]"{if !empty($settings[$tab].hide_button)} checked="checked"{/if}> [`Hide button and display form on the page`]</label>
+        </div>
+        <div class="f-display-button-settings"{if !empty($settings[$tab].hide_button)} style="display: none"{/if}>
+            <div class="field">
+                <div class="name">[`Name`]</div>
+                <div class="value"><input type="text" name="storefront_settings[{$tab}][button_name]" value="{if !empty($settings[$tab].button_name)}{$settings[$tab].button_name|escape}{elseif !isset($settings[$tab].button_name)}[`Buy now with 1-Click`]{/if}"></div>
+            </div>
+            <div class="field">
+                <div class="name">[`Display`]</div>
+                <div class="value">
+                    <div class="margin-block bottom">
+                        <label>
+                            <input type="radio" name="storefront_settings[{$tab}][button_display]" value="table" {if (!empty($settings[$tab].button_display) && $settings[$tab].button_display == 'table') || !isset($settings[$tab].button_display)}checked{/if}> [`New line`]
+                            <span class="hint">display: table</span>
+                        </label>
+                    </div>
+                    <div class="margin-block bottom">
+                        <label>
+                            <input type="radio" name="storefront_settings[{$tab}][button_display]" value="inline" {if (!empty($settings[$tab].button_display) && $settings[$tab].button_display == 'inline')}checked{/if}> [`Inline`]
+                            <span class="hint">display: inline-block</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="name">[`CSS class`]</div>
+                <div class="value"><input type="text" name="storefront_settings[{$tab}][button_css]" {if !empty($settings[$tab].button_css)}value="{$settings[$tab].button_css|escape}"{/if}></div>
+            </div>
+        </div>
+    </div>
+    <div class="field-group">
+        <h3>[`Form`]</h3>
+        <div class="field">
+            <div class="name">[`Title`]</div>
+            <div class="value"><input type="text" name="storefront_settings[{$tab}][form_title]" value="{if !empty($settings[$tab].form_title)}{$settings[$tab].form_title|escape}{elseif !isset($settings[$tab].form_title)}[`Buy now with 1-Click`]{/if}"></div>
+        </div>
+        <div class="field">
+            <div class="name">[`Text after title`]</div>
+            <div class="value">
+                <textarea class="width100 f-redactor" name="storefront_settings[{$tab}][form_after_title]">{if !empty($settings[$tab].form_after_title)}{$settings[$tab].form_after_title|escape}{/if}</textarea>
+                <div class="grey float-right margin-block top semi">HTML+Smarty</div>
+            </div>
+        </div>
+        <!-- Contact fields -->
+        <div class="field-group">
+            <h3>[`Fields`]</h3>
+            <div class="field">
+                <div class="name s-heading">[`Contact fields`]</div>
+                <div class="value"></div>
+            </div>
+            <div class="field">
+                <div class="field f-{$tab}-contact-fields f-form-fields s-contact-fields">
+                    <!-- Generated automatically -->
+                </div>
+                <div class="field">
+                    <a href="javascript:void(0)"  data-tmpl="tmpl-field" class="f-add-form-field inline-link"><i class="icon16 add"></i><b><i>[`Add field`]</i></b></a>
+                </div>
+            </div>
+        </div>
+        <!-- Shipping fields -->
+        <div class="field-group">
+            <div class="field">
+                <div class="name s-heading">[`Shipping`]</div>
+                <div class="value"></div>
+            </div>
+            <div class="field">
+                [`Choose available shipping methods.`]
+            </div>
+            <div class="field f-{$tab}-shipping-fields f-form-fields s-contact-fields">
+                <!-- Generated automatically -->
+            </div>
+            <div class="field">
+                <a href="javascript:void(0)" data-tmpl="tmpl-shipping-field" class="f-add-form-field inline-link"><i class="icon16 add"></i><b><i>[`Add shipping`]</i></b></a>
+            </div>
+            <div class="field">
+                <div class="name">[`Show shipping description`]</div>
+                <div class="value">
+                    <div class="ibutton-checkbox">
+                        <ul class="menu-h">
+                            <li>
+                                <span class="switcher-off-label">[`Off`]</span>
+                            </li>
+                            <li>
+                                <input class="switcher not-inited" type="checkbox" name="storefront_settings[{$tab}][show_shipping_description]" value="1" {if !empty($settings[$tab]['show_shipping_description'])}checked="checked"{/if} />
+                            </li>
+                            <li>
+                                <span class="switcher-on-label">[`On`]</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Payment fields -->
+        <div class="field-group">
+            <div class="field">
+                <div class="name s-heading">[`Payment`]</div>
+                <div class="value"></div>
+            </div>
+            <div class="field">
+                [`Choose available payment methods.`]
+            </div>
+            <div class="field f-{$tab}-payment-fields f-form-fields s-contact-fields">
+                <!-- Generated automatically -->
+            </div>
+            <div class="field">
+                <a href="javascript:void(0)" data-tmpl="tmpl-payment-field" class="f-add-form-field inline-link"><i class="icon16 add"></i><b><i>[`Add payment`]</i></b></a>
+            </div>
+            <div class="field">
+                <div class="name">[`Show payment description`]</div>
+                <div class="value">
+                    <div class="ibutton-checkbox">
+                        <ul class="menu-h">
+                            <li>
+                                <span class="switcher-off-label">[`Off`]</span>
+                            </li>
+                            <li>
+                                <input class="switcher not-inited" type="checkbox" name="storefront_settings[{$tab}][show_payment_description]" value="1" {if !empty($settings[$tab]['show_payment_description'])}checked="checked"{/if} />
+                            </li>
+                            <li>
+                                <span class="switcher-on-label">[`On`]</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {$ibutton_fields = ['user_comment' => "[`User comment`]", 'coupon_field' => "[`Coupon field`]", 'discount_info' => "[`Discount information`]", 'total_price' => "[`Total price`]",
+                            'captcha' => "[`Captcha`]"]}
+        {foreach $ibutton_fields as $k => $v}
+            <div class="field">
+                <div class="name">{$v}</div>
+                <div class="value">
+                    <div class="ibutton-checkbox">
+                        <ul class="menu-h">
+                            <li>
+                                <span class="switcher-off-label">[`Off`]</span>
+                            </li>
+                            <li>
+                                <input class="switcher not-inited" type="checkbox" name="storefront_settings[{$tab}][{$k}]" value="1" {if !empty($settings[$tab][$k]) || !isset($settings[$tab]['button_name'])}checked="checked"{/if} />
+                            </li>
+                            <li>
+                                <span class="switcher-on-label">[`On`]</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                {if $k == 'coupon_field'}
+                <div class="onopen" style="margin-left: 50px;margin-top: 20px;display: {if !empty($settings[{$tab}][$k])}block{else}none{/if};">
+                    <div class="field">
+                        <div class="name">[`Text`]</div>
+                        <div class="value">
+                            <input type="text" name="storefront_settings[{$tab}][coupon_text]" class="width100" value="{if !empty($settings[{$tab}]['coupon_text'])}{$settings[{$tab}]['coupon_text']}{else}[`Coupon code`]{/if}">
+                        </div>
+                    </div>
+                </div>
+                {/if}
+            </div>
+        {/foreach}
+        <div class="field">
+            <div class="name">[`Ability to use affiliate bonus`]</div>
+            <div class="value">
+                {if shopAffiliate::isEnabled()}
+                    <div class="ibutton-checkbox">
+                        <ul class="menu-h">
+                            <li>
+                                <span class="switcher-off-label">[`Off`]</span>
+                            </li>
+                            <li>
+                                <input class="switcher not-inited" type="checkbox" name="storefront_settings[{$tab}][use_affiliate]" value="1" {if !empty($settings[{$tab}].use_affiliate)}checked="checked"{/if} />
+                            </li>
+                            <li>
+                                <span class="switcher-on-label">[`On`]</span>
+                            </li>
+                        </ul>
+                    </div>
+                {else}
+                    <a href='?action=settings#/affiliate/' title="[`Activate affiliate program`]"><i class="icon16 exclamation-red"></i> [`Activate affiliate program`]</a>
+                {/if}
+            </div>
+            <div class="onopen" style="margin-left: 50px;margin-top: 20px;display: {if !empty($settings[{$tab}]['use_affiliate']) && shopAffiliate::isEnabled()}block{else}none{/if};">
+                <div class="field">
+                    <div class="name">[`Text`]</div>
+                    <div class="value">
+                        <textarea class="width100 f-redactor" data-height="150" name="storefront_settings[{$tab}][affiliate_text]">{if !empty($settings[{$tab}]['affiliate_text'])}{$settings[{$tab}]['affiliate_text']}{else}[`Your current affiliate bonus of $bonus points allows you to get an additonal discount of up to $discount`]{/if}</textarea>
+                        <div class="grey float-right margin-block top semi">[`where $bonus - user affiliate bonus, $discount - user affiliate discount`]</div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">[`Success message`]</div>
+                    <div class="value">
+                        <textarea class="width100 f-redactor" data-height="150" name="storefront_settings[{$tab}][affiliate_success]">{if !empty($settings[{$tab}]['affiliate_success'])}{$settings[{$tab}]['affiliate_success']}{else}[`Bonus used`]{/if}</textarea>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">[`Button name`]</div>
+                    <div class="value">
+                        <input class="width100" type="text" name="storefront_settings[{$tab}][affiliate_button]" value="{if !empty($settings[{$tab}]['affiliate_button'])}{$settings[{$tab}]['affiliate_button']}{else}[`Use bonus`]{/if}">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">[`Info message`]</div>
+                    <div class="value">
+                        <textarea class="width100 f-redactor" data-height="150" name="storefront_settings[{$tab}][affiliate_info]">{if !empty($settings[{$tab}]['affiliate_info'])}{$settings[{$tab}]['affiliate_info']}{else}[`This order will add +$points points to your affiliate bonus.`]{/if}</textarea>
+                        <div class="grey float-right margin-block top semi">[`where $points - user affiliate points`]</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <div class="name">[`Text before submit button`]</div>
+            <div class="value">
+                <textarea class="width100 f-redactor" name="storefront_settings[{$tab}][form_before_submit]">{if !empty($settings[$tab].form_before_submit)}{$settings[$tab].form_before_submit|escape}{/if}</textarea>
+                <div class="grey float-right margin-block top semi">HTML+Smarty</div>
+            </div>
+        </div>
+        <div class="field">
+            <div class="name">[`Submit button`]</div>
+            <div class="value"><input type="text" name="storefront_settings[{$tab}][submit_button]" value="{if !empty($settings[$tab].submit_button)}{$settings[$tab].submit_button|escape}{elseif !isset($settings[$tab].submit_button)}[`Send`]{/if}"></div>
+        </div>
+        {if $tab == 'product'}
+            <div class="field">
+                <div class="name">[`Successfull message`]</div>
+                <div class="value">
+                    <textarea class="width100 f-redactor" name="storefront_settings[{$tab}][successfull_message]">
+                        {if !empty($settings[$tab].successfull_message)}
+                            {$settings[$tab].successfull_message|escape}
+                        {elseif !isset($settings[$tab].successfull_message)}
+                            {shopQuickorderPluginHelper::getDefaultSuccessMsg()}
+                        {/if}
+                    </textarea>
+                    <div class="grey float-right margin-block top semi">HTML+Smarty</div>
+                </div>
+            </div>
+        {/if}
+    </div>
+    <div class="field-group">
+        <h3>[`Products and services`]</h3>
+        <div class="field">
+            <div class="name">[`Product image`]</div>
+            <div class="value">
+                <div class="ibutton-checkbox">
+                    <ul class="menu-h">
+                        <li>
+                            <span class="switcher-off-label">[`Off`]</span>
+                        </li>
+                        <li>
+                            <input class="switcher not-inited" type="checkbox" name="storefront_settings[{$tab}][product_image]" value="1" {if !empty($settings[$tab].product_image) || !isset($settings[$tab].button_name)}checked="checked"{/if} />
+                        </li>
+                        <li>
+                            <span class="switcher-on-label">[`On`]</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="onopen" style="display: {if !empty($settings[$tab].product_image) || !isset($settings[$tab].button_name)}block{else}none{/if};">
+                    <div class="field">
+                        [`Image size`]&nbsp;&nbsp;
+                            <input type="number" class="short" name="storefront_settings[{$tab}][image_size_w]" value="{if !empty($settings[$tab].image_size_w)}{$settings[$tab].image_size_w|escape}{elseif !isset($settings[$tab].image_size_w)}96{/if}">
+                            x
+                            <input type="number" class="short" name="storefront_settings[{$tab}][image_size_h]" value="{if !empty($settings[$tab].image_size_h)}{$settings[$tab].image_size_h|escape}{elseif !isset($settings[$tab].image_size_h)}96{/if}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {$ibutton_fields = ['product_quantity' => "[`Changing of product quantity`]", 'product_services' => "[`Service selection`]", 'product_skus' => "[`Skus selection`]",
+        'product_compareatprice' => "[`Compare at price`]", 'product_quantity_mult' => "[`Multiply product price on the quantity`]"]}
+        {foreach $ibutton_fields as $k => $v}
+            <div class="field">
+                <div class="name">{$v}</div>
+                <div class="value">
+                    <div class="ibutton-checkbox">
+                        <ul class="menu-h">
+                            <li>
+                                <span class="switcher-off-label">[`Off`]</span>
+                            </li>
+                            <li>
+                                <input class="switcher not-inited" type="checkbox" name="storefront_settings[{$tab}][{$k}]" value="1" {if !empty($settings[$tab][$k])}checked="checked"{/if} />
+                            </li>
+                            <li>
+                                <span class="switcher-on-label">[`On`]</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {/foreach}
+
+    </div>
+    <div class="field-group">
+        <h3>[`Others`]</h3>
+        <div class="field">
+            <div class="name">[`Ruble sign`]</div>
+            <div class="value">
+                <div class="margin-block bottom"><label><input type="radio" name="storefront_settings[{$tab}][ruble_sign]" value="rub"{if (!empty($settings[$tab].ruble_sign) && $settings[$tab].ruble_sign == 'rub') || !isset($settings[$tab].ruble_sign)} checked="checked"{/if}> [`rub.`]</label></div>
+                <div><label><input type="radio" name="storefront_settings[{$tab}][ruble_sign]" value="html"{if !empty($settings[$tab].ruble_sign) && $settings[$tab].ruble_sign == 'html'} checked="checked"{/if}> P</label></div>
+            </div>
+        </div>
+    </div>
+
+    {* Поля Имя и Телефон устанавливаем по умоланию, если настройки для витрины сохраняются в первый раз *}
+    {if !isset($settings.fields[$tab])}
+        {$default_fields = '[[{"name":"name","value":""},{"name":"placeholder","value":""},{"name":"type","value":"firstname"},{"name":"css_class","value":""}],[{"name":"name","value":""},{"name":"placeholder","value":""},{"name":"type","value":"phone"},{"name":"extra","value":"+7(000)000-00-00"},{"name":"css_class","value":""}]]'}
+    {/if}
+    <script>
+        new QuickorderPluginDisplay({
+            wrap: $('.f-display-{$tab}'),
+            tab: '{$tab}'
+            {if !empty($settings.fields[$tab])},fields: {$settings.fields[$tab]}{elseif !isset($settings.fields[$tab])},fields:{$default_fields}{/if}
+            {if !empty($settings.shipping[$tab])},shippingFields: {$settings.shipping[$tab]}{/if}
+            {if !empty($settings.payment[$tab])},paymentFields: {$settings.payment[$tab]}{/if}
+        });
+    </script>
+</div>

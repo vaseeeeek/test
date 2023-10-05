@@ -1,0 +1,22 @@
+{if isset($callb_settings.id_in_html) && $callb_settings.id_in_html}
+
+	<link href="{$wa_url}wa-apps/shop/plugins/callb/css/callb.css?{$wa->version()}" rel="stylesheet">
+
+	{if isset($callb_settings.phone_masked_input) && strlen($callb_settings.phone_masked_input) > 0}
+	<script type="text/javascript" src="{$wa_url}wa-apps/shop/plugins/callb/js/jquery.maskedinput.min.js"></script>
+	{/if}
+
+	<script src="{$wa_url}wa-apps/shop/plugins/callb/js/callb.frontend.js?{$wa->version()}" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		(function ($) {
+			var localeSettings = {};
+				localeSettings.text_close = '{_wp("Close")}';
+				localeSettings.error_sendmail = '{_wp("Error occurred when sending message")}';
+				localeSettings.error_name_phone = '{_wp("Complete «Name» and «Phone»")}';
+
+			callbFrontend.initModule("{$callback_url}", {json_encode($callb_settings)}, localeSettings);
+		})(jQuery);
+	</script>
+		
+{/if}

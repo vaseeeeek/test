@@ -1,0 +1,124 @@
+<input id="massupdating-photo" type="file" name="files" accept="image/jpeg,image/png,image/gif" multiple />
+<input id="massupdating-post-max-size" name="post_max_size" type="hidden" value="{$post_max_size}"/>
+<input id="massupdating-upload-max-filesize" name="upload_max_filesize" type="hidden" value="{$upload_max_filesize}"/>
+<div style="margin-top: 10px;" class="hint">[`Вы можете загрузить сразу несколько фотографий.`]</div>
+<ul style="display: none;" id="massupdating-photo-preview"></ul>
+<div style="margin-top: 10px;" class="massupdating-switcher massupdating-photo">
+	<div id="massupdating-switcher-photo">
+		<a id="massupdating-switcher-photo-add" href="#" data-action="addtostart" data-button="add" class="selected disabled">[`Добавить к существующим фото`]</a><a id="massupdating-switcher-photo-addtostart" href="#" data-action="addtostart" data-button="start" class="pre selected disabled">[`в начало`]</a><a id="massupdating-switcher-photo-addtoend" href="#" data-action="addtoend" data-button="end" class="pre disabled">[`в конец`]</a>
+		<a href="#" data-action="replace" data-button="replace" class="disabled">[`Заменить фото на загруженные`]</a>
+		<a href="#" data-action="delete" data-button="replace" class="delete">[`Удалить все фото`]</a>
+		<input id="massupdating-photo-action" value="addtostart" type="hidden" name="photo_action">
+	</div>
+</div>
+
+<script type="text/javascript">
+(function() {
+	$('.massupdating-photo a').on('mouseenter mouseleave', function(e) {
+		if($(this).hasClass('disabled'))
+			return false;
+	
+		var button = $(this).data('button');
+
+		if(button == 'start' || button == 'end' || button == 'add')
+			$('#massupdating-switcher-photo-add' + (button == 'start' || button == 'end' ? '' : 'tostart'))[e.type == 'mouseenter' ? 'addClass' : 'removeClass']('hover');
+	});
+
+	$('.massupdating-photo a').click(function(e) {
+		if($(this).hasClass('disabled'))
+			return false;
+		
+		$('.massupdating-photo a').removeClass('selected');
+		$(this).addClass('selected');
+		var action = $(this).data('action');
+		$('#massupdating-photo-action').val(action);
+		if(action == 'addtostart')
+			$('#massupdating-switcher-photo-add, #massupdating-switcher-photo-addtostart').addClass('selected');
+		else if(action == 'addtoend')
+			$('#massupdating-switcher-photo-add, #massupdating-switcher-photo-addtoend').addClass('selected');
+		e.preventDefault();
+	});
+	
+	var post_max_size = parseInt($('#massupdating-post-max-size').val());
+	var upload_max_filesize = parseInt($('#massupdating-upload-max-filesize').val());
+	
+	var preview = $('#massupdating-photo-preview');
+	var queue = [];
+	var isProcessing = false;
+
+	var image = new Image();
+	var imgLoadHandler;
+
+	$('#massupdating-photo').change(function(data) {
+		preview.hide().html('');
+		var files = this.files;
+		var check = $.massupdating.checkFiles($(this));
+		$('#massupdating-switcher-photo a:not(.delete)')[check ? 'removeClass' : 'addClass']('disabled');
+		$('#massupdating-submit').removeAttr('disabled');
+		
+		if(check && files.length > 0 && files.length <= 10) {
+			size = 0;
+			for(var i = 0; i < files.length; i++) {
+				size += files[i].size;
+				queue.push(files[i]);
+			}
+			if(size > post_max_size || size > upload_max_filesize) {
+				alert('[`Превышен максимальный размер допустимых загружаемых данных (`]{$post_max_size_string} [`для передаваемых данных`], {$upload_max_filesize_string} [`для загружаемых файлов`]).');
+				$('#massupdating-submit').attr('disabled', true);
+			} else {
+				$(this).after($('<i id="massupdating-photo-load" class="massupdating-small-load"/>'));
+				processQueue();
+			}
+		} else {
+			$('#massupdating-switcher-photo a:not(.delete)').addClass('disabled');
+			if(!check) {
+				alert($_('Files with extensions *.gif, *.jpg, *.jpeg, *.png are allowed only.'));
+				$('#massupdating-submit').attr('disabled', true);
+			} else if(files.length > 10) {
+				alert('[`Разрешается загружать не более 10 изображений за раз`].');
+				$('#massupdating-submit').attr('disabled', true);
+			}
+		}
+	});
+	
+	var processQueue = function() {
+		if(isProcessing) {
+			return;
+		}
+		if(queue.length == 0) {
+			isProcessing = false;
+			return;
+		}
+		isProcessing = true;
+		file = queue.pop();
+		var li = document.createElement('li');
+		var canvas = document.createElement('canvas');
+		var ctx = canvas.getContext('2d');
+		image.removeEventListener('load', imgLoadHandler, false);
+		imgLoadHandler = function() {
+			var newHeight = 100;
+			var newWidth = image.width * (newHeight / image.height);
+			ctx.drawImage(image, 0, 0, newWidth, newHeight);
+			URL.revokeObjectURL(image.src);
+			li.setAttribute('data-name', file.name);
+			li.appendChild(canvas);
+			isProcessing = false;
+			setTimeout(processQueue, 100);
+		};
+		preview.append(li);
+		image.addEventListener('load', imgLoadHandler);
+		image.src = URL.createObjectURL(file);
+		if(queue.length == 0) {
+			setTimeout(function() {
+				var content = preview.find('li').sort(function(a, b) {
+					var _a = $(a).attr('data-name').toLowerCase();
+					var _b = $(b).attr('data-name').toLowerCase();
+					return _a < _b ? -1 : 1;
+				});
+				$('#massupdating-photo-load').remove();
+				preview.html(content).show();
+			}, 200);
+		};
+	};
+})();
+</script>

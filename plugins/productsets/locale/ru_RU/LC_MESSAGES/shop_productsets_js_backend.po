@@ -1,0 +1,307 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/productsets\n"
+"POT-Creation-Date: 2020-01-28T18:55:23.460Z\n"
+"Last-Translator: shop/plugins/productsets\n"
+"Language-Team: shop/plugins/productsets\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; "
+"plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%"
+"100)<10)||((n%100)>=20)))?(1):2));\n"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\productsetsBackend.js:61
+msgid "Something wrong"
+msgstr "Произошла ошибка"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\productsetsBackend.js:106
+msgid "Removing the set"
+msgstr "Удаление набора"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\productsetsBackend.js:107
+msgid "Do you really want to delete 1 set?"
+msgid_plural "Do you really want to delete {n} sets?"
+msgstr[0] "Вы действительно хотите удалить {n} набор?"
+msgstr[1] "Вы действительно хотите удалить {n} набора?"
+msgstr[2] "Вы действительно хотите удалить {n} наборов?"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\productsetsBackend.js:109
+msgid "Yes"
+msgstr "Да"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\productsetsBackend.js:109
+msgid "No"
+msgstr "Нет"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\productsetsBackend.js:206
+msgid "Loading"
+msgstr "Загрузка"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\productsetsBackend.js:209
+msgid "Product sets"
+msgstr "Комплекты товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\productsetsBundleBackend.js:194
+msgid "* * * Active product * * *"
+msgstr "* * * Активный товар * * *"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\productsetsDisplayBackend.js:96
+msgid "Oops, nothing found!"
+msgstr "Уууупс, ничего не найдено!"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\productsetsProdDialogBackend.js:340
+msgid "Products not found"
+msgstr "Товары не найдены"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\productsetsUserBundleBackend.js:178
+msgid "Group name"
+msgstr "Название группы"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\productsetsUserBundleBackend.js:339
+msgid "Upload failed"
+msgstr "Загрузка не удалась"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:110
+msgid "Background"
+msgstr "Задний фон"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:113
+msgid "Border"
+msgstr "Рамка"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:117
+msgid "Color"
+msgstr "Цвет"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:122
+msgid "Box shadow"
+msgstr "Тени"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:126
+msgid "Border radius"
+msgstr "Радиус скругления"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:130
+msgid "Font"
+msgstr "Шрифт"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:133
+msgid "Padding"
+msgstr "Внутренний отступ"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:136
+msgid "Margin"
+msgstr "Внешний отступ"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:139
+msgid "Alignment"
+msgstr "Выравнивание"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:142
+msgid "Width"
+msgstr "Ширина"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:279
+msgid "Properties"
+msgstr "Характеристики"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:305
+msgid "Condition"
+msgstr "Состояние"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:307
+msgid "Normal"
+msgstr "Нормальный"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:308
+msgid "On hover"
+msgstr "При наведении"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:322
+msgid "Transparency"
+msgstr "Прозрачность"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:625
+msgid "Gradient"
+msgstr "Градиент"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:626
+msgid "Solid color"
+msgstr "Цвет"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:627
+msgid "Transparent"
+msgstr "Прозрачный"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:635
+msgid "Start"
+msgstr "Начало"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:641
+msgid "End"
+msgstr "Конец"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:647
+msgid "Direction"
+msgstr "Направление"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:649
+msgid "From left to right"
+msgstr "Слева направо"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:650
+msgid "From right to left"
+msgstr "Справа налево"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:651
+msgid "From top to bottom"
+msgstr "Сверху вниз"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:652
+msgid "From bottom to top"
+msgstr "Снизу вверх"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:664
+msgid "Orientation"
+msgstr "Направление"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:666
+msgid "linear"
+msgstr "линейный"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:667
+msgid "radial"
+msgstr "радиальный"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:743
+msgid "Thickness"
+msgstr "Толщина"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:757
+msgid "Style"
+msgstr "Стиль"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:759
+msgid "Solid"
+msgstr "Сплошной"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:760
+msgid "Dotted"
+msgstr "Точки"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:761
+msgid "Dashed"
+msgstr "Пунктир"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:762
+msgid "Double"
+msgstr "Двойная сплошная"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:800
+msgid "Values"
+msgstr "Значения"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:803
+msgid "X offset"
+msgstr "X-сдвиг"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:807
+msgid "Y offset"
+msgstr "Y-сдвиг"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:811
+msgid "Blur"
+msgstr "Размытие"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:815
+msgid "Spread"
+msgstr "Растяжение"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:818
+msgid "Inset"
+msgstr "Внутренняя тень"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:899
+msgid "Radius"
+msgstr "Радиус"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:906
+msgid "Top-left"
+msgstr "Верхний-левый"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:912
+msgid "Top-right"
+msgstr "Верхний-правый"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:918
+msgid "Bottom-left"
+msgstr "Нижний-левый"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:924
+msgid "Bottom-right"
+msgstr "Нижний-правый"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:1037
+msgid "Size"
+msgstr "Размер"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:1040
+msgid "Use default"
+msgstr "По умолчанию"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:1048
+msgid "Font family"
+msgstr "Семейство шрифтов"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:1062
+msgid "Google fonts"
+msgstr "Шрифты Google"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:1077
+msgid "Font style"
+msgstr "Стиль шрифта"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:1081
+msgid "Bold"
+msgstr "Жирный"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:1082
+msgid "Italic"
+msgstr "Курсив"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:1083
+msgid "Bold/Italic"
+msgstr "Жирный/курсив"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:1134
+msgid "Top"
+msgstr "Сверху"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:1138
+msgid "Right"
+msgstr "Справа"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:1142
+msgid "Bottom"
+msgstr "Снизу"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:1146
+msgid "Left"
+msgstr "Слева"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:1248
+msgid "To left"
+msgstr "Слева"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:1249
+msgid "To right"
+msgstr "Справа"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:1250
+msgid "To center"
+msgstr "По центру"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\appearance\appearance.js:1251
+msgid "Justify"
+msgstr "По ширине"

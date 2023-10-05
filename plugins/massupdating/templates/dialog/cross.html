@@ -1,0 +1,241 @@
+<h1 class="massupdating">
+	{$title} <span class="gray">({count($product_ids)})</span>
+</h1>
+{$wa->csrf()}
+<div class="field-group massupdating-dialog">
+	<div class="field">
+		<div class="value">
+			<label>
+				<input type="checkbox" name="reload" id="massupdating-reload"/>
+				[`Обновить страницу после сохранения`]
+			</label>
+		</div> <br/>
+	</div>
+	<div class="field">
+		<div class="name">
+			[`Перекрестные продажи (Cross-selling)`]
+		</div>
+		<div class="value">
+			<label>
+				<input type="radio" name="cross_selling" value="null" {if !isset($values['cross_selling']['value']) || isset($values['cross_selling']['different']) || !ifset($values['cross_selling']['linked'])}checked{/if}/>
+				[`По умолчанию`]
+			</label>
+			<br/> <span class="hint">[`Значения не будут затрагиваться и останутся прежними.`]</span>
+		</div>
+		<div class="value">
+			<label>
+				<input type="radio" name="cross_selling" value="1" {if isset($values['cross_selling']['value']) && $values['cross_selling']['value'] == 1}checked{/if}/>
+				[`Вкл`]
+			</label>
+		</div>
+		<div class="value">
+			<label>
+				<input type="radio" name="cross_selling" value="0" {if isset($values['cross_selling']['value']) && $values['cross_selling']['value'] == 0}checked{/if}/>
+				[`Выкл`]
+			</label>
+		</div>
+		<div class="value">
+			<label>
+				<input type="radio" name="cross_selling" value="2" {if isset($values['cross_selling']['value']) && $values['cross_selling']['value'] == 2 && ifset($values['cross_selling']['identical'])}checked{/if}/>
+				[`Выбрать товары вручную`]
+			</label>
+		</div>
+		<div style="display: {if ifset($values['cross_selling']['identical'])}block{else}none{/if};" id="massupdating-cross_selling-custom" class="value">
+			<input type="hidden" name="cross_selling_custom" id="massupdating-cross_selling-custom-ids" value="0{if !empty($values['cross_selling']['product_ids'])},{implode(',', $values['cross_selling']['product_ids'])}{/if}"/>
+			<table class="related zebra">
+				<tbody>
+					{if isset($values['cross_selling']['product_ids'])}
+					{foreach $values['cross_selling']['product_ids'] as $product_id}
+					{$product = $wa->shop->product($product_id)}
+					<tr class="p" data-product-id="{$product_id}">
+						<td>
+							{$product->name|escape:'html'}
+						</td>
+						<td>
+							{wa_currency_html($product->price, $product->currency)}
+						</td>
+						<td class="min-width"><a class="delete" href="#"><i class="icon16 delete"></i></a></td>
+					</tr>
+					{/foreach}
+					{/if}
+					<tr>
+						<td colspan="3">
+							<input data-type="cross_selling" class="product-autocomplete long ui-autocomplete-input" type="text" placeholder="Начните вводить название товара или артикул" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		{if count($product_ids) > 1}
+		<div class="value">
+			<label style="{if ifset($values['cross_selling']['linked'])}color: green;{/if}">
+				<input type="radio" name="cross_selling" value="3" {if isset($values['cross_selling']['value']) && $values['cross_selling']['value'] == 2 && ifset($values['cross_selling']['linked'])}checked{/if}/>
+				[`Связать выбранные товары между собой`]
+				{if ifset($values['cross_selling']['linked'])}✔{/if}
+			</label>
+		</div>
+		{/if}
+	</div>
+	{if count($product_ids) > 1}
+	<div style="display: {if isset($values['cross_selling']['value']) && $values['cross_selling']['value'] == 2 && ifset($values['cross_selling']['linked'])}block{else}none{/if};" id="massupdating-cross_selling-delete" class="field">
+		<div class="value">
+			<label>
+				<input type="checkbox" name="cross_selling_delete" value="1"/>
+				<span class="red">[`Удалить предыдущие (текущие) пересечения`]</span>
+			</label>
+		</div>
+	</div>
+	{/if}
+	<div class="field">
+		<div class="name">
+			[`Схожие и альтернативные товары`]
+		</div>
+		<div class="value">
+			<label>
+				<input type="radio" name="upselling" value="null" {if !isset($values['upselling']['value']) || isset($values['upselling']['different']) || !ifset($values['upselling']['linked'])}checked{/if}/>
+				[`По умолчанию`]
+			</label>
+			<br/> <span class="hint">[`Значения не будут затрагиваться и останутся прежними.`]</span>
+		</div>
+		<div class="value">
+			<label>
+				<input type="radio" name="upselling" value="1" {if isset($values['upselling']['value']) && $values['upselling']['value'] == 1}checked{/if}/>
+				[`Вкл`]
+			</label>
+		</div>
+		<div class="value">
+			<label>
+				<input type="radio" name="upselling" value="0" {if isset($values['upselling']['value']) && $values['upselling']['value'] == 0}checked{/if}/>
+				[`Выкл`]
+			</label>
+		</div>
+		<div class="value">
+			<label>
+				<input type="radio" name="upselling" value="2" {if isset($values['upselling']['value']) && $values['upselling']['value'] == 2 && ifset($values['upselling']['identical'])}checked{/if}/>
+				[`Выбрать товары вручную`]
+			</label>
+		</div>
+		<div style="display: {if ifset($values['upselling']['identical'])}block{else}none{/if};" id="massupdating-upselling-custom" class="value">
+			<input type="hidden" name="upselling_custom" id="massupdating-upselling-custom-ids" value="0{if !empty($values['upselling']['product_ids'])},{implode(',', $values['upselling']['product_ids'])}{/if}"/>
+			<table class="related zebra">
+				<tbody>
+					{if isset($values['upselling']['product_ids'])}
+					{foreach $values['upselling']['product_ids'] as $product_id}
+					{$product = $wa->shop->product($product_id)}
+					<tr class="p" data-product-id="{$product_id}">
+						<td>
+							{$product->name|escape:'html'}
+						</td>
+						<td>
+							{wa_currency_html($product->price, $product->currency)}
+						</td>
+						<td class="min-width"><a class="delete" href="#"><i class="icon16 delete"></i></a></td>
+					</tr>
+					{/foreach}
+					{/if}
+					<tr>
+						<td colspan="3">
+							<input data-type="upselling" class="product-autocomplete long ui-autocomplete-input" type="text" placeholder="Начните вводить название товара или артикул" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		{if count($product_ids) > 1}
+		<div class="value">
+			<label style="{if ifset($values['upselling']['linked'])}color: green;{/if}">
+				<input type="radio" name="upselling" value="3" {if isset($values['upselling']['value']) && $values['upselling']['value'] == 2 && ifset($values['upselling']['linked'])}checked{/if}/>
+				[`Связать выбранные товары между собой`]
+				{if ifset($values['upselling']['linked'])}✔{/if}
+			</label>
+		</div>
+		{/if}
+	</div>
+	{if count($product_ids) > 1}
+	<div style="display: {if isset($values['upselling']['value']) && $values['upselling']['value'] == 2 && ifset($values['upselling']['linked'])}block{else}none{/if};" id="massupdating-upselling-delete" class="field">
+		<div class="value">
+			<label>
+				<input type="checkbox" name="upselling_delete" value="1"/>
+				<span class="red">[`Удалить предыдущие (текущие) пересечения`]</span>
+			</label>
+		</div>
+	</div>
+	{/if}
+</div>
+<script type="text/javascript">
+(function() {
+	$('input[type=radio]').change(function() {
+		$('#massupdating-' + $(this).attr('name') + '-custom')[$(this).val() == 2 ? 'show' : 'hide']();
+		$('#massupdating-' + $(this).attr('name') + '-delete')[$(this).val() == 3 ? 'show' : 'hide']();
+	});
+	
+	var save = function(data, after) {
+		elem = $('#massupdating-' + data.type + '-custom-ids');
+		
+		if(data.delete == 1) {
+			ids = elem.val().replace(',' + data.product_id, '');
+			elem.val(ids);
+		} else {
+			ids = elem.val().split(',');
+			ids.push(data.product_id);
+			elem.val(ids.join(','));
+		}
+		
+		after && after();
+	};
+	
+	var autocompletes = $('.product-autocomplete').autocomplete({
+		source: '?action=autocomplete',
+		minLength: 3,
+		delay: 300,
+		select: function(event, ui) {
+			var tr = $('<tr class="p" data-product-id="' + ui.item.id + '"></tr>');
+			tr.append($('<td></td>').html(ui.item.value));
+			tr.append($('<td></td>').html(ui.item.price_html));
+			tr.append('<td class="min-width"><a class="delete" href="#"><i class="icon16 delete"></i></a></td>');
+			tr.insertBefore($(this).closest('tr'));
+
+			save({
+				'type': $(this).data('type'),
+				'product_id': ui.item.id
+			});
+
+			var autocomplete = $(this).data('autocomplete');
+			autocomplete.do_not_close_autocomplete = 1;
+			window.setTimeout(function() {
+				autocomplete.do_not_close_autocomplete = false;
+				autocomplete.menu.element.position($.extend({
+					of: autocomplete.element
+				}, autocomplete.options.position || { my: "left top", at: "left bottom", collision: "none" }));
+			}, 0);
+
+			return false;
+		}
+	});
+
+	autocompletes.each(function() {
+		var autocomplete = $(this).data('autocomplete');
+		var oldClose = autocomplete.close;
+		autocomplete.close = function(e) {
+			if (this.do_not_close_autocomplete) {
+				return false;
+			}
+			oldClose.apply(this, arguments);
+		};
+	});
+	
+	$('table.related').on('click', 'a.delete', function() {
+		var tr = $(this).closest('tr');
+		var type = tr.closest('table.related').find('input').data('type');
+		save({
+			'type': type,
+			'delete': 1,
+			'product_id': tr.data('product-id')
+		}, function() {
+			tr.remove();
+		});
+		
+		return false;
+	});
+})();
+</script>

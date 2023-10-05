@@ -1,0 +1,59 @@
+<link rel="stylesheet" type="text/css" href="{$shop_plugin_url}css/settings.css" />
+<script src="{$shop_plugin_url}js/settings.js" ></script>
+
+<link rel="stylesheet" href="{$wa_url}wa-content/js/redactor/redactor.css">
+<script src="{$wa_url}wa-content/js/redactor/redactor.min.js"></script>
+<script src="{$wa_url}wa-content/js/jquery-wa/editor.js"></script>
+
+<script src="{$wa_url}wa-content/js/redactor/ru.js"></script>
+
+<h1>{$plugin_info.name}</h1>
+
+<div class="shop-sk-main js-sk-main">
+
+    <div class="shop-sk-tabs js-sk-tabs">
+
+        <ul class="tabs shop-sk-tabs__headers js-sk-tabs-headers">
+
+            <li class="shop-sk-tabs__header js-sk-tabs-header selected" data-tab="general">
+                <a class="shop-sk-tabs__link js-sk-tabs-link" href="javascript:void(0)" >Основные настройки</a>
+            </li>
+
+            <li class="shop-sk-tabs__header js-sk-tabs-header" data-tab="form">
+                <a class="shop-sk-tabs__link js-sk-tabs-link" href="javascript:void(0)">Настройка формы</a>
+            </li>
+
+            <li class="shop-sk-tabs__header js-sk-tabs-header" data-tab="target">
+                <a class="shop-sk-tabs__link js-sk-tabs-link" href="javascript:void(0)">Цели</a>
+            </li>
+
+        </ul>
+
+        <div class="tab-content shop-sk-tabs__contents">
+
+            <div class="shop-sk-form__wrap form">
+
+                <div class="shop-sk-tabs__item js-sk-tabs-item selected" data-tab="general">
+                    {include file="./SettingsGeneral.html"}
+                </div>
+
+                <div class="shop-sk-tabs__item js-sk-tabs-item" data-tab="form">
+                    {include file="./SettingsForm.html"}
+                </div>
+
+                <div class="shop-sk-tabs__item js-sk-tabs-item" data-tab="target">
+                    {include file="./SettingsTarget.html"}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    var shopSkPluginSettingsInit = new shopSkPluginSettings({$shop_plugin_config|json_encode});
+</script>
+

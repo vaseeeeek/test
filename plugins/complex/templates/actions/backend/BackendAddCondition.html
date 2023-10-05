@@ -1,0 +1,32 @@
+{if empty($return_select)}
+{$return_select = false}
+{/if}
+
+{if !$return_select}<tr class="condition new">
+	<td class="mode"></td>
+	<td class="value">
+		<span class="field no-shift">
+			{/if}<select class="selectize field select-control" data-placeholder="[`Select condition`]" data-depth="{ifset($depth, 1)}">
+				<option></option>
+				{if $depth == 1}<option value="group|group">[`New condition group`]</option>{/if}
+				{foreach $control_groups as $control_group}
+				<optgroup label="{$control_group.title}">
+					{foreach $control_group.controls as $control_key => $control}
+					{if is_array($control)}
+					{$control_type = $control.type}
+					{$control_title = $control.title}
+					{else}
+					{$control_type = 'compare:input'}
+					{$control_title = $control}
+					{/if}
+					<option value="{$control_key}|{$control_type|escape}" {if !empty($selected) && $selected == $control_key} selected{/if}>{$control_title}</option>
+					{/foreach}
+				</optgroup>
+				{/foreach}
+			</select>{if !$return_select}</span>
+	</td>
+	<td class="remove">
+		<span style="display: none;"><a href="#"><i class="icon16 delete"></i></a></span>
+	</td>
+</tr>
+<tr class="delimiter"><td colspan="3"></td></tr>{/if}

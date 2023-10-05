@@ -1,0 +1,210 @@
+<div class="top-right15">
+    <ul class="menu-h">
+        <li>
+            <a href="[`https://igaponov.com/docs/flexdiscount/`]" title="[`Documentation`]" target="_blank"><i class="icon16 book-open"></i> [`Documentation`]</a>
+        </li>
+        <li style='margin-right:0'>
+            <a href="{$settings_url}" title="[`Settings`]"><i class="icon16 settings"></i> [`Settings`]</a>
+        </li>
+    </ul>
+</div>
+
+{$attention}
+
+{if $discounts}
+
+    {function name="build_discount"}
+        <div class="discount-row{if !empty($discount.deny)} deny-row{/if}" data-id="{$discount.id}"{if !empty($group_id)} data-group-id='{$group_id}'{/if}>
+            <div class="discount-name">
+                <input type="checkbox" value="{$discount.id}" class="f-checker" />
+                <i class="icon16 sort" style="cursor: pointer;"></i>
+                <a href="#/discount/split/{$discount.id}" class="js-action s-split" title='[`Delete from group`]'><i class="icon16 split"></i></a>
+                <a href="#/discount/copy/{$discount.id}" class="js-action" title='[`Copy discount`]'>{$wa->shop->icon16('ss orders-all')}</a>
+                <a href="#/discount/status/{$discount.id}" class="js-action" title='[`Change status`]'><i class="icon16-custom lightbulb{if empty($discount.status)}-off{/if}"></i></a>
+                <a href="#/discount/{$discount.id}" title='[`Open discount`]'>
+                    {if !empty($discount.enable_coupon)}<i class="icon16-custom coupon"></i> {/if}
+                    {if !empty($discount.name)}{$discount.name|escape}{elseif empty($discount.description) && empty($discount.name)}[`No name discount`]{/if}
+                    {if !empty($discount.description)}
+                        {if !empty($discount.name)}
+                            <span class="discount-description hint">
+                        {/if}
+                        {$discount.description|escape}
+                        {if !empty($discount.name)}
+                            </span>
+                        {/if}
+                    {/if}
+                </a>
+            </div>
+            {if empty($discount.deny)}
+                <div class="discount-coupons">
+                    <span onclick="$.flexdiscount.discountCouponListAction(null, {$discount.id})">{if !empty($discount.coupons)}{$discount.coupons}{/if}</span>
+                </div>
+                <div class="discount-discount">
+                    <span class="editable discount-value{if empty($discount.discount_percentage) && empty($discount.discount)} hidden{/if}">
+                        {if empty($discount.discount_percentage) && empty($discount.discount)}&nbsp{/if}
+                        {if !empty($discount.discount_percentage)}
+                            <span class="f-percentage-value">{$discount.discount_percentage} %</span>
+                        {/if}
+                        {if !empty($discount.discount)}
+                            <span class="f-fixed-value"> + {$discount.discount}</span>
+                            {if !empty($discount.discount_currency)}
+                                <span class="f-currency-value">{$discount.discount_currency}</span>
+                            {/if}
+                        {/if}
+                        <span class="edit-block">
+                            <input type="text" style="width: 30px;" maxlength="3" class="f-perc-val" value="{if !empty($discount.discount_percentage)}{$discount.discount_percentage}{/if}" /> %
+                            <span class="margin-block semi" style="display: block">
+                                <input type="text" style="width: 50px;" class="f-fixed-val" value="{if !empty($discount.discount)}{$discount.discount}{/if}" />
+                                <select class="f-cur-val" style="width: 70px;">
+                                    <option {if empty($discount.discount_currency)}selected{/if} value="">[`Select currency`]</option>
+                                    {foreach $currencies as $c}
+                                        <option {if !empty($discount.discount_currency) && $discount.discount_currency == $c.code}selected{/if} value="{$c.code}">{$c.sign} {$c.code}</option>
+                                    {/foreach}
+                                </select>
+                            </span>
+                            <input type="submit" value="[`Save`]" style="width: 100%" />
+                        </span>
+                    </span>
+                </div>
+                <div class="discount-affil">
+                    <span class="editable affiliate-value{if empty($discount.affiliate_percentage) && empty($discount.affiliate)} hidden{/if}">
+                        {if empty($discount.affiliate_percentage) && empty($discount.affiliate)}&nbsp{/if}
+                        {if !empty($discount.affiliate_percentage) && $discount.affiliate_percentage !== '0.00'}
+                            <span class="f-percentage-value">{$discount.affiliate_percentage} %</span>
+                        {/if}
+                        {if !empty($discount.affiliate) && $discount.affiliate !== '0.00'}
+                            <span class="f-fixed-value"> + {$discount.affiliate}</span>
+                        {/if}
+                        <span class="edit-block">
+                            <input type="text" style="width: 30px;" maxlength="3" class="f-perc-val" value="{if !empty($discount.affiliate_percentage)}{$discount.affiliate_percentage}{/if}" /> %
+                            <span class="margin-block semi" style="display: block">
+                                <input type="text" style="width: 50px;" class="f-fixed-val" value="{if !empty($discount.affiliate)}{$discount.affiliate}{/if}" />
+                            </span>
+                            <input type="submit" value="[`Save`]" style="width: 100%" />
+                        </span>
+                    </span>
+                </div>
+            {/if}
+            <div class="discount-sort"><input type="text" onchange="$.flexdiscount.discountFrontendSortAction($(this))" value="{if isset($discount.frontend_sort)}{$discount.frontend_sort}{/if}"/></div>
+            <div class="discount-icon"><a href="#/discount/delete/{$discount.id}" class="js-action" title="[`Delete`]"><i class="icon16 delete"></i></a></div>
+        </div>
+    {/function}
+
+    <div class="margin-block">
+        <ul class="menu-h">
+            <li><a href="#/create/group/" class="js-action" title="[`Create group`]"><i class="icon16 link"></i> [`Create group`]</a></li>
+            <li>|</li>
+            <li><a href="#/dialog/merge/" class="js-action" title="[`Merge to group`]"><i class="icon16 merge"></i> [`Merge to group`]</a></li>
+            <li><a href="#/discount/split/" class="js-action" title="[`Split group`]"><i class="icon16 split"></i> [`Split group`]</a></li>
+            <li><a href="#/discount/delete/" class="js-action" title="[`Delete selected`]"><i class="icon16 delete"></i> [`Delete selected`]</a></li>
+        </ul>
+    </div>
+    <div class="margin-block bottom">
+        <form action="" method='post' class='float-left'>
+            [`Show`]
+            <select class="inherit" name='per_page' id="fl-groups-per-page" onchange="$.flexdiscount.appendLoading($(this).closest('form')); $(this).closest('form').submit()">
+                {foreach [20, 50, 100, 300, 500] as $k}
+                <option value="{$k}"{if $k == $discounts_per_page} selected{/if}>{$k}</option>
+                {/foreach}
+            </select>
+            [`rules per group`]
+            {$wa->csrf()}
+        </form>
+        <div class="float-right">[`Total quantity of rules`]: {$discounts_count}</div>
+        <div class="clear-both"></div>
+    </div>
+    <div class="discount-list col-w-{$weight}{if $columns} show-{implode(' show-', $columns)}{/if}">
+        <div class="discount-list-head discount-row">
+            <div class="discount-name">[`Description, name`]</div>
+            <div class="discount-coupons">[`Coupons`]</div>
+            <div class="discount-discount">[`Discount`]</div>
+            <div class="discount-affil">[`Affiliate`]</div>
+            <div class="discount-sort">[`Sort`]</div>
+            <div class="discount-icon"><a href="#/customize/columns/" data-type="discount" title="[`customize columns`]" class="js-action"><i class="icon16 settings"></i></a></div>
+        </div>
+        <div class="discount-list-body">
+
+            {foreach $discounts as $d}
+                {if !empty($d.id)}
+                    <div class='discount-group{if empty($d.items)} empty{/if}' data-id='{$d.id}'>
+                        {if !empty($d.items)}
+                            {$items_count = count($d.items)}
+                            {foreach $d.items as $di}
+                                {build_discount discount=$di group_id=$d.id}
+                                {if $items_count > $discounts_per_page && $discounts_per_page == ($di@index + 1)}
+                                    <div class="align-center block">
+                                        <a href="#/discount/showMore/{$d.id}/" title="[`Show more`]" class="button blue js-action">[`Show more`]</a>
+                                    </div>
+                                    {break}
+                                {/if}
+                            {/foreach}
+                        {/if}
+                        <div class="discount-combine">
+                            <select class="f-combine">
+                                {foreach ['max' => "[`MAX`]", 'mpr' => "[`MAX PROD`]", 'min' => "[`MIN`]", 'sum' => "[`SUM`]"] as $k => $combine}
+                                <option value="{$k}"{if $d.combine == $k} selected{/if}>{$combine}</option>
+                                {/foreach}
+                            </select>
+                            <a href="#/discount/splitGroup/{$d.id}" class="js-action" title="[`Split group`]"><i class="icon16 close"></i></a>
+                        </div>
+                        <div class="group-name">
+                            <span>{$d.name|escape}</span>
+                            <form style="display: none">
+                                <input type="text" value="{$d.name|escape}">
+                                <input type="submit" value="[`Save`]" />
+                            </form>
+                        </div>
+                    </div>
+                {else}
+                    {$items_count = count($d)}
+                    {foreach $d as $d1}
+                        {build_discount discount=$d1}
+                        {if $items_count > $discounts_per_page && $discounts_per_page == ($d1@index + 1)}
+                            <div class="align-center block">
+                                <a href="#/discount/showMore/" title="[`Show more`]" class="button blue js-action">[`Show more`]</a>
+                            </div>
+                            {break}
+                        {/if}
+                    {/foreach}
+                {/if}
+            {/foreach}
+        </div>
+    </div>
+    <div id="flexdiscount-dialog"></div>
+    <div id="flexdiscount-columns-dialog" style='display: none'>
+        <div class="fields margin-block top">
+            <div class="field">
+                <div class="name">[`Check columns`]</div>
+                <div class="value">
+                    <div class="margin-block bottom"><label><input type="checkbox" disabled checked /> [`Name`]</label></div>
+                    {foreach ['coupons' => _wp('Coupons'), 'discount' => _wp('Discount'), 'affil' => _wp('Affiliate')] as $k => $v}
+                        <div class="margin-block bottom">
+                            <label><input type="checkbox" value='{$k}' name='columns[]'{if in_array($k, $columns)} checked{/if} /> {$v}</label>
+                        </div>
+                    {/foreach}
+                    <div class="margin-block bottom"><label><input type="checkbox" disabled checked /> [`Sort`]</label></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{else}
+    <div class="margin-block align-center"><img src="{$plugin_url}img/sad.png" /></div>
+    <p class="align-center">[`You don't have any discounts`]</p>
+    <div class="margin-block align-center">
+        <a class="button green" href="#/discount/new/" title="[`Create discount`]">[`Create discount`]</a>
+        <a class="button red" href="#/discount/deny/" title="[`Create deny rule`]">[`Create deny rule`]</a>
+    </div>
+{/if}
+<div id="fixed-save-panel">
+     <div class="block bordered-top">
+        <a class="button green" href="#/discount/new/" title="[`Create discount`]">[`Create discount`]</a>
+        <a class="button red" href="#/discount/deny/" title="[`Create deny rule`]">[`Create deny rule`]</a>
+    </div>
+</div>
+<div class="clear-left"></div>
+<script>
+    $.flexdiscount.initBackend();
+</script>
+<style>
+    .discount-group.empty:after { content: '[`Drag discounts into group or select and merge`]'; }
+</style>

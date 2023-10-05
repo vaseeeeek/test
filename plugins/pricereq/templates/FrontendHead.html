@@ -1,0 +1,22 @@
+{if isset($pricereq_settings.id_in_html) && $pricereq_settings.id_in_html}
+
+	<link href="{$wa_url}wa-apps/shop/plugins/pricereq/css/pricereq.frontend.css?{$wa->version()}" rel="stylesheet">
+
+	{if isset($pricereq_settings.phone_masked_input) && strlen($pricereq_settings.phone_masked_input) > 0}
+	<script type="text/javascript" src="{$wa_url}wa-apps/shop/plugins/pricereq/js/jquery.maskedinput.min.js"></script>
+	{/if}
+
+	<script src="{$wa_url}wa-apps/shop/plugins/pricereq/js/pricereq.frontend.js?{$wa->version()}" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		(function ($) {
+			var localeSettings = {};
+				localeSettings.text_close = '{_wp("Close")}';
+				localeSettings.error_sendmail = '{_wp("Error occurred when sending message")}';
+				localeSettings.error_name_phone = '{_wp("Complete «Phone» or «Email»")}';
+
+		    pricereqFrontend.initModule("{$pricereq_url}", {json_encode($pricereq_settings)}, localeSettings);
+		})(jQuery);
+	</script>
+		
+{/if}

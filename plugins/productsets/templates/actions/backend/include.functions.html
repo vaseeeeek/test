@@ -1,0 +1,30 @@
+{strip}
+
+    {function name="output_options"}
+        {foreach $options as $option}
+            <option value="{$option}" selected></option>
+        {/foreach}
+    {/function}
+
+    {function name="output_text_settings" text_settings=[] set=[] setting_key=''}
+        {foreach $text_settings as $key => $text}
+            {$value = $text.default}
+            {if !empty($set.settings[$setting_key][$key])}
+                {$value = $set.settings[$setting_key][$key]}
+            {/if}
+            <div class="field">
+                <div class="name">{$text.title|escape}</div>
+                <div class="value">
+                    <input type="text" name="{$setting_key}[{$key}]" value="{$value|escape}">
+                    {if !empty($text.tooltip)}
+                        <span class="shop-tooltip">
+                            <i class="icon16 info"></i>
+                            <span>{$text.tooltip}</span>
+                        </span>
+                    {/if}
+                </div>
+            </div>
+        {/foreach}
+    {/function}
+
+{/strip}

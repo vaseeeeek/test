@@ -1,0 +1,12 @@
+<div id="mount"></div>
+<script>
+	window.brand = {
+		resource_base_url: '{shopBrandHelper::getStaticUrl('assets')}',
+
+		reviews: {$reviews|json_encode},
+		brands: {$brands|json_encode},
+		current_user: {$current_user|json_encode}
+	};
+</script>
+<link rel="stylesheet" href="{shopBrandHelper::getStaticUrl('assets/brand_reviews_page.css')}?v={$asset_version}" />
+<script src="{shopBrandHelper::getStaticUrl('assets/brand_reviews_page.js')}?v={$asset_version}"></script>

@@ -1,0 +1,6 @@
+.b-cityselect__green {
+  border-color: green;
+}
+.field-address .suggestions-wrapper span {
+  display: inline !important;
+}

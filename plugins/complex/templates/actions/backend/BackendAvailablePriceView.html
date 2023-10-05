@@ -1,0 +1,21 @@
+{if empty($name)}
+{$name = 'shop_complex[available_prices]'}
+{/if}
+
+<tr id="c-available-price-{$price.id}">
+	<td style="padding-left: 0;" align="center">
+		<div class="s-ibutton-checkbox">
+			<ul class="menu-h">
+				<li><input name="{$name}[{$price.id}][on]" class="c-available-prices-button i-button-mini" type="checkbox"{if !empty($value[$price.id]['on'])} checked{/if}></li>
+			</ul>
+		</div>
+	</td>
+	{*<td style="padding: 0;"><i class="c-price-type-sort icon16 sort"></i></td>*}
+	<td>
+		<span class="gray">№{$price.id}</span>
+		<input value="{ifempty($value[$price.id]['name'])}" name="{$name}[{$price.id}][name]" type="text" placeholder="{$price.name|escape}"/>
+	</td>
+	<td>
+		<textarea name="{$name}[{$price.id}][conditions]" placeholder="{$price.rule_simple|escape|trim}">{ifempty($value[$price.id]['conditions'])|escape:'html'}</textarea>
+	</td>
+</tr>

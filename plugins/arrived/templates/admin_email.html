@@ -1,0 +1,10 @@
+<p>Это автоматическое оповещение от плагина «Уведомление о поступлении»!</p>
+<p>Один из пользователей оставил заявку на уведомление о поступлении продукта «<strong>{$product.name|escape}</strong> {if !empty($product.sku.name)}({$product.sku.name}){/if}».</p>
+<p>
+{if $wa->user()->isAuth()}Пользователь: {$wa->user('name')}{/if}
+<br />Указанный E-Mail: {$smarty.post.email|default:"<i>не указан</i>"}
+<br />Указанный телефон: {$smarty.post.phone|default:"<i>не указан</i>"}
+<br />Отправлено со страницы: {$smarty.server.HTTP_REFERER}
+</p>
+<p>&nbsp;</p>
+<p>Вы можете отключить подобные оповещения в настройках плагина.</p>

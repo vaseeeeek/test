@@ -1,0 +1,430 @@
+{function name=seoratings_in_stock n=0 low=5 critical=2}
+  {if $n > $low or $n === null}
+    <span class="seoratings__standard__stock seoratings__standard__stock-high"><i class="seoratings__standard__stock--icon -green"></i>[`In stock`]</span>
+  {elseif $n > $critical}
+    <span class="seoratings__standard__stock seoratings__standard__stock-low"><i class="seoratings__standard__stock--icon -yellow"></i>{_w("Only %d left in stock", "Only %d left in stock", $n)}{*{_w("Only a few items left")}*}</span>
+  {elseif $n > 0}
+    <span class="seoratings__standard__stock seoratings__standard__stock-critical"><i class="seoratings__standard__stock--icon -red"></i>{_w("Only %d left in stock", "Only %d left in stock", $n)}</span>
+  {else}
+    <span class="seoratings__standard__stock seoratings__standard__stock-none"><i class="seoratings__standard__stock--icon -transparent"></i>{if $wa->shop->settings('ignore_stock_count')}[`Pre-order only`]{else}[`Out of stock`]{/if}</span>
+  {/if}
+{/function}
+
+{$skus = $wa->shop->skus(array_keys($products))}
+
+{foreach $skus as $pid => $sku}
+  {if count($sku)}{$products[$pid]['skus'] = $sku}{/if}
+{/foreach}
+
+{$_features = $wa->shop->features($products, false)}
+
+{$primary_color = $rating.primary_color|default:'#333'}
+{$primary_text_color = $rating.primary_text_color|default:'#fff'}
+{$price_color = $rating.price_color|default:'#333'}
+{$rating_star_size = $wa->globals('seoratings_star_size')|default:10}
+{$_brand_feature_name = $rating.brand_feature_name|default:'brend'}
+
+{if !isset($rating['raw'])}{shopSeoratingsPlugin::getBreadcrumbs($rating)}{/if}
+
+{capture name="_svg_icon"}<svg x="0px" y="0px" width="35" class="seoratings__standard__image--video" viewBox="0 0 55.7 40.2" style="enable-background:new 0 0 55.7 40.2;" xml:space="preserve"><g><path style="fill: {$primary_color}" class="st0" d="M55.7,15.3c0-1.1-0.1-2.5-0.2-4.3c-0.2-1.7-0.4-3.2-0.7-4.6c-0.3-1.5-1-2.8-2.1-3.9c-1.1-1-2.5-1.7-3.9-1.8 C44.1,0.2,37.1,0,27.8,0S11.4,0.2,6.9,0.8C5.4,1,4.1,1.6,3,2.6S1.2,4.9,0.9,6.5c-0.3,1.3-0.6,2.9-0.7,4.6C0,12.8,0,14.3,0,15.4 s0,2.7,0,4.7s0,3.6,0,4.7c0,1.1,0.1,2.5,0.2,4.3s0.4,3.2,0.7,4.6c0.3,1.5,1,2.8,2.1,3.9c1.1,1,2.5,1.7,3.9,1.8 c4.7,0.6,11.6,0.8,20.9,0.8s16.4-0.2,20.9-0.8c1.5-0.2,2.8-0.8,3.9-1.8s1.8-2.3,2.1-3.9c0.3-1.3,0.6-2.9,0.7-4.6 c0.2-1.7,0.2-3.2,0.2-4.3s0-2.7,0-4.7S55.7,16.4,55.7,15.3z M38.8,21.7l-16,10c-0.3,0.2-0.6,0.3-1,0.3c-0.3,0-0.6-0.1-0.9-0.2 c-0.7-0.4-1-0.9-1-1.7V10c0-0.8,0.3-1.3,1-1.7S22.3,8,23,8.4l15.9,10c0.6,0.3,0.9,0.9,0.9,1.7C39.7,20.8,39.4,21.3,38.8,21.7z"/></g></svg>{/capture}
+{capture name="_svg_icon_filter"}<svg class="seoratings__standard__icon--filter" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve"><circle cx="256" cy="256" r="256" fill="#ffdc00"/><path d="M209 410l97 97A256 256 0 00512 248.3L404.6 141 209.1 410z" fill="#ffc000"/><path fill="#005c83" d="M404.6 141H107.4v53.9l101.7 125.6h93.8l101.7-125.6z"/><path fill="#0074a3" d="M107.4 141h297.2v53.9H107.4z"/><path fill="#005c83" d="M255.7 141h148.9v53.9H255.7z"/><path fill="#00263f" d="M404.6 194.9H255.7v125.6h47.2z"/><path fill="#0074a3" d="M209.1 410.1l93.8 33.8V320.5h-93.8z"/><path fill="#005c83" d="M302.9 320.5h-47.2v106.4l47.2 17z"/></svg>{/capture}
+{capture name="_svg_icon_star_filled"}<svg width="14" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 126.7 126.7"><path d="M121.2 44.2L86.3 41a6 6 0 01-5-3.7L68.8 7a6 6 0 00-11 0L45.2 37.2a6 6 0 01-5 3.7L5.4 44.2A6 6 0 002 54.7l26.3 23.1a6 6 0 012 6l-8 32.3a6 6 0 009 6.6l29-17a6 6 0 016.1 0l29.1 17a6 6 0 009-6.6l-7.9-32.4a6 6 0 012-5.9l26.2-23c3.8-3.6 1.6-10-3.6-10.6z"/></svg>{/capture}
+
+<h1 class="seoratings__standard__title">{$rating.title}</h1>
+
+<div class="seoratings__standard__title--sub -info">
+  {if $rating.position_shift and isset($rating.base_rating) and isset($base_rating_products)}
+    <div class="seoratings__standard__paragraph--sub">
+      Изменения в рейтинге показаны относительно
+      <a class="seoratings__module__related__link" target="_blank" href="{$rating.base_rating.frontend_url}">{$rating.base_rating.title}</a>
+    </div>
+  {/if}
+  {if $rating.related_ratings}
+    <div class="seoratings__standard__paragraph--sub">
+      <div class="seoratings__module__related__item">
+        <span>Другие рейтинги:</span>
+      </div>
+      {foreach $rating.related_ratings as $_rating}
+        <div class="seoratings__module__related__item">
+          <a class="seoratings__module__related__link" target="_blank" href="{$_rating.frontend_url}" target="_blank">{$_rating.title}</a>
+        </div>
+      {/foreach}
+    </div>
+  {/if}
+  {if $rating.created_at}
+    {$_date = strtotime($rating.created_at)}
+    <div class="seoratings__standard__paragraph--sub">
+      Дата формирования рейтинга <b>{strftime( '%d', $_date)} {strftime( '%B', $_date)} {strftime( '%Y', $_date)}</b>
+    </div>
+  {/if}
+  {if $rating.updated_at}
+    {$_date = strtotime($rating.updated_at)}
+    <div class="seoratings__standard__paragraph--sub">
+      Дата последнего обновления рейтинга <b>{strftime( '%d', $_date)} {strftime( '%B', $_date)} {strftime( '%Y', $_date)}</b>
+    </div>
+  {/if}
+</div>
+
+{if !isset($rating['raw']) and $rating.filter}
+  <a class="seoratings__module__filter__box--active-filter" data-js="filter--active" data-micromodal-trigger="js-seoratings-filter">
+    <div class="seoratings__module__filter__title--active-filter">
+      <span class="seoratings__module__filter__link--active-filter">Активные фильты</span>
+      <span class="seoratings__module__filter__count--active-filter" data-js="filter__active--count"></span>
+    </div>
+    <div class="seoratings__module__filter__list--active-filter" data-js="filter__active--list"></div>
+  </a>
+  <div class="seoratings__module__modal seoratings__module__modal--slide" id="js-seoratings-filter" aria-hidden="true">
+    <div class="seoratings__module__modal__overlay" tabindex="-1" data-micromodal-close>
+      <div class="seoratings__module__modal__container" role="dialog" aria-modal="true" aria-labelledby="js-seoratings-filter-title">
+        <header class="seoratings__module__modal__header">
+          <h2 class="seoratings__module__modal__title" id="js-seoratings-filter-title">Фильтр</h2>
+          <div class="seoratings__module__modal__title--found -top">Найдено товаров: <span data-js="filter__products--count">{$products|count}</span></div>
+          <button class="seoratings__module__modal__close" aria-label="Close modal" data-micromodal-close></button>
+        </header>
+        <main class="seoratings__module__modal__content" id="js-seoratings-filter-content">
+          <aside class="seoratings__standard__aside--top" id="seoratingsAside"></aside>
+        </main>
+        <footer class="seoratings__module__modal__footer">
+          <div class="seoratings__module__modal__title--found -bottom">Найдено товаров: <span data-js="filter__products--count">{$products|count}</span></div>
+          <button class="seoratings__module__modal__btn" data-micromodal-close aria-label="Close this dialog window">Применить</button>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <div class="seoratings__module__filter__actions">
+    <a class="seoratings__module__filter__trigger" data-micromodal-trigger="js-seoratings-filter">
+      {$smarty.capture._svg_icon_filter}
+      <span>Фильтр</span>
+    </a>
+  </div>
+{/if}
+
+<div class="seoratings__standard__content">
+  {if !isset($rating['raw']) and $rating.short_description}<div class="seoratings__standard__description -top">{$rating.short_description}</div>{/if}
+  {strip}
+    <div id="seoratingsListView" class="seoratings__standard__list--items">
+      {foreach $products as $p}
+        {$_p_object = $wa->shop->product($p.id)}
+        {$_p_features = $_p_object->getFeatures('all')}
+        {if class_exists('shopSeoViewHelper') and (class_exists('shopSeoPlugin') and shopSeoPlugin::isEnabled())}
+          {$_p_object = shopSeoViewHelper::extendProduct($_p_object)}
+          {$_seo_title = null}
+          {foreach $_p_object.fields as $field}
+            {if $field.name == 'Заголовок СЕО-Рейтингов'}
+              {$_seo_title = $field.value}
+              {break}
+            {/if}
+          {/foreach}
+          {if $_seo_title}{$p.name = $_seo_title}{/if}
+        {/if}
+        <div id="seoratings-product-cid-{$p.id}" class="seoratings__standard__item" data-js="product__item" itemscope itemtype="https://schema.org/Product">
+          <div class="seoratings__standard__col--left">
+            <div class="seoratings__standard__box--counter">
+              <span class="seoratings__standard__counter" style="background-color: {$primary_color}; color: {$primary_text_color};">{$p.seoratings_position}</span>
+              {if $rating.position_shift and isset($rating.base_rating) and isset($base_rating_products)}
+                <div class="seoratings__standard__box--shift">
+                  {if array_key_exists($p.id, $base_rating_products)}
+                    {$_shift = $base_rating_products[$p.id].seoratings_position - $p.seoratings_position}
+                    {if $_shift == 0}
+                      <span class="seoratings__standard__shift -counter -neutral"><span class="seoratings__standard__shift--sign">&#177;</span>{$_shift|abs}</span>
+                    {elseif $_shift < 0}
+                      <span class="seoratings__standard__shift -counter -negative"><span class="seoratings__standard__shift--sign">&#9660;</span>{$_shift|abs}</span>
+                    {else}
+                      <span class="seoratings__standard__shift -counter -positive"><span class="seoratings__standard__shift--sign">&#9650;</span>{$_shift|abs}</span>
+                    {/if}
+                  {else}
+                    <span class="seoratings__standard__shift -counter -empty"><span class="seoratings__standard__shift--sign"></span>&mdash;</span>
+                  {/if}
+                </div>
+              {/if}
+            </div>
+            {if $rating.brand and array_key_exists($_brand_feature_name, $_p_features)}
+              {if class_exists('shopBrandViewHelper')}
+                <div class="seoratings__standard__brand--counter">
+                  {$_p_counter_brand = shopBrandViewHelper::getProductBrand($p)}
+                  {if $_p_counter_brand and $_p_counter_brand->hasImage()}
+                    <a class="seoratings__standard__brand--link--figure" {if $_p_counter_brand}href="{$_p_counter_brand->getFrontendUrl()}"{/if} target="_blank">
+                      <img class="seoratings__standard__brand--figure" width="50" src="{$_p_counter_brand->getImageUrl(50)}" alt="{$_p_features[$_brand_feature_name]}">
+                    </a>
+                  {/if}
+                </div>
+              {/if}
+            {/if}
+          </div>
+          <div class="seoratings__standard__col--middle">
+            <a class="seoratings__standard__link--image" href="{$p.frontend_url}" target="_blank" title="{$p.name|escape}">
+              {if $_p_object->video_url}{$smarty.capture._svg_icon}{/if}
+              {$_img = $wa->shop->productImgUrl($p, $rating.img_size|default:520)}
+              <img class="seoratings__standard__image--product" {if $_img == ''}width="{$rating.img_size}"{/if} src="{$_img|default:'/wa-apps/shop/plugins/seoratings/img/no-image.svg'}" alt="{$p.name|escape} &mdash; {$wa->globals('store_name')}">
+            </a>
+          </div>
+
+          <div class="seoratings__standard__col--right">
+            {if $rating.code or $rating.stock}
+              <div class="seoratings__standard__box--top">
+                {if $rating.code}
+                  <div class="seoratings__standard__box seoratings__standard__box--code {if !$rating.stock}-full{/if}">Код: {$p.skus[0].sku}</div>
+                {/if}
+                {if $rating.stock}
+                  <div class="seoratings__standard__box seoratings__standard__box--stocks {if !$rating.code}-full{/if}">
+                    {seoratings_in_stock n=$p.count}
+                  </div>
+                {/if}
+              </div>
+            {/if}
+            <div class="seoratings__standard__box seoratings__standard__box--title">
+              <a class="seoratings__standard__link" href="{$p.frontend_url}" target="_blank" title="{$p.name|escape}">
+                {$_p_object.params['seo_title']|default:$p.name|trim}
+              </a>
+            </div>
+
+            {$rate = $p.rating|round}
+            {if $rating.rating and !empty($rate) and $rate > 0}
+              <div class="seoratings__standard__box seoratings__standard__box--info seoratings__standard__box--rating">
+                <a class="seoratings__module__rating__link" href="{$p.frontend_url}#reviews" target="_blank">
+                  {for $i=1 to 5}
+                    <span class="seoratings__module__rating__star{if $i <= $rate} seoratings__module__rating__star--checked{/if}">
+                      {$smarty.capture._svg_icon_star_filled}
+                    </span>
+                  {/for}
+                  <span class="seoratings__module__rating__count">({$p.rating_count})</span>
+                </a>
+              </div>
+            {/if}
+
+            {if $rating.category}
+              {$_primary_category = $wa->shop->category($p.category_id)}
+              <div class="seoratings__standard__box seoratings__standard__box--info seoratings__standard__box--category">
+                <span class="seoratings__standard__category--title">Категория:</span>
+                <a href="{$wa->shop->categoryUrl($_primary_category)}" class="seoratings__standard__category--link" target="_blank">{$_primary_category.name}</a>
+              </div>
+            {/if}
+
+            {if $rating.skus and $p.sku_count > 1}
+              <div class="seoratings__standard__box seoratings__standard__box--info seoratings__standard__box--skus">
+                <span class="seoratings__standard__skus--title">{$rating.heading_skus|default:'Модификации'}:</span>
+                  {foreach $skus[$p.id] as $_sku}
+                    <a href="{$p.frontend_url}?sku={$_sku.id}" target="_blank" class="seoratings__standard__skus--link">{if $_sku.name}{$_sku.name}{else}Арт.{$_sku.sku}{/if}{if not $_sku@last}, {/if}</a>
+                  {/foreach}
+              </div>
+            {/if}
+
+            {$_brand_feature_name = $rating.brand_feature_name|default:'brend'}
+            {$_product_brand = null}
+            {if $rating.brand and array_key_exists($_brand_feature_name, $_p_features)}
+              {if class_exists('shopBrandViewHelper')}{$_product_brand = shopBrandViewHelper::getProductBrand($p)}{/if}
+              <div class="seoratings__standard__box seoratings__standard__box--info seoratings__standard__box--brand">
+                <span class="seoratings__standard__brand--title">{$_features[$_brand_feature_name].name}:</span>
+                <a class="seoratings__standard__brand--value" {if $_product_brand}href="{$_product_brand->getFrontendUrl()}"{/if} target="_blank">{$_p_features[$_brand_feature_name]}</a>
+              </div>
+            {/if}
+
+            {if class_exists('shopProductgroupViewHelper')}
+              <div class="seoratings__standard__box seoratings__standard__box--info seoratings__standard__box--skus">
+                {shopProductgroupViewHelper::getGroupsBlock($p.id)}
+              </div>
+            {/if}
+
+            {if $rating.summary and $p.summary|trim}
+              {$_length = mb_strlen($p.summary)}
+              {if $rating.description_length and !empty($rating.description_length) and $_length > intval($rating.description_length)}
+                {$_begin_text = mb_substr($p.summary, 0, 150)}
+                {$_begin_text_length = mb_strlen($_begin_text)}
+              <div class="seoratings__standard__box seoratings__standard__box--description">
+                {$_begin_text}
+                {if $_length > $_begin_text_length}
+                  <span class="seoratings__standard__description__text--ellipsis" data-js="seoratings__description--ellipsis">...</span>
+                  <span class="seoratings__standard__description__text--full" data-js="seoratings__description--content" style="display: none;">{mb_substr($p.summary, 150)}</span>
+                  <a class="seoratings__standard__description__link--full" data-js="seoratings__description--toggle">Полное описание</a>
+                {/if}
+                </div>
+              {else}
+                <div class="seoratings__standard__box seoratings__standard__box--description">{$p.summary}</div>
+              {/if}
+            {/if}
+
+            {strip}
+              {if $rating.features and $rating.feature_codes and !empty($rating.feature_codes)}
+                {if $rating.feature_titles and !empty($rating.feature_titles)}
+                  {$_feature_titles = []}
+                  {$_feature_titles_raw = explode("\n", $rating.feature_titles|trim)}
+                  {foreach $_feature_titles_raw as $_title}
+                    {$_parts = explode('=', $_title)}
+                    {$_feature_titles[$_parts[0]] = $_parts[1]|trim}
+                  {/foreach}
+                {/if}
+                {$_codes = $rating.feature_codes}
+                {if count($_codes)}
+                  <div class="seoratings__standard__box seoratings__standard__box--features">
+                    {foreach $_codes as $_code}
+                      {if array_key_exists($_code, $_p_features)}
+                        <div class="seoratings__standard__features--item">
+                          <span class="seoratings__standard__features--name">
+                            {$_feature_titles[$_code]|default:$_features[$_code].name|default:'Характеристика'}
+                          </span>
+                          <span class="seoratings__standard__features--value">
+                            {if is_array($_p_features[$_code])}
+                              {if $_features[$_code].type == 'color'}{implode(', ', $_p_features[$_code])}{else}{implode(', ', $_p_features[$_code])}{/if}
+                            {else}
+                              {$_p_features[$_code]}
+                            {/if}
+                          </span>
+                        </div>
+                      {/if}
+                    {/foreach}
+                  </div>
+                {/if}
+              {/if}
+            {/strip}
+
+            {$_has_pros = array_key_exists($rating.pros_feature_name|default:'', $_p_features)}
+            {$_has_cons = array_key_exists($rating.cons_feature_name|default:'', $_p_features)}
+
+            {if $rating.price}
+              {if $p.sku_count > 1}
+                {$_price_range = shopSeoratingsPlugin::getSkusPriceRage($skus[$p.id])}
+                <div class="seoratings__standard__box seoratings__standard__box--price">
+                  <span class="seoratings__standard__price" style="color: {$price_color}">
+                    {if $_price_range['single_price'] == false}
+                      {shop_currency_html($_price_range['min'])} ... {shop_currency_html($_price_range['max'])}
+                    {else}
+                      {shop_currency_html($_price_range['single_price'])}
+                    {/if}
+                  </span>
+                  {*              {if isset($rating.price_old) and $p.compare_price > 0}<span class="seoratings__standard__price--old">{shop_currency_html($p.compare_price)}</span>{/if}*}
+                  {if $rating.advantages and $rating.advantages_fold and ($_has_pros or $_has_cons)}
+                    <a class="seoratings__standard__advantages__link--toggle" data-js="seoratings__advantages--toggle" data-text-hidden="Показать преимущества" data-text-visible="Скрыть преимущества" data-state="hidden">Показать преимущества</a>
+                  {/if}
+                </div>
+              {else}
+                <div class="seoratings__standard__box seoratings__standard__box--price">
+                  <span class="seoratings__standard__price" style="color: {$price_color}">{shop_currency_html($p.price)}</span>
+                    {if $rating.price_old and $p.compare_price > 0}<span class="seoratings__standard__price--old">{shop_currency_html($p.compare_price)}</span>{/if}
+                    {if $rating.advantages and $rating.advantages_fold and ($_has_pros or $_has_cons)}
+                      <a class="seoratings__standard__advantages__link--toggle" data-js="seoratings__advantages--toggle" data-text-hidden="Показать преимущества" data-text-visible="Скрыть преимущества" data-state="hidden">Показать преимущества</a>
+                    {/if}
+                </div>
+              {/if}
+            {/if}
+
+            {if $rating.advantages and ($_has_pros or $_has_cons)}
+              <div class="seoratings__standard__box seoratings__standard__box--advantages" data-js="seoratings__advantages--content" {if $rating.advantages_fold}style="display: none;"{/if}>
+                {if $_has_pros}
+                  <div class="seoratings__standard__advantages--pros {if !$_has_cons}-full{/if}">
+                    <div class="seoratings__standard__advantages--title -pros">Преимущества</div>
+                      {$_pros = explode("\n", str_replace("\r\n", "\n", $_p_features[$rating.pros_feature_name|trim]))}
+                      {if count($_pros)}
+                        <ul class="seoratings__standard__advantages--list -pros">
+                          {foreach $_pros as $_one}
+                            <li class="seoratings__standard__advantages--item -pros">{$_one}</li>
+                          {/foreach}
+                        </ul>
+                      {/if}
+                  </div>
+                {/if}
+                {if $_has_cons}
+                  <div class="seoratings__standard__advantages--cons {if !$_has_pros}-full{/if}">
+                    <div class="seoratings__standard__advantages--title -pros">Недостатки</div>
+                      {$_cons = explode("\n", str_replace("\r\n", "\n", $_p_features[$rating.cons_feature_name|trim]))}
+                      {if count($_cons)}
+                        <ul class="seoratings__standard__advantages--list -cons">
+                          {foreach $_cons as $_one}<li class="seoratings__standard__advantages--item -cons">{$_one}</li>{/foreach}
+                        </ul>
+                      {/if}
+                  </div>
+                {/if}
+              </div>
+            {/if}
+            
+            {if $rating.sibling_positions and !empty($p.previous_positions)}
+              <div class="seoratings__standard__box seoratings__standard__box--sibling-positions">
+                <div class="seoratings__module__previous__title">Данный товар в других рейтингах</div>
+                <div class="seoratings__module__previous__list">
+                  {foreach $p.previous_positions as $_previous}
+                    <div class="seoratings__module__previous__item">
+                      <a class="seoratings__module__previous__link" href="{$_previous.frontend_url}">
+                        <span class="seoratings__module__previous__position">{$_previous.position}</span>
+                        <span class="seoratings__module__previous__name">{$_previous.title}</span>
+                      </a>
+                    </div>
+                  {/foreach}
+                </div>
+              </div>
+            {/if}
+            
+            {$_tags = $_p_object.tags}
+            {if $rating.tags and count($_tags)}
+              <div class="seoratings__standard__box seoratings__standard__box--product-tags">
+                {foreach $_tags as $tag}
+                  <a style="background-color: {$primary_color}; color: {$primary_text_color};" href="{$wa->getUrl('/frontend/tag', ['tag' => urlencode($tag)])}" title="{$tag|escape}" class="seoratings__standard__product-tags--link" target="_blank">{$tag|escape}</a>
+                {/foreach}
+              </div>
+            {/if}
+          </div>
+        </div>
+      {/foreach}
+    </div>
+  {/strip}
+  {if !isset($rating['raw']) and $rating.description}
+    <div class="seoratings__standard__description -bottom">{$rating.description}</div>
+  {/if}
+</div>
+
+{literal}
+  <script>window.Seoratings = window.Seoratings || {};</script>
+{/literal}
+
+<script>
+  $(function() {
+    {if $rating.advantages and $rating.advantages_fold}
+    $('[data-js="seoratings__advantages--toggle"]').on('click', function(event) {
+      event.preventDefault();
+      var state = this.getAttribute('data-state'),
+        content = $(this).closest('[data-js="product__item"]').find('[data-js="seoratings__advantages--content"]');
+      if (state === 'hidden') {
+        content.show();
+        this.setAttribute('data-state', 'visible');
+      } else {
+        content.hide();
+        this.setAttribute('data-state', 'hidden');
+      }
+      this.innerHTML = this.getAttribute('data-text-' + this.getAttribute('data-state'));
+    });
+    {/if}
+    $('[data-js="seoratings__description--toggle"]').on('click', function(event) {
+      var item = $(this).closest('[data-js="product__item"]'),
+        content = item.find('[data-js="seoratings__description--content"]'),
+        ellipsis = item.find('[data-js="seoratings__description--ellipsis"]');
+      content.show();
+      ellipsis.remove();
+      $(this).remove();
+    });
+  });
+</script>
+{if !isset($rating['raw'])}
+  {foreach $templates as $id => $template}
+    <script id="{$id}" type="template/hbs">{$template}</script>
+  {/foreach}
+  
+  {if $rating.filter}
+    <script src="{$wa_url}wa-apps/shop/plugins/seoratings/js/libs/handlebars.min-v4.5.3.js"></script>
+    <script src="{$wa_url}wa-apps/shop/plugins/seoratings/js/libs/underscore-min.js"></script>
+    <script src="{$wa_url}wa-apps/shop/plugins/seoratings/js/libs/backbone-min.js"></script>
+    <script src="{$wa_url}wa-apps/shop/plugins/seoratings/js/bootstrap.js"></script>
+  {/if}
+  <script>
+    Seoratings.products = {$products|json_encode};
+    Seoratings.features = {$_features|json_encode};
+    Seoratings.theme_id = '{$theme_id}';
+    {if $rating.filter}
+      Seoratings.feature_values = {$seoratings_filters|json_encode};
+    {/if}
+  </script>
+  {if $rating.filter}
+    <script src="{$wa_url}wa-apps/shop/plugins/seoratings/js/frontend/rating-frontend.js"></script>
+    <script src="{$wa_url}wa-apps/shop/plugins/seoratings/js/libs/micromodal.min.js"></script>
+    <script>
+      MicroModal.init();
+    </script>
+  {/if}
+{/if}

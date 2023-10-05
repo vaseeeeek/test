@@ -1,0 +1,27 @@
+{strip}
+	{include './util.html'}
+
+	<script>
+		window.shop_buy1click_config = {$config_json};
+
+		jQuery(function () {
+			if(!window.shop_buy1click) buy1ClickInitialize();
+		});
+	</script>
+	<button class="buy1click-open-button {$settings.btn_class}" type="button"{' '}
+			data-type="{$type}"{' '}
+
+			{if $type == shopBuy1clickForm::TYPE_ITEM}
+				data-product_id="{$product_id|escape}"{' '}
+
+				{if $sku_id}
+					data-sku_id="{$sku_id|escape}"{' '}
+				{/if}
+
+				data-sku_available="{shopBuy1clickViewHelper::getSkuAvailable($product_obj)|json_encode|escape}"{' '}
+				data-default_sku_id="{$default_sku_id|escape}"
+			{/if}>
+		{$settings.btn_text}
+		{call buy1click_svg_sprite_icon classes='buy1click-loader buy1click-loader_button buy1click-button__loader' icon='spinner' width=16 height=16 stroke='#828282'}
+	</button>
+{/strip}

@@ -1,0 +1,23 @@
+<div class="{$container_class}__breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
+  <div class="{$container_class}__breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <a class="{$container_class}__breadcrumbs__link -Home" rel="nofollow" href="{$wa->getUrl('shop/frontend')}" itemprop="item">
+      <span itemprop="name">Главная</span>
+    </a>
+    <meta itemprop="position" content="1" />
+  </div>
+  {foreach $plugin_breadcrumbs as $breadcrumb}
+    <div class="{$container_class}__breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <i class="{$container_class}__breadcrumbs__icon--divider">→</i>
+      {if $breadcrumb@last}
+        <span class="{$container_class}__breadcrumbs__link -Item" itemprop="item">
+          <span itemprop="name">{$breadcrumb.name|escape}</span>
+        </span>
+      {else}
+        <a class="{$container_class}__breadcrumbs__link -Item" {if isset($breadcrumb.url)}href="{$breadcrumb.url}"{/if} itemprop="item">
+          <span itemprop="name">{$breadcrumb.name|escape}</span>
+        </a>
+        <meta itemprop="position" content="{$breadcrumb@iteration + 1}" />
+      {/if}
+    </div>
+  {/foreach}
+</div>

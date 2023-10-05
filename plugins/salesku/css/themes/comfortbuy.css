@@ -1,0 +1,4 @@
+.salesku_plugin-product form.addtocart {float: inherit;}
+ul.list .salesku_plugin-product .image {vertical-align: top;}
+ul.list .salesku_plugin-product input[type='submit'] {margin-top: 10px;}
+ul.list .salesku_plugin-product .available {display: none;}

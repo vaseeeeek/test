@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="{$wa_url}wa-apps/shop/plugins/seoratings/css/frontend/seoratings-category.css">
+
+<div class="seoratings-category">
+  <div class="seoratings-category__title">Рейтинги товаров</div>
+  <div class="seoratings-category__list">
+    {foreach $ratings as $rating}
+      <div class="seoratings-category__item">
+        <a class="seoratings-category__link" href="{$rating.frontend_url}">
+          {if $rating.image_thumb}
+            <div class="seoratings-category__box--image">
+              <img class="seoratings-category__image" src="{$rating.image_thumb}" alt="{$rating.title}">
+            </div>
+          {/if}
+          <div class="seoratings-category__title--item">{$rating.title}</div>
+          {if $rating.list_description}
+            <div class="seoratings-category__description">
+              {$rating.list_description|mb_substr:0:150|escape}&nbsp;{if $rating.list_description|mb_strlen > 150}...{/if}
+            </div>
+          {/if}
+        </a>
+      </div>
+    {/foreach}
+  </div>
+</div>

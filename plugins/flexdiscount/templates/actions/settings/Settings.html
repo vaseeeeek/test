@@ -1,0 +1,70 @@
+{* @author Gaponov Igor <gapon2401@gmail.com> *}
+
+{* Switcher *}
+<link rel="stylesheet" href="{$wa_url}wa-content/js/jquery-plugins/ibutton/jquery.ibutton.min.css?v={$wa->version()}">
+<script src="{$wa_url}wa-content/js/jquery-plugins/ibutton/jquery.ibutton.min.js"></script>
+
+{* Editor *}
+<script src="{$wa_url}wa-content/js/ace/ace.js?v={$wa->version(true)}"></script>
+<script src="{$wa_url}wa-content/js/jquery-wa/editor.js?v={$wa->version(true)}"></script>
+<script src="{$wa_url}wa-content/js/jquery-wa/wa.elrte.ace.js?v={$wa->version()}"></script>
+
+<link rel="stylesheet" href="{$plugin_url}css/flexdiscount.css?v={$version}"/>
+<script src="{$plugin_url}js/translate.js"></script>
+<script src="{$plugin_url}js/flexdiscount.js?v={$version}"></script>
+<script src="{$plugin_url}js/flexdiscount.settings.js?v={$version}"></script>
+
+<div class="block double-padded flexdiscount-settings">
+    <h1>
+        [`Flexdiscount`]
+        <a href="javascript:void(0)" class="js-system-settings" title="[`System settings`]"><i class="icon16 settings"></i></a>
+    </h1>
+    <a href="[`https://igaponov.com/docs/flexdiscount/`]" title="[`Documentation`]" target="_blank" class="top-right30"><i class="icon16 book-open"></i> [`Documentation`]</a>
+    <div class="fields form">
+        <div class="field-group">
+            <div class="field">
+                <div class="name">[`Status`]</div>
+                <div class="value no-shift s-ibutton-checkbox">
+                    <ul class="menu-h">
+                        <li><span class="gray" id="s-discount-type-disabled-label">[`Disabled`]</span></li>
+                        <li>
+                            <input type="checkbox" class="js-change-global-status" name="enabled" value="1"{if $enabled} checked{/if} />
+                        </li>
+                        <li><span id="s-discount-type-enabled-label">[`Enabled`]</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="field-group"{if !$enabled} style="display:none"{/if}>
+            <div class="field">
+                <div class="value">
+                    <p>{sprintf('[`Discounts can be created on the <a href="%s" title="%s">Flexdiscount</a> screen.`]',"`$wa_app_url`?plugin=flexdiscount&action=discounts", '[`Flexdiscount`]')}</p>
+                </div>
+            </div>
+        </div>
+        <div class="field-group" {if !$enabled} style="display:none"{/if}>
+            <hr>
+            <form action="{$wa_app_url}?plugin=flexdiscount&module=settings" class="flexdiscount-save-form">
+                {include file="./include.common.settings.html"}
+                {include file="./include.coupon.settings.html"}
+                {include file="./include.infoblock.settings.html"}
+                {include file="./include.other.settings.html"}
+                <div id="fixed-save-panel">
+                    <div class="block bordered-top">
+                        <input type="submit" value="[`Save`]" class="button green"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    var wa_url = "{$wa_url}";
+    $(function () {
+        new FlexdiscountPluginSettings({
+            pluginUrl: '{$plugin_url}',
+            localeStrings: {if $js_locale_strings}{$js_locale_strings}{else}null{/if},
+            wrap: '.flexdiscount-settings'
+        });
+    });
+</script>

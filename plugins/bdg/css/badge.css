@@ -1,0 +1,103 @@
+.badge_ {
+position: absolute;
+z-index: 100;
+left: -8px;
+top: 20px;
+text-align: center;
+}
+
+.badge_ span {
+padding: 4px 10px;
+display:block;
+}
+
+.badge_.low-price span {
+color: #fff!important;
+background: #ff7200;
+box-shadow: #ba5401 1px 1px 3px;
+}
+
+.badge_.low-price i {
+border-color: #ba5401;
+}
+
+.badge_.hit span {
+color: #fff!important;
+background: #8802c0;
+box-shadow: #61018a 1px 1px 3px;
+}
+
+.badge_.hit i {
+border-color: #61018a;
+}
+
+.badge_.present span {
+color: #fff!important;
+background: #0096ff;
+box-shadow: #004f86 1px 1px 3px;
+}
+
+.badge_.present i {
+border-color: #004f86;
+}
+
+.badge_ i {
+display:block;
+width: 0;
+height: 0;
+margin:0 0 0 1px;
+border: #fff solid 3px;
+border-left-color: transparent!important;
+border-bottom-color: transparent!important;
+}
+
+.badge_.hit + .badge_.low-price {top:50px;}
+.badge_.hit + .badge_.present {top:50px;}
+.badge_.low-price + .badge_.present {top:50px;}
+.badge_.low-price + .badge_.hit {top:50px;}
+.badge_.present + .badge_.hit {top:50px;}
+.badge_.present + .badge_.low-price {top:50px;}
+
+.badge_.hit + .badge_.present + .badge_.low-price {top:80px;}
+.badge_.hit + .badge_.low-price + .badge_.present {top:80px;}
+.badge_.low-price + .badge_.present + .badge_.hit {top:80px;}
+.badge_.low-price + .badge_.hit + .badge_.present {top:80px;}
+.badge_.present + .badge_.low-price + .badge_.hit {top:80px;}
+.badge_.present + .badge_.hit + .badge_.low-price {top:80px;}
+
+.badge_.desc {
+top: -5px;
+right: 10px;
+left: initial;
+}
+
+.badge_.desc span {
+background: red;
+height: 32px;
+font: 18px/40px Arial;
+color: #fff;
+width: 40px;
+padding: 5px;
+-webkit-border-top-left-radius: 3px;
+-moz-border-radius-topleft: 3px;
+border-top-left-radius: 3px;
+}
+
+.badge_.desc i {
+border: red solid 24px;
+border-left-color: transparent!important;
+border-right-color: transparent!important;
+border-bottom-color: transparent!important;
+}
+
+.badge_.desc b {
+position: absolute;
+top: 0;
+width: 0;
+height: 0;
+display: block;
+left: 50px;
+border: #B80D0D solid 2px;
+border-top-color: transparent;
+border-right-color: transparent;
+}

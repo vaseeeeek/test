@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="{$wa_url}wa-content/js/farbtastic/farbtastic.css" type="text/css" />
+<script type="text/javascript" src="{$wa_url}wa-content/js/farbtastic/farbtastic.js"></script>
+
+<style type="text/css">
+    {include file="../../../css/pricereq.frontend.css" inline}
+
+    {include file="../../../css/pricereq.backend.css" inline}
+</style>
+
+<script type="text/javascript">
+    {include file="../../../js/pricereq.backend.settings.js"}
+</script>
+
+<div class="plugin-links">
+    <a id="more-info-support" href="mailto:support@max-severin.com">[`For all questions`]:<br /><b>support@max-severin.com</b></a>
+</div>
+
+<h1>[`Price request`]</h1>
+
+<div class="fields form">
+    <form action="?module=plugins&id=pricereq&action=save" method="post" id="plugins-settings-form" enctype="multipart/form-data" target="plugins-settings-iframe">
+        {$wa->csrf()}
+        {foreach $settings_controls as $name => $control}
+        <div class="field">
+            {$control}
+        </div>
+        {/foreach}
+
+        <div class="field">
+            <div class="value submit">
+                <input type="submit" class="button green" value="{_w('Save')}">
+                <span id="plugins-settings-form-status" style="display:none"><!-- message placeholder --></span>
+            </div>
+        </div>
+
+    </form>
+    <iframe style="display:none" name="plugins-settings-iframe" id="plugins-settings-iframe"></iframe>
+</div>
+
+<script type="text/javascript">
+    (function ($) {
+        pricereqBackendSettings.initModule();
+    })(jQuery);
+</script>

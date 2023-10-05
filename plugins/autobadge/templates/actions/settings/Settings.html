@@ -1,0 +1,80 @@
+<h1 class="align-center margin-block top">
+    [`Automatic creation of badges`]
+    <a href="#/open/systemSettings/" class="js-action" title="[`System settings`]"><i class="icon16 settings"></i></a>
+</h1>
+<ul class="menu-h top-right30">
+    <li>
+        <a href="[`https://www.webasyst.com/store/plugin/shop/autobadge/documentation/`]" title="[`Documentation`]" target="_blank"><i class="icon16 book-open"></i> [`Documentation`]</a>
+    </li>
+    <li>
+        <a href="#/open/settings/" class="js-action" title="[`Settings`]"><i class="icon16 settings"></i> [`Settings`]</a>
+    </li>
+</ul>
+<div id="autobadge-interactive-block">
+    {if $first}
+        [`Loading...`]
+        <i class="icon16 loading"></i>
+    {else}
+        {if !empty($filters)}
+
+            {function name="build_filter"}
+                <tr class="filter-row" data-id="{$filter.id}">
+                    <td class="filter-name">
+                        <input type="checkbox" value="{$filter.id}" class="f-checker" />
+                        <i class="icon16 sort" style="cursor: pointer"></i>
+                        <a href="#/filter/copy/{$filter.id}" class="js-action" title="[`Copy filter`]"><i class="icon16 ss orders-all"></i></a>
+                        <a href="#/filter/status/{$filter.id}" class="js-action" title='[`Change status`]'><i class="icon16-custom lightbulb{if empty($filter.status)}-off{/if}"></i></a>
+                        <a href="#/autobadge/filter/{$filter.id}" title='[`Open filter`]'>{if !empty($filter.name)}{$filter.name|escape}{else}[`No name rule`]{/if}</a>
+                    </td>
+                    {*<td class="filter-target"></td>*}
+                    <td class="filter-icon"><a href="#/filter/delete/{$filter.id}" class="js-action" title="[`Delete`]"><i class="icon16 delete"></i></a></td>
+                </tr>
+            {/function}
+
+            {if $total_pages_num > 1}
+                <div id="pagination">
+                    {include file="./../../pagination.html" total_pages_num = $total_pages_num current_page_num= $current_page_num}
+                </div>
+            {/if}
+            <div class="margin-block align-right">
+                <ul class="menu-h">
+                    <li><a href="#/filter/delete/" class="js-action" title="[`Delete selected`]"><i class="icon16 delete"></i> [`Delete selected`]</a></li>
+                </ul>
+            </div>
+            <table class="zebra filter-list">
+                <thead>
+                    <tr>
+                        <th class="filter-name">[`Name`]</th>
+                        {*<th class="filter-target"></th>*}
+                        <th class="filter-icon"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach $filters as $f}
+                        {build_filter filter=$f}
+                    {/foreach}
+                </tbody>
+            </table>
+            <div id="autobadge-dialog"></div>
+        {else}
+            <p class="align-center">[`You don't have any conditions`]</p>
+        {/if}
+        <div class="block align-center">
+           <a class="button green" href="#/autobadge/new/" title="[`Create condition`]">[`Create condition`]</a>
+        </div>
+    {/if}
+</div>
+{if $first}
+    <script src="{$plugin_url}js/translate.js"></script>
+    <link rel="stylesheet" href="{$plugin_url}css/autobadge.css?v={$wa->version()}" />
+    <script src="{$plugin_url}js/autobadge.js?v{$wa->version()}"></script>
+
+    <script src="{$wa_url}wa-content/js/jquery-plugins/jquery.store.js"></script>
+    <script src="{$wa_url}wa-content/js/jquery-plugins/jquery.history.js"></script>
+    <script>
+        $.autobadge.init({
+            localeStrings: {if $js_locale_strings}{$js_locale_strings}{else}null{/if}
+        });
+        {if $alert_popup}$.autobadge.showDocsNotification();{/if}
+    </script>
+{/if}

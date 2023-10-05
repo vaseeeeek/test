@@ -1,0 +1,397 @@
+<h3 id="fl-info-discount-aff-block">
+    [`Information discount and affiliate blocks`]
+    {$settings_blocks_toggle = !empty($settings.blocks_toggle) || !isset($settings.blocks_toggle)}
+    <a href="javascript:void(0)" class="js-paragraph-visibilty">{if $settings_blocks_toggle}&minus;{else}&plus;{/if}</a>
+    <input type="hidden" name="settings[blocks_toggle]" value='{if $settings_blocks_toggle}1{else}0{/if}' />
+</h3>
+<div class="field-group"{if !$settings_blocks_toggle} style='display: none;'{/if}>
+    <div class="field-group">
+        <div class="field">
+            <div class="name">[`Dynamically update information blocks`]</div>
+            <div class="value">
+                <div class="ibutton-checkbox inline-block">
+                    <ul class="menu-h">
+                        <li>
+                            <span id="switcher12-off-label">[`No`]</span>
+                        </li>
+                        <li>
+                            <input class="switcher" id='switcher12' type="checkbox" name="settings[update_infoblocks]" value="1" {if !empty($settings.update_infoblocks) || !isset($settings.update_infoblocks)}checked="checked"{/if} />
+                        </li>
+                        <li>
+                            <span id="switcher12-on-label">[`Yes`]</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="margin-block">
+        <h4><span>[`Active discounts and bonuses`]</span></h4>
+        <div class="margin-block">
+            [`This block is displayed on the cart page and contains information about discounts and bonuses, which already has user.`]
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">
+            [`Show active discount`]
+            <div class="fl-demo-table active-d">
+                <div class="fl-demo-head">[`Active discounts`]</div>
+                <div class="fl-demo-body"></div>
+            </div>
+        </div>
+        <div class="value">
+            <div class="ibutton-checkbox inline-block">
+                <ul class="menu-h">
+                    <li>
+                        <span class="switcher-off">[`No`]</span>
+                    </li>
+                    <li>
+                        <input class="switcher" type="checkbox" name="settings[flexdiscount_user_discounts][value]" value="1" {if !empty($settings.flexdiscount_user_discounts.value)}checked="checked"{/if} />
+                    </li>
+                    <li>
+                        <span class="switcher-on">[`Yes`]</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="onopen hidden inline-block">
+                [`Specify display type`]
+                <input type="text" name="settings[flexdiscount_user_discounts][type]" value="{if !empty($settings.flexdiscount_user_discounts.type)}{$settings.flexdiscount_user_discounts.type|escape}{/if}" class="small" /> [`(Default values 0 or 1)`]
+            </div>
+            <div class="margin-block fl-hint">
+                [`Output place of this field depends on hook <i>frontend_cart</i> in your theme template.`]
+                <div class="hover-tooltip small rtl super"><span>?</span><div class="hover-content"><div>[`Relevant for multi-step checkout`]</div></div></div>
+            </div>
+            <hr>
+            <div class="margin-block">
+                [`If you want to customize output place, disable that option and use in the template <i>cart.html</i> construction`]
+                <div class="hover-tooltip small rtl super"><span>?</span><div class="hover-content"><div>[`Relevant for multi-step checkout`]</div></div></div>
+                <div class='margin-block'>
+                    <span class='info-text'><code>&#123;shopFlexdiscountPluginHelper::getUserDiscounts(0)&#125;</code></span>
+                    <div class="margin-block semi top">[`(Default values 0 or 1)`]</div>
+                </div>
+                <a href="javascript:void(0)" data-type="userDiscounts" data-param="user_discounts" title='[`Customize active discounts`]' class='js-customize-block'><i class="icon16 edit"></i> [`Customize active discounts`]</a>
+            </div>
+        </div>
+    </div>
+    <div class="margin-block">
+        <h4><span>[`Product active discounts and bonuses`]</span></h4>
+        <div class="margin-block">
+            [`This block is displayed by default on the product page and contains information about discounts and bonuses, which product has at the moment or will get, if it will be bought right now.`]
+            <br>[`Use custom output to display block on the catalog page, if it's necessary.`]
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">
+            [`Show active product discounts`]
+            <div class="fl-demo-table product-d">
+                <div class="fl-demo-head">[`Product discounts`]</div>
+                <div class="fl-demo-body"></div>
+            </div>
+        </div>
+        <div class="value">
+            <div class="ibutton-checkbox inline-block">
+                <ul class="menu-h">
+                    <li>
+                        <span class="switcher-off">[`No`]</span>
+                    </li>
+                    <li>
+                        <input class="switcher" type="checkbox" name="settings[flexdiscount_product_discounts][value]" value="1" {if !empty($settings.flexdiscount_product_discounts.value)}checked="checked"{/if} />
+                    </li>
+                    <li>
+                        <span class="switcher-on">[`Yes`]</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="onopen hidden inline-block">
+                [`Specify display type`]
+                <input type="text" name="settings[flexdiscount_product_discounts][type]" value="{if !empty($settings.flexdiscount_product_discounts.type)}{$settings.flexdiscount_product_discounts.type|escape}{/if}" class="small" /> [`(Default values 1, 2, 3, 4, 5 or 6)`]
+            </div>
+            <div class="onopen hidden margin-block">
+                [`Output place on product page`]:
+                <div style="display:none"><label><input type="radio" name="settings[pd_output_place]" value="menu"{if isset($settings.pd_output_place) && $settings.pd_output_place == 'menu'} checked{/if}  /> [`Next to links to custom product pages`]</label></div>
+                <div><label><input type="radio" name="settings[pd_output_place]" value="cart"{if (isset($settings.pd_output_place) && $settings.pd_output_place == 'cart') || !isset($settings.pd_output_place)} checked{/if} /> [`Next to the "Add to cart" button`]</label></div>
+                <div><label><input type="radio" name="settings[pd_output_place]" value="block_aux"{if isset($settings.pd_output_place) && $settings.pd_output_place == 'block_aux'} checked{/if} /> [`Custom informational block, usually in a sidebar`]</label></div>
+                <div><label><input type="radio" name="settings[pd_output_place]" value="block"{if isset($settings.pd_output_place) && $settings.pd_output_place == 'block'} checked{/if} /> [`Block of extra product details in main description area`]</label></div>
+                <div class="hint">[`Output places depend on your Theme template.`]</div>
+            </div>
+            <hr>
+            <div class="margin-block">
+                [`If you want to customize output place, disable that option and use constructions`]
+                <div class='margin-block'>
+                    [`For product page`]:
+                    <span class='info-text'><code>&#123;shopFlexdiscountPluginHelper::getProductDiscounts($product, 2)&#125;</code></span>
+                </div>
+                <div class='margin-block'>
+                    [`For catalog page`]:
+                    <span class='info-text'><code>&#123;shopFlexdiscountPluginHelper::getProductDiscounts($p, 2)&#125;</code></span>
+                    <div class="margin-block semi top">[`where 2 - view type (Default values 1, 2, 3, 4, 5 or 6)`]</div>
+                </div>
+                <a href="javascript:void(0)" data-type="productDiscounts" data-param="product_discounts" title='[`Customize active product discounts`]' class='js-customize-block'><i class="icon16 edit"></i> [`Customize active product discounts`]</a>
+            </div>
+        </div>
+    </div>
+    <div class="margin-block">
+        <h4><span>[`Available discounts and bonuses`]</span></h4>
+        <div class="margin-block">
+            [`This block is displayed by default on the product page and contains information about discounts and bonuses, which product can get in the future.`]
+            <br>[`Use custom output to display block on the catalog page, if it's necessary.`]
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">
+            [`Show available discounts`]
+            <div class="fl-demo-table avail-d">
+                <div class="fl-demo-head">[`Available discounts`]</div>
+                <div class="fl-demo-body"></div>
+            </div>
+        </div>
+        <div class="value">
+            <div class="ibutton-checkbox inline-block">
+                <ul class="menu-h">
+                    <li>
+                        <span class="switcher-off">[`No`]</span>
+                    </li>
+                    <li>
+                        <input class="switcher" type="checkbox" name="settings[flexdiscount_avail_discounts][value]" value="1" {if !empty($settings.flexdiscount_avail_discounts.value)}checked="checked"{/if} />
+                    </li>
+                    <li>
+                        <span class="switcher-on">[`Yes`]</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="onopen hidden inline-block">
+                [`Specify display type`]
+                <input type="text" name="settings[flexdiscount_avail_discounts][type]" value="{if !empty($settings.flexdiscount_avail_discounts.type)}{$settings.flexdiscount_avail_discounts.type|escape}{/if}" class="small" /> [`(Default values 1, 2, 3 or 4)`]
+            </div>
+            <div class="onopen hidden margin-block">
+                [`Output place on product page`]:
+                <div style="display: none;"><label><input type="radio" name="settings[ad_output_place]" value="menu"{if isset($settings.ad_output_place) && $settings.ad_output_place == 'menu'} checked{/if}  /> [`Next to links to custom product pages`]</label></div>
+                <div><label><input type="radio" name="settings[ad_output_place]" value="cart"{if isset($settings.ad_output_place) && $settings.ad_output_place == 'cart'} checked{/if} /> [`Next to the "Add to cart" button`]</label></div>
+                <div><label><input type="radio" name="settings[ad_output_place]" value="block_aux"{if isset($settings.ad_output_place) && $settings.ad_output_place == 'block_aux'} checked{/if} /> [`Custom informational block, usually in a sidebar`]</label></div>
+                <div><label><input type="radio" name="settings[ad_output_place]" value="block"{if (isset($settings.ad_output_place) && $settings.ad_output_place == 'block') || !isset($settings.ad_output_place)} checked{/if} /> [`Block of extra product details in main description area`]</label></div>
+                <div class="hint">[`Output places depend on your Theme template.`]</div>
+            </div>
+            <hr>
+            <div class="margin-block">
+                <div class="margin-block">
+                    <div class="field">
+                        <div class='name'>
+                            [`Filtering options:`]
+                            <div class="hover-tooltip">
+                                <span>?</span>
+                                <div class="hover-content">
+                                    <div>
+                                        [`Choose filters, which should be used, while showing Available discounts block`]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="value">
+                            {$filter_by = [
+                            'user_group' => _wp('User (Show discounts available for current user)'),
+                            'date_group' => _wp('Date (Show discounts available for current date)'),
+                            'properties_group' => _wp('Product properties (Show discounts according to product properties conditions in you discount rules)'),
+                            'numsum_group' => _wp('Show discounts according to quantitative and total values of products from categories/sets/types/features')
+                            ]}
+                            <div class="margin-block semi bottom">
+                                <label>
+                                    <input type="checkbox" value="0" checked disabled />
+                                    [`Storefront`]
+                                </label>
+                            </div>
+                            {foreach $filter_by as $filter_id => $filter_name}
+                                <div class="margin-block semi bottom">
+                                    <label>
+                                        <input type="checkbox" name="settings[flexdiscount_avail_discounts][filter_by][]" value="{$filter_id}"{if !empty($settings.flexdiscount_avail_discounts.filter_by) && in_array($filter_id, $settings.flexdiscount_avail_discounts.filter_by)} checked{/if} />
+                                        {$filter_name}
+                                    </label>
+                                </div>
+                            {/foreach}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class='name'>
+                            [`Ignore conditions in deny rules`]
+                            <div class="hover-tooltip">
+                                <span>?</span>
+                                <div class="hover-content">
+                                    <div>
+                                        [`You can choose what conditions to ignore in deny rules while showing available discounts`]<br>
+                                    </div>
+                                </div>
+                            </div><br>
+                            <a href="[`https://igaponov.com/docs/120/displaying-of-available-discounts-while-using-deny-rules/`]" title="[`Read more`]" target="_blank">[`Read more`] <i class="icon16 new-window"></i></a>
+                        </div>
+                        <div class="value">
+                            {$ignore_deny = [
+                            'product_group' => _wp('Product conditions'),
+                            'properties_group' => _wp('Product properties conditions'),
+                            'cart_group' => _wp('Cart conditions')
+                            ]}
+                            {foreach $ignore_deny as $filter_id => $filter_name}
+                                <div class="margin-block semi bottom">
+                                    <label>
+                                        <input type="checkbox" name="settings[flexdiscount_avail_discounts][ignore_deny][]" value="{$filter_id}"{if (!empty($settings.flexdiscount_avail_discounts.ignore_deny) && in_array($filter_id, $settings.flexdiscount_avail_discounts.ignore_deny)) || !isset($settings.flexdiscount_avail_discounts.ignore_deny)} checked{/if} />
+                                        {$filter_name}
+                                    </label>
+                                </div>
+                            {/foreach}
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                [`If you want to customize output place, disable that option and use construction`]
+                <div class='margin-block'>
+                    [`For product page`]:
+                    <span class='info-text'><code>&#123;shopFlexdiscountPluginHelper::getAvailableDiscounts($product, 1)&#125;</code></span>
+                </div>
+                <div class='margin-block'>
+                    [`For catalog page`]:
+                    <span class='info-text'><code>&#123;shopFlexdiscountPluginHelper::getAvailableDiscounts($p, 1)&#125;</code></span>
+                    <div class="margin-block semi top">[`where 2 - view type (Default values 1, 2, 3 or 4)`]</div>
+                </div>
+                <a href="javascript:void(0)" data-type="availDiscounts" data-param="available_discounts" title='[`Customize available discounts`]' class='js-customize-block'><i class="icon16 edit"></i> [`Customize available discounts`]</a>
+            </div>
+            <hr>
+            <div class="field">
+                <div class="name">[`Hide duplicate rules with "Product active discounts and bonuses"`]</div>
+                <div class="value">
+                    <div class="ibutton-checkbox inline-block">
+                        <ul class="menu-h">
+                            <li>
+                                <span id="switcher13-off-label">[`No`]</span>
+                            </li>
+                            <li>
+                                <input type="hidden" name="settings[flexdiscount_avail_discounts][hide_duplicate]" value="0"/>
+                                <input class="switcher" id='switcher13' type="checkbox" name="settings[flexdiscount_avail_discounts][hide_duplicate]" value="1" {if !empty($settings.flexdiscount_avail_discounts.hide_duplicate)}checked="checked"{/if} />
+                            </li>
+                            <li>
+                                <span id="switcher13-on-label">[`Yes`]</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="margin-block semi top">[`if product has already had active discount, plugin will hide this rule from information block`]</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="margin-block">
+        <h4><span>[`Deny rules`]</span></h4>
+        <div class="margin-block">
+            [`This block is displayed on the product page and is shown for products that meet the conditions in deny rules`]
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">
+            [`Show deny rules`]
+            <div class="fl-demo-table deny-d">
+                <div class="fl-demo-head">[`Deny rules`]</div>
+                <div class="fl-demo-body"></div>
+            </div>
+        </div>
+        <div class="value">
+            <div class="ibutton-checkbox inline-block">
+                <ul class="menu-h">
+                    <li>
+                        <span class="switcher-off">[`No`]</span>
+                    </li>
+                    <li>
+                        <input class="switcher" type="checkbox" name="settings[flexdiscount_deny_discounts][value]" value="1" {if !empty($settings.flexdiscount_deny_discounts.value)}checked="checked"{/if} />
+                    </li>
+                    <li>
+                        <span class="switcher-on">[`Yes`]</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="onopen hidden inline-block">
+                [`Specify display type`]
+                <input type="text" name="settings[flexdiscount_deny_discounts][type]" value="{if !empty($settings.flexdiscount_deny_discounts.type)}{$settings.flexdiscount_deny_discounts.type|escape}{/if}" class="small" /> [`(Default values 1 or empty)`]
+            </div>
+            <div class="onopen hidden margin-block">
+                [`Output place on product page`]:
+                <div style="display: none;"><label><input type="radio" name="settings[deny_output_place]" value="menu"{if isset($settings.deny_output_place) && $settings.deny_output_place == 'menu'} checked{/if}  /> [`Next to links to custom product pages`]</label></div>
+                <div><label><input type="radio" name="settings[deny_output_place]" value="cart"{if isset($settings.deny_output_place) && $settings.deny_output_place == 'cart'} checked{/if} /> [`Next to the "Add to cart" button`]</label></div>
+                <div><label><input type="radio" name="settings[deny_output_place]" value="block_aux"{if isset($settings.deny_output_place) && $settings.deny_output_place == 'block_aux'} checked{/if} /> [`Custom informational block, usually in a sidebar`]</label></div>
+                <div><label><input type="radio" name="settings[deny_output_place]" value="block"{if (isset($settings.deny_output_place) && $settings.deny_output_place == 'block') || !isset($settings.deny_output_place)} checked{/if} /> [`Block of extra product details in main description area`]</label></div>
+                <div class="hint">[`Output places depend on your Theme template.`]</div>
+            </div>
+            <hr>
+            <div class="margin-block">
+                [`If you want to customize output place, disable that option and use construction`]
+                <div class='margin-block'>
+                    <span class='info-text'><code>&#123;shopFlexdiscountPluginHelper::getDenyRules($product, 1)&#125;</code></span>
+                    <div class="margin-block semi top">[`where 1 - view type (Default values 1 or empty)`]</div>
+                </div>
+                <a href="javascript:void(0)" data-type="denyDiscounts" data-param="deny_discounts" title='[`Customize deny rules`]' class='js-customize-block'><i class="icon16 edit"></i> [`Customize deny rules`]</a>
+            </div>
+        </div>
+    </div>
+    <div class="margin-block">
+        <h4><span>[`Price with discount`]</span></h4>
+        <div class="margin-block">
+            [`This block is displayed on the product page and contains information about price with discount.`]
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Display price with discount`]</div>
+        <div class="value">
+            <div class="ibutton-checkbox inline-block">
+                <ul class="menu-h">
+                    <li>
+                        <span class="switcher-off">[`No`]</span>
+                    </li>
+                    <li>
+                        <input class="switcher" type="checkbox" name="settings[enable_price_output][value]" value="1" {if !empty($settings.enable_price_output.value)}checked="checked"{/if} />
+                    </li>
+                    <li>
+                        <span class="switcher-on">[`Yes`]</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="onopen hidden inline-block">
+                [`Specify display type`]
+                <input type="text" name="settings[enable_price_output][type]" value="{if !empty($settings.enable_price_output.type)}{$settings.enable_price_output.type|escape}{/if}" class="small" /> [`(Default values 0 or 1)`]
+            </div>
+            <div class="onopen hidden margin-block">
+                [`Output place on product page`]:
+                <div style="display: none;"><label><input type="radio" name="settings[price_output_place]" value="menu"{if isset($settings.price_output_place) && $settings.price_output_place == 'menu'} checked{/if}  /> [`Next to links to custom product pages`]</label></div>
+                <div><label><input type="radio" name="settings[price_output_place]" value="cart"{if (isset($settings.price_output_place) && $settings.price_output_place == 'cart') || !isset($settings.price_output_place)} checked{/if} /> [`Next to the "Add to cart" button`]</label></div>
+                <div><label><input type="radio" name="settings[price_output_place]" value="block_aux"{if isset($settings.price_output_place) && $settings.price_output_place == 'block_aux'} checked{/if} /> [`Custom informational block, usually in a sidebar`]</label></div>
+                <div><label><input type="radio" name="settings[price_output_place]" value="block"{if isset($settings.price_output_place) && $settings.price_output_place == 'block'} checked{/if} /> [`Block of extra product details in main description area`]</label></div>
+                <div class="hint">[`Output places depend on your Theme template.`]</div>
+            </div>
+            <hr>
+            <div class="margin-block">
+                <div class='margin-block'>
+                    <div class="field">
+                        <div class='name' style="padding-top: 0">[`If product doesn't have discount`]</div>
+                        <div class='value'>
+                            <div class="ibutton-checkbox inline-block">
+                                <ul class="menu-h">
+                                    <li>
+                                        <input class="switcher" type="checkbox" name="settings[enable_price_output][not_hide]" value="1" {if !empty($settings.enable_price_output.not_hide)}checked="checked"{/if} />
+                                    </li>
+                                    <li>
+                                        <span class="switcher-on">[`Show product price without discount`]</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="onopen hidden">
+                                <div class="margin-block">[`Customize product price output`]</div>
+                                <input type="text" name="settings[price_output_template]" value="{if !empty($settings.price_output_template)}{$settings.price_output_template|escape}{else}$price{/if}">
+                                <div class="hint float-left">[`You can use HTML`]</div>
+                                <div class="margin-block top clear">{sprintf(_wp('Use %s for price value or %s for using ruble sign'), '<b>$price</b>', '<b>$price_html</b>')}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                [`If you want to customize output place, disable that option and use construction`]
+                <div class='margin-block'>
+                    <span class='info-text'><code>&#123;shopFlexdiscountPluginHelper::price($product)&#125;</code></span>
+                </div>
+                <a href="javascript:void(0)" data-type="priceDiscounts" data-param="price_discounts" title='[`Customize price output`]' class='js-customize-block'><i class="icon16 edit"></i> [`Customize price output`]</a>
+            </div>
+        </div>
+    </div>
+</div>

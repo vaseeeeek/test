@@ -1,0 +1,151 @@
+<h1 class="massupdating">
+	{$title} <span class="gray">({count($product_ids)})</span>
+</h1>
+{$wa->csrf()}
+<div style="margin-bottom: 0;" class="field-group massupdating-dialog">
+	<div class="field">
+			<div class="value">
+				<label>
+					<input type="checkbox" name="reload" id="massupdating-reload"/>
+					[`Обновить страницу после замены`]
+				</label>
+			</div> <br/>
+	</div>
+	<div class="field">
+		<div class="name" align="right">
+			[`Найти...`]
+		</div>
+		<div class="value">
+			<input name="find" class="long"/>
+		</div>
+	</div>
+	<div class="field" id="massupdating-search-in-feature">
+		<div class="value">
+			в
+			<select id="massupdating-search-in-select" name="where">
+				<option selected>- [`Выберите, где искать -`] -</option>
+				<option value="name">[`Наименование`]</option>
+				<option value="summary">[`Краткое описание`]</option>
+				<option value="description">[`Описание`]</option>
+				<option value="meta_title">[`Заголовок страницы`]</option>
+				<option value="meta_keywords">[`META Keywords`]</option>
+				<option value="meta_description">[`META Description`]</option>
+				<option disabled></option>
+				<option value="feature">[`Характеристика`]</option>
+			</select>
+			<select name="feature" id="massupdating-search-in-feature-select" style="display: none;">
+				<option selected>- [`Выберите характеристику`] -</option>
+				{foreach from=$features item=feature}
+				<option value="{$feature['value']}" data-code="{$feature['code']}">{$feature['title']}</option>
+				{/foreach}
+			</select>
+		</div>
+	</div>
+	<div class="field">
+		<div class="name" align="right">
+			[`Заменить на...`]
+		</div>
+		<div class="value">
+			<input name="replace" class="long"/><br/>
+			<div style="margin-top: 5px;">
+				<label><input name="use_variables" type="checkbox" checked/> [`Использовать переменные`]</label>
+			</div>
+			{literal}
+			<div style="margin-top: 10px;">
+				<span class="variable"><b>{$name}</b></span>
+				<span class="variable"><b>{$shop}</b></span>
+				<span class="variable"><b>{$price}</b></span>
+				<span class="variable"><b>{$min_price}</b></span>
+				<span class="variable"><b>{$max_price}</b></span>
+				<div style="margin-top: 10px;">
+					<span class="variable"><b>{$feature['<span style="color: red;">brand</span>']['<span style="color: green;">value</span>']}</b></span>
+					<a href="#" class="massupdating-help-window" data-article="farVariables" data-title="[`Переменные`]">[`Подробнее о переменных...`]</a>
+				</div>
+			</div>
+			{/literal}
+		</div>
+	</div>
+	<div class="field">
+		<div class="value">
+			<label>
+				<input type="checkbox" name="register"/>
+				[`Учитывать регистр`]
+			</label>
+		</div>
+	</div>
+	<div class="field">
+		<div class="name" align="right">
+			[`Искать`]
+		</div>
+		<div class="value">
+			<label><input name="replaces" type="radio" value="all" checked/> [`Все совпадения`]</label><br/>
+			<label><input name="replaces" type="radio" value="first"/> [`Первое совпадение`]</label><!-- <br/>
+			<label><input name="replaces" type="radio" value="n"/> N совпадений...</label> -->
+		</div>
+	</div>
+	<div class="field">
+		<div class="name" align="right">
+			[`Режим поиска`]
+		</div>
+		<div class="value">
+			<label><input name="search_type" type="radio" value="default" checked/> [`Обычный`]</label><br/>
+			<label><input name="search_type" type="radio" value="advanced"/> [`Расширенный`]</label><br/>
+			<a href="#" class="massupdating-help-window" data-article="farAdvancedSearchType" data-title="[`Расширенный режим`]">[`Подробнее о расширенном режиме...`]</a>
+			<!--<label><input name="search_type" type="radio" value="regexp"/> Регулярное выражение</label>-->
+		</div>
+	</div>
+	<table style="margin-bottom: 0;">
+		<tr>
+			<td width="430">
+				<div class="field massupdating-progressbar" id="massupdating-progressbar-find" style="display: none; margin-top: 20px;">
+					<div class="value">
+						<div style="margin-top: -10px;">
+							<span class="status">[`Подготовка к поиску...`]</span> <i class="icon16 loading"></i>
+
+							<div class="progressbar small yellow" style="width: 100%;">
+								<div class="progressbar-outer">
+									<div class="progressbar-inner" id="massupdating-progressbar-find-inner" style="width: 0%;"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</td>
+			<td width="280">
+				<div class="field massupdating-progressbar" id="massupdating-progressbar-replace" style="display: none; margin-top: 20px;">
+					<div class="value" style="margin-left: 30px;">
+						<div style="margin-top: -10px;">
+							<span class="status">[`Подготовка к замене...`]</span> <i class="icon16 loading"></i>
+
+							<div class="progressbar small blue" style="width: 100%;">
+								<div class="progressbar-outer">
+									<div class="progressbar-inner" id="massupdating-progressbar-replace-inner" style="width: 0%;"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div class="field" id="massupdating-search-results" style="display: none;">
+		<hr/>
+		<h3 style="margin-bottom: 20px;"><span class="results">[`Результаты поиска`]</span> <span class="gray">([`найдено в`] <b>5</b> [`товарах`])</span></h3>
+		<table class="massupdating-search-results zebra">
+			<tr class="legend">
+				<th width="65">[`ID товара`]</th>
+				<th>[`Совпадение`]</th>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<script type="text/javascript">
+(function() {
+	$('#massupdating-search-in-select').change(function() {
+		$('#massupdating-search-in-feature-select')[$(this).val() == 'feature' ? 'show' : 'hide']();
+	});
+})();
+</script>
+<script type="text/javascript" src="{$wa_app_static_url}plugins/massupdating/js/event.stream.js"></script>
+<script type="text/javascript" src="{$wa_app_static_url}plugins/massupdating/js/massupdating.findAndReplace.js"></script>

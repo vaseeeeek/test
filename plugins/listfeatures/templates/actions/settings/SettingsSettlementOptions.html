@@ -1,0 +1,11 @@
+<div class="settlement-sets">{if $sets}{foreach $sets as $set}<span class="set{if $set@first} selected{/if}" data-set-id="{$set}">{$set}</span>{/foreach}{else}<span class="set selected">1</span>{/if}</div>
+<div class="hint-block">
+    <span class="add-set hidden"><span class="add-set-link"><i class="icon16 add"></i>[`Add new set`]</span> <a href="" class="show-hint small">?</a></span>
+    <div class="hidden hidden-hint shadowed gray">
+        [`Set up additional sets of features to be displayed in different parts of selected storefront: in homepage, in category listing pages, or in the shopping cart.`]</br>
+        [`If you want to use additional feature sets, specify desired set ID as 3rd parameter in plugin's method call; e.g. set ID <b>2</b> as shown below,`]<br><br>
+        <strong class="black"><code>{ldelim}shopListfeaturesPlugin::display($p, $products, <span class="red">2</span>){rdelim}</code></strong><br><br>
+        [`Set ID <strong>1</strong> is assumed by default if not specified.`]<br><br>
+        <strong class="black"><code>{ldelim}shopListfeaturesPlugin::display($p, $products){rdelim}</code></strong>
+    </div>
+</div>

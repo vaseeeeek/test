@@ -1,0 +1,53 @@
+.hint.red {
+	color: #b21d00;
+}
+.hint.black {
+	color: #000;
+}
+
+code {
+	background: rgba(160, 160, 160, 0.075);
+	border: solid 1px rgba(160, 160, 160, 0.3);
+	font-family: "Courier New", monospace;
+	font-size: .9em;
+	margin: 0 .25em;
+	padding: .25em .65em;
+}
+ol,
+ul,
+dl {
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+ul {
+	list-style: disc;
+	margin: 0 0 2em;
+	padding-left: 1em;
+}
+
+ul li {
+	padding-left: .5em;
+	margin-bottom: 5px;
+}
+
+pre.prettyprint {
+}
+.prettyprint {
+	padding: 8px;
+	background-color: #f7f7f9;
+	border: 1px solid #e1e1e8;
+}
+
+.divider {
+	display: block;
+	border-bottom: 1px solid #999;
+	height: 2px;
+	margin: 5px 0;
+}
+
+.style-color,
+.style-color-origin {
+	display: block;
+	width: 30px;
+	height: 30px;
+}

@@ -1,0 +1,65 @@
+<table class="zebra" width="100%">
+    <tr>
+        <th width="10%">
+            [`Code`]
+        </th>
+        <th width="10%">
+            [`E-Mail`]
+        </th>
+        <th width="10%">
+            [`Category`]
+        </th>
+        <th width="10%">
+            [`Contact`]
+        </th>
+        <th width="48%">
+            [`Description`]
+        </th>
+        <th width="10%">
+            [`Datetime`]
+        </th>
+        <th width="2%">
+            [`Registered`]
+        </th>
+    </tr>
+    {if empty($invitations)}
+        <tr>
+            <td colspan="8" style="text-align: center;">
+                [`No data available`]
+            </td>
+        </tr>
+    {else}
+        {foreach $invitations as $invite}
+            <tr>
+                <td width="10%">
+                    {$invite.code}
+                </td>
+                <td width="10%">
+                    {$invite.email|escape}
+                </td>
+                <td width="10%">
+                    {$invite.category}
+                </td>
+                <td width="10%">
+                    {if {$invite.contact_id}}
+                        {$invite.cname|escape}
+                    {/if}
+                </td>
+                <td width="48%">
+                    {$invite.description|escape}
+                </td>
+                <td width="10%">
+                    {$invite.datetime}
+                </td>
+                <td width="2%" style="text-align: center;">
+                    {if $invite.registered == 1}
+                        <i class="icon16 yes">
+                    {else}
+                        <i class="icon16 cross">
+                    {/if}
+                </td>
+            </tr>
+        {/foreach}
+    {/if}
+</table>
+

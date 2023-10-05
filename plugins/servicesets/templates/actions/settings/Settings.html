@@ -1,0 +1,150 @@
+<link rel="stylesheet" href="{$wa_url}wa-apps/shop/plugins/servicesets/css/settigs.css?v=1">
+
+<div class="servicesets-tabs__list">
+    <div class="servicesets-tabs__item active" data-tab-btn="groups">Группы услуг</div>
+    <div class="servicesets-tabs__item" data-tab-btn="services">Услуги</div>
+</div>
+<div class="servicesets-tabs__contents__list">
+    <div class="servicesets-tabs__contents__item" id="content-groups">
+        <form class="servicesets-add-form" action="?plugin=servicesets&module=backend&action=creategroup" method="post">
+            {$wa->csrf()}
+            <input type="text" name="groupname" placeholder="Имя группы">
+            <input type="submit" name="submit" class="button green" id="group-create-submit" value="Создать группу">
+        </form>
+        <div class="servicesets-group__list">
+            {foreach $grouplist as $group}
+                <form class="servicesets-group__form" action="?plugin=servicesets&module=backend&action=editgroup" method="post" enctype="multipart/form-data">
+                    {$wa->csrf()}
+                    <div class="servicesets-group__item" id="group__item--{$group.id}">
+                        <div class="servicesets-group__id">#{$group.id}</div>
+                        <input type="hidden" name="id" value="{$group.id}">
+                        <label for="groupname">
+                            <input type="text" name="groupname" value="{$group['groupname']}">
+                        </label>
+
+                        <label for="description">
+                            <textarea rows="2" cols="20"  name="description" value="{$group['description']}">{$group['description']}</textarea>
+                        </label>
+                        <label class="servicesets-image--box" for="image_one" data-num="one">
+                            <div class="servicesets-image">
+                                {if $group['image_one']}
+                                    <img src="{$wa_url}wa-apps\shop\plugins\servicesets\img\group\{$group['id']}-1.{$group['format_one']}" alt="">
+                                    <span class="servicesets-reset-image" data-type="group" data-id="{$group['id']}">✖</span>
+                                    <input type="hidden" name="reset-image-one" value="">
+                                {/if}
+                                <input type="file" name="image_one" value="{$group['image_one']}">
+                            </div>
+                        </label>
+                        <label class="servicesets-image--box" for="image_two" data-num="two">
+                            <div class="servicesets-image">
+                                {if $group['image_two']}
+                                    <img src="{$wa_url}wa-apps\shop\plugins\servicesets\img\group\{$group['id']}-2.{$group['format_two']}" alt="">
+                                    <span class="servicesets-reset-image" data-type="group" data-id="{$group['id']}">✖</span>
+                                    <input type="hidden" name="reset-image-two" value="">
+                                {/if}
+                                <input type="file"  name="image_two" value="{$group['image_two']}">
+                            </div>
+                        </label>
+                        <label class="servicesets-group__service-ids" for="service-ids">
+                            <span class="servicesets-group__label-name">Услуги</span>
+                            <input type="text"  name="ids" value="{$group['ids']}">
+                            <div class="servicesets-service-ids__list hide">
+                                {foreach $servicelist as $service}
+                                    <div class="servicesets-service-ids__item" data-id="{$service['id']}">
+{*                                        <div class="servicesets-service-ids__name">{$service['name']}</div>*}
+                                        {$service['name']} (id - {$service['id']})
+                                    </div>
+                                {/foreach}
+                            </div>
+                        </label>
+                        <input type="submit" name="submit" class="button green hide" value="Сохранить">
+                        <div class="form-success-text" style="display:none">Сохранено</div>
+                    </div>
+                </form>
+            {/foreach}
+        </div>
+    </div>
+    <div class="servicesets-tabs__contents__item" style="display: none" id="content-services">
+        <div class="servicesets-service__list">
+            {foreach $servicelist as $service}
+                <div class="servicesets-service__item">
+                    <div class="servicesets-service__name">{$service.name}</div>
+                    <form class="servicesets-service__form" action="?plugin=servicesets&module=backend&action=editservice" method="post" enctype="multipart/form-data">
+                        {$wa->csrf()}
+                        <div class="servicesets-group__item" id="group__item--{$service.id}">
+                            <input type="hidden" name="id_service" value="{$service.id}">
+                            <label for="description">
+                                <textarea rows="2" cols="20"  name="description" value="{$service['description']}">{$service['description']}</textarea>
+                            </label>
+                            <label class="servicesets-image--box" for="image_one" data-num="one">
+                                <div class="servicesets-image">
+                                    {if $service['image_one']}
+                                        <img src="{$wa_url}wa-apps\shop\plugins\servicesets\img\service\{$service['id']}-1.{$service['format_one']}" alt="">
+                                        <span class="servicesets-reset-image" data-type="service" data-id="{$service['id']}">✖</span>
+                                        <input type="hidden" name="reset-image-one" value="">
+                                    {/if}
+                                    <input type="file" name="image_one" value="{$service['image_one']}">
+                                </div>
+                            </label>
+                            <label class="servicesets-image--box" for="image_two" data-num="two">
+                                <div class="servicesets-image">
+                                    {if $service['image_two']}
+                                        <img src="{$wa_url}wa-apps\shop\plugins\servicesets\img\service\{$service['id']}-2.{$service['format_two']}" alt="">
+                                        <span class="servicesets-reset-image" data-type="variant" data-id="{$service['id']}">✖</span>
+                                        <input type="hidden" name="reset-image-two" value="">
+                                    {/if}
+                                    <input type="file"  name="image_two" value="{$service['image_two']}">
+                                </div>
+                            </label>
+                            <input type="submit" name="submit" class="button green" value="Сохранить">
+                            <div class="form-success-text" style="display:none">Сохранено</div>
+                        </div>
+                    </form>
+                    <div class="servicesets-service__btn-open-variant">Показать варианты</div>
+                    <div class="servicesets-variants__list hide" >
+                        {foreach $variantslist as $variant}
+                            {if $service['id'] == $variant['service_id']}
+                                <div class="servicesets-variants__item">
+                                    <div class="servicesets-variants__name">{$variant['name']}</div>
+                                    <form class="servicesets-variants__form" action="?plugin=servicesets&module=backend&action=editvariant" method="post" enctype="multipart/form-data">
+                                        {$wa->csrf()}
+                                        <div class="servicesets-group__item" id="group__item--{$variant['id']}">
+                                            <input type="hidden" name="id_variants" value="{$variant['id']}">
+                                            <label for="description">
+                                                <textarea rows="2" cols="20"  name="description" value="{$variant['description']}">{$variant['description']}</textarea>
+                                            </label>
+                                            <label class="servicesets-image--box" for="image_one" data-num="one">
+                                                <div class="servicesets-image">
+                                                    {if $variant['image_one']}
+                                                        <img src="{$wa_url}wa-apps\shop\plugins\servicesets\img\variant\{$variant['id']}-1.{$variant['format_one']}" alt="">
+                                                        <span class="servicesets-reset-image" data-type="variant" data-id="{$variant['id']}">✖</span>
+                                                        <input type="hidden" name="reset-image-one" value="">
+                                                    {/if}
+                                                    <input type="file" name="image_one" value="{$variant['image_one']}">
+                                                </div>
+                                            </label>
+                                            <label class="servicesets-image--box" for="image_two" data-num="two">
+                                                <div class="servicesets-image">
+                                                    {if $variant['image_two']}
+                                                        <img src="{$wa_url}wa-apps\shop\plugins\servicesets\img\variant\{$variant['id']}-2.{$variant['format_two']}" alt="">
+                                                        <span class="servicesets-reset-image" data-type="variant" data-id="{$variant['id']}">✖</span>
+                                                        <input type="hidden" name="reset-image-two" value="">
+                                                    {/if}
+                                                    <input type="file"  name="image_two" value="{$variant['image_two']}">
+                                                </div>
+                                            </label>
+                                            <input type="submit" name="submit" class="button green {*hide*}" value="Сохранить">
+                                            <div class="form-success-text" style="display:none">Сохранено</div>
+                                        </div>
+                                    </form>
+                                </div>
+                            {/if}
+                        {/foreach}
+                    </div>
+                </div>
+            {/foreach}
+        </div>
+    </div>
+</div>
+
+<script src="{$wa_url}wa-apps/shop/plugins/servicesets/js/settigs.js"></script>

@@ -1,0 +1,134 @@
+<div class="block double-padded">
+	<div class="block half-padded float-right">
+		<ul class="menu-h small" id="arrived_type">
+			<li{if !isset($smarty.get.sended) && !isset($smarty.get.rating) && !isset($smarty.get.filter)} class="selected"{/if}><a href="?plugin=arrived" class="inline-link"><b><i>Активные</i></b></a></li>
+			<li{if isset($smarty.get.sended)} class="selected"{/if}><a href="?plugin=arrived&sended=1" class="inline-link"><b><i>Отправленные</i></b></a></li>
+			<li{if isset($smarty.get.rating)} class="selected"{/if}><a href="?plugin=arrived&rating=1" class="inline-link"><b><i>По товарам</i></b></a></li>
+		</ul>
+	</div>
+	<h1>Запросы на уведомления</h1>
+	{if waRequest::get('pid', 0, waRequest::TYPE_INT)>0}
+		{if isset($product_info)}
+		<p>Отображаются только запросы по товару: <a href="?action=products#/product/{$product_info.id}/">{$product_info.name|escape}</a></p>
+		{else}
+		<p>По данному товару заявок не найдено</p>
+		{/if}
+	{/if}
+	{if $items}
+		<table class="zebra">
+			<tr>
+				<th class="min-width">#</th>
+				<th>Продукт</th>
+				{if isset($smarty.get.rating)}
+					<th style="width:125px;" class="nowrap">Актуальных</th>
+					<th style="width:125px;" class="nowrap">Всего</th>
+				{else}
+					<th style="width:125px;"><i class="icon16 email"></i> Email</th>
+					<th style="width:125px;"><i class="icon16 mobile"></i> Телефон</th>
+					<th style="width:125px;" class="nowrap">Актуально</th>
+					<th style="width:125px;" class="nowrap">Создано</th>
+					{if isset($smarty.get.sended)}<th style="width:125px;" class="nowrap">Отправлено</th>
+					{else}<th class="min-width">&nbsp;</th>{/if}
+				{/if}
+			</tr>
+		{foreach $items as $item}
+		<tr>
+		{if isset($smarty.get.rating)}
+			<td>{$item.product.id}</td>
+			<td><a href="?action=products#/product/{$item.product_id}/" class="inline">{$item.product.name|escape}{if $item.product.sku}</a>{if !empty($item.product.sku.sku) || !empty($item.product.sku.name)} <span class="hint">({if $item.product.sku.name ne ""}{$item.product.sku.name|escape}{else}Артикул: {$item.product.sku.sku}{/if})</span>{/if}{/if}</td>
+			<td><a href="?plugin=arrived&filter=1&pid={$item.product.id}">{$item.count_active}</a></td>
+			<td>{$item.count_total}</td>
+		{else}
+			<td>{$item.id}</td>
+			<td><a href="?action=products#/product/{$item.product_id}/" class="inline">{$item.product.name|escape}{if $item.product.sku}</a>{if !empty($item.product.sku.sku) || !empty($item.product.sku.name)} <span class="hint">({if $item.product.sku.name ne ""}{$item.product.sku.name|escape}{else}Артикул: {$item.product.sku.sku}{/if})</span>{/if}{/if}</td>
+			<td class="nowrap">{$item.email}</td>
+			<td class="nowrap">{$item.phone}</td>
+			<td class="nowrap min-width"><b>{$item.expiration|date_format:"%d.%m.%Y"|default:"-"}</b></td>
+			<td class="nowrap min-width">{$item.created|date_format:"%d.%m.%Y %H:%M"|default:"-"}</td>
+			{if isset($smarty.get.sended)}<td class="nowrap min-width" style="color:green;">{$item.date_sended|date_format:"%d.%m.%Y %H:%M"|default:"-"}</td>
+			{else}<td class="min-width"><i class='icon16 delete' style='cursor:pointer;' data-url="?{foreach $smarty.get as $n=>$v}{$n}={$v}&{/foreach}remove={$item.id}"></i></td>{/if}
+		{/if}
+		</tr>
+		{/foreach}
+		</table>
+	{else}
+		<p>Нет записей за указанный период.</p>
+	{/if}
+	<p>&nbsp;</p>
+	<div class="block" id="arrived-pagination">{wa_pagination total=$pages_total attrs=['class' => 'menu-h']}</div>
+    {if $items && !isset($smarty.get.filter)}
+	<ul class="menu-h small" id="arrived_export">
+		<li>Экспорт:</li>
+		<li><a href="?{$url_params}" class="inline-link"><b><i>CSV</i></b></a></li>
+	</ul>
+	{/if}
+</div>
+<div class="dialog width400px height200px" id="s-product-plugin-arrived-dialog-export-csv">
+    <div class="dialog-background"></div>
+    <form method="post">
+    <div class="dialog-window">
+        <div class="dialog-content">
+            <div class="dialog-content-indent">
+                <h1>Экспорт</h1>
+                <p class="hint">Будет экспортирован текущий выбранный список</p>
+				<div class="fields form" style="width: 100%;">
+					<div class="field-group">
+						<div class="field">
+							<div class="name">
+							   Кодировка
+							</div>
+							<div class="value">
+								<select name="encoding">
+								{foreach $encoding as $enc}<option{if isset($settings.encoding) && $settings.encoding eq $enc|escape} selected{/if}>{$enc|escape}</option>{/foreach}
+								</select>
+							</div>
+						</div>
+						<div class="field">
+							<div class="name">
+							   Разделитель
+							</div>
+							<div class="value">
+								<select name="delimiter">
+									<option value=";"{if isset($settings.delimiter) && $settings.delimiter eq ";"} selected{/if}>Точка с запятой (;)</option>
+									<option value=","{if isset($settings.delimiter) && $settings.delimiter eq ","} selected{/if}>Запятая (,)</option>
+									<option value="tab"{if isset($settings.delimiter) && $settings.delimiter eq "tab"} selected{/if}>Табуляция</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+        <div class="dialog-buttons">
+            <div class="dialog-buttons-gradient">
+                {$wa->csrf()}
+                <input class="button green" type="submit" value="Начать"> или <a class="cancel" href="javascript:void(0);">отмена</a>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+
+<script>
+    $(function(){
+        document.title = 'Уведомления о поступлении';
+        $('a', $('#arrived_type')).click(function(e){
+			$("#arrived_type li").removeClass("selected");
+			$(this).parent().addClass("selected");
+		});
+
+		$("#arrived_export a").click(function(e){
+			e.preventDefault();
+			var dialog = $('#s-product-plugin-arrived-dialog-export-csv');
+			var a = $(this);
+			dialog.waDialog({
+				onLoad: function () {
+					dialog.find('form').attr('action',a.attr('href'));
+				},
+				onSubmit: function () {
+					dialog.trigger('close');
+				},
+			});
+		});
+    });
+</script>

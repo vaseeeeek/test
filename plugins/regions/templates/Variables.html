@@ -1,0 +1,53 @@
+<div class="helper">
+	<h3 class="helper__header">
+		Переменные
+	</h3>
+	<div class="helper__content">
+		{if isset($meta)}
+			<div class="variable">
+				<span class="variable__name">{literal}{$title}{/literal}</span> - <span class="variable__value">заголовок страницы</span>
+			</div>
+			<div class="variable">
+				<span class="variable__name">{literal}{$meta_keywords}{/literal}</span> - <span class="variable__value">META Keywords</span>
+			</div>
+			<div class="variable">
+				<span class="variable__name">{literal}{$meta_description}{/literal}</span> - <span class="variable__value">META Description</span>
+			</div>
+		{/if}
+		<div class="variable">
+			<span class="variable__name">{literal}{$region.name}{/literal}</span> - <span class="variable__value">название региона</span>
+		</div>
+		<div class="variable">
+			<span class="variable__name">{literal}{$region.phone}{/literal}</span> - <span class="variable__value">телефон</span>
+		</div>
+		<div class="variable">
+			<span class="variable__name">{literal}{$region.email}{/literal}</span> - <span class="variable__value">e-mail</span>
+		</div>
+		<div class="variable">
+			<span class="variable__name">{literal}{$region.schedule}{/literal}</span> - <span class="variable__value">график работы</span>
+		</div>
+		<div class="variable">
+			<span class="variable__name">{literal}{$region.country}{/literal}</span> - <span class="variable__value">страна</span>
+		</div>
+		<div class="variable">
+			<span class="variable__name">{literal}{$region.area}{/literal}</span> - <span class="variable__value">регион</span>
+		</div>
+		<div class="variable">
+			<span class="variable__name">{literal}{$region.routing.storefront}{/literal}</span> - <span class="variable__value">витрина (example.com/shop/*)</span>
+		</div>
+		<div class="variable">
+			<span class="variable__name">{literal}{$region.routing.domain}{/literal}</span> - <span class="variable__value">домен (example.com)</span>
+		</div>
+		<div class="variable">
+			<span class="variable__name">{literal}{$region.routing.route_url}{/literal}</span> - <span class="variable__value">относительный url витрины (/shop/)</span>
+		</div>
+		<div class="variable">
+			<span class="variable__name">{literal}{$region.routing.route}{/literal}</span> - <span class="variable__value">настройки витрины</span>
+		</div>
+		{foreach $params as $param}
+			<div class="variable">
+				<span class="variable__name">{ldelim}$region.field[{$param.id}]{rdelim}</span> - <span class="variable__value">{$param.name|escape}</span>
+			</div>
+		{/foreach}
+	</div>
+</div>

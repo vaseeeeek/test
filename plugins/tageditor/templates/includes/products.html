@@ -1,0 +1,43 @@
+{if $type == 'sidebar_section'}
+
+<link href="{$wa_app_static_url}plugins/tageditor/css/tageditor.css?v{$version}" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="{$wa_backend_url}shop/?plugin=tageditor&action=loc&v{$version}"></script>
+<script src="{$wa_app_static_url}plugins/tageditor/js/tageditor.js?v{$version}"></script>
+<script src="{$wa_app_static_url}plugins/tageditor/js/products.js?v{$version}"></script>
+<script type="text/javascript">
+//for text editor
+var wa_url = '{$wa_url}';
+var wa_app = 'shop';
+
+var tageditor_shop_cloud_auto_update = {$js_shop_cloud_auto_update};
+</script>
+
+<div class="tag-index-update-embedded hidden">
+    <h5 class="heading">[`Tag cloud index update`] <i class="icon16 loading" style="margin: 0;"></i></h5>
+    <div class="tageditor-tag-index-update-long-action" style="display: none;">
+        <div class="tag-index-update-progressbar" style=" margin: 10px 0;">
+            <div class="progressbar small blue" style="width: 100%; box-sizing: border-box;">
+                <div class="progressbar-outer">
+                    <div class="progressbar-inner" style="width: 0%;"></div>
+                </div>
+            </div>
+            <div>
+                <em class="errormsg"></em>
+            </div>
+        </div>
+    </div>
+    <p class="hint">
+        [`Please wait until the update is completed to ensure that tag cloud index remains consistent.`]
+        [`Or leave this page now and update the tag cloud index manually at any time in “<a href="?action=products#/tageditor/">Tag editor</a>” section.`]
+    </p>
+</div>
+
+{elseif $type == 'sidebar_top_li'}
+
+<li id="tageditor">
+    <a href="#/tageditor/">
+        <i class="icon16" style="background: url({$wa_app_static_url}plugins/tageditor/img/tageditor16.png)"></i>[`Tag editor`]
+    </a>
+</li>
+
+{/if}

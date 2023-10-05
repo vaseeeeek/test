@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="position:absolute">
+	
+		<symbol id="buy1click-icon_arrow" viewBox="0 0 8 5">
+			<use xlink:href="#arrow-a"></use><defs><path id="arrow-a" d="M.94 0L4 3.093 7.06 0 8 .957 4 5 0 .957.94 0z"></path></defs>
+		</symbol>
+	
+		<symbol id="buy1click-icon_checkbox-arrow" viewBox="0 0 12 9">
+			<path d="M4.5 8.41L0 3.91 1.41 2.5 4.5 5.58 10.09 0l1.41 1.41-7 7z"></path>
+		</symbol>
+	
+		<symbol id="buy1click-icon_cross" viewBox="0 0 14 14">
+			<use xlink:href="#cross-a"></use><defs><path id="cross-a" d="M14 1.41L12.59 0 7 5.59 1.41 0 0 1.41 5.59 7 0 12.59 1.41 14 7 8.41 12.59 14 14 12.59 8.41 7 14 1.41z"></path></defs>
+		</symbol>
+	
+		<symbol id="buy1click-icon_dummy-photo" viewBox="0 0 60 54">
+			<use xlink:href="#dummy-photo-a" transform="translate(.59 .53)"></use><defs><path id="dummy-photo-a" d="M5.882 5.882h8.824L20.588 0h17.647l5.883 5.882h8.823a5.882 5.882 0 0 1 5.883 5.883v35.294a5.882 5.882 0 0 1-5.883 5.882H5.882A5.883 5.883 0 0 1 0 47.06V11.765a5.882 5.882 0 0 1 5.882-5.883zm23.53 8.824a14.706 14.706 0 1 0 0 29.412 14.706 14.706 0 0 0 0-29.412zm0 5.882a8.824 8.824 0 1 1 0 17.647 8.824 8.824 0 0 1 0-17.647z"></path></defs>
+		</symbol>
+	
+		<symbol id="buy1click-icon_minus" viewBox="0 0 7 1">
+			<use xlink:href="#minus-a"></use><defs><path id="minus-a" d="M7 1H0V0h7v1z"></path></defs>
+		</symbol>
+	
+		<symbol id="buy1click-icon_plus" viewBox="0 0 7 7">
+			<use xlink:href="#plus-a"></use><defs><path id="plus-a" d="M7 4H4v3H3V4H0V3h3V0h1v3h3v1z"></path></defs>
+		</symbol>
+	
+		<symbol id="buy1click-icon_radio-checked" viewBox="0 0 20 20">
+			<path d="M10 0a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zM9 14.5L4.5 10l1.41-1.41L9 11.67l5.59-5.58L16 7.5l-7 7z"></path>
+		</symbol>
+	
+		<symbol id="buy1click-icon_radio-unchecked" viewBox="0 0 20 20">
+			<path d="M10 0a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16z"></path>
+		</symbol>
+	
+		<symbol id="buy1click-icon_spinner" viewBox="0 0 80 80">
+			<use class="buy1click-loader__spinner" xlink:href="#spinner-a"></use><defs><circle id="spinner-a" cx="40" cy="40" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138"></circle></defs>
+		</symbol>
+	
+</svg>

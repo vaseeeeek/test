@@ -1,0 +1,96 @@
+{strip}
+	{$cost_range_types = [
+	'variable-percents-value',
+	'variable-value',
+	'free-or-range-value',
+	'free-or-value'
+	]}
+	{function service_cost}
+		{if $service.estimated_date_html || $service.cost_html}
+			<div class="dp-product__service-col dp-product__service-rates dp-product__service-hint">
+				{if $service.estimated_date_html}
+					<div class="dp-product__service-col-line dp-product__service-estimated js-dp-product-estimated-date">
+						{$service.estimated_date_html}
+					</div>
+				{/if}
+				{if $service.cost_html}
+					<div class="dp-product__service-col-line dp-product__service-price{if $service.cost.type|in_array:$cost_range_types} dp-product__service-col-line_new-line{/if} js-dp-product-cost">
+						{$service.cost_html}
+					</div>
+				{/if}
+			</div>
+		{else}
+			<div class="dp-product__service-error">
+				Недоступно
+			</div>
+		{/if}
+	{/function}
+	{if $async}
+		{service_cost service=$service cost_range_types=$cost_range_types}
+	{else}
+		<div class="dp-product">
+			<div class="dp-product__header dp-product__offset">
+				{$header}
+			</div>
+			<div class="dp-product__content dp-product__offset">
+				{$groups_number = count($groups)}
+
+				{$is_tabs_view = $params.group_style === 'tabs' && count($groups) > 1}
+				{$active_tab_id = 0}
+				{if $is_tabs_view}
+					{$is_tab_active = false}
+					<div class="dp-product__tabs-header">
+						{foreach $groups as $group}
+							{if !$group.params|default:''}{continue}{/if}
+							<div class="dp-product__tab js-dp-product-tab-item"
+								 data-id="{$group.params.id}">{$group.params.title}</div>
+							{if !$is_tab_active}
+								{$active_tab_id = $group.params.id}
+								{$is_tab_active = true}
+							{/if}
+						{/foreach}
+					</div>
+				{/if}
+				<div class="dp-product__service-list{if $is_tabs_view} dp-product__tabs-content{/if}">
+					{foreach $groups as $group}
+						<div class="dp-product__service{if $group.params|default:''} js-dp-product-tab-content{/if}{if $groups_number <= 1} dp-product__service_without-groups{/if}"
+							 data-id="{$group.params.id}">
+							{if !$is_tabs_view && $group.params|default:''}
+								<div class="dp-product__group-title">
+									{$group.params.title}
+								</div>
+							{/if}
+							{foreach $group.services as $service}
+								{$is_inline_mode = !$params.is_break_services && $service.estimated_date.type != 'order-time-variable'}
+								<div class="dp-product__service-row{if $is_inline_mode} dp-product__service-row_inline-mode{/if}{if $service.estimated_date.type == 'order-time-variable'} dp-product__service-row_inverted-separator{/if}">
+									{if $service.is_map}
+										<a href="javascript:void(0);"
+										   class="dp-product__service-col dp-product__service-title dp-product__service-title_link js-dp-service"
+										   data-id="{$service.id}" data-product-id="{$product.id}"
+										   data-params="{$service.params|@json_encode|escape}">{$service.title}</a>
+									{else}
+										<div class="dp-product__service-col dp-product__service-title">{$service.title}</div>
+									{/if}
+
+									<div class="dp-product__service-calculation js-dp-product-calculation"
+										 data-async="{$service.async}" data-id="{$service.id}">
+										{if $service.async}
+											<div class="dp-product__service-calculation-loading">
+												<div class="dp-loading"></div>
+												<div class="dp-product__service-calculation-loading_label">
+													Рассчитываем стоимость доставки...
+												</div>
+											</div>
+										{else}
+											{service_cost service=$service cost_range_types=$cost_range_types}
+										{/if}
+									</div>
+								</div>
+							{/foreach}
+						</div>
+					{/foreach}
+				</div>
+			</div>
+		</div>
+	{/if}
+{/strip}

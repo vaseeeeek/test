@@ -1,0 +1,37 @@
+.fq_question {
+    font-weight: bold;
+	padding-top: 5px;
+}
+.fq_answer {
+    padding-bottom:10px;
+}
+.fq_header {
+    padding-bottom:10px;
+}
+.fq_link {
+    font-weight:bold;
+}
+
+.fq_hide {
+	display:none;
+}
+
+.fq_pointer {
+	cursor:pointer;
+}
+.fq-plus, .fq-minus {
+	font-size: 170%;
+	font-weight: bold;
+	cursor: pointer;
+	padding-right: 5px;
+	vertical-align: text-bottom;
+	width: 16px;
+	display: inline-block;
+    line-height: 1em;
+}
+div.table-cell {
+    display: table-cell;
+}
+div.clear-both {
+    clear: both;
+}

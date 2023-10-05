@@ -1,0 +1,15 @@
+{if $products}
+<div id="gift-products-list-wr">
+	<p>Эти подарки также предлагаются, если приобретаете следующие товары:</p>
+	<ul class="gift-products-list">
+		{foreach $products as $p}
+		<li data-product-id="{$p.id}">
+			<div class="image">
+				{$wa->shop->productImgHtml($p, '100', ['itemprop' => 'image', 'alt' => $p.name, 'default' => ''])}
+			</div>
+			<div class="name"><a href="{$p.frontend_url}">{$p.name}</a></div>
+		</li>
+		{/foreach}
+	</ul>
+</div>
+{/if}

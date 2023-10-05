@@ -1,0 +1,30 @@
+{strip}
+<ul class="shop-brand-nav">
+	{foreach $brands as $brand}
+		{$brand_image_url = $brand->getImageUrl('0x50')}
+		{if !$brand_image_url}
+			{$brand_image_url = $wa_app_static_url|cat:'img/image-fishki.png'}
+		{/if}
+
+		<li class="shop-brand-nav__item {if $brand.url == $wa->param('brand')}shop-brand-nav__item_current{/if}">
+			{if $brand.url == $wa->param('brand') && !$wa->param('brand_page')}
+				<span class="shop-brand-nav-item">
+					<span class="shop-brand-nav-item__image-box">
+						<img class="shop-brand-nav-item__image" src="{$brand_image_url}">
+					</span>
+
+					<span class="shop-brand-nav-item__name">{$brand.name|escape}</span>
+				</span>
+			{else}
+				<a class="shop-brand-nav-item" href="{$brand.frontend_url}">
+					<span class="shop-brand-nav-item__image-box">
+						<img class="shop-brand-nav-item__image" src="{$brand_image_url}">
+					</span>
+
+					<span class="shop-brand-nav-item__name">{$brand.name|escape}</span>
+				</a>
+			{/if}
+		</li>
+	{/foreach}
+</ul>
+{/strip}

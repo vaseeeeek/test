@@ -1,0 +1,150 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/frequent_questions 1.0.1\n"
+"POT-Creation-Date: 2015-10-03 17:27+0400\n"
+"PO-Revision-Date: 2017-05-03 15:27+0300\n"
+"Last-Translator: welldi-studio.ru <n.grineva@welldi-studio.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"Language: ru_RU\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+msgid "FAQ"
+msgstr "ЧаВо"
+
+msgid "Frequently asked questions for users."
+msgstr "ЧаВо для покупателей."
+
+msgid "FAQ - Frequently Asked Questions"
+msgstr "ЧаВо - Частые вопросы"
+
+msgid "Plugin ON/OFF"
+msgstr "Включить плагин"
+
+msgid "Placing of the link"
+msgstr "Размещение ссылки"
+
+msgid "Default (above the categories block)"
+msgstr "По умолчанию (в блоке меню)"
+
+msgid "Custom. Use helper: "
+msgstr "Произвольно. Используйте хелпер: "
+
+msgid "Display headers \"Question\", \"Answer\""
+msgstr "Показывать подзаголовки \"Вопрос\", \"Ответ\""
+
+msgid "Link title"
+msgstr "Текст ссылки"
+
+msgid "New FAQ"
+msgstr "Добавить вопрос-ответ"
+
+msgid "Saved"
+msgstr "Сохранено"
+
+msgid "Question"
+msgstr "Вопрос"
+
+msgid "Question text"
+msgstr "Текст вопроса"
+
+msgid "Answer"
+msgstr "Ответ"
+
+msgid "Answer text"
+msgstr "Текст ответа"
+
+msgid "Show"
+msgstr "Показывать"
+
+msgid "Frequently Asked Questions"
+msgstr "Часто задаваемые вопросы"
+
+msgid "Question:"
+msgstr "Вопрос:"
+
+msgid "Answer:"
+msgstr "Ответ:"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "All changes will be accepted after clicking \"Save\""
+msgstr "Все изменения вступят в силу после нажатия на кнопку \"Сохранить\""
+
+msgid "Show/hide asnwers"
+msgstr "Скрывать/разворачивать ответы"
+
+msgid "Expand/hide answer by click on the question"
+msgstr "Скрывать/разворачивать ответ при клике на вопрос"
+
+msgid "Static display of questions and answers"
+msgstr "Статическое отображение вопросов и ответов"
+
+msgid "Select a color"
+msgstr "Выберите цвет"
+
+msgid "Question text color"
+msgstr "Цвет текста вопроса"
+
+msgid "Answer text color"
+msgstr "Цвет текста ответа"
+
+msgid "To display by default, leave this field empty."
+msgstr "Для использования цвета по умолчанию оставьте это поле пустым."
+
+msgid "Question text size"
+msgstr "Размер шрифта в тексте вопроса"
+
+msgid "Answer text size"
+msgstr "Размер шрифта в тексте ответа"
+
+msgid "Font size, px**. Example: 12"
+msgstr "Размер шрифта в пикселах**. Например: 12"
+
+msgid "To sizing by default, leave this field empty."
+msgstr ""
+"Чтобы использовать размер шрифта по умолчанию, просто оставьте это поле "
+"пустым."
+
+msgid "Show plus/minus"
+msgstr "Показывать индикаторы плюс/минус"
+
+msgid "Plus color"
+msgstr "Цвет индикатора \"Плюс\""
+
+msgid "Minus color"
+msgstr "Цвет индикатора \"Минус\""
+
+msgid "Header text color"
+msgstr "Цвет заголовка страницы"
+
+msgid "Frequent questions"
+msgstr "Частые вопросы"
+
+msgid "Helper for displaying of questions and answers"
+msgstr "Хелпер для вывода вопросов и ответов в произвольном месте"
+
+msgid "Open in the new window"
+msgstr "Открывать в новой вкладке"
+
+msgid "default: \"FAQ\""
+msgstr "по умолчанию: \"FAQ\""
+
+msgid "Page title"
+msgstr "Заголовок страницы"
+
+msgid "default: \"Frequent questions\""
+msgstr "по умолчанию: \"Частые вопросы\""
+
+msgid "Meta keywords for FAQ page"
+msgstr "Meta keywords для страницы частых вопросов"
+
+msgid "Meta description for FAQ page"
+msgstr "Meta description для страницы частых вопросов"

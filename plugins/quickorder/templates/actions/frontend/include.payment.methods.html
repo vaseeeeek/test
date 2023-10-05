@@ -1,0 +1,34 @@
+{if !empty($payment.methods)}
+    <div class="quickorder-heading">[`Payment`]</div>
+    <div class="quickorder-payment-methods quickorder-methods">
+        {foreach $payment.methods as $m}
+            {if !empty($m.hide) && empty($m.id)}
+                <div class="quickorder-payment-{$m._id} q-method-error q-payment f-quickorder-method s-quickorder-method" data-id="{$m._id}" data-ignore="1" style="display: none;"></div>
+                {continue}
+            {/if}
+            <div class="quickorder-payment-{$m.id} q-payment {if !empty($m.error)}q-method-error{/if}{if $m.id == $payment.selected} selected{/if} f-quickorder-method s-quickorder-method" data-ignore="1" data-id="{$m.id}"{if !empty($m.hide)} data-hide="1" style="display: none;"{/if}>
+                <label>
+                    <span class="quickorder-table">
+                        <span class="quickorder-cell quickorder-radio">
+                            <input class="payment-{$m.plugin}-{$m.id}" {if !empty($m.error)}disabled="disabled"{/if} type="radio" name="quickorder[payment_id]" value="{$m.id}" {if $m.id == $payment.selected}checked{/if}>
+                        </span>
+                        <span class="quickorder-cell quickorder-method-name">
+                            {$m.name|escape}
+                        </span>
+                        {if !empty($m.error)}
+                            <span class="quickorder-cell quickorder-right">
+                                <em class="quickorder-grey">{$m.error}</em>
+                            </span>
+                        {/if}
+                    </span>
+                    {if !empty($form_settings.show_payment_description) && !empty($m.description)}
+                        <span class="quickorder-hint quickorder-grey">{$m.description|escape}</span>
+                    {/if}
+                </label>
+                {if !empty($m.custom_html)}
+                    <div class="quickorder-methods-form wa-form" {if $m.id != $payment.selected}style="display:none"{/if}>{$m.custom_html}</div>
+                {/if}
+            </div>
+        {/foreach}
+    </div>
+{/if}

@@ -1,0 +1,41 @@
+<div class="f-tab-templates">
+    <div class="field-group">
+        <div class="field">
+            <div class="attention-block margin-block bottom">
+                <p>[`It's strongly recommended not to edit templates. After you save the copy of template, you will not be able to get updates for that template later. Developer not responsible for errors, caused by your editing and will not be able to help you.`]</p>
+                <p>[`Developer will not consult you about editing the templates.`]</p>
+            </div>
+            <a href="javascript:void(0)" onclick="$(this).hide().next().show()">[`I recognize the attention above and would like to edit plugin templates`]</a>
+            <div class="margin-block hidden">
+                <div class="fields">
+                    {foreach $templates as $k => $template}
+                        <div class="field">
+                            <div class="name">
+                                {$template.name}
+                                {if !empty($template.changed)}
+                                    <div>
+                                        <a href="javascript:void(0)" class="js-restore-template" data-id="{$k}" data-delete="1">[`revert template to original`]</a>
+                                    </div>
+                                {/if}
+                            </div>
+                            <div class="value">
+                                {if !empty($template.changed)}
+                                    <div class="margin-block bottom attention-block">
+                                        [`ATTENTION! Template has been changed. Content may differ from original.`]
+                                    </div>
+                                {/if}
+                                <a href="javascript:void(0)" data-id="{$k}" class="js-edit-templates inline-link"><b><i>[`Show the template`]</i></b></a>
+                            </div>
+                        </div>
+                    {/foreach}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    new QuickorderPluginTemplates({
+        wrap: $('.f-tab-templates'),
+        storefront: '{$storefront}'
+    });
+</script>

@@ -1,0 +1,19 @@
+<script type="text/x-tmpl" id="tmpl-general-params">
+{literal}
+    {% if (o.params) {
+        for (var i in o.params) {
+            include('tmpl-single-param', { name: i, value: o.params[i] });
+        }
+    } %}
+{/literal}
+</script>
+
+<script type="text/x-tmpl" id="tmpl-single-param">
+    {literal}
+        <div class="s-params-param f-params-param">
+            <div class="s-params-name"><input type="text" name="params[name][]" class="width100" value="{% print(o.name); %}"></div>
+            <div class="s-params-value"><input type="text" name="params[value][]" class="width100" value="{% print(o.value); %}"></div>
+            <a href="javascript:void(0)" class="js-remove-param" title="[`delete`]"><i class="icon16 delete"></i></a>
+        </div>
+    {/literal}
+</script>

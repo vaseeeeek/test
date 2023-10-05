@@ -1,0 +1,23 @@
+{if !empty($sets)}
+    <div class="s-sets-block">
+        <ul class="menu-v with-icons">
+            {foreach $sets as $set}
+                <li>
+                    <span class="counters">
+                        <span class="count">{$set.count}</span>
+                    </span>
+                    <a href="javascript:void(0)" data-type="sets" class="f-get-products" data-id="{$set.id}">
+                        <i class="icon16 {if $set.type == shopSetModel::TYPE_DYNAMIC}funnel{else}ss set{/if}"></i>
+                        <span class="name">{$set.name|escape}</span>
+                        <span class="hint id"> {$set.id|escape}</span>
+                    </a>
+                </li>
+            {/foreach}
+        </ul>
+    </div>
+{else}
+    <div class="block">
+        <p class="hint align-center">[`Product sets are used for embedding products into storefront info pages and design templates.`]</p>
+    </div>
+{/if}
+

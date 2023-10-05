@@ -1,0 +1,94 @@
+<div class="block" style="background: #FFF7E7;">
+	<span id="choosen_gift">
+	{if count($selected_gifts)}
+	{foreach $selected_gifts as $id}
+	<a href="{$wa_app_url}?action=products#/product/{$id}/" target="_blank">{$gift_list[$id].name} <i class="icon10 new-window"></i></a>
+	{/foreach}
+	{else}
+	нет подарков
+	{/if}
+	</span>
+	<hr style="margin: 8px 0 13px;">
+	<a href="#" id="gift-list-dialog-btn"><i class="icon16" style="background-image:url('{$img_url}')"></i>Назначить подарки</a>
+</div>
+<div id="gift-list-dialog" style="display:none">
+	{$wa->csrf()}
+	<input type="hidden" name="product_id" value="{$product_id}">
+	{if isset($gift_list) && $gift_list}
+	<table class="zebra full-width" id="gifts-table">
+		<tbody>
+		{foreach $gift_list as $gift}
+		<tr>
+			<td class="min-width"><i class="icon16 sort"></i></td>
+			<td class="min-width">
+				<input type="checkbox" name="gift_id[]" value="{$gift.id}"{if in_array($gift.id,$selected_gifts)} checked{/if}>
+			</td>
+			<td>{$gift.name}</td>
+		</tr>
+		{/foreach}
+		</tbody>
+	</table>
+	{/if}
+</div>
+
+<style>
+.gift-list {
+list-style:none;
+}
+.gift-list li {
+padding:3px;
+}
+#gift-list-dialog-btn{
+text-decoration:none;
+display: block;
+margin-bottom: 5px;
+}
+
+#choosen_gift a{
+margin: 5px 0 10px;
+display: block;
+text-decoration: none;
+}
+#choosen_gift hr{
+margin: 10px 0;
+background: rgb(226, 212, 167);
+border: none;
+height: 1px;
+border-bottom: #fff solid 1px;
+}
+</style>
+
+<script type="text/javascript">
+$(function(){
+	$('#gift-list-dialog-btn').click(function(){
+		$('#gift-list-dialog').waDialog({
+			title: 'Выбор подарка для товара',
+			buttons: '<input type="submit" value="Сохранить" class="button green" /> или <a href="#" class="cancel">отмена</a>',
+			onSubmit: function (d) {
+				d.find(':submit').after('<i class="icon16 loading"></i>');
+				$.post('?plugin=gift&module=setGift',d.find('form').serializeArray(),function(){
+					d.find('.loading').remove();
+					$('#choosen_gift').html('нет подарков');
+					$('#gifts-table :checked').each(function(){
+						var a = $('<a />'),
+							id = $(this).val();
+						a.attr('href','{$wa_app_url}?action=products#/product/'+id+'/');
+						a.text($(this).closest('td').next().text());
+						$('#choosen_gift').append(a);
+					})
+				});
+				return false;
+			}
+		});
+		return false;
+	})
+	$('#gifts-table').sortable({
+		'distance': 5,
+		'opacity': 0.75,
+		'items': '> tbody:first > tr:visible',
+		'handle': '.sort',
+		'cursor': 'move',
+		'tolerance': 'pointer'
+	})
+})
+</script>

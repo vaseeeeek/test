@@ -1,0 +1,55 @@
+{* Switcher *}
+<link rel="stylesheet" href="{$wa_url}wa-content/js/jquery-plugins/ibutton/jquery.ibutton.min.css?v={$wa->version()}">
+<script src="{$wa_url}wa-content/js/jquery-plugins/ibutton/jquery.ibutton.min.js"></script>
+
+{* Redactor *}
+<link type="text/css" rel="stylesheet" href="{$wa_url}wa-content/js/redactor/2/redactor.css?v{$wa->version(true)}">
+<script src="{$wa_url}wa-content/js/redactor/2/redactor.min.js?v{$wa->version(true)}"></script>
+{if $wa->locale() !== 'en_US'}
+    <script src="{$wa_url}wa-content/js/redactor/2/{substr($wa->locale(), 0, 2)}.js?v{$wa->version(true)}"></script>
+{/if}
+
+{* Jquery template *}
+<script src="{$plugin_url}js/tmpl.min.js"></script>
+
+{* ColorPicker *}
+<link rel="stylesheet" media="screen" type="text/css" href="{$plugin_url}js/colorpicker/css/colorpicker.css"/>
+<script type="text/javascript" src="{$plugin_url}js/colorpicker/js/colorpicker.js"></script>
+
+{* Igaponov dialog *}
+<link rel="stylesheet" media="screen" type="text/css" href="{$plugin_url}js/dialog/jquery.dialog.min.css"/>
+<script type="text/javascript" src="{$plugin_url}js/dialog/jquery.dialog.js"></script>
+
+<script type="text/javascript" src="{$plugin_url}js/productsetsBackend.js?v={$version}"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Lobster|Lora|Noto+Sans|Open+Sans|Open+Sans+Condensed:300|PT+Sans|Roboto|Roboto+Condensed|Roboto+Slab|Ubuntu" rel="stylesheet">
+
+<div class="block double-padded productsets-plugin-wrap">
+    <div class="mb">
+        <ul class="menu-h" id="productsets-navigation">
+            <li>
+                <a href="#/productsets/"><i class="icon16 view-table"></i> [`Product sets`]</a>
+            </li>
+            <li>
+                <a href="#/productsets/edit/"><i class="icon16 add"></i> [`Add set`]</a>
+            </li>
+            <li class="doc-link">
+                <a href="[`https://igaponov.ru/docs/productsets/`]" title="[`Documentation`]" target="_blank"><i class="icon16 book-open"></i> [`Documentation`]</a>
+            </li>
+            <li class="doc-link">
+                <a href="?action=plugins#/productsets" title="[`Settings`]" target="_blank"><i class="icon16 settings"></i> [`Settings`]</a>
+            </li>
+        </ul>
+    </div>
+    {$content}
+    <div class="clear-both"></div>
+</div>
+<script type="text/javascript">
+    $(function() {
+        $.productsets.init({
+            url: "{$plugin_url}",
+            locale: "{$wa->locale()}",
+            localeStrings: {if $js_locale_strings}{$js_locale_strings}{else}null{/if}
+        });
+    });
+</script>

@@ -1,0 +1,476 @@
+{if false}
+/* ВАЖНО!!! комментарии через 2 слеша не использовать!!! */
+{/if}
+
+{if $selector && $page_type}
+	{strip}
+		<!-- plugin Phonemask. Scripts for {$page_type}. Selector: {$selector}  -->
+		<script>
+
+			/* jQuery-плагин для установки курсора в определенной позиции pos: */
+			$.fn.setCursorPosition = function(pos) {
+				if ($(this).get(0).setSelectionRange) {
+					$(this).get(0).setSelectionRange(pos, pos);
+				} else if ($(this).get(0).createTextRange) {
+					var range = $(this).get(0).createTextRange();
+					range.collapse(true);
+					range.moveEnd('character', pos);
+					range.moveStart('character', pos);
+					range.select();
+				}
+			};
+			
+			/* эвенты */
+			{if $page_type != 'buy1click_form' && $page_type != 'ordercall_form'}
+				$( document ).ready(function(){
+					{$page_type}_editPhone();
+					{$page_type}_addInputmode();
+					{$page_type}_addPlaceholder();
+					{$page_type}_addMask();
+				});
+			{/if}
+			{if $page_type == 'checkout_page' || $page_type == 'buy1step_form'}
+				$( document ).ajaxComplete(function( event, xhr, settings ) {
+					if (settings.url != '/cartssave/') {
+						{$page_type}_editPhone();
+						{$page_type}_addInputmode();
+						{$page_type}_addMask();
+						{$page_type}_addPlaceholder();
+					}
+				});
+			{/if}
+			{if $page_type == 'buy1click_form' || $page_type == 'ordercall_form'}
+				$( document ).ready(function(){
+					var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+					
+					var element_body = document.querySelector('body');
+					if (element_body) {
+						var observer_body = new MutationObserver(function(mutations) {
+							mutations.forEach(function(mutation) {
+								if (mutation.type == "attributes") {
+									$( document ).ready(function(){
+										{$page_type}_editPhone();
+										{$page_type}_addInputmode();
+										{if $page_type != 'buy1click_form'}
+											{$page_type}_addMask();
+										{/if}
+										{$page_type}_addPlaceholder();
+									});
+									
+									{if $page_type == 'buy1click_form'}
+										$('{$selector}').val('');
+										$is_under_mask = false;
+										$( '{$selector}' ).keyup(function(e){
+											if (!$is_under_mask) {
+												if (e.key.match(/[^0-9]/g)) {
+													this.value = this.value.replace(/[^0-9]/g, '');
+												} else {
+													{$page_type}_addMask(e.key);
+													$is_under_mask = true;
+												}
+											}
+										});
+									{/if}
+								}
+							});
+						});
+						observer_body.observe(element_body, {
+							attributes: true
+						});
+					}
+					
+					var element_html = document.querySelector('html');
+					if (element_html) {
+						var observer_html = new MutationObserver(function(mutations) {
+							mutations.forEach(function(mutation) {
+								if (mutation.type == "attributes") {
+									$( document ).ready(function(){
+										{$page_type}_editPhone();
+										{$page_type}_addInputmode();
+										{if $page_type != 'buy1click_form'}
+											{$page_type}_addMask();
+										{/if}
+										{$page_type}_addPlaceholder();
+									});
+									
+									{if $page_type == 'buy1click_form'}
+										$('{$selector}').val('');
+										$is_under_mask = false;
+										$( '{$selector}' ).keyup(function(e){
+											if (!$is_under_mask) {
+												if (e.key.match(/[^0-9]/g)) {
+													this.value = this.value.replace(/[^0-9]/g, '');
+												} else {
+													{$page_type}_addMask(e.key);
+													$is_under_mask = true;
+												}
+											}
+										});
+									{/if}
+								}
+							});
+						});
+						observer_html.observe(element_html, {
+							attributes: true
+						});
+					}
+					
+				});
+			{/if}
+			{if $page_type == 'order_page'}
+				$( document ).on("wa_order_form_changed", function(event, controller) {
+					{$page_type}_editPhone();
+					{$page_type}_addInputmode();
+					{$page_type}_addMask();
+					{$page_type}_addPlaceholder();
+				});
+				$( document ).on("wa_order_cart_reloaded", function(event, controller) {
+					{$page_type}_editPhone();
+					{$page_type}_addInputmode();
+					{$page_type}_addMask();
+					{$page_type}_addPlaceholder();
+				});
+			{/if}
+			
+			
+			{if $page_type == 'edit_order_page'}
+
+				var $old_order_tel;
+				
+				$( document ).ajaxComplete(function( event, xhr, settings ) {
+					/* возвращаем маску обратно, т.к. при редактировании заказа она периодически слетает */
+					{$page_type}_editPhone();
+					{$page_type}_addInputmode();
+					{$page_type}_addMask();
+					{$page_type}_addPlaceholder();
+					
+					/* сбрасываем сохраненный номер телефона из заказа при возврате в общий список заказов, чтобы не выводить его в других заказах */
+					if (settings.url.indexOf('?module=orders') !== -1) {
+						$old_order_tel = false;
+					}
+				});
+			{/if}
+			
+			/* меняем значение номера телефона, поставленного автоматически, перед тем как внедрить маску вида "+7 (999) 99-99-99" */
+			function {$page_type}_editPhone() {
+				$('{$selector}').each(function(){
+					if ($( this ).val() != '') {
+						var $old_tel = ($(this).val()).replace('8 (', '7 (');
+						var $new_tel = 'start' + $old_tel.replace(/\D+/g, '');
+						$new_tel = $new_tel.replace('start7', 'start');
+						$new_tel = $new_tel.replace('start89', 'start9');
+						$new_tel = $new_tel.replace('start8495', 'start495');
+						$new_tel = $new_tel.replace('start8499', 'start499');
+						$new_tel = $new_tel.replace('start8812', 'start812');
+						$new_tel = $new_tel.replace('start8343', 'start343');
+						$new_tel = $new_tel.replace('start8383', 'start383');
+						$new_tel = $new_tel.replace('start8831', 'start831');
+						$new_tel = $new_tel.replace('start8846', 'start846');
+						$new_tel = $new_tel.replace('start8843', 'start843');
+						$new_tel = $new_tel.replace('start8381', 'start381');
+						$new_tel = $new_tel.replace('start8351', 'start351');
+						$new_tel = $new_tel.replace('start8863', 'start863');
+						$new_tel = $new_tel.replace('start8347', 'start347');
+						$new_tel = $new_tel.replace('start8342', 'start342');
+						$new_tel = $new_tel.replace('start8844', 'start844');
+						$new_tel = $new_tel.replace('start8391', 'start391');
+						$new_tel = $new_tel.replace('start8473', 'start473');
+						$new_tel = $new_tel.replace('start8845', 'start845');
+						$new_tel = $new_tel.replace('start8848', 'start848');
+						$new_tel = $new_tel.replace('start8861', 'start861');
+						$new_tel = $new_tel.replace('start8341', 'start341');
+						$new_tel = $new_tel.replace('start8485', 'start485');
+						$new_tel = $new_tel.replace('start', '');
+						if ($new_tel.length != 10) {
+							$new_tel = false;
+							{if $page_type == 'edit_order_page'}
+							{literal}
+							if (!$('.phonemask_old_tel_wrap').length) {
+								if ($old_tel) {
+									$(this).before(`<div class="phonemask_old_tel_wrap">В базе сохранен номер телефона в таком виде: <span class="phonemask_old_tel_span">${$old_tel}</span>Приведите его к нужному формату или отключите плагин «Нормальная маска телефона»</div>`);
+									$old_order_tel = $old_tel;
+								} else if ($old_order_tel) {
+									$(this).before(`<div class="phonemask_old_tel_wrap">В базе сохранен номер телефона в таком виде: <span class="phonemask_old_tel_span">${$old_order_tel}</span>Приведите его к нужному формату или отключите плагин «Нормальная маска телефона»</div>`);
+								}
+							}
+							{/literal}
+							{/if}
+						}
+					}
+
+					$( this ).val($new_tel);
+				});
+			}
+			
+			/* внедряем доп. атрибут */
+			function {$page_type}_addInputmode() {
+				$('{$selector}').each(function(){
+					$( this ).attr('inputmode', 'tel');
+					{$microtime = microtime(true)}
+					$( this ).attr('autocomplete', 'offsuka{$microtime}');
+					if ($( this ).parents('form').length > 0) {
+						$( this ).parents('form').attr('autocomplete','off');
+					}
+				});
+			}
+			
+			/* внедряем маску */
+			function {$page_type}_addMask(key=false) {
+				
+				
+				$.mask.definitions['9'] = false;
+				$.mask.definitions['X'] = "[0-9]"; 
+				
+				var $new_mask = false;
+				var $in_focus = false;
+				var $is_full = false;
+				var $buy1click_mask = false;
+	
+				var number_before = 1;
+				var number_after = 2;
+				
+				$('{$selector}').click(function(){
+				
+					var $val = $(this).val();
+					if ($val.match("_") || !$val) {
+						$is_full = false;
+					} else {
+						$is_full = true;
+					}
+					
+					if (!$in_focus && !$is_full) {
+						$( this ).setCursorPosition(4);
+					}
+					$in_focus = true;
+				});
+				
+				$('{$selector}').each(function(){
+					
+					/* костыль для "Купить в 1 клик" */
+					if (key) {
+						$( this ).addClass('{$page_type}_phonemask_plugin'){literal}.mask(`+7 (${key}XX) XXX-XX-XX`).focus().setCursorPosition(5);{/literal};
+						$buy1click_mask = true;
+					} else {
+						$( this ).addClass('{$page_type}_phonemask_plugin').mask("+7 (XXX) XXX-XX-XX");
+					}
+					
+					$( this ).keydown(function(e){
+						var e = e || event, k = e.which || e.button;
+						if (e.ctrlKey && k == 86) {
+							alert('Пожалуйста, введите номер вручную без использования вставки.');
+							return false;
+						}
+						
+						if ($new_mask) {
+							if (e.key == 'Backspace' || e.key == 'Delete') {
+								number_before = $( this ).val();
+								number_before_count = number_before.replace(/\D+/g,'').length;
+							}
+						}
+						
+						if ($buy1click_mask) {
+							if (e.key == 'Backspace' || e.key == 'Delete') {
+								number_before = $( this ).val();
+								number_before_count = number_before.replace(/\D+/g,'').length;
+							}
+						}
+					});
+					
+					$( this ).bind('paste', function(e) {
+						alert('Пожалуйста, введите номер вручную без использования вставки.');
+						return false;
+					});
+					
+					$( this ).keyup(function(e){
+						
+						if ($new_mask) {
+							if (e.key == 'Backspace' || e.key == 'Delete') {
+								
+								/* 
+									При включенной маске с девяткой проверяем попытку нажать Backspace или Delete
+									Если до и после нажатия ничего телефон не изменился и позиция курсора == 5, значит пользователь пытался удалить часть маски
+									В таком случае нужно изменить маску к начальному виду 
+									(надо будет переделать)
+								*/
+								
+								var $cursor_position = getCursorPosition();
+								if ($cursor_position == 5) {
+									number_after = $( this ).val();
+									number_after_count = number_after.replace(/\D+/g,'').length;
+									if (number_before == number_after) {
+										$( this ).mask("+7 (XXX) XXX-XX-XX").focus().setCursorPosition(4);
+										$new_mask = false;
+									}
+								}
+							}
+						} else {
+							var $val = $( this ).val();
+							
+							/* TODO: переписать эту хрень */
+							if ($val.match("89") || $val.match("79")) {
+								var $first_symbol = $val.substr(4,1);
+								var $second_symbol = $val.substr(5,1);
+								if (($first_symbol == '8' || $first_symbol == '7') && $second_symbol == '9') {
+									$( this ).mask("+7 (9XX) XXX-XX-XX").focus().setCursorPosition(5);
+									$new_mask = true; 
+								}
+							}
+						}
+						
+						
+						if ($buy1click_mask) {
+							if (e.key == 'Backspace' || e.key == 'Delete') {
+								
+								/* 
+									При включенной маске с рандомной цифрой
+									Если до и после нажатия ничего телефон не изменился и позиция курсора == 5, значит пользователь пытался удалить часть маски
+									В таком случае нужно изменить маску к начальному виду 
+									(надо будет переделать)
+								*/
+								
+								var $cursor_position = getCursorPosition();
+								if ($cursor_position == 5) {
+									number_after = $( this ).val();
+									number_after_count = number_after.replace(/\D+/g,'').length;
+									if (number_before == number_after) {
+										$( this ).mask("+7 (XXX) XXX-XX-XX").focus().setCursorPosition(4);
+										$buy1click_mask = false;
+									}
+								}
+							}
+						}
+						
+						/* определяем позицию курсора в инпуте */
+						function getCursorPosition() {
+							
+							/* всегда возвращаем цифру "5" для плагина ordercall, т.к. функция почему-то не может определить позицию курсора в инпуте плагина */
+							{if $page_type == 'ordercall_form'}
+								return 5;
+							{/if}
+							
+							/* функция попределения позиции курсора в инпуте */
+							return getCaretPos(document.getElementsByClassName('{$page_type}_phonemask_plugin')[0]);
+						}
+						function getCaretPos(obj) {
+							obj.focus();
+							if(obj.selectionStart) return obj.selectionStart;
+							else if (document.selection) {
+								var sel = document.selection.createRange();
+								var clone = sel.duplicate();
+								sel.collapse(true);
+								clone.moveToElementText(obj);
+								clone.setEndPoint('EndToEnd', sel);
+								return clone.text.length;
+							}
+							return 0;
+						}
+						
+					});
+					{if $settings.redborder}
+						/* выводим красную границу при снятии фокуса с поля */
+						$( this ).focusout(function( index ) {
+							var $val = $(this).val();
+							if ($val.match("_") || !$val) {
+								$(this).mask("+7 (XXX) XXX-XX-XX");
+								$new_mask = false;
+								{if $settings.redborder == 2}
+									if ($( this ).siblings().find('*[class*="required"]').length > 0) {
+										$(this).addClass('empty error error_phonemask');
+										$(this).removeClass('not-empty');
+									}
+								{else}
+									$(this).addClass('empty error error_phonemask');
+									$(this).removeClass('not-empty');
+								{/if}
+							} else {
+								$(this).removeClass('error error_phonemask empty');
+								$(this).addClass('not-empty');
+							}
+							$in_focus = false;
+						});
+					{/if}
+				});
+			}
+			
+			function {$page_type}_addPlaceholder() {
+				{if $page_type != 'login_page' && $page_type != 'my_page_not_authorized'}
+					/* внедряем placeholder */
+					$('{$selector}').each(function(){
+						{if $placeholder}
+							{if $page_type == 'ordercall_form'}
+								/* выводим placeholder только на новом дизайне формы заказа обратного звонка, т.к. на старом выглядит криво */
+								if ($( this ).hasClass('oc-light-form-input-text')) {
+									$( this ).attr('placeholder', '+7 (___) ___-__-__');
+								}
+							{else}
+								$( this ).attr('placeholder', '+7 (___) ___-__-__');
+							{/if}
+						{else}
+							$( this ).attr('placeholder', '');
+						{/if}
+					});
+				{/if}
+			}
+					
+		</script>
+		<style>
+			{if $page_type == 'login_page'}
+				{$selector}::placeholder {
+					font-size: 0 !important;
+				}
+			{/if}
+			
+			html body .error_phonemask
+			{
+				border-color: red !important;
+			}
+			{if $page_type == 'edit_order_page'}
+				.phonemask_old_tel_wrap {
+					display: inline-block;
+					background: #f2f7ff;
+					padding: 1px 10px;
+					max-width: 200px;
+					margin-bottom: 10px;
+					font-size: 12px;
+				}
+				.phonemask_old_tel_span {
+					display: block !important;
+					color: black !important;
+					background: white;
+					font-size: 1.2em !important;
+					padding: 1px 5px;
+				}
+			{/if}
+		</style>
+	{/strip}
+{/if}
+
+
+{if false}
+	/*  
+		Возможные вариации мобильных номеров телефонов в базе
+		+7 (987) 654-32-10
+		+79876543210
+		79876543210
+		89876543210
+		9876543210
+		
+		Возможные вариации городских номеров телефонов в базе
+		+7 (343) 654-32-10
+		+73436543210
+		73436543210
+		83436543210
+		3436543210
+		6543210 (без кода города)
+		
+		Возможные вариации городских номеров телефонов в базе, код города которого начинается с 8.
+		+7 (812) 654-32-10
+		+78126543210
+		78126543210
+		88126543210
+		8126543210
+		6543210 (без кода города)
+	
+		Городских номеров телефона с кодом города, начинающегося с 7, не сущестует!!!
+	*/
+{/if}

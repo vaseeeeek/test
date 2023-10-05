@@ -1,0 +1,77 @@
+{*$templates|var_dump*}
+
+{foreach $templates as $key => $template}
+    <div style="width: 80%;">
+        <label>
+            <textarea id="invite-template-{$key}"  class="textarea invite-template" name="shop_invite[{$key}]">{$template.template|escape}</textarea>
+        </label>
+        <br>
+        <span class="hint">
+            {$template.name} HTML + Smarty
+        </span>
+    </div>
+
+    {if $template.change_tpl}
+        <div class="value">
+            <p class="gray"><i class="icon16 exclamation"></i>[`Warning! The default template has been changed.`]</p>
+            <label>
+                <input type="checkbox" name="shop_invite[reset_tpl_{$key}]" value="1"  />[` - Reset changes, use the default template.`]
+            </label>
+        </div>
+    {/if}
+    <script>
+        $(function() {
+
+            var  {$key} = CodeMirror.fromTextArea(document.getElementById("invite-template-{$key}"), {
+                mode: "text/html",
+                tabMode: "indent",
+                height: "dynamic",
+                lineWrapping: true
+            });
+
+            {literal}$("#invite-template-{/literal}{$key}{literal}").change(function() {{/literal}
+                {$key}.setValue($(this).val())
+            });
+
+        });
+    </script>
+{/foreach}
+
+<p></p>
+<h3>[`Hint`]</h3>
+
+<p>
+    {literal}
+        {$owner.name} - [`Name of the person that invites`]
+    {/literal}
+</p>
+<p>
+    {literal}
+        {$domain.name} - [`Site name`]
+    {/literal}
+</p>
+<p>
+    {literal}
+        {$domain.url} - [`Site url`]
+    {/literal}
+</p>
+<p>
+    {literal}
+        {$domain.link} - [`Link to the website in html format (&lt;a href=...)`]
+    {/literal}
+</p>
+<p>
+    {literal}
+        {$invite.url} - [`Invite url`]
+    {/literal}
+</p>
+<p>
+    {literal}
+        {$invite.link} - [`Link to the invite in html format (&lt;a href=...)`]
+    {/literal}
+</p>
+<p>
+    {literal}
+        {$invite.code} - [`Invite code`]
+    {/literal}
+</p>

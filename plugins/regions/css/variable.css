@@ -1,0 +1,20 @@
+.variable {
+	margin: 5px 0;
+}
+
+.variable__name {
+	color: #777;
+	display: inline-block;
+	padding: 3px;
+	background: #eee;
+	border: 1px solid #eee;
+	border-radius: 3px;
+}
+
+.variable__name:hover {
+	border-color: #ddd;
+}
+
+.variable__name_tiny {
+	font-size: .9em;
+}

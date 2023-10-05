@@ -1,0 +1,38 @@
+<div class="field">
+    <div class="name">[`Minimal price`]</div>
+    <div class="value">
+        <input type="text" name="skus[{$sku_id}][flexdiscount_minimal_discount_price]" value="{if !empty($sku['flexdiscount_minimal_discount_price'])}{$sku['flexdiscount_minimal_discount_price']|floatval}{/if}" class="short numerical">
+        <select name="skus[{$sku_id}][flexdiscount_minimal_discount_currency]">
+            {foreach $currencies as $c}
+                <option value='{$c.code}' {if !empty($sku['flexdiscount_minimal_discount_currency']) && $sku['flexdiscount_minimal_discount_currency'] == $c['code']}selected{/if}>{$c['sign']} {$c['code']}</option>
+            {/foreach}
+        </select>
+        <p class="hint">{_wp('Price with all discounts (from plugin Flexdiscount) will never be lower than specified value. Make sure that setting "Product discount limit" is enabled and has value "product field"')}</p>
+    </div>
+</div>
+<div class="field">
+    <div class="name">[`Discount`]</div>
+    <div class="value">
+        <input type="text" name="skus[{$sku_id}][flexdiscount_item_discount]" value="{if !empty($sku['flexdiscount_item_discount'])}{$sku['flexdiscount_item_discount']|floatval}{/if}" class="short numerical">
+        {$sku_flexdiscount_discount_currency = ifempty($sku, 'flexdiscount_discount_currency', '%')}
+        <select name="skus[{$sku_id}][flexdiscount_discount_currency]">
+            <option value="%" {if $sku_flexdiscount_discount_currency == '%'}selected{/if}>%</option>
+            {foreach $currencies as $c}
+                <option value='{$c.code}' {if $sku_flexdiscount_discount_currency == $c['code']}selected{/if}>{$c['sign']} {$c['code']}</option>
+            {/foreach}
+        </select>
+        <p class="hint">{_wp('Discount (from plugin Flexdiscount) will be applied, if you will select the type of the discount "Product field" in the plugin rule')}</p>
+    </div>
+</div>
+<div class="field">
+    <div class="name">[`Affiliate`]</div>
+    <div class="value">
+        <input type="text" name="skus[{$sku_id}][flexdiscount_item_affiliate]" value="{if !empty($sku['flexdiscount_item_affiliate'])}{$sku['flexdiscount_item_affiliate']|floatval}{/if}" class="short numerical">
+        {$sku_flexdiscount_affiliate_currency = ifset($sku, 'flexdiscount_affiliate_currency', '%')}
+        <select name="skus[{$sku_id}][flexdiscount_affiliate_currency]">
+            <option value="%" {if $sku_flexdiscount_affiliate_currency == '%'}selected{/if}>%</option>
+            <option value="" {if $sku_flexdiscount_affiliate_currency == ''}selected{/if}></option>
+        </select>
+        <p class="hint">{_wp('Affiliate (from plugin Flexdiscount) will be applied, if you will select the type of the affiliate "Product field" in the plugin rule')}</p>
+    </div>
+</div>

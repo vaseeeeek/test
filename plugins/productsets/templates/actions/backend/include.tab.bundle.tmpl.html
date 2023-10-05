@@ -1,0 +1,448 @@
+{capture name="hours"}
+    {for $i=0; $i<24; $i++}
+        <option value="{$i}">{"%02d"|sprintf:$i}</option>
+    {/for}
+{/capture}
+{capture name="minutes"}
+    {for $i=0; $i<60; $i++}
+        <option value="{$i}">{"%02d"|sprintf:$i}</option>
+    {/for}
+{/capture}
+
+<script type="text/x-tmpl" id="tmpl-bundle">
+    <div class="field bundle">
+        <div class="mb bottom bundle__sort">
+            <i class="icon16 sort"></i> [`Product bundle`] #
+        </div>
+        <div class="bundle__delete">
+            <a href="javascript:void(0)" class="js-bundle-delete" title="[`delete`]"><i class="icon16 delete-bw"></i> [`delete`]</a>
+        </div>
+        <div class="bundle__wrap">
+
+            {* Активный товар *}
+            {literal}
+            {% if (o.active) {
+                    include('tmpl-bundle-item', { item: $.extend(o.active, { id: 0, skuId: 0, name: $__('* * * Active product * * *'), price: '' }), discount_type: o.settings.discount_type, obj: '', is_active: 1 });
+                }
+            %}
+            {/literal}
+
+            {* Список товаров *}
+            <div class="bundle__items">
+                <div>
+                    {literal}
+                    {% if (o.items) {
+                            for (var i in o.items) {
+                                include('tmpl-bundle-item', { item: o.items[i], discount_type: o.settings.discount_type});
+                            }
+                        }
+                    %}
+                    {/literal}
+                </div>
+            </div>
+
+            <div class="mb">
+                <a href="javascript:void(0)" class="js-add-product"><i class="icon16 add"></i> [`add products to the bundle`]</a>
+            </div>
+
+            {* Другие настройки комплекта *}
+            <div class="bundle__settings">
+                <h3>[`Bundle settings`]</h3>
+
+                {* Выбор скидок для комплекта *}
+                {literal}
+                <div class="mb bottom">
+                    [`Select discount type for the bundle`]:
+                    <select name="discount_type" class="js-change-bundle-discount">
+                        <option value="common" {% if (o.settings && o.settings.discount_type == 'common') { print('selected'); } %}>[`common discount`]</option>
+                        <option value="each" {% if (o.settings && o.settings.discount_type == 'each') { print('selected'); } %}>[`discount for each product`]</option>
+                        <option value="avail" {% if (o.settings && o.settings.discount_type == 'avail') { print('selected'); } %}>[`discount depending on the availability of the product in the bundle`]</option>
+                    </select>
+                    <div class="bundle__avail-variant-radios bundle__avail-variant_toggle mb top semi"{% if (o.settings && o.settings.discount_type == 'avail') { %} style="display: block"{% } %}>
+                        <div class="mb bottom semi">
+                            <label><input type="radio" value="common" data-name="avail_discount_type" name="avail_discount_type-{% if (o.id) { print(o.id); } else if (o.uid) { print(o.uid); } %}" {% if  (o.settings && (!o.settings.avail_discount_type || o.settings.avail_discount_type == 'common')) { print('checked'); } %}> [`common`]</label>
+                            <div class="hover-tooltip s-small">
+                                <span>?</span>
+                                <div class="hover-content">
+                                    <div>
+                                        [`If bundle will have 2, 3, 4 or more product-positions, then set discount to all products`]<br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label><input type="radio" value="every" data-name="avail_discount_type" name="avail_discount_type-{% if (o.id) { print(o.id); } else if (o.uid) { print(o.uid); } %}" {% if (o.settings && o.settings.avail_discount_type == 'every') { print('checked'); } %}> [`on every position`]</label>
+                            <div class="hover-tooltip s-small">
+                                <span>?</span>
+                                <div class="hover-content">
+                                    <div>
+                                        [`Set discount to each position of the bundle`]<br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/literal}
+
+                {* Общая скидка *}
+                {literal}
+                <div class="bundle__total-discount"{% if ((o.settings && o.settings.discount_type == 'common') || !o.settings) { %} style="display: block"{% } %}>
+                    [`Discount`]
+                    <input class="short" type="text" name="discount" value="{% if (o.settings && o.settings.discount) { print(o.settings.discount); } %}" />
+                    <select name="currency">
+                          {% include('tmpl-currency-options', { currency: (o.settings ? o.settings.currency : o) }); %}
+                    </select>
+                </div>
+                {/literal}
+
+                {* Скидка от наличия *}
+                {literal}
+                <div class="bundle__avail-variant bundle__avail-variant_toggle"{% if (o.settings && o.settings.discount_type == 'avail') { %} style="display: block"{% } %}>
+                    [`Discount`]
+                    <div class="bundle__avail-variant-inner{% if (o.settings && o.settings.avail_discount_type == 'every') { print(' bundle__avail-variant-inner-every'); } %}">
+                        {% if (o.settings && o.settings.discount_type == 'avail' && o.settings.chain) {
+                               for (var i=0; i < o.settings.chain.value.length; i++) {
+                                   include('tmpl-discount-chain', {
+                                       value: o.settings.chain.value[i],
+                                       currency: o.settings.chain.currency[i],
+                                       each: o.settings.chain.each[i],
+                                       i: i,
+                                       length: o.settings.chain.value.length
+                                   });
+                               }
+                           } else {
+                               include('tmpl-discount-chain', { first: 1 });
+                           }
+                        %}
+                    </div>
+                </div>
+                {/literal}
+
+                {literal}
+                <div class="mb bundle__settings-item">
+                    <label><input type="checkbox" class="js-change-active-product" name="active_product" {% if (o.settings && o.settings.active_product) { %} checked{% } %}> [`Add active product to the bundle`]</label>
+                    <div class="hover-tooltip">
+                        <span>?</span>
+                        <div class="hover-content">
+                            <div>
+                                [`Product on the page of which the set is located will be automatically added to that set`]<br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/literal}
+
+                <div class="mb bottom bundle__settings-item">
+                    <label>
+                        {literal}
+                        <input type="checkbox" class="js-bundle-lifetime" name="lifetime" {% if (o.settings && o.settings.lifetime) { %} checked{% } %}> <i class="icon16 clock"></i> [`Select bundle lifetime`]</label>
+                    <div class="bundle__settings-lifetime" style="{% if (o.settings && o.settings.lifetime) { %}display: block{% } else { %}display: none{% } %}">
+                        {/literal}
+                        <div class="mb hint">[`Server time`]: {date("Y-m-d H:i:s")}</div>
+                        <div class="bold mb top" style="color: green;">[`Start`]</div>
+                        <div class="schedule-time mb">
+                            {literal}
+                            <span>
+                                <input type="text" maxlength="2" onkeypress="$.productsets.isValid(event, /[0-9]/);" class="schedule-day width35px" name="schedule[start][day]" value="{% if (o.settings && o.settings.schedule) { print(o.settings.schedule.start.day); } %}" />
+                                <label>[`DD`]</label>
+                            </span>
+                            <span>
+                                <input type="text" maxlength="2" onkeypress="$.productsets.isValid(event, /[0-9]/);" class="schedule-month width35px" name="schedule[start][month]" value="{% if (o.settings && o.settings.schedule) { print(o.settings.schedule.start.month); } %}" />
+                                <label>[`MM`]</label>
+                            </span>
+                            <span>
+                                <input type="text" maxlength="4" onkeypress="$.productsets.isValid(event, /[0-9]/);" class="schedule-year width50px" name="schedule[start][year]" value="{% if (o.settings && o.settings.schedule) { print(o.settings.schedule.start.year); } %}" />
+                                <label>[`YYYY`]</label>
+                            </span>
+                            <input type="text" style="width: 0 !important;min-width: 0!important;" class="f-datepicker outside">
+                            <span style="margin-left: 20px">
+                                <select name="schedule[start][hour]" class="schedule-select" {% if (o.settings && o.settings.schedule) { %} data-value="{% print(o.settings.schedule.start.hour); %}"{% } %}>
+                            {/literal}
+                                    {$smarty.capture.hours}
+                                </select>
+                                <label>[`HH`]</label>
+                            </span>
+                            <span>
+                            {literal}
+                                <select name="schedule[start][minute]" class="schedule-select" {% if (o.settings && o.settings.schedule) { %} data-value="{% print(o.settings.schedule.start.minute); %}"{% } %}>
+                            {/literal}
+                                    {$smarty.capture.minutes}
+                                </select>
+                                <label>[`MM`]</label>
+                            </span>
+                        </div>
+                        <div class='clear-both'></div>
+                        <div class="bold mb top" style="color: red;">[`End`]</div>
+                        <div class="schedule-time mb">
+                            {literal}
+                            <span>
+                                <input type="text" maxlength="2" onkeypress="$.productsets.isValid(event, /[0-9]/);" class="schedule-day width35px" name="schedule[end][day]" value="{% if (o.settings && o.settings.schedule) { print(o.settings.schedule.end.day); } %}" />
+                                <label>[`DD`]</label>
+                            </span>
+                            <span>
+                                <input type="text" maxlength="2" onkeypress="$.productsets.isValid(event, /[0-9]/);" class="schedule-month width35px" name="schedule[end][month]" value="{% if (o.settings && o.settings.schedule) { print(o.settings.schedule.end.month); } %}" />
+                                <label>[`MM`]</label>
+                            </span>
+                            <span>
+                                <input type="text" maxlength="4" onkeypress="$.productsets.isValid(event, /[0-9]/);" class="schedule-year width50px" name="schedule[end][year]" value="{% if (o.settings && o.settings.schedule) { print(o.settings.schedule.end.year); } %}" />
+                                <label>[`YYYY`]</label>
+                            </span>
+                            <input type="text" style="width: 0 !important;min-width: 0 !important;" class="f-datepicker outside">
+                            <span style="margin-left: 20px">
+                                <select name="schedule[end][hour]" class="schedule-select" {% if (o.settings && o.settings.schedule) { %} data-value="{% print(o.settings.schedule.end.hour); %}"{% } %}>
+                            {/literal}
+                                    {$smarty.capture.hours}
+                                </select>
+                                <label>[`HH`]</label>
+                            </span>
+                            <span>
+                            {literal}
+                                <select name="schedule[end][minute]" class="schedule-select" {% if (o.settings && o.settings.schedule) { %} data-value="{% print(o.settings.schedule.end.minute); %}"{% } %}>
+                            {/literal}
+                                    {$smarty.capture.minutes}
+                                </select>
+                                <label>[`MM`]</label>
+                            </span>
+                        </div>
+                        {literal}
+                        <div class="mb clear-both">
+                            <label><input type="checkbox" name="delete_inactive" {% if (o.settings && o.settings.delete_inactive) { %} checked{% } %}> [`Delete bundle when the time is over`]</label>
+                            <div class="hover-tooltip">
+                                <span>?</span>
+                                <div class="hover-content">
+                                    <div>
+                                        [`By default the bundle will be hidden when the time is over.<br><i class="icon16 exclamation"></i> If you activate this option the bundle will be removed from the website and from the admin page.`]<br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/literal}
+                    </div>
+                </div>
+
+                {literal}
+                <div class="mb bundle__settings-item">
+                    <label><input type="checkbox" name="hide_on_empty_stocks" {% if (o.settings && o.settings.hide_on_empty_stocks) { %} checked{% } %}> [`If bundle has positions with empty stocks, then hide the bundle`]</label>
+                </div>
+                <div class="mb bundle__settings-item">
+                    <label><input type="checkbox" name="hide_empty_stocks" {% if (o.settings && o.settings.hide_empty_stocks) { %} checked{% } %}> [`Hide empty stocks positions, where it is allowed to delete products`]</label>
+                </div>
+                {/literal}
+
+                {literal}
+                <div class="mb bundle__settings-item">
+                    <div class="field">
+                        <div class="name">
+                            [`Custom parameters`]
+                            <span class="shop-tooltip">
+                                <i class="icon16 info"></i>
+                                <span>[`Read more in <a href="http://en.igaponov.ru/docs/178/custom-parameters/" target="_blank">docs</a>`]</span>
+                            </span>
+                        </div>
+                        <div class="value">
+                            <div class="f-set-parameters">
+                                {% if (o.settings && o.settings.params) {
+                                    include('tmpl-general-params', { params: o.settings.params });
+                                } %}
+                            </div>
+                            <a href="javascript:void(0)" class="js-add-param" title="[`add parameter`]"><i class="icon16 add"></i> [`add parameter`]</a>
+                        </div>
+                    </div>
+                </div>
+                {/literal}
+
+                {literal}
+                <div class="mb bundle__settings-item">
+                    <a href="javascript:void(0)" class="f-toggle-html inline-link"><b><i>[`HTML text before and after the bundle`]</i></b></a>
+                    <div class="mb hidden mr10">
+                        <div class="field">
+                            <div class="name">[`HTML text before the bundle`]</div>
+                            <div class="value">
+                                <textarea name="html_before" class="width100 f-redactor">{% if (o.settings && o.settings.html_before) { print(o.settings.html_before); } %}</textarea>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="name">[`HTML text after the bundle`]</div>
+                            <div class="value">
+                                <textarea name="html_after" class="width100 f-redactor">{% if (o.settings && o.settings.html_after) { print(o.settings.html_after); } %}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb bundle__settings-item">
+                    <a href="javascript:void(0)" class="f-toggle-html inline-link">
+                        <b><i>[`HTML text at the top and at the bottom of the total block`]</i></b>
+                        <span class="shop-tooltip">
+                            <i class="icon16 info"></i>
+                            <span>[`Relavant for second and third layouts of the total block. Go to "Appearance tab" and check your "Layout settings"`]</span>
+                        </span>
+                    </a>
+                    <div class="mb hidden mr10">
+                        <div class="field">
+                            <div class="name">[`HTML text at the top of the total block`]</div>
+                            <div class="value">
+                                <textarea name="html_total_top" class="width100 f-redactor">{% if (o.settings && o.settings.html_total_top) { print(o.settings.html_total_top); } %}</textarea>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="name">[`HTML text at the bottom of the total block`]</div>
+                            <div class="value">
+                                <textarea name="html_total_bottom" class="width100 f-redactor">{% if (o.settings && o.settings.html_total_bottom) { print(o.settings.html_total_bottom); } %}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/literal}
+            </div>
+        </div>
+        {literal}
+        {% if (o.id) { %} <input type="hidden" name="id" class="bundle__id" value="{% print(o.id); %}">{% } %}
+        {/literal}
+    </div>
+</script>
+
+<script type="text/x-tmpl" id="tmpl-bundle-item">
+    {literal}
+    <div class="bundle__item mb bottom{% if (o.is_active) { print(' bundle__item-active field'); } %}" data-id="{% print(o.item.id); %}" data-sku-id="{% print(o.item.skuId); %}" data-type="{% print(o.item.type); %}" data-product="{% if (o.obj) { print(o.obj); } else if (o.item.obj) { print(o.item.obj); } %}">
+        <div class="bundle__inner mb bottom semi">
+            {% if (o.item._id) { %}
+            <input type="hidden" name="_id" value="{% print(o.item._id); %}" class="bundle__item_id">
+            {% } %}
+            {% if (!o.is_active) { %}
+            <div class="bundle__item-sort"><i class="icon16 sort"></i></div>
+            {% } %}
+            <!-- Изображение -->
+            <div class="bundle__img-cont">
+                <img src='{% if (o.item.image) { print(o.item.image); } else { %}{/literal}{$wa_app_static_url}{literal}img/image-dummy.png{% } %}' class="bundle__img">
+            </div>
+            <!-- Название -->
+            <div class="bundle__name">
+                <div class="align-left hint">[`Name`]</div>
+                    {% if (!o.is_active) { %}
+                    <a href="?action=products#/product/{% print(o.item.id); %}">
+                    {% }
+                       print(o.item.name, true);
+                       if (!o.is_active) { %}
+                    </a>
+                    {% } %}
+                    {% print(' '); print(o.item.stocks, true);
+                    if (o.item.skuName && o.item.type == 'sku') { %}
+                    <div class="bundle__sku-name">
+                        {% print(o.item.skuName, true); %}
+                    </div>
+                  {%  }
+                %}
+            </div>
+            <!-- Количество -->
+            <div class="bundle__quantity">
+                <div class="align-left hint">[`Qty`]</div>
+                <input type="number" name="quantity" min="0" class="bundle__quantity-input" value="{% if (o.item.settings && o.item.settings.quantity) { print(o.item.settings.quantity); } else { print('1'); } %}">
+            </div>
+            <!-- Скидка на каждый товар -->
+            <div class="bundle__discount align-right"{% if (o.discount_type && o.discount_type == 'each') { %} style="display: block"{% } %}>
+                <div class="align-left hint">[`Discount`]</div>
+                <input type="text" name="discount" class="bundle__discount-value" value="{% if (o.item.settings && o.item.settings.discount) { print(o.item.settings.discount); } %}">
+                <select name="currency" class="bundle__discount-select">
+                    {% include('tmpl-currency-options', { currency: (o.item.settings ? o.item.settings.currency : o.item) }); %}
+                </select>
+            </div>
+            <!-- Цена -->
+            {% if (!o.is_active) { %}
+            {% if (o.item.purchase_price > 0) { %}
+                <div class="bundle__price align-right">
+                    <div class="align-right hint" title="[`Return on Sales`]">[`ROS`]</div>
+                    <div class="hint">{% print((o.item.clear_price/o.item.purchase_price * 100).toFixed(2), true); %}%</div>
+                </div>
+            {% } %}
+            <div class="bundle__price align-right">
+                <div class="align-right hint">[`Price`]</div>
+                {% if (o.item.compare_price && o.item.compare_price > o.item.price) { %}
+                <div class="bundle__price-compare small strike gray">{% print(o.item.compare_price, true); %}</div>
+                {% } %}
+                <div class="bundle__price-regular bold">{% print(o.item.price, true); %}</div>
+            </div>
+            {% } %}
+            <a href="javascript:void(0)" class="js-delete-bundle-item bundle__item-delete" title="[`Delete`]"><i class="icon16 delete"></i></a>
+        </div>
+        {% if (!o.is_alternative) { %}
+        {% if (!o.is_active) { %}
+        <!-- Добавление альтернативаного товара -->
+        <div class="bundle__alternative">
+            <div class="bundle__items bundle__alternative-items">
+                <div>
+                    {% if (o.item.alternative) {
+                            for (var i in o.item.alternative) {
+                                include('tmpl-bundle-item', { item: o.item.alternative[i], discount_type: o.discount_type, is_alternative: 1 });
+                            }
+                        }
+                    %}
+                </div>
+            </div>
+            <div class="mb small bundle__add-alt-product">
+                <a href="javascript:void(0)" class="js-add-alt-product"><i class="icon10 add"></i> [`add alternative products`]</a>
+                <div class="hover-tooltip s-small">
+                    <span>?</span>
+                    <div class="hover-content">
+                        <div>
+                            [`Customer will be able to change products in one position`]<br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% } %}
+        <!-- Дополнительные настройки -->
+        <div class="bundle__item-settings mb bottom">
+            <a href="javascript:void(0)" class="inline-link f-toggle-html" data-hide="1"{% if (o.item.settings && (o.item.settings.choose_skus || o.item.settings.choose_quantity || o.item.settings.delete_product || o.item.settings.discount_required)) { %} style="display: none"{% } %}><b><i>[`show additional settings`]</i></b></a>
+            <div class="hidden bundle__item-settings-content"{% if (o.item.settings && (o.item.settings.choose_skus || o.item.settings.choose_quantity || o.item.settings.delete_product || o.item.settings.discount_required)) { %} style="display: block"{% } %}>
+                <div class="mb bottom semi bundle__item-settings_choose-skus"><label><input type="checkbox" name="choose_skus" {% if (o.item.settings && o.item.settings.choose_skus) { print('checked'); } %}> [`Allow to choose product skus`]</label></div>
+                <div class="mb bottom semi bundle__item-settings_choose-quantity"><label><input type="checkbox" name="choose_quantity" {% if (o.item.settings && o.item.settings.choose_quantity) { print('checked'); } %}> [`Allow to change product quantity`]</label></div>
+                {% if (!o.is_active) { %}
+                <div class="mb bottom semi bundle__item-settings_delete-product"><label><input type="checkbox" name="delete_product" {% if (o.item.settings && o.item.settings.delete_product) { print('checked'); } %}> [`Allow to delete product from the bundle`]</label></div>
+                <div class="mb bottom semi bundle__item-settings_discount-required"><label><input type="checkbox" name="discount_required" {% if (o.item.settings && o.item.settings.discount_required) { print('checked'); } %}> [`If there is no product in the bundle, then cancel all discounts`]</label></div>
+                {% } %}
+            </div>
+        </div>
+        {% } %}
+    </div>
+    {/literal}
+</script>
+
+<script type="text/x-tmpl" id="tmpl-discount-chain">
+    {literal}
+    <div class="bundle__chain-link">
+        <div class="hint">
+            <span class="bundle__chain-link-pos"></span>[`pos`]
+            {% if (!o.first) { %}
+                <a href="javascript:void(0)" class="js-delete-discount-item" title="[`delete`]"><i class="icon10 no"></i></a>
+            {% } %}
+            <span class="bundle__chain-link-each"{% if (!o.currency || (o.currency && o.currency == '%')) { %} style="display: none;"{% } %}>
+                <label>
+                    <input type="hidden" name="chain[each][]" value="{% if (o.each && o.each == '1') { %}1{% } else { %}0{% } %}">
+                    <input type="checkbox" class="js-change-bundle-chain-each" value="1"{% if (o.each && o.each == '1') { print(' checked'); } %}> [`on each pos`]
+                </label>
+            </span>
+        </div>
+        <div class="bundle__link-value-wrap">
+            <input type="number" name="chain[value][]" min="0" class="short" value="{% if (o.value) { print(o.value); } %}">
+            <select name="chain[currency][]" class="js-select-chain-currency">
+                {% include('tmpl-currency-options', { currency: o.currency }); %}
+            </select>
+        </div>
+    </div>
+    {% if (!o.length || (o.length && (o.length == (parseInt(o.i) + 1)))) { %}
+    <a href="javascript:void(0)" class="bundle__add-discount-item js-add-discount-item" title="[`add`]"><i class="icon10 add"></i></a>
+    {% } %}
+    {/literal}
+</script>
+
+<script type="text/x-tmpl" id="tmpl-currency-options">
+    {literal}
+    <option {% if (o.currency && o.currency == '%') { print('selected'); } %} value="%">%</option>
+    {/literal}
+    {foreach $currencies as $c}
+        <option {ldelim}% if (o.currency && o.currency == '{$c.code}') { print('selected'); } %{rdelim} value="{$c.code}">{$c.sign} {$c.code}</option>
+    {/foreach}
+</script>

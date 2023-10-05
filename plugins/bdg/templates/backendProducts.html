@@ -1,0 +1,23 @@
+<script src="{$wa_url}wa-apps/shop/plugins/bdg/js/backend.js"></script>
+<link rel="stylesheet" href="{$wa_url}wa-apps/shop/plugins/bdg/css/backend.css">
+<script type="text/javascript">
+$.shop.bdgPluginBackend.init();
+</script>
+<div class="block" id="shop-bdg-plugin-block">
+	<h6 class="heading" id="bdg-btn">Назначение ярлыка</h6>
+	{if $badges}
+	<span class="hint">Кликните для назначения.<br>Повторный клик отменяет назначение.</span>
+	<div id="bar"><div class="progress">0%</div></div>
+	<ul class="menu-v with-icons compact" id="badges">
+		{foreach $badges as $b}
+		<li data-id="{$b.id}" data-color="{$b.color}" id="badge-item-{$b.id}">
+			<a href="#"><i class="icon16 color" style="background:{$b.color}"></i>{$b.name}</a>
+		</li>
+		{/foreach}
+	</ul>
+	<span class="hint" style="color:red;display:block;"></span>
+	<span class="hint"><a href="{$wa_app_url}?action=plugins#/bdg/">редактировать ярлыки</a></span>
+	{else}
+	<span class="hint">Нет доступных ярлыков. Создайте ярлыки в <a href="/webasyst/shop/?action=plugins#/bdg/">разделе настройки плагина</a></span>
+	{/if}
+</div>

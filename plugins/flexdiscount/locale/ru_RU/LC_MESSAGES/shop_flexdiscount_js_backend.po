@@ -1,0 +1,925 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/flexdiscount\n"
+"POT-Creation-Date: 2019-10-07T16:11:50.662Z\n"
+"Last-Translator: shop/plugins/flexdiscount\n"
+"Language-Team: shop/plugins/flexdiscount\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; "
+"plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%"
+"100)<10)||((n%100)>=20)))?(1):2));\n"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:29
+msgid "equal"
+msgstr "равно"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:30
+msgid "not equal"
+msgstr "не равно"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:55
+msgid "contains"
+msgstr "содержит"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:56
+msgid "not contains"
+msgstr "не содержит"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:57
+msgid "begins with"
+msgstr "начинается с"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:64
+msgid "select"
+msgstr "выберите"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:85
+msgid "each sku is separate"
+msgstr "каждый артикул отдельно"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:86
+msgid "summarize skus"
+msgstr "суммировать артикулы"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:95
+msgid "virtual and real"
+msgstr "виртуальном и реальном"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:96
+msgid "virtual"
+msgstr "виртуальном"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:97
+msgid "real"
+msgstr "реальном"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:108
+msgid "This condition will filter the result items"
+msgstr "Данное условие фильтрует товары"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:109
+msgid "reset selection"
+msgstr "сбросить выбор"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:110
+msgid "No result text"
+msgstr "Ничего не найдено"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:113
+msgid "Select category"
+msgstr "Выберите категорию"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:115
+msgid "Category"
+msgstr "Категория"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:116
+msgid "Category and subcategories"
+msgstr "Категория и ее подкатегории"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:117
+msgid "Product set"
+msgstr "Список товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:117
+msgid "Select product set"
+msgstr "Выберите список товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:118
+msgid "Product type"
+msgstr "Тип товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:118
+msgid "Select product type"
+msgstr "Выберите тип товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:119
+msgid "Product"
+msgstr "Товар"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:119
+msgid "select product"
+msgstr "выберите товар"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:121
+msgid "Product feature"
+msgstr "Характеристика товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:122
+msgid "Select product feature"
+msgstr "Выберите характеристику товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:124
+msgid "Select feature value"
+msgstr "Выберите значение характеристики"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:128
+msgid "Product name"
+msgstr "Название товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:129
+msgid "SKU code"
+msgstr "Артикул товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:130
+msgid "SKU name"
+msgstr "Наименование артикула"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:131
+msgid "Product summary"
+msgstr "Краткое описание товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:132
+msgid "META title"
+msgstr "Meta заголовок товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:133
+msgid "META keywords"
+msgstr "Meta ключевые слова товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:134
+msgid "META description"
+msgstr "Meta описание товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:135
+msgid "Product description"
+msgstr "Описание товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:136
+msgid "Product create datetime"
+msgstr "Дата создания товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:137
+msgid "Product age"
+msgstr "Возраст товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:137
+msgid "days"
+msgstr "дней"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:138
+msgid "Product edit datetime"
+msgstr "Дата изменения товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:139
+msgid "has video"
+msgstr "имеет видео"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:140
+msgid "has image"
+msgstr "имеет изображение"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:141
+msgid "Product rating"
+msgstr "Рейтинг товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:142
+msgid "Product rating count"
+msgstr "Количество отзывов у товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:143
+msgid "Product price"
+msgstr "Цена товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:144
+msgid "Product compare price"
+msgstr "Зачеркнутая цена товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:145
+msgid "Product purchase price"
+msgstr "Закупочная цена товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:148
+msgid "(in percents from price)"
+msgstr "(в процентах от цены)"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:149
+msgid "(in percents from purchase price)"
+msgstr "(в процентах от цены закупки)"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:150
+msgid "(in percents from compare price)"
+msgstr "(в процентах от зачеркнутой цены)"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:151
+msgid "(in percents from product price)"
+msgstr "(в процентах от цены товара)"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:152
+msgid "Product minimal price"
+msgstr "Минимальная цена товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:153
+msgid "Product maximum price"
+msgstr "Максимальная цена товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:155
+msgid "Product stock count"
+msgstr "Количество остатков товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:157
+msgid "on "
+msgstr "на"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:158
+msgid "all stocks"
+msgstr "всех складах"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:165
+msgid "Product stock total"
+msgstr "Общее количество всех остатков товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:171
+msgid "Product total sales for"
+msgstr "Сумма продаж товара за"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:180
+msgid "Product total quantity of sales for"
+msgstr "Количество продаж товара за"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:188
+msgid "Last"
+msgstr "Последнее"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:194
+msgid "increase"
+msgstr "увеличение"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:195
+msgid "decrease"
+msgstr "уменьшение"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:198
+msgid "of product stocks"
+msgstr "остатков товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:202
+msgid "days ago"
+msgstr "дней назад"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:206
+msgid "Product has service"
+msgstr "Товар имеет услугу"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:208
+msgid "Select service"
+msgstr "Выберите услугу"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:209
+msgid "Select service variant"
+msgstr "Выберите значение услуги"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:214
+msgid "Product has tag"
+msgstr "Товар имеет тег"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:216
+msgid "Select tags"
+msgstr "Выберите теги"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:219
+msgid "Total quantity of all products"
+msgstr "Суммарное количество всех товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:220
+msgid "Quantity of products"
+msgstr "Количество товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:221
+msgid "Quantity of product"
+msgstr "Количество определенного товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:221
+msgid "any product"
+msgstr "любой товар"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:222
+msgid "from category"
+msgstr "из категории"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:222
+msgid "select category"
+msgstr "выберите категорию"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:223
+msgid "from category and subcategories of"
+msgstr "из категории и ее подкатегорий"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:224
+msgid "from set"
+msgstr "из списка"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:225
+msgid "from type"
+msgstr "с типом товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:226
+msgid "Quantity of all products from category"
+msgstr "Количество всех товаров из категории"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:227
+msgid "Quantity of all products from category and subcategories"
+msgstr "Количество всех товаров из категории и ее подкатегорий"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:228
+msgid "Quantity of all products from set"
+msgstr "Количество всех товаров из списка"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:229
+msgid "Quantity of all products from type"
+msgstr "Количество всех товаров с типом товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:231
+msgid "Quantity of products with features"
+msgstr "Количество товаров с характеристиками"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:240
+msgid "Quantity of unique items"
+msgstr "Количество уникальных товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:241
+msgid "Order price without discount"
+msgstr "Общая стоимость заказа без учета скидок"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:242
+msgid "Total price of all products"
+msgstr "Общая стоимость всех товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:243
+msgid "Total price of products"
+msgstr "Общая цена всех товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:246
+msgid "Total price of all products with features"
+msgstr "Общая стоимость всех товаров с характеристиками"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:257
+msgid "Total sum of features values"
+msgstr "Сумма значений характеристик товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:262
+msgid "Price of each product"
+msgstr "Цена каждого товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:264
+msgid "Service"
+msgstr "Услуга"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:270
+msgid "User category"
+msgstr "Категория пользователя"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:270
+msgid "Select user category"
+msgstr "Выберите категорию пользователя"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:271
+msgid "Contact"
+msgstr "Контакт"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:271
+msgid "select contact"
+msgstr "выберите контакт"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:272
+msgid "Contact create datetime"
+msgstr "Дата создания контакта"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:273
+msgid "User data"
+msgstr "Данные пользователя"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:273
+msgid "Select data"
+msgstr "Выберите данные"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:274
+msgid "Birthday interval:"
+msgstr "Интервал:"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:274
+msgid "Birthday"
+msgstr "День рождения"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:275
+msgid "Shipping"
+msgstr "Доставка"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:275
+msgid "Select shipping"
+msgstr "Выберите доставку"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:275
+msgid ""
+"Specify shipping discount (or affiliate) in discount (or affiliate) "
+"settings above."
+msgstr ""
+"Укажите размер скидки (или бонусов) в настройках для скидок (или бонусов) "
+"выше."
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:276
+msgid "Payment"
+msgstr "Оплата"
+
+msgid "authorized"
+msgstr "авторизован"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:276
+msgid "Select payment"
+msgstr "Выберите оплату"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:277
+msgid "Total sum of all orders"
+msgstr "Общая сумма всех заказов"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:278
+msgid "Sum of orders for"
+msgstr "Сумма заказов за"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:279
+msgid "Quantity of all orders"
+msgstr "Количество всех заказов"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:279
+msgid "with status"
+msgstr "со статусом"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:279
+msgid "Select status"
+msgstr "Выберите статус"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:280
+msgid "Quantity of orders for"
+msgstr "Количество заказов за"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:281
+msgid "Orders have product"
+msgstr "Заказы содержат товар"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:282
+msgid "for"
+msgstr "за"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:287
+msgid "Date"
+msgstr "Дата"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:288
+msgid "Day of week"
+msgstr "День недели"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:288
+msgid "Monday"
+msgstr "Понедельник"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:288
+msgid "Tuesday"
+msgstr "Вторник"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:288
+msgid "Wednesday"
+msgstr "Среда"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:288
+msgid "Thursday"
+msgstr "Четверг"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:288
+msgid "Friday"
+msgstr "Пятница"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:288
+msgid "Saturday"
+msgstr "Суббота"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:288
+msgid "Sunday"
+msgstr "Воскресенье"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:289
+msgid "Time"
+msgstr "Время"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:295
+msgid "Coupon"
+msgstr "Купон"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:295
+msgid ""
+"This coupon will be created and assigned to the rule, if you are using "
+"&quot;equal&quot; operator"
+msgstr ""
+"Купон будет создан автоматически и прикреплен к правилу, если Вы "
+"используете оператор &quot;равно&quot;"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:298
+msgid "Storefront"
+msgstr "Витрина"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:300
+msgid "Select domain"
+msgstr "Выберите домен"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:301
+msgid "Select route"
+msgstr "Выберите поселение"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:525
+msgid "All conditions return true"
+msgstr "Все условия верны"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:525
+msgid "Any of condition returns true"
+msgstr "Любое из условий верно"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:528
+msgid "Add condition"
+msgstr "Добавить условие"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:531
+msgid "Delete"
+msgstr "Удалить"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:534
+msgid "delete"
+msgstr "удалить"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:591
+msgid "reset product"
+msgstr "сбросить товар"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:608
+msgid "HH"
+msgstr "ЧЧ"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:609
+msgid "MM"
+msgstr "ММ"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:613
+msgid "all time"
+msgstr "все время"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:615
+msgid "period"
+msgstr "период"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:616
+msgid "last n-days"
+msgstr "последние n-дней"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:617
+msgid "previous week"
+msgstr "прошлую неделю"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:618
+msgid "previous month"
+msgstr "прошлый месяц"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:619
+msgid "previous quarter"
+msgstr "прошлый квартал"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:620
+msgid "previous half a year"
+msgstr "прошлые полгода"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:621
+msgid "previous 9 months"
+msgstr "прошлые 9 месяцев"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:622
+msgid "previous year"
+msgstr "прошлый год"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:623
+msgid "today"
+msgstr "сегодня"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:624
+msgid "current week"
+msgstr "текущую неделю"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:625
+msgid "current month"
+msgstr "текущий месяц"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:626
+msgid "current quarter"
+msgstr "текущий квартал"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:627
+msgid "current 6 months"
+msgstr "текущие 6 месяцев"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:628
+msgid "current 9 months"
+msgstr "текущие 9 месяцев"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:629
+msgid "current year"
+msgstr "текущий год"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:845
+msgid "period from"
+msgstr "период с"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:845
+msgid "to"
+msgstr "до"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:848
+msgid "the last"
+msgstr "последние"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:229
+msgid "Flexdiscount"
+msgstr "Гибкие скидки"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:505
+msgid "Loading..."
+msgstr "Идет загрузка..."
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:591
+msgid "MAX"
+msgstr "МАКС"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:591
+msgid "MAX PROD"
+msgstr "МАКС ТОВ"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:591
+msgid "MIN"
+msgstr "МИН"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:591
+msgid "SUM"
+msgstr "СУММ"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:591
+msgid "Split group"
+msgstr "Удалить из группы"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:592
+msgid "Group name"
+msgstr "Название группы"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:592
+msgid "Save"
+msgstr "Сохранить"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:603
+msgid "Create group"
+msgstr "Создать группу"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:607
+msgid "Select at least 1 discount rule"
+msgstr "Выберите хотя бы одно правило"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:617
+msgid "Select group"
+msgstr "Выберите группу"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:617
+msgid "close"
+msgstr "закрыть"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:657
+msgid "Do you really want to split group"
+msgstr "Вы действительно хотите разъединить группу"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:741
+msgid "Do you really want to delete discount rule?"
+msgstr "Вы действительно хотите удалить правило скидок?"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:757
+msgid "Do you really want to delete discount rules?"
+msgstr "Вы действительно хотите удалить правила скидок?"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:824
+msgid "Wait, please..."
+msgstr "Пожалуйста, подождите..."
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:836
+msgid "Coupons"
+msgstr "Купоны"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:837
+msgid "coupon generators:"
+msgstr "генераторы:"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:908
+msgid "Fill in required fields"
+msgstr "Заполните обязательные поля"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:954
+msgid "Error"
+msgstr "Ошибка"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:965
+msgid "Coupon is used by this rule"
+msgstr "Купон используется данным правилом"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:984
+msgid "Select at least one coupon"
+msgstr "Выберите хотя бы один купон"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:992
+msgid "Coupons delete"
+msgstr "Удаление купонов"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:993
+msgid "Do you really want to delete selected coupons?"
+msgstr "Вы действительно хотите удалить выбранные купоны?"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:995
+msgid "Delete coupon from all discounts. Coupon will be removed totally"
+msgstr "Удалить купон у всех правил скидок. Купон будет удален безвозвратно"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1022
+msgid "cancel"
+msgstr "отмена"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1025
+msgid "Import"
+msgstr "Импорт"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1026
+msgid "Import coupons"
+msgstr "Импорт купонов"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1041
+msgid "Uploading file..."
+msgstr "Загрузка файла..."
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1074
+msgid "Upload failed"
+msgstr "Загрузка не удалась"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1085
+msgid "Customize columns"
+msgstr "Изменить колонки"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1088
+msgid "or"
+msgstr "или"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1196
+msgid "Do you really want to delete condition group?"
+msgstr "Вы действительно хотите удалить группу условий?"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1217
+msgid " to"
+msgstr "на"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1219
+msgid "every"
+msgstr "каждый"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1219
+msgid "th similar product"
+msgstr "-й одинаковый товар"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1221
+msgid "cheapest products"
+msgstr "дешевых товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1223
+msgid "th cheapest products"
+msgstr "-й дешевый товар"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1225
+msgid "the most expensive products"
+msgstr "наиболее дорогих товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1227
+msgid "th the most expensive products"
+msgstr "-й наиболее дорогой товар"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1229
+msgid "all subsequent similar products following by"
+msgstr "каждый одинаковый последующий за"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1229
+msgid "th product"
+msgstr "-м товаром"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1231
+msgid "products from"
+msgstr "товар из"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1231
+msgid "similar"
+msgstr "одинаковых"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1366
+msgid "Something wrong"
+msgstr "Произошла ошибка"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1438
+msgid "Please don't close your browser window until process is over"
+msgstr "Пожалуйста, не закрывайте вкладку пока процесс не завершится"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1483
+msgid "Close"
+msgstr "Закрыть"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1564
+msgid "Server error"
+msgstr "Ошибка сервера"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1695
+msgid "Something wrong. Check log files."
+msgstr "Произошла ошибка. Проверьте файлы логов."
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:244
+msgid "Order price with discount"
+msgstr "Общая стоимость заказа с учетом скидок"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:279
+msgid "Contact country and region"
+msgstr "Страна и регион доставки пользователя"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:281
+msgid "Select country"
+msgstr "Выберите страну"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:282
+msgid "Select region"
+msgstr "Выберите регион"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:285
+msgid "User city"
+msgstr "Город доставки пользователя"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:132
+msgid "Product params"
+msgstr "Дополнительные параметры товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:133
+msgid "Select product params"
+msgstr "Выберите параметры товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:252
+msgid "Use this condition only for shipping discounts."
+msgstr "Используйте данное условие только для скидок на доставку."
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:252
+msgid "coupon is used"
+msgstr "используется купон"
+
+msgid "Does affiliate used?"
+msgstr "Использовался ли партнерский бонус?"
+
+msgid "affiliate is used"
+msgstr "используется партнерский бонус"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:320
+msgid "Customer source"
+msgstr "Источник покупателя"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:320
+msgid "Select source"
+msgstr "Выберите источник"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:326
+msgid "has active rules with discounts"
+msgstr "имеются активные правила со скидками"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:326
+msgid "Read more <a href=\"https://igaponov.com/docs/179/how-works-conditions-has-active-rules/\" target=\"_blank\">How it works</a>"
+msgstr "Читайте подробнее <a href=\"https://igaponov.ru/docs/195/how-works-conditions-has-active-rules/\" target=\"_blank\">особенности работы</a>"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\condition.js:327
+msgid "has active rules with affiliates"
+msgstr "имеются активные правила с бонусами"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1234
+msgid "(in favor of the seller)"
+msgstr "(в пользу продавца)"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1234
+msgid "(in favor of the buyer)"
+msgstr "(в пользу покупателя)"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1234
+msgid "If there any"
+msgstr "Было ли"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1159
+msgid "among"
+msgstr "среди"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1160
+msgid "product prices"
+msgstr "основных цен"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1161
+msgid "compare prices"
+msgstr "зачеркнутых цен"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\flexdiscount\js\flexdiscount.js:1182
+msgid "th product and all subsequent products following by n-product (descending prices)"
+msgstr "-й товар и все последующие товары (в порядке убывания цен)"

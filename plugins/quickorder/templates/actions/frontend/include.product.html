@@ -1,0 +1,98 @@
+<div class="quickorder-row quickorder-product quickorder-table{if !empty($product.is_giftcertificate)} quickorder-is-giftcertificate{/if}" data-sku-id="{$product.sku_id}" data-product-id="{$product.id}" data-key="{$key}">
+    {* Изображение товара *}
+    {if !empty($settings.product_image) && $product.image_id}
+       <div class="quickorder-cell quickorder-image">
+           {$wa->shop->productImgHtml($product, $image_size, [ 'alt' => $product.name|escape ])}
+       </div>
+    {/if}
+
+    {* Название товара *}
+    <div class="quickorder-cell">
+        <a href="{if !empty($product.is_giftcertificate)}javascript:void(0){else}{$wa->shop->productUrl($product)}{/if}" title="{$product.name|escape}">{$product.name|escape}</a><br>
+
+        {* Наименование артикула *}
+        <div class="quickorder-sku-name"{if empty($product.sku_name)} style="display: none"{/if}>{if !empty($product.sku_name)}{$product.sku_name|escape}{/if}</div>
+
+        {* Выбор другого артикула *}
+        {if !empty($settings.product_skus) && $product.sku_count > 1}
+            <a href="javascript:void(0)" class="js-quickorder-product-skus quickorder-inline-link" data-id="{$product.id}" title="[`select another sku`]">[`select another sku`]</a>
+        {/if}
+
+        {* Выбор услуг *}
+        {* include.product.service.html *}
+        {include file = "string: `$templates.product_service.frontend_template`"}
+
+    </div>
+
+    {* Количество товара *}
+    {if !empty($settings.product_quantity)}
+        <div class="quickorder-cell quickorder-quantity-wrapper quickorder-nowrap">
+            <input type="button" class="quickorder-quantity-volume quickorder-js-decrease" value="&minus;">
+            <input type="text" name="quickorder_product[quantity]" data-min="1" data-step="1" value="{$product.quantity}"{if $product.count} data-max="{$product.count}"{/if}{if !empty($product.is_giftcertificate)} readonly{/if}>
+            <input type="button" class="quickorder-quantity-volume quickorder-js-increase" value="+">
+        </div>
+    {else}
+        <input type="hidden" name="quickorder_product[quantity]" data-min="1" data-step="1" value="{$product.quantity}"{if $product.count} data-max="{$product.count}"{/if}>
+    {/if}
+
+
+    {* Гибкие скидки *}
+    {if !empty($use_flexdiscount) && !empty($all_settings.flexdiscount_prices)}
+        {$old_price = 0}
+        {* Подмена зачеркнутой цены *}
+        {if !empty($all_settings.flexdiscount_prices_com)}
+            {$old_price = $product.price}
+        {/if}
+        {* Цена со скидкой *}
+        {$product.price = shopFlexdiscountPluginHelper::cartPrice($product, false, null, false, false)}
+        {if $old_price > $product.price}
+            {$product.compare_price = $old_price}
+        {/if}
+    {/if}
+
+    {* Цена товара *}
+    <div class="quickorder-cell quickorder-price-cell quickorder-right quickorder-nowrap">
+        {$compare_price = $product.compare_price}
+        {$price = $product.price}
+        {* Добавляем стоимость выбранных услуг к стоимости товара *}
+        {if isset($product.active_services) && isset($product.services)}
+            {foreach $product.active_services as $service_id => $variant_id}
+                {if isset($product.services[$service_id])}
+                    {if isset($product.services[$service_id]['variants'][$variant_id])}
+                        {$service_price = shop_currency($product.services[$service_id]['variants'][$variant_id].price, $product.services[$service_id].currency, null, false)}
+                    {else}
+                        {$service_price = shop_currency($product.services[$service_id].price, $product.services[$service_id].currency, null, false)}
+                    {/if}
+                    {$price = $price + $service_price}
+                    {$compare_price = $compare_price + $service_price}
+                {/if}
+            {/foreach}
+        {/if}
+
+        {* Вывод зачеркнутой цены *}
+        {if !empty($settings.product_compareatprice) && !empty($product.compare_price) && $product.compare_price > 0 && $product.compare_price > $product.price}
+            <span class="quickorder-compare-price" data-price="{shop_currency($product.compare_price, $product.currency, null, false)}">
+                {if !empty($settings.product_quantity_mult)}
+                    {$compare_price = $compare_price * $product.quantity}
+                {/if}
+                {if !empty($settings.ruble_sign) && $settings.ruble_sign == 'html'}{shop_currency_html($compare_price, $product.currency)}{else}{shop_currency($compare_price, $product.currency)}{/if}
+            </span>
+        {/if}
+        {* Вывод обычной цены *}
+        <span class="quickorder-price" data-price="{shop_currency($product.price, $product.currency, null, false)}"{if isset($old_price) && !empty($all_settings.flexdiscount_prices_com)} data-original-price="{shop_currency($old_price, $product.currency, null, false)}"{/if}>
+            {if !empty($settings.product_quantity_mult)}
+                {$price = $price * $product.quantity}
+            {/if}
+            {if !empty($settings.ruble_sign) && $settings.ruble_sign == 'html'}{shop_currency_html($price, $product.currency)}{else}{shop_currency($price, $product.currency)}{/if}
+        </span>
+    </div>
+
+    {* Кнопка удаления товара из корзины *}
+    {if $type == 'cart'}
+        <div class="quickorder-cell quickorder-remove">
+            <a href="javascript:void(0)" title="[`Delete`]" class="js-quickorder-remove">X</a>
+        </div>
+    {/if}
+    <input type="hidden" name="quickorder_product[product_id]" value="{$product.id}">
+    <input type="hidden" name="quickorder_product[sku_id]" value="{$product.sku_id}">
+</div>

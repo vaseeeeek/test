@@ -1,0 +1,432 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/callb\n"
+"POT-Creation-Date: 2015-05-22 03:03+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Max Severin <makc.severin@gmail.com>\n"
+"Language-Team: shop/plugins/callb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Language: ru_RU\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:5
+msgid "ID"
+msgstr "ID"
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:7 /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:8
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:36 /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:23
+msgid "Customer"
+msgstr "Пользователь"
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:12 /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:13
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:42
+msgid "Name"
+msgstr "Имя"
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:17 /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:18
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:43
+msgid "Phone"
+msgstr "Телефон"
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:22 /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:23
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:44
+msgid "Request date"
+msgstr "Дата заявки"
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:27 /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:28
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:45
+msgid "Request status"
+msgstr "Статус заявки"
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:51
+msgid "delete"
+msgstr "удалить"
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:74
+msgid "No requests."
+msgstr "Заявки отсутствуют."
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:62
+msgid "Thanks"
+msgstr "Спасибо"
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:63
+msgid "your message has been sent!"
+msgstr "ваше сообщение отправлено!"
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:64 /wa-apps/shop/plugins/callb/js/callb.frontend.js:70
+msgid "Close"
+msgstr "Закрыть"
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:69
+msgid "Error occurred when sending message"
+msgstr "Произошла ошибка при отправке сообщения"
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:86
+msgid "Complete «Name» and «Phone»"
+msgstr "Заполните «Имя» и «Телефон»"
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:126 /wa-apps/shop/plugins/callb/lib/config/plugin.php:7
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:49 /wa-apps/shop/plugins/callb/lib/config/settings.php:50
+#: /wa-apps/shop/plugins/callb/lib/shopCallb.plugin.php:20 /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:21
+#: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginBackend.actions.php:35
+msgid "Callback"
+msgstr "Обратный звонок"
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.requests.js:16
+msgid "Delete?"
+msgstr "Удалить?"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:8
+msgid "Status"
+msgstr "Статус плагина"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:12
+msgid "Off"
+msgstr "Выключен"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:13
+msgid "On"
+msgstr "Включен"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:17
+msgid "Display done requests"
+msgstr "Отображение выполненных запросов"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:18
+msgid "When you enable this setting,<br />done requests will be displayed in the history of user requests."
+msgstr "При включении этого параметра<br /> в истории запросов пользователей будут отображаться выполненные запросы."
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:22
+msgid "No"
+msgstr "Нет"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:23
+msgid "Yes"
+msgstr "Да"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:27
+msgid "Sender e-mail"
+msgstr "E-mail отправителя"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:28
+msgid "This email address will be listed as the return address of the message.<br />If the address is not specified, it will use the general email of the shop."
+msgstr "Этот электронный адрес будет указан в качестве обратного адреса у сообщений.<br />Если адрес не задан, будет использован основной email магазина."
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:34
+msgid "Recipient e-mail"
+msgstr "E-mail получателя"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:35
+msgid "The address to which to send messages.<br />If the address is not specified, it will use the general email of the shop."
+msgstr "Адрес, на который будут отправляться сообщения.<br />Если адрес не задан, будет использован основной email магазина."
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:41
+msgid "Selector of the button of callback form"
+msgstr "Селектор кнопки вызова формы"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:42
+msgid ""
+"Specify the ID or class of the html element,<br />when clicking on which will open a form of callback.<br />Must be like «<b>#call-back-button</b>» or «<b>.call-"
+"back-button</b>»."
+msgstr ""
+"Укажите идентификатор или класс html-элемента,<br />при клике на котором будет открываться окно с формой обратного звонка.<br />Должно быть вида «<b>#call-back-"
+"button</b>» или «<b>.call-back-button</b>»."
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:48
+msgid "Header text"
+msgstr "Текст заголовка"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:54
+msgid "«Name» field placeholder"
+msgstr "Текст подсказки для поля «Имя»"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:55 /wa-apps/shop/plugins/callb/lib/config/settings.php:56
+msgid "Your Name"
+msgstr "Ваше Имя"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:60
+msgid "«Phone» field placeholder"
+msgstr "Текст подсказки для поля «Телефон»"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:61 /wa-apps/shop/plugins/callb/lib/config/settings.php:62
+msgid "Your Phone"
+msgstr "Ваш Телефон"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:66
+msgid "«Send» button text"
+msgstr "Текст кнопки «Отправить»"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:68 /wa-apps/shop/plugins/callb/lib/config/settings.php:69
+msgid "Send"
+msgstr "Отправить"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:72
+msgid "Form width (px)"
+msgstr "Ширина окна формы (px)"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:73
+msgid "Value range 320-600"
+msgstr "Диапазон значений 320-600"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:84
+msgid "Form height (px)"
+msgstr "Высота окна формы (px)"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:85
+msgid "Value range 240-400"
+msgstr "Диапазон значений 240-400"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:96
+msgid "Form background color (HEX)"
+msgstr "Цвет фона формы (HEX)"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:103
+msgid "Header background color (HEX)"
+msgstr "Цвет фона заголовка (HEX)"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:110
+msgid "Header text color (HEX)"
+msgstr "Цвет текста заголовка (HEX)"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:117
+msgid "«Send» button width (px)"
+msgstr "Ширина кнопки «Отправить» (px)"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:118
+msgid "Value range 100-600"
+msgstr "Диапазон значений 100-600"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:129
+msgid "«Send» button height (px)"
+msgstr "Высота кнопки «Отправить» (px)"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:130
+msgid "Value range 24-160"
+msgstr "Диапазон значений 24-160"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:141
+msgid "«Send» button background color (HEX)"
+msgstr "Цвет фона кнопки «Отправить» (HEX)"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:148
+msgid "«Send» button text color (HEX)"
+msgstr "Цвет текста кнопки «Отправить» (HEX)"
+
+#: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:22
+msgid "Good day!"
+msgstr "Добрый день!"
+
+#: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:23
+msgid "ordered a callback"
+msgstr "заказал звонок на телефон"
+
+#: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:26
+msgid "Callback plugin"
+msgstr "плагин «Обратный звонок»"
+
+#: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:27
+msgid "Administrator"
+msgstr "Администратор"
+
+#: /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:39
+msgid "new"
+msgstr "новый"
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.requests.js:30 /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:42
+msgid "done"
+msgstr "выполнен"
+
+#: /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:46
+msgid "no status"
+msgstr "без статуса"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:48
+msgid "Masked input for phone"
+msgstr "Маска ввода для телефона"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:49
+msgid ""
+"If fill this setting will added the mask for the field with the phone number.<br />Tip about masks characters:<br /><b>a</b> - All alphabetic values (A-Z, a-"
+"z)<br /><b>9</b> - All numeric values (0-9)<br /><b>*</b> - Any alphanumeric values (A-Z, a-z, 0-9).<br />Leave the field empty, if you do not need mask input."
+msgstr ""
+"Если заполнить этот параметр, будет добавлена маска ввода для поля с номером телефона.<br />Подсказка по символам маски ввода:<br /><b>a</b> - все буквенные "
+"значения (A-Z, a-z)<br /><b>9</b> - все числовые значения (0-9)<br /><b>*</b> - любые буквенно-цифровые значения (A-Z, a-z, 0-9).<br />Оставьте поле пустым, если "
+"вам не нужна маска ввода."
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:162
+msgid "«Close» button background color when sending is success (HEX)"
+msgstr "Цвет фона кнопки «Закрыть» при успешной отправке формы (HEX)"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:169
+msgid "«Close» button background color when error occurred (HEX)"
+msgstr "Цвет фона кнопки «Закрыть» при возникновении ошибки при отправке формы (HEX)"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:176
+msgid "«Thanks message» text (appeal)"
+msgstr "Текст сообщения при успешной отправке формы (обращение)"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:182
+msgid "«Thanks message» text (text in 2nd line)"
+msgstr "Текст сообщения при успешной отправке формы (2я строка)"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:188
+msgid "«Thanks message» text color"
+msgstr "Цвет текста сообщения при успешной отправке формы"
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:69
+msgid "Tip for setting up"
+msgstr "Подсказка по настройке"
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:70
+msgid "1) To use the plugin in the Shop app switch on «Status of frontend_head hook» plugin setting and scripts are automatically loaded in your template."
+msgstr "1) Для использования плагина в приложении Магазин включите настройку плагина «Статус хука frontend_head» и скрипты автоматически загрузятся в вашем шаблоне."
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:71
+msgid ""
+"2) To use the plugin in other apps it is necessary to switch off «Status of frontend_head hook» plugin setting and to insert in the template of your application "
+"to the end of the tag &#060;head&#062; the following code:"
+msgstr ""
+"2) Для использования плагина в других приложениях необходимо выключить настройку плагина «Статус хука frontend_head» и вставить в шаблоне вашего приложения в "
+"конец тега &#060;head&#062; следующий код:"
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:73
+msgid "3) To bind the form to the html-element in the template, you must either create a new or use an existing one."
+msgstr "3) Для привязки формы к элементу в шаблоне необходимо либо создать новый элемент, либо использовать уже существующий."
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:74
+msgid "For example, you have the template has the following element:"
+msgstr "К примеру, у вас в шаблоне есть следующий элемент:"
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:76
+msgid ""
+"Specify in the «Selector of the button of callback form» plugin setting the next - <b>#call-back-button</b> - and after clicking on this item will open the "
+"callback form."
+msgstr ""
+"Укажите в настройке плагина «Селектор кнопки вызова формы» следующее - <b>#call-back-button</b> - после этого при клике на данном элементе будет открываться форма "
+"обратного звонка."
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:17
+msgid "Status of frontend_head hook"
+msgstr "Статус хука frontend_head"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:18
+msgid "Turn on to automatically output plugin via frontend_head hook."
+msgstr "Включите для автоматического подключения плагина через хук frontend_head"
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.requests.js:16
+msgid "Done?"
+msgstr "Выполнить?"
+
+#: /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:47
+msgid "deleted"
+msgstr "удален"
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:52
+msgid "execute"
+msgstr "выполнить"
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:27 /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:28
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:51
+msgid "Request url"
+msgstr "Url заявки"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:37
+msgid "Comment"
+msgstr "Комментарий"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:38
+msgid "The opportunity to leave a comment."
+msgstr "Возможность оставлять комментарий"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:93
+msgid "«Comment» field placeholder"
+msgstr "Текст подсказки для поля «Комментарий»"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:94 /wa-apps/shop/plugins/callb/lib/config/settings.php:95
+#: /wa-apps/shop/plugins/callb/lib/updates/1.2.0/1440362029.php:35
+msgid "Your comment"
+msgstr "Ваш комментарий"
+
+#: /wa-apps/shop/plugins/callb/templates/actions/settings/Settings.html:43
+msgid "For all questions"
+msgstr "По всем вопросам"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:27
+msgid "Requests count"
+msgstr "Количество заявок"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:28
+msgid "The count of requests on the plugin page in the admin panel."
+msgstr "Количество заявок на странице плагина в админ панеле."
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:125
+msgid "Value range 240-440"
+msgstr "Диапазон значений 240-440"
+
+#: /wa-apps/shop/plugins/callb/lib/updates/1.4.0/1497799189.php:11 /wa-apps/shop/plugins/callb/lib/config/settings.php:239
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:240
+msgid "Clicking on the «Send» button, I give my"
+msgstr "Нажимая на кнопку «Отправить», я даю"
+
+#: /wa-apps/shop/plugins/callb/lib/updates/1.4.0/1497799189.php:12 /wa-apps/shop/plugins/callb/lib/config/settings.php:245
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:246
+msgid "consent to the personal data processing"
+msgstr "согласие на обработку персональных данных"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:228
+msgid "Consent to the personal data processing"
+msgstr "Согласие на обработку персональных данных"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:229
+msgid "Enable this setting to add to the form a checkbox consent to the processing of personal data and the link to the page with the Privacy Policy of the company."
+msgstr ""
+"Включите данную настройку, чтобы добавить в форму чекбокс (галочку) о согласии на обработку персональных данных и ссылку на страницу с Политикой "
+"конфиденциальности компании."
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:239
+msgid "Text"
+msgstr "Текст"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:245
+msgid "Link text"
+msgstr "Текст ссылки"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:251
+msgid "Link url"
+msgstr "Url ссылки"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:251
+msgid "Url of the page with the Privacy Policy."
+msgstr "Адрес страницы с Политикой конфиденциальности."
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:258
+msgid "Show checkbox"
+msgstr "Показывать чекбокс"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:258
+msgid "Enable this setting to display the checkbox, otherwise it will display only the text and link."
+msgstr "Включите данную настройку, чтобы отображать чекбокс, в противном случае будет показан только текст и ссылка."
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:268
+msgid "Checkbox by default"
+msgstr "Чекбокс по умолчанию"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:268
+msgid "Select the status of the checkbox by default."
+msgstr "Выберите состояние чекбокса по умолчанию."
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:273
+msgid "Unchecked"
+msgstr "Не нажат"
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:277
+msgid "Checked"
+msgstr "Нажат"

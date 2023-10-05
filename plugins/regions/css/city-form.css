@@ -1,0 +1,72 @@
+﻿.city__form {
+	padding-bottom: 50px;
+}
+
+.city__storefront-field-group_unlinked .field-box_linked,
+.city__storefront-field-group_unlinked .city__storefront-link {
+	display: none;
+}
+
+.city__clone-storefront-dialog .dialog-window {
+	padding: 0;
+	height: auto;
+	min-height: unset;
+	bottom: auto;
+	min-width: 750px;
+}
+
+.city__clone-storefront-dialog .dialog-buttons {
+	display: none;
+}
+
+.clone-storefront__new-domain {
+	width: 65%;
+}
+.clone-storefront__new-route {
+	width: 25%;
+}
+
+.city-storefront__favicon {
+	max-width: 16px;
+	vertical-align: middle;
+}
+
+.city-storefront__touch-icon {
+	max-width: 32px;
+	vertical-align: middle;
+}
+
+.city__storefront-clone-form {
+	padding-bottom: 0;
+}
+
+.city__storefront-actions {
+	margin: 10px 0 15px;
+}
+
+.subcategory_header {
+	margin-top: 35px;
+	margin-bottom: 20px;
+}
+
+.left_10_percent {
+	margin-left: 10%;
+}
+.shop-region_edit_storefront .hint, a.hint, .shop-region_edit_storefront span.hint {
+	margin-top: 4px;
+}
+
+.city__storefront-clone-form .checkbox_column {
+	display: inline-block;
+	width: 12%;
+}
+.city__storefront-clone-form .app_checkbox {
+	display: inline-block;
+	top: 4px;
+	position: relative;
+}
+
+.app_icon {
+	width: 24px;
+	height: 24px;
+}

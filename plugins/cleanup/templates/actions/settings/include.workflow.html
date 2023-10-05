@@ -1,0 +1,50 @@
+    {literal}
+    <script>
+		$("#btn-wf-reset").click(function(){
+			url="?plugin=cleanup&action=run";
+			csrf = $('[name=_csrf]').attr("value");
+			if (confirm($.cleanup.l("Reset workflow?"))){
+				var cid=this.id;
+					var posting = $.post( url, {_csrf:csrf,options:"workflow"});
+					posting.done(function( data ) {
+						if(data=='OK'){
+							$("#result"+cid ).empty().append( data );
+							location.reload();
+						} else $('#s-cleanup-error').empty().append( data );
+					});
+				setTimeout(function(){
+				$('#result'+cid).empty();}, 4000);
+			}
+		})
+        
+        $("#btn-wf-submit").click(function() {$("#s-cleanup-form-wf").submit();});
+        
+        $('#s-cleanup-form-wf').submit(function(e){
+			e.preventDefault();
+			var $form = $( this ),
+			url = $form.attr( "action" ),
+			csrf = $('[name=_csrf]').attr("value");
+			searchIDs = $('#s-cleanup-form-wf input[type="checkbox"]:checked:visible').map(function(){return this.id;});
+			if(!searchIDs.length) { alert($.cleanup.l('No actions selected.'));return false; }
+			if (confirm($.cleanup.l('Are you sure you want to remove')+" "+searchIDs.length+" "+$.cleanup.l('actions')+"?")){
+				$('#s-cleanup-form-wf input[type="checkbox"]:checked').closest('li').hide();
+				var posting = $.post( url, {_csrf:csrf,WFactions:searchIDs.get()});
+				posting.done(function( data ) {
+					if (data!='OK') $('#s-cleanup-error').empty().append( data );
+				});
+			};
+		});
+    </script>
+    {/literal}
+    <input class="button red" type="submit" id="btn-wf-submit" value="{_wp('Remove')}"> |
+    <input class="button blue" type="button" id="btn-wf-reset" value="{_wp('Reset workflow')}" title="{_wp('Restores workflow action and statuses')}">
+    <form method="POST" id="s-cleanup-form-wf" action="?plugin=cleanup&action=run">
+        {$wa->csrf()}
+    <hr>
+    {if (!isset($states) AND !isset($actions))}
+    	<h3>{_wp('Workflow is original.')}</h3>
+    {else}
+		{foreach $actions as $id=>$action}
+			<li id="li-{$id}"><input type="checkbox" id="{$id}"> {$action['name']|escape}</li>
+		{/foreach}
+	{/if}

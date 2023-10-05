@@ -1,0 +1,21 @@
+{if $rule.condition_mode == 'and'}
+{$mode = _wp('AND')}
+{else}
+{$mode = _wp('OR')}
+{/if}
+{foreach from=$rule.conditions item=condition name=conditions}
+{if $condition.field == 'group'}
+{if $condition.value.mode == 'and'}
+{$group_mode = _wp('AND')}
+{else}
+{$group_mode = _wp('OR')}
+{/if}
+{foreach from=$condition.value.conditions item=group_condition name=group_conditions}
+{include './RuleConditionSimple.html' condition=$group_condition}
+{if not $smarty.foreach.group_conditions.last}{$group_mode}{/if} 
+{/foreach}
+{else}
+{include './RuleConditionSimple.html' condition=$condition}
+{/if}
+{if not $smarty.foreach.conditions.last}{$mode}{/if} 
+{/foreach}

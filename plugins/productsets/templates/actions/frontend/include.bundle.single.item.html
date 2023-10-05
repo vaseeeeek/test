@@ -1,0 +1,222 @@
+{strip}
+
+{* include.item.vars.html *}
+{include file=$templates.item_vars.frontend_path scope="parent"}
+
+{* ---------- Captures ---------- *}
+
+{* Количество *}
+{capture name="quantity"}
+
+    {if $has_quantity}
+        {$allow_choose_quantity = (!empty($item.settings.choose_quantity) || !empty($bundle_item.settings.choose_quantity))}
+        <div class='productsets-item-quantity{if !($allow_choose_quantity && !$not_in_stock)} disallow-quantity{/if}'>
+            {if $allow_choose_quantity && !$not_in_stock}
+                <svg viewBox="0 0 20 20" class="js-productsets-quantity-trigger productsets-icon ps-minus" data-type='minus' {shopProductsetsPluginGenerator::BUNDLE_QUANTITY_ATTR}>
+                    <use xlink:href="{$plugin_url}/img/svg/quantity.svg#minus"></use>
+                </svg>
+                {$max_quantity = ''}
+                {if !$ignore_stock_count && $item.product.count !== null && $item.product.count >= 0}
+                    {$max_quantity = $item.product.count}
+                {/if}
+
+                {if $card_layout == 'cl-4'}x {/if}
+
+                <input type='text'
+                              value='{if $max_quantity && !empty($item.settings.quantity) && $max_quantity < $item.settings.quantity}
+                                      {$max_quantity|escape}
+                                  {elseif !empty($item.settings.quantity)}
+                                      {$item.settings.quantity|escape}
+                                  {else}1{/if}'
+                              data-min='{if !empty($item.settings.quantity)}{$item.settings.quantity}{else}1{/if}'
+                              data-step='1'
+                              data-max='{$max_quantity|escape}' {shopProductsetsPluginGenerator::BUNDLE_QUANTITY_FIELD_ATTR}>
+                <svg viewBox="0 0 20 20" class="js-productsets-quantity-trigger productsets-icon ps-plus" data-type='plus' {shopProductsetsPluginGenerator::BUNDLE_QUANTITY_ATTR}>
+                    <use xlink:href="{$plugin_url}/img/svg/quantity.svg#plus"></use>
+                </svg>
+            {else}
+                {if $card_layout == 'cl-4'}x {else}[`Qty`]: {/if}{$item.settings.quantity|escape}
+            {/if}
+        </div>
+    {/if}
+
+{/capture}
+
+{* Возможность удаления товара из набора *}
+{capture name="checkbox"}
+
+    {if !empty($bundle_item.settings.delete_product)}
+        <label class="productsets-checkbox" for='productsets-checkbox-{$bundle_item.id}-{$item._id}'>
+
+            {if $card_layout !== 'cl-4'}
+                {if $checkbox_type == 'circle'}
+                    <svg class="p-checked" viewBox="0 0 400 400" {shopProductsetsPluginGenerator::BUNDLE_CHECKBOX_ATTR}><use xlink:href="{$plugin_url}/img/svg/tick.svg#tick"></use></svg>
+                    <svg class="p-not-checked" viewBox="0 0 400 400" {shopProductsetsPluginGenerator::BUNDLE_CHECKBOX_ATTR}><use xlink:href="{$plugin_url}/img/svg/round.svg#round"></use></svg>
+                {else}
+                    <svg class="p-checked" viewBox="0 0 512 512" {shopProductsetsPluginGenerator::BUNDLE_CHECKBOX_ATTR}><use xlink:href="{$plugin_url}/img/svg/tick-square.svg#tick"></use></svg>
+                    <svg class="p-not-checked" viewBox="0 0 512 512" {shopProductsetsPluginGenerator::BUNDLE_CHECKBOX_ATTR}><use xlink:href="{$plugin_url}/img/svg/tick-square.svg#tick-empty"></use></svg>
+                {/if}
+            {else}
+                <svg class="p-checked" viewBox="0 0 32 32" {shopProductsetsPluginGenerator::BUNDLE_CHECKBOX_ATTR}><use xlink:href="{$plugin_url}/img/svg/cross.svg#cross"></use></svg>
+                <svg class="p-not-checked" viewBox="0 0 24.757 24.757" {shopProductsetsPluginGenerator::BUNDLE_CHECKBOX_ATTR}><use xlink:href="{$plugin_url}/img/svg/recovery.svg#recovery"></use></svg>
+            {/if}
+            <input type='checkbox' checked id='productsets-checkbox-{$bundle_item.id}-{$item._id}'>
+            {* Текст перед чекбоксом *}
+            {if $card_layout !== 'cl-1' && $card_layout !== 'cl-4' && isset($set.settings.bundle_text.checkbox_text)}
+                <span>{$set.settings.bundle_text.checkbox_text}</span>
+            {/if}
+        </label>
+    {/if}
+
+{/capture}
+
+{capture name="choose_skus"}
+
+    {* Выбор другого артикула *}
+    {if $choose_skus}
+        <div class="productsets-edit-skus" {shopProductsetsPluginGenerator::BUNDLE_SKUS_WRAP_ICON_ATTR} title="[`select sku`]">
+            {if !$is_mobile}
+                <svg viewBox="0 -1 401.52289 401" class="js-productsets-product-skus" {shopProductsetsPluginGenerator::BUNDLE_SKUS_ICON_ATTR}>
+                    <use xlink:href="{$plugin_url}/img/svg/edit.svg#edit"></use>
+                </svg>
+            {else}
+                <span class="js-productsets-product-skus">[`select sku`]</span>
+            {/if}
+        </div>
+    {/if}
+
+{/capture}
+
+{capture name="image_block"}
+
+    <div class='productsets-item-image{if $has_quantity && $card_layout == 'cl-1'} has-quantity{/if}'>
+
+        {* Изображение *}
+        <img src='{$item.image}' alt='{$item_name}' title='{$item_name}'>
+
+        {* Количество *}
+        {if $card_layout == 'cl-1'}
+            {$smarty.capture.quantity}
+        {/if}
+
+        {* Наклейка со скидкой *}
+        <div class="productsets-badge" {shopProductsetsPluginGenerator::BUNDLE_BADGE_ATTR}{if $discount_badge <= 0} style='display: none;'{/if}><span>- {$discount_badge}%</span></div>
+
+    </div>
+
+{/capture}
+
+{* -------------------- *}
+
+<div class='productsets-item{if $not_in_stock} not-in-stock{/if}'
+      data-id='{$item.id}'
+      data-sku-id='{$item.skuId}'
+      data-settings='{json_encode($item.settings)|escape}'>
+
+    {* Возможность удаления товара из набора *}
+    {if $card_layout == 'cl-1'}
+        {$smarty.capture.checkbox}
+    {/if}
+
+    {* Изображение с наклейкой*}
+    {if $card_layout !== 'cl-4' || ($card_layout == 'cl-4' && $show_image == 'show')}
+        {$smarty.capture.image_block}
+    {/if}
+
+    {* Количество *}
+    {if $card_layout !== 'cl-1'}
+        {$smarty.capture.quantity}
+    {/if}
+
+    {if $card_layout == 'cl-1' || $card_layout == 'cl-4'}
+    <div class='productsets-item-info'>
+        {if $card_layout == 'cl-4' && $show_image !== 'show' && isset($i)}
+            <span class="ps-index">{$i}.</span>
+        {/if}
+    {/if}
+
+        {if empty($is_active)}
+        <a href='{$item.product.frontend_url|escape}' title='{$item_name}' class="productsets-item-link">
+        {else}
+        <span class='productsets-active-title'>[`Active product`]</span>
+        {/if}
+
+            {* Название товара *}
+            <span class='productsets-item-name'>{$item.name}</span>
+
+        {if $card_layout == 'cl-4'}
+        </a>
+        {/if}
+
+            {* Вариант товара *}
+            <span class='productsets-item-sku{if $choose_skus && $card_layout == 'cl-4'} js-productsets-product-skus has-product-skus{/if}'
+                      {shopProductsetsPluginGenerator::BUNDLE_SKU_ATTR}='1'
+                      {if !$item.skuName}style='display: none'{/if}
+                      {if $choose_skus}title="[`select sku`]"{/if}
+            >
+                {$item.skuName|truncate:33|escape}
+            </span>
+
+        {if empty($is_active) && $card_layout !== 'cl-4'}
+        </a>
+        {/if}
+
+    {if $card_layout == 'cl-4'}
+    </div>
+    {/if}
+        
+        {* Выбор другого артикула *}
+        {if $card_layout !== 'cl-4'}
+            {$smarty.capture.choose_skus}
+        {/if}
+
+        <div class='productsets-price-wrap'>
+
+            {if $not_in_stock}
+               [`Not in stock`]
+            {else}
+
+                {* Зачеркнутая цена *}
+                <div class='productsets-compare-price' {shopProductsetsPluginGenerator::BUNDLE_PRODUCT_COMPARE_PRICE_ATTR} data-original-price="{$item.original_compare_price}" data-price="{$clear_compare_price}"{if empty($clear_compare_price)} style="display: none;"{/if}>
+                    {$compare_price}
+                </div>
+
+                {* Цена *}
+                <div class='productsets-price{if !empty($clear_compare_price)} productsets-color-price{/if}'
+                     data-price="{$clear_price}"
+                     data-original-price="{$item.clear_original_price}"
+                     {shopProductsetsPluginGenerator::BUNDLE_PRODUCT_PRICE_ATTR}='1'
+                >
+                    {$price}
+                </div>
+
+            {/if}
+
+        </div>
+
+        {* Альтернативные товары для 4 типа отображения *}
+        {if $card_layout == 'cl-4' && !empty($bundle_item.alternative)}
+            <svg viewBox="0 0 512.025 512.025" class="productsets-show-alternative js-productsets-show-alternative">
+                <use xlink:href="{$plugin_url}/img/svg/directions.svg#directions"></use>
+            </svg>
+            <div class="ps-alternative-hint">
+                <svg class="p-not-checked" viewBox="0 0 512 512" {shopProductsetsPluginGenerator::BUNDLE_CHECKBOX_ATTR}><use xlink:href="{$plugin_url}/img/svg/tick-square.svg#tick-empty"></use></svg>
+                [`Press to select`]
+            </div>
+        {/if}
+
+        {* Возможность удаления товара из набора *}
+        {if $card_layout !== 'cl-1'}
+            {$smarty.capture.checkbox}
+        {/if}
+
+    {if $card_layout == 'cl-1'}
+    </div>
+    {/if}
+
+    {if !empty($item.alternative) || (!empty($index) && !empty($total_items))}
+        <div class='productsets-item-count'>{sprintf(_wp('%d from %d'), $index, $total_items)}</div>
+    {/if}
+
+</div>
+{/strip}

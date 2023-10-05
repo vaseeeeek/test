@@ -1,0 +1,82 @@
+<script>
+    $(function() {
+        /* Заставляем SS пересчитать скидки, если указан купон от Гибких скидок  */
+        $('#order-edit-form input[type="submit"]').click(function() {
+            var discountDescription = $('#discount-description').val(),
+                hasCoupon = 0,
+                pattern = new RegExp('^%HOLD%\s*', 'u'),
+                forceRecalculate = {$forceRecalculate};
+            if (discountDescription == '' || pattern.test(discountDescription) || forceRecalculate) {
+                $('.flexdiscount-coupon-code-field.new-order :text').each(function() {
+                    if ($(this).val() !== '') { hasCoupon = 1; }
+                });
+                if (hasCoupon || forceRecalculate) {
+                    $('#discount-description').val('2');
+                    $('#update-discount').data('discount', 'calculate');
+                }
+            }
+        });
+        $('.flexdiscount-coupon-code-field .f-code').dblclick(function() {
+            $(this).hide().siblings().show();
+            $(this).siblings('input[type="text"]').focus();
+            return false;
+        });
+        $('.flexdiscount-coupon-code-field input[type="button"]').click(function() {
+            var that = $(this);
+            if (!that.next('.loading').length) {
+                that.after('<i class="icon16 loading"></i>');
+                var input = that.siblings('input');
+                $.post('?plugin=flexdiscount&action=handler&data=orderEditSaveCoupon', { order_id: {$order_id}, code: input.val(), old_code: input.attr('data-old') }, function(response) {
+                    if (response.status == 'ok') {
+                        input.val(response.data).attr('data-old', response.data);
+                        that.siblings('.f-code').text(response.data);
+                        $.order_edit.updateTotal();
+                    }
+                    /* Заставляем SS пересчитать скидки */
+                    $('#discount-description').val('2');
+                    that.next('.loading').remove();
+                    that.closest('.flexdiscount-coupon-code-field').find('input').hide().siblings('.f-code').show();
+                });
+            }
+        });
+        $('.flexdiscount-coupon-container').wrap('<tr class="white align-right"><td colspan="5"></td></tr>').closest('tr').insertAfter('#s-orders-add-row');
+        {if $forceRecalculate}
+            const discountTr = $('#order-edit-form input[name="discount"]').prop('readonly', true).closest('tr');
+            const colspan = $('#order-items tbody > tr > td').length || 5;
+            discountTr.after("<tr class='white'><td class='align-right order-discount-notification' colspan='" + colspan + "'>[`You cannot edit discount. It will be calculated automatically after saving the order.`]<br>[`This behaviour can be changed in Flexdiscount settings.`]</td></tr>");
+        {/if}
+    });
+</script>
+
+{function name="addCouponField" code="" params=[] n=1}
+    {if $code}
+        {$code = $code|escape}
+    {/if}
+    <div class="flexdiscount-coupon-code-field{if !$order_id} new-order{/if}" title="[`edit`]">
+    {if $order_id}
+        <span class="f-code">{$code}</span>
+        <input type="text" data-old="{$code}" value="{$code}" name="flexdiscount-coupon-code">
+        <input type="button" value="[`Save`]">
+    {else}
+        <input type="text" value="" name="flexdiscount-coupon-code{$n}">
+    {/if}
+    </div>
+{/function}
+
+{* Добавляем поля для ввода купонов *}
+<div class='flexdiscount-coupon-container'>
+    [`Flexdiscount coupons:`]
+    {if $coupons}
+        {$count = 0}
+        {foreach $coupons as $c}
+            {$count = $count + 1}
+            {addCouponField code=$c.code params=$params n=$count}
+        {/foreach}
+        {if $count < 2}
+            {addCouponField params=$params n=$count+1}
+        {/if}
+    {else}
+        {addCouponField params=$params}
+        {addCouponField params=$params n=2}
+    {/if}
+</div>

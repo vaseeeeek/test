@@ -1,0 +1,83 @@
+{strip}
+
+{$display = 'block'}
+{if !empty($group.settings.display)}
+    {$display = $group.settings.display}
+{/if}
+{$is_multiple = 0}
+{if !empty($group.settings.multiple)}
+    {$is_multiple = 1}
+{/if}
+
+{$group_settings = json_encode($group.settings)|escape}
+{$group_attr = "data-id=\"`$group.id`\" data-settings=\"`$group_settings`\""}
+{if $is_multiple}{$group_attr="`$group_attr` data-multiple=\"1\""}{/if}
+
+{* Отображение групп блоком *}
+{if $display == 'block'}
+   <div class="productsets-userbundle-group productsets-userbundle-group-wrap" {$group_attr}>
+
+       {* Заголовок *}
+       {if !empty($group.settings.name)}
+           <div class="productsets-userbundle-title" {shopProductsetsPluginGenerator::USERBUNDLE_TITLES_ATTR}>
+               <span {shopProductsetsPluginGenerator::USERBUNDLE_TITLE_LINES_ATTR}>{$group.settings.name|escape}</span>
+           </div>
+       {/if}
+
+       {* Описание *}
+       {if !empty($group.settings.description)}
+            <div class="productsets-userbundle-group-description">
+                {$group.settings.description|escape}
+            </div>
+       {/if}
+
+       {* Товары *}
+
+       <div class="productsets-userbundle-block" {shopProductsetsPluginGenerator::USERBUNDLE_BLOCKS_ATTR}>
+           <div class="productsets-userbundle-items">
+
+               {foreach $group.items as $item}
+                   {* include.userbundle.item.html *}
+                   {include file=$templates.userbundle_item.frontend_path item=$item}
+               {/foreach}
+
+           </div>
+       </div>
+
+   </div>
+
+{* Отображение товаров в ряд *}
+{elseif $display == 'inline'}
+
+    <div class="productsets-userbundle-block productsets-userbundle-group-wrap" {$group_attr} {shopProductsetsPluginGenerator::USERBUNDLE_BLOCKS_ATTR}>
+
+        {* Заголовок *}
+        {if !empty($group.settings.name)}
+            <div class="productsets-userbundle-wrap-title" {shopProductsetsPluginGenerator::USERBUNDLE_TITLE_INSIDE_ATTR}>{$group.settings.name|escape}</div>
+        {/if}
+
+        {* Описание *}
+        {if !empty($group.settings.description)}
+            <div class="productsets-userbundle-group-description">
+                {$group.settings.description|escape}
+            </div>
+        {/if}
+
+        {* Товары *}
+        <div class="productsets-userbundle-items">
+
+            {foreach $group.items as $item}
+                {* include.userbundle.item.html *}
+                {include file=$templates.userbundle_item.frontend_path item=$item}
+            {/foreach}
+
+        </div>
+
+    </div>
+
+{* Отображение товаров во всплывающем окне *}
+{elseif $display == 'popup'}
+    {* TODO *}
+{/if}
+
+{/strip}

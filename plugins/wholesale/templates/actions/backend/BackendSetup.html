@@ -1,0 +1,54 @@
+<p>Синхронизация с плагином Yandex.Market</p>
+<div class="block double-padded">
+
+    <form id="s-plugin-wholesale" method="post" >
+        {$wa->csrf()}
+        <div class="fields">
+
+            <div class="field-group">
+                <h2>Синхронизация</h2>
+                <p>Обновление поля yandexmarket.min-quantity</p>
+                <div class="field-group" id="plugin-wholesale-submit-import">
+                    <div class="submit">
+                        <input type="submit" class="button green" value="Запустить">
+                        <div class="js-progressbar-container" style="display:none;">
+                            <div class="progressbar blue float-left" style="display: none; width: 70%;">
+                                <div class="progressbar-outer">
+                                    <div class="progressbar-inner" style="width: 0;"></div>
+                                </div>
+                            </div>
+                            <img style="float:left; margin-top:8px;" src="{$wa_url}wa-content/img/loading32.gif"/>
+
+                            <div class="clear"></div>
+                            <span class="progressbar-description"></span>
+                            <br style="clear:left;"/>
+                            <br>
+                            <span class="small italic">
+                                Не закрывайте окно браузера и не покидайте страницу до тех пор, пока процесс синхронизации не будет завершен
+                            </span>
+                        </div>
+                        <br><br>
+                        <em class="errormsg"></em>
+                    </div>
+                </div>
+                <div class="field-group" id="plugin-wholesale-report-import" style="display: none;"></div>
+
+            </div>
+
+        </div>
+    </form>
+
+
+    <div class="clear-both"></div>
+
+</div>
+
+<script type="text/javascript">
+    if ($.importexport.plugins.wholesale_import) {
+        $.importexport.plugins.wholesale_import.init();
+    } else {
+        $.getScript('{$wa_app_static_url}plugins/wholesale/js/importexport_import.js', function () {
+            $.importexport.plugins.wholesale_import.init();
+        });
+    }
+</script>

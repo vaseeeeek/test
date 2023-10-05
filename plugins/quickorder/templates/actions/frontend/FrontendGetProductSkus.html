@@ -1,0 +1,117 @@
+{if !empty($product)}
+    <div class="quickorder-center">
+        {$retina_img = ''}
+        {if $wa->shop->config('enable_2x')}{$retina_img = '@2x'}{/if}
+        <span class="quickorder-main-image" data-large="{$wa->shop->productImgUrl($product, $image_size)}">{$wa->shop->productImgHtml($product, "96x96`$retina_img`", [ 'alt' => $product.name|escape ])}</span>
+        {if count($product.images) > 1}
+            <span class="quickorder-images">
+                <span class="quickorder-image-{$product.image_id}" data-large="{$wa->shop->productImgUrl($product, $image_size)}">
+                    {$wa->shop->productImgHtml($product, "96x96`$retina_img`", [ 'alt' => $product.name|escape ])}
+                </span>
+                {foreach $product.images as $image}
+                    <span class="quickorder-image-{$image.id}" data-large="{$wa->shop->imgUrl($image, $image_size)}">
+                        {$wa->shop->imgHtml($image, "96x96`$retina_img`")}
+                    </span>
+                {/foreach}
+            </span>
+        {/if}
+    </div>
+
+    {if $product.sku_type}
+
+        {$default_sku_features = $product.sku_features}
+        {$product_available = $product.status}
+
+        {foreach $features_selectable as $f}
+            <div class="quickorder-row">
+                {$f.name}:
+                <select data-feature-id="{$f.id}" class="quickorder-sku-feature" name="quickorder[features][{$f.id}]">
+                    {foreach $f.values as $v_id => $v}
+                        <option value="{$v_id}" {if $v_id == ifset($default_sku_features[$f.id])}selected{/if}>{$v}</option>
+                    {/foreach}
+                </select>
+            </div>
+        {/foreach}
+
+    {else}
+
+        {$product_available = false}
+        {if count($product.skus) > 1}
+
+            <ul class="quickorder-skus">
+                {foreach $product.skus as $sku}
+                    {$sku_available =  $product.status && $sku.available && ($wa->shop->settings('ignore_stock_count') || $sku.count === null || $sku.count > 0)}
+                    <li>
+                        <label{if !$sku.available} class="disabled"{/if}>
+                            <input name="quickorder[sku_id]" type="radio" value="{$sku.id}" data-count="{if $sku.available && !$wa->shop->settings('ignore_stock_count') && $sku.count > 0}{$sku.count}{/if}"{if !$sku.available} disabled="true"{/if}{if !$sku_available}data-disabled="1"{/if}{if $sku.id == $product.sku_id} checked="checked"{/if} data-compare-price="{shop_currency($sku.compare_price, $product.currency, null, 0)}" data-price="{shop_currency($sku.price, $product.currency, null, 0)}"{if $sku.image_id} data-image-id="{$sku.image_id}"{/if}>
+                            <span class="f-quickorder-popup-sku-name">{$sku.name|escape}</span>
+                            {if $sku.sku}<span class="quickorder-ext">{$sku.sku|escape}</span>{/if}
+                            <span class="quickorder-popup-price quickorder-nowrap">
+                                {if !empty($ruble_sign)}{shop_currency_html($sku.price, $product.currency)}{else}{shop_currency($sku.price, $product.currency)}{/if}
+                            </span>
+                        </label>
+                    </li>
+                    {$product_available = $product_available or $sku_available}
+                {/foreach}
+            </ul>
+
+        {else}
+
+            {$sku = $product.skus[$product.sku_id]}
+            {if $sku.sku}<span>{$sku.sku|escape}</span>{/if}
+            {if !$sku.available}
+                <p><em>[`This product is not available for purchase`]</em></p>
+            {elseif !$wa->shop->settings('ignore_stock_count') && !($sku.count === null || $sku.count > 0)}
+                <div class="quickorder-stocks"><span class="stock-none"><i class="icon16 stock-transparent"></i>{if $wa->shop->settings('ignore_stock_count')}[`Pre-order only`]{else}[`Out of stock`]{/if}</span></div>
+            {/if}
+            <input name="quickorder[sku_id]" type="hidden" value="{$product.sku_id}">
+            {$product_available = $product.status && $sku.available && ($wa->shop->settings('ignore_stock_count') || $sku.count === null || $sku.count > 0)}
+
+        {/if}
+
+    {/if}
+
+    <!-- stock info -->
+    {if $product_available || count($product.skus) > 1}
+        <div class="quickorder-stocks">
+            {* include.sku_variants.stocks.html *}
+            {include file = "string: `$templates.sku_variants_stocks.frontend_template`"}
+        </div>
+    {/if}
+
+    <div class="f-quickorder-sku-checked quickorder-row quickorder-center quickorder-grey" style="display: none;">
+        [`This product is already selected`]
+    </div>
+
+    <div class="quickorder-purchase">
+        <div class="quickorder-add2cart">
+            <div class="quickorder-row">
+                {if $product.compare_price > 0}
+                    <span data-price="{shop_currency($product.compare_price, null, null, 0)}" class="quickorder-compare-price f-quickorder-compare-price quickorder-nowrap">
+                        {if !empty($ruble_sign)}{shop_currency_html($product.compare_price)}{else}{shop_currency($product.compare_price)}{/if}
+                    </span>
+                {/if}
+                <span data-price="{shop_currency($product.price, null, null, 0)}" data-product-price="{shop_currency($product.price, null, null, 0)}" class="quickorder-nowrap f-quickorder-price quickorder-colored">
+                    {if !empty($ruble_sign)}{shop_currency_html($product.price)}{else}{shop_currency_html($product.price)}{/if}
+                </span></div>
+                <input type="hidden" name="quickorder[product_id]" value="{$product.id}">
+                <div><input type="button" {if !$product_available}disabled="disabled"{/if} value="[`Select product sku`]"></div>
+        </div>
+    </div>
+
+    <script src='{$plugin_url}/js/frontend.product.js?v={$version}'></script>
+    <script>
+        ( function($) {
+            new Product('.quickorder-popup', {
+                currency: {json_encode($currency_info)}
+                {if $product.sku_type}
+                ,features: {json_encode($sku_features_selectable)}
+                {/if}
+            });
+        })(jQuery);
+    </script>
+{else}
+    <div class="quickorder-sku-no-stock quickorder-row quickorder-center quickorder-grey">
+        [`Product with the selected option combination is not available for purchase`]
+    </div>
+{/if}

@@ -1,0 +1,157 @@
+{strip}
+	{$enable_group_by_letter = $regions.settings.window_group_by_letter_enable|default:'0'}
+	{$enable_popular = $regions.settings.window_popular_enable|default:'0'}
+	{$enable_search = $regions.settings.window_search_enable|default:'0'}
+	{$enable_regions = $regions.settings.window_regions_sidebar_enable|default:'0'}
+
+	{$_selected_region = $regions.current.country_iso3|cat: $regions.current.region_code}
+	<div class="js-shop-regions-window shop-regions-window{if $enable_group_by_letter} shop-regions-window_group-by-letter{/if}{if $enable_popular} shop-regions-window_popular{/if}{if $enable_search} shop-regions-window_search{/if}">
+		<div class="js-shop-regions-window__wrapper shop-regions-window__wrapper">
+
+			<div class="shop-regions__button-close shop-regions__button-close shop-regions__trigger-hide-window">✖</div>
+
+			{* Autocomplete search *}
+			{if $enable_search}
+				<div class="shop-regions-window__search">
+
+					<div class="shop-regions-window__sub-header">{$regions.settings.window_header}</div>
+					<div class="shop-regions-window__sub-subheader">{$regions.settings.window_subheader}</div>
+
+					<div class="shop-regions-window-search">
+						<input id="shop-regions-window-search-input" type="text" class="shop-regions-window-search__input js-shop-regions-window-search__input" placeholder="Поиск города" />
+						<div class="js-clear_search clear_search">✖</div>
+					</div>
+
+				</div>
+			{else}
+				<div class="shop-regions-window__search">
+					<div class="shop-regions-window__sub-header">{$regions.settings.window_header}</div>
+					<div class="shop-regions-window__sub-subheader">{$regions.settings.window_subheader}</div>
+				</div>
+			{/if}
+
+			<div class="shop-region-window_regions_and_cities js-shop-region-window_regions_and_cities{if $enable_regions} with_regions{else} without_regions{/if}" data-selected_region="{$_selected_region}">
+				{if $regions.is_empty}
+					<div style="padding-left: 15px">Нет регионов</div>
+				{elseif $enable_regions}
+					{* regions sidebar *}
+					<div class="js-shop-region-window_regions_sidebar shop-region-window_regions_sidebar">
+						<div class="sub_header">Регион</div>
+
+						<div class="shop-regions-window_cities_list_overflow">
+							{foreach $regions.cities_by_region as $_group}
+								{$_group_attributes = $_group->getCustomAttributes()}
+								{$_group_region_code = $_group_attributes.country_iso3|cat: $_group_attributes.region_code}
+								<div class="js-shop-regions-window__region_region_wrap shop-regions-window__region_region {if $_group_region_code == $_selected_region}selected_region{/if}">
+									<span class="js-shop-regions-window__region_region" data-region_code="{$_group_region_code}">{$_group_attributes.region_name}</span>
+								</div>
+							{/foreach}
+						</div>
+					</div>
+
+					{* cities list *}
+					<div class="shop-regions-window_cities_list js-shop-region-window_search test">
+						<div class="sub_header">Город</div>
+
+						<div class="shop-regions-window_cities_list_overflow">
+							<div class="js-no_found_message no_found_message">Город с таким названием не найден</div>
+							<div class="shop-regions-window__regions js-search_result search_result"></div>
+
+							<div class="js-regions_wrapper">
+								{foreach $regions.cities_by_region as $_group}
+									{$_group_attributes = $_group->getCustomAttributes()}
+									{$_first_letter = ''}
+									<div class="js-shop-regions-window__region_group shop-regions-window__region_group js-search_source {if $_group_attributes.full_region_code|default:'' != $_selected_region}hidden{/if}" data-region_code="{$_group_attributes.full_region_code|default:''}">
+										<div class="js-region_header region_header">{$_group_attributes.region_name}</div>
+
+										{$_cities = $_group->getCitiesAssoc()}
+										{$_cities_by_columns = array_chunk($_cities, ceil(count($_cities) / 2))}
+										{foreach $_cities_by_columns as $_column}
+											<div class="column">
+
+												{foreach $_column as $_city}
+													<div class="shop-regions-window__region {if $_city.id == $regions.current.id}selected_region{/if}">
+														{if $enable_group_by_letter && mb_substr($_city.name, 0, 1) !== $_first_letter}
+															{$_first_letter = mb_substr($_city.name, 0, 1)}
+															<div class="shop-regions-window__regions-letter js-letter">{$_first_letter}</div>
+														{/if}
+														<a class="shop-regions__link shop-regions-window__link shop-regions__trigger-switch-city" data-id="{$_city.id}">
+															{$_city.name}
+														</a>
+													</div>
+												{/foreach}
+
+											</div>
+										{/foreach}
+									</div>
+								{/foreach}
+							</div>
+						</div>
+					</div>
+
+				{else}
+					{*********** without region grouping ***********}
+					<div class="shop-regions-window_cities_list js-shop-region-window_search shop-regions-window_cities_list_overflow">
+						<div class="js-regions_wrapper">
+							{* Popular regions *}
+							{if $enable_popular}
+								<div class="shop-regions-window__regions shop-regions-window__regions_popular">
+
+									<div class="shop-regions-window__sub-header js-header">Популярные города</div>
+
+									{foreach $regions.popular_cities_by_column as $i => $_cites}
+										<div class="shop-regions-window__regions-column shop-regions-window__regions-column_num_{$i}"{if $regions.settings.window_columns} style="width:{floor(100 / $regions.settings.window_columns)}%;"{/if}>
+											{foreach $_cites as $_city}
+												<div class="js-shop-regions-window__region shop-regions-window__region {if $_city.id == $regions.current.id}selected_region{/if}" data-region_code="{$_city.country_iso3|cat:$_city.region_code}">
+													<a class="shop-regions__link shop-regions-window__link shop-regions__trigger-switch-city visible" data-id="{$_city.id}">
+														{$_city.name}
+													</a>
+												</div>
+											{/foreach}
+										</div>
+									{/foreach}
+								</div>
+
+								{* Show/hide trigger *}
+								<div class="shop-regions-window__triggers">
+									<a class="shop-regions-window__trigger-show-all-regions shop-regions__link shop-regions-window__link shop-regions__link_pseudo">
+										Показать все города ({$regions.count_all_cities})
+									</a>
+									<a class="shop-regions-window__trigger-hide-all-regions shop-regions__link shop-regions-window__link shop-regions__link_pseudo">
+										Скрыть все города
+									</a>
+								</div>
+							{/if}
+
+							{* All regions *}
+							<div class="shop-regions-window__regions shop-regions-window__regions_all js-search_source">
+								<div class="shop-regions-window__sub-header js-header">Все города</div>
+								{foreach $regions.all_cities_by_column as $_cites_group_by_letter}
+									<div class="shop-regions-window__regions-column js-shop-regions-window__regions-column"{if $regions.settings.window_columns} style="width:{floor(100 / $regions.settings.window_columns)}%;"{/if}>
+										{foreach $_cites_group_by_letter as $_letter => $_cities}
+											{if $enable_group_by_letter}
+												<div class="js-shop-regions-window__regions-letter shop-regions-window__regions-letter shop-regions-window__regions-letter_letter_{$_letter}">{$_letter}</div>
+											{/if}
+											{foreach $_cities as $_city}
+												<div class="shop-regions-window__region js-shop-regions-window__region {if $_city.id == $regions.current.id}selected_region{/if}" data-region_code="{$_city.country_iso3|cat:$_city.region_code}">
+													<a class="shop-regions__link shop-regions-window__link shop-regions__trigger-switch-city visible" data-id="{$_city.id}">
+														{$_city.name}
+													</a>
+												</div>
+											{/foreach}
+										{/foreach}
+									</div>
+								{/foreach}
+							</div>
+						</div>
+
+						<div class="js-no_found_message no_found_message">Город с таким названием не найден</div>
+						<div class="shop-regions-window__regions js-search_result search_result"></div>
+
+					</div>
+				{/if}
+
+			</div>
+		</div>
+	</div>
+{/strip}

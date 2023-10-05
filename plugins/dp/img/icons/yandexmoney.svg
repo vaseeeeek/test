@@ -1,0 +1,11 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+<rect width="30" height="30" fill="black" fill-opacity="0" transform="scale(2)"/>
+<rect width="60" height="60" rx="5" fill="#F2F2F2"/>
+<rect width="16" height="20" fill="black" fill-opacity="0" transform="translate(14 8) scale(2)"/>
+<rect width="16" height="20" fill="black" fill-opacity="0" transform="translate(14 8) scale(2)"/>
+<path d="M14 27.849C14 25.6052 14.1966 24.1812 19.0964 20.7005C23.1493 17.8238 36.1248 8 36.1248 8V24.397H46V48H17.0851C15.3913 48 14 46.6767 14 45.0658V27.849Z" fill="#FFCF01"/>
+<rect width="11.4631" height="11.5097" fill="black" fill-opacity="0" transform="translate(17.9769 22.6494) scale(2)"/>
+<rect width="11.4631" height="11.5097" fill="black" fill-opacity="0" transform="translate(17.9769 22.6494) scale(2)"/>
+<path d="M36.1093 24.4102V33.9175L17.9769 45.6687L40.9032 38.5633V24.4102H36.1093Z" fill="#D3AB07"/>
+<path d="M27.8216 23.9218C28.8802 22.7136 30.4379 22.2965 31.2848 22.9725C32.1317 23.6485 31.9653 25.1732 30.9067 26.3814C29.8481 27.5896 28.2904 28.0067 27.4436 27.3307C26.5967 26.6403 26.763 25.1156 27.8216 23.9218Z" fill="black"/>
+</svg>

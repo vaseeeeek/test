@@ -1,0 +1,15 @@
+<script src="{$wa_url}wa-apps/shop/plugins/bdg/js/backend.js"></script>
+<script type="text/javascript">
+$.shop.bdgPluginBackend.init();
+</script>
+<div class="block" id="shop-bdg-plugin-product-block">
+	<h6 class="heading" id="bdg-btn">Назначение ярлыка</h6>
+	<span class="hint">Кликните для назначения.<br>Повторный клик отменяет назначение.</span>
+	<ul class="menu-v with-icons compact" id="product-badges" data-product-id="{$product_id}">
+		{foreach $badges as $b}
+		<li data-id="{$b.id}" data-color="{$b.color}" id="badge-item-{$b.id}">
+			<a href="#"><i class="icon16 color" style="background:{$b.color}"></i><i class="bdg-status icon16 status-{if in_array($b.id,$badge_ids)}green{else}red{/if}" style="float:right"></i>{$b.name}</a>
+		</li>
+		{/foreach}
+	</ul>
+</div>

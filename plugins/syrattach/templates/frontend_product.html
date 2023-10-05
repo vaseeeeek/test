@@ -1,0 +1,24 @@
+<div id="s-plugin-syrattach-filelist">
+    {if $attachments}
+        <h2>{_wp('Related files')}</h2>
+        <ul>
+            {foreach $attachments as $file}
+                <li>
+                    <span class="s-plugin-syrattach-filename"><a href="{$file.url}">{$file.name|escape}</a></span>
+                    <span class="s-plugin-syrattach-filesize">{$file.size|wa_format_file_size}</span>
+                    {if $file.description}
+                        <span class="s-plugin-syrattach-filedescription">{$file.description|escape}</span>
+                    {/if}
+                </li>
+            {/foreach}
+        </ul>
+    {/if}
+</div>
+<style>
+    #s-plugin-syrattach-filelist ul { list-style-type: none;padding: 0}
+    #s-plugin-syrattach-filelist .s-plugin-syrattach-filesize { font-size: 90%; color:#999; font-style: italic}
+    #s-plugin-syrattach-filelist .s-plugin-syrattach-filesize:before { content: "("}
+    #s-plugin-syrattach-filelist .s-plugin-syrattach-filesize:after { content: ")"}
+    #s-plugin-syrattach-filelist .s-plugin-syrattach-filedescription:before { content: " — "}
+    #s-plugin-syrattach-filelist li { margin-bottom: 0.5em}
+</style>

@@ -1,0 +1,47 @@
+{strip}
+	{if $state.contact_confirmation.type === 'phone'}
+		{$type_name = 'Телефон'}
+		{$type_header = 'Подтвердите свой номер телефона'}
+		{$hint = 'отправлен на телефон'}
+	{elseif $state.contact_confirmation.type === 'email'}
+		{$type_name = 'Email'}
+		{$type_header = 'Подтвердите свой email-адрес'}
+		{$hint = 'отправлен по email'}
+	{/if}
+
+	<span class="buy1click-form__close-button">
+		{call buy1click_svg_sprite_icon icon='cross' width=14 height=14 fill='#828282'}
+	</span>
+	<div class="buy1click-form__header">{$type_header}</div>
+
+	<div class="buy1click-form__field buy1click-form-field">
+		<div class="buy1click-form-field__label">{$type_name}</div>
+		<div>
+			<input class="buy1click-form-field__input buy1click-input-text buy1click-input-text_fill buy1click-form__confirmation-channel-address"
+					{if $state.contact_confirmation.type === 'email'}type="email"{/if}
+					value="{$state.contact_confirmation.address|default:''|escape}"
+					data-type="{$state.contact_confirmation.type}"
+			/>
+		</div>
+		<div class="buy1click-form__error buy1click-form__channel-error buy1click-form__error_hidden"></div>
+	</div>
+
+	<div class="buy1click-form__field buy1click-form-field buy1click-form-field_hidden">
+		<div class="buy1click-form-field__label">Проверочный код ({$hint})</div>
+		<div>
+			<input class="buy1click-form-field__input buy1click-input-text buy1click-input-text_fill buy1click-form__confirmation-channel-code"
+					value="{$state.session.confirmation_channel_code|default:''|escape}"
+			/>
+		</div>
+		<div class="buy1click-form__re-send-block">
+			<div class="buy1click-form__re-send-timer-wrapper buy1click-form__re-send-timer-wrapper_hidden">Новый код можно будет запросить через <span class="buy1click-form__re-send-timer-time"></span></div>
+			<div><a class="buy1click-form__re-send-link buy1click-form__re-send-link_hidden">Выслать еще раз</a></div>
+		</div>
+		<div class="buy1click-form__error buy1click-form__code-error buy1click-form__error_hidden"></div>
+	</div>
+
+	<button class="buy1click-form-button buy1click-form__submit-contact-confirmation-button">
+		<span class="buy1click-form-button-label">Выслать код</span>
+		{call buy1click_svg_sprite_icon classes='buy1click-loader buy1click-loader_button buy1click-form-button__loader' icon='spinner' width=16 height=16 stroke='#828282'}
+	</button>
+{/strip}

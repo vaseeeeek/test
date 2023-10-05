@@ -1,0 +1,17 @@
+<p>
+	Импорт/экспорт
+</p>
+<div id="brand-import-export-page"></div>
+<div class="clear"></div>
+<script>
+	window.brand = {};
+	window.brand.resource_base_url = {shopBrandHelper::getStaticUrl('assets/')|json_encode};
+
+	window.brand.importexport = {([
+	    'encoding' => $encoding,
+	    'delimiters' => $delimiters
+    ])|json_encode};
+
+	$(document.head).append('<link rel="stylesheet" href="{shopBrandHelper::getStaticUrl('assets/importexport.css')}?v={$version}" />');
+</script>
+<script src="{shopBrandHelper::getStaticUrl('assets/importexport.js')}?v={$version}"></script>

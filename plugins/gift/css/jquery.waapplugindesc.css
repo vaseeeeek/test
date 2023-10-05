@@ -1,0 +1,22 @@
+.desc-btn {
+background: #FBFBFB;
+padding: 5px 20px;
+margin: 0 -20px;
+display: block;
+border: #ECECEC solid 1px;
+border-left: none;
+cursor:pointer;
+}
+
+.desc-btn i {
+margin-right: 5px;
+}
+
+.desc {
+padding: 10px;
+border-left: #ECECEC solid 1px;
+}
+
+#desc-block p {
+margin-bottom: 5px;
+}

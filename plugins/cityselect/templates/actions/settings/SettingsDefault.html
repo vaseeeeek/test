@@ -1,0 +1,128 @@
+{*подключение css js для настроек*}
+<link type="text/css" rel="stylesheet" href="{$plugin->getPluginStaticUrl()}css/settings.min.css?v={$plugin->getVersion()}">
+
+{*визуальный редактор*}
+<link type="text/css" rel="stylesheet" href="{$wa_url}wa-content/js/redactor/redactor.css?v{$wa->version(true)}">
+<script src="{$wa_url}wa-content/js/redactor/redactor.min.js?v{$wa->version(true)}"></script>
+<script src="{$wa_url}wa-content/js/redactor/ru.js?v{$wa->version(true)}"></script>
+<script src="{$wa_url}wa-content/js/jquery-wa/editor.js?v{$wa->version(true)}"></script>
+
+{*выбор цвета*}
+<link rel="stylesheet" href="{$wa_static_url}wa-content/js/farbtastic/farbtastic.css?v{$wa->version(true)}" type="text/css" />
+<script type="text/javascript" src="{$wa_static_url}wa-content/js/farbtastic/farbtastic.js?v{$wa->version(true)}"></script>
+
+{*cookie*}
+<script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-plugins/jquery.cookie.js?v{$wa->version(true)}"></script>
+
+{* DaData *}
+<link type="text/css" rel="stylesheet" href="{$plugin->getPluginStaticUrl()}css/suggestions.min.css?v={$plugin->getVersion()}">
+<script src="{$plugin->getPluginStaticUrl()}js/jquery.suggestions.js?v={$plugin->getVersion()}"></script>
+
+{* Шаблон *}
+<script type="text/template" id="city_field__template">
+    <li class="ui-state-default b-settings__item i-cityselect-city">
+        <div>
+            <i class="icon16 sort"></i>
+            <a href=""><i class="icon16 delete i-cityselect-city__delete" data-confirm="[`Удалить данный город из списка?`]"></i></a>
+
+            <input type="hidden" name="current[cities][region][]" value="%region%">
+            <input type="hidden" name="current[cities][city][]" value="%city%">
+            <input type="hidden" name="current[cities][zip][]" value="%zip%">
+
+            Регион: %region%, Индекс: %zip%, Город: %city%
+
+            <label>
+                <input type="checkbox" class="i-settings__checkbox" %bold%>
+                <input type="hidden" name="current[cities][bold][]" value="%bold_id%" > [`выделить`]
+            </label>
+        </div>
+    </li>
+</script>
+
+<script src="{$plugin->getPluginStaticUrl()}js/settings.min.js?v={$plugin->getVersion()}"></script>
+
+
+<h1 class="b-settings__header">{_wp($plugin->getName())} <small>{$plugin->getHumanVersion()}</small> <a class="b-settings__doc_link" href="https://ss.echo-company.ru/docs/cityselect/" target="_blank">Документация</a></h1>
+
+{if $access}
+
+    <form id="plugins-settings-form" onsubmit="return settings__echo_company.saveCode();" method="post" enctype="multipart/form-data" action="?module=plugins&id={$plugin_id}&action=save" class="fields form">
+
+        {$wa->csrf()}
+
+        {*блок общих настроек*}
+
+        <ul class="b-settings__submenu">
+            <li>
+                <a href="" class="i-settings__submenu" data-target="design"><img src="{$plugin->getPluginStaticUrl()}img/design.svg"> Настройки и внешний вид</a>
+            </li>
+            <li>|</li>
+            <li>
+                <a href="" class="i-settings__submenu" data-target="variables"><img src="{$plugin->getPluginStaticUrl()}img/variables.svg"> Настройка переменных</a>
+            </li>
+            <li>|</li>
+            <li>
+                <a href="" class="i-settings__submenu" data-target="variables_type"><img src="{$plugin->getPluginStaticUrl()}img/variables_type.svg"> Настройка типов переменных</a>
+            </li>
+        </ul>
+
+        <div class="i-settings__sub_content i-settings__sub_content--design i-settings__sub_content--active">
+
+
+            <div class="field">
+                <div class="name">
+                    <label for="settings__in_admin">[`В заказах`]</label>
+                </div>
+
+                <div class="value">
+                    <label>
+                        <input id="settings__in_admin" type="checkbox" class="i-settings__checkbox" {if !empty($settings.in_admin)}checked{/if}>
+                        <input type="hidden" name="shop_{$plugin_id}[in_admin]" value="{if !empty($settings.in_admin)}1{else}0{/if}">
+
+                        <span class="hint">[`автодополнение адреса в заказах в административной части, используется API ключ из общих настроек `]</span>
+                    </label>
+                </div>
+            </div>
+
+            <br><br>
+
+            {*выбор поселения*}
+            <p>
+                [`Выберите поселение:`]
+                <select class="i-settings__routes" name="shop_{$plugin_id}[current_route]" data-url="?plugin={$plugin_id}&module=settings&action=route">
+                    <option value="0">[`Общие настройки`]</option>
+                    {foreach $routes as $key=>$value}
+                        <option value="{$key|escape}" {if $settings.current_route==$key}selected{/if}>{waIdna::dec($value)}</option>
+                    {/foreach}
+                </select>
+                <button type="button" data-confirm="[`Вы действительно хотите сбросить все настройки для выбранного поселения на основные?`]" class="button yellow small i-settings__reset" {if empty($settings.current_route)}style="display:none"{/if}>[`Сбросить настройки`]</button>
+            </p>
+
+            {*далее настройки для каждой витрины*}
+
+            <div class="i-settings__load">
+                <i class="icon16 loading"></i>
+            </div>
+
+            <div class="field">
+                <div class="value submit">
+                    <input type="submit" class="button green" value="[s`Save`]">
+                    <span id="plugins-settings-form-status" style="display:none"></span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="i-settings__sub_content i-settings__sub_content--variables" style="display: none">
+            {include file="./element/sub__regions.html"}
+        </div>
+
+        <div class="i-settings__sub_content i-settings__sub_content--variables_type" style="display: none">
+            {include file="./element/sub__variables_type.html"}
+        </div>
+
+    </form>
+
+{else}
+    <p>[`Недостаточно прав для изменения настроек плагина`]</p>
+{/if}

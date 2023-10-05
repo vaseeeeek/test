@@ -1,0 +1,77 @@
+/*
+ * @author Gaponov Igor <gapon2401@gmail.com>
+ */
+#wa { min-width: 1000px; }
+.inline-block { display: inline-block; vertical-align: middle; }
+.inline-block.vtop { display: inline-block; vertical-align: top; }
+.margin-block { margin: 10px 0; line-height: 1.5;}
+.margin-block.bottom { margin: 0 0 10px; }
+.margin-block.semi.bottom { margin: 0 0 5px; }
+.margin-block.top { margin: 10px 0 0; }
+.margin-block.top.semi { margin: 5px 0 0; }
+.margin-block.semi { margin: 5px 0; }
+.relative { position: relative; }
+#quickorder-form { margin-top: 20px; }
+#quickorder-form .fields { width: 100%; }
+#quickorder-form h3 { margin-bottom: 1.5em; }
+ul.tabs li a { padding-bottom: 1px; }
+.s-tab-content { border-top: 1px solid #ccc; padding: 20px 0; }
+.s-storefront-content { margin-top: 20px; }
+.ibutton-container { top: 3px; }
+.ibutton-checkbox { margin-top: -8px; }
+.ibutton-checkbox + .onopen { margin: 15px 0 0; }
+.onopen div { margin-bottom: 5px; }
+.field-group { margin-top: 20px; }
+.field { margin-bottom: 15px; }
+.field:after { content: ''; display: block; clear: both; }
+.field .value input[type="text"], .field input[type="text"] { width: 50%; }
+.field input[type='text'], .field input[type='number'], .field select { vertical-align: middle; padding: 5px; box-sizing: border-box; }
+.width20, .field .value input[type="text"].width20, .field input[type="text"].width20 { width: 20%; }
+.width25, .field .value input[type="text"].width25, .field input[type="text"].width25 { width: 25%; }
+.width30, .field .value input[type="text"].width30, .field input[type="text"].width30 { width: 30%; }
+.width150px, .field .value input[type="text"].width150px, .field input[type="text"].width150px { width: 150px; }
+.width100, .field .value input[type="text"].width100, .field input[type="text"].width100 { width: 100%; }
+input.short.s-contact-field-css { width: 75px !important; min-width: 75px !important; }
+.info-text { background: #f5f9fa; border: 1px solid #e3edf1; display: inline-block; text-align: left; padding: 15px; }
+.s-contact-fields { margin-bottom: 0; }
+.s-contact-fields > .field { margin-bottom: 10px; }
+.s-contact-fields > .field:last-child { padding-bottom: 0; border-bottom: none; }
+.s-heading { color: #999; text-transform: uppercase; font-size: 1em; font-weight: bold; }
+.s-appearance-toolbar > div { display: none; }
+.s-clear-appearance { position: absolute; right: 0; top: 5px; }
+#fixed-save-panel { background: none repeat scroll 0 0 #FFF; bottom: 0; -webkit-box-shadow: 0 -6px 10px -10px #AAA; -moz-box-shadow: 0 -6px 10px -10px #AAA; box-shadow: 0 -6px 10px -10px #AAA; left: 0; padding: 0 10px; position: fixed; right: 0; z-index: 200; text-align: center; }
+.s-appearance-layouts { position: absolute; left: 0; top: 0; }
+.s-appearance-layouts label i { opacity: .5; border: 1px solid #000; }
+.s-appearance-layouts label:hover { cursor: pointer; }
+.s-appearance-layouts input:checked + i, .s-appearance-layouts label:hover i { opacity: 1; }
+.s-appearance-layouts input { opacity: 0; display: none; }
+.icon-layout { width: 32px; height: 32px; display: inline-block; }
+.icon-layout.type1 { background: url("./../img/layout1.png") }
+.icon-layout.type2 { background: url("./../img/layout2.png") }
+.heading-v1 { margin: 20px 0; clear: both; text-align: left; font-size: 1.2em; padding: 10px; border: 1px solid #ccc; background: #f7f7f7; color: #000;}
+.heading-v2 { font-size: 1.1em; margin-bottom: 15px; position: relative;}
+.heading-v2:before { content: ''; width: 100%; height: 1px; background: #000; position: absolute; left: 0; top: 50%; z-index: 1; margin-top: -0.5px; }
+.heading-v2 span { position: relative; z-index: 2; background: #fff; padding-right: 5px; }
+.attention-block { padding: 10px; border: 2px solid #ff0000; }
+.ig-dialog-wrap.is-full-screen .w-dialog-wrapper .w-dialog-block { max-width: 90%; }
+/* Tooltip */
+.hover-tooltip { display: inline-block; vertical-align: middle; position: relative; }
+.hover-tooltip .hover-content { position: absolute; z-index: -1; opacity: 0; color: #fff; width: 300px; bottom: 100%; font-size: 12px; font-weight: 400; background: #34495E; -webkit-transition: margin 0.6s, opacity .6s; -moz-transition: margin 0.6s, opacity .6s; -ms-transition: margin 0.6s, opacity .6s; -o-transition: margin 0.6s, opacity .6s; transition: margin 0.6s, opacity .6s; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; outline: none; left: -10px; }
+.hover-tooltip .hover-content:after { top: 100%; left: 12px; border-top: 8px solid #34495E; border-right: 8px solid transparent; border-left: 8px solid transparent; content: ''; position: absolute; }
+.hover-tooltip .hover-content > div { padding: 12px; font-style: normal; position: static; }
+.hover-tooltip:hover .hover-content { display: block; opacity: 1; z-index: 999; margin-bottom: 10px; -webkit-transition: margin 0.6s, opacity .6s; -moz-transition: margin 0.6s, opacity .6s; -ms-transition: margin 0.6s, opacity .6s; -o-transition: margin 0.6s, opacity .6s; transition: margin 0.6s, opacity .6s; }
+.hover-tooltip > span { width: 14px; height: 14px; border: 1px solid #4e83bd; background: #658fbe; display: inline-block; text-align: center; line-height: 1; padding: 2px; -webkit-border-radius: 50%; -moz-border-radius: 50%; border-radius: 50%; color: #fff; font-size: 14px; font-weight: bold; vertical-align: middle; }
+/* Form styles */
+.s-appearance-live-block .quickorder-button { display: inline-block; cursor: pointer; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.quickorder-form { max-width: 760px; margin: 0 auto; overflow: hidden; line-height: 1.5; }
+.quickorder-form-content { padding: 20px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.quickorder-field-name { margin-bottom: 10px; }
+.quickorder-form-field { outline: none; }
+.quickorder-row { margin: 10px 0; }
+.quickorder-row:after { display: block; content: ''; clear: both; }
+.quickorder-fields[data-quickorder-layout1] .quickorder-field-name { float: left; width: 30%; }
+.quickorder-fields[data-quickorder-layout1] .quickorder-field-value { float: right; width: 69%; }
+.s-appearance-wrap { float: left; padding: 0 5px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.s-form-appearance { width: 60%;  }
+.s-button-appearance { width: 40%; text-align: center; }
+.s-button-appearance .quickorder-button2 { display: inline-block; }

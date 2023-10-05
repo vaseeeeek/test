@@ -1,0 +1,93 @@
+<link rel="stylesheet" type="text/css" href="{$plugin_url}css/selectize/selectize.default.css"/>
+<script type="text/javascript" src="{$plugin_url}js/selectize/selectize.min.js"></script>
+<script type="text/javascript" src="?plugin=complex&module=loc"></script>
+
+<link rel="stylesheet" type="text/css" href="{$plugin_url}css/complex.css?15"/>
+
+{if !empty($transfer)}
+<div id="c-transfer-block">
+	<div>
+		{if count($transfer) == 1}
+		[`Detected plugin`] <b>"{shopComplexPluginHelper::getNameOfPlugin($transfer[0])}"</b>. [`Transfer settings and product prices`][` iz nego`]?
+		{else}
+		[`Detected plugins`] {foreach from=$transfer item=transfer_plugin name=transfer_plugins}<b>"{shopComplexPluginHelper::getNameOfPlugin($transfer_plugin)}"</b>{if not $smarty.foreach.transfer_plugins.last}, {/if}{/foreach}. [`Transfer settings and product prices`][` iz nih`]?
+		{/if}
+	</div>
+	<div style="margin-top: 20px;">
+		 <a href="#" id="c-transfer-yes" class="button green">[`Yes`]</a>
+		 <a href="#" id="c-transfer-no" class="button delete">[`No`]</a>
+	</div>
+</div>
+{/if}
+
+<table width="100%" id="c-price-types-table" class="complex s-big-table"{if false && empty($prices)} style="display: none;"{/if} >
+	<tr class="white">
+		<th style="padding: 0;"></th>
+		<th style="padding: 0;"></th>
+		<th class="grey" style="padding: 20px 15px 15px;;" align="left">[`Price type`]</th>
+		<th class="grey" style="padding: 20px 15px 15px; width: 180px;" align="left">[`Default value`]</th>
+		<th class="grey" style="padding: 20px 15px 15px; width: 120px;" align="left">[`Rounding`]</th>
+	</tr>
+	{foreach $prices as $price}
+	{include '../actions/backend/BackendPriceTypeView.html' price=$price}
+	{/foreach}
+	<tr data-id="0" id="c-price-type-0" class="add"{if !empty($prices)} style="display: none;"{/if}>
+		<td style="padding: 0;"></td>
+		<td style="padding: 0;"></td>
+		<td>
+			<input type="hidden" name="id" value="0"/>
+			<input type="text" name="name" placeholder="[`Wholesale price`]"/>
+			<div style="margin-top: 10px;">
+				<input type="hidden" name="rule_id" class="c-price-types-rule-input"/>
+				<div style="display: none;" class="c-price-types-rule-output"></div>
+				
+				<a data-rule-id="0" href="#" class="c-price-types-rules-link inline-link"><i class="icon16 hierarchical"></i> <b><i class="label">[`Set rules for using this price`]</i></b></a>
+			</div>
+			<div style="margin-top: 20px;">
+				<a href="#" class="c-price-types-save button green">[`Save`]</a>
+				[`or`]
+				<a href="#" class="c-price-types-cancel">[`cancel`]</a>
+			</div>
+		</td>
+		<td>
+			<div>
+				<select class="c-price-types-default-style" name="default_style">
+					<option value="0">[`No`]</option>
+					<option value="1">[`Nacenka k`]...</option>
+					<option value="-1">[`Skidka ot`]...</option>
+				</select>
+				<div style="margin-top: 5px; display: none;">
+					<select name="default_from">
+						<option value="0">[`Main price`]</option>
+						{* <option value="1">Зачеркнутая цена</option> *}
+						<option value="-1">[`Purchase price`]</option>
+					</select>
+				</div>
+				<div style="margin-top: 5px; display: none;">
+					[`v razmere`] <input class="short" type="text" name="default_value"/> %
+				</div>
+			</div>
+		</td>
+		<td>
+			<div style="margin-top: 5px;">
+				<select name="rounding">
+					<option value="100">[`Round to nearest 100`]</option>
+					<option value="99">[`Round to nearest 99`]</option>
+					<option value="10">[`Round to nearest 10`]</option>
+					<option value="1">[`Round to nearest 1.00`]</option>
+					<option value="0.99">[`Round to nearest .99`]</option>
+					<option value="0.1">[`Round to nearest 0.1`]</option>
+					<option value="0.01">[`Round to nearest 0.01`]</option>
+					<option value="0" selected>[`Not round`]</option>
+				</select>
+			</div>
+		</td>
+	</tr>
+</table>
+
+<p id="c-price-types-add" style="margin-bottom: 0;{if empty($prices)} display: none;{/if}">
+	<a href="#"><i class="icon16 add"></i> [`New price type`]</a>
+</p>
+
+<script type="text/javascript" src="{$plugin_url}js/complex.types.js?3"></script>
+<script type="text/javascript" src="{$plugin_url}js/complex.transfer.js"></script>

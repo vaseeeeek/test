@@ -1,0 +1,36 @@
+    <link href="{$css_url}" rel="stylesheet" type="text/css"/>
+    <style>
+        {if $fq_settings.fq_plus_color<>""}.fq-plus { color:{$fq_settings.fq_plus_color}; }{/if}
+        {if $fq_settings.fq_minus_color}.fq-minus { color:{$fq_settings.fq_minus_color}; }{/if}
+        .fq-question { {$fq_question_style } }
+        .fq-answer { {$fq_answer_style } }
+        {if $fq_settings.fq_header_color}.fq_header { color: {$fq_settings.fq_header_color}; }{/if}
+    </style>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    
+    
+
+    $(".fq_pointer").click(function(){
+        var fq_id = $(this).data('id');
+        $(".fq-ans-" + fq_id).slideToggle(300, function(){
+            if ($(".fq-ans-" + fq_id).is(":visible")) {
+                $(".fq-" + fq_id + '-plus').text('-');
+                
+                $(".fq-" + fq_id + '-plus').addClass("fq-" + fq_id + '-minus fq-minus');
+                $(".fq-" + fq_id + '-plus').removeClass("fq-" + fq_id + '-plus');
+                $(".fq-" + fq_id + '-plus').removeClass("fq-plus");
+            } else {
+                $(".fq-" + fq_id + '-minus').text('+');
+
+                $(".fq-" + fq_id + '-minus').addClass("fq-" + fq_id + '-plus fq-plus');
+                $(".fq-" + fq_id + '-minus').removeClass("fq-" + fq_id + '-minus');
+                $(".fq-" + fq_id + '-plus').removeClass("fq-minus");
+            }
+            
+        });
+    });
+});
+</script>
+    

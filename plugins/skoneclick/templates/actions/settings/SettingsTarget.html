@@ -1,0 +1,90 @@
+<form action="?module=plugins&id={$plugin_id}&action=save" method="post" class="js-sk-form shop-sk-form" enctype="multipart/form-data">
+
+    {$wa->csrf()}
+
+    <div class="field">
+        <div class="name"></div>
+        <div class="value">
+            <strong>Яндекс метрика</strong>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">
+            Номер счетчика
+        </div>
+        <div class="value">
+            <input type="text" name="shop_skoneclick_defines[yandex_number]" value="{$defines.yandex_number}"/>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">
+            Открытие формы
+        </div>
+        <div class="value">
+            <input type="text" name="shop_skoneclick_defines[yandex_open]" value="{$defines.yandex_open}" placeholder="Идентификатор цели"/>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">
+            Отправка формы
+        </div>
+        <div class="value">
+            <input type="text" name="shop_skoneclick_defines[yandex_send]" value="{$defines.yandex_send}" placeholder="Идентификатор цели"/>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">
+            Ошибка отправки
+        </div>
+        <div class="value">
+            <input type="text" name="shop_skoneclick_defines[yandex_error]" value="{$defines.yandex_error}" placeholder="Идентификатор цели"/>
+        </div>
+    </div>
+
+    <br/>
+
+    <div class="field">
+        <div class="name"></div>
+        <div class="value">
+            <strong>Google Analytics</strong>
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="name">
+            Открытие формы
+        </div>
+        <div class="value value__two">
+            <input type="text" name="shop_skoneclick_defines[goggle_open_category]" value="{$defines.goggle_open_category}" placeholder="Категория"/>
+            <input type="text" name="shop_skoneclick_defines[goggle_open_action]" value="{$defines.goggle_open_action}" placeholder="Действие"/>
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="name">
+            Отправка формы
+        </div>
+        <div class="value value__two">
+            <input type="text" name="shop_skoneclick_defines[goggle_send_category]" value="{$defines.goggle_send_category}" placeholder="Категория"/>
+            <input type="text" name="shop_skoneclick_defines[goggle_send_action]" value="{$defines.goggle_send_action}" placeholder="Действие"/>
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="name">
+            Ошибка отправки
+        </div>
+        <div class="value value__two">
+            <input type="text" name="shop_skoneclick_defines[goggle_error_category]" value="{$defines.goggle_error_category}" placeholder="Категория"/>
+            <input type="text" name="shop_skoneclick_defines[goggle_error_action]" value="{$defines.goggle_error_action}" placeholder="Действие"/>
+        </div>
+    </div>
+
+    <div class="field shop-sk-form__save">
+        <div class="value submit">
+            <input type="submit" class="button green" value="Сохранить">
+            <span class="shop-sk-form__status js-sk-form-status" style="display:none"></span>
+        </div>
+    </div>
+
+</form>

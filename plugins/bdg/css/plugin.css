@@ -1,0 +1,128 @@
+h1 a {
+font-size: 14px;
+float: right;
+font-weight: normal;
+line-height: 24px;
+display:inline-block;
+margin: 0 10px;
+}
+
+.value input[type="checkbox"] {
+position: relative;
+top: 4px;
+}
+
+.icon16.waapru {
+background: transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAvVJREFUeNqkU11oFFcU/u7PzGZmsmF2g5slq26SmhobY6zBLpGiUqmICP7bIKKlIH1VhD4JgiCF9lEqlD61UEqLoKJVJOTBgkr9iaRWUnSTiCZZk9HdNdmd3dmZubd3DSg+53APBw6c7/Cd77tESonFBB89cmhg5sIfRxH4RFvaOrNi+8A3WmP0uRePoiJDeHmH6mVXsMkxgHH45TKCdBr2hgyE54HcsM3rGnW3CkYBX8BzjYNG18rf7M2fIizm9/hFZwsPwinycvonBeAwOw60t78F4GqCSUsNC0WFQTKI0M/l4FwdhJgdP8pdf5ugCKKf9d+QpYrDAh8R8o4CbejsnJJqMyiBFIyY3R0pIl8jllmhWemUTSIAaaCkqa+/0ejsAiFqmlAQxhYye/pkcuL7H9bTcglWuo3wZOTrythoi2Zapt7dd4Uklv9MxrMb3anxr/TmxAQ39Ahfnh5s6vv4nKjVBCdceyEJvRwIH6TRhNbSuq7y4N9TXnEOHWe+OOEWKo9C25gU7qsv5++P7CcGIG/dTRV+Of+7YuBwKBnrx2he24vk3h2o5nL/OVVkIzGrrJuNufmbdyEQQHLuq4u9CS0RJ0ZbOxVVb6EVei6aP1mP+JoeuEtaLhY/33zHzY7Wnp07W3w5+DeNZTIdQf5VB48aoRRSWiu7xxI7dxb1hA2ueCDWnwFJLcHsyENQXa+ay1rWlu/9daZwc4brNiHu2IjR8FHvt+ljxy/UmKaVsxMz+eFhr/3gPnAzlUTb4X2KmHpCgFkW3FG5ScyJLj2mlKlJENOcZrH4kDc1Ozl7+XqT0fPBLs9xzNLjJ7c4M9/o9FbXOgA1GwSrO7yepK4wkZjL60+/O6t6wcbqs4e/IgQmnk/+yGXBfc/bsioh5z0q62ZR/qpXdWfuByHsQ7shKhWUrl6qmw40akluLGt9D4AZBqxVH16j0cgq6XpqIXRjTedwctuO8abe1fAKhdv//Dl0QMyXWHPPugdksb9x0QD/CzAAnixI/3KI4foAAAAASUVORK5CYII=') center center no-repeat;
+}
+
+#plugin-design-textarea {
+display:none;
+}
+
+.desc-btn {
+background: #FBFBFB;
+padding: 5px 20px;
+margin: 0 -20px;
+display: block;
+border: #ECECEC solid 1px;
+border-left: none;
+cursor:pointer;
+}
+
+.desc-btn i {
+margin-right: 5px;
+}
+
+.desc {
+padding: 10px;
+border-left: #ECECEC solid 1px;
+}
+
+#desc-block p {
+margin-bottom: 5px;
+}
+
+.block-frontend-design {
+background: #FBFBFB;
+margin: 10px -20px;
+padding-left: 20px;
+border: #ECECEC solid 1px;
+border-left: none;
+}
+
+.block-frontend-design a {
+display: inline-block;
+padding: 5px 15px;
+background: white;
+border: #ECECEC solid 1px;
+margin-bottom: 5px;
+}
+
+.block-frontend-design h4 i{
+position: relative;
+top: 4px;
+margin-right: 8px;
+}
+
+table#templates-table a {
+display: inline;
+}
+
+.button:focus {
+outline:none;
+}
+
+.new-badge {
+border-left: green solid 5px;
+padding: 10px;
+background: whitesmoke;
+}
+
+.colorreplacer {
+background: #123456;
+display: inline-block;
+width: 16px;
+height: 16px;
+position: relative;
+top: 5px;
+left: 5px;
+}
+
+.add-badge {
+text-decoration:none;
+}
+
+.bdg-delete {
+cursor:pointer;
+}
+
+#plugins-settings-form .field-group {
+padding-right:160px;
+position:relative;
+}
+
+.bdg-image {
+width:140px;
+height:140px;
+position:absolute;
+top:0;
+right:0;
+border:silver solid 1px;
+}
+
+.bdg-image > div {
+position:relative;
+}
+
+.bdg-up, .bdg-down {
+cursor:pointer;
+}
+
+.field {
+min-width: 400px;
+}
+
+#bdg-css-dialog-btn {
+text-decoration:none;
+}

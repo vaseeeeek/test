@@ -1,0 +1,55 @@
+{literal}
+
+{if $wa->shop && class_exists('shopFlexdiscountPlugin') && shopFlexdiscountPlugin::isEnabled()}
+
+    {if $fl_deny_rules}
+        <div class='flexdiscount-denydiscounts'>
+            <div class="flexdiscount-denydiscounts-heading">
+                <div class="h3">[`Deny rules`]</div>
+            </div>
+            <div class="flexdiscount-denydiscounts-body">
+
+                {* [`ALL DENY RULES WITH NO VIEW TYPE`] *}
+
+                {if empty($view_type)}
+                <ul>
+                    {foreach $fl_deny_rules as $rule_id => $d}
+                        <li>
+                            {$d.name|escape}
+                        </li>
+                    {/foreach}
+                </ul>
+
+                {* [`VIEW TYPE`] 1 *}
+
+                {elseif !empty($view_type) && $view_type == '1'}
+                    <table class="align-center">
+                        <thead>
+                            <tr>
+                                <th>[`Name`]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {foreach $fl_deny_rules as $rule_id => $d}
+                                <tr>
+                                    <td>{$d.name|escape}</td>
+                                </tr>
+                            {/foreach}
+                        </tbody>
+                    </table>
+
+                {* [`VIEW TYPE`] 2 *}
+
+                {elseif !empty($view_type) && $view_type == '2'}
+
+                    {* [`CREATE YOUR OWN VIEW TYPE RIGHT HERE`]  *}
+
+                {* [`END`] *}
+
+                {/if}
+            </div>
+        </div>
+    {/if}
+{/if}
+
+{/literal}

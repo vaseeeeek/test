@@ -1,0 +1,435 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/pricereq\n"
+"POT-Creation-Date: 2016-10-06 17:16+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: shop/plugins/pricereq\n"
+"Language-Team: shop/plugins/pricereq\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"Language: ru_RU\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: /wa-apps/shop/plugins/pricereq/templates/actions/settings/Settings.html:15
+msgid "For all questions"
+msgstr "По всем вопросам"
+
+#: /wa-apps/shop/plugins/pricereq/templates/actions/settings/Settings.html:18
+#: /wa-apps/shop/plugins/pricereq/js/pricereq.backend.settings.js:146
+#: /wa-apps/shop/plugins/pricereq/lib/shopPricereq.plugin.php:29
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:79
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:80
+#: /wa-apps/shop/plugins/pricereq/lib/config/plugin.php:7
+#: /wa-apps/shop/plugins/pricereq/lib/actions/shopPricereqPluginBackend.actions.php:43
+#: /wa-apps/shop/plugins/pricereq/lib/actions/shopPricereqPluginFrontendPricereq.controller.php:44
+msgid "Price request"
+msgstr "Запрос цены"
+
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:5
+msgid "ID"
+msgstr "ID"
+
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:7
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:8
+msgid "Product"
+msgstr "Товар"
+
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:12
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:13
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:68
+#: /wa-apps/shop/plugins/pricereq/lib/actions/shopPricereqPluginFrontendPricereq.controller.php:46
+msgid "Customer"
+msgstr "Пользователь"
+
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:17
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:18
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:74
+msgid "Name"
+msgstr "Имя"
+
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:22
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:23
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:75
+msgid "Phone"
+msgstr "Телефон"
+
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:27
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:28
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:76
+msgid "Email"
+msgstr "Email"
+
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:33
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:34
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:78
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:36
+#: /wa-apps/shop/plugins/pricereq/lib/actions/shopPricereqPluginFrontendPricereq.controller.php:54
+msgid "Comment"
+msgstr "Комментарий"
+
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:39
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:40
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:80
+msgid "Request date"
+msgstr "Дата заявки"
+
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:44
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:45
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:81
+msgid "Request status"
+msgstr "Статус заявки"
+
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:54
+msgid "Product image"
+msgstr "Изображение товара"
+
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:61
+msgid "Product name"
+msgstr "Название товара"
+
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:87
+msgid "execute"
+msgstr "выполнить"
+
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:94
+msgid "delete"
+msgstr "удалить"
+
+#: /wa-apps/shop/plugins/pricereq/templates/actions/pricereq/PricereqDefault.html:117
+#: /wa-apps/shop/plugins/pricereq/js/pricereq.backend.requests.js:40
+#: /wa-apps/shop/plugins/pricereq/js/pricereq.backend.requests.js:78
+msgid "No requests."
+msgstr "Заявки отсутствуют."
+
+#: /wa-apps/shop/plugins/pricereq/js/pricereq.frontend.js:80
+#: /wa-apps/shop/plugins/pricereq/js/pricereq.frontend.js:86
+msgid "Close"
+msgstr "Закрыть"
+
+#: /wa-apps/shop/plugins/pricereq/js/pricereq.frontend.js:85
+msgid "Error occurred when sending message"
+msgstr "Произошла ошибка при отправке сообщения"
+
+#: /wa-apps/shop/plugins/pricereq/js/pricereq.frontend.js:102
+msgid "Complete «Phone» or «Email»"
+msgstr "Заполните «Телефон» или «Email»"
+
+#: /wa-apps/shop/plugins/pricereq/js/pricereq.backend.requests.js:16
+msgid "Done?"
+msgstr "Выполнить?"
+
+#: /wa-apps/shop/plugins/pricereq/js/pricereq.backend.requests.js:31
+#: /wa-apps/shop/plugins/pricereq/lib/model/shopPricereqPluginRequest.model.php:44
+msgid "done"
+msgstr "выполнен"
+
+#: /wa-apps/shop/plugins/pricereq/js/pricereq.backend.requests.js:58
+msgid "Delete?"
+msgstr "Удалить?"
+
+#: /wa-apps/shop/plugins/pricereq/lib/model/shopPricereqPluginRequest.model.php:41
+msgid "new"
+msgstr "новый"
+
+#: /wa-apps/shop/plugins/pricereq/lib/model/shopPricereqPluginRequest.model.php:47
+msgid "deleted"
+msgstr "удален"
+
+#: /wa-apps/shop/plugins/pricereq/lib/model/shopPricereqPluginRequest.model.php:51
+msgid "no status"
+msgstr "без статуса"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:8
+msgid "Status"
+msgstr "Статус плагина"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:12
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:41
+msgid "Off"
+msgstr "Выключен"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:13
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:42
+msgid "On"
+msgstr "Включен"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:18
+msgid "Requests count"
+msgstr "Количество заявок"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:19
+msgid "The count of requests on the plugin page in the admin panel."
+msgstr "Количество заявок на странице плагина в админ панеле."
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:25
+msgid "Display done requests"
+msgstr "Отображение выполненных запросов"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:26
+msgid "When you enable this setting,<br />done requests will be displayed in the history of user requests."
+msgstr "При включении этого параметра<br /> в истории запросов пользователей будут отображаться выполненные запросы."
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:30
+msgid "No"
+msgstr "Нет"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:31
+msgid "Yes"
+msgstr "Да"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:37
+msgid "The opportunity to leave a comment."
+msgstr "Возможность оставлять комментарий"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:47
+msgid "Sender e-mail"
+msgstr "E-mail отправителя"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:48
+msgid "This email address will be listed as the return address of the message.<br />If the address is not specified, it will use the general email of the shop."
+msgstr "Этот электронный адрес будет указан в качестве обратного адреса у сообщений.<br />Если адрес не задан, будет использован основной email магазина."
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:54
+msgid "Recipient e-mail"
+msgstr "E-mail получателя"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:55
+msgid "The address to which to send messages.<br />If the address is not specified, it will use the general email of the shop."
+msgstr "Адрес, на который будут отправляться сообщения.<br />Если адрес не задан, будет использован основной email магазина."
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:62
+msgid "Selector of the button of price request form"
+msgstr "Селектор кнопки вызова формы"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:63
+msgid "Specify the class of the html element,<br />when clicking on which will open a form of price request.<br />Must be like «<b>.price-req-button</b>»."
+msgstr "Укажите класс html-элемента,<br />при клике на котором будет открываться окно с формой запроса цены.<br />Должно быть вида «<b>.price-req-button</b>»."
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:70
+msgid "Masked input for phone"
+msgstr "Маска ввода для телефона"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:71
+msgid "If fill this setting will added the mask for the field with the phone number.<br />Tip about masks characters:<br /><b>a</b> - All alphabetic values (A-Z, a-z)<br /><b>9</b> - All numeric values (0-9)<br /><b>*</b> - Any alphanumeric values (A-Z, a-z, 0-9).<br />Leave the field empty, if you do not need mask input."
+msgstr "Если заполнить этот параметр, будет добавлена маска ввода для поля с номером телефона.<br />Подсказка по символам маски ввода:<br /><b>a</b> - все буквенные значения (A-Z, a-z)<br /><b>9</b> - все числовые значения (0-9)<br /><b>*</b> - любые буквенно-цифровые значения (A-Z, a-z, 0-9).<br />Оставьте поле пустым, если вам не нужна маска ввода."
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:78
+msgid "Header text"
+msgstr "Текст заголовка"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:84
+msgid "«Name» field placeholder"
+msgstr "Текст подсказки для поля «Имя»"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:85
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:86
+msgid "Your Name"
+msgstr "Ваше Имя"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:90
+msgid "«Phone» field placeholder"
+msgstr "Текст подсказки для поля «Телефон»"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:91
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:92
+msgid "Your Phone"
+msgstr "Ваш Телефон"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:96
+msgid "«Email» field placeholder"
+msgstr "Текст подсказки для поля «Email»"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:97
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:98
+msgid "Your Email"
+msgstr "Ваш Email"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:102
+msgid "«Comment» field placeholder"
+msgstr "Текст подсказки для поля «Комментарий»"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:103
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:104
+msgid "Your comment"
+msgstr "Ваш комментарий"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:108
+msgid "«Send» button text"
+msgstr "Текст кнопки «Отправить»"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:110
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:111
+msgid "Send"
+msgstr "Отправить"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:115
+msgid "Form width (px)"
+msgstr "Ширина окна формы (px)"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:116
+msgid "Value range 320-600"
+msgstr "Диапазон значений 320-600"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:127
+msgid "Form height (px)"
+msgstr "Высота окна формы (px)"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:128
+msgid "Value range 340-480"
+msgstr "Диапазон значений 340-480"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:139
+msgid "Form background color (HEX)"
+msgstr "Цвет фона формы (HEX)"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:146
+msgid "Header background color (HEX)"
+msgstr "Цвет фона заголовка (HEX)"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:153
+msgid "Header text color (HEX)"
+msgstr "Цвет текста заголовка (HEX)"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:160
+msgid "«Send» button width (px)"
+msgstr "Ширина кнопки «Отправить» (px)"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:161
+msgid "Value range 100-600"
+msgstr "Диапазон значений 100-600"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:172
+msgid "«Send» button height (px)"
+msgstr "Высота кнопки «Отправить» (px)"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:173
+msgid "Value range 24-160"
+msgstr "Диапазон значений 24-160"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:184
+msgid "«Send» button background color (HEX)"
+msgstr "Цвет фона кнопки «Отправить» (HEX)"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:191
+msgid "«Send» button text color (HEX)"
+msgstr "Цвет текста кнопки «Отправить» (HEX)"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:198
+msgid "«Close» button background color when sending is success (HEX)"
+msgstr "Цвет фона кнопки «Закрыть» при успешной отправке формы (HEX)"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:205
+msgid "«Close» button background color when error occurred (HEX)"
+msgstr "Цвет фона кнопки «Закрыть» при возникновении ошибки при отправке формы (HEX)"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:213
+msgid "«Thanks message» text (appeal)"
+msgstr "Текст сообщения при успешной отправке формы (обращение)"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:215
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:216
+msgid "Thanks"
+msgstr "Спасибо"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:219
+msgid "«Thanks message» text (text in 2nd line)"
+msgstr "Текст сообщения при успешной отправке формы (2я строка)"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:220
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:221
+msgid "your message has been sent!"
+msgstr "ваше сообщение отправлено!"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:225
+msgid "«Thanks message» text color"
+msgstr "Цвет текста сообщения при успешной отправке формы"
+
+#: /wa-apps/shop/plugins/pricereq/lib/actions/shopPricereqPluginFrontendPricereq.controller.php:45
+msgid "Good day!"
+msgstr "Добрый день!"
+
+#: /wa-apps/shop/plugins/pricereq/lib/actions/shopPricereqPluginFrontendPricereq.controller.php:46
+msgid "ordered a price request about a product"
+msgstr "оставил заявку на запрос цены о товаре"
+
+#: /wa-apps/shop/plugins/pricereq/lib/actions/shopPricereqPluginFrontendPricereq.controller.php:48
+msgid "Phone number"
+msgstr "Телефон"
+
+#: /wa-apps/shop/plugins/pricereq/lib/actions/shopPricereqPluginFrontendPricereq.controller.php:51
+msgid "E-mail"
+msgstr "E-mail"
+
+#: /wa-apps/shop/plugins/pricereq/lib/actions/shopPricereqPluginFrontendPricereq.controller.php:58
+msgid "Price request plugin"
+msgstr "плагин «Запрос цены»"
+
+#: /wa-apps/shop/plugins/pricereq/lib/actions/shopPricereqPluginFrontendPricereq.controller.php:59
+msgid "Administrator"
+msgstr "Администратор"
+
+#: /wa-apps/shop/plugins/pricereq/lib/updates/1.1.0/1497799189.php:11
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:244
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:245
+msgid "Clicking on the «Send» button, I give my"
+msgstr "Нажимая на кнопку «Отправить», я даю"
+
+#: /wa-apps/shop/plugins/pricereq/lib/updates/1.1.0/1497799189.php:12
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:250
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:251
+msgid "consent to the personal data processing"
+msgstr "согласие на обработку персональных данных"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:233
+msgid "Consent to the personal data processing"
+msgstr "Согласие на обработку персональных данных"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:234
+msgid "Enable this setting to add to the form a checkbox consent to the processing of personal data and the link to the page with the Privacy Policy of the company."
+msgstr "Включите данную настройку, чтобы добавить в форму чекбокс (галочку) о согласии на обработку персональных данных и ссылку на страницу с Политикой конфиденциальности компании."
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:244
+msgid "Text"
+msgstr "Текст"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:250
+msgid "Link text"
+msgstr "Текст ссылки"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:256
+msgid "Link url"
+msgstr "Url ссылки"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:256
+msgid "Url of the page with the Privacy Policy."
+msgstr "Адрес страницы с Политикой конфиденциальности."
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:263
+msgid "Show checkbox"
+msgstr "Показывать чекбокс"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:263
+msgid "Enable this setting to display the checkbox, otherwise it will display only the text and link."
+msgstr "Включите данную настройку, чтобы отображать чекбокс, в противном случае будет показан только текст и ссылка."
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:273
+msgid "Checkbox by default"
+msgstr "Чекбокс по умолчанию"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:273
+msgid "Select the status of the checkbox by default."
+msgstr "Выберите состояние чекбокса по умолчанию."
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:278
+msgid "Unchecked"
+msgstr "Не нажат"
+
+#: /wa-apps/shop/plugins/pricereq/lib/config/settings.php:282
+msgid "Checked"
+msgstr "Нажат"

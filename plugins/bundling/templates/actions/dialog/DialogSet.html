@@ -1,0 +1,162 @@
+<h1>Создать комплектации для выбранных товаров</h1>
+
+<div class="field-group">
+	<div class="field">
+		<div class="name">
+			Основные товары
+		</div>
+		<div class="value">
+			<input name="main_product_ids" type="hidden" value="{implode(',', $main_product_ids)}"/>
+			<b>Установить выбранным товарам</b> <span class="gray">({count($main_products)})</span>
+			<div style="margin-top: 5px;">
+				<table id="bundling-set-products-table" class="zebra" width="100%">
+					{foreach from=$main_products item=main_product name=main_products}
+					<tr>
+						<td><a style="display: inline;" target="_blank" href="?plugin=bundling&action=editProductBundles&id={$main_product['id']}"><i class="icon16 bundling"></i></a> <a style="display: inline;" target="_blank" href="?action=products#/product/{$main_product['id']}/edit/"><i class="icon16 folder"></i></a> {$main_product['name']|escape:'html'}</td>
+						{if $bundle_groups == 'custom'}
+						<td align="center"><i class="icon16 move"></i></td>
+						<td align="right">
+							<select class="bundling-main-product-group" name="main_product_group[{$main_product['id']}]">
+								<option></option>
+								{if !empty($main_product['bundling_bundles'])}
+								{foreach $main_product['bundling_bundles'] as $bundle}
+								<option value="{$bundle['id']}">{$bundle['title']|escape:'html'}</option>
+								{/foreach}
+								{/if}
+								<option value="-1" style="color: green; font-style: italic;">- Новая группа комплектации -</option>
+							</select>
+							<div class="new-group" style="display: none;">
+								<div style="margin-top: 5px;">
+									<i class="icon16 folder"></i><input placeholder="Наименование группы" name="main_product_group_title[{$main_product['id']}]" type="text"/>
+								</div>
+								<div style="margin-top: 5px;">
+									<label><input name="main_product_group_multiple[{$main_product['id']}]" type="checkbox"/> [`Multiple select`]</label>
+								</div>
+							</div>
+						</td>
+						<td class="min-width">
+							{if $smarty.foreach.main_products.first}
+								<a href="#" class="bundling-main-product-group-fill"><i class="icon16 download"></i></a>
+							{/if}
+						</td>
+						{else}
+						<td>
+							<input name="main_product_group[{$main_product['id']}]" type="hidden" value="0"/>
+						</td>
+						<td colspan="2"></td>
+						{/if}
+					</tr>
+					{/foreach}
+				</table>
+			</div>
+			<div class="hint" style="margin-top: 5px;">
+				Выбранные комплектующие попадут к каждому основному товару в выбранную группу комплектации.
+			</div>
+		</div>
+	</div>
+	<div class="field">
+		<div class="name">
+			Комплектующие
+		</div>
+		<div class="value">
+			<input name="bundled_product_ids" type="hidden" value="{implode(',', $bundled_product_ids)}"/>
+			<b>Следующие комплектующие</b> <span class="gray">({count($bundled_products)})</span>
+			<div style="margin-top: 5px;">
+				<table id="bundling-set-bundles-table" class="zebra" width="100%">
+					{foreach $bundled_products as $bundled_product}
+					<tr>
+						<td style="padding: 5px;"><input class="bundled-product-checkbox" value="{if $bundled_product['sku_count'] > 1}{$bundled_product['id']}{else}{$bundled_product['sku_id']}{/if}" name="{if $bundled_product['sku_count'] > 1}bundled_product[]{else}product_skus[{$bundled_product['id']}][]{/if}" type="checkbox" checked></td>
+						<td style="padding: 5px;">
+							<a style="display: inline;" target="_blank" href="?action=products#/product/{$bundled_product['id']}/edit/"><i class="icon16 folder"></i></a>
+							{$bundled_product['name']|escape:'html'}
+							
+							{if $bundled_product['sku_count'] > 1}
+							<div class="skus">
+								<ul class="sku-toggler menu-h">
+									{foreach $bundled_product['skus'] as $sku}
+									<li class="selected">
+										<div style="float: left;">
+											<label data-product-id="{$bundled_product['id']}" data-sku-id="{$sku['id']}">
+											<input value="{$sku['id']}" name="product_skus[{$bundled_product['id']}][]" type="checkbox" checked>
+											{ifempty($sku['name'], ifempty($sku['sku']))|escape}
+											</label>
+											<span class="gray">sku id {$sku['id']}</span>
+										</div>
+										<div style="float: right;">
+											{shopRounding::roundCurrency($sku['price'], $currency)|wa_format_amount:$currency:'%{h}'}
+											<b class="red">-</b> <input placeholder="[`Discount`]" class="short" name="discount[{$bundled_product['id']}][{$sku['id']}]" type="text"/> <b class="red">%</b>
+											×
+											<input title="[`Default quantity`]" class="short" name="default_quantity[{$bundled_product['id']}][{$sku['id']}]" type="text" value="1"/>
+										</div>
+									</li>
+									{/foreach}
+								</ul>
+							</div>
+							{else}
+							<div class="skus">
+								<ul class="sku-toggler menu-h">
+									<li class="selected">
+										<div style="float: left;">
+											{$sku_data = $bundled_product['skus'][$bundled_product['sku_id']]}
+											{ifempty($sku_data['name'], ifempty($sku_data['sku'], 'Артикул по умолчанию'))|escape}
+										</div>
+										<div style="float: right;">
+											{shopRounding::roundCurrency($bundled_product['price'], $currency)|wa_format_amount:$currency:'%{h}'}
+											<b class="red">-</b> <input placeholder="[`Discount`]" class="short" name="discount[{$bundled_product['id']}][{$bundled_product['sku_id']}]" type="text"/> <b class="red">%</b>
+											×
+											<input title="[`Default quantity`]" class="short" name="default_quantity[{$bundled_product['id']}][{$bundled_product['sku_id']}]" type="text" value="1"/>
+										</div>
+									</li>
+								</ul>
+							</div>
+							{/if}
+						</td>
+					</tr>
+					{/foreach}
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<style type="text/css">
+.sku-toggler li { overflow: hidden; display: block !important; margin-top: 5px !important; background: #ffcccc; }
+.sku-toggler li.selected { background: #d2ffcc; }
+</style>
+<script type="text/javascript">
+(function($) {
+	$('#bundling-set-products-table .bundling-main-product-group').change(function() {
+		var ng = $(this).closest('td').find('.new-group');
+		
+		ng[$(this).val() == -1 ? 'show' : 'hide']();
+		if($(this).val() == -1)
+			ng.find('input[type="text"]').val('').focus();
+	});
+
+	$('.bundling-main-product-group-fill').click(function(e) {
+		var main = $('#bundling-set-products-table .bundling-main-product-group:first').val();
+
+		if(main && main !== -1) {
+			$('#bundling-set-products-table .bundling-main-product-group').each(function() {
+				$(this).val(main);
+			});
+		}
+
+		e.preventDefault();
+	});
+
+	$('#bundling-set-bundles-table .bundled-product-checkbox').change(function() {
+		$(this).closest('tr').find('.sku-toggler').find('input[type="checkbox"]').prop('checked', $(this).is(':checked'));
+		
+		$(this).closest('tr').find('.sku-toggler').find('li').attr('class', $(this).is(':checked') ? 'selected' : '');
+	});
+	
+	$('#bundling-set-bundles-table .sku-toggler input[type="checkbox"]').change(function() {
+		$(this).closest('li').attr('class', $(this).is(':checked') ? 'selected' : '');
+		
+		var ac = $(this).closest('.sku-toggler').find('input[type="checkbox"]').length;
+		var acc = $(this).closest('.sku-toggler').find('input[type="checkbox"]:checked').length;
+		
+		$(this).closest('tr').find('.bundled-product-checkbox').prop('checked', ac == acc);
+	});
+})(jQuery);
+</script>

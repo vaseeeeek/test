@@ -1,0 +1,10 @@
+.product-tile.salesku_plugin-product .product-tile_cart {
+    display: block !important;
+    text-align: left;
+}
+.salesku_plugin-selected-sku.salesku_plugin-product:hover  .salesku_options.fly .salesku_options_head {
+    display: none !important;
+}
+.salesku_plugin-product:hover .salesku_options.fly .options, .salesku_plugin-product:hover .salesku_options.fly .skus, .salesku_plugin-product:hover .salesku_options.fly .salesku_skus {
+    box-sizing: border-box;
+}

@@ -1,0 +1,148 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: frequent-questions\n"
+"POT-Creation-Date: 2015-10-03 17:27+0400\n"
+"PO-Revision-Date: 2017-05-03 15:27+0300\n"
+"Last-Translator: welldi-studio.ru <n.grineva@welldi-studio.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"Language: en_US\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "Frequently asked questions for users."
+msgstr "Frequently asked questions for users."
+
+msgid "FAQ - Frequently Asked Questions"
+msgstr "FAQ - Frequently Asked Questions"
+
+msgid "Plugin ON/OFF"
+msgstr "Plugin ON/OFF"
+
+msgid "Placing of the link"
+msgstr "Placing of the link"
+
+msgid "Default (above the categories block)"
+msgstr "Default (above the categories block)"
+
+msgid "Custom. Use helper: "
+msgstr "Custom. Use helper: "
+
+msgid "Display headers \"Question\", \"Answer\""
+msgstr "Display headers \"Question\", \"Answer\""
+
+msgid "Link title"
+msgstr "Link title"
+
+msgid "New FAQ"
+msgstr "New FAQ"
+
+msgid "Saved"
+msgstr "Saved"
+
+msgid "Question"
+msgstr "Question"
+
+msgid "Question text"
+msgstr "Question text"
+
+msgid "Answer"
+msgstr "Answer"
+
+msgid "Answer text"
+msgstr "Answer text"
+
+msgid "Show"
+msgstr "Show"
+
+msgid "Frequently Asked Questions"
+msgstr "Frequently Asked Questions"
+
+msgid "Question:"
+msgstr "Question:"
+
+msgid "Answer:"
+msgstr "Answer:"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "All changes will be accepted after clicking \"Save\""
+msgstr "All changes will be accepted after clicking \"Save\""
+
+msgid "Show/hide asnwers"
+msgstr "Show/hide asnwers"
+
+msgid "Expand/hide answer by click on the question"
+msgstr "Expand/hide answer by click on the question"
+
+msgid "Static display of questions and answers"
+msgstr "Static display of questions and answers"
+
+msgid "Select a color"
+msgstr "Select a color"
+
+msgid "Question text color"
+msgstr "Question text color"
+
+msgid "Answer text color"
+msgstr "Answer text color"
+
+msgid "To display by default, leave this field empty."
+msgstr "To display by default, leave this field empty."
+
+msgid "Question text size"
+msgstr "Question text size"
+
+msgid "Answer text size"
+msgstr "Answer text size"
+
+msgid "Font size, px**. Example: 12"
+msgstr "Font size, px**. Example: 12"
+
+msgid "To sizing by default, leave this field empty."
+msgstr "To sizing by default, leave this field empty."
+
+msgid "Show plus/minus"
+msgstr "Show plus/minus"
+
+msgid "Plus color"
+msgstr "Plus color"
+
+msgid "Minus color"
+msgstr "Minus color"
+
+msgid "Header text color"
+msgstr "Header text color"
+
+msgid "Frequent questions"
+msgstr "Frequent questions"
+
+msgid "Helper for displaying of questions and answers"
+msgstr "Helper for displaying of questions and answers"
+
+msgid "Open in the new window"
+msgstr "Open in the new window"
+
+msgid "default: \"FAQ\""
+msgstr "default: \"FAQ\""
+
+msgid "Page title"
+msgstr "Page title"
+
+msgid "default: \"Frequent questions\""
+msgstr "default: \"Frequent questions\""
+
+msgid "Meta keywords for FAQ page"
+msgstr "Meta keywords for FAQ page"
+
+msgid "Meta description for FAQ page"
+msgstr "Meta description for FAQ page"

@@ -1,0 +1,100 @@
+{if $callb_requests}
+    <div id="s-callb-request-list-table-container">
+        <table class="zebra single-lined" id="callb-request-list">
+            <tr class="header">
+                <th class="min-width">[`ID`]</th>
+                <th>
+                    <span title="[`Customer`]">
+                        [`Customer`]
+                    </span>
+                </th>
+                <th>
+                    <span title="[`Name`]">
+                        [`Name`]
+                    </span>
+                </th>
+                <th>
+                    <span title="[`Phone`]">
+                        [`Phone`]
+                    </span>
+                </th>
+                {if $callb_settings.comment_status === 'on'}
+                <th>
+                    <span title="[`Comment`]">
+                        [`Comment`]
+                    </span>
+                </th>
+                {/if}
+                <th>
+                    <span title="[`Request date`]">
+                        [`Request date`]
+                    </span>
+                </th>
+                <th>
+                    <span title="[`Request url`]">
+                        [`Request url`]
+                    </span>
+                </th>
+                <th class="min-width">
+                    <span title="[`Request status`]">
+                        [`Request status`]
+                    </span>
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+            {foreach $callb_requests as $r}
+            <tr class="callb-request {if $r.status === 'done'}gray{/if}">        
+                <td class="min-width">{$r.id}</td>        
+                <td class="short nowrap align-left" title="[`Customer`]">
+                    {if $r.contact_id}
+                        <a href="?action=customers#/id/{$r.contact_id}">{$r.contact_name}</a>
+                        {if $r.contact_email}<span>{$r.contact_email}</span>{/if}
+                    {/if}
+                </td>
+                <td class="short nowrap align-left" title="[`Name`]"><span>{$r.name}</span></td>
+                <td class="short nowrap align-left" title="[`Phone`]"><span>{$r.phone}</span></td>
+                {if $callb_settings.comment_status === 'on'}
+                <td class="short nowrap align-left" title="[`Comment`]"><span style="cursor: pointer; white-space: pre-wrap;" title="{$r.comment}">{$r.comment|truncate:100}</span></td>
+                {/if}
+                <td class="short nowrap align-left" title="[`Request date`]">{$r.create_datetime|wa_datetime:"humandatetime"}</td>
+                <td class="short nowrap align-left" title="[`Request url`]">{if $r.url}<a href="{$r.url}" target="_blank">{$r.url|truncate:30}</a>{/if}</td>
+                <td class="short nowrap align-center" title="[`Request status`]">
+                    <span class="human-status">{$r.human_status}</span>
+                </td>
+                <td class="short nowrap align-right">
+                    {if $r.status !== 'done'}
+                    <a href="#" class="callb-request-done" callb-request-id="{$r.id}">
+                        <i class="icon16 yes"></i>[`execute`]
+                    </a>
+                    {/if}
+                </td>
+                <td class="short nowrap align-right">
+                    {if $r.status !== 'del'}
+                    <a href="#" class="callb-request-delete" callb-request-id="{$r.id}">
+                        <i class="icon16 delete"></i>[`delete`]
+                    </a>
+                    {/if}
+                </td>
+            </tr>
+            {/foreach}
+        </table>
+    </div>
+
+    {wa_pagination total=$pages_count attrs=['class' => "menu-h block top-padded"]}
+
+    <script type="text/javascript">
+        {include file="../../../js/callb.backend.requests.js"}
+    </script>
+
+    <script type="text/javascript">
+        (function ($) {
+            callbBackendRequests.initModule();
+        })(jQuery);
+    </script>
+
+{else}
+    <div class="block double-padded align-center gray">
+        <strong>[`No requests.`]</strong>
+    </div>
+{/if}

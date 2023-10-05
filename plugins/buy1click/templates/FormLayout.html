@@ -1,0 +1,16 @@
+{strip}
+	{include './util.html'}
+	{$settings = $state.settings}
+
+	<div class="buy1click-form {if $settings['form_view'] == 'modal_extend'}buy1click-form_extend{else}buy1click-form_not-extend{/if} buy1click-form_type_{$state.type}">
+		<div class="buy1click-form__overlay">
+			<div class="buy1click-form__overlay-inner">
+				<div class="buy1click-form__inner">
+					<div class="buy1click-form__content">
+						{include './'|cat:$template_file}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{/strip}

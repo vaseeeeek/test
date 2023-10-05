@@ -1,0 +1,1555 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/productsets\n"
+"POT-Creation-Date: 2014-09-16 15:16+0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: shop/plugins/productsets\n"
+"Language-Team: shop/plugins/productsets\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"Language: en_US\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+msgid "Product sets"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Total count"
+msgstr ""
+
+msgid "Product set name"
+msgstr ""
+
+msgid "Number of selectable items"
+msgstr ""
+
+msgid "Discount"
+msgstr ""
+
+msgid "Set price"
+msgstr ""
+
+msgid "Enable?"
+msgstr ""
+
+msgid "Disable?"
+msgstr ""
+
+msgid "You don't have any sets"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "Color settings"
+msgstr ""
+
+msgid "This color settings will be used for all product sets. If you would like to change color settings for any particular set, you can do it on the page of the set."
+msgstr ""
+
+msgid "cancel custom settings"
+msgstr ""
+
+msgid "\"Buy the set\" button"
+msgstr ""
+
+msgid "\"Buy the set\" hover button"
+msgstr ""
+
+msgid "\"Buy the set\" text"
+msgstr ""
+
+msgid "\"Plus button\" (in popup window)"
+msgstr ""
+
+msgid "\"Plus button\" hover"
+msgstr ""
+
+msgid "\"Plus button\" text"
+msgstr ""
+
+msgid "\"Create the set\" button"
+msgstr ""
+
+msgid "\"Create the set\" hover button"
+msgstr ""
+
+msgid "\"Create the set\" text"
+msgstr ""
+
+msgid "\"Minus button\" (in popup window)"
+msgstr ""
+
+msgid "\"Minus button\" hover"
+msgstr ""
+
+msgid "\"Minus button\" text"
+msgstr ""
+
+msgid "Product price label"
+msgstr ""
+
+msgid "Product price label text"
+msgstr ""
+
+msgid "Line"
+msgstr ""
+
+msgid "Total price label"
+msgstr ""
+
+msgid "Total price label text"
+msgstr ""
+
+msgid "Price without discount"
+msgstr ""
+
+msgid "Price with discount (in popup window)"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "This will drop all customizations made to the CSS file, and revert it to the original version. Are you sure?"
+msgstr ""
+
+msgid "Css styles"
+msgstr ""
+
+msgid "Revert to original"
+msgstr ""
+
+msgid "Saved"
+msgstr ""
+
+msgid "Something wrong"
+msgstr ""
+
+msgid "New product set"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Off"
+msgstr ""
+
+msgid "On"
+msgstr ""
+
+msgid "My new complect"
+msgstr ""
+
+msgid "This name will be displayed in the list of product sets on admin page. Only you will see it"
+msgstr ""
+
+msgid "Products set"
+msgstr ""
+
+msgid "Create the set, which user could order"
+msgstr ""
+
+msgid "up"
+msgstr ""
+
+msgid "down"
+msgstr ""
+
+msgid "Unknown product"
+msgstr ""
+
+msgid "Show all skus in search"
+msgstr ""
+
+msgid "Include product in the set"
+msgstr ""
+
+msgid "Include product, on the page which appears set, to the set"
+msgstr ""
+
+msgid "Allow users to choose product skus in the set"
+msgstr ""
+
+msgid "Users will be able to change the skus of products"
+msgstr ""
+
+msgid "Allow user to create set"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Choose products, which user could add to the set"
+msgstr ""
+
+msgid "Specify the maximum number of items in the set, which user can order"
+msgstr ""
+
+msgid "HTML before and after the set"
+msgstr ""
+
+msgid "HTML before the set"
+msgstr ""
+
+msgid "HTML after the set"
+msgstr ""
+
+msgid "Custom color settings"
+msgstr ""
+
+msgid "Localization"
+msgstr ""
+
+msgid "You can use you own locale and messages. Click 'Add locale', print locale identifier and add messages, which are using in the template (Product sets - Template)."
+msgstr ""
+
+msgid "If you want to add new message in the template use code:"
+msgstr ""
+
+msgid "MY MESSAGE"
+msgstr ""
+
+msgid "Only 'MY MESSAGE' can be changed in this construction."
+msgstr ""
+
+msgid "Then add printed message in the settings of localization below."
+msgstr ""
+
+msgid "delete"
+msgstr ""
+
+msgid "Use as default"
+msgstr ""
+
+msgid "Add fields"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Translation"
+msgstr ""
+
+msgid "Add locale"
+msgstr ""
+
+msgid "Select products, categories or sets, where would you like to display \"product set\""
+msgstr ""
+
+msgid "Unknown set"
+msgstr ""
+
+msgid "Unknown category"
+msgstr ""
+
+msgid "Everywhere"
+msgstr ""
+
+msgid "On request"
+msgstr ""
+
+msgid "Sets"
+msgstr ""
+
+msgid "Categories"
+msgstr ""
+
+msgid "Products"
+msgstr ""
+
+msgid "include children"
+msgstr ""
+
+msgid "Use code %s to insert the set into the template"
+msgstr ""
+
+msgid "Field \"Include product in the set\" will not work."
+msgstr ""
+
+msgid "YOUR_SET_ID"
+msgstr ""
+
+msgid "Press 'Save' to see the code with your set ID."
+msgstr ""
+
+msgid "This will drop all customizations made to the Js locale file, and revert it to the original version. Are you sure?"
+msgstr ""
+
+msgid "JS frontend locale"
+msgstr ""
+
+msgid "Instead of \"YOUR_LOCALE\" print the locale you want to add and change the translation. You can add as much locales as you want."
+msgstr ""
+
+msgid "This will drop all customizations made to the template file, and revert it to the original version. Are you sure?"
+msgstr ""
+
+msgid "Template"
+msgstr ""
+
+msgid "Add set"
+msgstr ""
+
+msgid "CSS styles"
+msgstr ""
+
+msgid "exclude children"
+msgstr ""
+
+msgid "Do you really want to delete product sets in amount of {ldelim}0{rdelim} pcs?"
+msgstr ""
+
+msgid "Choose product sets to delete"
+msgstr ""
+
+msgid "Don't forget to save!"
+msgstr ""
+
+msgid "Loading"
+msgstr ""
+
+msgid "Specify locale name"
+msgstr ""
+
+msgid "prev"
+msgstr ""
+
+msgid "next"
+msgstr ""
+
+msgid "Cannot save color settings"
+msgstr ""
+
+msgid "Something wrong. Contact plugin developer: gapon2401@gmail.com"
+msgstr ""
+
+msgid "Product set not saved"
+msgstr ""
+
+msgid "Set is empty"
+msgstr ""
+
+msgid "Set is not available"
+msgstr ""
+
+msgid "Product sets with discount"
+msgstr ""
+
+msgid "Creation and sale of product sets with discount"
+msgstr ""
+
+msgid "Enable plugin"
+msgstr ""
+
+msgid "Enable default plugin display"
+msgstr ""
+
+msgid "Use automatically plugin display on product page. If you would like to use custom display, uncheck this option and see Instructions, how to use \"Custom display\""
+msgstr ""
+
+msgid "Items per page"
+msgstr ""
+
+msgid "Number of product sets in the list in admin area"
+msgstr ""
+
+msgid "Ruble symbol"
+msgstr ""
+
+msgid "rub."
+msgstr ""
+
+msgid "Display like text"
+msgstr ""
+
+msgid "Display like symbol"
+msgstr ""
+
+msgid "Delete the set"
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+msgid "Bundle"
+msgstr ""
+
+msgid "User bundle"
+msgstr ""
+
+msgid "Display"
+msgstr ""
+
+msgid "Appearance"
+msgstr ""
+
+msgid "add bundle"
+msgstr ""
+
+msgid "Product bundle"
+msgstr ""
+
+msgid "add products to the bundle"
+msgstr ""
+
+msgid "Bundle settings"
+msgstr ""
+
+msgid "Select discount type for the bundle"
+msgstr ""
+
+msgid "common discount"
+msgstr ""
+
+msgid "discount for each product"
+msgstr ""
+
+msgid "discount depending on the availability of the product in the bundle"
+msgstr ""
+
+msgid "common"
+msgstr ""
+
+msgid "If bundle will have 2, 3, 4 or more product-positions, then set discount to all products"
+msgstr ""
+
+msgid "on every position"
+msgstr ""
+
+msgid "Set discount to each position of the bundle"
+msgstr ""
+
+msgid "Add active product to the bundle"
+msgstr ""
+
+msgid "Product on the page of which the set is located will be automatically added to that set"
+msgstr ""
+
+msgid "Select bundle lifetime"
+msgstr ""
+
+msgid "Server time"
+msgstr ""
+
+msgid "Start"
+msgstr ""
+
+msgid "DD"
+msgstr ""
+
+msgid "MM"
+msgstr ""
+
+msgid "YYYY"
+msgstr ""
+
+msgid "HH"
+msgstr ""
+
+msgid "End"
+msgstr ""
+
+msgid "Delete bundle when the time is over"
+msgstr ""
+
+msgid "By default the bundle will be hidden when the time is over.<br><i class=\"icon16 exclamation\"></i> If you activate this option the bundle will be removed from the website and from the admin page."
+msgstr ""
+
+msgid "If bundle has positions with empty stocks, then hide the bundle"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Qty"
+msgstr ""
+
+msgid "Price"
+msgstr ""
+
+msgid "add alternative products"
+msgstr ""
+
+msgid "Customer will be able to change products in one position"
+msgstr ""
+
+msgid "show additional settings"
+msgstr ""
+
+msgid "Allow to choose product skus"
+msgstr ""
+
+msgid "Allow to change product quantity"
+msgstr ""
+
+msgid "Allow to delete product from the bundle"
+msgstr ""
+
+msgid "If there is no product in the bundle, then cancel all discounts"
+msgstr ""
+
+msgid "pos"
+msgstr ""
+
+msgid "on each pos"
+msgstr ""
+
+msgid "add"
+msgstr ""
+
+msgid "* * * Active product * * *"
+msgstr ""
+
+msgid "Storefronts"
+msgstr ""
+
+msgid "Select the storefronts where sets will be displayed"
+msgstr ""
+
+msgid "equals"
+msgstr ""
+
+msgid "not equals"
+msgstr ""
+
+msgid "Select storefronts"
+msgstr ""
+
+msgid "All storefronts"
+msgstr ""
+
+msgid "Product page"
+msgstr ""
+
+msgid "Output place"
+msgstr ""
+
+msgid "Next to the \"Add to cart\" button"
+msgstr ""
+
+msgid "Block of extra product details in main description area"
+msgstr ""
+
+msgid "Output places depend on your Theme template."
+msgstr ""
+
+msgid "Select the elements on the product pages of which sets will be displayed"
+msgstr ""
+
+msgid "Wait, please, while data is loading..."
+msgstr ""
+
+msgid "Select categories"
+msgstr ""
+
+msgid "Categories and subcategories"
+msgstr ""
+
+msgid "Select product sets"
+msgstr ""
+
+msgid "Product types"
+msgstr ""
+
+msgid "Select product types"
+msgstr ""
+
+msgid "Category page"
+msgstr ""
+
+msgid "Select categories where sets will be displayed"
+msgstr ""
+
+msgid "Product set title"
+msgstr ""
+
+msgid "Complect title"
+msgstr ""
+
+msgid "This title will be displayed on the storefront"
+msgstr ""
+
+msgid "Text before the set"
+msgstr ""
+
+msgid "Text after the set"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Select discount type"
+msgstr ""
+
+msgid "individual discount for each group"
+msgstr ""
+
+msgid "discount depending on the quantity of the products in the bundle"
+msgstr ""
+
+msgid "Minimal quantity of products in the set"
+msgstr ""
+
+msgid "Active sku is not counted"
+msgstr ""
+
+msgid "Maximal quantity of products in the set"
+msgstr ""
+
+msgid "add required products"
+msgstr ""
+
+msgid "This products cannot be deleted by user"
+msgstr ""
+
+msgid "create group of products"
+msgstr ""
+
+msgid "Group of products"
+msgstr ""
+
+msgid "Group name"
+msgstr ""
+
+msgid "Multiple values (checkboxes)"
+msgstr ""
+
+msgid "User will be able to check several products from the group"
+msgstr ""
+
+msgid "add products to the group"
+msgstr ""
+
+msgid "add category to the group"
+msgstr ""
+
+msgid "add set to the group"
+msgstr ""
+
+msgid "add type to the group"
+msgstr ""
+
+msgid "Types"
+msgstr ""
+
+msgid "Select value"
+msgstr ""
+
+msgid "All products"
+msgstr ""
+
+msgid "First N-products"
+msgstr ""
+
+msgid "Last N-products"
+msgstr ""
+
+msgid "Random N-products"
+msgstr ""
+
+msgid "Group discount"
+msgstr ""
+
+msgid "Common for all products"
+msgstr ""
+
+msgid "Discount for each product"
+msgstr ""
+
+msgid "Select products"
+msgstr ""
+
+msgid "show more"
+msgstr ""
+
+msgid "or select the category to find product you need."
+msgstr ""
+
+msgid "or"
+msgstr ""
+
+msgid "cancel"
+msgstr ""
+
+msgid "Show product skus"
+msgstr ""
+
+msgid "More products"
+msgstr ""
+
+msgid "Product sets are used for embedding products into storefront info pages and design templates."
+msgstr ""
+
+msgid "You have no product types in your online store. Create one in the store settings."
+msgstr ""
+
+msgid "This product is not available for purchase"
+msgstr ""
+
+msgid "Pre-order only"
+msgstr ""
+
+msgid "Out of stock"
+msgstr ""
+
+msgid "In stock"
+msgstr ""
+
+msgid "Product with the selected option combination is not available for purchase"
+msgstr ""
+
+msgid "This product is already selected"
+msgstr ""
+
+msgid "Select product sku"
+msgstr ""
+
+msgid "Active product"
+msgstr ""
+
+msgid "select sku"
+msgstr ""
+
+msgid "Not in stock"
+msgstr ""
+
+msgid "%d from %d"
+msgstr ""
+
+msgid "Total price"
+msgstr ""
+
+msgid "Saving"
+msgstr ""
+
+msgid "Add set to cart"
+msgstr ""
+
+msgid "Background"
+msgstr ""
+
+msgid "Border"
+msgstr ""
+
+msgid "Color"
+msgstr ""
+
+msgid "Box shadow"
+msgstr ""
+
+msgid "Border radius"
+msgstr ""
+
+msgid "Font"
+msgstr ""
+
+msgid "Padding"
+msgstr ""
+
+msgid "Margin"
+msgstr ""
+
+msgid "Alignment"
+msgstr ""
+
+msgid "Condition"
+msgstr ""
+
+msgid "Normal"
+msgstr ""
+
+msgid "On hover"
+msgstr ""
+
+msgid "Properties"
+msgstr ""
+
+msgid "Gradient"
+msgstr ""
+
+msgid "Solid color"
+msgstr ""
+
+msgid "Transparent"
+msgstr ""
+
+msgid "Direction"
+msgstr ""
+
+msgid "From left to right"
+msgstr ""
+
+msgid "From right to left"
+msgstr ""
+
+msgid "From top to bottom"
+msgstr ""
+
+msgid "From bottom to top"
+msgstr ""
+
+msgid "Transparency"
+msgstr ""
+
+msgid "Orientation"
+msgstr ""
+
+msgid "linear"
+msgstr ""
+
+msgid "radial"
+msgstr ""
+
+msgid "Thickness"
+msgstr ""
+
+msgid "Style"
+msgstr ""
+
+msgid "Dotted"
+msgstr ""
+
+msgid "Dashed"
+msgstr ""
+
+msgid "Double"
+msgstr ""
+
+msgid "Values"
+msgstr ""
+
+msgid "X offset"
+msgstr ""
+
+msgid "Y offset"
+msgstr ""
+
+msgid "Blur"
+msgstr ""
+
+msgid "Spread"
+msgstr ""
+
+msgid "Inset"
+msgstr ""
+
+msgid "Radius"
+msgstr ""
+
+msgid "Top-left"
+msgstr ""
+
+msgid "Top-right"
+msgstr ""
+
+msgid "Bottom-left"
+msgstr ""
+
+msgid "Bottom-right"
+msgstr ""
+
+msgid "Size"
+msgstr ""
+
+msgid "Use default"
+msgstr ""
+
+msgid "Font family"
+msgstr ""
+
+msgid "Google fonts"
+msgstr ""
+
+msgid "Font style"
+msgstr ""
+
+msgid "Bold"
+msgstr ""
+
+msgid "Italic"
+msgstr ""
+
+msgid "Bold/Italic"
+msgstr ""
+
+msgid "Top"
+msgstr ""
+
+msgid "Right"
+msgstr ""
+
+msgid "Bottom"
+msgstr ""
+
+msgid "To left"
+msgstr ""
+
+msgid "To right"
+msgstr ""
+
+msgid "To center"
+msgstr ""
+
+msgid "Justify"
+msgstr ""
+
+msgid "Solid"
+msgstr ""
+
+msgid "Left"
+msgstr ""
+
+msgid "Width"
+msgstr ""
+
+msgid "Do you really want to delete product sets in amount of {0} pcs?"
+msgstr ""
+
+msgid "Oops, nothing found!"
+msgstr ""
+
+msgid "Products not found"
+msgstr ""
+
+msgid "sku ID"
+msgstr ""
+
+msgid "Something wrong. Contact plugin developer"
+msgstr ""
+
+msgid "Productsets"
+msgstr ""
+
+msgid "Set #"
+msgstr ""
+
+msgid "Total discount"
+msgstr ""
+
+msgid "Show more"
+msgstr ""
+
+msgid "Other"
+msgstr ""
+
+msgid "Duplicate"
+msgstr ""
+
+msgid "Change status"
+msgstr ""
+
+msgid "Set"
+msgstr ""
+
+msgid "enabled"
+msgstr ""
+
+msgid "disabled"
+msgstr ""
+
+msgid "Ended by schedule"
+msgstr ""
+
+msgid "%d bundle"
+msgid_plural "%d bundles"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "Starts at %s"
+msgstr ""
+
+msgid "Add bundle to the cart"
+msgstr ""
+
+msgid "Product name"
+msgstr ""
+
+msgid "product sku"
+msgstr ""
+
+msgid "Form"
+msgstr ""
+
+msgid "3 products"
+msgstr ""
+
+msgid "for"
+msgstr ""
+
+msgid "Buy"
+msgstr ""
+
+msgid "Dicount"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Inside title"
+msgstr ""
+
+msgid "Add"
+msgstr ""
+
+msgid "Added"
+msgstr ""
+
+msgid "Popup button"
+msgstr ""
+
+msgid "Create the set"
+msgstr ""
+
+msgid "User Bundle"
+msgstr ""
+
+msgid "What should I do, if live demo is not the same as on the website?"
+msgstr ""
+
+msgid "Use this option to force the CSS styles"
+msgstr ""
+
+msgid "Select element"
+msgstr ""
+
+msgid "Block"
+msgstr ""
+
+msgid "Block header"
+msgstr ""
+
+msgid "Block content"
+msgstr ""
+
+msgid "Total compare price"
+msgstr ""
+
+msgid "Product price"
+msgstr ""
+
+msgid "Product compare price"
+msgstr ""
+
+msgid "Badge"
+msgstr ""
+
+msgid "Quantity buttons"
+msgstr ""
+
+msgid "Icon of skus selecting"
+msgstr ""
+
+msgid "Wrap of icon of skus selecting"
+msgstr ""
+
+msgid "Sku variants"
+msgstr ""
+
+msgid "Submit button"
+msgstr ""
+
+msgid "Slider arrow"
+msgstr ""
+
+msgid "Block of slider arrow"
+msgstr ""
+
+msgid "Plus"
+msgstr ""
+
+msgid "Checkbox icon"
+msgstr ""
+
+msgid "Blocks"
+msgstr ""
+
+msgid "Titles"
+msgstr ""
+
+msgid "Title lines"
+msgstr ""
+
+msgid "Title inside block"
+msgstr ""
+
+msgid "Add button"
+msgstr ""
+
+msgid "Add button of selected item"
+msgstr ""
+
+msgid "clear all styles"
+msgstr ""
+
+msgid "Live demonstration"
+msgstr ""
+
+msgid "Use bundles"
+msgstr ""
+
+msgid "Customize text blocks"
+msgstr ""
+
+msgid "Buy button"
+msgstr ""
+
+msgid "Custom"
+msgstr ""
+
+msgid "Use code"
+msgstr ""
+
+msgid "Default place"
+msgstr ""
+
+msgid "Output place on the template category.html depends on your Theme template."
+msgstr ""
+
+msgid "On demand"
+msgstr ""
+
+msgid "Sets can be displayed on demand using helper and special ID"
+msgstr ""
+
+msgid "Output ID"
+msgstr ""
+
+msgid "Start typing product or SKU name"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "This description will be displayed only in backend"
+msgstr ""
+
+msgid "Ruble sign"
+msgstr ""
+
+msgid "Popup dialog closing"
+msgstr ""
+
+msgid "Close popup dialog, when user click outside the form"
+msgstr ""
+
+msgid "Use user bundles"
+msgstr ""
+
+msgid "Hide popup button and show the set on the page"
+msgstr ""
+
+msgid "Show image thumbs of selected items"
+msgstr ""
+
+msgid "Would you like to show all selected image thumbs for customer? They will be shown near the total price for the user bundle."
+msgstr ""
+
+msgid "Title of selected products"
+msgstr ""
+
+msgid "Your bundle"
+msgstr ""
+
+msgid "Title of blocks"
+msgstr ""
+
+msgid "Bundles"
+msgstr ""
+
+msgid "Title of required block"
+msgstr ""
+
+msgid "Basic"
+msgstr ""
+
+msgid "Added button"
+msgstr ""
+
+msgid "N-products"
+msgstr ""
+
+msgid "Inline"
+msgstr ""
+
+msgid "Popup"
+msgstr ""
+
+msgid "Image"
+msgstr ""
+
+msgid "delete image"
+msgstr ""
+
+msgid "Only %d left in stock"
+msgid_plural "Only %d left in stock"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "Only a few items left"
+msgstr ""
+
+msgid "Cannot upload file. Try to upload image"
+msgstr ""
+
+msgid "Files with extensions %s are allowed only."
+msgstr ""
+
+msgid "Upload only images"
+msgstr ""
+
+msgid "Use hook frontend_products"
+msgstr ""
+
+msgid "Some plugins can change the prices of products. By disabling this option, you refuse any changes to your products from third-party plugins."
+msgstr ""
+
+msgid "HTML text before and after the bundle"
+msgstr ""
+
+msgid "HTML text before the bundle"
+msgstr ""
+
+msgid "HTML text after the bundle"
+msgstr ""
+
+msgid "https://igaponov.ru/docs/productsets/"
+msgstr ""
+
+msgid "Documentation"
+msgstr ""
+
+msgid "Minimal quantity of products is"
+msgstr ""
+
+msgid "Maximal quantity of products is"
+msgstr ""
+
+msgid "Capacity"
+msgstr ""
+
+msgid "Gb"
+msgstr ""
+
+msgid "Black"
+msgstr ""
+
+msgid "White"
+msgstr ""
+
+msgid "Stock"
+msgstr ""
+
+msgid "Another stock"
+msgstr ""
+
+msgid "Sku's popup"
+msgstr ""
+
+msgid "Close button"
+msgstr ""
+
+msgid "Place of total block"
+msgstr ""
+
+msgid "At the top"
+msgstr ""
+
+msgid "At the bottom"
+msgstr ""
+
+msgid "Sticky block"
+msgstr ""
+
+msgid "Make block with total price sticky to window on scroll."
+msgstr ""
+
+msgid "ATTENTION! Template has been changed. Content may differ from original."
+msgstr ""
+
+msgid "revert template to original"
+msgstr ""
+
+msgid "Template not exists."
+msgstr ""
+
+msgid "Skus popup template"
+msgstr ""
+
+msgid "Bundle template"
+msgstr ""
+
+msgid "Bundle item template"
+msgstr ""
+
+msgid "Bundle single item template"
+msgstr ""
+
+msgid "Userbundle template"
+msgstr ""
+
+msgid "Userbundle item template"
+msgstr ""
+
+msgid "Userbundle group"
+msgstr ""
+
+msgid "Sets template"
+msgstr ""
+
+msgid "Unknown template"
+msgstr ""
+
+msgid "Size of image thumbs"
+msgstr ""
+
+msgid "Height"
+msgstr ""
+
+msgid "Templates"
+msgstr ""
+
+msgid "Edit templates"
+msgstr ""
+
+msgid "Developer will not consult you about editing the templates."
+msgstr ""
+
+msgid "I recognize the attention above and would like to edit plugin templates"
+msgstr ""
+
+msgid "Show the template"
+msgstr ""
+
+msgid "It's strongly recommended not to edit templates. After you save the copy of template, you will not be able to get updates for that template later. Developer not responsible for errors, caused by your editing and will not be able to help you."
+msgstr ""
+
+msgid "Products has been successfully added to the cart"
+msgstr ""
+
+msgid "Continue shopping"
+msgstr ""
+
+msgid "Proceed to checkout"
+msgstr ""
+
+msgid "Popup with successful message"
+msgstr ""
+
+msgid "Content"
+msgstr ""
+
+msgid "Tick icon"
+msgstr ""
+
+msgid "Continue shopping link"
+msgstr ""
+
+msgid "Proceed to checkout button"
+msgstr ""
+
+msgid "Hide empty stocks positions, where it is allowed to delete products"
+msgstr ""
+
+msgid "Reload page after checkout"
+msgstr ""
+
+msgid "Reload page after successfull checkout, when user closes the popup window"
+msgstr ""
+
+msgid "set items"
+msgstr ""
+
+msgid "Unknown product #"
+msgstr ""
+
+msgid "pcs."
+msgstr ""
+
+msgid "In total discount included value, which is not distributed to products"
+msgstr ""
+
+msgid "(copy)"
+msgstr ""
+
+msgid "Import appearance settings from other sets"
+msgstr ""
+
+msgid "Import appearance settings"
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "Import appearance"
+msgstr ""
+
+msgid "Layout settings"
+msgstr ""
+
+msgid "Quantity field"
+msgstr ""
+
+msgid "close"
+msgstr ""
+
+msgid "Bundle layout settings"
+msgstr ""
+
+msgid "Product card layout"
+msgstr ""
+
+msgid "Layout"
+msgstr ""
+
+msgid "Product card width"
+msgstr ""
+
+msgid "Mobile product card layout"
+msgstr ""
+
+msgid "Checkbox type"
+msgstr ""
+
+msgid "Product Image"
+msgstr ""
+
+msgid "Type of alternative slider"
+msgstr ""
+
+msgid "Layout of total block"
+msgstr ""
+
+msgid "Place of the total block"
+msgstr ""
+
+msgid "Displaying of selectable skus in popup window"
+msgstr ""
+
+msgid "User bundle layout settings"
+msgstr ""
+
+msgid "Small"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Circle"
+msgstr ""
+
+msgid "Square"
+msgstr ""
+
+msgid "Show"
+msgstr ""
+
+msgid "Hide"
+msgstr ""
+
+msgid "Vertical"
+msgstr ""
+
+msgid "Horizontal"
+msgstr ""
+
+msgid "Select list"
+msgstr ""
+
+msgid "Inline in row"
+msgstr ""
+
+msgid "Text near the checkbox"
+msgstr ""
+
+msgid "Add product to the bundle"
+msgstr ""
+
+msgid "Relevant for product card layout 2 or 3. Go to \"Appearance tab\" and check \"Layout settings\""
+msgstr ""
+
+msgid "Custom parameters"
+msgstr ""
+
+msgid "add parameter"
+msgstr ""
+
+msgid "HTML text at the top and at the bottom of the total block"
+msgstr ""
+
+msgid "Relavant for second and third layouts of the total block. Go to \"Appearance tab\" and check your \"Layout settings\""
+msgstr ""
+
+msgid "HTML text at the top of the total block"
+msgstr ""
+
+msgid "HTML text at the bottom of the total block"
+msgstr ""
+
+msgid "Return on Sales"
+msgstr ""
+
+msgid "ROS"
+msgstr ""
+
+msgid "show on the page of products from the bundles"
+msgstr ""
+
+msgid "Sets will be displayed on the pages of products, which were manually added to the bundles and user bundles"
+msgstr ""
+
+msgid "Change product prices"
+msgstr ""
+
+msgid "Show prices with discounts"
+msgstr ""
+
+msgid "If you disable that option, products will be with original prices from the admin page despite the discounts"
+msgstr ""
+
+msgid "Press to select"
+msgstr ""
+
+msgid "Bundle total block template"
+msgstr ""
+
+msgid "Variables"
+msgstr ""
+
+msgid "Item variables"
+msgstr ""
+
+msgid "Read more in <a href=\"https://igaponov.ru/docs/193/layout-settings/\" target=\"_blank\">docs</a>"
+msgstr ""
+
+msgid "Read more in <a href=\"http://en.igaponov.ru/docs/178/custom-parameters/\" target=\"_blank\">docs</a>"
+msgstr ""
+
+msgid "Discount rounding"
+msgstr ""
+
+msgid "not round"
+msgstr ""
+
+msgid "ceil"
+msgstr ""
+
+msgid "rounding to integer"
+msgstr ""
+
+msgid "floor"
+msgstr ""

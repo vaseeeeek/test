@@ -1,0 +1,146 @@
+{strip}
+
+{* include.item.vars.html *}
+{include file=$templates.item_vars.frontend_path scope="parent"}
+
+<div class='productsets-item productsets-userbundle-item{if !empty($is_active)} is-active{/if}{if !empty($is_locked)} locked{/if}'
+      data-id='{$item.id}'
+      data-sku-id='{$item.skuId}'
+      data-settings='{json_encode($item.settings)}'>
+
+    {* Выбор другого артикула *}
+    {if !$is_mobile && (!empty($group.settings.choose_skus) || !empty($item.settings.choose_skus)) && $item.product.sku_count > 1}
+        <div class="productsets-edit-skus" title="[`select sku`]" {shopProductsetsPluginGenerator::USERBUNDLE_SKUS_WRAP_ICON_ATTR}>
+            <svg viewBox="0 -1 401.52289 401" class="js-productsets-product-skus" {shopProductsetsPluginGenerator::USERBUNDLE_SKUS_ICON_ATTR}>
+                <use xlink:href="{$plugin_url}/img/svg/edit.svg#edit"></use>
+            </svg>
+        </div>
+    {/if}
+
+    {if empty($is_active)}
+        {if !$is_mobile}
+            <a href='{$item.product.frontend_url|escape}' title='{$item_name}' class="productsets-userbundle-item-inner">
+        {else}
+                <div class="productsets-userbundle-item-inner">
+                    <a href='{$item.product.frontend_url|escape}' title='{$item_name}'>
+        {/if}
+    {/if}
+
+    {* Название товара *}
+    <span class='productsets-userbundle-item-name'>
+        {$item.name}
+    </span>
+
+    {* Вариант товара *}
+    <span class='productsets-item-sku' {shopProductsetsPluginGenerator::USERBUNDLE_SKU_ATTR}>
+        {$item.skuName|truncate:33|escape}
+    </span>
+
+    {if empty($is_active) && $is_mobile}
+                    </a>
+    {/if}
+
+    {* Выбор другого артикула *}
+    {if $is_mobile && (!empty($group.settings.choose_skus) || !empty($item.settings.choose_skus)) && $item.product.sku_count > 1}
+        <div class="productsets-edit-skus js-productsets-product-skus" title="[`select sku`]">
+            <span>[`select sku`]</span>
+        </div>
+    {/if}
+
+    {if empty($is_active) && $is_mobile}
+    <a href='{$item.product.frontend_url|escape}' title='{$item_name}' class='productsets-item-image'>
+    {/if}
+
+    {* Изображение *}
+    <span{if empty($is_active) && $is_mobile}{else} class='productsets-item-image'{/if}>
+
+        <img src='{$item.image}' alt='{$item_name}' title='{$item_name}'>
+
+        {* Наклейка со скидкой *}
+        <span class="productsets-badge"{if $discount_badge <= 0} style='display: none;'{/if} {shopProductsetsPluginGenerator::USERBUNDLE_BADGE_ATTR}><span>- {$discount_badge}%</span></span>
+
+    </span>
+
+    {if empty($is_active)}
+    </a>
+        {if $is_mobile}
+                </div>
+        {/if}
+    {/if}
+
+    {* Количество *}
+    {if $has_quantity}
+        <div class='productsets-item-quantity'>
+            {$allow_choose_quantity = !empty($group.settings.choose_quantity) || !empty($item.settings.choose_quantity)}
+            {if $allow_choose_quantity}
+                <svg viewBox="0 0 20 20" class="js-productsets-quantity-trigger productsets-icon ps-minus" data-type='minus' {shopProductsetsPluginGenerator::USERBUNDLE_QUANTITY_ATTR}>
+                    <use xlink:href="{$plugin_url}/img/svg/quantity.svg#minus"></use>
+                </svg>
+                {$max_quantity = ''}
+                {if !$ignore_stock_count && $item.product.count !== null && $item.product.count >= 0}
+                    {$max_quantity = $item.product.count}
+                {/if}
+                <input type='text'
+                        value='{if $max_quantity && !empty($item.settings.quantity) && $max_quantity < $item.settings.quantity}
+                                      {$max_quantity|escape}
+                                  {elseif !empty($item.settings.quantity)}
+                                      {$item.settings.quantity|escape}
+                                  {else}1{/if}'
+                        data-min='{if !empty($item.settings.quantity)}{$item.settings.quantity}{else}1{/if}'
+                        data-step='1'
+                        data-max='{$max_quantity|escape}' {shopProductsetsPluginGenerator::USERBUNDLE_QUANTITY_FIELD_ATTR}>
+                <svg viewBox="0 0 20 20" class="js-productsets-quantity-trigger productsets-icon ps-plus" data-type='plus' {shopProductsetsPluginGenerator::USERBUNDLE_QUANTITY_ATTR}>
+                    <use xlink:href="{$plugin_url}/img/svg/quantity.svg#plus"></use>
+                </svg>
+            {elseif $item.settings.quantity > 1}
+                [`Qty`]: {$item.settings.quantity|escape}
+            {/if}
+        </div>
+    {/if}
+
+    <div class='productsets-userbundle-item-info'>
+
+        <div class='productsets-price-wrap'>
+
+            {* Зачеркнутая цена *}
+            <div class='productsets-compare-price' data-original-price="{$item.original_compare_price}" data-price="{$clear_compare_price}"{if empty($clear_compare_price)} style="display: none;"{/if} {shopProductsetsPluginGenerator::USERBUNDLE_PRODUCT_COMPARE_PRICE_ATTR}>
+                {$compare_price}
+            </div>
+
+            {* Цена *}
+            <div class='productsets-price{if !empty($clear_compare_price)} productsets-color-price{/if}'
+                 {shopProductsetsPluginGenerator::USERBUNDLE_PRODUCT_PRICE_ATTR}="1"
+                 data-price="{$clear_price}"
+                 data-original-price="{$item.clear_original_price}"
+            >
+                {$price}
+            </div>
+
+        </div>
+    </div>
+
+    {* Блок добавления товара в набор *}
+    <div class="productsets-userbundle-add-wrap">
+        {$add_text = ''}
+        {if isset($set.settings.userbundle_text.add)}
+            {$add_text = $set.settings.userbundle_text.add}
+        {/if}
+        {$added_text = ''}
+        {if isset($set.settings.userbundle_text.added)}
+            {$added_text = $set.settings.userbundle_text.added}
+        {/if}
+        {$add_attr = shopProductsetsPluginGenerator::USERBUNDLE_ADD_ATTR}
+        {if !empty($is_locked)}
+            {$add_attr = shopProductsetsPluginGenerator::USERBUNDLE_ADDED_ATTR}
+        {/if}
+        <div class="productsets-userbundle-add{if empty($is_locked)} js-productsets-userbundle-add{/if}" data-added="{$added_text|escape}" data-add="{$add_text|escape}" {$add_attr}>
+            <svg viewBox="0 0 42 42">
+                <use xlink:href="{$plugin_url}/img/svg/plus.svg#plus"></use>
+            </svg>
+            <span>{if !empty($is_locked)}{$added_text|escape}{else}{$add_text|escape}{/if}</span>
+        </div>
+    </div>
+
+</div>
+
+{/strip}

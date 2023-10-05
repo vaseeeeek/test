@@ -1,0 +1,32 @@
+{function name=in_stock n=0 low=5 critical=2}
+    {if $n > $low or $n === null}
+        <span class="stock-high"><i class="icon16 stock-green"></i>[`In stock`]</span>
+    {elseif $n > $critical}
+        <span class="stock-low"><i class="icon16 stock-yellow"></i>{_w("Only a few items left")}</span>
+    {elseif $n > 0}
+        <span class="stock-critical"><i class="icon16 stock-red"></i>{_w("Only %d left in stock", "Only %d left in stock", $n)}</span>
+    {else}
+        <span class="stock-none"><i class="icon16 stock-transparent"></i>{if $wa->shop->settings('ignore_stock_count')}[`Pre-order only`]{else}[`Out of stock`]{/if}</span>
+    {/if}
+{/function}
+{foreach $product.skus as $sku}
+    <div {if $sku.id != $product.sku_id}style="display:none"{/if} class="quickorder-sku-{$sku.id}-stock">
+        {if $sku.stock}
+            {foreach $stocks as $stock_id => $stock}
+                {if isset($sku.stock[$stock_id])}
+                    {$stock_count = $sku.stock[$stock_id]}
+                {else}
+                    {$stock_count = null}
+                {/if}
+                {$stock.name}: {in_stock n=$stock_count low=$stock.low_count critical=$stock.critical_count}<br>
+            {/foreach}
+        {else}
+            {in_stock n=$sku.count}
+        {/if}
+    </div>
+{/foreach}
+{if $product.sku_type}
+    <div class="quickorder-sku-no-stock quickorder-row quickorder-center quickorder-grey">
+        [`Product with the selected option combination is not available for purchase`]
+    </div>
+{/if}

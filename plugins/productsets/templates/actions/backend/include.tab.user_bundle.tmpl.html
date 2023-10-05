@@ -1,0 +1,163 @@
+<script type="text/x-tmpl" id="tmpl-group">
+    <div class="field usergroup bundle">
+        <div class="mb bottom bundle__sort">
+            <i class="icon16 sort"></i> [`Group of products`]
+            <a href="javascript:void(0)" class="js-show-group-settings" title='[`Settings`]'><i class="icon16 settings"></i></a>
+        </div>
+        <div class="bundle__delete">
+            <a href="javascript:void(0)" class="js-bundle-delete" title="[`delete`]"><i class="icon16 delete-bw"></i> [`delete`]</a>
+        </div>
+        <div class="usergroup__settings hidden mb">
+            {literal}{% include('tmpl-usergroup-settings', { settings: o.settings ? o.settings : 0 }); %}{/literal}
+        </div>
+
+        <div class="bundle__wrap">
+            <fieldset class="usergroup__fieldset">
+
+                <!-- Название группы -->
+                {literal}
+                <legend>
+                    <span class="usergroup__legend-name">{% if (o.settings && o.settings.name) { print(o.settings.name); } else { print('[`Group name`]'); } %}</span>
+                    <div class="usergroup__legend-form">
+                        <input type="text" class="usergroup__legend-input" value="{% if (o.settings && o.settings.name) { print(o.settings.name); } %}">
+                        <button class="usergroup__legend-submit">[`Save`]</button>
+                    </div>
+                </legend>
+
+                <!-- Множественный выбор -->
+                <div class="usergroup__multiple-choice">
+                    <label><input type="checkbox" class="usergroup__multiple-choice_checkbox"{% if (o.settings && o.settings.multiple) { print(' checked'); } %}> [`Multiple values (checkboxes)`]</label>
+                    <div class="hover-tooltip s-small s-rtl">
+                        <span>?</span>
+                        <div class="hover-content">
+                            <div>
+                                [`User will be able to check several products from the group`]<br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 {/literal}
+
+                 {* Список товаров *}
+                <div class="bundle__items">
+                    <div>
+                        {literal}
+                        {% if (o.items) {
+                                for (var i in o.items) {
+                                    include('tmpl-bundle-item', { item: o.items[i], discount_type: o.settings.discount_type, is_alternative: 1 });
+                                }
+                            }
+                        %}
+                        {/literal}
+                    </div>
+                </div>
+
+                {* Категории, списки, типы товаров *}
+                <div class="usergroup__types">
+                {literal}
+                {%  if (o.types) {
+                        for (var i in o.types) {
+                            include('tmpl-usergroup-type', { settings: o.types[i]['settings'], type: o.types[i]['type'], discount_type: o.settings.discount_type});
+                        }
+                    }
+                %}
+                {/literal}
+                </div>
+
+                <div class="mb">
+                    <a href="javascript:void(0)" class="js-add-product"><i class="icon16 add"></i> [`add products to the group`]</a>
+                </div>
+                <div class="mb bottom">
+                    <a href="javascript:void(0)" class="js-add-type" data-type="categories"><i class="icon16 folder"></i> [`add category to the group`]</a>
+                </div>
+                <div class="mb bottom">
+                    <a href="javascript:void(0)" class="js-add-type" data-type="sets"><i class="icon16 ss set"></i> [`add set to the group`]</a>
+                </div>
+                <div class="mb bottom">
+                    <a href="javascript:void(0)" class="js-add-type" data-type="types"><i class="icon16 ss pt box"></i> [`add type to the group`]</a>
+                </div>
+
+            </fieldset>
+        </div>
+        {literal}
+        {% if (o.id) { %}<input type="hidden" name="id" value="{% print(o.id); %}" class="usergroup__id">{% } %}
+        {/literal}
+    </div>
+</script>
+
+<script type="text/x-tmpl" id="tmpl-usergroup-type">
+    <div class="field usergroup__field">
+        <i class="icon16 sort"></i>
+        {literal}
+        {% if (o.type == 'categories') { print("[`Categories`]"); } else if (o.type == 'sets') { print("[`Sets`]"); } else if (o.type == 'types') { print("[`Types`]"); } %}:
+        <span class="f-temp-loading"><i class="icon16 loading"></i> [`Wait, please, while data is loading...`]</span>
+        <select class="f-chosen hidden" name="{% print(o.type); %}" data-load="{% print(o.type); %}" data-placeholder="[`Select value`]"{% if (o.settings && o.settings[o.type]) { %} data-value="{% print(o.settings[o.type]); %}"{% } %}>
+            <option value=""></option>
+            <!-- Generated by JS -->
+        </select>
+        <select class="f-usergroup-type-field" name="field">
+            <option value=""{% if (o.settings && o.settings.field == '') { print(' selected'); } %}>[`All products`]</option>
+            <option value="N"{% if (o.settings && o.settings.field !== '') { print(' selected'); } %}>[`N-products`]</option>
+        </select>
+        <input type="number" min="1" name="value" class="f-usergroup-type-number{% if ((o.settings && o.settings.field == '') || !o.settings) { %} hidden{% } %} width50px" value="{% if (o.settings && o.settings.value) { print(o.settings.value); } else { print('10'); } %}">
+        <!-- Скидка на каждый товар -->
+        <div class="bundle__discount align-right"{% if (o.discount_type && o.discount_type == 'each') { %} style="display: inline-block"{% } %}>
+            <div class="align-left hint">[`Discount`]</div>
+            <input type="text" name="discount" class="bundle__discount-value" value="{% if (o.settings && o.settings.discount) { print(o.settings.discount); } %}">
+            <select name="currency" class="bundle__discount-select">
+                {% include('tmpl-currency-options', { currency: (o.settings && o.settings.currency) ? o.settings.currency : o }); %}
+            </select>
+        </div>
+        <input type="hidden" name="type" value="{% print(o.type); %}" >
+        <a href="javascript:void(0)" class="js-delete-usergroup-item usergroup__item-delete" title="Удалить"><i class="icon16 delete"></i></a>
+        {/literal}
+    </div>
+</script>
+
+<script type="text/x-tmpl" id="tmpl-usergroup-settings">
+    {literal}
+    <div class="usergroup__setting mb">
+        [`Description`]:
+        <textarea name="description" cols="30" rows="10">{% if (o.settings && o.settings.description) { print(o.settings.description); } %}</textarea>
+    </div>
+    <div class="usergroup__setting mb">
+        [`Display`]:
+        <select name="display" class="js-change-usergroup-display">
+            <option value="inline" {% if (o.settings && o.settings.display == 'inline') { print(' selected'); } %}>[`Inline`]</option>
+            <!-- TODO -->
+            <option class="hidden" value="popup" {% if (o.settings && o.settings.display == 'popup') { print(' selected'); } %}>[`Popup`]</option>
+            <option value="block" {% if ((o.settings && o.settings.display == 'block') || !o.settings || !o.settings.display) { print(' selected'); } %}>[`Block`]</option>
+        </select>
+    </div>
+    <div class="usergroup__setting mb hidden f-usergroup-display-popup">
+        [`Image`]: <input type="file" name="file" class="fileupload">
+        <input type="hidden" name="image" class="f-usergroup-image-src" value="{% if (o.settings && o.settings.image) { print(o.settings.image); } %}">
+
+        <img class="usergroup__setting_image" src="{% if (o.settings && o.settings.image) { print(o.settings.image); } %}"
+                {% if (!o.settings || !o.settings.image) { %}style="display: none"{% } %}/>
+
+        <div class="progressfield-block hidden mb"></div>
+
+        <div class="mb top">
+            <a href="javascript:void(0)" class="usergroup__setting_reset_image hidden js-reset-image">[`delete image`]</a>
+        </div>
+    </div>
+    <div class="usergroup__setting usergroup__setting_each-discount  mb bottom">
+        [`Group discount`]:
+        <select class="usergroup__discount js-usergroup-discount-change" name="discount_type">
+            <option value="common"{% if (o.settings && o.settings.discount_type == 'common') { print(' selected'); } %}>[`Common for all products`]</option>
+            <option value="each"{% if (o.settings && o.settings.discount_type == 'each') { print(' selected'); } %}>[`Discount for each product`]</option>
+        </select>
+        <div class="inline-block usergroup__discount_common"{% if (o.settings && o.settings.discount_type == 'each') { %} style="display: none"{% } %}>
+            <input type="text" class="short" name="discount" value="{% if (o.settings && o.settings.discount) { print(o.settings.discount); } %}">
+            <select name="currency">
+                {% include('tmpl-currency-options', { currency: o.settings ? o.settings.currency : o }); %}
+            </select>
+        </div>
+    </div>
+    <div class="usergroup__setting mb">
+        <div class="mb bottom semi bundle__item-settings_choose-skus"><label><input type="checkbox" name="choose_skus"{% if (o.settings && o.settings.choose_skus) { print(' checked'); } %}> [`Allow to choose product skus`]</label></div>
+        <div class="mb bottom semi bundle__item-settings_choose-quantity"><label><input type="checkbox" name="choose_quantity"{% if (o.settings && o.settings.choose_quantity) { print(' checked'); } %}> [`Allow to change product quantity`]</label></div>
+    </div>
+    {/literal}
+</script>

@@ -1,0 +1,99 @@
+<h3>[`Select user`] <a href="javascript:void(0)" onclick='$(this).closest(".dialog").trigger("close")' title="[`close`]" class="close">[`close`]</a></h3>
+<div class="sidebar left200px">
+    <ul class="menu-v with-icons">
+        <li>
+            <span class="count">{$count_all}</span>
+            <a href="javascript:void(0)" class="f-get-more" title="[`All contacts`]" data-id="0"><i class="icon16 contact"></i> [`All contacts`]</a>
+        </li>
+        {if $categories}
+            {foreach $categories as $view}
+            <li>
+                <span class='count'>{$view.count}</span>
+                <a href='javascript:void(0)' class="f-get-more" title="{$view.name|escape}" data-id='{$view.id}'>{$view.icon} {$view.name|escape}</a>
+            </li>
+        {/foreach}
+        {/if}
+    </ul>
+</div>
+<div class="content s-categories-block left200px block">
+    <input style="padding: 10px; box-sizing: border-box; width: 100%" class="autocomplete-block" type="text" placeholder="{_wp('Start typing user name or email')}">
+    <p class="margin-block top semi">[`or select the category to find user you need.`]</p>
+    <p class="align-center margin-block big-loader"><img src="{$plugin_url}img/loading.gif" /></p>
+</div>
+
+<script>
+    $(function () {
+        $.autobadge_conditions.initAutocomplete($(".autocomplete-block"), 'contact');
+
+        // Получаем список товаров для категории
+        $(document).on("click", ".f-get-more", function () {
+            var btn = $(this);
+            var id = btn.data("id");
+            var page = btn.attr("data-page");
+            var categoriesBlock = btn.closest(".dialog-content").find(".s-categories-block");
+            if (!categoriesBlock.find(".cat-" + id).length || page !== undefined) {
+                if (!categoriesBlock.hasClass("is-loading")) {
+                    !btn.hasClass("button") && categoriesBlock.addClass("is-loading");
+                    btn.after("<i class='icon16 loading'></i>");
+                    $.post("?plugin=autobadge&action=handler", { data: 'getUsers', category: id, page: page }, function (response) {
+                        if (response.status == 'ok') {
+                            if (response.data && response.data.users) {
+                                var users = "";
+                                $.each(response.data.users, function (i, v) {
+                                    users += "<tr data-id='"+v.id+"' onclick='$.autobadge_conditions.dialogSelectProduct($(this), \"" + v.name_secure + "\", \"" + v.id + "\");'><td><img style='max-width: 48px' src='" + (v.photo ? v.photo : '{$wa_app_static_url}img/image-fishki.png') + "'></td><td class='s-name'>" + v.name + "</td></tr>";
+                                });
+                                if (users) {
+                                    if (page === undefined && !categoriesBlock.find(".cat-" + id).length) {
+                                        var html = "<table class='zebra'>";
+                                        html += "<thead><th class='min-width'></th><th>[`Name`]</th></tr></thead>";
+                                        html += "<tbody>";
+                                        html += users;
+                                        html += "</tbody>";
+                                        html += "</table>";
+                                        if (!response.data.end) {
+                                            html += "<div class='margin-block s-more top'><a href='javascript:void(0)' class='f-get-more button blue' data-id='" + id + "' data-page='" + (typeof response.data.page !== 'undefined' ? response.data.page : '1') + "'>[`More users`]</a></div>";
+                                        }
+                                        $("<div />", { class: 'cat-' + id }).html(html).appendTo(categoriesBlock);
+                                    } else {
+                                        categoriesBlock.find(".cat-" + id + " tbody").append(users);
+                                        if (response.data.end) {
+                                            categoriesBlock.find(".cat-" + id + " .s-more").remove();
+                                        } else {
+                                            categoriesBlock.find(".cat-" + id + " table").after("<div class='margin-block s-more top'><a href='javascript:void(0)' class='f-get-more button blue' data-id='" + id + "' data-page='" + (typeof response.data.page !== 'undefined' ? response.data.page : '1') + "'>[`More users`]</a></div>");
+                                        }
+                                    }
+                                } else {
+                                    var html = "<div class='bordered margin-block block align-center'>[`Users not found`]</div>";
+                                    $("<div />", { class: 'cat-' + id }).html(html).appendTo(categoriesBlock);
+                                }
+                            } else {
+                                var html = "<div class='bordered margin-block align-center'>[`Users not found`]</div>";
+                                $("<div />", { class: 'cat-' + id }).html(html).appendTo(categoriesBlock);
+                            }
+                            categoriesBlock.removeClass("is-loading");
+                            $("> div", categoriesBlock).hide();
+                            categoriesBlock.find(".cat-" + id).show();
+                            btn.next(".loading").remove();
+                            if (btn.hasClass("button")) {
+                                btn.remove();
+                            } else {
+                                $(".condition-dialog .sidebar li").removeClass('selected');
+                                btn.closest("li").addClass("selected");
+                            }
+                        } else {
+                            categoriesBlock.removeClass("is-loading");
+                            btn.next(".loading").remove();
+                        }
+                        !btn.hasClass("button") && $(".condition-dialog .dialog-content").scrollTop(0);
+                    });
+                }
+            } else if (categoriesBlock.find(".cat-" + id).length && page === undefined) {
+                $("> div", categoriesBlock).hide();
+                categoriesBlock.find(".cat-" + id).show();
+                $(".condition-dialog .sidebar li").removeClass('selected');
+                btn.closest("li").addClass("selected");
+                !btn.hasClass("button") && $(".condition-dialog .dialog-content").scrollTop(0);
+            }
+        });
+    });
+</script>

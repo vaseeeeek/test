@@ -1,0 +1,21 @@
+{strip}
+<div class="clickliteForm">
+    <form class="clickliteForm__bid" action="" method="post">
+        <input type="tel" name="clicklite__phone" class="clickliteForm__input" value="{if !empty($contact.phone)}{$contact.phone[0]['value']}{/if}" />
+        <input type="submit" class="clickliteForm__button" value="{$settings.product_name}" data-product="{$settings.settings_button}" />
+        <input type="hidden" class="clicklite__quantity" name="quantity" value="1" />
+        <input type="hidden" class="clickliteForm__sku" name="product_sku" value="{$settings.product_sku}" />
+        <input type="hidden" class="clickliteForm__id" name="product_id" value="{$settings.product_id}" />
+
+        <div class="clickliteForm__politika">
+            {if $settings.policy_checkbox}
+            <input class="clickliteForm__policyCheckbox" name="policy_checkbox" type="checkbox" />
+            {/if} {$settings.politika}
+        </div>
+        {$wa->csrf()}
+    </form>
+    <div class="clickliteForm__antispam">{$settings.antispam}</div>
+
+    <div class="clickliteForm__thankText"></div>
+</div>
+{/strip}

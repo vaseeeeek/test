@@ -1,0 +1,85 @@
+{* Chosen *}
+<link rel="stylesheet" href="{$plugin_url}js/chosen/chosen.min.css">
+<script src="{$plugin_url}js/chosen/chosen.jquery.min.js"></script>
+
+{* Datepicker *}
+<link rel="stylesheet" href="{$plugin_url}js/datepicker/css/metallic.css">
+<script src="{$plugin_url}js/datepicker/javascript/zebra_datepicker.src.js"></script>
+
+{* Fileupload *}
+<script src="{$plugin_url}js/jquery-fileupload/js/vendor/jquery.ui.widget.js"></script>
+<script src="{$plugin_url}js/jquery-fileupload/js/jquery.iframe-transport.js"></script>
+<script src="{$plugin_url}js/jquery-fileupload/js/jquery.fileupload.js"></script>
+<script src="{$plugin_url}js/jquery-fileupload/js/jquery.fileupload-process.js"></script>
+<script src="{$plugin_url}js/jquery-fileupload/js/jquery.fileupload-validate.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Lobster|Lora|Noto+Sans|Open+Sans|Open+Sans+Condensed:300|PT+Sans|Roboto|Roboto+Condensed|Roboto+Slab|Ubuntu" rel="stylesheet">
+<link rel="stylesheet" href="{$plugin_url}js/appearance/appearance.css?v={$version}"/>
+<script type="text/javascript" src="{$plugin_url}js/appearance/appearance.js?v={$version}"></script>
+
+<link rel="stylesheet" href="{$plugin_url}css/frontend.css?v={$version}"/>
+
+<script type="text/javascript" src="{$plugin_url}js/productsetsFormBackend.js?v={$version}"></script>
+<script type="text/javascript" src="{$plugin_url}js/productsetsBundleBackend.js?v={$version}"></script>
+<script type="text/javascript" src="{$plugin_url}js/productsetsDisplayBackend.js?v={$version}"></script>
+<script type="text/javascript" src="{$plugin_url}js/productsetsUserBundleBackend.js?v={$version}"></script>
+<script type="text/javascript" src="{$plugin_url}js/productsetsAppearanceBackend.js?v={$version}"></script>
+
+<h1>
+    {* Кнопка "Назад" *}
+    <a href="#/productsets/" title="[`Back`]" class="back">&larr; [`Back`]</a>
+    <span>{if !empty($pset.general.name)}{$pset.general.name|escape}{else}[`New product set`]{/if}</span>
+
+    {* Удаление комплекта *}
+    {if !empty($pset)}
+        <div class="float-right">
+            <ul class="menu-h">
+                <li><a href="javascript:void(0)" data-id="{$pset.id}" class="js-productsets-delete s-productsets-delete"><i class="icon16 delete"></i> [`Delete the set`]</a></li>
+            </ul>
+        </div>
+    {/if}
+</h1>
+
+<form id="productsets-form">
+    <div class="fields">
+
+        {* Вкладки *}
+        <ul class="tabs">
+            <li class="f-tab selected"><a href="javascript:void(0)" data-tab="general">[`General`]</a></li>
+            <li class="f-tab"><a href="javascript:void(0)" data-tab="bundle">[`Bundle`]{if !empty($pset.bundle)} <span class="indicator">{$pset.bundle|count}</span>{/if}</a></li>
+            <li class="f-tab"><a href="javascript:void(0)" data-tab="user_bundle">[`User bundle`]</a></li>
+            <li class="f-tab"><a href="javascript:void(0)" data-tab="display">[`Display`]</a></li>
+            <li class="f-tab"><a href="javascript:void(0)" data-tab="appearance">[`Appearance`]</a></li>
+            <li class="f-tab"><a href="javascript:void(0)" data-tab="other">[`Other`]</a></li>
+        </ul>
+
+        {* Содержимое *}
+        <div class="f-tab-content s-tab-content">
+            <div class="fields">
+                {include file="./include.tabs.content.html"}
+            </div>
+        </div>
+
+        {* Кнопка "Сохранить" *}
+        <div id="fixed-save-panel">
+            <div class="block bordered-top">
+                <div class="errormsg"></div>
+                <input type="submit" name='submit' class="button green" id="f-productsets-save" value="[`Save`]">
+            </div>
+        </div>
+
+    </div>
+
+    {if !empty($pset)}<input type="hidden" name="id" value="{$pset.id}" />{/if}
+
+</form>
+<script type="text/javascript">
+    $(function () {
+        window.wa_url = {$wa_url|json_encode};
+        $.productsets.commonJS = new ProductsetsPlugin({
+            form: $('#productsets-form'),
+            setParams: {if !empty($pset.params)}{json_encode($pset.params)}{else}{json_encode([])}{/if},
+            lang: "{substr($wa->locale(), 0, 2)}"
+        });
+    });
+</script>

@@ -1,0 +1,50 @@
+<tr id="bundling-{$bundle_id}-{$bundled_product['key']}" class="p" data-product-id="{$bundled_product['id']}"
+    data-sku-id="{$bundled_product['sku_id']}" data-sku-count="{$bundled_product['sku_count']}">
+    <td><input name="bundle[{$bundle_id}][products][]" type="hidden" value="{$bundled_product['key']}"/>
+        {if $bundled_product['sku']}
+            {if $bundled_product['sku']['count'] === 0}
+                <i class="icon10 status-red" title="{_w('Out of stock')}"></i>
+            {elseif $bundled_product['sku']['count'] >= 2 && $bundled_product['sku']['count'] < 6}
+                <i class="icon10 status-yellow" title="{_w('Almost out of stock')}"></i>
+            {elseif $bundled_product['sku']['count'] >= 6 || is_null($bundled_product['sku']['count']) || $bundled_product['sku']['count'] == ''}
+                <i class="icon10 status-green" title="{_w('In stock')}"></i>
+            {elseif $bundled_product['sku']['count'] < 0}
+                <i class="icon10 status-red" title="{_w('Out of stock')}"></i>
+            {/if}
+        {/if}
+        {$bundled_product['title']|escape}{if $bundled_product['sku_count'] > 1 && $bundled_product['sku']}{if !empty($bundled_product['sku']['name']) || !empty($bundled_product['sku']['sku'])} -
+            <b>{$bundled_product_sku = $bundled_product['sku']}{ifempty($bundled_product_sku['name'], ifempty($bundled_product_sku['sku']))|escape}</b>{/if}
+            <span class="gray">sku id {$bundled_product['sku_id']}</span>{/if}</td>
+    <td align="right" width="270">
+        <span class="format" style="display: none;">{0|wa_format_amount:$currency:'%{h}'}</span>
+        {if $bundled_product['discount']}
+            <s class="default-price gray">{shopRounding::roundCurrency($bundled_product['default_frontend_price'], $currency)|wa_format_amount:$currency:'%{h}'}</s>
+            <b class="discount" style="color: red;">-{$bundled_product['discount']}%</b>
+        {/if}
+        <span class="edit-discount" style="display: none; color: red; font-weight: bold;">
+										-
+										<input type="text" title="[`Discount`]" class="short"
+                                               name="bundle[{$bundle_id}][discounts][{$bundled_product['key']}]"
+                                               value="{$bundled_product['discount']}"/>
+										%
+									</span>
+        <a data-default-price="{$bundled_product['default_frontend_price']}" title="[`Edit discount`]"
+           class="inline-link bundling-set-discount{if $bundled_product['discount']} has{/if}"
+           href="#"><b><i>{shopRounding::roundCurrency($bundled_product['frontend_price'], $currency)|wa_format_amount:$currency:'%{h}'}</i></b></a>
+    </td>
+    <td class="min-width">×</td>
+    <td align="right" width="60"><input title="[`Default quantity`]" class="short"
+                                        name="bundle[{$bundle_id}][quantities][{$bundled_product['key']}]" type="text"
+                                        value="{$bundled_product['quantity']}"/></td>
+    {if isset($bundled_product.edit_bundled_product_event)}
+        {foreach $bundled_product.edit_bundled_product_event as $output}
+            {$output}
+        {/foreach}
+    {/if}
+    <td align="right" width="50">
+        <input class="bundling-product-sort-key" type="hidden"
+               name="bundle[{$bundle_id}][sort][{$bundled_product['key']}]" value="{$s++}"/>
+        <a class="bundling-product-sort" href="#"><i class="icon16 sort"></i></a>
+        <a class="delete" href="#"><i class="icon16 delete"></i></a>
+    </td>
+</tr>

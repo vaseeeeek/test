@@ -1,0 +1,293 @@
+<h3>{if empty($coupon)}{if $type == 'coupon'}[`New coupon`]{else}[`New coupon generator`]{/if}{else}{if $coupon.type == 'coupon'}[`Coupon`]: <span>{$coupon.code|escape}</span>{else}[`Coupon generator`]: <span>{$coupon.name|escape}</span>{/if}{/if}{if empty($coupon)} <a href="javascript:void(0)" onclick='$(this).closest(".dialog").trigger("close")' title="[`close`]" class="close">[`close`]</a>{/if}</h3>
+{if $type == 'generator'}
+    <div class="s-info-block">
+        [`Coupon generator creates new coupons automatically, when you call it.`]
+        {if !empty($coupon)}
+        <div class="margin-block">[`Use code in Smarty templates to create coupon:`] </div>
+        <div class="align-center">
+            <b>{ldelim}if $wa->shop{rdelim}{ldelim}shopFlexdiscountPluginHelper::generateCoupon({$coupon.id}){rdelim}{ldelim}/if{rdelim}</b>
+        </div>
+        {/if}
+    </div>
+{/if}
+<div class="fields margin-block">
+    {if $type == 'coupon'}
+        {if empty($coupon)}
+            <div class="field">
+                <div class="name">[`Number of coupons`]</div>
+                <div class="value"><input type="number" min="1" value="1" name="quantity" class='width50px s-coupon-number' /></div>
+            </div>
+        {/if}
+        <div class="field s-coupon-code-wrap">
+            <div class="name s-required">[`Coupon code`]</div>
+            <div class="value">
+                <input type="text" maxlength="50" class="s-coupon-code" name="coupon[code]"{if !empty($coupon.code)} value="{$coupon.code|escape}"{/if}/>
+                <div class="margin-block field-description"><a href="javascript:void(0)" title="[`Generate code`]" onclick="$(this).closest('.value').find('input').val($.flexdiscount.generateCode())"><i class="icon16 lightning"></i> [`Generate code`]</a></div>
+            </div>
+        </div>
+    {else}
+        <div class="field">
+            <div class="name s-required">[`Generator name`]</div>
+            <div class="value">
+                <input type="text" name="coupon[name]" maxlength="30" class="s-coupon-name"{if !empty($coupon.name)} value="{$coupon.name|escape}"{/if}/>
+                <div class="field-description">[`This name will be visible only for you in admin area`]</div>
+            </div>
+        </div>
+    {/if}
+    <div class="field">
+        <div class="name">[`Comment`]</div>
+        <div class="value">
+            <textarea name="coupon[comment]">{if !empty($coupon.comment)}{$coupon.comment|escape}{/if}</textarea>
+
+        </div>
+    </div>
+    {if empty($coupon) || $type == 'generator'}
+        <div class="s-generating-block"{if $type == 'coupon'} style='display: none'{/if}>
+            <div class="field">
+                <div class="name">[`Code prefix`]</div>
+                <div class="value">
+                    <input type="text" maxlength="20" name="coupon[prefix]"{if !empty($coupon.prefix)} value="{$coupon.prefix|escape}"{/if}/>
+                    <div class="field-description">[`This code will be before coupon code`]</div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="name s-required">[`Symbols for generating the coupons`]</div>
+                <div class="value"><input type="text" name="coupon[symbols]" class="fullwidth s-coupon-symbols" value="{if !empty($coupon.symbols)}{$coupon.symbols|escape}{else}ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789{/if}" /></div>
+            </div>
+            <div class="field">
+                <div class="name">[`Coupon length`]</div>
+                <div class="value">
+                    <select name="coupon[length]" class='inherit'>
+                        {for $i=2 to 30}
+                        <option value="{$i}"{if (!empty($coupon.length) && $coupon.length == $i) ||  (empty($coupon.length) && $i == '10')} selected{/if}>{$i}</option>
+                        {/for}
+                    </select>
+                </div>
+            </div>
+        </div>
+    {/if}
+    <div class="field">
+        <div class="name">{if empty($coupon) || $type == 'generator'}[`Maximum number of usage of EACH coupon`]{else}[`Maximum number of usage of the coupon`]{/if}</div>
+        <div class="value">
+            <input type="number" class='width50px' name="coupon[limit]" min="0" value="{if !empty($coupon.limit)}{$coupon.limit|escape}{else}{/if}"/>
+            {if !empty($coupon.used)}
+                <div class="margin-block coupon-order-info">
+                    [`Coupon has been used`]: <span class='highlight-block'>{$coupon.used}</span>
+                    {if !empty($coupon.orders)}
+                        <a href="javascript:void(0)" class="toggle-orders"><i class="icon16 ss shop"></i> [`Show orders`]</a>
+                        <div class="toggle-orders-block margin-block top" style="display: none;">
+                            {foreach $coupon.orders as $order}
+                                <div>
+                                    <a href="{$wa_app_url}?action=orders#/orders/state_id={$order.state_id}&id={$order.order_id}/" style="{$order.style|escape}">
+                                        <i class="{$order.icon}"></i>
+                                        {$wa->shop->orderId($order.order_id)}
+                                    </a>
+                                    {if $order.discount && $order.discount !== '0.00'}
+                                        <span class="price-field">{shop_currency($order.discount, $order.currency, $order.currency)}</span>
+                                    {/if}
+                                    {if $order.affiliate && $order.affiliate !== '0.00'}
+                                        <span class="affiliate-field">{$order.affiliate} [`points`]</span>
+                                    {/if}
+                                    <span class="grey">{$order.datetime|wa_datetime:'humandate'}</span>
+                                </div>
+                            {/foreach}
+                        </div>
+                    {/if}
+                </div>
+            {/if}
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Maximum number of usage per EACH user`]</div>
+        <div class="value">
+            <input type="number" class='width50px' name="coupon[user_limit]" min="0" value="{if !empty($coupon.user_limit)}{$coupon.user_limit|escape}{else}{/if}"/>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Specify coupon lifetime`]</div>
+        <div class="value">
+            <input type="checkbox" name="schedule_activity" class="toggle-schedule" value="1" {if !empty($coupon.start) || !empty($coupon.end) || !empty($coupon.lifetime)}checked{/if}/>
+            <div class="f-schedule-block margin-block" {if empty($coupon.start) && empty($coupon.end) && empty($coupon.lifetime)}style="display: none"{/if}>
+                <div class="hint">[`Server time`]: {date("Y-m-d H:i:s")}</div>
+                <div class="margin-block">
+                    {if $type == 'generator'}
+                        <label><input type="radio" name="lifetime" class="toggle-lifetime" value="days"{if !empty($coupon.lifetime)} checked{/if} /> [`Days`]</label>
+                    {/if}
+                    <label><input type="radio" name="lifetime" class="toggle-lifetime" value="schedule"{if empty($coupon.lifetime)} checked{/if} /> [`Schedule`]</label>
+                </div>
+                <div class="coupon-schedule"{if !empty($coupon.lifetime)} style='display: none'{/if}>
+                    <div class="bold margin-block top" style="color: green;">[`Start`]</div>
+                    <div class="schedule-time margin-block">
+                        <span>
+                            <input type="text" maxlength="2" onkeypress="$.flexdiscount.isValid(event, /[0-9]/);" class="schedule-day width35px" name="schedule[start][day]"{if !empty($coupon.start)} value='{$coupon.start|date_format:"%d"}'{/if} />
+                                   <label>[`DD`]</label>
+                        </span>
+                        <span>
+                            <input type="text" maxlength="2" onkeypress="$.flexdiscount.isValid(event, /[0-9]/);" class="schedule-month width35px" name="schedule[start][month]"{if !empty($coupon.start)} value='{$coupon.start|date_format:"%m"}'{/if} />
+                                   <label>[`MM`]</label>
+                        </span>
+                        <span>
+                            <input type="text" maxlength="4" onkeypress="$.flexdiscount.isValid(event, /[0-9]/);" class="schedule-year width50px" name="schedule[start][year]"{if !empty($coupon.start)} value='{$coupon.start|date_format:"%Y"}'{/if} />
+                                   <label>[`YYYY`]</label>
+                        </span>
+                        <input type="text" style="width: 0 !important;min-width: 0!important;" class="coupon-datepicker outside">
+                        <span style="margin-left: 20px">
+                            {if !empty($coupon.start)}{$start_hour = $coupon.start|date_format:"%H"}{else}{$start_hour = 0}{/if}
+                            <select name="schedule[start][hour]">
+                                {for $i=0; $i<=24; $i++}
+                                <option value="{$i}"{if $i == $start_hour} selected{/if}>{"%02d"|sprintf:$i}</option>
+                                {/for}
+                            </select>
+                            <label>[`HH`]</label>
+                        </span>
+                        <span>
+                            {if !empty($coupon.start)}{$start_minute = $coupon.start|date_format:"%M"}{else}{$start_minute = 0}{/if}
+                            <select name="schedule[start][minute]">
+                                {for $i=0; $i<=60; $i++}
+                                <option value="{$i}"{if $i == $start_minute} selected{/if}>{"%02d"|sprintf:$i}</option>
+                                {/for}
+                            </select>
+                            <label>[`MM`]</label>
+                        </span>
+                    </div>
+                    <div class='clear-both'></div>
+                    <div class="bold margin-block top" style="color: red;">[`End`]</div>
+                    <div class="schedule-time margin-block">
+                        <span>
+                            <input type="text" maxlength="2" onkeypress="$.flexdiscount.isValid(event, /[0-9]/);" class="schedule-day width35px" name="schedule[end][day]"{if !empty($coupon.end)} value='{$coupon.end|date_format:"%d"}'{/if} />
+                                   <label>[`DD`]</label>
+                        </span>
+                        <span>
+                            <input type="text" maxlength="2" onkeypress="$.flexdiscount.isValid(event, /[0-9]/);" class="schedule-month width35px" name="schedule[end][month]"{if !empty($coupon.end)} value='{$coupon.end|date_format:"%m"}'{/if} />
+                                   <label>[`MM`]</label>
+                        </span>
+                        <span>
+                            <input type="text" maxlength="4" onkeypress="$.flexdiscount.isValid(event, /[0-9]/);" class="schedule-year width50px" name="schedule[end][year]"{if !empty($coupon.end)} value='{$coupon.end|date_format:"%Y"}'{/if} />
+                                   <label>[`YYYY`]</label>
+                        </span>
+                        <input type="text" style="width: 0 !important;min-width: 0 !important;" class="coupon-datepicker outside">
+                        <span style="margin-left: 20px">
+                            {if !empty($coupon.end)}{$end_hour = $coupon.end|date_format:"%H"}{else}{$end_hour = 0}{/if}
+                            <select name="schedule[end][hour]">
+                                {for $i=0; $i<=24; $i++}
+                                <option value="{$i}"{if $i == $end_hour} selected{/if}>{"%02d"|sprintf:$i}</option>
+                                {/for}
+                            </select>
+                            <label>[`HH`]</label>
+                        </span>
+                        <span>
+                            {if !empty($coupon.end)}{$end_minute = $coupon.end|date_format:"%M"}{else}{$end_minute = 0}{/if}
+                            <select name="schedule[end][minute]">
+                                {for $i=0; $i<=60; $i++}
+                                <option value="{$i}"{if $i == $end_minute} selected{/if}>{"%02d"|sprintf:$i}</option>
+                                {/for}
+                            </select>
+                            <label>[`MM`]</label>
+                        </span>
+                    </div>
+                </div>
+                {if $type == 'generator'}
+                <div class="coupon-days schedule-time"{if empty($coupon.lifetime)} style='display: none'{/if}>
+                    <span><input type="text" maxlength="4" onkeypress="$.flexdiscount.isValid(event, /[0-9]/);" class="width50px" name='days[day]' value='{if !empty($coupon.days.day)}{$coupon.days.day|escape}{/if}' /> [`days`]</span>
+                    <span style="margin-left: 10px">
+                        {if !empty($coupon.days.hour)}{$end_hour = $coupon.days.hour}{else}{$end_hour = 0}{/if}
+                        <select name="days[hour]">
+                            {for $i=0; $i<=24; $i++}
+                            <option value="{$i}"{if $i == $end_hour} selected{/if}>{"%02d"|sprintf:$i}</option>
+                            {/for}
+                        </select>
+                        <label>[`HH`]</label>
+                    </span>
+                    <span>
+                        {if !empty($coupon.days.minute)}{$end_minute = $coupon.days.minute}{else}{$end_minute = 0}{/if}
+                        <select name="days[minute]">
+                            {for $i=0; $i<=60; $i++}
+                            <option value="{$i}"{if $i == $end_minute} selected{/if}>{"%02d"|sprintf:$i}</option>
+                            {/for}
+                        </select>
+                        <label>[`MM`]</label>
+                    </span>
+                </div>
+                {/if}
+            </div>
+        </div>
+    </div>
+    {if !empty($coupon)}
+        <input type="hidden" name="id" value="{$coupon.id}">
+    {/if}
+    <div class="errormsg margin-block"></div>
+    <input type="hidden" name="type" value="{$type}">
+    {if !empty($f_id)}<input type="hidden" name="f_id" value="{$f_id}">{/if}
+</div>
+<script>
+    $(function() {
+        $(".coupon-datepicker").each(function() {
+             /* Форма выбора даты для расписания */
+            var params = {};
+            {if $wa->locale() == 'ru_RU'}
+                params["months"] = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+                params["days_abbr"] = ["Вск", "Пон", "Вт", "Ср", "Чтв", "Пят", "Суб"];
+                params["show_select_today"] = "Сегодня";
+                params["lang_clear_date"] = "Очистить";
+            {/if}
+            params["inside"] = false;
+            params["show_clear_date"] = false;
+            params["onSelect"] = function (formatDate, origDate, obj) {
+                var dates = origDate.split("-");
+                var scheduleBlock = $(this).closest(".schedule-time");
+                if (dates[2] !== undefined) {
+                    scheduleBlock.find(".schedule-day").val(function () {
+                        return dates[2];
+                    });
+                }
+                if (dates[1] !== undefined) {
+                    scheduleBlock.find(".schedule-month").val(function () {
+                        return dates[1];
+                    });
+                }
+                if (dates[0] !== undefined) {
+                    scheduleBlock.find(".schedule-year").val(function () {
+                        return dates[0];
+                    });
+                }
+            };
+            $(this).Zebra_DatePicker(params);
+        });
+        /* Открытие/закрытие блока с расписанием */
+        $(".toggle-schedule").change(function() {
+           var that = $(this);
+           if (that.prop("checked")) {
+               $(".f-schedule-block").slideDown();
+           } else {
+               $(".f-schedule-block").slideUp();
+           }
+        });
+
+        /* Выбор способа расчета жизни купона */
+        $(".toggle-lifetime").change(function() {
+            var that = $(this);
+            $(".toggle-schedule").prop('checked') && that.closest(".f-schedule-block").find(".coupon-schedule, .coupon-days").hide().filter(".coupon-"+that.val()).show();
+        });
+
+        /* Открытие/закрытие блока с заказами */
+        $(".toggle-orders").click(function() {
+            var block = $(".toggle-orders-block");
+            if (block.is(":visible")) {
+                block.slideUp();
+            } else {
+                block.slideDown();
+            }
+        });
+
+        /* Изменение кол-ва купонов */
+        $(".s-coupon-number").change(function() {
+           if ($(this).val() > 1) {
+               $(".s-generating-block").slideDown();
+               $(".s-coupon-code-wrap").hide();
+           } else {
+               $(".s-generating-block").slideUp();
+               $(".s-coupon-code-wrap").show();
+           }
+        });
+    });
+</script>

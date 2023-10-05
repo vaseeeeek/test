@@ -1,0 +1,226 @@
+<style>
+    #wa .CodeMirror{
+        border: 1px solid #ccc;
+        padding: 2px;
+    }
+    .CodeMirror-scroll {
+        height: auto;
+        overflow-y: hidden;
+        overflow-x: auto;
+    }
+</style>
+<form action="?plugin=arrived&module=settings&action=save" method="post" id="fields-form">
+	{$wa->csrf()}
+	<h2>Функционал</h2>
+	<div class="field-group">
+		<div class="field">
+			<div class='name'>Способ отправки</div>
+			<div class='value'>
+				<select name='send_type' class='send_type'>
+					<option value='email'{if $settings.send_type eq "email"} selected{/if}>Только E-Mail</option>
+					<option value='sms'{if $settings.send_type eq "sms"} selected{/if}>Только SMS</option>
+					<option value='email_or_sms'{if $settings.send_type eq "email_or_sms"} selected{/if}>E-Mail или SMS</option>
+					<option value='email_and_sms'{if $settings.send_type eq "email_and_sms"} selected{/if}>E-Mail и SMS (оба поля будут обязательны к заполнению)</option>
+				</select>
+				<p class="hint">Данные, которые будут запрашиваться у пользователя
+				<br />Для отправки SMS-уведомлений необходимо настроить SMS-шлюз. Подробнее <a href="http://www.webasyst.ru/help/17/shop-script-5-sms-setup/" target="_blank">в документации</a></p>
+			</div>
+		</div>
+		<div class="field sms_settings"{if $settings.send_type eq "email"} style='display:none;'{/if}>
+			<div class='name'>Отправитель SMS<br /><span class="hint">Sender ID</span></div>
+			<div class='value'>
+				{foreach $domain_routes as $domain=>$route}
+				<p><input type="text" name="sms_sender_id[{$domain}]" value="{$settings.sms_sender_id[$domain]}" class="semi" /> - {$domain}</p>
+				{/foreach}
+				<p class="hint">От 3 до 11 латинских символов (международный стандарт GSM)
+				<br />Любые символы кроме букв или цифр не отображаются на IPhone
+				<br />Цифровые отправители блокируются большинством операторов
+				<br />Внимание! Сперва нужно получить разрешение на использование имени отправителя у вашего  SMS-шлюза
+				<br />Если разрешенных имен нет, оставьте поле пустым</p>
+			</div>
+		</div>
+		<div class="field email_settings"{if $settings.send_type eq "sms"} style='display:none;'{/if}>
+			<div class='name'>Email "отправителя"</div>
+			<div class='value'>
+				<input type="text" name="email" value="{$settings.email}" class="semi" />
+			</div>
+		</div>
+		<div class="field email_settings"{if $settings.send_type eq "sms"} style='display:none;'{/if}>
+			<div class='name'>Тема письма</div>
+			<div class='value'>
+				<input type="text" name="mail_subject" value="{$settings.mail_subject}" />
+			</div>
+		</div>
+		<div class="field">
+			<div class='name'>Актуальность</div>
+			<div class='value'>
+				<input type="checkbox" name="set_expiration" value="1" id="toggle_expiration"{if !empty($settings.expiration)} checked{/if} /><label for="toggle_expiration"> Позволить пользователю выбрать срок актуальности</label>
+			</div>
+		</div>
+		<div class="field" id="set_expiration"{if empty($settings.expiration)} style='display:none;'{/if}>
+			<div class='value'>
+				<input type="text" name="expiration" value="{$settings.expiration}" />
+				<p class='hint'>Через запятую укажите доступные для покупателя варианты срока в днях
+				<br />Пример: 7,30,90,180,360
+				<br />Оставьте только 1 вариант, чтобы строго установить время актуальности и не выводить выбор пользователю</p>
+			</div>
+		</div>
+		<div class="field">
+			<div class='name'>Использование хука</div>
+			<div class='value'>
+				<label><input type="checkbox" name="enable_hook" value="1"{if $settings.enable_hook eq 1} checked{/if} /> Включить использование стандартного хука для автоматической вставки кнопки (только в карточке товара)</label>
+				<p class='hint'>Для ручной вставки в любом месте на странице продукта используйте код: <strong>{literal}{shopArrivedPlugin::getFormHtml($product)}{/literal}</strong>
+				<br />Код для вставки в каталоге, который необходимо вставлять между {literal}<u>{foreach $products as $p}</u> и <u>{/foreach}</u>: <strong>{shopArrivedPlugin::getListFormHtml($p)}</strong>{/literal}</p>
+			</div>
+		</div>
+		<div class="field">
+			<div class='name'>Ссылка на соглашение</div>
+			<div class='value'>
+				<input type="text" name="terms_url" value="{$settings.terms_url}" />
+				<p class='hint'>Оставьте пустым, если не хотите использовать эту функцию</p>
+			</div>
+		</div>
+	</div>
+	<h2>Визуализация</h2>
+	<div class="field-group">
+		<div class="field">
+			<div class='name'>Текст ссылки на стр. продукта</div>
+			<div class='value'>
+				<input type="text" name="plink_title" value="{$settings.plink_title|escape}" />
+				<p class='hint'>HTML разрешается</p>
+			</div>
+		</div>
+		<div class="field">
+			<div class='name'>Текст ссылки в каталоге</div>
+			<div class='value'>
+				<input type="text" name="clink_title" value="{$settings.clink_title|escape}" />
+				<p class='hint'>HTML разрешается</p>
+			</div>
+		</div>
+		<div class="field">
+			<div class='name'>Заголовок всплывающего окна</div>
+			<div class='value'>
+				<input type="text" name="popup_title" value="{$settings.popup_title|escape}" />
+				<p class='hint'>HTML разрешается</p>
+			</div>
+		</div>
+		<div class="field">
+            <div class="name">Сообщение об успешном принятии запроса<br /><span class="hint">HTML</span></div>
+            <div class="value no-shift">
+				<div class="s-editor-core-wrapper">
+					<textarea class="template-code" id='popup_success' name="popup_success">{$settings.popup_success}</textarea>
+				</div>
+            </div>
+        </div>
+		<div class="field email_settings"{if $settings.send_type eq "sms"} style='display:none;'{/if}>
+            <div class="name">Шаблон E-Mail<br /><span class="hint">HTML + Smarty</span></div>
+            <div class="value no-shift">
+				<div class="s-editor-core-wrapper">
+					<textarea class="template-code" id='templateMail' name="templateMail">{$settings.templateMail}</textarea>
+				</div>
+				<p class="hint">Массив <strong>{literal}{$product}{/literal}</strong> аналогичен одноименному в шаблоне product.html, но выдает полный URL к товару, включая домен</p>
+            </div>
+        </div>
+		<div class="field sms_settings"{if $settings.send_type eq "email"} style='display:none;'{/if}>
+            <div class="name">Шаблон SMS<br /><span class="hint">Smarty</span></div>
+            <div class="value no-shift">
+				<textarea name="templateSMS">{$settings.templateSMS}</textarea>
+            </div>
+        </div>
+	</div>
+	<h2>Уведомление администратора о новых заявках</h2>
+	<div class="field-group">
+		<div class="field">
+			<div class='name'>E-Mail для уведомлений</div>
+			<div class='value'>
+				<input type="text" name="admin_email" value="{$settings.admin_email|default:''}" />
+				<p class='hint'>Оставьте поле пустым, если не хотите получать никаких уведомлений</p>
+			</div>
+		</div>
+		<div class="field"><div class='value'><em class="errormsg"></em></div></div>
+		<div class="field">
+			<div class='value submit'>
+				<input type="submit" class="button green" value="Сохранить" /><span style='margin-left:20px;'></span>
+			</div>
+		</div>
+	</div>
+</form>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("select.send_type").change(function(){
+		if($(this).val()=="sms") {
+			$(".field.email_settings").hide();
+		} else {
+			$(".field.email_settings").show();
+		}
+		if($(this).val()=="email") {
+			$(".field.sms_settings").hide();
+		} else {
+			$(".field.sms_settings").show();
+		}
+	});
+	$("#toggle_expiration").click(function(){
+		if($("#toggle_expiration:checked").length)
+			$("#set_expiration").show();
+		else
+			$("#set_expiration").hide();
+	});
+});
+$(function() {
+	CodeMirror.fromTextArea(document.getElementById('templateMail'), {
+		mode: "text/html",
+		tabMode: "indent",
+		height: "dynamic",
+		lineWrapping: true,
+		onChange: function(cm) {
+			$("#templateMail").val(cm.getValue());
+		}
+	});
+	CodeMirror.fromTextArea(document.getElementById('popup_success'), {
+		mode: "text/html",
+		tabMode: "indent",
+		height: "dynamic",
+		lineWrapping: true,
+		onChange: function(cm) {
+			$("#popup_success").val(cm.getValue());
+		}
+	});
+    $("#fields-form input[type='submit']").click(function() {
+        var btn = $(this);
+        var form = btn.parents("form");
+        var errormsg = form.find(".errormsg");
+        errormsg.text("");
+
+        btn.next().html("");
+        btn.attr('disabled', 'disabled').next().html("<i class='icon16 loading temp-loader' style='vertical-align:middle;'></i>");
+        $.ajax({
+            url: form.attr('action'),
+            data: form.serializeArray(),
+            dataType: "json",
+            type: "post",
+            success: function(response) {
+                btn.removeAttr('disabled').next().html("");
+                if (typeof response.errors != 'undefined') {
+                    if (typeof response.errors.messages != 'undefined') {
+                        $.each(response.errors.messages, function(i, v) {
+                            errormsg.append(v + "<br />");
+                        });
+                    }
+                } else if (response.status == 'ok' && response.data) {
+                    btn.next().html("<i class='icon16 yes' style='vertical-align:middle;font-weight:bold;'></i> Сохранено").fadeIn(50).delay(5000).fadeOut(200);
+                } else {
+                    btn.next().html("<i class='icon16 no' style='vertical-align:middle;'></i>");
+                }
+            },
+            error: function(a,b,c,d,e,f) {
+				alert(c);
+                errormsg.text("Произошла ошибка");
+                btn.removeAttr('disabled').next().html("");
+                btn.next().html("<i class='icon16 no' style='vertical-align:middle;'></i>");
+            }
+        });
+        return false;
+    });
+});
+</script>

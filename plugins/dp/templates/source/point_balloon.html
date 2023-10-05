@@ -1,0 +1,39 @@
+<div class="dp-service-balloon dp-service-balloon_point">
+    <div class="dp-service-balloon__header">
+        <div class="dp-service-balloon__header-label">Пункт выдачи &mdash; {$point.service_name}</div>
+    </div>
+    <div class="dp-service-balloon__row dp-service-balloon__place">
+        <div class="dp-service-balloon__row-header dp-service-balloon__place-address">{$point.address}</div>
+        {if $point.phone|default:''}
+            <div class="dp-service-balloon__place-phone">{$point.phone}</div>
+        {/if}
+    </div>
+    {if $service.estimated_date_html|default:''}
+        <div class="dp-service-balloon__row dp-service-balloon__estimated-date-row">
+            <div class="dp-service-balloon__row-header">{$service.estimated_date_html}</div>
+        </div>
+    {/if}
+    {if $service.cost_html|default:''}
+        <div class="dp-service-balloon__row dp-service-balloon__cost-row dp-service-balloon__cost-row">
+            <div class="dp-service-balloon__row-header">Стоимость:</div>
+            <div class="dp-service-balloon__row-body">
+                {$service.cost_html}
+            </div>
+        </div>
+    {/if}
+    {if $service.payment_methods|default:''}
+        <div class="dp-service-balloon__row dp-service-balloon__payment-row">
+            <div class="dp-service-balloon__row-body">
+                {foreach $service.payment_methods as $payment}
+                    <img alt="{$payment.name}" title="{$payment.name}" src="{$payment.image}"/>
+                {/foreach}
+            </div>
+        </div>
+    {/if}
+    {if $point.worktime_html}
+        <div class="dp-service-balloon__row dp-service-balloon-worktime-row--point">
+            <div class="dp-service-balloon__row-header">Время работы:</div>
+            <div class="dp-service-balloon__row-body">{$point.worktime_html|regex_replace:'/<br\s?\/?>/':',&nbsp;'}</div>
+        </div>
+    {/if}
+</div>

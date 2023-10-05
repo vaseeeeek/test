@@ -1,0 +1,20 @@
+<p>[`Вы можете массово удалить существующие подстраницы у выбранных товаров. Отметьте те подстраницы, которые необходимо удалить.`]</p>
+
+{if !empty($input['value'])}
+<ul class="menu-v">
+	<li class="bold"><label><input id="massupdating-subpages-select-all" type="checkbox"/> [`Отметить все`]</label></li>
+	{foreach $input['value'] as $page}
+	<li><label><input type="checkbox" name="subpages[]" value="{$page.id}"/> {$page.name|escape:'html'}</label><br/><span class="hint"><b>{$page.product_name}</b> / {$page.url}</span></li>
+	{/foreach}
+</ul>
+<script type="text/javascript">
+(function($) {
+	$('#massupdating-subpages-select-all').change(function() {
+		var checkboxes = $(this).closest('ul').find(':checkbox');
+		checkboxes.prop('checked', $(this).is(':checked'));
+	});
+})(jQuery);
+</script>
+{else}
+<div style="color: red;">[`У выбранных товаров не найдено ни одной подстраницы.`]</div>
+{/if}

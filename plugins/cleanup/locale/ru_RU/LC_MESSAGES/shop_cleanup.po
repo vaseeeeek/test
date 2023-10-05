@@ -1,0 +1,256 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Cleanup"
+msgstr "Очистка"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:15
+msgid "Clear deleted orders"
+msgstr "Очистить удаленные заказы."
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:19
+msgid "Clear deleted reviews"
+msgstr "Очистить удаленные отзывы"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:23
+msgid "Repair categories"
+msgstr "Починить категории"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:26
+msgid "Remove all product images"
+msgstr "Удалить изображения товаров"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:30
+msgid "Default workflow"
+msgstr "Сбросить статусы заказов."
+
+#: /wa-apps/shop/plugins/cleanup/lib/config/plugin.php:11
+msgid "Clean up old entries"
+msgstr "Очистка старых записей"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/Settings.html:12
+msgid "Tags"
+msgstr "Теги"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/Settings.html:10
+msgid "Main"
+msgstr "Основная"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/Settings.html:11
+msgid "Categories"
+msgstr "Категории"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:17
+msgid "Removes orders marked as deleted from database"
+msgstr "Удаляет заказы помеченные как Удаленные из базы"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:21
+msgid "Removes reviews marked as deleted from database"
+msgstr "Удаляет отзывы помеченные как Удаленные из базы"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:28
+msgid "Removes images for every product"
+msgstr "Удаляет все изображения товаров из базы и папок"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:32
+msgid "Restores workflow action and statuses"
+msgstr "Восстанавливает действия и статусы заказов в оригинальное состояние"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.tags.html:26
+msgid "Remove"
+msgstr "Удалить"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.categories.html:66
+msgid "Expand All"
+msgstr "Развернуть все"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.categories.html:67
+msgid "Collapse All"
+msgstr "Свернуть все"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.categories.html:71
+msgid "Checked categories don't include subdirectories by default. To remove full tree check all elements."
+msgstr "Отмеченные категории по умолчанию не включают подпапки. Для удаления полностью отметьте все элементы."
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.categories.html:123
+msgid "No categories exist."
+msgstr "Категорий не создано."
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/Settings.html:28
+msgid "Attention."
+msgstr "Внимание."
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.tags.html:11
+msgid "Are you sure you want to remove"
+msgstr "Вы уверены что хотите удалить"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/Settings.html:28
+msgid "All operations use framework functions to remove entries and can't be cancelled. Please be careful using this tool."
+msgstr "Все операции используют функции фреймворка для удаления записей и не могут быть отменены. Пожалуйста, будьте аккуратны в использовании."
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/Settings.html:29
+msgid "Don't forget to make backups."
+msgstr "Не забудьте сделать резервную копию."
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:6
+msgid "Confirm action:"
+msgstr "Подтвердите действие"
+
+msgid "categories"
+msgstr "категорий"
+
+msgid "tags"
+msgstr "тег"
+
+msgid "actions"
+msgstr "действий"
+
+#: /wa-apps/shop/plugins/cleanup/lib/actions/backend/shopCleanupPluginBackendRun.action.php:12
+msgid "<h2>File workflow.php not found<h2>"
+msgstr "<h2>Файл workflow.php не найден<h2>"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/Settings.html:35
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "No tags selected."
+msgstr "Нет выбранных тэгов."
+
+msgid "No categories selected."
+msgstr "Нет выбранных категорий."
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.categories.html:72
+msgid "from selected categories"
+msgstr "из выбранных категорий"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.categories.html:72
+msgid "Delete only product images"
+msgstr "Удалить только изображения товаров"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:87
+msgid "Remove all badges for products"
+msgstr "Удалить все наклейки для товаров"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:62
+msgid "Limit till date"
+msgstr "Ограничить до даты"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:62
+msgid "Select date"
+msgstr "Выберите дату"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:63
+msgid "Clear date"
+msgstr "Очистить дату"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:76
+msgid "Filter by set"
+msgstr "Фильтр по списку"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:78
+msgid "No filter"
+msgstr "Без фильтра"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:89
+msgid "Removes badges for every product"
+msgstr "Удаляет наклейки для всех товаров."
+
+msgid "product images from"
+msgstr "изображения товаров из"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:88
+msgid "Filter by type"
+msgstr "Фильтр по типу"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/Settings.html:23
+msgid "Workflow"
+msgstr "Статусы заказов"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.workflow.html:37
+msgid "Reset workflow"
+msgstr "Сбросить статусы и действия"
+
+msgid "No actions selected."
+msgstr "Нет выбранных действий."
+
+msgid "Reset workflow?"
+msgstr "Сбросить статусы заказов?"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:99
+msgid "Remove all missing images from products"
+msgstr "Удалить отсутствующие изображения"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:101
+msgid "Removes image from every product if image file is missing"
+msgstr "Удаляет изображение из товара если файл отсутствует"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:107
+msgid "Remove all stock logs for products"
+msgstr "Очистить журнал изменения остатков"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:110
+msgid "Remove all shop logs from activity"
+msgstr "Очистить ленту активности для приложения Магазин"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:109
+msgid "Removes all stocks log for every product"
+msgstr "Очистить журнал изменения остатков для всех товаров"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:112
+msgid "Removes shop logs"
+msgstr "Удалить логи магазина"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.workflow.html:45
+msgid "Workflow is original."
+msgstr "Статусы заказов не изменялись."
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:77
+msgid "from"
+msgstr "с"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:79
+msgid "to"
+msgstr "по"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:77
+msgid "Limit date"
+msgstr "Ограничить по дате"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.tags.html:45
+msgid "No tags exist."
+msgstr "Тегов не создано."
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:125
+msgid "Remove all original images from products"
+msgstr "Удалить все оригиналы изображений товаров."
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:129
+msgid "Remove all source images from products"
+msgstr "Удалить все исходные изображения товаров"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:131
+msgid "!Important. Removes all source images. Thumbs can't be generated anymore for existing product images."
+msgstr "!Внимание. Удалит все исходные изображения. Эскизы для существующих изображений больше не смогут создаваться."
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:133
+msgid "Recreate thumb.php"
+msgstr "Пересоздать thumb.php"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:127
+msgid "Removes saved earlier original images"
+msgstr "Удаляет сохраненные ранее оригиналы изображений"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:135
+msgid "Restore file thumb.php if it was corrupted or removed."
+msgstr "Восстановить файл thumb.php если он был поврежден или удалён."
+
+#: /wa-apps/shop/plugins/cleanup/lib/shopCleanup.plugin.php:8
+msgid "Remove order"
+msgstr "Удалить заказ полностью"
+
+#: /wa-apps/shop/plugins/cleanup/templates/actions/settings/include.main.html:96
+msgid "Repair corrupted categories structure and reindex"
+msgstr "Исправить и переиндексировать поврежденную структура категорий"

@@ -1,0 +1,55 @@
+<div class="sidebar right15px">
+    <div class="block s-nolevel2-sidebar"></div>
+</div>
+<div class="sidebar left15px">
+    <div class="block s-nolevel2-sidebar"></div>
+</div>
+
+<div class="content right15px left15px s-nolevel2-box">
+    <img src="https://igaponov.ru/wa-apps/shop/img/logo/logo.png?v={$ver}" alt="[`Developer Igor Gaponov`]" class="fl-developer-icon" title='[`Developer Igor Gaponov`]' />
+    <div class="block blank double-padded" id="s-content" style="position: relative">
+        <div class="fl-loading-block">
+            [`Loading...`]<i class="icon16 loading"></i>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<div class="clear"></div>
+
+<div class="dialog large nopadded" id="longaction-dialog">
+    <div class="dialog-background"></div>
+    <form method="post" action="">
+        <div class="dialog-window">
+            <div class="dialog-content">
+                <div class="dialog-content-indent">
+                </div>
+            </div>
+            <div class="dialog-buttons">
+                <div class="dialog-buttons-gradient">
+                    {$wa->csrf()}
+                    <input class="button green" disabled type="submit" value="[`Start`]">
+                    [`or`] <a class="cancel" href="javascript:void(0);">[`cancel`]</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="{$plugin_url}js/translate.js"></script>
+
+<link rel="stylesheet" href="{$plugin_url}css/flexdiscount.css?v={$version}" />
+<script src="{$plugin_url}js/flexdiscount.js?v={$version}"></script>
+
+{* Datepicker *}
+<link rel="stylesheet" href="{$plugin_url}js/datepicker/css/metallic.css">
+<script src="{$plugin_url}js/datepicker/javascript/zebra_datepicker.src.js"></script>
+
+<script src="{$wa_url}wa-content/js/jquery-plugins/jquery.store.js"></script>
+<script src="{$wa_url}wa-content/js/jquery-plugins/jquery.history.js"></script>
+<script>
+    $.flexdiscount.init({
+        localeStrings: {if $js_locale_strings}{$js_locale_strings}{else}null{/if}
+    });
+    $.flexdiscount.wa_url = "{$wa_url}";
+</script>

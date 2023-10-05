@@ -1,0 +1,60 @@
+{strip}
+<div class="clicklite">
+    <div class="clicklite__w">
+        <div class="clicklite__close">×</div>
+        <h2 class="clicklite__h">Покупка в один клик</h2>
+        <div class="clicklite__bid">
+            <form class="clicklite__form" action="">
+                <div class="clicklite__product">
+                    <div class="clicklite__img"></div>
+                    <div class="clicklite__name">
+                        <div class="clicklite__n"></div>
+                        <div class="clicklite__variants"></div>
+                    </div>
+
+                    {if !$settings.count}
+                    <div class="clicklite__price" data-price=""></div>
+                    <div class="clicklite__counter">
+                        <div class="clicklite__counterMinus">-</div>
+                        <div class="clicklite__counterCount">
+                            <input type="text" class="clicklite__quantity" name="quantity" value="1" />
+                        </div>
+                        <div class="clicklite__counterPlus">+</div>
+                    </div>
+                    {else}
+                    <input type="hidden" name="quantity" value="1" />
+                    {/if}
+
+                    <div class="clicklite__totalPrice"></div>
+                </div>
+
+                <input class="clicklite__input clicklite__input_name" name="clicklite__name" value="{if !empty($contact.firstname)}{$contact.firstname}{/if}" type="text" placeholder="Имя" />
+                <input class="clicklite__input clicklite__input_phone" name="clicklite__phone" value="{if !empty($contact.phone)}{$contact.phone[0]['value']}{/if}" type="tel" placeholder="Телефон" />
+
+                <input type="hidden" class="clicklite__sku" name="product_sku" value="" />
+                <input type="hidden" class="clicklite__id" name="product_id" value="" />
+                <input class="clicklite__button" type="submit" value="Отправить заказ" />
+
+                <div class="clicklite__politika">
+                    {if $settings.policy_checkbox}
+                    <input class="clicklite__policyCheckbox" name="policy_checkbox" type="checkbox" />
+                    {/if} {$settings.politika}
+                </div>
+                {$wa->csrf()}
+            </form>
+            <div class="clicklite__antispam">{$settings.antispam}</div>
+        </div>
+        <div class="clicklite__thank">
+            <div class="clicklite__thankText"></div>
+            <input type="button" class="clicklite__buttonClose" value="закрыть" />
+        </div>
+        <div class="clicklite__error">
+            <div>
+                Данный товар не доступен для заказа!
+            </div>
+            <input type="button" class="clicklite__buttonClose" value="закрыть" />
+        </div>
+    </div>
+</div>
+<div class="clickliteW"></div>
+{/strip}

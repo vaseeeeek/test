@@ -1,0 +1,7 @@
+<div class="seoratings__module__filter__title">{{name}}</div>
+{{#each values}}
+  <label class="seoratings__module__filter__label">
+    <input data-type="checkbox" class="seoratings__module__filter__input--checkbox" type="checkbox" name="{{../code}}" value="{{this}}" data-title="{{../name}}">
+    <span class="seoratings__module__filter__span--text">{{this}}</span>
+  </label>
+{{/each}}

@@ -1,0 +1,2678 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/flexdiscount\n"
+"POT-Creation-Date: 2017-02-24 12:32+0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: shop/plugins/flexdiscount\n"
+"Language-Team: shop/plugins/flexdiscount\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"Language: en_US\n"
+"X-Generator: Poedit 2.0.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+msgid "Loading..."
+msgstr ""
+
+msgid "https://igaponov.com/docs/flexdiscount/"
+msgstr ""
+
+msgid "Documentation"
+msgstr ""
+
+msgid "Delete from group"
+msgstr ""
+
+msgid "Copy discount"
+msgstr ""
+
+msgid "Change status"
+msgstr ""
+
+msgid "Open discount"
+msgstr ""
+
+msgid "No name discount"
+msgstr ""
+
+msgid "Select currency"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Create group"
+msgstr ""
+
+msgid "Merge to group"
+msgstr ""
+
+msgid "Split group"
+msgstr ""
+
+msgid "Delete selected"
+msgstr ""
+
+msgid "Description, name"
+msgstr ""
+
+msgid "Discount"
+msgstr ""
+
+msgid "Affiliate"
+msgstr ""
+
+msgid "Sort"
+msgstr ""
+
+msgid "MAX"
+msgstr ""
+
+msgid "MIN"
+msgstr ""
+
+msgid "SUM"
+msgstr ""
+
+msgid "You don't have any discounts"
+msgstr ""
+
+msgid "Create discount"
+msgstr ""
+
+msgid "Create deny rule"
+msgstr ""
+
+msgid "New coupon"
+msgstr ""
+
+msgid "New coupon generator"
+msgstr ""
+
+msgid "Coupon"
+msgstr ""
+
+msgid "Coupon generator"
+msgstr ""
+
+msgid "close"
+msgstr ""
+
+msgid "Coupon generator creates new coupons automatically, when you call it."
+msgstr ""
+
+msgid "Use code in Smarty templates to create coupon:"
+msgstr ""
+
+msgid "Number of coupons"
+msgstr ""
+
+msgid "Coupon code"
+msgstr ""
+
+msgid "Generate code"
+msgstr ""
+
+msgid "Generator name"
+msgstr ""
+
+msgid "This name will be visible only for you in admin area"
+msgstr ""
+
+msgid "Comment"
+msgstr ""
+
+msgid "This coment will be visible only in Orders"
+msgstr ""
+
+msgid "Code prefix"
+msgstr ""
+
+msgid "This code will be before coupon code"
+msgstr ""
+
+msgid "Symbols for generating the coupons"
+msgstr ""
+
+msgid "Coupon length"
+msgstr ""
+
+msgid "Maximum number of usage of EACH coupon"
+msgstr ""
+
+msgid "Maximum number of usage of the coupon"
+msgstr ""
+
+msgid "Coupon has been used"
+msgstr ""
+
+msgid "Show orders"
+msgstr ""
+
+msgid "points"
+msgstr ""
+
+msgid "Specify coupon lifetime"
+msgstr ""
+
+msgid "Server time"
+msgstr ""
+
+msgid "Days"
+msgstr ""
+
+msgid "Schedule"
+msgstr ""
+
+msgid "Start"
+msgstr ""
+
+msgid "DD"
+msgstr ""
+
+msgid "MM"
+msgstr ""
+
+msgid "YYYY"
+msgstr ""
+
+msgid "HH"
+msgstr ""
+
+msgid "End"
+msgstr ""
+
+msgid "days"
+msgstr ""
+
+msgid "Select coupons"
+msgstr ""
+
+msgid "Search for coupons"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Show all coupons and generators"
+msgstr ""
+
+msgid "Total count"
+msgstr ""
+
+msgid "Code (name)"
+msgstr ""
+
+msgid "Used"
+msgstr ""
+
+msgid "Limit"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Rules"
+msgstr ""
+
+msgid "Coupon is used by this rule"
+msgstr ""
+
+msgid "Coupon reached the limit"
+msgstr ""
+
+msgid "Coupon start at"
+msgstr ""
+
+msgid "Coupon time is expired"
+msgstr ""
+
+msgid "Generator"
+msgstr ""
+
+msgid "coupon"
+msgstr ""
+
+msgid "generator"
+msgstr ""
+
+msgid "Rule doesn't have any coupons"
+msgstr ""
+
+msgid "You don't have any created coupons"
+msgstr ""
+
+msgid "Add selected coupons to discount"
+msgstr ""
+
+msgid "Remove selected coupons from discount"
+msgstr ""
+
+msgid "Delete selected coupons totally"
+msgstr ""
+
+msgid "Coupon delete"
+msgstr ""
+
+msgid "Do you really want to delete coupon"
+msgstr ""
+
+msgid "Delete coupon from discount rule. Coupon will be saved for other discounts"
+msgstr ""
+
+msgid "Delete coupon from all discounts. Coupon will be removed totally"
+msgstr ""
+
+msgid "Select product"
+msgstr ""
+
+msgid "Show all skus in search"
+msgstr ""
+
+msgid "or select the category to find product you need."
+msgstr ""
+
+msgid "Show product skus"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Price"
+msgstr ""
+
+msgid "More products"
+msgstr ""
+
+msgid "Products not found"
+msgstr ""
+
+msgid "Select user"
+msgstr ""
+
+msgid "All contacts"
+msgstr ""
+
+msgid "or select the category to find user you need."
+msgstr ""
+
+msgid "More users"
+msgstr ""
+
+msgid "Users not found"
+msgstr ""
+
+msgid "Start typing user name or email"
+msgstr ""
+
+msgid "Affiliate output template"
+msgstr ""
+
+msgid "You can edit affiliate block template and use helper for output in your <b><em>cart.html</em></b> template. Read more information"
+msgstr ""
+
+msgid "http://en.igaponov.ru/flexdiscount_pl/#/page-settings/"
+msgstr ""
+
+msgid "here"
+msgstr ""
+
+msgid "Available discounts template"
+msgstr ""
+
+msgid "You can edit available discounts template and use helper for output. Read more information"
+msgstr ""
+
+msgid "Coupon form template"
+msgstr ""
+
+msgid "You can edit coupon form template and use helper or copy and paste code below to your <b><em>cart.html</em></b> template."
+msgstr ""
+
+msgid "Deny rules template"
+msgstr ""
+
+msgid "You can edit deny rules template and use helper for output. Read more information"
+msgstr ""
+
+msgid "Customer discount page template"
+msgstr ""
+
+msgid "You can edit customer discount page"
+msgstr ""
+
+msgid "Price output template"
+msgstr ""
+
+msgid "You can edit price with discount template and use helper for output. Read more information"
+msgstr ""
+
+msgid "Active product discounts template"
+msgstr ""
+
+msgid "You can edit active product discounts template and use helper for output. Read more information"
+msgstr ""
+
+msgid "Active discounts template"
+msgstr ""
+
+msgid "You can edit active discounts template and use helper for output in your <b><em>cart.html</em></b> template. Read more information"
+msgstr ""
+
+msgid "Undefined type"
+msgstr ""
+
+msgid "ATTENTION! Do not remove the following CSS classes in this code:"
+msgstr ""
+
+msgid "revert to original"
+msgstr ""
+
+msgid "Press \"Revert to original\""
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "No name deny rule"
+msgstr ""
+
+msgid "delete"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Basics"
+msgstr ""
+
+msgid "This field will be displayed in storefront"
+msgstr ""
+
+msgid "Symbolic code"
+msgstr ""
+
+msgid "Use this code to control discount output in the template"
+msgstr ""
+
+msgid "Available symbols"
+msgstr ""
+
+msgid "Frontend sort"
+msgstr ""
+
+msgid "In storefront discounts will be sorted by this field by ascending."
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Set discount to each item"
+msgstr ""
+
+msgid "Set affiliate bonus to each item"
+msgstr ""
+
+msgid "Discount base"
+msgstr ""
+
+msgid "Product price"
+msgstr ""
+
+msgid "Compare at price"
+msgstr ""
+
+msgid "Purchase price"
+msgstr ""
+
+msgid "From this value will be calculated discount"
+msgstr ""
+
+msgid "Hide in storefront"
+msgstr ""
+
+msgid "Hide discount from available discounts"
+msgstr ""
+
+msgid "Use products in further calculations"
+msgstr ""
+
+msgid "Conditions"
+msgstr ""
+
+msgid "IF"
+msgstr ""
+
+msgid "Wait, please..."
+msgstr ""
+
+msgid "Add condition"
+msgstr ""
+
+msgid "Then set discount to"
+msgstr ""
+
+msgid "Then deny discount to"
+msgstr ""
+
+msgid "All products"
+msgstr ""
+
+msgid "All products that meet the conditions"
+msgstr ""
+
+msgid "All products that failed conditions"
+msgstr ""
+
+msgid "Category"
+msgstr ""
+
+msgid "Category and subcategories"
+msgstr ""
+
+msgid "Product set"
+msgstr ""
+
+msgid "Product type"
+msgstr ""
+
+msgid "Product"
+msgstr ""
+
+msgid "Product features"
+msgstr ""
+
+msgid "Shipping"
+msgstr ""
+
+msgid "edit"
+msgstr ""
+
+msgid "every similar n-product"
+msgstr ""
+
+msgid "n cheapest products"
+msgstr ""
+
+msgid "every n-th cheapest products"
+msgstr ""
+
+msgid "n the most expensive products"
+msgstr ""
+
+msgid "every n-th the most expensive products"
+msgstr ""
+
+msgid "all subsequent similar products following by n-product"
+msgstr ""
+
+msgid "n products from z-similar"
+msgstr ""
+
+msgid "choose details if necessary"
+msgstr ""
+
+msgid "clarify"
+msgstr ""
+
+msgid "Add target"
+msgstr ""
+
+msgid "Product properties"
+msgstr ""
+
+msgid "SKU code"
+msgstr ""
+
+msgid "SKU name"
+msgstr ""
+
+msgid "Summary"
+msgstr ""
+
+msgid "META title"
+msgstr ""
+
+msgid "META keywords"
+msgstr ""
+
+msgid "META description"
+msgstr ""
+
+msgid "Create datetime"
+msgstr ""
+
+msgid "Edit datetime"
+msgstr ""
+
+msgid "Has video"
+msgstr ""
+
+msgid "Has image"
+msgstr ""
+
+msgid "Rating"
+msgstr ""
+
+msgid "Rating count"
+msgstr ""
+
+msgid "Compare price"
+msgstr ""
+
+msgid "Minimal price"
+msgstr ""
+
+msgid "Maximum price"
+msgstr ""
+
+msgid "Stock count"
+msgstr ""
+
+msgid "Total sales"
+msgstr ""
+
+msgid "Services"
+msgstr ""
+
+msgid "Tags"
+msgstr ""
+
+msgid "Cart"
+msgstr ""
+
+msgid "Total quantity of all products"
+msgstr ""
+
+msgid "Quantity of product"
+msgstr ""
+
+msgid "Quantity of product from category"
+msgstr ""
+
+msgid "Quantity of product from category and subcategories"
+msgstr ""
+
+msgid "Quantity of product from set"
+msgstr ""
+
+msgid "Quantity of product from type"
+msgstr ""
+
+msgid "Quantity of all products from category"
+msgstr ""
+
+msgid "Quantity of all products from category and subcategories"
+msgstr ""
+
+msgid "Quantity of all products from set"
+msgstr ""
+
+msgid "Quantity of all products from type"
+msgstr ""
+
+msgid "Quantity of products with features"
+msgstr ""
+
+msgid "Quantity of unique items"
+msgstr ""
+
+msgid "Order price without discount"
+msgstr ""
+
+msgid "Total price of all products"
+msgstr ""
+
+msgid "Total price of products from category"
+msgstr ""
+
+msgid "Total price of products from category and subcategories"
+msgstr ""
+
+msgid "Total price of all products with features"
+msgstr ""
+
+msgid "Total sum of features values"
+msgstr ""
+
+msgid "Price of each product"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "User category"
+msgstr ""
+
+msgid "Completed orders"
+msgstr ""
+
+msgid "Total sum of all orders"
+msgstr ""
+
+msgid "Sum of orders for period.."
+msgstr ""
+
+msgid "Quantity of all orders"
+msgstr ""
+
+msgid "Quantity of orders for period.."
+msgstr ""
+
+msgid "Orders have product"
+msgstr ""
+
+msgid "Orders have product for period.."
+msgstr ""
+
+msgid "Orders have product from category"
+msgstr ""
+
+msgid "Orders have product from category and subcategories"
+msgstr ""
+
+msgid "Orders have product from category for period.."
+msgstr ""
+
+msgid "Orders have product from category and subcategories for period.."
+msgstr ""
+
+msgid "Date and time"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Day of week"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "Variables"
+msgstr ""
+
+msgid "Cookie"
+msgstr ""
+
+msgid "Session"
+msgstr ""
+
+msgid "Storefront"
+msgstr ""
+
+msgid "Select condition"
+msgstr ""
+
+msgid "Add group of conditions"
+msgstr ""
+
+msgid "Limitations"
+msgstr ""
+
+msgid "Maximum discount value"
+msgstr ""
+
+msgid "Maximum affiliate value"
+msgstr ""
+
+msgid "Product discount limit"
+msgstr ""
+
+msgid "Off"
+msgstr ""
+
+msgid "On"
+msgstr ""
+
+msgid "from"
+msgstr ""
+
+msgid "purchase price"
+msgstr ""
+
+msgid "product price"
+msgstr ""
+
+msgid "compare at price"
+msgstr ""
+
+msgid "Product price will never be lower than specified value."
+msgstr ""
+
+msgid "Coupons"
+msgstr ""
+
+msgid "Use coupons"
+msgstr ""
+
+msgid "Automatically remove useless coupons (expired or coupons which reached the limit)"
+msgstr ""
+
+msgid "Manage coupons"
+msgstr ""
+
+msgid "Add new coupon"
+msgstr ""
+
+msgid "Add generator"
+msgstr ""
+
+msgid "If you want to create coupons"
+msgstr ""
+
+msgid "Save discount rule"
+msgstr ""
+
+msgid "Save deny rule"
+msgstr ""
+
+msgid "AND"
+msgstr ""
+
+msgid "OR"
+msgstr ""
+
+msgid "Coupons: %s; coupon generators: %s"
+msgstr ""
+
+msgid "Flexdiscount"
+msgstr ""
+
+msgid "Discounts can be created on the <a href=\"%s\" title=\"%s\">Flexdiscount</a> screen."
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Discount rounding"
+msgstr ""
+
+msgid "not round"
+msgstr ""
+
+msgid "ceil"
+msgstr ""
+
+msgid "floor"
+msgstr ""
+
+msgid "Change product prices to discount prices"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "If product has discount, then product price (old price) will become price with discount and compare price will become product price without discount. E.g,"
+msgstr ""
+
+msgid "old price"
+msgstr ""
+
+msgid "price with discount"
+msgstr ""
+
+msgid "Display flexdiscount coupon field"
+msgstr ""
+
+msgid "Add special coupon field on the cart page. If you want to customize output place, disable that option and use construction"
+msgstr ""
+
+msgid "Customize coupon form"
+msgstr ""
+
+msgid "Display affiliate bonus on the cart page"
+msgstr ""
+
+msgid "Specify display type"
+msgstr ""
+
+msgid "(Default values 0 or 1)"
+msgstr ""
+
+msgid "If you want to customize output place, disable that option and use construction"
+msgstr ""
+
+msgid "Customize affiliate block"
+msgstr ""
+
+msgid "Activate affiliate program"
+msgstr ""
+
+msgid "Show active discount on the cart page"
+msgstr ""
+
+msgid "Active discounts"
+msgstr ""
+
+msgid "Customize active discounts"
+msgstr ""
+
+msgid "Show active product discounts"
+msgstr ""
+
+msgid "Product discounts"
+msgstr ""
+
+msgid "Output place on product page"
+msgstr ""
+
+msgid "Next to links to custom product pages"
+msgstr ""
+
+msgid "Next to the \"Add to cart\" button"
+msgstr ""
+
+msgid "Custom informational block, usually in a sidebar"
+msgstr ""
+
+msgid "Block of extra product details in main description area"
+msgstr ""
+
+msgid "Output places depend on your Theme template."
+msgstr ""
+
+msgid "(Default values 1, 2, 3, 4 or 5)"
+msgstr ""
+
+msgid "Customize active product discounts"
+msgstr ""
+
+msgid "Show available discounts"
+msgstr ""
+
+msgid "Available discounts"
+msgstr ""
+
+msgid "(Default values 1, 2, 3 or 4)"
+msgstr ""
+
+msgid "Filter by"
+msgstr ""
+
+msgid "Show discounts available for current user"
+msgstr ""
+
+msgid "Show discounts available for current date"
+msgstr ""
+
+msgid "Customize available discounts"
+msgstr ""
+
+msgid "Create page with available discounts in customer account"
+msgstr ""
+
+msgid "Page name"
+msgstr ""
+
+msgid "Your discounts"
+msgstr ""
+
+msgid "Show navigation bar"
+msgstr ""
+
+msgid "(Default values 1, 2 or 3)"
+msgstr ""
+
+msgid "Customize customer discount page"
+msgstr ""
+
+msgid "Show deny rules"
+msgstr ""
+
+msgid "Deny rules"
+msgstr ""
+
+msgid "(Default values 1 or empty)"
+msgstr ""
+
+msgid "Customize deny rules"
+msgstr ""
+
+msgid "Display price with discount on product page"
+msgstr ""
+
+msgid "Customize price output"
+msgstr ""
+
+msgid "Something wrong. Check log files."
+msgstr ""
+
+msgid "equal"
+msgstr ""
+
+msgid "not equal"
+msgstr ""
+
+msgid "contains"
+msgstr ""
+
+msgid "not contains"
+msgstr ""
+
+msgid "begins with"
+msgstr ""
+
+msgid "each sku is separate"
+msgstr ""
+
+msgid "summarize skus"
+msgstr ""
+
+msgid "No result text"
+msgstr ""
+
+msgid "select product"
+msgstr ""
+
+msgid "any product"
+msgstr ""
+
+msgid "select contact"
+msgstr ""
+
+msgid "to"
+msgstr ""
+
+msgid "from category"
+msgstr ""
+
+msgid "from category and subcategories of"
+msgstr ""
+
+msgid "Monday"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Wednesday"
+msgstr ""
+
+msgid "Thursday"
+msgstr ""
+
+msgid "Friday"
+msgstr ""
+
+msgid "Saturday"
+msgstr ""
+
+msgid "Sunday"
+msgstr ""
+
+msgid "All conditions return true"
+msgstr ""
+
+msgid "Any of condition returns true"
+msgstr ""
+
+msgid "select"
+msgstr ""
+
+msgid "reset selection"
+msgstr ""
+
+msgid "Select category"
+msgstr ""
+
+msgid "Select product set"
+msgstr ""
+
+msgid "Select product type"
+msgstr ""
+
+msgid "Product feature"
+msgstr ""
+
+msgid "Select product feature"
+msgstr ""
+
+msgid "Select feature value"
+msgstr ""
+
+msgid "Product name"
+msgstr ""
+
+msgid "Product summary"
+msgstr ""
+
+msgid "Product description"
+msgstr ""
+
+msgid "Product create datetime"
+msgstr ""
+
+msgid "Product edit datetime"
+msgstr ""
+
+msgid "has video"
+msgstr ""
+
+msgid "has image"
+msgstr ""
+
+msgid "Product rating"
+msgstr ""
+
+msgid "Product rating count"
+msgstr ""
+
+msgid "Product compare price"
+msgstr ""
+
+msgid "Product purchase price"
+msgstr ""
+
+msgid "Product minimal price"
+msgstr ""
+
+msgid "Product maximum price"
+msgstr ""
+
+msgid "Product stock count"
+msgstr ""
+
+msgid "Product total sales"
+msgstr ""
+
+msgid "Product has service"
+msgstr ""
+
+msgid "Select service"
+msgstr ""
+
+msgid "Select service variant"
+msgstr ""
+
+msgid "Product has tag"
+msgstr ""
+
+msgid "Select tags"
+msgstr ""
+
+msgid "from set"
+msgstr ""
+
+msgid "from type"
+msgstr ""
+
+msgid "select category"
+msgstr ""
+
+msgid "Quantity of equal products"
+msgstr ""
+
+msgid "Total price of products"
+msgstr ""
+
+msgid "Minimal value of feature"
+msgstr ""
+
+msgid "Maximum value of feature"
+msgstr ""
+
+msgid "Service"
+msgstr ""
+
+msgid "Select user category"
+msgstr ""
+
+msgid "Contact"
+msgstr ""
+
+msgid "Contact create datetime"
+msgstr ""
+
+msgid "Select shipping"
+msgstr ""
+
+msgid "Payment"
+msgstr ""
+
+msgid "Select payment"
+msgstr ""
+
+msgid "Sum of orders for period from"
+msgstr ""
+
+msgid "Quantity of orders for period from"
+msgstr ""
+
+msgid "for period from"
+msgstr ""
+
+msgid "Select domain"
+msgstr ""
+
+msgid "Select route"
+msgstr ""
+
+msgid "reset product"
+msgstr ""
+
+msgid "Select at least 1 discount rule"
+msgstr ""
+
+msgid "Do you really want to split group"
+msgstr ""
+
+msgid "Do you really want to delete discount rule?"
+msgstr ""
+
+msgid "Do you really want to delete discount rules?"
+msgstr ""
+
+msgid "Fill in required fields"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "Select at least one coupon"
+msgstr ""
+
+msgid "Coupons delete"
+msgstr ""
+
+msgid "Do you really want to delete selected coupons?"
+msgstr ""
+
+msgid "Do you really want to delete condition group?"
+msgstr ""
+
+msgid "every"
+msgstr ""
+
+msgid "all subsequent similar products following by"
+msgstr ""
+
+msgid "similar"
+msgstr ""
+
+msgid "Something wrong"
+msgstr ""
+
+msgid "Group name"
+msgstr ""
+
+msgid "Select group"
+msgstr ""
+
+msgid "coupon generators:"
+msgstr ""
+
+msgid "th similar product"
+msgstr ""
+
+msgid "cheapest products"
+msgstr ""
+
+msgid "th cheapest products"
+msgstr ""
+
+msgid "the most expensive products"
+msgstr ""
+
+msgid "th the most expensive products"
+msgstr ""
+
+msgid "th product"
+msgstr ""
+
+msgid "products from"
+msgstr ""
+
+msgid "prev"
+msgstr ""
+
+msgid "next"
+msgstr ""
+
+msgid "No name"
+msgstr ""
+
+msgid "sku ID"
+msgstr ""
+
+msgid "Delete error"
+msgstr ""
+
+msgid "Coupon ID is empty"
+msgstr ""
+
+msgid "Coupon code must be unique"
+msgstr ""
+
+msgid "Coupon doesn't exist"
+msgstr ""
+
+msgid "What the hell is going on?! Where is discount ID???"
+msgstr ""
+
+msgid "$_COOKIE[\""
+msgstr ""
+
+msgid "\"]"
+msgstr ""
+
+msgid "$_SESSION[\""
+msgstr ""
+
+msgid "$_GET[\""
+msgstr ""
+
+msgid "$_POST[\""
+msgstr ""
+
+msgid "Discount #"
+msgstr ""
+
+msgid "NO VIEW TYPE"
+msgstr ""
+
+msgid "Company presents you"
+msgstr ""
+
+msgid "bonuses to your affiliate program"
+msgstr ""
+
+msgid "VIEW TYPE 1"
+msgstr ""
+
+msgid "Your affiliate bonus is"
+msgstr ""
+
+msgid "VIEW TYPE 2"
+msgstr ""
+
+msgid "CREATE YOUR OWN VIEW TYPE RIGHT HERE"
+msgstr ""
+
+msgid "END"
+msgstr ""
+
+msgid "ALL DISCOUNTS WITH NO VIEW TYPE"
+msgstr ""
+
+msgid "VIEW TYPE 3"
+msgstr ""
+
+msgid "VIEW TYPE 5"
+msgstr ""
+
+msgid "VIEW TYPE 4"
+msgstr ""
+
+msgid "VIEW TYPE 6"
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
+msgid "delete coupon"
+msgstr ""
+
+msgid "ALL DENY RULES WITH NO VIEW TYPE"
+msgstr ""
+
+msgid "Price with discount"
+msgstr ""
+
+msgid "Your price is"
+msgstr ""
+
+msgid "Your discount"
+msgstr ""
+
+msgid "VIEW TYPE 7"
+msgstr ""
+
+msgid "All types of discounts. Discount constructor"
+msgstr ""
+
+msgid "Flexdiscount coupons:"
+msgstr ""
+
+msgid "Discount name"
+msgstr ""
+
+msgid "Including discount to all order"
+msgstr ""
+
+msgid "Flexdiscount bonus"
+msgstr ""
+
+msgid "Cancel flexdiscount bonus"
+msgstr ""
+
+msgid "Drag discounts into group or select and merge"
+msgstr ""
+
+msgid "Completed user orders"
+msgstr ""
+
+msgid "VIEW TYPE"
+msgstr ""
+
+msgid "Total product discount"
+msgstr ""
+
+msgid "Total order discount"
+msgstr ""
+
+msgid "Total discount"
+msgstr ""
+
+msgid "Access to discount rules"
+msgstr ""
+
+msgid "Access to discount settings"
+msgstr ""
+
+msgid "Show"
+msgstr ""
+
+msgid "rules per group"
+msgstr ""
+
+msgid "Total quantity of rules"
+msgstr ""
+
+msgid "customize columns"
+msgstr ""
+
+msgid "Show more"
+msgstr ""
+
+msgid "MAX PROD"
+msgstr ""
+
+msgid "Check columns"
+msgstr ""
+
+msgid "Quantity of products"
+msgstr ""
+
+msgid "Final discount calculating"
+msgstr ""
+
+msgid "Summarize all active discounts"
+msgstr ""
+
+msgid "Get maximum discount"
+msgstr ""
+
+msgid "Get minimum discount"
+msgstr ""
+
+msgid "Select how to calculate discount between groups and discounts without groups"
+msgstr ""
+
+msgid "Position navigation bar above the title"
+msgstr ""
+
+msgid "Sum of orders for"
+msgstr ""
+
+msgid "Quantity of orders for"
+msgstr ""
+
+msgid "select value"
+msgstr ""
+
+msgid "for"
+msgstr ""
+
+msgid "period"
+msgstr ""
+
+msgid "last n-days"
+msgstr ""
+
+msgid "previous week"
+msgstr ""
+
+msgid "previous month"
+msgstr ""
+
+msgid "previous quarter"
+msgstr ""
+
+msgid "previous half a year"
+msgstr ""
+
+msgid "previous 9 months"
+msgstr ""
+
+msgid "previous year"
+msgstr ""
+
+msgid "today"
+msgstr ""
+
+msgid "current week"
+msgstr ""
+
+msgid "current month"
+msgstr ""
+
+msgid "current quarter"
+msgstr ""
+
+msgid "current 6 months"
+msgstr ""
+
+msgid "current 9 months"
+msgstr ""
+
+msgid "current year"
+msgstr ""
+
+msgid "period from"
+msgstr ""
+
+msgid "the last"
+msgstr ""
+
+msgid "Customize columns"
+msgstr ""
+
+msgid "or"
+msgstr ""
+
+msgid "User (Show discounts available for current user)"
+msgstr ""
+
+msgid "Date (Show discounts available for current date)"
+msgstr ""
+
+msgid "Product properties (Show discounts according to product properties conditions in you discount rules)"
+msgstr ""
+
+msgid "This condition will filter the result items"
+msgstr ""
+
+msgid "Affiliate base"
+msgstr ""
+
+msgid "From this value will be calculated affiliate bonus"
+msgstr ""
+
+msgid "If product doesn't have discount"
+msgstr ""
+
+msgid "Show product price without discount"
+msgstr ""
+
+msgid "cancel"
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
+msgid "Export selected"
+msgstr ""
+
+msgid "Export all"
+msgstr ""
+
+msgid "Created"
+msgstr ""
+
+msgid "Select coupon"
+msgstr ""
+
+msgid "Coupons will be exported in CSV file. Please, don't close or update webpage"
+msgstr ""
+
+msgid "Export coupons"
+msgstr ""
+
+msgid "Storefront visibility"
+msgstr ""
+
+msgid "Rule will be active, but no one can see it in Available discounts."
+msgstr ""
+
+msgid "Show discount in available discounts, if target has shipping"
+msgstr ""
+
+msgid "By default information about rules, which contains delivery in target, doesn't display in available discounts on storefront."
+msgstr ""
+
+msgid "Bundle discount"
+msgstr ""
+
+msgid "Create a bundle from the conditions. Learn more about <a href=\"\" target=\"_blank\">bundles <i class=\"icon16 new-window\"></i></a>"
+msgstr ""
+
+msgid "Automatically remove useless coupons"
+msgstr ""
+
+msgid "Expired or coupons which reached the limit"
+msgstr ""
+
+msgid "Import coupons"
+msgstr ""
+
+msgid "Separator"
+msgstr ""
+
+msgid "Semicolon"
+msgstr ""
+
+msgid "Comma"
+msgstr ""
+
+msgid "Tab"
+msgstr ""
+
+msgid "Encoding"
+msgstr ""
+
+msgid "Choose only CSV or TXT files"
+msgstr ""
+
+msgid "Example (separator - semicolon; encoding - UTF-8)"
+msgstr ""
+
+msgid "rounding to integer"
+msgstr ""
+
+msgid "Uploading file..."
+msgstr ""
+
+msgid "Upload failed"
+msgstr ""
+
+msgid "Please don't close your browser window until process is over"
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Server error"
+msgstr ""
+
+msgid "Check discount rule or select all coupons."
+msgstr ""
+
+msgid "Not enough parameters for import"
+msgstr ""
+
+msgid "Successfully imported coupons:"
+msgstr ""
+
+msgid "Create a bundle from the conditions. Learn more about <a href=\"https://www.webasyst.com/store/plugin/shop/flexdiscount/docs/\" target=\"_blank\">bundles <i class=\"icon16 new-window\"></i></a>"
+msgstr ""
+
+msgid "Download:"
+msgstr ""
+
+msgid "with status"
+msgstr ""
+
+msgid "Select status"
+msgstr ""
+
+msgid "All statuses"
+msgstr ""
+
+msgid "Discount Formula"
+msgstr ""
+
+msgid "discount %"
+msgstr ""
+
+msgid "discount fixed value"
+msgstr ""
+
+msgid "If price with discount will be more than product price, than discount will be equal to zero."
+msgstr ""
+
+msgid "Common settings"
+msgstr ""
+
+msgid "Use this field to describe the rule for yourself. It will be shown on the page with all rules."
+msgstr ""
+
+msgid "Show rule in available discounts, if target has shipping"
+msgstr ""
+
+msgid "Use this setting if you want to use the data of deny products. E.g, you have rules on the total amount of order. Deny products can be taken into total amount."
+msgstr ""
+
+msgid "Discount settings"
+msgstr ""
+
+msgid "Maximum discount value for the rule"
+msgstr ""
+
+msgid "Discount for all products in this rule will not be more, than specified value."
+msgstr ""
+
+msgid "Affiliate settings"
+msgstr ""
+
+msgid "Affiliate bonus"
+msgstr ""
+
+msgid "Affiliate bonus base"
+msgstr ""
+
+msgid "Product affiliate bonus limit"
+msgstr ""
+
+msgid "Affiliate bonuses for every product will never be more, than specified value."
+msgstr ""
+
+msgid "Maximum affiliate bonus value for the rule"
+msgstr ""
+
+msgid "The total value of affiliate bonuses in this rule will not be more, than specified value."
+msgstr ""
+
+msgid "Ignore conditions in deny rules"
+msgstr ""
+
+msgid "You can choose what conditions to ignore in deny rules while showing available discounts"
+msgstr ""
+
+msgid "http://en.igaponov.ru/docs/120/displaying-of-available-discounts-while-using-deny-rules/"
+msgstr ""
+
+msgid "Read more"
+msgstr ""
+
+msgid "Product conditions"
+msgstr ""
+
+msgid "Product properties conditions"
+msgstr ""
+
+msgid "Cart conditions"
+msgstr ""
+
+msgid "Developer Igor Gaponov"
+msgstr ""
+
+msgid "Show rule in available discounts for products, that meets the conditions"
+msgstr ""
+
+msgid "It's recommended to enable this option, if you are using categories/sets/types/features/products as targets, your conditions are filter-conditions(<i class=\"icon16 funnel\"></i>) and you want to show information about discount in products, that meet conditions.<br>E.g, \"if category A then set discount to category B\". If you want to show information about discount rule in products from category A, enable this option"
+msgstr ""
+
+msgid "Use individual settings for this rule"
+msgstr ""
+
+msgid "common settings"
+msgstr ""
+
+msgid "Filtering options:"
+msgstr ""
+
+msgid "Choose filters, which should be used, while showing Available discounts block"
+msgstr ""
+
+msgid "Conditions:"
+msgstr ""
+
+msgid "Set discount to each bundle"
+msgstr ""
+
+msgid "Set affiliate bonus to each bundle"
+msgstr ""
+
+msgid "Total sales for period.."
+msgstr ""
+
+msgid "Total number of sales for period.."
+msgstr ""
+
+msgid "User data"
+msgstr ""
+
+msgid "By default rule will use <a href=\"%s\" class=\"s-link\" title=\"%s\">%s</a>"
+msgstr ""
+
+msgid "Show discounts according to quantitative and total values of products from categories/sets/types/features"
+msgstr ""
+
+msgid "Filtering options"
+msgstr ""
+
+msgid "List of plugins, where Flexdiscount calling should be ignored"
+msgstr ""
+
+msgid "Sometimes plugins call Flexdiscount plugin automatically, even if they do not need it. For example, when they try to work with products, order, cart or export/import."
+msgstr ""
+
+msgid "If you have problems, while using other plugins, choose them below to avoid unexpected errors and calculations."
+msgstr ""
+
+msgid "No plugins are installed."
+msgstr ""
+
+msgid "virtual and real"
+msgstr ""
+
+msgid "virtual"
+msgstr ""
+
+msgid "real"
+msgstr ""
+
+msgid "on"
+msgstr ""
+
+msgid "all stocks"
+msgstr ""
+
+msgid "Select data"
+msgstr ""
+
+msgid "all time"
+msgstr ""
+
+msgid "Product total sales for"
+msgstr ""
+
+msgid "Product total quantity of sales for"
+msgstr ""
+
+msgid "any stock"
+msgstr ""
+
+msgid "each stock"
+msgstr ""
+
+msgid "edit symbolic code"
+msgstr ""
+
+msgid "Product discount"
+msgstr ""
+
+msgid "percent"
+msgstr ""
+
+msgid "fixed value"
+msgstr ""
+
+msgid "Product discount formula"
+msgstr ""
+
+msgid "Shipping discount"
+msgstr ""
+
+msgid "% from"
+msgstr ""
+
+msgid "Shipping price"
+msgstr ""
+
+msgid "Order price"
+msgstr ""
+
+msgid "This is a shipping discount base. From that value user will get shipping discount. Total shipping discount value will never be more than shipping price."
+msgstr ""
+
+msgid "Product affiliate bonus"
+msgstr ""
+
+msgid "Product affiliate bonus base"
+msgstr ""
+
+msgid "Shipping affiliate"
+msgstr ""
+
+msgid "This is a shipping affiliate base. From that value user will get shipping affiliate. Total shipping affiliate value will never be more than shipping price."
+msgstr ""
+
+msgid "Main settings"
+msgstr ""
+
+msgid "Discount and bonus rounding"
+msgstr ""
+
+msgid "This option changes prices only once, when the page loads. For dynamic price changing use <a href=\"javascript:void()\" onclick=\"$('html,body').scrollTop($('#fl-info-discount-aff-block').offset().top)\">Information blocks (Price with discount, Product discounts)</a>"
+msgstr ""
+
+msgid "Final rules calculating"
+msgstr ""
+
+msgid "Select how to calculate discounts and bonuses between groups and rules without groups"
+msgstr ""
+
+msgid "Coupons and affiliate programm"
+msgstr ""
+
+msgid "Display additional coupon field"
+msgstr ""
+
+msgid "Add additional coupon field on the cart page."
+msgstr ""
+
+msgid "Output place of this field depends on hook <i>frontend_cart</i> in your theme template."
+msgstr ""
+
+msgid "If you want to customize output place, disable that option and use in the template <i>cart.html</i> construction"
+msgstr ""
+
+msgid "Display additional affiliate bonus block"
+msgstr ""
+
+msgid "Add additional affiliate bonus block on the cart page."
+msgstr ""
+
+msgid "Information discount and affiliate blocks"
+msgstr ""
+
+msgid "Active discounts and bonuses"
+msgstr ""
+
+msgid "This block is displayed on the cart page and contains information about discounts and bonuses, which already has user."
+msgstr ""
+
+msgid "Show active discount"
+msgstr ""
+
+msgid "Product active discounts and bonuses"
+msgstr ""
+
+msgid "This block is displayed by default on the product page and contains information about discounts and bonuses, which product has at the moment or will get, if it will be bought right now."
+msgstr ""
+
+msgid "Use custom output to display block on the catalog page, if it's necessary."
+msgstr ""
+
+msgid "If you want to customize output place, disable that option and use constructions"
+msgstr ""
+
+msgid "For product page"
+msgstr ""
+
+msgid "For catalog page"
+msgstr ""
+
+msgid "where 2 - view type (Default values 1, 2, 3, 4 or 5)"
+msgstr ""
+
+msgid "Available discounts and bonuses"
+msgstr ""
+
+msgid "This block is displayed by default on the product page and contains information about discounts and bonuses, which product can get in the future."
+msgstr ""
+
+msgid "where 2 - view type (Default values 1, 2, 3 or 4)"
+msgstr ""
+
+msgid "This block is displayed on the product page and is shown for products that meet the conditions in deny rules"
+msgstr ""
+
+msgid "where 1 - view type (Default values 1 or empty)"
+msgstr ""
+
+msgid "This block is displayed on the product page and contains information about price with discount."
+msgstr ""
+
+msgid "Display price with discount"
+msgstr ""
+
+msgid "Other settings"
+msgstr ""
+
+msgid "Discounts in customer account"
+msgstr ""
+
+msgid "You can create a page with all available discounts in customer account."
+msgstr ""
+
+msgid "Create page"
+msgstr ""
+
+msgid "Compatibility problems"
+msgstr ""
+
+msgid "Other plugins in market due to specific software architecture can have compatibility problems with Flexdiscount plugin. If you will detect this, please, don't write to plugin developer. Try first to choose that plugin below and check compatibility once more."
+msgstr ""
+
+msgid "List of plugins"
+msgstr ""
+
+msgid "Specify shipping discount (or affiliate) in discount (or affiliate) settings above."
+msgstr ""
+
+msgid "Coupon code is correct"
+msgstr ""
+
+msgid "Coupon code is incorrect"
+msgstr ""
+
+msgid "Other plugins in market due to specific software architecture can have compatibility problems with Flexdiscount plugin. If you will detect this, try first to choose that plugin below and check compatibility once more. If it doesn't help, write to plugin developer."
+msgstr ""
+
+msgid "bonus"
+msgid_plural "bonuses"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "Hide default affiliate bonus block"
+msgstr ""
+
+msgid "By default all your bonuses will be displayed in theme settings block on the cart page. You can hide that block and use \"additional affiliate bonus block\" instead."
+msgstr ""
+
+msgid "where 2 - view type (Default values 1, 2, 3, 4, 5 or 6)"
+msgstr ""
+
+msgid "By default all your bonuses will be displayed in theme affiliate block on the cart page. You can hide that block and use \"additional affiliate bonus block\" instead."
+msgstr ""
+
+msgid "(Default values 1, 2, 3, 4, 5 or 6)"
+msgstr ""
+
+msgid "to your affiliate program"
+msgstr ""
+
+msgid "You can edit affiliate block template and use helper for output in your <b><em>cart.html</em></b> template. Read more information in the article:"
+msgstr ""
+
+msgid "Affiliate program"
+msgstr ""
+
+msgid "You can edit available discounts template and use helper for output. Read more information in the article:"
+msgstr ""
+
+msgid "You can edit deny rules template and use helper for output. Read more information in the article:"
+msgstr ""
+
+msgid "You can edit customer discount page Read more information in the article:"
+msgstr ""
+
+msgid "Changing structure of discount page"
+msgstr ""
+
+msgid "You can edit price with discount template and use helper for output. Read more information in the article:"
+msgstr ""
+
+msgid "You can edit active product discounts template and use helper for output. Read more information in the article:"
+msgstr ""
+
+msgid "Product active discount an bonuses"
+msgstr ""
+
+msgid "You can edit active discounts template and use helper for output in your <b><em>cart.html</em></b> template. Read more information in the article:"
+msgstr ""
+
+msgid "CSS styles"
+msgstr ""
+
+msgid "You can customize plugin CSS styles"
+msgstr ""
+
+msgid "Output place"
+msgstr ""
+
+msgid "Inside tag &lt;head&gt;"
+msgstr ""
+
+msgid "Template hook <i>frontend_head</i>"
+msgstr ""
+
+msgid "In the footer"
+msgstr ""
+
+msgid "Template hook <i>frontend_footer</i>"
+msgstr ""
+
+msgid "Use helper"
+msgstr ""
+
+msgid "Embed this helper into your theme template"
+msgstr ""
+
+msgid "You can"
+msgstr ""
+
+msgid "customize plugin CSS styles"
+msgstr ""
+
+msgid "You can edit customer discount page. Read more information in the article:"
+msgstr ""
+
+msgid "Product active discount and bonuses"
+msgstr ""
+
+msgid "Loader icon"
+msgstr ""
+
+msgid "Informational blocks of discounts and bonuses can be dynamically updated. You can choose type of loader."
+msgstr ""
+
+msgid "Not enough symbols to create coupons"
+msgstr ""
+
+msgid "(in percents from price)"
+msgstr ""
+
+msgid "(in percents from compare price)"
+msgstr ""
+
+msgid "Log text in order history"
+msgstr ""
+
+msgid "This text will be shown in order history on admin page and in user account on the storerfront, when bonuses will applied."
+msgstr ""
+
+msgid "Show only active discounts"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "(in percents from purchase price)"
+msgstr ""
+
+msgid "(in percents from product price)"
+msgstr ""
+
+msgid "Birthday"
+msgstr ""
+
+msgid "Use currency rounding settings from the Shop"
+msgstr ""
+
+msgid "Birthday interval:"
+msgstr ""
+
+msgid "Product age"
+msgstr ""
+
+msgid "Bonus rounding"
+msgstr ""
+
+msgid "Customize product price output"
+msgstr ""
+
+msgid "You can use HTML"
+msgstr ""
+
+msgid "Use %s for price value or %s for using ruble sign"
+msgstr ""
+
+msgid "equals"
+msgstr ""
+
+msgid "This coupon will be created and assigned to the rule"
+msgstr ""
+
+msgid "This coupon will be created and assigned to the rule, if you are using \"equal\" operator"
+msgstr ""
+
+msgid "Last changing of product stocks X days ago"
+msgstr ""
+
+msgid "This coupon will be created and assigned to the rule, if you are using &quot;equal&quot; operator"
+msgstr ""
+
+msgid "increase"
+msgstr ""
+
+msgid "decrease"
+msgstr ""
+
+msgid "Last"
+msgstr ""
+
+msgid "of product stocks"
+msgstr ""
+
+msgid "days ago"
+msgstr ""
+
+msgid "Maximum number of usage per EACH user"
+msgstr ""
+
+msgid "You can edit affiliate block template and use helper for output in your <b><em>cart.html</em></b> template <span class=\"grey\">(Relevant for multi-step checkout)</span>.<br>Read more information in the article:"
+msgstr ""
+
+msgid "You can edit available discounts template and use helper for output.<br>Read more information in the article:"
+msgstr ""
+
+msgid "You can edit coupon form template and use helper or copy and paste code below to your <b><em>cart.html</em></b> template <span class=\"grey\">(Relevant for multi-step checkout)</span>."
+msgstr ""
+
+msgid "You can edit deny rules template and use helper for output.<br>Read more information in the article:"
+msgstr ""
+
+msgid "You can edit customer discount page.<br>Read more information in the article:"
+msgstr ""
+
+msgid "You can edit price with discount template and use helper for output.<br>Read more information in the article:"
+msgstr ""
+
+msgid "You can edit active product discounts template and use helper for output.<br>Read more information in the article:"
+msgstr ""
+
+msgid "You can edit active discounts template and use helper for output in your <b><em>cart.html</em></b> template <span class=\"grey\">(Relevant for multi-step checkout)</span>.<br>Read more information in the article:"
+msgstr ""
+
+msgid "Relevant for multi-step checkout"
+msgstr ""
+
+msgid "Class not found"
+msgstr ""
+
+msgid "Backend orders"
+msgstr ""
+
+msgid "Add column with discount for each product"
+msgstr ""
+
+msgid "Stock total"
+msgstr ""
+
+msgid "Product stock total"
+msgstr ""
+
+msgid "Formula"
+msgstr ""
+
+msgid "Product Field"
+msgstr ""
+
+msgid "Fill in field \"Minimal price\" on product edit page."
+msgstr ""
+
+msgid "http://en.igaponov.ru/docs/169/product-discount-limit/"
+msgstr ""
+
+msgid "Create a bundle from the conditions. Learn more about <a href=\"http://en.igaponov.ru/docs/105/bundles/\" target=\"_blank\">bundles <i class=\"icon16 new-window\"></i></a>"
+msgstr ""
+
+msgid "Dynamically update information blocks"
+msgstr ""
+
+msgid "Caching"
+msgstr ""
+
+msgid "Enable caching for discount conditions"
+msgstr ""
+
+msgid "Price with all discounts (from plugin Flexdiscount) will never be lower than specified value. Make sure that setting \"Product discount limit\" is enabled and has value \"product field\""
+msgstr ""
+
+msgid "for all skus"
+msgstr ""
+
+msgid "Change product prices"
+msgstr ""
+
+msgid "Option is not enabled"
+msgstr ""
+
+msgid "Individual rule setting for the option <a href=\"%s\" class=\"s-link\" target=\"_blank\">\"Change product data on the storefront\"</a>."
+msgstr ""
+
+msgid " You don't have any available discounts."
+msgstr ""
+
+msgid "Ignore price changing in plugins below:"
+msgstr ""
+
+msgid "show more"
+msgstr ""
+
+msgid "Hide duplicate rules with \"Product active discounts and bonuses\""
+msgstr ""
+
+msgid "if product has already had active discount, plugin will hide this rule from information block"
+msgstr ""
+
+msgid "You don't have any available discounts."
+msgstr ""
+
+msgid "Skip shop cart items processing in plugins below: (relevant for import/export plugins)"
+msgstr ""
+
+msgid "System settings"
+msgstr ""
+
+msgid "Be carefull with that settings. If you are not sure, do not change them"
+msgstr ""
+
+msgid "Profile mode"
+msgstr ""
+
+msgid "Enable profile mode to collect information about usaging of plugin hooks."
+msgstr ""
+
+msgid "Relevant for frontend. Update the necessary page and get the report in flexdiscount.profile.log"
+msgstr ""
+
+msgid "Also use cookie to enable profiling: "
+msgstr ""
+
+msgid "Depth"
+msgstr ""
+
+msgid "Add file basenames"
+msgstr ""
+
+msgid "Extended plugins reports"
+msgstr ""
+
+msgid "Extended template reports"
+msgstr ""
+
+msgid "Extended methods reports"
+msgstr ""
+
+msgid "Plugin is disabled. <a href=\"%s\">Enable it</a>"
+msgstr ""
+
+msgid "%d time"
+msgid_plural "%d times"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "%d call"
+msgid_plural "%d calls"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "Calculating"
+msgstr ""
+
+msgid "Average user rating: %s / 5"
+msgstr ""
+
+msgid "Expires:"
+msgstr ""
+
+msgid "Coupon settings"
+msgstr ""
+
+msgid "Select coupons for this promo. Orders with selected coupons will be automatically associated with this promo."
+msgstr ""
+
+msgid "Load coupons"
+msgstr ""
+
+msgid "Find coupon & add to promo"
+msgstr ""
+
+msgid "No flexdiscount coupons."
+msgstr ""
+
+msgid "Add a new rule and create a coupon"
+msgstr ""
+
+msgid "Select rules for this promo. Orders with selected rules will be automatically associated with this promo."
+msgstr ""
+
+msgid "Discount groups"
+msgstr ""
+
+msgid "All rules from the selected groups will be associated with this promo."
+msgstr ""
+
+msgid "Discount rules"
+msgstr ""
+
+msgid "All selected rules will be associated with this promo."
+msgstr ""
+
+msgid "Ungrouped rules"
+msgstr ""
+
+msgid "No flexdiscount rules."
+msgstr ""
+
+msgid "Add a new rule"
+msgstr ""
+
+msgid "Flexdiscount plugin rules"
+msgstr ""
+
+msgid "Flexdiscount plugin coupons"
+msgstr ""
+
+msgid "Select at least one discount rule or group"
+msgstr ""
+
+msgid "Select discount groups"
+msgstr ""
+
+msgid "Select discount rules"
+msgstr ""
+
+msgid "Discounts"
+msgstr ""
+
+msgid "Start typing product or SKU name"
+msgstr ""
+
+msgid "Reverse backtrace"
+msgstr ""
+
+msgid "Enable experimental hook flexdiscount_filter_items"
+msgstr ""
+
+msgid "Enter coupon code"
+msgstr ""
+
+msgid "Use original compare prices"
+msgstr ""
+
+msgid "Always recalculate discounts when editing orders"
+msgstr ""
+
+msgid "Cannot upload file. Try to upload correct CSV file"
+msgstr ""
+
+msgid "File with extension %s are allowed only."
+msgstr ""
+
+msgid "Check if user is authorized"
+msgstr ""
+
+msgid "authorized"
+msgstr ""
+
+msgid "Be careful! With this setting you cannot edit discount by yourself. Calculating will be automatically"
+msgstr ""
+
+msgid "You cannot edit discount. It will be calculated automatically after saving the order."
+msgstr ""
+
+msgid "This behaviour can be changed in Flexdiscount settings."
+msgstr ""
+
+msgid "Badge"
+msgstr ""
+
+msgid "Badge will be shown only for products, which has active discounts from the rule"
+msgstr ""
+
+msgid "Read more in <a href=\"http://en.igaponov.ru/docs/172/badges/\" target=\"_blank\">docs</a>"
+msgstr ""
+
+msgid "Use HTML. Output place and appearance depends on your theme design."
+msgstr ""
+
+msgid "Overwrite default badges"
+msgstr ""
+
+msgid "Order price with discount"
+msgstr ""
+
+msgid "Country and region"
+msgstr ""
+
+msgid "User city"
+msgstr ""
+
+msgid "Contact country and region"
+msgstr ""
+
+msgid "Select country"
+msgstr ""
+
+msgid "Select region"
+msgstr ""
+
+msgid "Read more in <a href=\"http://en.igaponov.ru/docs/173/badges/\" target=\"_blank\">docs</a>"
+msgstr ""
+
+msgid "Product params"
+msgstr ""
+
+msgid "Select product params"
+msgstr ""
+
+msgid "Use this condition only for shipping discounts."
+msgstr ""
+
+msgid "Has active coupon?"
+msgstr ""
+
+msgid "coupon is used"
+msgstr ""
+
+msgid "Read more in <a href=\"http://en.igaponov.ru/docs/177/profile/\" target=\"_blank\">docs</a>"
+msgstr ""
+
+msgid "Does affiliate used?"
+msgstr ""
+
+msgid "affiliate is used"
+msgstr ""
+
+msgid "Customer source"
+msgstr ""
+
+msgid "Discount distribution"
+msgstr ""
+
+msgid "For each product"
+msgstr ""
+
+msgid "For entire order"
+msgstr ""
+
+msgid "Select how to distribute discounts. By default, if product has personal discount, it would be connected only with him."
+msgstr ""
+
+msgid "You can depersonalize discounts by selecting the option \"For entire order\". Shop-Script will automatically sperad it."
+msgstr ""
+
+msgid "Select source"
+msgstr ""
+
+msgid "Maximum number of cached products"
+msgstr ""
+
+msgid "Plugin caches frontend products to get their features, category products, stock information."
+msgstr ""
+
+msgid "Has active rules with discounts?"
+msgstr ""
+
+msgid "Has active rules with affiliates?"
+msgstr ""
+
+msgid "You can depersonalize discounts by selecting the option \"For entire order\". Shop-Script will automatically spread it."
+msgstr ""
+
+msgid "has active rules with discounts"
+msgstr ""
+
+msgid "Read more <a href=\"https://igaponov.com/docs/179/how-works-conditions-has-active-rules/\" target=\"_blank\">How it works</a>"
+msgstr ""
+
+msgid "has active rules with affiliates"
+msgstr ""
+
+msgid "every n-th cheapest products (in favor of the seller)"
+msgstr ""
+
+msgid "every n-th cheapest products (in favor of the buyer)"
+msgstr ""
+
+msgid "every n-th the most expensive products (in favor of the seller)"
+msgstr ""
+
+msgid "every n-th the most expensive products (in favor of the buyer)"
+msgstr ""
+
+msgid "(in favor of the seller)"
+msgstr ""
+
+msgid "(in favor of the buyer)"
+msgstr ""
+
+msgid "Use converting dimensions for shipping plugins"
+msgstr ""
+
+msgid "Disable that option, if you have problems with discounts for shipping plugins. For some plugins it may helps. Option can disable method shopShipping::convertItemsDimensions"
+msgstr ""
+
+msgid "Option is not enabled. You can change it on the <a href=\"%s\" title=\"Settings\">settings page</a>."
+msgstr ""
+
+msgid "Cache backend calculations"
+msgstr ""
+
+msgid "Cache the results of backend discount calculations in hook order_calculate_discount"
+msgstr ""
+
+msgid "If the any changing of product stocks for period.."
+msgstr ""
+
+msgid "If there any"
+msgstr ""
+
+msgid "among"
+msgstr ""
+
+msgid "product prices"
+msgstr ""
+
+msgid "compare prices"
+msgstr ""
+
+msgid "n-th product and all subsequent products following by n-product (descending prices)"
+msgstr ""
+
+msgid "th product and all subsequent products following by n-product (descending prices)"
+msgstr ""
+
+msgid "Always show rule in active discounts"
+msgstr ""
+
+msgid "The rule will be shown in any case whether it has a discount or not"
+msgstr ""
+
+msgid "Specify the parameters of an abstract product"
+msgstr ""
+
+msgid "Plugin creates an abstract product and checks whether discounts will be applied for it. If there are, then he considers these discounts active."
+msgstr ""
+
+msgid "Make sure that your abstract product meets rules conditions."
+msgstr ""
+
+msgid "\"Template hook                    <i>frontend_head</i>"
+msgstr ""
+
+msgid "\"Template hook                    <i>frontend_footer</i>"
+msgstr ""
+
+msgid "Discount (from plugin Flexdiscount) will be applied, if you will check the type of the discount \"Product field\" in the plugin rule"
+msgstr ""
+
+msgid "Affiliate (from plugin Flexdiscount) will be applied, if you will check the type of the affiliate \"Product field\" in the plugin rule"
+msgstr ""
+
+msgid "Product field \"Discount\""
+msgstr ""
+
+msgid "Fill in field \"Discount\" on the product edit page."
+msgstr ""
+
+msgid "Product field \"Affiliate\""
+msgstr ""
+
+msgid "Fill in field \"Affiliate\" on the product edit page."
+msgstr ""
+
+msgid "Plugin creates an abstract product and checks whether discounts will be applied for it. If there are, then he considers these discounts are active and shows them on the account page."
+msgstr ""
+
+msgid "Discount (from plugin Flexdiscount) will be applied, if you will select the type of the discount \"Product field\" in the plugin rule"
+msgstr ""
+
+msgid "Affiliate (from plugin Flexdiscount) will be applied, if you will select the type of the affiliate \"Product field\" in the plugin rule"
+msgstr ""
+
+msgid "https://en.igaponov.ru/docs/202/how-to-make-discount-affiliate/"
+msgstr ""
+
+msgid "https://igaponov.ru/docs/131/affiliate/"
+msgstr ""
+
+msgid "https://igaponov.ru/docs/138/available-discounts/"
+msgstr ""
+
+msgid "https://igaponov.ru/docs/141/deny-rules/"
+msgstr ""
+
+msgid "https://igaponov.ru/docs/147/discount-page/"
+msgstr ""
+
+msgid "https://igaponov.ru/docs/142/price-with-discount/"
+msgstr ""
+
+msgid "https://igaponov.ru/docs/139/product-active-discounts/"
+msgstr ""
+
+msgid "https://igaponov.ru/docs/140/active-discounts/"
+msgstr ""
+
+msgid "Read more in <a href=\"https://igaponov.com/docs/177/profile/\" target=\"_blank\">docs</a>"
+msgstr ""
+
+msgid "https://igaponov.com/docs/120/displaying-of-available-discounts-while-using-deny-rules/"
+msgstr ""
+
+msgid "Read more in <a href=\"https://igaponov.com/docs/173/badges/\" target=\"_blank\">docs</a>"
+msgstr ""
+
+msgid "https://igaponov.com/docs/202/how-to-make-discount-affiliate/"
+msgstr ""
+
+msgid "https://igaponov.com/docs/169/product-discount-limit/"
+msgstr ""
+
+msgid "Create a bundle from the conditions. Learn more about <a href=\"https://igaponov.com/docs/105/bundles/\" target=\"_blank\">bundles <i class=\"icon16 new-window\"></i></a>"
+msgstr ""
+
+msgid "Calculate only active skus on the catalog page"
+msgstr ""
+
+msgid "This option enables optimization on the catalog page. If you have a lot of skus in products (10 000+) and you feel that catalog page is too slow, enable it."
+msgstr ""
+
+msgid "This option only relevant if \"Change product data on the storefront\" is enabled"
+msgstr ""
+
+msgid "Enable setting <a href=\"%s\" title=\"Settings\">\"Change product data on the storefront\"</a>."
+msgstr ""
+
+msgid "Change product data on the storefront"
+msgstr ""

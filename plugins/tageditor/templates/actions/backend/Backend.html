@@ -1,0 +1,141 @@
+{if $tags_exist && $tags || $is_ajax}
+    {capture name="tags"}
+        {foreach $tags as $tag}
+            <span
+                class="tag{if !$tag.count} empty{/if}"
+                data-id="{$tag.id}"
+                data-name="{$tag.name|escape}"
+                data-url="{$tag.name|escape:'url'}"
+                data-count="{$tag.count}"
+                {if !$tag.count} title="[`No products`]"{/if}>
+                    {if strlen($tag.name)}<span class="name">{$tag.name|escape}</span>{/if}
+                    <span class="delete">&times;</span>
+            </span>
+        {/foreach}
+    {/capture}
+{/if}
+
+{if $is_ajax}
+    {$smarty.capture.tags}
+{else}
+    <div class="tageditor">
+        <div class="block sidebar right250px">
+            <ul class="tag-actions menu-v">
+                {if $wa->user()->isAdmin('shop')}
+                    <li>
+                        <a href="?action=plugins#/tageditor/" class="settings-link"><i class="icon16 settings"></i>[`Settings`]</a>
+                    </li>
+                {/if}
+                {if $tags_exist}
+                    <li>
+                        <a href="" class="tageditor-update-index-link"><i class="icon16 update"></i>[`Update tag index for cloud`]</a>
+                    </li>
+                    {if $wa->user()->isAdmin('shop')}
+                        <li>
+                            <a href="" class="tageditor-update-urls-link"><i class="icon16 folders"></i>[`Generate tag URLs`]</a>
+                        </li>
+                    {/if}
+                    <li>
+                        <a href="" class="tageditor-delete-all-empty-link"><i class="icon16 delete-bw"></i>[`Delete all empty tags`]</a>
+                    </li>
+                    {if $wa->user()->isAdmin('shop')}
+                        <li>
+                            <a href="" class="tageditor-delete-all-link"><i class="icon16 delete"></i>[`Delete all tags`]</a>
+                        </li>
+                    {/if}
+                {/if}
+            </ul>
+        </div>
+        
+        <div class="block align-center content right250px">
+            <h1 class="no-bold block double-padded">[`Tag editor`]</h1>
+    
+            {if $tags_exist}
+                <div class="search-container block">
+                    <input type="search" placeholder="[`Type here to find a tag`]" id="tageditor-search"{if $tags_exist && !$tags} class="tageditor-search-autocomplete"{/if}>
+                </div>
+                
+                <div class="tags-container block">
+                    {if $tags}
+                        {$smarty.capture.tags}
+                    {else}
+                        <p class="hint bold" id="tageditor-notice-too-many-tags">{sprintf(_wp('You have too many tags (over %u) to show them all at once.'), $tag_limit)}<br>
+                            [`Type in the search field to find a tag you need.`]</p>
+                    {/if}
+                </div>
+            {/if}
+            
+            <div class="block gray{if $tags_exist} hidden{/if}" id="tageditor-notice-no-tags">[`No tags to edit.`]</div>
+        </div>
+        
+        {* TEMPLATES *}
+        
+        <div class="tageditor-tag-dialog-template hidden">
+            <div class="dialog-content">
+                <i class="icon16 loading"></i>
+            </div>
+            <div class="dialog-buttons">
+                <input type="submit" class="button green" value="[`Save`]">
+                <a href="" class="cancel">[`cancel`]</a>
+                <span class="red tageditor-error margin-left"></span>
+                <div class="float-right">
+                    <div class="tageditor-tag-dialog-delete" style="display: inline-block; opacity: 0;">
+                        <a href="" class="button red tageditor-tag-dialog-delete-button">[`Delete tag`]</a>
+                    </div>
+                    <div class="tageditor-tag-dialog-delete-confirm" style="padding-left: 20px; display: inline-block; opacity: 0;">
+                        <a href="" class="button red tageditor-tag-dialog-delete-button-confirm">[`Do delete this tag from all products`]</a>
+                        <a href="" class="tageditor-tag-dialog-delete-button-cancel">[`Do not delete tag`]</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="tageditor-tag-index-update-dialog-template hidden">
+            <div class="dialog-content">
+                <h1>[`Tag index update`]</h1>
+                <div class="tageditor-tag-index-update-progressbar" style=" margin-top: 20px;">
+                    <div class="progressbar blue float-left" style="width: 70%;">
+                        <div class="progressbar-outer">
+                            <div class="progressbar-inner" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <img class="tageditor-tag-index-update-dialog-loading hidden" style="float:left; margin-top:8px;" src="{$wa_url}wa-content/img/loading32.gif" />
+                    <div class="clear"></div>
+                    <span class="tageditor-tag-index-update-dialog-hint hidden">
+                        <span class="progressbar-hint">[`Expecting response from server...`]</span>
+                        <span class="progressbar-description"></span>
+                        <em class="hint">[`Please don't close your browser window until data update is completed.`]</em>
+                    </span>
+                    <br clear="left">
+                    <em class="errormsg"></em>
+                </div>
+            </div>
+            <div class="dialog-buttons">
+                <input type="submit" class="button green" value="[`Update`]">
+                <a href="" class="cancel">[`cancel`]</a>
+            </div>
+        </div>
+        
+        <div class="tageditor-tag-urls-update-dialog-template hidden">
+            <div class="dialog-content">
+                <h1>[`Generate tag URLs`]</h1>
+                <div class="fields">
+                    <div class="field">
+                        <div class="name">[`Delete manually saved URLs`]</div>
+                        <div class="value">
+                            <label><input type="checkbox" name="ignore_custom_urls" value="1"></label><br>
+                            <span class="hint">[`Tag URLs that you might have entered manually in tag properties will be lost and replaced by URLs automatically generated from tag names.`]<br>
+                                [`Do not enable this option if you want to preserve manually saved URLs and to automatically generate them only for tags with no custom URLs.`]</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dialog-buttons">
+                <div>
+                    <input type="submit" class="button green" value="[`Generate`]">
+                    <a href="" class="cancel">[`cancel`]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{/if}

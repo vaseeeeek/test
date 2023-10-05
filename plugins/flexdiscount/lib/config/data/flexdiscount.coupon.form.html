@@ -1,0 +1,14 @@
+{literal}
+
+{if $wa->shop && class_exists('shopFlexdiscountPlugin') && shopFlexdiscountPlugin::isEnabled()}
+    <div class="flexdiscount-form">
+        <input type="text" placeholder="[`Coupon code`]" class="flexdiscount-coupon-code wa-input">
+        <input type="submit" class="flexdiscount-submit-button wa-button gray" value="[`Apply`]">
+        <div class="flexdiscount-coup-del-block">
+            <a href="#" title="[`delete coupon`]" class="flexdiscount-coupon-delete">[`delete coupon`]</a>
+        </div>
+        <div class="flexdiscount-coup-result"></div>
+    </div>
+{/if}
+
+{/literal}

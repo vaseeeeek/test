@@ -1,0 +1,125 @@
+{if empty($view_type)}
+{$view_type = 'view'}
+{/if}
+<div{if $view_type == 'view'} class="rule"{/if} data-view-type="{$view_type}">
+	{if $view_type == 'edit'}
+	<input name="id" type="hidden" value="{$rule.id}"/>
+	{/if}
+	
+	<div class="condition-group {$rule.condition_mode}">
+		{if in_array($view_type, ['copy', 'edit'])}
+		<ul class="menu-h condition-mode">
+			<input name="mode[-1]" type="hidden" value="{$rule.condition_mode}"/>
+			<li{if $rule.condition_mode == 'and'} class="selected"{/if}>
+				<a href="#" data-mode="and">[`All conditions are met`]</a>
+			</li>
+			<li{if $rule.condition_mode == 'or'} class="selected"{/if}>
+				<a href="#" data-mode="or">Хотя бы одно условие выполнено</a>
+			</li>
+		</ul>
+		{else}
+		<div class="condition-mode">
+			{if $rule.condition_mode == 'and'}
+			[`All conditions are met`]
+			{else}
+			[`At least one condition is met`]
+			{/if}
+		</div>
+		{/if}
+		
+		<div class="conditions">
+			<table class="conditions-table">
+				{$i = 0}
+				{foreach $rule.conditions as $condition}
+				<tr class="condition{if $view_type == 'copy'} new{/if}" data-id="{$condition.id}">
+					<td class="mode"></td>
+					<td class="value">
+						{if $condition.field == 'group'}
+						<div class="condition-group {$condition.value.mode}" data-group="{$i}">
+							{if in_array($view_type, ['copy', 'edit'])}
+							<ul class="menu-h condition-mode">
+								<input name="mode[{$i}]" type="hidden" value="{$condition.value.mode}"/>
+								<li{if $condition.value.mode == 'and'} class="selected"{/if}>
+									<a href="#" data-mode="and">[`All conditions are met`]</a>
+								</li>
+								<li{if $condition.value.mode == 'or'} class="selected"{/if}>
+									<a href="#" data-mode="or">[`At least one condition is met`]</a>
+								</li>
+							</ul>
+							{else}
+							<div class="condition-mode">
+								{if $condition.value.mode == 'and'}
+								[`All conditions are met`]
+								{else}
+								[`At least one condition is met`]
+								{/if}
+							</div>
+							{/if}
+							
+							<div class="conditions">
+								<table class="conditions-table">
+									{$n = 0}
+									{foreach $condition.value.conditions as $group_condition}
+									<tr class="condition in-group{if $view_type == 'copy'} new{/if}" data-id="{$n}">
+										<td class="mode"></td>
+										<td class="value">
+											{include './RuleCondition.html' i=$i n=$n view_type=$view_type condition=$group_condition in_group=$condition.value.id}
+										</td>
+										{if in_array($view_type, ['copy', 'edit'])}
+										<td class="remove"><span><a href="#"><i class="icon16 delete"></i></a></span></td>
+										{else}
+										<td class="remove"></td>
+										{/if}
+									</tr>
+									<tr class="delimiter"><td colspan="3"></td></tr>
+									{$n = $n+1}
+									{/foreach}
+									{if in_array($view_type, ['copy', 'edit'])}
+									<tr class="add-condition">
+										<td colspan="3">
+											<a href="#" class="inline-link bold">
+												<i class="icon16 add"></i><b><i><strong>[`Add condition`]</strong></i></b>
+											</a>
+										</td>
+									</tr>
+									{/if}
+								</table>
+							</div>
+						</div>
+						{if in_array($view_type, ['copy', 'edit'])}
+						<span class="field-output">
+							<input type="hidden" value="group:{$i}" name="conditions[{$i}][control]">
+						</span>
+						{/if}
+						{else}
+						{include './RuleCondition.html' i=$i view_type=$view_type condition=$condition}
+						{/if}
+					</td>
+					{if in_array($view_type, ['copy', 'edit'])}
+					<td class="remove"><span><a href="#"><i class="icon16 delete"></i></a></span></td>
+					{else}
+					<td class="remove"></td>
+					{/if}
+				</tr>
+				<tr class="delimiter"><td colspan="3"></td></tr>
+				{$i = $i+1}
+				{/foreach}
+				{if in_array($view_type, ['copy', 'edit'])}
+				<tr class="add-condition">
+					<td colspan="3">
+						<a href="#" class="inline-link bold">
+							<i class="icon16 add"></i><b><i><strong>[`Add condition`]</strong></i></b>
+						</a>
+					</td>
+				</tr>
+				{/if}
+			</table>
+		</div>
+	</div>
+	
+	{if $view_type == 'edit'}
+	<p style="margin-top: 10px;">
+		[`After saving the rule will be edited and selected for the selected price type.`]
+	</p>
+	{/if}
+</div>

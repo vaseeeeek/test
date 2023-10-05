@@ -1,0 +1,611 @@
+<form class="seoratings-backend__form" id="seoratings-category-edit-form">
+  <nav id="seoratings-nav-top"></nav>
+  <div class="seoratings-backend__main">
+    <div class="seoratings-backend__main--rating">
+      <section class="seoratings-backend__group" data-js="fold__section">
+        <div class="seoratings-backend__title--group -active" data-js="fold__title">
+          Основные настройки
+          {{#if id}}
+            <div class="seoratings-backend__field--id seoratings-backend__field--product-id">
+              <div class="seoratings-backend__span--id">{{id}}</div>
+            </div>
+          {{/if}}
+        </div>
+        <div class="seoratings-backend__content--group" data-js="fold__content" style="display: block;">
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">Опубликован</div>
+            <div class="seoratings-backend__control">
+              <input id="published" class="seoratings-backend__input--toggle" name="published" {{#if published}}checked{{/if}} type="checkbox" value="1" />
+              <label class="seoratings-backend__field--toggle" for="published"></label>
+              <div class="seoratings-backend__hint--toggle">
+<!--                Рейтинг будет скрыт из списка доступных рейтингов,-->
+<!--                но будет доступен по прямой ссылке и из ссылок-->
+<!--                генерируемых шаблоном (базовый рейтинг, связанный рейтинг)-->
+              </div>
+            </div>
+          </div>
+
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">Заголовок рейтинга</div>
+            <div class="seoratings-backend__control">
+              <input type="text" class="seoratings-backend__input--text" name="title" value="{{#if title}}{{title}}{{/if}}">
+            </div>
+          </div>
+
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">URL</div>
+            <div class="seoratings-backend__control">
+              <input type="text" class="seoratings-backend__input--text" name="url" value="{{#if url}}{{url}}{{/if}}">
+              <div class="seoratings-backend__hint seoratings-backend__hint--frontend" style="margin-left: 0;">
+                {{#each frontend_urls}}
+                  <a class="seoratings-backend__link--frontend" href="{{this.url}}{{../url}}/" target="_blank">{{this.url}}{{../url}}</a>
+                {{/each}}
+              </div>
+            </div>
+          </div>
+
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              Тип рейтинга
+              <span class="seoratings-backend__hint"></span>
+            </div>
+            <div class="seoratings-backend__control">
+              <select class="seoratings-backend__select" name="type">
+                {{#select type}}
+                  <option value="product">Товар</option>
+                  <option value="set">Список</option>
+                  <!--                  <option value="entity">Сущность</option>-->
+                {{/select}}
+              </select>
+            </div>
+          </div>
+
+          <div class="seoratings-backend__field" data-js="set_id_select" {{#ifNotEquals type "set"}}style="display: none;"{{/ifNotEquals}}>
+            <div class="seoratings-backend__caption">
+              Выбрать список товаров
+              <span class="seoratings-backend__hint">Стандартный функционал Shop-Script</span>
+            </div>
+            <div class="seoratings-backend__control">
+              <select class="seoratings-backend__select" name="set_id">
+                {{#select set_id}}
+                  <option value="">Не выбран</option>
+                  {{#each sets}}
+                    <option value="{{this.id}}">{{this.name}}</option>
+                  {{/each}}
+                {{/select}}
+              </select>
+            </div>
+          </div>
+
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              Связанные рейтинги
+              <span class="seoratings-backend__hint">Доступен множественный выбор</span>
+            </div>
+            <div class="seoratings-backend__control">
+              <span class="seoratings-backend__hint seoratings-backend__hint--pre">
+                <a class="seoratings-backend__link--simple" data-js-for="related_ratings">Очистить список</a>
+              </span>
+              <select class="seoratings-backend__select--multiple" name="related_ratings" multiple>
+                {{#selectMultiple related_ratings}}
+                  {{#each ratings}}
+                    <option value="{{this.id}}">{{this.title}}</option>
+                  {{/each}}
+                {{/selectMultiple}}
+              </select>
+            </div>
+          </div>
+
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              Базовый рейтинг
+              <span class="seoratings-backend__hint">Для рассчета сдвига позиций</span>
+            </div>
+            <div class="seoratings-backend__control">
+              <select class="seoratings-backend__select--multiple" name="base_rating" data-limit="1">
+                {{#select base_rating}}
+                  <option value="">Не выбран</option>
+                  {{#each ratings}}
+                    <option value="{{this.id}}">{{this.title}}</option>
+                  {{/each}}
+                {{/select}}
+              </select>
+            </div>
+          </div>
+
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              Обратный рейтинг
+              <span class="seoratings-backend__hint">1...[n] или [n]...1</span>
+            </div>
+            <div class="seoratings-backend__control">
+              <input id="reverse" class="seoratings-backend__input--toggle" name="reverse" {{#if reverse}}checked{{/if}} type="checkbox" value="1" />
+              <label class="seoratings-backend__field--toggle" for="reverse">
+                <span></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              Приоритетный рейтинг
+              <span class="seoratings-backend__hint">
+                Для вывода из хелпера на страницах товара, если товар находится в нескольких рейтингах.
+              </span>
+            </div>
+            <div class="seoratings-backend__control">
+              <input id="primary_rating" class="seoratings-backend__input--toggle" name="primary_rating" {{#if primary_rating}}checked{{/if}} type="checkbox" value="1" />
+              <label class="seoratings-backend__field--toggle" for="primary_rating">Да</label>
+            </div>
+          </div>
+
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              Вывод в категориях
+              <span class="seoratings-backend__hint">Возможность показа рейтинга в выбранных катгориях магазина.</span>
+            </div>
+            <div class="seoratings-backend__control">
+              <span class="seoratings-backend__hint seoratings-backend__hint--pre">
+                <a class="seoratings-backend__link--simple" data-js-for="shop_categories">Очистить список</a>
+              </span>
+              <select class="seoratings-backend__select--multiple" name="shop_categories" multiple>
+                {{#selectMultiple shop_categories}}
+                  {{#each seoratings_shop_categories}}
+                    <option value="{{this.id}}">{{this.name}} id:{{this.id}}</option>
+                  {{/each}}
+                {{/selectMultiple}}
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="seoratings-backend__group" data-js="fold__section">
+        <div class="seoratings-backend__title--group" data-js="fold__title">Внешний вид</div>
+        <div class="seoratings-backend__content--group" data-js="fold__content">
+          <div class="seoratings-backend__fieldset--colors">
+            <div class="seoratings-backend__color--field">
+              <div class="seoratings-backend__color--caption">
+                Основной цвет
+                <span class="seoratings-backend__color--hint">По умолчанию <b>#333</b></span>
+              </div>
+              <div class="seoratings-backend__color--picker">
+                <div class="seoratings-backend__pciker" data-js="color-picker" data-for="primary_color"></div>
+                <input type="hidden" class="seoratings-backend__input--text" data-default="#333333" name="primary_color" value="{{#if primary_color}}{{primary_color}}{{/if}}">
+              </div>
+            </div>
+
+            <div class="seoratings-backend__color--field">
+              <div class="seoratings-backend__color--caption">
+                Цвет текста
+                <span class="seoratings-backend__color--hint">По умолчанию <b>#fff</b></span>
+              </div>
+              <div class="seoratings-backend__color--picker">
+                <div class="seoratings-backend__pciker" data-js="color-picker" data-for="primary_text_color"></div>
+                <input type="hidden" class="seoratings-backend__input--text" data-default="#FFFFFF" name="primary_text_color" value="{{#if primary_text_color}}{{primary_text_color}}{{/if}}">
+              </div>
+            </div>
+
+            <div class="seoratings-backend__color--field">
+              <div class="seoratings-backend__color--caption">
+                Цвет цены
+                <span class="seoratings-backend__color--hint">По умолчанию <b>#333</b>.</span>
+              </div>
+              <div class="seoratings-backend__color--picker">
+                <div class="seoratings-backend__pciker" data-js="color-picker" data-for="price_color"></div>
+                <input type="hidden" class="seoratings-backend__input--text" data-default="#333333" name="price_color" value="{{#if price_color}}{{price_color}}{{/if}}">
+              </div>
+            </div>
+          </div>
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">Блоки</div>
+            <div class="seoratings-backend__control">
+              <div class="seoratings-backend__control -flex">
+                <input id="price" class="seoratings-backend__input--toggle" name="price" {{#ifIsOn price}}checked{{/ifIsOn}} type="checkbox" value="1" />
+                <label class="seoratings-backend__field--toggle" for="price"></label>
+                <div class="seoratings-backend__hint--toggle">Цена</div>
+              </div>
+              <div class="seoratings-backend__control -flex">
+                <input id="price_old" class="seoratings-backend__input--toggle" name="price_old" {{#ifIsOn price_old}}checked{{/ifIsOn}} type="checkbox" value="1" />
+                <label for="price_old" class="seoratings-backend__field--toggle"></label>
+                <div class="seoratings-backend__hint--toggle">Старая цена</div>
+              </div>
+              <div class="seoratings-backend__control -flex">
+                <input id="features" class="seoratings-backend__input--toggle" name="features" {{#ifIsOn features}}checked{{/ifIsOn}} type="checkbox" value="1" />
+                <label for="features" class="seoratings-backend__field--toggle"></label>
+                <div class="seoratings-backend__hint--toggle">Характеристики</div>
+              </div>
+              <div class="seoratings-backend__control -flex">
+                <input id="rating" class="seoratings-backend__input--toggle" name="rating" {{#ifIsOn rating}}checked{{/ifIsOn}} type="checkbox" value="1" />
+                <label for="rating" class="seoratings-backend__field--toggle"></label>
+                <div class="seoratings-backend__hint--toggle">Рейтинг</div>
+              </div>
+              <div class="seoratings-backend__control -flex">
+                <input id="summary" class="seoratings-backend__input--toggle" name="summary" {{#ifIsOn summary}}checked{{/ifIsOn}} type="checkbox" value="1" />
+                <label for="summary" class="seoratings-backend__field--toggle"></label>
+                <div class="seoratings-backend__hint--toggle">Краткое описание</div>
+              </div>
+              <div class="seoratings-backend__control -flex">
+                <input id="photo" class="seoratings-backend__input--toggle" name="photo" {{#ifIsOn photo}}checked{{/ifIsOn}} type="checkbox" value="1" />
+                <label for="photo" class="seoratings-backend__field--toggle"></label>
+                <div class="seoratings-backend__hint--toggle">
+                  Фото <br>
+                  <span class="seoratings-backend__hint seoratings-backend__hint -toggle">Только для режима "Таблица"</span>
+                </div>
+              </div>
+              <div class="seoratings-backend__control -flex">
+                <input id="brand" class="seoratings-backend__input--toggle" name="brand" {{#ifIsOn brand}}checked{{/ifIsOn}} type="checkbox" value="1" />
+                <label for="brand" class="seoratings-backend__field--toggle"></label>
+                <div class="seoratings-backend__hint--toggle">Бренд</div>
+              </div>
+              <div class="seoratings-backend__control -flex">
+                <input id="category" class="seoratings-backend__input--toggle" name="category" {{#ifIsOn category}}checked{{/ifIsOn}} type="checkbox" value="1" />
+                <label for="category" class="seoratings-backend__field--toggle"></label>
+                <div class="seoratings-backend__hint--toggle">Категория</div>
+              </div>
+              <div class="seoratings-backend__control -flex">
+                <input id="stock" class="seoratings-backend__input--toggle" name="stock" {{#ifIsOn stock}}checked{{/ifIsOn}} type="checkbox" value="1" />
+                <label for="stock" class="seoratings-backend__field--toggle"></label>
+                <div class="seoratings-backend__hint--toggle">Наличие</div>
+              </div>
+              <div class="seoratings-backend__control -flex">
+                <input id="code" class="seoratings-backend__input--toggle" name="code" {{#ifIsOn code}}checked{{/ifIsOn}} type="checkbox" value="1" />
+                <label for="code" class="seoratings-backend__field--toggle"></label>
+                <div class="seoratings-backend__hint--toggle">Код товара</div>
+              </div>
+              <div class="seoratings-backend__control -flex">
+                <input id="skus" class="seoratings-backend__input--toggle" name="skus" {{#ifIsOn skus}}checked{{/ifIsOn}} type="checkbox" value="1" />
+                <label for="skus" class="seoratings-backend__field--toggle"></label>
+                <div class="seoratings-backend__hint--toggle">Артикулы</div>
+              </div>
+              <div class="seoratings-backend__control -flex">
+                <input id="advantages" class="seoratings-backend__input--toggle" name="advantages" {{#ifIsOn advantages}}checked{{/ifIsOn}} type="checkbox" value="1" />
+                <label for="advantages" class="seoratings-backend__field--toggle"></label>
+                <div class="seoratings-backend__hint--toggle">Преимущества</div>
+              </div>
+              <div class="seoratings-backend__control -flex">
+                <input id="tags" class="seoratings-backend__input--toggle" name="tags" {{#ifIsOn tags}}checked{{/ifIsOn}} type="checkbox" value="1" />
+                <label for="tags" class="seoratings-backend__field--toggle"></label>
+                <div class="seoratings-backend__hint--toggle">Теги</div>
+              </div>
+              <div class="seoratings-backend__control -flex">
+                <input id="sibling_positions" class="seoratings-backend__input--toggle" name="sibling_positions" {{#ifIsOn sibling_positions}}checked{{/ifIsOn}} type="checkbox" value="1" />
+                <label for="sibling_positions" class="seoratings-backend__field--toggle"></label>
+                <div class="seoratings-backend__hint--toggle">Позиции в других рейтигах</div>
+              </div>
+              <div class="seoratings-backend__control -flex">
+                <input id="position_shift" class="seoratings-backend__input--toggle" name="position_shift" {{#ifIsOn position_shift}}checked{{/ifIsOn}} type="checkbox" value="1" />
+                <label class="seoratings-backend__field--toggle" for="position_shift"></label>
+                <div class="seoratings-backend__hint--toggle">
+                  Показывать свдиг позиций. <br>
+                  <span class="seoratings-backend__hint seoratings-backend__hint -toggle">Необходимо выбрать Базовый рейтинг</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">Шаблон</div>
+            <div class="seoratings-backend__control">
+              <select class="seoratings-backend__select" name="template_id">
+                {{#select template_id}}
+                  <option disabled>Стандартные шаблоны:</option>
+                  {{#each seoratings_standard_templates}}
+                    <option value="{{this.id}}">{{this.name}}</option>
+                  {{/each}}
+                  <option disabled>Созданные пользователем:</option>
+                  {{#each seoratings_templates}}
+                    <option value="{{this.id}}">{{this.name}}</option>
+                  {{/each}}
+                {{/select}}
+              </select>
+              <div class="seoratings-backend__hint">
+                <a data-js="handle__rating--templates">Добавить шаблон?</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              Наличие сайдбара
+              <span class="seoratings-backend__hint">
+                Включить данную настройку при наличие бокового меню на странице топов (сайдбара), если отображение строк в макете недостаточно компактны.
+              </span>
+            </div>
+            <div class="seoratings-backend__control">
+              <input id="has_sidebar" class="seoratings-backend__input--toggle" name="has_sidebar" {{#if has_sidebar}}checked{{/if}} type="checkbox" value="1" />
+              <label class="seoratings-backend__field--toggle" for="has_sidebar"></label>
+            </div>
+          </div>
+
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              Скрывать описание если символов больше чем указано
+              <span class="seoratings-backend__hint">Настройка работает как триггер. Если оставить поле пустым, то описание будет выведено полностью</span>
+            </div>
+            <div class="seoratings-backend__control">
+              <input type="text" class="seoratings-backend__input--text" name="description_length" value="{{#if description_length}}{{description_length}}{{/if}}">
+            </div>
+          </div>
+
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              Размер изображения
+              <span class="seoratings-backend__hint">По умолчанию <b>520</b></span>
+            </div>
+            <div class="seoratings-backend__control">
+              <input type="text" class="seoratings-backend__input--text" name="img_size" value="{{#if img_size}}{{img_size}}{{/if}}">
+            </div>
+          </div>
+
+          <!--<div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+            Сжатые характеристики
+            <span class="seoratings-backend__hint">Сделать вывод характеристик более компактными</span>
+            </div>
+            <div class="seoratings-backend__control">
+            <label class="seoratings-backend__field--checkbox">
+            <input class="seoratings-backend__input--toggle" name="squeeze_features" {{#if squeeze_features}}checked{{/if}} type="checkbox" value="1" />
+            <span>Сжать характеристики</span>
+            </label>
+            </div>
+            </div>-->
+        </div>
+      </section>
+
+      <section class="seoratings-backend__group" data-js="fold__section">
+        <div class="seoratings-backend__title--group" data-js="fold__title">Описание</div>
+        <div class="seoratings-backend__content--group" data-js="fold__content">
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">Дата создания</div>
+            <div class="seoratings-backend__control">
+              <input class="seoratings-backend__input--text -date" disabled name="created_at" {{#if created_at}}value="{{created_at}}"{{/if}} data-toggle="datepicker">
+              <span class="seoratings-backend__hint">
+                <a class="seoratings-backend__link--simple" data-js-datepicker-trigger-for="created_at">Выбрать дату</a> |
+                <a class="seoratings-backend__link--simple" data-js-datepicker-empty-for="created_at">Очистить</a>
+              </span>
+            </div>
+          </div>
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">Дата изменения</div>
+            <div class="seoratings-backend__control">
+              <input class="seoratings-backend__input--text -date" disabled name="updated_at" {{#if updated_at}}value="{{updated_at}}"{{/if}} data-toggle="datepicker">
+              <span class="seoratings-backend__hint">
+                <a class="seoratings-backend__link--simple" data-js-datepicker-trigger-for="updated_at">Выбрать дату</a> |
+                <a class="seoratings-backend__link--simple" data-js-datepicker-empty-for="updated_at">Очистить</a>
+              </span>
+            </div>
+          </div>
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              Краткое описание
+              <span class="seoratings-backend__hint">Под заголовком рейтинга</span>
+            </div>
+            <div class="seoratings-backend__control">
+              <textarea class="seoratings-backend__input--textarea" name="short_description">{{#if short_description}}{{short_description}}{{/if}}</textarea>
+            </div>
+          </div>
+
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              SEO - описание
+              <span class="seoratings-backend__hint">После вывода товаров</span>
+            </div>
+            <div class="seoratings-backend__control">
+              <textarea class="seoratings-backend__input--textarea" name="description">{{#if description}}{{description}}{{/if}}</textarea>
+            </div>
+          </div>
+
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              Описание рейтинга
+              <span class="seoratings-backend__hint">На странице списка рейтингов</span>
+            </div>
+            <div class="seoratings-backend__control">
+              <textarea class="seoratings-backend__input--textarea" name="list_description">{{#if list_description}}{{list_description}}{{/if}}</textarea>
+            </div>
+          </div>
+          {{#if id}}
+            <div class="seoratings-backend__field">
+              <div class="seoratings-backend__caption">
+                Изображение рейтинга
+                <span class="seoratings-backend__hint">На странице списка рейтингов</span>
+                <span class="seoratings-backend__hint" data-js="image-upload-status"></span>
+              </div>
+              <div class="seoratings-backend__control">
+                {{#if image_thumb}}
+                  <div class="seoratings-backend__control--image">
+                    <img data-js="image-thumb-element" class="seoratings-backend__image--thumb" src="{{image_thumb}}" alt="Изображение рейтинга"/>
+                  </div>
+                {{/if}}
+                <input type="file" id="image" name="image" />
+                <span class="seoratings-backend__hint">
+                  <a class="seoratings-backend__link--simple" data-js="image-upload">Загрузить</a> |
+                  <a class="seoratings-backend__link--simple" data-js="image-clear">Удалить</a>
+                </span>
+              </div>
+            </div>
+          {{/if}}
+        </div>
+      </section>
+
+      <section class="seoratings-backend__group" data-js="fold__section">
+        <div class="seoratings-backend__title--group" data-js="fold__title">Фильтр</div>
+        <div class="seoratings-backend__content--group" data-js="fold__content">
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              Включить фильтр
+              <span class="seoratings-backend__hint">
+              </span>
+            </div>
+            <div class="seoratings-backend__control">
+              <input id="filter" class="seoratings-backend__input--toggle" name="filter" {{#if filter}}checked{{/if}} type="checkbox" value="1" />
+              <label class="seoratings-backend__field--toggle" for="filter"></label>
+            </div>
+          </div>
+
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              Поля фильтра
+              <span class="seoratings-backend__hint">Доступен множественный выбор</span>
+            </div>
+            <div class="seoratings-backend__control">
+              <span class="seoratings-backend__hint seoratings-backend__hint--pre">
+                <a class="seoratings-backend__link--simple" data-js-for="filter_codes">Очистить список</a>
+              </span>
+              <select class="seoratings-backend__select--multiple" name="filter_codes" multiple>
+                {{#selectMultiple filter_codes}}
+                  {{#each seoratings_features}}
+                    <option value="{{this.code}}">{{this.name}}</option>
+                  {{/each}}
+                {{/selectMultiple}}
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="seoratings-backend__group" data-js="fold__section">
+        <div class="seoratings-backend__title--group" data-js="fold__title">Интеграция с плагинами</div>
+        <div class="seoratings-backend__content--group" data-js="fold__content">
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              Заголовок артикулов товаров
+              <span class="seoratings-backend__hint">По умолчанию <b>Модификации</b></span>
+            </div>
+            <div class="seoratings-backend__control">
+              <input type="text" class="seoratings-backend__input--text" name="heading_skus" value="{{#if heading_skus}}{{heading_skus}}{{/if}}">
+            </div>
+          </div>
+
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              Характеристика бренда
+              <span class="seoratings-backend__hint">По умолчанию <b>brend</b></span>
+            </div>
+            <div class="seoratings-backend__control">
+              <select class="seoratings-backend__select" name="brand_feature_name">
+                {{#select brand_feature_name}}
+                  <option value="brend">По умолчанию</option>
+                  {{#each seoratings_features}}
+                    <option value="{{this.code}}">{{this.name}}</option>
+                  {{/each}}
+                {{/select}}
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="seoratings-backend__group" data-js="fold__section">
+        <div class="seoratings-backend__title--group" data-js="fold__title">Характеристики и преимущества</div>
+        <div class="seoratings-backend__content--group" data-js="fold__content">
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              Характеристики товара
+              <span class="seoratings-backend__hint">Доступен множественный выбор</span>
+            </div>
+            <div class="seoratings-backend__control">
+              <span class="seoratings-backend__hint seoratings-backend__hint--pre">
+                <a class="seoratings-backend__link--simple" data-js-for="feature_codes">Очистить список</a>
+              </span>
+              <select class="seoratings-backend__select--multiple" name="feature_codes" multiple>
+                {{#selectMultiple feature_codes}}
+                  {{#each seoratings_features}}
+                    <option value="{{this.code}}">{{this.name}}</option>
+                  {{/each}}
+                {{/selectMultiple}}
+              </select>
+            </div>
+          </div>
+
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              Заголовки характеристик
+              <span class="seoratings-backend__hint">Переименование заголовков характеристик</span>
+            </div>
+            <div class="seoratings-backend__control">
+              <textarea class="seoratings-backend__input--textarea" name="feature_titles">{{#if feature_titles}}{{feature_titles}}{{/if}}</textarea>
+              <span class="seoratings-backend__hint">По одной на каждой строке в формате id=заголовок</span>
+            </div>
+          </div>
+
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              Преимущества
+              <span class="seoratings-backend__hint">Код характеристики для вывода преимуществ товара</span>
+            </div>
+            <div class="seoratings-backend__control">
+              <select class="seoratings-backend__select" name="pros_feature_name">
+                {{#select pros_feature_name}}
+                  <option></option>
+                  {{#each seoratings_features}}
+                    <option value="{{this.code}}">{{this.name}}</option>
+                  {{/each}}
+                {{/select}}
+              </select>
+            </div>
+          </div>
+
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              Недостатки
+              <span class="seoratings-backend__hint">Код характеристики для вывода недостатков товара</span>
+            </div>
+            <div class="seoratings-backend__control">
+              <select class="seoratings-backend__select" name="cons_feature_name">
+                {{#select cons_feature_name}}
+                  <option></option>
+                  {{#each seoratings_features}}
+                    <option value="{{this.code}}">{{this.name}}</option>
+                  {{/each}}
+                {{/select}}
+              </select>
+            </div>
+          </div>
+
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              Скрыть блок преимуществ
+              <span class="seoratings-backend__hint">Блок преимуществ будет скрыт и доступен по клику</span>
+            </div>
+            <div class="seoratings-backend__control">
+              <input id="advantages_fold" class="seoratings-backend__input--toggle" name="advantages_fold" {{#if advantages_fold}}checked{{/if}} type="checkbox" value="1" />
+              <label class="seoratings-backend__field--toggle" for="advantages_fold"></label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="seoratings-backend__group" data-js="fold__section">
+        <div class="seoratings-backend__title--group" data-js="fold__title">SEO</div>
+        <div class="seoratings-backend__content--group" data-js="fold__content">
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">
+              Title
+              <span class="seoratings-backend__hint">По умолчанию название рейтинга</span>
+            </div>
+            <div class="seoratings-backend__control">
+              <textarea class="seoratings-backend__input--textarea" name="meta_title">{{#if meta_title}}{{meta_title}}{{/if}}</textarea>
+            </div>
+          </div>
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">Description</div>
+            <div class="seoratings-backend__control">
+              <textarea class="seoratings-backend__input--textarea" name="meta_description">{{#if meta_description}}{{meta_description}}{{/if}}</textarea>
+            </div>
+          </div>
+          <div class="seoratings-backend__field">
+            <div class="seoratings-backend__caption">Keywords</div>
+            <div class="seoratings-backend__control">
+              <textarea class="seoratings-backend__input--textarea" name="meta_keywords">{{#if meta_keywords}}{{meta_keywords}}{{/if}}</textarea>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="seoratings-backend__view--actions">
+      <a class="seoratings-backend__button--save" data-js="save">Сохранить</a>
+    </div>
+  </div>
+</form>

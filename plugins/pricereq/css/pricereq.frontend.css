@@ -1,0 +1,30 @@
+.price-req-bg { background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5); cursor: pointer; left: 0; position: absolute; top: 0; width: 100%; z-index: 999; }
+
+.price-req-form { background: none repeat scroll 0 0 #fff; height: 300px; left: 50%; margin-left: -200px; position: absolute; width: 400px; z-index: 99999; }
+
+.price-req-header { background: none repeat scroll 0 0 rgba(33, 166, 222, 1); color: #fff; font-size: 24px; height: 40px; line-height: 40px; text-align: center; width: 100%; }
+.price-req-header #price-req-close-x { box-shadow: -1px 0 0 rgba(166, 166, 166, 1); cursor: pointer; position: absolute; right: 0; width: 40px; }
+
+.price-req-input { text-align: center; width: 100%; }
+.price-req-input input[type="text"] { background: none repeat scroll 0 0 rgba(225, 245, 245, 0.3); border: 1px solid rgba(166, 166, 166, 1); font-size: 16px; height: 24px; margin: 30px 0 0; padding: 3px 0; text-align: center; width: 300px; }
+.price-req-input input[type="text"].price-req-inp-err { border: 1px solid rgba(222, 77, 44, 1); }
+.price-req-input textarea { background: none repeat scroll 0 0 rgba(225, 245, 245, 0.3); border: 1px solid rgba(166, 166, 166, 1); font-size: 16px; height: 72px; margin: 30px 0 0; padding: 3px 0; resize: none; text-align: center; width: 300px; }
+.price-req-input input[type="submit"] { background: none repeat scroll 0 0 rgba(33, 166, 222, 1); border: 0 none; color: #fff; cursor: pointer; font-size: 20px; height: 34px; margin: 40px 0 0; padding: 3px 0; width: 300px; }
+.price-req-error { color: rgba(222, 77, 44, 1); font-size: 18px; font-style: italic; margin: 15px 0 0; text-align: center; text-transform: uppercase; }
+.price-req-ok { color: rgba(77, 77, 77, 0.8); font-size: 24px; height: 24px; line-height: 24px; margin: 30px 0 0; text-align: center; }
+.price-req-ok.margins { margin: 60px 0 30px !important; }
+#price-req-close { border: 0 none; color: #fff; cursor: pointer; font-size: 20px; height: 34px; margin: 40px 0 0; padding: 3px 0; width: 300px; }
+
+.price-req-input input[type="text"]::-webkit-input-placeholder { color: #666; }
+.price-req-input input[type="text"]::-moz-placeholder          { color: #666; }/* Firefox 19+ */
+.price-req-input input[type="text"]:-moz-placeholder           { color: #666; }/* Firefox 18- */
+.price-req-input input[type="text"]:-ms-input-placeholder      { color: #666; }
+
+.price-req-input textarea::-webkit-input-placeholder { color: #666; }
+.price-req-input textarea::-moz-placeholder          { color: #666; }/* Firefox 19+ */
+.price-req-input textarea:-moz-placeholder           { color: #666; }/* Firefox 18- */
+.price-req-input textarea:-ms-input-placeholder      { color: #666; }
+
+.price-req-privacy-agreed-wrapper { color: #666; font-size: 12px; line-height: 14px; margin: 10px auto 0; text-align: left; width: 300px; }
+
+#price-req-submit:disabled { cursor: not-allowed; opacity: 0.66; }

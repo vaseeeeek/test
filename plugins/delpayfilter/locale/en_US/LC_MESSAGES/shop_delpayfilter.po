@@ -1,0 +1,1174 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/delpayfilter\n"
+"POT-Creation-Date: 2016-12-16 19:09+0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: shop/plugins/delpayfilter\n"
+"Language-Team: shop/plugins/delpayfilter\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"Language: en_US\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/dialog/DialogGetProducts.html:1
+msgid "Select product"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/dialog/DialogGetProducts.html:1
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/dialog/DialogGetUsers.html:1
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:5
+#: /wa-apps/shop/plugins/delpayfilter/js/delpayfilter.js:312
+msgid "close"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/dialog/DialogGetProducts.html:51
+msgid "or select the category to find product you need."
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/dialog/DialogGetProducts.html:78
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/dialog/DialogGetUsers.html:48
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:43
+msgid "Name"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/dialog/DialogGetProducts.html:79
+msgid "Price"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/dialog/DialogGetProducts.html:85
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/dialog/DialogGetProducts.html:92
+msgid "More products"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/dialog/DialogGetProducts.html:96
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/dialog/DialogGetProducts.html:100
+msgid "Products not found"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/dialog/DialogGetUsers.html:1
+msgid "Select user"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/dialog/DialogGetUsers.html:6
+msgid "All contacts"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/dialog/DialogGetUsers.html:20
+msgid "or select the category to find user you need."
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/dialog/DialogGetUsers.html:54
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/dialog/DialogGetUsers.html:62
+msgid "More users"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/dialog/DialogGetUsers.html:66
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/dialog/DialogGetUsers.html:70
+msgid "Users not found"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/dialog/DialogGetUsers.html:19
+msgid "Start typing user name or email"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:20
+msgid "Back"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:21
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/settings/Settings.html:22
+msgid "No name filter"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:23
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:5
+#: /wa-apps/shop/plugins/delpayfilter/js/delpayfilter.js:312
+msgid "Delete filter"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:23
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:7
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:311
+#: /wa-apps/shop/plugins/delpayfilter/js/delpayfilter.js:488
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterTypeHTMLBuilder.class.php:80
+msgid "delete"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:31
+msgid "Status"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:34
+msgid "Disabled"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:38
+msgid "Enabled"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:47
+msgid "Description"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:51
+msgid "Conditions"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:53
+msgid "IF"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:57
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:68
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:7
+#: /wa-apps/shop/plugins/delpayfilter/js/delpayfilter.js:309
+#: /wa-apps/shop/plugins/delpayfilter/js/delpayfilter.js:427
+msgid "Wait, please..."
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:59
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:8
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:303
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterTypeHTMLBuilder.class.php:46
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterTypeHTMLBuilder.class.php:47
+msgid "Add condition"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:62
+msgid "Then hide methods"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:67
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:10
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:103
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:182
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:211
+msgid "Shipping"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:67
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:11
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:104
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:213
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:183
+msgid "Payment"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:69
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterTypeHTMLBuilder.class.php:86
+msgid "Add target"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:74
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:75
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:12
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:68
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:142
+msgid "Product"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:74
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:13
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:64
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:138
+msgid "Category"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:74
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:13
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:65
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:139
+msgid "Category and subcategories"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:75
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:14
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:66
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:140
+msgid "Product set"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:75
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:15
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:67
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:141
+msgid "Product type"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:75
+msgid "Product features"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:76
+msgid "Cart"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:76
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:16
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:76
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:150
+msgid "Total quantity of all products"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:76
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:17
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:77
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:78
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:79
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:151
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:152
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:153
+msgid "Quantity of product"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:77
+msgid "Quantity of product from category"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:77
+msgid "Quantity of product from category and subcategories"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:78
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:18
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:81
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:155
+msgid "Quantity of products with features"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:78
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:19
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:89
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:163
+msgid "Quantity of unique items"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:79
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:20
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:90
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:164
+msgid "Order price with discount"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:80
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:21
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:91
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:165
+msgid "Total price of all products"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:80
+msgid "Total price of products from category"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:81
+msgid "Total price of products from category and subcategories"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:82
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:22
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:95
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:169
+msgid "Total price of all products with features"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:82
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:23
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:105
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:177
+msgid "Price of any product"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:83
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:24
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:106
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:178
+msgid "Price of each product"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:84
+msgid "User"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:84
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:25
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:107
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:179
+msgid "User category"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:84
+msgid "Create datetime"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:85
+msgid "Completed orders"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:85
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:26
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:110
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:184
+msgid "Total sum of all orders"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:85
+msgid "Sum of orders for period.."
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:86
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:27
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:112
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:186
+msgid "Quantity of all orders"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:86
+msgid "Quantity of orders for period.."
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:86
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:28
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:114
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:115
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:116
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:117
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:118
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:119
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:188
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:189
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:190
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:191
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:192
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:193
+msgid "Orders have product"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:87
+msgid "Orders have product for period.."
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:87
+msgid "Orders have product from category"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:88
+msgid "Orders have product from category and subcategories"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:88
+msgid "Orders have product from category for period.."
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:89
+msgid "Orders have product from category and subcategories for period.."
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:90
+msgid "Date and time"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:90
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:30
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:120
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:194
+msgid "Date"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:90
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:30
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:121
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:195
+msgid "Day of week"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:90
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:32
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:122
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:196
+msgid "Time"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:91
+msgid "Variables"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:91
+msgid "Cookie"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:91
+msgid "Session"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:93
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:32
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:128
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:203
+msgid "Storefront"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:95
+msgid "Select condition"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:97
+msgid "Add group of conditions"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:108
+msgid "Select target"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:117
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterTypeHTMLBuilder.class.php:79
+msgid "edit"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:124
+msgid "Save"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:15
+msgid "AND"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:16
+msgid "OR"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/settings/Settings.html:4
+msgid "Leave a review"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/settings/Settings.html:5
+msgid "https://www.webasyst.com/store/vendor/969712/"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/settings/Settings.html:5
+msgid "Other products of developer"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/settings/Settings.html:9
+#: /wa-apps/shop/plugins/delpayfilter/lib/config/plugin.php:7
+msgid "Delivery and payment filter"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/settings/Settings.html:12
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:33
+#: /wa-apps/shop/plugins/delpayfilter/js/delpayfilter.js:228
+msgid "Loading..."
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/settings/Settings.html:21
+msgid "Change status"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/settings/Settings.html:22
+msgid "Open filter"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/settings/Settings.html:38
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:35
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:306
+#: /wa-apps/shop/plugins/delpayfilter/js/delpayfilter.js:311
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterTypeHTMLBuilder.class.php:40
+msgid "Delete"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/settings/Settings.html:49
+msgid "Delete selected"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/settings/Settings.html:55
+msgid "Description, name"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/settings/Settings.html:56
+msgid "Hide shipping"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/settings/Settings.html:57
+msgid "Hide payment"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/settings/Settings.html:69
+msgid "You don't have any filters"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/settings/Settings.html:72
+msgid "Create filter"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:36
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:23
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:47
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:73
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:85
+msgid "equal"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:36
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:24
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:48
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:74
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:86
+msgid "not equal"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:38
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:49
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:87
+msgid "contains"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:38
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:50
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:88
+msgid "not contains"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:39
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:51
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:89
+msgid "begins with"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:40
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:60
+#: /wa-apps/shop/plugins/delpayfilter/js/delpayfilter.js:388
+#: /wa-apps/shop/plugins/delpayfilter/js/delpayfilter.js:445
+msgid "No result text"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:41
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:68
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:114
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:142
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:188
+msgid "select product"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:42
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:77
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:78
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:79
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:115
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:116
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:117
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:118
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:119
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:151
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:152
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:153
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:189
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:190
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:191
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:192
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:193
+msgid "any product"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:43
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:108
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:180
+msgid "select contact"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:45
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:111
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:113
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:115
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:118
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:119
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:185
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:187
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:189
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:192
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:193
+msgid "to"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:45
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:116
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:118
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:78
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:92
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:190
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:192
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:152
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:166
+msgid "from category"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:46
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:117
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:119
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:79
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:93
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:191
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:193
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:153
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:167
+msgid "from category and subcategories of"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:48
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:121
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:195
+msgid "Monday"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:49
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:121
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:195
+msgid "Tuesday"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:49
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:121
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:195
+msgid "Wednesday"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:51
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:121
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:195
+msgid "Thursday"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:52
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:121
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:195
+msgid "Friday"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:53
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:121
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:195
+msgid "Saturday"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:54
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:121
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:195
+msgid "Sunday"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:54
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:300
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterTypeHTMLBuilder.class.php:23
+msgid "All conditions return true"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:55
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:300
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterTypeHTMLBuilder.class.php:24
+msgid "Any of condition returns true"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:57
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:362
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterTypeHTMLBuilder.class.php:270
+msgid "HH"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:58
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:368
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterTypeHTMLBuilder.class.php:273
+msgid "MM"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:58
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:62
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:134
+msgid "Select category"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:59
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:66
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:140
+msgid "Select product set"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:60
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:67
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:141
+msgid "Select product type"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:61
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:70
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:145
+msgid "Product feature"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:62
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:71
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:82
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:96
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:145
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:156
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:170
+msgid "Select product feature"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:63
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:73
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:84
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:98
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:147
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:158
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:172
+msgid "Select feature value"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:64
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:78
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:79
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:92
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:93
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:152
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:153
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:166
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:167
+msgid "select category"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:65
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:92
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:93
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:166
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:167
+msgid "Total price of products"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:67
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:103
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:104
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:182
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:183
+msgid "equals"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:67
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:103
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:182
+msgid "Select shipping"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:68
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:104
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:183
+msgid "Select payment"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:69
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:107
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:179
+msgid "Select user category"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:71
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:108
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:180
+msgid "Contact"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:71
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:109
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:181
+msgid "Contact create datetime"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:72
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:111
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:185
+msgid "Sum of orders for period from"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:73
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:113
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:187
+msgid "Quantity of orders for period from"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:74
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:115
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:118
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:119
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:189
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:192
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:193
+msgid "for period from"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:75
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:130
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:204
+msgid "Select domain"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:76
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:131
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:205
+msgid "Select route"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:77
+#: /wa-apps/shop/plugins/delpayfilter/js/delpayfilter.js:300
+msgid "Select at least 1 filter rule"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:78
+#: /wa-apps/shop/plugins/delpayfilter/js/delpayfilter.js:313
+msgid "Do you really want to delete filter rule?"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:79
+#: /wa-apps/shop/plugins/delpayfilter/js/delpayfilter.js:411
+msgid "Do you really want to delete condition group?"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:80
+#: /wa-apps/shop/plugins/delpayfilter/js/delpayfilter.js:518
+#: /wa-apps/shop/plugins/delpayfilter/js/delpayfilter.js:528
+msgid "Something wrong"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/pagination.html:25
+#: /wa-apps/shop/plugins/delpayfilter/templates/pagination.html:28
+msgid "prev"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/pagination.html:50
+msgid "next"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:123
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:197
+msgid "$_COOKIE[\""
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:123
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:124
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:125
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:126
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:197
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:198
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:199
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:200
+msgid "\"]"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:124
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:198
+msgid "$_SESSION[\""
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:125
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:199
+msgid "$_GET[\""
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:126
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:200
+msgid "$_POST[\""
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/lib/actions/backend/shopDelpayfilterPluginBackendContactAutocomplete.controller.php:33
+#: /wa-apps/shop/plugins/delpayfilter/lib/actions/backend/shopDelpayfilterPluginBackendHandler.controller.php:119
+msgid "No name"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/lib/config/plugin.php:8
+msgid "Filters delivery and payment methods by any criteria"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:75
+msgid "Services"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:77
+msgid "Quantity of product from set"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:77
+msgid "Quantity of product from type"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:78
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:88
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:92
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:162
+msgid "Quantity of all products from category"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:78
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:89
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:93
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:163
+msgid "Quantity of all products from category and subcategories"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:78
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:90
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:94
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:164
+msgid "Quantity of all products from set"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:78
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:91
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:95
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:165
+msgid "Quantity of all products from type"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:83
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:82
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:120
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:190
+msgid "Total sum of features values"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:85
+msgid "Country"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:93
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:93
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:150
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:151
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:220
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:221
+msgid "Not isset"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/settings/Settings.html:4
+msgid "https://www.webasyst.com/store/plugin/shop/delpayfilter/reviews/"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/settings/Settings.html:21
+#: /wa-apps/shop/plugins/delpayfilter/lib/actions/backend/shopDelpayfilterPluginBackendHandler.controller.php:172
+msgid "Copy filter"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:82
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:49
+msgid "select"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:84
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:81
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:152
+msgid "Service"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:84
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:83
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:153
+msgid "Select service"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:85
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:84
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:154
+msgid "Select service variant"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:87
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:90
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:160
+msgid "from set"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:87
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:91
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:161
+msgid "from type"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:92
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:132
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:200
+msgid "Contact country"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:93
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:132
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:200
+msgid "Select country"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:51
+msgid "Error shipping text"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:54
+msgid "Keep field blank, if you want to hide shipping methods"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:58
+msgid "Error payment text"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:61
+msgid "Keep field blank, if you want to hide payment methods"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:99
+msgid "Country and region"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:67
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterTypeHTMLBuilder.class.php:271
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterTypeHTMLBuilder.class.php:328
+msgid "reset selection"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:137
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:201
+msgid "Contact country and region"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:140
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:204
+msgid "Select region"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:100
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:98
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:155
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:221
+msgid "User city"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:106
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:167
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:235
+msgid "Status of any order"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:167
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:235
+msgid "Select status"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:90
+msgid "Stock count"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:101
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:181
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:261
+msgid "User data"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/settings/Settings.html:1
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/settings/Settings.html:1
+msgid "Developer Igor Gaponov"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:88
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:163
+msgid "each sku is separate"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:89
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:164
+msgid "summarize skus"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:98
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:176
+msgid "virtual and real"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:99
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:177
+msgid "virtual"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:100
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:178
+msgid "real"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:127
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:203
+msgid "Product stock count"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:129
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:205
+msgid "on"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:130
+msgid "all stocks"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:181
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:261
+msgid "Select data"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:205
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterData.class.php:767
+msgid "all real stocks"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterData.class.php:770
+msgid "any real stock"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterData.class.php:772
+msgid "each real stock"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterData.class.php:773
+msgid "any stock"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterData.class.php:775
+msgid "each stock"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:68
+msgid "IF user not authorized"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:74
+msgid "in case of a contact with the entered email address, use the data of this contact."
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:81
+msgid "in case of a contact with the entered phone, use the data of this contact."
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:86
+msgid "For example, if at the purchase the customer is not authorized, you can check information about the orders, using entered email or the phone as the fields on which the user will be identified."
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:123
+msgid "Check if user is authorized"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:111
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:190
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:264
+msgid "authorized"
+msgstr ""
+
+#: /wa-apps/shop/plugins/delpayfilter/templates/actions/filter/Filter.html:133
+#: /wa-apps/shop/plugins/delpayfilter/templates/include.jslocale.html:112
+#: /wa-apps/shop/plugins/delpayfilter/js/condition.js:220
+#: /wa-apps/shop/plugins/delpayfilter/lib/classes/shopDelpayfilterConditions.class.php:294
+msgid "Shipping price"
+msgstr ""

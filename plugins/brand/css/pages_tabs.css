@@ -1,0 +1,49 @@
+.brand-plugin-pages {
+	margin: -10px 0 20px;
+	padding: 0;
+	list-style: none;
+}
+
+.brand-plugin-pages__item {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 10px;
+	margin-bottom: -1px;
+	border-radius: 5px;
+	transition: background-color 0.2s ease-in-out;
+}
+.brand-plugin-pages__item:hover {
+	background-color: rgba(0, 0, 0, 0.05);
+}
+.brand-plugin-pages__item_current,
+.brand-plugin-pages__item_current:hover,
+.brand-plugin-pages__item_current:link,
+.brand-plugin-pages__item_current:visited {
+	border: 1px solid #ccc;
+	background-color: #ffffff;
+}
+.brand-plugin-pages__item:not(:last-of-type) {
+	margin-right: 10px;
+}
+
+.brand-plugin-pages-item,
+.brand-plugin-pages-item:link,
+.brand-plugin-pages-item:visited {
+	display: block;
+	padding: 10px 18px;
+	font-size: 14px;
+	text-decoration: none;
+	color: #777;
+}
+
+.brand-plugin-pages-item_current,
+.brand-plugin-pages-item:hover {
+	color: #333;
+}
+
+.brand-plugin-pages-item__name {
+}
+
+.brand-plugin-pages-item__count {
+	margin-left: 4px;
+}

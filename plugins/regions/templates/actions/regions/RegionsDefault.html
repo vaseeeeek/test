@@ -1,0 +1,191 @@
+<script type="text/javascript" src="{$wa_url}wa-content/js/jquery-plugins/jquery.cookie.js"></script>
+
+{strip}
+    {$default_sort = $sort}
+    {$default_order = $order}
+{/strip}
+
+{$sidebar}
+
+<div id="s-content" class="content left200px block double-padded" data-trigger_environment_restore_url="{$trigger_environment_restore_url}">
+
+    {$mass_actions_sidebar}
+
+    <div class="content right200px" id="shop_regions_list">
+        <h1>
+            Все регионы
+        </h1>
+
+	    <form class="js-filter_form">
+		    <input class="js-page_input" name="page" type="hidden" value="{$page}">
+		    <input class="js-page_limit" name="limit" type="hidden" value="{$limit}">
+		    {$wa->csrf()}
+
+	        <ul class="menu-h s-product-nav">
+	            <!-- sort order -->
+	            <li class="s-inline-mixed-string float-right" id="s-sort-control">
+	                <ul class="menu-v dropdown">
+	                    <li>[`Сортировка`]:
+	                        {strip}
+	                        <a href="javascript:void(0);" class="inline-link {$sort_columns.$sort.highlighted_class}">
+		                        <b><i>{$sort_columns.$sort.title}</i></b>
+	                        </a>
+	                        <i class="icon10 {$sort_columns.$sort.order_icon_class}"></i>
+	                        {/strip}
+	                        <ul class="menu-v with-icon">
+		                        {foreach $sort_columns as $_column => $_param}
+		                            <li class="sort {$_param.li_class}">
+		                                <a href="{$_param.href}" class="no-underline">
+			                                {$_param.title}
+		                                </a><i class="icon10 {$_param.order_icon_class}"></i>
+		                            </li>
+		                        {/foreach}
+	                        </ul>
+	                    </li>
+	                </ul>
+	            </li>
+
+
+		        {if $filter_name_value !== null}
+		        <li class="float-left filter_li filter_search">
+			        <input name="filter_partial[name]" class="js-filter js-filter_name filter_name" type="text"
+				        placeholder="Поиск по названию" value="{$filter_name_value}" data-field="name">
+		        </li>
+		        {/if}
+
+		        <div>
+			        {foreach $select_filters as $_filter}
+			        <li class="float-left filter_li">
+				        <label for="{$_filter.id}">{$_filter.title}</label>
+				        <select name="filter[{$_filter.field}]" id="{$_filter.id}" class="js-filter filter_select js-searchable_select" data-field="{$_filter.field}">
+					        {if !$_filter.remove_default_value|default:false}
+					            <option value="0">Все</option>
+					        {/if}
+					        {foreach $_filter.options as $_option}
+					        <option value="{$_option.value}" {$_option.selected}>{$_option.title}</option>
+					        {/foreach}
+				        </select>
+			        </li>
+			        {/foreach}
+		        </div>
+	        </ul>
+
+
+		    {if $checkbox_filters|default:[]|count}
+		    <ul class="menu-h s-product-nav">
+			    <li>
+				    {foreach $checkbox_filters as $_filter}
+					    <label>
+						    <input type="checkbox" name="filter[{$_filter.field}]" id="{$_filter.id}" class="js-filter" {$_filter.checked} value="1" data-field="{$_filter.field}">
+						    <span>{$_filter.title}</span>
+					    </label>
+				    {/foreach}
+			    </li>
+		    </ul>
+		    {/if}
+
+		    <span class="js-loading" style="display: none"><i class="icon16 loading"></i> [`Загрузка`]</span>
+		    <div class="js-table_wrap" data-empty="{(!$has_regions) ? 'true' : 'false'}">
+	        {if $has_regions}
+	            <table class="zebra js-regions_table single-lined {if $is_custom_sortable}js-is_custom_sortable{/if}" data-pagination_offset="{$pagination_offset}">
+
+	                <thead>
+	                <tr>
+		                {if $is_custom_sortable}
+		                    <th></th>
+		                {/if}
+
+		                {$_order_class = ($order=='asc') ? 'uarr' : 'darr'}
+	                    <th >
+	                        <label>
+	                            <input class="js-region_selected_all" type="checkbox"/>
+	                        </label>
+	                    </th>
+	                    <th>
+		                    <a href="?plugin=regions&sort=name&order={if $order == 'asc' && $sort=='name'}desc{else}asc{/if}" class="no-underline">Название</a>
+		                    {if ($sort=='name')}<i class="icon10 {$_order_class}"></i>{/if}
+	                    </th>
+	                    <th>
+		                    <a href="?plugin=regions&sort=storefront&order={if $order == 'asc' && $sort=='storefront'}desc{else}asc{/if}" class="no-underline">Витрина</a>
+		                    {if ($sort=='storefront')}<i class="icon10 {$_order_class}"></i>{/if}
+	                    </th>
+
+		                {if !$without_country_column}
+		                <th>
+			                <a href="?plugin=regions&sort=country_name&order={if $order == 'asc' && $sort=='country_name'}desc{else}asc{/if}" class="no-underline">Страна</a>
+			                {if ($sort=='country_name')}<i class="icon10 {$_order_class}"></i>{/if}
+		                </th>
+		                {/if}
+
+		                {if !$without_region_column}
+	                    <th>
+		                    <a href="?plugin=regions&sort=region_name&order={if $order == 'asc' && $sort=='region_name'}desc{else}asc{/if}" class="no-underline">Область</a>
+		                    {if ($sort=='region_name')}<i class="icon10 {$_order_class}"></i>{/if}
+	                    </th>
+		                {/if}
+
+	                    <th class="align-center nobreak"><span class="sort">
+		                    <a href="?plugin=regions&sort=is_popular&order={if $order == 'asc' && $sort=='is_popular'}desc{else}asc{/if}" class="no-underline">Популярный</a>
+		                    {if ($sort=='is_popular')}<i class="icon10 {$_order_class}"></i>{/if}
+	                    </span></th>
+	                    <th class="align-center nobreak"><span class="sort">
+		                    <a href="?plugin=regions&sort=is_enable&order={if $order == 'asc' && $sort=='is_enabled'}desc{else}asc{/if}" class="no-underline">Виден</a>
+		                    {if ($sort=='is_enable')}<i class="icon10 {$_order_class}"></i>{/if}
+	                    </span></th>
+	                    <th class="align-center"></th>
+	                    <th class="align-center"></th>
+
+		                {*
+		                <th class="align-center">
+			                <a href="?plugin=regions&sort=create_datetime&order={if $order == 'asc' && $sort=='create_datetime'}desc{else}asc{/if}" class="no-underline">Добавлен</a>
+			                {if ($sort=='create_datetime')}<i class="icon10 {$_order_class}"></i>{/if}
+		                </th>
+
+		                <th class="align-center">
+			                <a href="?plugin=regions&sort=update_datetime&order={if $order == 'asc' && $sort=='update_datetime'}desc{else}asc{/if}" class="no-underline">Изменен</a>
+			                {if ($sort=='update_datetime')}<i class="icon10 {$_order_class}"></i>{/if}
+		                </th>
+						*}
+	                </tr>
+	                </thead>
+
+	                <tbody>
+	                    {$cities_list}
+	                </tbody>
+	            </table>
+
+		        <div class="js-regions_empty_table_message regions_empty_table_message">
+			        Регионы не найдены
+		        </div>
+	        {else}
+	            <div class="align-center block double-padded">Регионы еще не заведены. <a href="?plugin=regions&action=create">Добавить регион?</a></div>
+	        {/if}
+
+			    <div class="js-after_table after_table clearfix">
+				    <div class="js-pagination pagination">
+					    Всего регионов: {$cities_count}
+					    {if isset($pagination_items)}
+					    <div class="pages_list">
+						    Страницы:
+						    {foreach $pagination_items as $_item}
+						    {if $_item.is_page}
+						    <a href="?plugin=regions&page={$_item.page}" data-page_number="{$_item.page}" class="js-page_number page_number {$_item.class}">{$_item.title}</a>
+						    {else}
+						    <span class="{$_item.class}">{$_item.title}</span>
+						    {/if}
+						    {/foreach}
+					    </div>
+					    {/if}
+				    </div>
+
+				    <div class="per_page">
+					    Показывать по:
+					    {foreach array(30, 60, 90, 0) as $_limit}
+					        <a href="javascript:void(0);" class="js-set_limit {if $_limit == $limit}current{/if}" data-limit="{$_limit}">{($_limit > 0) ? $_limit : 'Показать все'}</a>
+					    {/foreach}
+				    </div>
+			    </div>
+		    </div>
+	    </form>
+    </div>
+</div>

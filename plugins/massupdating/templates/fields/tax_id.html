@@ -1,0 +1,7 @@
+<select name="tax_id">
+	<option value="-1"{if $inputs['tax_id']['value'] === null} selected{/if}>- [`Не изменять`] -</option>
+	<option value="0"{if $inputs['tax_id']['value'] === '0'} selected{/if}>[`Не облагается`]</option>
+	{foreach $taxes as $tax}
+	<option value="{$tax.id}"{if $inputs['tax_id']['value'] === $tax.id} selected{/if}>{$tax.name}</option>
+	{/foreach}
+</select>

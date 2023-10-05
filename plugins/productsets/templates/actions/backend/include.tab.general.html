@@ -1,0 +1,87 @@
+<div class="f-tab-general">
+    <div class="field">
+        <div class="name">[`Status`]</div>
+        <div class="value">
+            <div class="ibutton-checkbox">
+                <ul class="menu-h">
+                    <li>
+                        <span class="switcher-off-label">[`Off`]</span>
+                    </li>
+                    <li>
+                        <input type="hidden" name="status" value="0">
+                        <input class="switcher not-inited" type="checkbox" name="status" value="1" {if !empty($pset.general.status)}checked="checked"{/if} />
+                    </li>
+                    <li>
+                        <span class="switcher-on-label">[`On`]</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Product set name`]</div>
+        <div class="value large">
+            <input type="text" name='name' value='{if !empty($pset.general.name)}{$pset.general.name|escape}{else}[`My new complect`]{/if}' />
+            <div class="hint">[`This name will be displayed in the list of product sets on admin page. Only you will see it`]</div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Description`]</div>
+        <div class="value">
+            <textarea class="width100" name='description'>{if !empty($pset.general.description)}{$pset.general.description|escape}{/if}</textarea>
+            <div class="hint">[`This description will be displayed only in backend`]</div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Product set title`]</div>
+        <div class="value large">
+            <textarea class="width100 f-redactor" data-height="40" name="title">{if !empty($pset.general.title)}{$pset.general.title|escape}{else}[`Complect title`]{/if}</textarea>
+            <div class="hint">[`This title will be displayed on the storefront`]</div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Text before the set`]</div>
+        <div class="value">
+            <textarea class="width100 f-redactor" data-height="150" name="html_before">{if !empty($pset.general.html_before)}{$pset.general.html_before}{/if}</textarea>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Text after the set`]</div>
+        <div class="value">
+            <textarea class="width100 f-redactor" data-height="150" name="html_after">{if !empty($pset.general.html_after)}{$pset.general.html_after}{/if}</textarea>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Ruble sign`]</div>
+        <div class="value">
+            {$ruble_sign = 'rub'}
+            {if (!empty($pset.general.ruble_sign) && $pset.general.ruble_sign == 'rub')
+                || (!isset($pset.general.ruble_sign) && !empty($old_settings.ruble) && $old_settings.ruble == 'text')}
+                {$ruble_sign = 'rub'}
+             {elseif (!empty($pset.general.ruble_sign) && $pset.general.ruble_sign == 'html')
+                || (!isset($pset.general.ruble_sign) && !empty($old_settings.ruble) && $old_settings.ruble == 'html')}
+                {$ruble_sign = 'html'}
+            {/if}
+            <div class="mb bottom"><label><input type="radio" name="ruble_sign" value="rub"{if $ruble_sign == 'rub'} checked="checked"{/if}> [`rub.`]</label></div>
+            <div><label><input type="radio" name="ruble_sign" value="html"{if $ruble_sign == 'html'} checked="checked"{/if}> P</label></div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">
+            [`Custom parameters`]
+            <span class="shop-tooltip">
+                <i class="icon16 info"></i>
+                <span>[`Read more in <a href="http://en.igaponov.ru/docs/178/custom-parameters/" target="_blank">docs</a>`]</span>
+            </span>
+        </div>
+        <div class="value">
+            <div class="f-set-parameters">
+                <!-- Generated automatically -->
+            </div>
+            <a href="javascript:void(0)" class="js-add-param" title="[`add parameter`]"><i class="icon16 add"></i> [`add parameter`]</a>
+        </div>
+    </div>
+    {if !empty($pset.id)}<input type="hidden" name="id" value="{$pset.id}">{/if}
+</div>
+
+{include file="./include.tab.general.tmpl.html"}

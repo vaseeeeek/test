@@ -1,0 +1,34 @@
+<div id="seoratings-toolbar" class="block">
+  <h6 class="heading">SEO-Топы и списки</h6>
+  <ul class="menu-v with-icons compact p-no-photo-selected123 thumbs-view-menu">
+    <li>
+      <a id="seoratings__link--add-to-rating" href="#"><i class="icon16 seoratings__icon--backend"></i> Добавить</a>
+    </li>
+  </ul>
+  <div id="seoratings-dialog" style="display: none">
+    <div class="seoratings-backend__field">
+      <div class="seoratings-backend__caption">Выберите рейтинг</div>
+      <div class="seoratings-backend__control">
+        <select class="seoratings-backend__select" name="rating_id">
+          {foreach $ratings as $rating}
+            <option value="{$rating.id}">{$rating.title}</option>
+          {/foreach}
+        </select>
+      </div>
+    </div>
+    <div class="seoratings-backend__field">
+      <div class="seoratings-backend__caption">&nbsp;</div>
+      <div class="seoratings-backend__control">
+        <label class="seoratings-backend__field--checkbox">
+          <input class="seoratings-backend__checkbox" name="replace_products" type="checkbox" value="1" />
+          <span>Заменить товары в выбранном рейтинге</span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div id="seoratings-dialog--empty" style="display: none">
+    Выберите хотя бы один товар для добавления!
+  </div>
+</div>
+
+<script src="{$wa_url}wa-apps/shop/plugins/seoratings/js/backend/hooks/toolbar.js"></script>

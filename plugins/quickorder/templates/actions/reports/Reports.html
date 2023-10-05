@@ -1,0 +1,156 @@
+<div class="content">
+    <div class="block double-padded" id="quickorder-reports-content">
+
+        <h1>[`1-Click Ordering`]</h1>
+
+        <ul class="menu-h js-menu s-product-reports">
+            <li class="float-right">
+                [`Quantity of products`]:
+                {$limit = [100, 250, 500]}
+                <select id="limit-selector">
+                    {foreach $limit as $l}
+                        <option value="{$l}"{if $request_options.limit == $l} selected{/if}>{$l}</option>
+                    {/foreach}
+                </select>
+            </li>
+            <li{if $request_options.type == 'product'} class="selected"{/if}><a href="#/quickorder/" class="js-q-module" title="[`Product page`]">[`Product page`]</a></li>
+            <li{if $request_options.type == 'cart'} class="selected"{/if}><a href="#/quickorder/cart/" class="js-q-module" title="[`Cart`]">[`Cart`]</a></li>
+            <li>|</li>
+            <li{if $request_options.page == 'products'} class="selected"{/if}><a href="#/quickorder/" class="js-q-page" data-page="products" title="[`Products`]">[`Products`]</a></li>
+            <li{if $request_options.page == 'services'} class="selected"{/if}><a href="#/quickorder/" class="js-q-page" data-page="services" title="[`Services`]">[`Services`]</a></li>
+        </ul>
+
+        <div class="clear-both"></div>
+
+        {if isset($products) && $products}
+            <table class="zebra">
+                <thead>
+                    <tr class="white s-header-row">
+                        <th style="width:50px;"></th>
+                        <th>[`Name`]</th>
+                        <th style="width:50px;">[`Qty`]</th>
+                        <th class="align-right nowrap">
+                            {if $request_options.sort == 'sales'}
+                                <span class="js-order-selected" data-sort="sales">[`Sales`] <i class="icon16 darr"></i></span>
+                            {else}
+                                <a href="#/quickorder/" class="js-q-change-order" data-sort="sales">[`Sales`]</a>
+                            {/if}
+                        </th>
+                        <th class="s-wider-cell align-right nowrap">
+                            {if $request_options.sort == 'profit'}
+                                <span class="js-order-selected" data-sort="profit">[`Profit`] <i class="icon16 darr"></i></span>
+                            {else}
+                                <a href="#/quickorder/" class="js-q-change-order" data-sort="profit">[`Profit`]</a>
+                            {/if}
+                        </th>
+                        <th style="width:100px;">[`Profit percentage`]</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                {if $wa->shop->config('enable_2x')}
+                    {$size = '48x48@2x'}
+                {else}
+                    {$size = '48x48'}
+                {/if}
+                {foreach $products as $p}
+
+                    <tr>
+                        <td><a href="?action=products#/product/{$p.id}/">{$wa->shop->getProductImgHtml($p, $size, ['height' => 48, 'width' => 48])}</a></td>
+                        <td><a href="?action=products#/product/{$p.id}/">{$p.name|escape}</a></td>
+                        <td>{$p.quantity}</td>
+                        <td class="align-right nowrap">
+                            <span title="{sprintf_wp('[`Subtotal %1$s &minus; Discount %2$s`]', wa_currency($p.sales_subtotal, $def_cur), wa_currency($p.discount, $def_cur))}">
+                                {wa_currency_html($p.sales, $def_cur)}
+                            </span>
+                        </td>
+                        <td class="s-wider-cell align-right nowrap">
+                            <span title="{sprintf_wp('[`Total sales %1$s &minus; Purchase expense %2$s`]', wa_currency($p.sales, $def_cur), wa_currency($p.purchase, $def_cur))}">
+                                {wa_currency_html($p.profit, $def_cur)}
+                            </span>
+                        </td>
+                        {$profitability = 0}
+                        {if ($p.sales - $p.profit) > 0}{$profitability = round( 100 * $p.profit / ($p.sales - $p.profit))}{/if}
+                        <td class="s-wider-cell" style="background: #fff;"{if $p.sales - $p.profit > 0} title="{sprintf('[`Profit percentage = Net profit (%s) / Cost price (%s) = %s%%`]', wa_currency($p.profit, $def_cur), wa_currency($p.sales - $p.profit, $def_cur), $profitability)}"{/if}>
+                            {$profitability} %<br>
+                            {strip}<div class="s-bar" style="width:{$p.sales_percent}px;"><div class="s-bar2" style="width:{$p.profit_percent}px;"></div></div>{/strip}
+                        </td>
+                    </tr>
+                {/foreach}
+                {if !empty($show_more)}
+                    <tr class="white">
+                        <td></td>
+                        <td style="height:48px;">
+                            <a id="show-all-rows-link" class="gray inline-link" href="javascript:void(0)"><b><i>[`Show more products`]</i></b></a>
+                        </td>
+                        <td></td>
+                        <td class="align-right"></td>
+                        <td class="s-wider-cell align-right"></td>
+                        <td class="s-wider-cell"></td>
+                    </tr>
+                {/if}
+                </tbody>
+            </table>
+        {elseif (isset($products) && !$products)}
+            <p style="margin-top:10px;">[`There were no products sold on the selected period.`]</p>
+        {/if}
+
+        {if isset($services) && $services}
+            <table class="zebra">
+                <thead>
+                <tr class="white s-header-row">
+                    <th>[`Name`]</th>
+                    <th style="width:50px;">[`Qty`]</th>
+                    <th class="align-right">[`Total`]</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                    {foreach $services as $s}
+                        <tr>
+                            <td><a href="?action=products#/services/{$s.id}/">{$s.name|escape}</a></td>
+                            <td>{$s.quantity}</td>
+                            <td class="s-wider-cell align-right">+{wa_currency_html($s.total, $def_cur)}</td>
+                            <td class="s-wider-cell" style="background: #fff;">
+                                <div class="s-bar" style="width:{$s.total_percent/2}px;"></div>
+                            </td>
+                        </tr>
+                    {/foreach}
+                    <tr class="white">
+                        <td></td>
+                        <td></td>
+                        <td class="s-wider-cell bold align-right">+{wa_currency_html($service_total_val, $def_cur)}</td>
+                        <td class="s-wider-cell hint">{sprintf('[`<strong>+%s%%</strong> to average order value`]', $service_total_percent)}</td>
+                    </tr>
+                </tbody>
+            </table>
+        {elseif (isset($services) && !$services)}
+            <p style="margin-top:10px;">{sprintf('[`On the selected time period, there were no orders with <a href="%s">extra services</a>.`]', $wa_app_url|cat:'?action=products#/services/')}</p>
+        {/if}
+
+        <div class="clear-both"></div>
+    </div>
+</div>
+
+<div class="hidden">
+    <ul class="menu-h">
+        <li>
+            <select id="s-products-report-storefront-selector" class="storefront-selector" name="{if $migrate}storefront{else}sales_channel{/if}">
+                <option value="">[`All channels`]</option>
+                {foreach $sales_channels as $id => $name}
+                    <option value="{$id|escape}"{if ifset($request_options.sales_channel) == $id} selected{/if}>{$name|escape}</option>
+                {/foreach}
+            </select>
+        </li>
+    </ul>
+</div>
+
+<script src="{$plugin_url}js/quickorderReportsBackend.js?v={$version}"></script>
+<script>
+    $(function () {
+       new QuickorderPluginReports({
+           title: '{_wp('1-Click Ordering')} — {$wa->accountName(false)|escape:'javascript'}',
+           requestParams: {json_encode($request_options)}
+       });
+    });
+</script>

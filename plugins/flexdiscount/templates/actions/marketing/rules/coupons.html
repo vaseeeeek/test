@@ -1,0 +1,136 @@
+{strip}
+
+    {$_uniqid = uniqid()}
+
+    {$_rule_name = ""}
+    {if !empty($rule.id)}
+        {$_rule_name = "rules[{$rule.id}]"}
+
+    {else}
+        {$_rule_name = "rules[new]"}
+        {if isset($options.ident)}
+            {$_rule_name = "{$_rule_name}[{$options.ident}]"}
+        {/if}
+    {/if}
+
+
+    {$selected_coupon_ids = $rule.rule_params|default:[]}
+    {function name="_render_coupon" _coupon=[]}
+        <div class="s-coupon-wrapper" data-id="{$_coupon.id|default:"%coupon_id%"}">
+            <div class="s-checkbox-column">
+                <input class="s-checkbox" type="checkbox" name="{$_rule_name}[rule_params][]" value="{$_coupon.id|default:"%coupon_id%"}"
+                       {if empty($_coupon.id) || in_array($_coupon.id, $selected_coupon_ids)}checked{/if}>
+            </div>
+            <div class="s-details-column">
+                <div class="s-name-wrapper">
+                    <span class="s-name">
+                        {if !empty($_coupon.id)}
+                            {if $_coupon.status == -3}
+                                <i class='icon16-custom exclamation' title='[`Coupon reached the limit`]'></i>
+                            {elseif $_coupon.status == -1}
+                                <i class='icon16 clock' title='[`Coupon start at`] {$_coupon.start|wa_datetime:"humandate"}'></i>
+                            {elseif $_coupon.status == -2}
+                                <i class='icon16 exclamation' title='[`Coupon time is expired`]'></i>
+                            {/if}
+                        {else}
+                            %status%
+                        {/if}
+
+                        {if !empty($_coupon.code)}
+                            {$_coupon.code|escape}
+                        {else}
+                            %code%
+                        {/if}
+                    </span>
+                </div>
+
+                {if !empty($_coupon.id)}
+                    {if !empty($_coupon.end) && $_coupon.status !== -2}
+                        <div class="s-date-wrapper">
+                            <span class="s-label">[`Expires:`]</span>
+                            <span class="s-date">{$_coupon.end|wa_date}</span>
+                        </div>
+                    {/if}
+                {else}
+                    %expire%
+                {/if}
+            </div>
+            <div class="s-actions-column">
+                <a class="s-action f-coupon-settings-link" {if empty($_coupon.fl_id)} style="display: none;"{/if} href="{$wa_app_url}?plugin=flexdiscount&action=discounts#/discount/{if !empty($_coupon.fl_id[0])}{$_coupon.fl_id[0]}{else}%fl_id%{/if}/" target="_blank">
+                    <i class="icon16 settings"></i>[`Coupon settings`]
+                </a>
+            </div>
+        </div>
+    {/function}
+
+    {capture assign="_coupon_expire_html"}
+        <div class="s-date-wrapper">
+            <span class="s-label">[`Expires:`]</span>
+            <span class="s-date">%expire%</span>
+        </div>
+    {/capture}
+
+{/strip}
+
+<div class="s-{$_rule_type}-rule-section s-flexdiscount-rule js-{$_rule_type}-rule-section" id="js-{$_rule_type}-rule-section-{$_uniqid}">
+    <div class="s-section-description">
+        [`Select coupons for this promo. Orders with selected coupons will be automatically associated with this promo.`]
+    </div>
+
+    {if $isset_coupons}
+        <div class="s-coupons-list">
+            {if !empty($coupons)}
+                {foreach $coupons as $_coupon}
+                    {_render_coupon _coupon=$_coupon}
+                {/foreach}
+            {/if}
+        </div>
+
+        <div class="mb">
+            <a href="javascript:void(0)" class="js-load-coupons inline-link" data-page="1"><b><i>[`Load coupons`]</i></b></a>
+        </div>
+        <div class="s-coupon-autocomplete">
+            <span class="s-label">[`Find coupon & add to promo`]:</span>
+            <i class="icon16 add"></i>
+            <input type="text" class="s-autocomplete js-autocomplete" value="" placeholder="{_w("Enter coupon code")|escape}">
+        </div>
+    {else}
+        <div class="">
+            <span class="gray">[`No flexdiscount coupons.`]</span>
+            <a href="{$wa_app_url}?plugin=flexdiscount&action=discounts#/discount/new/">[`Add a new rule and create a coupon`]</a>
+        </div>
+    {/if}
+
+    <input class="js-rule-type" type="hidden" name="{$_rule_name}[rule_type]" value="{$_rule_type}">
+
+    <script>
+        (function ($) {
+            let $wrapper = $("#js-{$_rule_type}-rule-section-{$_uniqid}").removeAttr('id');
+
+            let sources = [{
+                id: "translate-flexdiscount",
+                type: "js",
+                uri: "{$plugin_url}js/translate.js"
+            }];
+
+            let ready_promise = $("#js-promo-page").data("ready");
+            ready_promise.then(function () {
+                $.shop.marketing.load(sources).then(function () {
+                    new FlexdiscountPluginMarketing({
+                        $wrapper: $wrapper,
+                        localeStrings: {if $js_locale_strings}{$js_locale_strings}{else}null{/if},
+                        ruleType: '{$_rule_type}',
+                        urls: {
+                            "autocomplete": "{$wa_app_url}?plugin=flexdiscount&module=marketing&action=findCoupon",
+                            "load_coupons": "{$wa_app_url}?plugin=flexdiscount&module=marketing&action=loadCoupons",
+                        },
+                        templates: {
+                            coupon: {_render_coupon|json_encode},
+                            coupon_expire: {$_coupon_expire_html|json_encode}
+                        }
+                    });
+                });
+            });
+        })(jQuery);
+    </script>
+</div>

@@ -1,0 +1,7 @@
+{strip}
+	{function buy1click_svg_sprite_icon icon='' width=0 height=0 fill='' stroke='' classes=''}
+		<svg class="buy1click-svg-icon {$classes}" width="{$width|escape}" height="{$height|escape}">
+			<use class="buy1click-svg-icon__content" xlink:href="#buy1click-icon_{$icon|escape}" {if $fill}fill="{$fill|escape}"{else}fill="none"{/if} {if $stroke}stroke="{$stroke|escape}"{else}stroke="none"{/if} />
+		</svg>
+	{/function}
+{/strip}

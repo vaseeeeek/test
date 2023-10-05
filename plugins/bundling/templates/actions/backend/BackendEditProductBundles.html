@@ -1,0 +1,182 @@
+<form id="bundling-form" action="?plugin=bundling&id={$product.id}&action=save" method="post">
+	{$wa->csrf()}
+	<input name="product_id" type="hidden" value="{$product.id}"/>
+	<div class="block double-padded">
+		<div class="bundling-header">
+		<h1>
+			<a href="?action=products#/product/{$product.id}/" class="back">&larr; [`Back`]</a>
+			<i class="icon16 box"></i><span class="s-product-name">{$product.name|escape}</span>
+			<span class="hint float-right s-product-id">id: {$product.id}</span>
+			<a href="?action=plugins#/bundling"><i class="icon16 plugins"></i></a>
+		</h1>
+		</div>
+		
+		<div style="font-size: 1.1em; margin-bottom: 10px;">
+			[`Bundles of Product`] {shopHelper::getIcon($product.type.icon, 'icon.box')}<b>{$product.name|escape}</b>
+			{if $product.type}<span class="hint">({$product.type.name|escape})</span>{/if}
+		</div>
+		
+		<div style="margin-bottom: 10px; display: none;">
+			<select id="bundling-give-discount" name="give-discount">
+				<option>- [`Don't give discount`] -</option>
+				<!-- <option value="fixed">[`Give fixed discount if customer has chosen products from selected bundles`]</option>
+				<option value="various">[`For each chosen bundled product various discounts`]</option> -->
+				<option value="product">[`Manually set discounts for each product (only with primary product in order)`]</option>
+			</select>
+			
+			<select id="bundling-give-discount-various-combiner" name="give-discount-various-combiner" style="display: none;">
+				<option value="fixed">[`Sum discounts`]</option>
+				<option value="various">[`Maximum from discount`]</option>
+			</select>
+			
+			<span id="bundling-give-discount-fixed" style="display: none;">
+				<input id="bundling-give-discount-fixed-value" type="text" placeholder="[`Discount`]"/> %
+			</span>
+		</div>
+		
+		{if empty($bundles) && !$category_bundle_groups}
+		<div class="block double-padded" style="border: 1px solid #ccc; margin-bottom: 10px;">
+			[`No bundles found for this product. Set it in`] <a href="?action=plugins#/bundling">[`plugin settings`]</a> [`or create individual for this product.`]
+		</div>
+		{/if}
+		
+		{if $category_bundle_groups}
+		<div class="field">
+			<div class="name">
+				<i class="icon16" style="background-image: url('{$plugin_url}img/bundling.png');"></i>
+				<span>[`Add products`]</span>
+			</div>
+			<div class="value">
+				<input class="category-bundle-groups product-autocomplete long ui-autocomplete-input" type="text" placeholder="[`Start typing product or SKU name`]" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+				<br/>
+				<span class="hint">[`Products will be added to group of main category of product.`]</span>
+			</div>
+		</div>
+		{/if}
+		
+		{if !$category_bundle_groups}
+		<div id="bundling-bundles" class="fields">
+			{$sort = 0}
+			{foreach $bundles as $bundle_id => $bundle}
+			<div class="field bundle" id="bundling-bundle-{$bundle_id}" data-bundle-id="{$bundle_id}">
+				<div class="name">
+					<i class="icon16 folder"></i>
+					<span>{$bundle['title']|escape:'html'}</span>
+					<input name="sort[{$bundle_id}]" class="bundling-bundle-sort" type="hidden" value="{$sort++}"/>
+					<i class="icon16 bundling-bundle-sort sort count"></i>
+					{if $bundle['product_id']}
+					<label style="display: block; margin-top: 10px;"><input class="bundling-bundle-multiple" type="checkbox" disabled data-checked={if $bundle.multiple}1 checked{else}0{/if} /> [`Multiple select`]</label>
+					{/if}
+					{if !$bundle['product_id']}
+					<div class="hint">[`determined`]
+					{if $bundle['type_id']}[`by type`] {$bundle['type_name']}{/if}
+					{if $bundle['category_id']}[`by category`] {$bundle['category_name']}{/if}
+					{if $bundle['feature_id']}[`by feature`] {$bundle['feature_name']}: {$bundle['feature_title']}{/if}
+					</div>
+					{/if}
+					<div style="margin-top: 10px;" class="bundling-bundle-actions hint">
+						<div class="actions">
+							{if $bundle['product_id']}<a href="#" class="bundling-bundle-edit" data-bundle-id="{$bundle_id}"><i class="icon10 edit"></i> [`edit`]</a>{else}<a target="_blank" href="?plugin=bundling&action=bundles&by={if $bundle['type_id']}type{else}{if $bundle['category_id']}category{else}feature{/if}{/if}"><i class="icon10 edit"></i> [`edit`] <i class="icon10 new-window"></i></a>{/if}
+							{if $bundle['product_id']}[`or`] <a href="#" class="bundling-bundle-delete" data-product-id="{$product.id}" data-bundle-id="{$bundle_id}"><i class="icon10 delete"></i> [`delete`]</a>{/if}
+						</div>
+						<div style="display: none;" class="edit-actions">
+							<a href="#" class="bundling-bundle-edit-actions" data-bundle-id="{$bundle_id}" data-action="save"><i class="icon10 yes"></i> [`save`]</a>
+							[`or`]
+							<a href="#" class="bundling-bundle-edit-actions" data-bundle-id="{$bundle_id}" data-action="cancel"><i class="icon10 no"></i> [`cancel`]</a>
+						</div>
+					</div>
+				</div>
+				<div class="value">
+					<div class="bundling-various-discount" style="display: none;">
+						<b>[`Discount`]</b> <input class="short" type="number"/> % [`for chosing any product from this bundle`]
+					</div>
+					<div class="bundling-fixed-discount" style="display: none;">
+						<label><input type="checkbox"/> [`Customer have to chose product from this bundle to get fixed discount`]</label>
+					</div>
+					<table class="zebra" width="100%">
+						<tbody class="bundling-products">
+							{$s = 0}
+							{foreach $bundle['products'] as $bundled_product}
+							{include './BackendBundledProduct.html' bundled_product=$bundled_product bundle_id=$bundle_id}
+							{/foreach}
+							<tr>
+								<td colspan="5">
+								<input class="product-autocomplete long ui-autocomplete-input" data-bundle-id="{$bundle_id}" type="text" placeholder="[`Start typing product or SKU name`]" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			{/foreach}
+		</div>
+		{else}
+		<div id="bundling-bundles" class="fields">
+			{$sort = 0}
+			{foreach $bundles as $bundle}
+			{$bundle_id = intval($bundle.id) * -1}
+			{$bundle_name = ifempty($bundle.title, $bundle.name)}
+			<div class="field bundle" id="bundling-bundle-{$bundle_id}" data-bundle-id="{$bundle_id}"{if empty($bundle['products'])} style="display: none;"{/if}>
+				<div class="name">
+					<i class="icon16 folder"></i>
+					<span>{$bundle_name}</span>
+					{if $bundle_id == 0}<div class="gray">[`Main category is undefined`]</div>{/if}
+					{*<input name="sort[{$bundle_id}]" class="bundling-bundle-sort" type="hidden" value="{$sort++}"/>
+					<i class="icon16 bundling-bundle-sort sort count"></i>*}
+				</div>
+				<div class="value">
+					<table class="zebra" width="100%">
+						<tbody class="bundling-products">
+							{$s = 0}
+							{foreach $bundle['products'] as $bundled_product}
+							{include './BackendBundledProduct.html' bundled_product=$bundled_product bundle_id=$bundle_id}
+							{/foreach}
+						</tbody>
+					</table>
+				</div>
+			</div>
+			{/foreach}
+		</div>
+		{/if}
+		
+		{if !$category_bundle_groups}
+		<button id="bundling-add-bundle-button" class="button green" data-product-id="{$product.id}">+</button>
+		{/if}
+		
+		<div id="s-product-edit-save-panel" style="display: block;">
+			<div class="block bordered-top">
+				<input type="submit" class="button green" value="[`Save`]" id="s-product-save-button">
+				<span id="product-save-message" class="s-product-save-message"></span>
+			</div>
+		</div>
+	</div>
+</form>
+<script type="text/javascript">
+	$.bundlingEditProductBundles.product_id = {$product.id};
+	$.bundlingEditProductBundles.autocomplete();
+	
+	$('#bundling-bundles').sortable({
+		handle: '.bundling-bundle-sort',
+		update: function(event, ui) {
+			positions = $(this).sortable('toArray');
+			for(key in positions)
+				$('.bundling-bundle-sort', '#' + positions[key]).val(key);
+			$.bundlingEditProductBundles.save();
+		}
+	});
+	
+	$('.bundling-products').sortable({
+		handle: '.bundling-product-sort',
+		update: function(event, ui) {
+			positions = $(this).sortable('toArray');
+			for(key in positions)
+				$('.bundling-product-sort-key', '#' + positions[key]).val(key);
+			$.bundlingEditProductBundles.save();
+		}
+	});
+</script>
+<script type="text/javascript" src="?plugin=bundling&module=loc"></script>
+
+{foreach $edit_product_bundles_action as $output}
+	{$output}
+{/foreach}

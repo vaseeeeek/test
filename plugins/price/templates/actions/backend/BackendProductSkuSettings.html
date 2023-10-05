@@ -1,0 +1,86 @@
+<div class="clear-both"></div>
+<div class="field-group">
+    <h3>Мульти Цены</h3>
+    <a href="?action=plugins#/price/" target="_blank">Настройки плагина</a> <i class="icon10 new-window"></i>
+    {foreach $prices as $price}
+        <div class="field">
+            <div class="name"><strong>{$price.name}</strong></div>
+            <div class="value">
+                {$type = "price_plugin_type_`$price.id`"}
+                <select class="price-type" name="skus[{$sku_id}][{$type}]">
+                    <option value=""{if $sku[$type]|default:'' == ''} selected{/if}>Новая цена</option>
+                    <option value="%"{if $sku[$type]|default:'' == '%'} selected{/if}>Процентная наценка</option>
+                    <option value="+"{if $sku[$type]|default:'' == '+'} selected{/if}>Наценка в валюте</option>
+                </select>
+                {$field = "price_plugin_`$price.id`"}
+                <input type="text" name="skus[{$sku_id}][{$field}]" value="{(float)$sku[$field]|default:''}" placeholder="0" class="short numerical">
+
+                {$field = "price_plugin_currency_`$price.id`"}
+                <select class="s-product-currency-selector" name="skus[{$sku_id}][{$field}]"{if !$sku[$field]|default:''} style="display:none"{/if}>
+                    <option value=""{if $sku[$field]|default:'' == ''} selected="selected"{/if}>По умолчанию</option>
+                    {foreach $currencies as $currency}
+                        <option value="{$currency.code}"{if $sku[$field]|default:'' == $currency.code} selected{/if}>{$currency.code}</option>
+                    {/foreach}
+                </select>
+                <span class="s-product-currency-edit"{if !($sku[$type]|default:'' == '' && !$sku[$field]|default:'')} style="display:none"{/if}>
+                    <a class="select-price-currency" href="#" title="Кликните, чтобы выбрать валюту для данного артикула">
+                        {$price.currency|default:"Валюта товара (<span class=\"s-product-currency-readonly\">`$product.currency`</span>)"}
+                    </a>
+                </span>
+                <span class="s-product-currency"{if $sku[$type]|default:'' != '+'} style="display:none"{/if}>
+                    Валюта товара (<span class="s-product-currency-readonly">{$product.currency}</span>)
+                </span>
+                <span class="s-percent"{if $sku[$type]|default:'' != '%'} style="display:none"{/if}>%</span>
+
+                <span class="s-product-markup-from-price"{if $sku[$type]|default:'' == ''} style="display:none"{/if}>&nbsp;&nbsp;от:</span>
+                {$field = "price_plugin_markup_price_`$price.id`"}
+                <select class="s-product-markup-price" name="skus[{$sku_id}][{$field|default:''}]"{if $sku[$type]|default:'' == ''} style="display:none"{/if}>
+                    {foreach $markup_prices as $markup_price => $markup_price_title}
+                        <option value="{$markup_price}"{if $sku[$field]|default:'' == $markup_price} selected{/if}>{$markup_price_title}</option>
+                    {/foreach}
+                </select>
+            </div>
+        </div>
+    {/foreach}
+</div>
+<script type="text/javascript">
+    $(document).off('change', '.price-type').on('change', '.price-type', function () {
+        if ($(this).val() == '%') {
+            $(this).closest('.value').find('.s-percent').show();
+            $(this).closest('.value').find('.s-product-currency-edit').hide();
+            $(this).closest('.value').find('.s-product-currency').hide();
+            $(this).closest('.value').find('.s-product-currency-selector').hide();
+            $(this).closest('.value').find('.s-product-markup-from-price').show();
+            $(this).closest('.value').find('.s-product-markup-price').show();
+        } else if ($(this).val() == '+') {
+            $(this).closest('.value').find('.s-percent').hide();
+            $(this).closest('.value').find('.s-product-currency-edit').hide();
+            $(this).closest('.value').find('.s-product-currency').show();
+            $(this).closest('.value').find('.s-product-currency-selector').hide();
+            $(this).closest('.value').find('.s-product-markup-from-price').show();
+            $(this).closest('.value').find('.s-product-markup-price').show();
+        } else if ($(this).closest('.value').find('.s-product-currency-selector').val()) {
+            $(this).closest('.value').find('.s-percent').hide();
+            $(this).closest('.value').find('.s-product-currency-edit').hide();
+            $(this).closest('.value').find('.s-product-currency').hide();
+            $(this).closest('.value').find('.s-product-currency-selector').show();
+            $(this).closest('.value').find('.s-product-markup-from-price').hide();
+            $(this).closest('.value').find('.s-product-markup-price').hide();
+        } else {
+            $(this).closest('.value').find('.s-percent').hide();
+            $(this).closest('.value').find('.s-product-currency-edit').show();
+            $(this).closest('.value').find('.s-product-currency').hide();
+            $(this).closest('.value').find('.s-product-currency-selector').hide();
+            $(this).closest('.value').find('.s-product-markup-from-price').hide();
+            $(this).closest('.value').find('.s-product-markup-price').hide();
+        }
+    });
+    $(document).off('click', '.select-price-currency').on('click', '.select-price-currency', function () {
+        $(this).closest('.value').find('.s-product-currency-edit').hide();
+        $(this).closest('.value').find('.s-product-currency-selector').show();
+        return false;
+    });
+
+</script>
+<div class="clear-both"></div>
+<hr/>

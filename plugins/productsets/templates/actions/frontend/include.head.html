@@ -1,0 +1,42 @@
+{strip}
+
+{$css}
+<script>
+    (function ($) {
+        $(function ($) {
+            $.productsets.init({
+                PLUGIN_URL: '{$plugin_url}',
+                urls: {json_encode($urls)},
+                currency: {json_encode($currency_info)},
+                attr: {
+                    sliderArrow: '{shopProductsetsPluginGenerator::BUNDLE_SLIDER_ARROW_ATTR}',
+                    sliderWrapArrow: '{shopProductsetsPluginGenerator::BUNDLE_SLIDER_ARROW_BLOCK_ATTR}',
+                    skusPopupBundleBlock: '{shopProductsetsPluginGenerator::SKUS_POPUP_BLOCK_BUNDLE_ATTR}',
+                    skusPopupBundleHeader: '{shopProductsetsPluginGenerator::SKUS_POPUP_HEADER_BUNDLE_ATTR}',
+                    skusPopupBundleClose: '{shopProductsetsPluginGenerator::SKUS_POPUP_CLOSE_BUNDLE_ATTR}',
+                    skusPopupBundleContent: '{shopProductsetsPluginGenerator::SKUS_POPUP_CONTENT_BUNDLE_ATTR}',
+                    skusPopupUserBundleBlock: '{shopProductsetsPluginGenerator::SKUS_POPUP_BLOCK_USERBUNDLE_ATTR}',
+                    skusPopupUserBundleClose: '{shopProductsetsPluginGenerator::SKUS_POPUP_CLOSE_USERBUNDLE_ATTR}',
+                    skusPopupUserBundleHeader: '{shopProductsetsPluginGenerator::SKUS_POPUP_HEADER_USERBUNDLE_ATTR}',
+                    skusPopupUserBundleContent: '{shopProductsetsPluginGenerator::SKUS_POPUP_CONTENT_USERBUNDLE_ATTR}',
+                    successPopupBundleBlock: '{shopProductsetsPluginGenerator::SUCCESS_POPUP_BLOCK_BUNDLE_ATTR}',
+                    successPopupContentBundle: '{shopProductsetsPluginGenerator::SUCCESS_POPUP_CONTENT_BUNDLE_ATTR}',
+                    successPopupTickBundle: '{shopProductsetsPluginGenerator::SUCCESS_POPUP_TICK_BUNDLE_ATTR}',
+                    successPopupLinkBundle: '{shopProductsetsPluginGenerator::SUCCESS_POPUP_LINK_BUNDLE_ATTR}',
+                    successPopupButtonBundle: '{shopProductsetsPluginGenerator::SUCCESS_POPUP_BUTTON_BUNDLE_ATTR}',
+                    successPopupCloseBundle: '{shopProductsetsPluginGenerator::SUCCESS_POPUP_CLOSE_BUNDLE_ATTR}',
+                    successPopupCloseUserBundle: '{shopProductsetsPluginGenerator::SUCCESS_POPUP_CLOSE_USERBUNDLE_ATTR}',
+                    successPopupButtonUserBundle: '{shopProductsetsPluginGenerator::SUCCESS_POPUP_BUTTON_USERBUNDLE_ATTR}',
+                    successPopupLinkUserBundle: '{shopProductsetsPluginGenerator::SUCCESS_POPUP_LINK_USERBUNDLE_ATTR}',
+                    successPopupTickUserBundle: '{shopProductsetsPluginGenerator::SUCCESS_POPUP_TICK_USERBUNDLE_ATTR}',
+                    successPopupContentUserBundle: '{shopProductsetsPluginGenerator::SUCCESS_POPUP_CONTENT_USERBUNDLE_ATTR}',
+                    successPopupUserBundleBlock: '{shopProductsetsPluginGenerator::SUCCESS_POPUP_BLOCK_USERBUNDLE_ATTR}'
+                },
+                localeStrings: {$locale_strings},
+                locale: "{$wa->locale()}"
+            })
+        });
+    })(jQuery)
+</script>
+
+{/strip}

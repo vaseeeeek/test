@@ -1,0 +1,80 @@
+{* top *}
+{if $id == 'top'}
+    <style>
+    #wa-plugins-content h1 { font-weight: normal; color: #222; margin-left: 190px; }
+    #wa-plugins-content .hint { color: #888; }
+    #wa-plugins-content .field { padding: 10px; max-width: 900px; }
+    #wa-plugins-content .field .name { font-size: 1em; color: #444; }
+    #wa-plugins-content .field:nth-child(odd):not(:last-child) { background: #f9f9f9; }
+    #wa-plugins-content .tagsearch-custom-control { padding-top: 0.45em; line-height: 1.5; color: gray; }
+    #wa-plugins-content .tagsearch-custom-control h3 { font-size: 1.5em; font-weight: normal; }
+    </style>
+    
+    <div class="tagsearch-custom-control">
+        [`Edit tags in “<a href="?action=products#/tageditor/" class="underline">Products</a>” section.`]
+    </div>
+    
+{* sitemap *}
+{elseif $id == 'sitemap'}
+    <div class="tagsearch-custom-control">
+        <h3>[`Sitemap.xml`]</h3>
+    </div>
+
+{* shop_cloud *}
+{elseif $id == 'shop_cloud'}
+    {if $type == 'header'}
+        <div class="tagsearch-custom-control">
+            <h3>[`Main tag cloud`]</h3>
+        </div>
+    {else}
+        <div class="tagsearch-custom-control">
+            <p>
+                [`Replace Shop-Script’s default tag cloud, which does not take product types and product status into account, with a correct one provided by this plugin.`]
+            </p>
+            <ol class="hint">
+                <li>
+                    [`Find the portion of code which returns the default tag cloud.`]
+                    [`It might look like this: <tt class="bold nowrap highlighted">$wa->shop->tags()</tt>.`]<br>
+                    [`If you have applied custom tag URLs using this plugin, then the default code must be called inside plugin’s method: <tt class="nowrap highlighted">shopTageditorPlugin::tags(<strong>$wa->shop->tags()</strong>)</tt>.`]
+                </li>
+                <li>
+                    [`Whichever variant you have in your theme’s source code, replace it completely with this code: <tt class="bold highlighted">shopTageditorPlugin::shopCloud()</tt>.`]<br>
+                    <br>
+                    [`The result might look as follows:`]
+            <pre style="overflow: auto;">
+{literal}
+{foreach <strong class="highlighted">shopTageditorPlugin::shopCloud()</strong> as $tag}
+    &lt;a href="{$wa_app_url}tag/{$tag.uri_name}/" style="font-size: {$tag.size}%; opacity: {$tag.opacity}"&gt;{$tag.name|escape}&lt;/a&gt;
+{/foreach}
+{/literal}
+            </pre>
+                </li>
+                <li>
+                    [`Update the tag cloud index in “<a href="?action=products#/tageditor/">Products → Tag editor</a>” section.`]
+                </li>
+            </ol>
+        </div>
+    {/if}
+
+{* custom_cloud *}
+{elseif $id == 'custom_cloud'}
+    {if $type == 'header'}
+        <div class="tagsearch-custom-control">
+            <h3>[`Custom tag cloud`]</h3>
+        </div>
+    {else}
+        <div class="tagsearch-custom-control">
+            <p>
+            [`To show a custom cloud of tags associated with products displayed on a <em>category</em>, <em>search</em>, or <em>tag</em> page, add <strong class="highlighted"><tt>{ldelim}shopTageditorPlugin::cloud(){rdelim}</tt></strong> to the appropriate design theme template.`]
+            </p>
+            <h4>[`Sort tags`]</h4>
+            <p class="small">
+            [`To sort tags in   a custom cloud by <em>name</em> or <em>number of associated products</em>, add <strong><tt>{ldelim}shopTageditorPlugin::cloud(<span class="highlighted">'name'</span>){rdelim}</tt></strong> or <strong><tt>{ldelim}shopTageditorPlugin::cloud(<span class="highlighted">'count'</span>){rdelim}</tt></strong> respectively. Default sort value is <tt>'name'</tt>.`]
+            </p>
+            <h4>[`Limit tags`]</h4>
+            <p class="small">
+            [`To limit the number of displayed tags, add a number in the parentheses; e.g., <strong><tt>{ldelim}shopTageditorPlugin::cloud('count', <span class="highlighted">30</span>){rdelim}</tt></strong>. By default, no limit is applied to displayed tag cloud.`]
+            </p>
+        </div>
+    {/if}
+{/if}

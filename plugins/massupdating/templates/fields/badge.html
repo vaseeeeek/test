@@ -1,0 +1,23 @@
+<div class="massupdating-badge massupdating-switcher">
+	<a href="#" title="Наклейки товаров из этой категории не будут затрагиваться и останутся теми же" data-type="default"{if isset($input['different']) || !isset($input['value'])} class="selected"{/if}>По умолчанию</a>
+	<a href="#" data-type="new"{if ifset($input['value']) == 'new'} class="selected"{/if}><i class="icon16 ss new"></i>New!</a>
+	<a href="#" data-type="bestseller"{if ifset($input['value']) == 'bestseller'} class="selected"{/if}><i class="icon16 ss bestseller"></i>Хит!</a>
+	<a href="#" data-type="lowprice"{if ifset($input['value']) == 'lowprice'} class="selected"{/if}><i class="icon16 ss lowprice"></i>Скидка!</a>
+	<a href="#" data-type="custom"{if ifset($input['value']) == 'custom'} class="selected"{/if}><i class="icon16 ss div"></i>Другой</a>
+	<a href="#" title="Полностью удалить все наклейки с товаров этой категории" data-type="delete"><i class="icon16 no-bw"></i>Удалить наклейки с товаров</a>
+	<input type="hidden" id="massupdating-badge" name="badge" value="{if !empty($input['value'])}{$input['value']|escape}{else}default{/if}"/>
+	<br/>
+	<textarea name="custom_badge" id="massupdating-custom-badge" style="display: {if isset($input['custom'])}block{else}none{/if}; min-height: 100px; margin: 10px 0 5px;">{if !empty($input['custom'])}{$input['custom']|escape}{else}&lt;div class="badge" style="background-color: #a1fcff;"&gt;&lt;span&gt;ВАШ ТЕКСТ&lt;/span&gt;&lt;/div&gt;') : '&lt;div class="badge" style="background-color: #a1fcff;"&gt;&lt;span&gt;ВАШ ТЕКСТ&lt;/span&gt;&lt;/div&gt;{/if}</textarea>
+</div>
+<script type="text/javascript">
+(function() {
+	$('.massupdating-badge a').click(function(e) {
+		$('.massupdating-badge a').removeClass('selected');
+		$(this).addClass('selected');
+		var type = $(this).data('type');
+		$('#massupdating-badge').val(type);
+		$('#massupdating-custom-badge')[type == 'custom' ? 'show' : 'hide']().focus();
+		e.preventDefault();
+	});
+})();
+</script>

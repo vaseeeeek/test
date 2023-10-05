@@ -1,0 +1,101 @@
+<div class="clear-both"></div>
+<div class="field-group">
+	<h6 class="heading" style="margin-bottom: 10px;">[`Complex prices`] <a style="margin-left: 10px; position: relative; top: -2px;" href="?action=plugins#/complex" target="_blank"><i class="icon16 plugins"></i></a></h6>
+
+	{$product = $params.product}
+	{$sku_id = $params.sku_id}
+	{$sku = $params.sku}
+
+	{foreach $prices as $price}
+	{$price_key = 'complex_plugin_price_'|cat:$price.id}
+	{$type_key = 'complex_plugin_type_'|cat:$price.id}
+	{$from_key = 'complex_plugin_from_'|cat:$price.id}
+
+	{$value = floatval(ifset($sku[$price_key]))}
+	{$type = ifset($sku[$type_key])}
+	{$from = ifset($sku[$from_key])}
+
+	{$is_plus = in_array($type, ['+', '%'])}
+	<div class="field">
+		<div class="name">
+			{$price.name|escape:'html'}
+
+			<div style="margin-top: 5px;">
+				<a href="#" class="complex-type-toggle" data-type="price"><span class="complex-micro-menu hint{if $type == ''} selected{/if}">[`Fixed price`]</span></a>
+				<a href="#" class="complex-type-toggle" data-type="minus"><span class="complex-micro-menu hint{if $type != '' && !$is_plus} selected{/if}">[`Skidka`]</span></a>
+				<a href="#" class="complex-type-toggle" data-type="plus"><span class="complex-micro-menu hint{if $type != '' && $is_plus} selected{/if}">[`Nacenka`]</span></a>
+			</div>
+		</div>
+		<div class="value no-shift">
+			<input name="skus[{$sku_id}][{$price_key}]" class="complex-value bold" type="text" value="{$value}"/>
+			{*{if $price.default_style != 0}<a href="#"><i class="icon16 sync"></i></a>{/if}*}
+			<span class="complex-type-currency s-product-currency-readonly" style="{if $type != ''} display: none;{/if}">{$product.currency}</span>
+			<span class="complex-type" style="{if $type == ''} display: none;{/if}">
+				<select class="complex-type-select" name="skus[{$sku_id}][{$type_key}]">
+					{if $type == ''}<option class="complex-type-select-price" value="" selected></option>{/if}
+					<option class="complex-type-percent" value="{if !$is_plus}-{/if}%"{if in_array($type, ['%', '-%'])} selected{/if}>%</option>
+					<option class="complex-type-currency s-product-currency-readonly" value="{if !$is_plus}-{else}+{/if}"{if in_array($type, ['+', '-'])} selected{/if}>{$product.currency}</option>
+				</select>
+				от
+				<select name="skus[{$sku_id}][{$from_key}]">
+					<option value="0"{if $from == 0} selected{/if}>[`Main price`]</option>
+					{* <option value="1"{if $from == 1} selected{/if}>Зачеркнутая цена</option> *}
+					<option value="-1"{if $from == -1} selected{/if}>[`Purchase price`]</option>
+				</select>
+			</span>
+		</div>
+	</div>
+	{/foreach}
+</div>
+<hr/>
+<div class="clear-both"></div>
+<style type="text/css">
+.complex-micro-menu {
+	padding: 3px;
+	background: #eee;
+}
+.complex-micro-menu.selected {
+	background: #aaa;
+	color: #fff;
+}
+select > .complex-type-currency {
+	display: inline !important;
+}
+</style>
+<script type="text/javascript">
+(function($) {
+	$(document).off('click', '.complex-type-toggle').on('click', '.complex-type-toggle', function(e) {
+		var type = $(this).data('type');
+		
+		var f = $(this).closest('.field');
+		
+		f.find('.complex-micro-menu.selected').removeClass('selected');
+		$(this).find('.complex-micro-menu').addClass('selected');
+		
+		var c = f.find('.complex-type');
+		c[type == 'price' ? 'hide' : 'show']();
+		f.find('.complex-type-currency')[type != 'price' ? 'hide' : 'show']();
+		
+		if(type != 'price') {
+			c.find('.complex-type-select-price').remove();
+		} else {
+			c.find('.complex-type-select').append($('<option value=""/>').addClass('complex-type-select-price').prop('selected', true));
+			c.find('.complex-type-select').val('');
+		}
+		
+		var v = f.find('.complex-value');
+		
+		if(type == 'plus') {
+			c.find('.complex-type-percent').val('%');
+			c.find('.complex-type-currency').val('+');
+		}
+		
+		if(type == 'minus') {
+			c.find('.complex-type-percent').val('-%');
+			c.find('.complex-type-currency').val('-');
+		}
+		
+		e.preventDefault();
+	});
+})(jQuery);
+</script>

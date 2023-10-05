@@ -1,0 +1,523 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/listfeatures\n"
+"POT-Creation-Date: 2014-07-23 20:24+0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: shop/plugins/listfeatures\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+msgid "Product features in lists"
+msgstr ""
+
+msgid "Helps display product features in product lists."
+msgstr "Helps display product features in product lists and categories."
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/settings/Settings.html:6
+msgid "List features"
+msgstr "Product list features"
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/settings/Settings.html:12
+msgid "Choose settlement"
+msgstr "Storefront"
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/settings/Settings.html:24
+msgid "Save"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/settings/Settings.html:35
+msgid "No settlements for Shop-Script 5 found."
+msgstr "No Shop-Script storefronts found."
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/settings/Settings.html:36
+msgid ""
+"Set up storefront settlements in <a href=\"{$wa_backend_url}site/#/routing/"
+"\">Site</a> app"
+msgstr ""
+"Set up storefronts via <a href=\"{$wa_backend_url}site/#/routing/\">Site</a> "
+"app"
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendSettlementOptions.html:2
+msgid "Displayed product features"
+msgstr "Features displayed by this set"
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendSettlementOptions.html:7
+msgid "No product features are available for selected settlement."
+msgstr "No product features are available for selected storefront."
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendSettlementOptions.html:8
+msgid "Create and set up product features »"
+msgstr "<span class=\"underline\">Create and set up product features</span> »"
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSettingsSave.controller.php:14
+msgid ""
+"Could not save settings. Check write permissions for <code>wa-config/apps/"
+"shop/</code> or try again."
+msgstr ""
+"Could not save settings. Check write permissions for <code>wa-config/apps/"
+"shop/</code> and try again."
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSettingsSave.controller.php:17
+msgid "No settlement selected."
+msgstr "No online storefront selected."
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/settings/Settings.html:20
+msgid "Feature sets available for this settlement"
+msgstr "Feature sets"
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/settings/Settings.html:30
+msgid "Save set"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/settings/Settings.html:31
+msgid "delete set"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/settings/Settings.html:32
+msgid "cancel"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendSettlementOptions.html:11
+msgid "Add new set"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendSettlementOptions.html:12
+msgid ""
+"Set up additional sets of features to be displayed in different parts of "
+"selected storefront: in homepage, in category listing pages, or in the "
+"shopping cart."
+msgstr ""
+"Set up additional sets of features to be displayed in different parts of "
+"selected storefront: in the homepage, in category listing pages, or in the "
+"shopping cart."
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendSettlementOptions.html:13
+msgid ""
+"If you want to use additional feature sets, specify desired set ID as 3rd "
+"parameter in plugin's method call; e.g.,"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendSettlementOptions.html:15
+msgid "Set ID <strong>1</strong> is assumed by default if not specified."
+msgstr "If no set ID is specified, set #1 is used by default:"
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSettingsSave.controller.php:10
+msgid "No features selected, cannot save set."
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:34
+msgid "show product SKUs"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/settings/Settings.html:24
+msgid "Set description"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/settings/Settings.html:27
+msgid "Enter optional description; e.g., homepage, categories, cart"
+msgstr ""
+"Enter optional description; e.g., <i>homepage</i>, <i>categories</i>, "
+"<i>cart</i>."
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendSettlementOptions.html:13
+msgid ""
+"If you want to use additional feature sets, specify desired set ID as 3rd "
+"parameter in plugin's method call; e.g. set ID <b>2</b> as shown below,"
+msgstr ""
+"To use additional feature sets, specify desired set ID as 3rd parameter when "
+"adding plugin's call to a storefront template file; like set ID <b>2</b> "
+"shown in the example below:"
+
+msgid "Delete set %s?"
+msgstr "Delete set <span class=\"gray\">%s</span>?"
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendFeatureOptions.html:3
+msgid "Feature class name"
+msgstr "CSS class"
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendFeatureOptions.html:6
+msgid "CSS class name to be applied to this feature's row"
+msgstr ""
+"Specified CSS class name can be used to change the appearance of this "
+"feature's row in the feature values list."
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendFeatureOptions.html:12
+msgid "Values limit"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendFeatureOptions.html:15
+msgid "Maximum number of values to be displayed"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendFeatureOptions.html:19
+msgid "Hide remaining values"
+msgstr "Hide remaining values using \"show all\" link"
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendFeatureOptions.html:22
+msgid "Enable to hide remaining values with a CSS class"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendFeatureOptions.html:28
+msgid "\"Show all\" link"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendFeatureOptions.html:31
+msgid ""
+"Enter custom HTML code to be displayed instead of remaining values; e.g., "
+"<b>&amp;darr;</b> o"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendFeatureOptions.html:22
+msgid ""
+"Enable to hide remaining values with a CSS class. Users can view hidden "
+"values using the “Show all” link, for which you can specify custom text "
+"below.<br> Or keep this option disabled to simply skip remaining values."
+msgstr ""
+"Hide remaining values with CSS styles. Shoppers can view hidden values using "
+"the “Show all” link, for which you can specify custom text below.<br>Or keep "
+"this option disabled to simply skip remaining values."
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendFeatureOptions.html:29
+msgid ""
+"Enter custom HTML code to be displayed instead of remaining values; e.g., "
+"<b>&amp;darr;</b> or <b>&lt;br&gt;show all</b>. A click on this item will "
+"show all remaining values. Default link text is “...”."
+msgstr ""
+"Enter custom text to be displayed instead of remaining values; e.g., <b>&amp;"
+"darr;</b> or <b>&lt;br&gt;show all</b>. A click on this link will show all "
+"hidden values. Default link text is “...”. HTML is accepted."
+
+msgid "Edit settings for feature %s"
+msgstr "Extra options for feature %s"
+
+msgid "Edit settings for SKUs"
+msgstr "Extra options for SKUs"
+
+msgid "Edit settings for tags"
+msgstr "Extra options for tags"
+
+msgid "Edit settings for categories"
+msgstr "Extra options for categories"
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:46
+msgid "Return data array instead of HTML"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:55
+msgid "View default template"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:54
+msgid "For developers."
+msgstr ""
+
+msgid "Default template"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendFeatureOptions.html:3
+msgid "Feature name"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendFeatureOptions.html:6
+msgid ""
+"Enter custom name for this feature to be displayed in product lists. HTML is "
+"allowed."
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/shopListfeatures.plugin.php:477
+msgid "Category"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:38
+msgid "show product tags"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:43
+msgid "show product categories"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendFeatureOptions.html:18
+msgid "Show as link"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendFeatureOptions.html:21
+msgid "Show each value as link to appropriate product listing page."
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendFeatureOptions.html:19
+msgid "Show values as links"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/shopListfeatures.plugin.php:490
+msgid "SKU"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/shopListfeatures.plugin.php:493
+msgid "Tag"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/shopListfeatures.plugin.php:540
+msgid "SKUs"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/shopListfeatures.plugin.php:543
+msgid "Tags"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/shopListfeatures.plugin.php:546
+msgid "Categories"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:23
+msgid "Features"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:57
+msgid "Displayed data"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:64
+msgid "Template"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:69
+msgid "Table"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:73
+msgid "Blocks"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:83
+msgid "Class name"
+msgstr "CSS class"
+
+msgid "View template %s"
+msgstr "Просмотр шаблона <span class=\"gray\">%s</span>"
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:64
+msgid "Default"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:71
+msgid "Template %s"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:76
+msgid "Add new..."
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:61
+msgid ""
+"Choose default or create your own HTML template to display product features"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendTemplateDelete.controller.php:18
+msgid ""
+"Cannot delete this template, it is selected for the following feature sets:"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:91
+msgid "CSS class applied to entire features block for this set"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:44
+msgid "Product pages"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendFeatureOptions.html:22
+msgid "Show color names"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendFeatureOptions.html:25
+msgid "Show text names next to color circles."
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendFeatureOptions.html:44
+msgid "Value delimiter"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/templates/actions/backend/BackendFeatureOptions.html:47
+msgid "What must be displayed between features values. HTML is accepted."
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendFeatureOptions.action.php:57
+msgid "Display mode"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendFeatureOptions.action.php:59
+msgid "Only color names"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendFeatureOptions.action.php:60
+msgid "Only color markers"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendFeatureOptions.action.php:61
+msgid "Color markers and names"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendFeatureOptions.action.php:64
+msgid "Select how color values must be displayed."
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendFeatureOptions.action.php:83
+msgid "Sort products"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendFeatureOptions.action.php:85
+msgid "By name"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendFeatureOptions.action.php:86
+msgid "Least expensive"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendFeatureOptions.action.php:87
+msgid "Most expensive"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendFeatureOptions.action.php:88
+msgid "Highest rated"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendFeatureOptions.action.php:89
+msgid "Lowest rated"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendFeatureOptions.action.php:90
+msgid "Best sellers"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendFeatureOptions.action.php:91
+msgid "Worst sellers"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendFeatureOptions.action.php:92
+msgid "In stock"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendFeatureOptions.action.php:93
+msgid "Date added"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendFeatureOptions.action.php:96
+msgid ""
+"Select the order of products displayed via links to this feature's values."
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:113
+msgid "Show features specified for disabled SKUs"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:124
+msgid "Hide features specified for SKUs that are out of stock"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:113
+msgid "Show feature values specified for disabled SKUs"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:124
+msgid "Hide feature values specified for SKUs that are out of stock"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:113
+msgid "Show properties of disabled SKUs"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:119
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:136
+msgid ""
+"Applicable only to products which were set up using option \"<b>%s</b>\" "
+"rather than \"%s\"."
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:123
+msgid ""
+"By default, properties of disabled SKUs are <b>not displayed</b> in product "
+"lists."
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:130
+msgid "Hide properties of SKUs that are out of stock"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:140
+msgid ""
+"By default, properties of SKUs that are out of stock are <b>displayed</b> in "
+"product lists."
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:127
+msgid "If you do not sell products using option \"%s\" or if you want to reduce the load on your database server, then <strong>enable</strong> this setting"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:131
+msgid "and <strong>disable</strong> setting \"%s\" below."
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:154
+msgid "If you do not sell products using option \"%s\" or if you want to reduce the load on your database server, then <strong>disable</strong> this setting"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:158
+msgid "and <strong>enable</strong> setting \"%s\" above."
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/shopListfeaturesPluginBackendSetOptions.action.php:20
+msgid "Enter arbitrary description to remember where this set is used. It will not be shown to customers."
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/settings/shopListfeaturesPluginSettingsFeatureOptions.action.php:82
+msgid "META keywords for product listing pages"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/settings/shopListfeaturesPluginSettingsFeatureOptions.action.php:84
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/settings/shopListfeaturesPluginSettingsFeatureOptions.action.php:107
+msgid "E.g.:"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/settings/shopListfeaturesPluginSettingsFeatureOptions.action.php:87
+msgid "Enter META keywords for product listings displayed via links to this feature's values."
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/settings/shopListfeaturesPluginSettingsFeatureOptions.action.php:89
+msgid "Smarty syntax is supported. E.g.:"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/settings/shopListfeaturesPluginSettingsFeatureOptions.action.php:91
+msgid "<code>{$wa-&gt;shop-&gt;settings('name')}</code> &mdash; your store name from general settings"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/settings/shopListfeaturesPluginSettingsFeatureOptions.action.php:93
+msgid "Additional supported variables"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/settings/shopListfeaturesPluginSettingsFeatureOptions.action.php:95
+msgid "<code>{$feature.name}</code> &mdash; feature name"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/settings/shopListfeaturesPluginSettingsFeatureOptions.action.php:97
+msgid "<code>{$feature.value}</code> &mdash; feature value"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/settings/shopListfeaturesPluginSettingsFeatureOptions.action.php:99
+msgid "These variables are also available for “META description” field below."
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/settings/shopListfeaturesPluginSettingsFeatureOptions.action.php:105
+msgid "META description for product listing pages"
+msgstr ""
+
+#: /wa-apps/shop/plugins/listfeatures/lib/actions/settings/shopListfeaturesPluginSettingsFeatureOptions.action.php:109
+msgid "Products with value “{$feature.value}” of feature “{$feature.name}”"
+msgstr ""

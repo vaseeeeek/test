@@ -1,0 +1,216 @@
+<hr>
+<h3>Дополнительные категории</h3>
+<div class="catdoplinks-items">
+    {if !empty($catdoplinks)}
+        {foreach $catdoplinks as $item}
+            <div class="catdoplinks-item">
+                <div class="catdoplinks-item-img"><img src="/wa-data/public/shop/{$item.img|escape}" alt="/wa-data/public/shop/{$item.img|escape}"></div>
+                <div class="catdoplinks-item-name">{$item.name|escape}</div>
+                <div class="catdoplinks-item-link">{$item.link|escape}</div>
+                <div class="catdoplinks-item-sort">{$item.sort|escape}</div>
+                <div class="catdoplinks-item-del"><a href="#" class="catdoplinks-item-del-item" data-id="{$item.id}"><i class="icon16 delete"></i></a></div>
+            </div>
+        {/foreach}
+    {/if}
+</div>
+
+<br><br>
+<div class="field">
+    <div class="name">
+        Название
+    </div>
+    <div class="value">
+        <table>
+            <tr>
+                <td>
+                    <input name="catdoplinks_name" id="catdoplinks_name" value="" type="text" />
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+<div class="field">
+    <div class="name">
+        Ссылка
+    </div>
+    <div class="value">
+        <table>
+            <tr>
+                <td>
+                    <input name="catdoplinks_link" id="catdoplinks_link" value="" type="text" />
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+<div class="field">
+    <div class="name">
+        Картинка
+    </div>
+    <div class="value">
+        <table>
+            <tr>
+                <td>
+                    <input name="catdoplinks_img" value="" type="file"  id="catdoplinks_img" accept="image/*"/>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+<div class="field">
+    <div class="name">
+        Порядок
+    </div>
+    <div class="value">
+        <table>
+            <tr>
+                <td>
+                    <input name="catdoplinks_sort" value="{$catdoplinks_sort|escape}" type="text"  id="catdoplinks_sort"/>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+
+<div class="catdoplinks-button-wrappers">
+    <button class="button blue" id="catdoplinks-add-button">Добавить</button> <i class="icon16 loading"></i>
+</div>
+<hr>
+
+{literal}
+    <script>
+        $('#catdoplinks-add-button').on('click', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            var formData = new FormData();
+            var file = document.getElementById('catdoplinks_img');
+
+            if (file.files.length) {
+                // создаём объект formData
+                var formData = new FormData();
+                // добавляем в formData файл
+                formData.append('file', file.files[0]);
+                formData.append('name', $('#catdoplinks_name').val());
+                formData.append('link', $('#catdoplinks_link').val());
+                formData.append('sort', $('#catdoplinks_sort').val());
+                formData.append('category_id', {/literal}{$category.id}{literal});
+
+
+                $.ajax(
+                    {
+                        url: '?plugin=catdoplinks&module=add',
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        dataType: "json",
+                        type: 'post',
+                        cache: false,
+                        beforeSend: function( xhr ) {
+                            $('#catdoplinks-add-button').prop('disabled', true);
+                            $('.catdoplinks-button-wrappers i').css('display', 'inline-block');
+                        },
+                        success: function (ret) {
+
+                            $('#catdoplinks-add-button').prop('disabled', false);
+                            $('.catdoplinks-button-wrappers i').css('display', 'none');
+
+                            if(ret.status == 'ok'){
+                                $('#catdoplinks_sort').val(ret.data.sort);
+                                $('#catdoplinks_link').val('');
+                                $('#catdoplinks_name').val('');
+                                $('#catdoplinks_img').val('');
+                                $('.catdoplinks-items').append(ret.data.ret);
+                            }
+                        }
+                    }
+                );
+            }
+            return false;
+        });
+
+        $('body').on('click', '.catdoplinks-item-del-item', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+
+            var target = $(e.target);
+
+            var formData = new FormData();
+            formData.append('id', $(this).data('id'));
+            $.ajax(
+                {
+                    url: '?plugin=catdoplinks&module=delete',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    dataType: "json",
+                    type: 'post',
+                    cache: false,
+                    success: function (ret) {
+
+                        if(ret.status == 'ok'){
+                            target.parents('.catdoplinks-item').remove()
+                        }
+                    }
+                }
+            );
+        })
+    </script>
+
+{/literal}
+
+<style>
+
+
+    .catdoplinks-item{
+        margin-bottom: 20px;
+        display: flex;
+    }
+
+    .catdoplinks-item div{
+        padding: 10px;
+        border-right: 1px solid #cecece;
+        border-bottom: 1px solid #cecece;
+        border-top: 1px solid #cecece;
+    }
+
+    .catdoplinks-item div:first-of-type{
+        border-left: 1px solid #cecece;
+    }
+
+    .catdoplinks-item-img img{
+        width: 64px;
+    }
+
+    .catdoplinks-item div{
+        align-items: center;
+        display: flex;
+    }
+    .catdoplinks-item-name, .catdoplinks-item-link{
+        width: 300px;
+    }
+
+    .catdoplinks-item-sort{
+        width: 50px;
+    }
+
+    .catdoplinks-button-wrappers{
+        display: flex;
+        align-items: center;
+    }
+
+    #catdoplinks-add-button{
+        margin-right: 20px;
+    }
+
+    .catdoplinks-button-wrappers i{
+        display: none;
+    }
+</style>

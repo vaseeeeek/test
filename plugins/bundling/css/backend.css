@@ -1,0 +1,64 @@
+.bundling-bundle-group {
+	padding-left: 15px;
+	border-left: 1px solid #ccc;
+	margin-left: 5px;
+}
+/*
+.bundling-header {
+	background-image: linear-gradient(#ffed63, #fff);
+	margin-left: -25px;
+	margin-right: -25px;
+	padding: 15px 25px 1px 25px;
+	margin-top: -15px;
+	margin-bottom: 10px;
+	color: #000;
+}*/
+#maincontent {
+	border-top: 8px solid #ffe500;
+	background: linear-gradient(to bottom, #ffed63 0%, #fff 160px, #fff 0%);
+}
+
+/*
+#wa-app > #mainmenu > ul.tabs > li.selected {
+	/background: #ffe500 !important;
+	border-color: #ffd400;
+}
+#mainmenu > ul.tabs > li.selected > a {
+	color: #000 !important;
+	background: linear-gradient(#fff8d6, #ffe500) !important;
+} */
+
+.s-search-form, .s-level2 {
+	display: none;
+}
+	
+#maincontent {
+	margin-top: 40px !important;
+}
+#maincontent form {
+	overflow: visible;
+}
+
+#bundling-bundles.fields {
+	width: 100%;
+}
+
+.field.bundle {
+	overflow: hidden;
+}
+
+.bundle .hint {
+	margin: 10px 0;
+}
+
+.bundle .hint a {
+	text-decoration: none !important;
+}
+
+.bundling-various-discount, .bundling-fixed-discount {
+	margin-bottom: 10px;
+}
+
+table.zebra a {
+	display: inline !important;
+}

@@ -1,0 +1,42 @@
+<h1>{$plugin->getName()}</h1>
+<div class="fields form" style="width: 100%;">
+    <form action="?module=plugins&id=catdoplinks&action=save" method="post" id="plugins-settings-form">
+        {$wa->csrf()}
+        <div class="field">
+            <div class="name">
+                [`Enable`]
+            </div>
+            <div class="value">
+                <input type="checkbox" name="shop_catdoplinks[enable]" {if $settings.enable != ''}checked{/if}>
+            </div>
+        </div>
+
+
+        <div class="field">
+            <div class="name">
+                [`CSS`]
+            </div>
+            <div class="value">
+                <textarea name="shop_catdoplinks_css" id="shop_catdoplinks_css">{$css|escape}</textarea>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="value submit">
+                <input type="submit" class="button green" value="[s`Save`]">
+                <span id="plugins-settings-form-status" style="display:none"></span>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    const myeditor = CodeMirror.fromTextArea(document.getElementById('shop_catdoplinks_css'), {
+        mode: "text/html",
+        tabSize: 2,
+        lineNumbers: true,
+        lineWrapping: true,
+        mode: 'css',
+    });
+</script>

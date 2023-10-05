@@ -1,0 +1,56 @@
+{* Название *}
+{$item_name = $item.name}
+{if $item.skuName}{$item_name = "`$item_name` (`$item.skuName`)"}{/if}
+
+{* Имеется ли возможность изменения количества *}
+{$has_quantity = 0}
+{if (!isset($userbundle) && !empty($bundle_item.settings.choose_quantity))
+    || (isset($userbundle) && (!empty($group.settings.choose_quantity)  || !empty($item.settings.choose_quantity)))
+    || (!empty($item.settings.quantity) && $item.settings.quantity > 1)
+}
+    {$has_quantity = 1}
+{/if}
+
+{* В наличии товар или нет *}
+{$not_in_stock = $item.not_in_stock}
+
+{* Возможность выбора артикула *}
+{$choose_skus = 0}
+{if !empty($bundle_item.settings.choose_skus) && $item.product.sku_count > 1}
+    {$choose_skus = 1}
+{/if}
+
+{* Цены *}
+{if $change_price}
+    {$clear_price = $item.clear_price}
+    {$price = $item.price}
+    {$clear_compare_price = $item.clear_compare_price}
+    {$compare_price = $item.compare_price}
+{else}
+    {$clear_price = $item.clear_original_price}
+    {$price = $item.original_price}
+    {$clear_compare_price = $item.original_compare_price}
+    {$compare_price = $item.original_compare_price_cur}
+{/if}
+{if $clear_compare_price <= $clear_price}
+    {$clear_compare_price = 0}
+    {$compare_price = 0}
+{/if}
+
+{* Наклейка *}
+{$discount_badge = 0}
+{if !empty($clear_compare_price)}
+    {if floatval($clear_compare_price) < 0 || floatval($clear_compare_price) <= floatval($clear_price)}
+        {$clear_compare_price = 0}
+    {/if}
+    {if floatval($clear_compare_price) > 0}
+        {$discount_badge = (100*(1 - $clear_price/$clear_compare_price))}
+    {/if}
+    {if $discount_badge > 0}
+        {if $discount_badge > 99 || $discount_badge < 1}
+            {$discount_badge = $discount_badge|round:2}
+        {else}
+            {$discount_badge = $discount_badge|round}
+        {/if}
+    {/if}
+{/if}

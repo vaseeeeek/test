@@ -1,0 +1,54 @@
+<div class="f-tab-other" style="display: none;">
+    <div class="field">
+        <div class="name">[`Popup dialog closing`]</div>
+        <div class="value">
+            <label>
+                <input type="hidden" name="popup_close" value="0">
+                <input type="checkbox" name="popup_close"{if !empty($pset.settings.other.popup_close) || !isset($pset.settings.other.popup_close)} checked{/if}>
+                [`Close popup dialog, when user click outside the form`]
+            </label>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Reload page after checkout`]</div>
+        <div class="value">
+            <label>
+                <input type="hidden" name="reload_after_checkout" value="0">
+                <input type="checkbox" name="reload_after_checkout"{if !empty($pset.settings.other.reload_after_checkout)} checked{/if}>
+                [`Reload page after successfull checkout, when user closes the popup window`]
+            </label>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Sticky block`]</div>
+        <div class="value">
+            <label>
+                <input type="hidden" name="sticky_block" value="0">
+                <input type="checkbox" name="sticky_block"{if !empty($pset.settings.other.sticky_block) || !isset($pset.settings.other.sticky_block)} checked{/if}>
+                [`Make block with total price sticky to window on scroll.`]
+            </label>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Change product prices`]</div>
+        <div class="value">
+            <label>
+                <input type="hidden" name="change_price" value="0">
+                <input type="checkbox" name="change_price"{if !empty($pset.settings.other.change_price) || !isset($pset.settings.other.change_price)} checked{/if}>
+                [`Show prices with discounts`]
+            </label>
+            <div class="mb top hint">[`If you disable that option, products will be with original prices from the admin page despite the discounts`]</div>
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">[`Discount rounding`]:</div>
+        {$rounding = ['not' => _wp('not round'), 'ceil' => _wp('ceil'), 'round' => _wp('rounding to integer'), 'floor' => _wp('floor'), 'tens' => "10", 'hund' => "100", 'dec1' => "0.1", 'dec2' => "0.01"]}
+        <div class="value">
+            {foreach $rounding as $r_id => $r}
+                <div class="mb semi bottom">
+                    <label><input type="radio" name="round" value="{$r_id}" {if (isset($pset.settings.other.round) && $pset.settings.other.round == $r_id) || (empty($pset.settings.other.round) && $r_id == 'not')}checked='checked'{/if} /> {$r}</label>
+                </div>
+            {/foreach}
+        </div>
+    </div>
+</div>

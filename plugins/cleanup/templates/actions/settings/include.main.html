@@ -1,0 +1,150 @@
+<section id="s-cleanup-main">
+<script src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.core.min.js"></script>
+<script>window.jQuery.ui.datepicker || document.write('<script src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.datepicker.min.js"><\/script>')</script>
+{if is_readable("wa-content/js/jquery-ui/i18n/jquery.ui.datepicker-{$wa->locale()}.js")}
+        <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/i18n/jquery.ui.datepicker-{$wa->locale()}.js"></script>
+    {/if}
+<script>
+jQuery.browser = {};
+(function () {
+    jQuery.browser.msie = false;
+    jQuery.browser.version = 0;
+    if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
+        jQuery.browser.msie = true;
+        jQuery.browser.version = RegExp.$1;
+    }
+})();
+</script>
+{literal}
+    <script type="text/javascript">
+    $("#s-cleanup-main a").click(function(id){
+        url="?plugin=cleanup&action=run";
+        var fields = {
+            'options':this.id,
+            '_csrf' : $('[name=_csrf]').attr("value"),
+            'imagefilter' : $('#s-cleanup-filter :selected').val(),
+            'imagefilterBytype' : $('#s-cleanup-filter-type :selected').val(),
+            'orderfilter' : $('#s-cleanup-filter-date').val(),
+            'orderfilter_from' : $('#s-cleanup-filter-date-from').val(),
+        };
+        
+        if (confirm($(this).text()+"?")){
+            var obj,cid=this.id;
+            if(this.id=="repaircat") $("#resultrepaircat").load("?module=repair&action=categories");
+            else {
+                var posting = $.post( url, fields);
+                posting.done(function( data ) {
+                    if(data=='OK'){
+            if(fields.imagefilter||fields.orderfilter||fields.imagefilterBytype) {location.reload();}
+                        else {
+                        $("#"+cid).next("span").html(' - [0]');
+                        $("#"+cid).next("span").after(' <span id="result'+cid+'"></span>');
+                        $("#result"+cid ).empty().append( data );}
+                    } else $('#s-cleanup-error').empty().append( data );
+                });
+            }
+        setTimeout(function(){
+        $('#result'+cid).empty();}, 4000);
+        }
+    });
+    
+    // Datepicker
+    var datetime_input = $('input[name="s-cleanup-filter-date"]');
+    datetime_input.datepicker({
+        'dateFormat': 'yy-mm-dd'
+    });
+    datetime_input.click(function() {
+        $('input[name="s-cleanup-filter-date"]').datepicker('show');
+    });
+    // widget appears in bottom left corner for some reason, so we hide it
+    datetime_input.datepicker('widget').hide();
+
+    $('#s-cleanup-date-clear').click(function(){
+        $('input[name="s-cleanup-filter-date"]').datepicker("setDate",null);
+    });
+    
+    var datetime_input_from = $('input[name="s-cleanup-filter-date-from"]');
+    datetime_input_from.datepicker({
+        'dateFormat': 'yy-mm-dd'
+    });
+    datetime_input_from.click(function() {
+        $('input[name="s-cleanup-filter-date-from"]').datepicker('show');
+    });
+    // widget appears in bottom left corner for some reason, so we hide it
+    datetime_input_from.datepicker('widget').hide();
+
+    $('#s-cleanup-date-clear-from').click(function(){
+        $('input[name="s-cleanup-filter-date-from"]').datepicker("setDate",null);
+    });
+    </script>
+{/literal}
+    <a href="javascript:void(0);" id="orders">{_wp("Clear deleted orders")}</a><span> - [{$orders}]</span><br>
+    {_wp('Limit date')} [`from`] <input size="14" name="s-cleanup-filter-date-from" id="s-cleanup-filter-date-from" placeholder="{_wp('Select date')}"></input>
+    <i id="s-cleanup-date-clear-from" title="{_wp('Clear date')}" class="icon10 delete-bw no-overhanging"> </i>
+     [`to`]
+     <input size="14" name="s-cleanup-filter-date" id="s-cleanup-filter-date" placeholder="{_wp('Select date')}"></input>
+    <i id="s-cleanup-date-clear" title="{_wp('Clear date')}" class="icon10 delete-bw no-overhanging"> </i>
+    <p>
+        {_wp('Removes orders marked as deleted from database')}
+    </p>
+    <a href="javascript:void(0);" id="reviews">{_wp("Clear deleted reviews")}</a><span> - [{$reviews}]</span>
+    <p>
+        {_wp('Removes reviews marked as deleted from database')}
+    </p>
+    <a href="javascript:void(0);" id="repaircat">{_wp("Repair categories")} </a><span id="resultrepaircat"></span>
+    <p>
+        {_wp('Repair corrupted categories structure and reindex')}
+    </p>
+    <a href="javascript:void(0);" id="images">{_wp("Remove all product images")}</a><span> - [{$images}]</span>
+        {if !empty($sets)}
+        <br>
+            {_wp('Filter by set')}
+            <select id="s-cleanup-filter">
+                    <option selected value=''>{_wp('No filter')}</option>
+                {foreach $sets as $set}
+                    <option value={$set.id|escape}>{$set.name|escape}</option>
+                {/foreach}
+            </select>
+        {/if}
+        {if !empty($types)}
+        <br>
+            {_wp('Filter by type')}
+            <select id="s-cleanup-filter-type">
+                    <option selected value=''>{_wp('No filter')}</option>
+                {foreach $types as $type}
+                    <option value={$type.id|escape}>{$type.name|escape}</option>
+                {/foreach}
+            </select>
+        {/if}
+    <p>
+        {_wp('Removes images for every product')}
+    </p>
+    <a href="javascript:void(0);" id="missingimages">{_wp("Remove all missing images from products")}</a><span></span>
+    <p>
+        {_wp('Removes image from every product if image file is missing')}
+    </p>
+    <a href="javascript:void(0);" id="originalimages">{_wp("Remove all original images from products")}</a><span></span>
+    <p>
+        {_wp('Removes saved earlier original images')}
+    </p>
+    <a href="javascript:void(0);" id="sourceimages">{_wp("Remove all source images from products")}</a><span></span>
+    <p>
+        {_wp("!Important. Removes all source images. Thumbs can't be generated anymore for existing product images.")}
+    </p>
+    <a href="javascript:void(0);" id="fixthumb">{_wp("Recreate thumb.php")}</a><span></span>
+    <p>
+        {_wp('Restore file thumb.php if it was corrupted or removed.')}
+    </p>
+    
+    <a href="javascript:void(0);" id="badges">{_wp("Remove all badges for products")}</a><span> - [{$badges}]</span>
+    <p>
+        {_wp('Removes badges for every product')}
+    </p>
+    <a href="javascript:void(0);" id="stocks">{_wp("Remove all stock logs for products")}</a><span></span>
+    <p>
+        {_wp('Removes all stocks log for every product')}
+    </p><a href="javascript:void(0);" id="walog">{_wp("Remove all shop logs from activity")}</a><span></span>
+    <p>
+        {_wp('Removes shop logs')}
+    </p>
+<section>

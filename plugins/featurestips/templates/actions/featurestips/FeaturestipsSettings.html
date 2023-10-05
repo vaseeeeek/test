@@ -1,0 +1,183 @@
+<div>
+    <ul class="tabs" id="setblock">
+        {if $settings['hide_instruction'] != 1}<li class="instruction no-tab float-right"><a href="#">{_wp('Instruction')}</a></li>{/if}
+        <li class="no-tab" style="padding: 0 50px 2px 25px;"><h2>{_wp('Features tips')}</h2></li>
+        <li class="tips selected"><a href="#">{_wp('Tips')}</a></li>
+        <li class="settings"><a href="#">{_wp('Settings')}</a></li>
+    </ul>
+    <div class="tab-content">
+
+        <div id="tips">
+            <div class="featuresTips_block_01">
+                <div class="left"><b>{_wp('Set tips for')}:</b></div>
+                <div class="left" style="text-align: center; margin-top: -8px !important;">
+                    <div class="hint" style="padding-bottom: 5px;">{_wp('selected type of product')}</div>
+                    <select id="featuresTips_getType" class="select">
+                        <option value="0"></option>
+                    {foreach $product_types as $pt}
+                        <option value="{$pt.id}">{$pt.name|escape}</option>
+                    {/foreach}
+                    </select>
+                </div>
+                <div class="right">
+                    <span class="or">{_wp('or')}</span> <a href="#" id="featuresTips_global" class="ajax_link">{_wp('all types of products')}</a>
+                </div>
+            </div>
+
+            <div id="featuresTips_mitem"></div>
+
+        </div>
+
+        <div class="block" id="settings" style="display: none;">
+
+            <h1 style="text-align: center;">{_w('Settings')}</h1>
+
+            <form action="?module=plugins&id=featurestips&action=save" method="post" id="plugins-settings-form">
+            <div class="fields">
+                {$wa->csrf()}
+                {$settingsHTML}
+
+                <div class="field-group">
+                    <div class="field">
+                        <div class="value submit">
+                            <input type="submit" class="button green" value="{_wp('Saved')}">
+                            <span id="plugins-settings-form-status" style="display: none;">
+                                <i style="vertical-align:middle" class="icon16 yes"></i> {_wp('Saved')}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+
+        </div>
+
+        {if $settings['hide_instruction'] != 1}
+
+        <div class="block featuresTips_instruction" id="instruction" style="display: none;">
+
+            <h1 style="text-align: center;">{_wp('Instruction')}</h1>
+
+            {if $instruction_locale == 'ru'}
+
+            <h2>Установка</h2>
+            <p>В месте (на странице описания продукта: product.html ), где нам требуется добавить вывод подсказок, необходимо добавить специальный код (хелпер). Сделать это можно через редактор шаблона в бекенде.</p>
+            <h3>Шаг 1. Скопируйте код</h3>
+            <p>Скопируйте код, который размещен в блоке ниже:</p>
+            <div class="block_code large">{literal}{shopFeaturestipsPlugin::ShowFeatureTip($featurestips, <span style="color: #F60;">$f_code</span>)}{/literal}</div>
+            <p class="small" style="text-align: center;"><span style="color: #F60;">Красным</span> выделена переменная, которая может отличаться от используемой в вашей теме дизайна!<br>
+            В шаге 2 будет указано, как проверить название <span style="color: #F60;">переменной</span>.</p>
+            <h3>Шаг 2. Установите код</h3>
+            <p><b>2.1.</b> В бекенде пройдите в редактор шаблона магазина. Для этого последовательно пройдите:<br>
+            Бекенд -> Магазин -> Витрина -> (выберите используемую тему) -> Шаблоны -> <b>product.html</b> (см. скриншот)</p>
+            <p style="text-align: center;"><a href="{$wa_app_static_url}plugins/featurestips/img/instruction/ru/instruction_01.jpg" target="_blank"><img style=" max-width: 1000px;" class="instruction_img" src="{$wa_app_static_url}plugins/featurestips/img/instruction/ru/instruction_01.jpg"></a></p>
+            <p><b>2.2.</b> В шаблоне <b>product.html</b> найдите участок кода, отвечающую за отображение характеристик.<br>
+            Этот участок обычно начинается с кода: <i>{literal}{if $product.features}{/literal}</i>.<br>
+            В этом участке найдите место, отвечающее за вывод названий характеристик. Код: <i>{literal}{$features[<span style="color: #F60;">$f_code</span>].name|escape}{/literal}</i><br>
+            (см. скриншот)</p>
+            <p class="small" style="text-align: center;"><span style="color: #F60;">Красным</span> выделена переменная, которая может отличаться от используемой в вашей теме дизайна!<br>
+            (<b>Внимание!!!</b> структура кода на скриншотах приведена для наглядной демонстрации из темы "ДЕФОЛТ 3.0" и может отличаться от структуры кода ваших тем!)</p>
+            <p style="text-align: center;"><a href="{$wa_app_static_url}plugins/featurestips/img/instruction/ru/instruction_02.jpg" target="_blank"><img style=" max-width: 600px;" class="instruction_img" src="{$wa_app_static_url}plugins/featurestips/img/instruction/ru/instruction_02.jpg"></a></p>
+            <p><b>2.3.</b> Перейдите на новую строку и <b>вставьте</b> код плагина, скопированный на 1-ом шаге! После чего нажмите на кнопку "Сохранить"! (см. скриншот)</p>
+            <p style="text-align: center;"><a href="{$wa_app_static_url}plugins/featurestips/img/instruction/ru/instruction_03.jpg" target="_blank"><img style=" max-width: 1000px;" class="instruction_img" src="{$wa_app_static_url}plugins/featurestips/img/instruction/ru/instruction_03.jpg"></a></p>
+            <h3>Примечание</h3>
+            <p>Если вы используете несколько тем дизайнов, то шаг №2 необходимо провести с каждой из используемых тем.</p>
+            <p><span style="color: #F60;"><b>Если</b></span> в вашей теме дизайна используется переменная, имя которой отличается от <span style="color: #F60;"><b>$f_code</b></span> (в инструкции выше была выделена <span style="color: #F60;">красным</span> цветом), то вам необходимо заменить ее в шаге <b>2.3.</b> (во вставленном коде) на переменную используемую в вашем шаблоне (см. скриншот).</p>
+            <p style="text-align: center;"><a href="{$wa_app_static_url}plugins/featurestips/img/instruction/ru/instruction_04.jpg" target="_blank"><img style=" max-width: 600px;" class="instruction_img" src="{$wa_app_static_url}plugins/featurestips/img/instruction/ru/instruction_04.jpg"></a></p>
+
+            {else}
+
+            <h2>Installation</h2>
+            <p>In the location (on the product description page: product.html), where we need to add the output of tips, you must add the special code (helper). This can be done through the template in the backend editor.</p>
+            <h3>Step 1: Copy the code</h3>
+            <p>Copy the code that placed in the block below:</p>
+            <div class="block_code large">{literal}{shopFeaturestipsPlugin::ShowFeatureTip($featurestips, <span style="color: #F60;">$f_code</span>)}{/literal}</div>
+            <p class="small" style="text-align: center;">Marked with <span style="color: #F60;">red color</span> a variable, which may be different from that used in your theme design!<br>
+            In step 2 will be shown how to check the name of the <span style="color: #F60;">variable</span>.</p>
+            <h3>Step 2. Install the code</h3>
+            <p><b>2.1.</b> In the backend go to the editor of template store. To do this, consistently go to:<br> Backend -> Shop -> Storefront -> (select your theme) -> Templates -> <b>product.html</b> (see. Screenshot)</p>
+            <p style="text-align: center;"><a href="{$wa_app_static_url}plugins/featurestips/img/instruction/en/instruction_01.jpg" target="_blank"><img style=" max-width: 1000px;" class="instruction_img" src="{$wa_app_static_url}plugins/featurestips/img/instruction/en/instruction_01.jpg"></a></p>
+            <p><b>2.2.</b> 2.2. In the template <b>product.html</b> find the section of code that responsible for displaying features.<br>
+            This section usually begins with a code: <i>{literal}{if $product.features}{/literal}</i>.<br>
+            In this section find a place which is responsible for outputting the names of the features. Code: <i>{literal}{$features[<span style="color: #F60;">$f_code</span>].name|escape}{/literal}</i><br>
+            (see Screenshot)</p>
+            <p class="small" style="text-align: center;">Marked with <span style="color: #F60;">red color</span> a variable, which may be different from that used in your theme design!<br>
+            (<b>Attention !!!</b> The structure of the code is shown on the screenshots to illustrate from the theme of "DEFAULT 3.0" and may be different from the structure of the code of your theme!)</p>
+            <p style="text-align: center;"><a href="{$wa_app_static_url}plugins/featurestips/img/instruction/en/instruction_02.jpg" target="_blank"><img style=" max-width: 600px;" class="instruction_img" src="{$wa_app_static_url}plugins/featurestips/img/instruction/en/instruction_02.jpg"></a></p>
+            <p><b>2.3.</b> Go to the next line and <b>insert the plugin code</b> that you copied in the first step! Then click on "Save" button! (see Screenshot)</p>
+            <p style="text-align: center;"><a href="{$wa_app_static_url}plugins/featurestips/img/instruction/en/instruction_03.jpg" target="_blank"><img style=" max-width: 1000px;" class="instruction_img" src="{$wa_app_static_url}plugins/featurestips/img/instruction/en/instruction_03.jpg"></a></p>
+            <h3>Note</h3>
+            <p>If you use several themes of designs, it is necessary to conduct the step РІвЂћвЂ“2 with each of the themes.</p>
+            <p><span style="color: #F60;"><b>If in your theme design</b></span> is used a variable whose name is different from <span style="color: #F60;"><b>$f_code</b></span> (in the instruction above it has been highlighted in <span style="color: #F60;">red</span>), then you need to replace it in step <b>2.3.</b> (in the inserted code) to the variable that used in your template (see Screenshot).</p>
+            <p style="text-align: center;"><a href="{$wa_app_static_url}plugins/featurestips/img/instruction/en/instruction_04.jpg" target="_blank"><img style=" max-width: 600px;" class="instruction_img" src="{$wa_app_static_url}plugins/featurestips/img/instruction/en/instruction_04.jpg"></a></p>
+
+            {/if}
+
+        </div>
+        {/if}
+
+    </div>
+</div>
+
+{literal}
+<style>
+    #wa-plugins-container .block.double-padded { padding: 20px 0 !important; }
+    .featuresTips_block_01 { text-align: center; padding: 10px 50px 12px 50px !important; background: #f7f7f7; height: 30px; border-bottom: 1px solid #ddd; }
+    .featuresTips_block_01 .left { padding: 5px 50px 0 0 !important; display: inline-block; }
+    .featuresTips_block_01 .right { padding: 5px 0 0 50px !important; display: inline-block; }
+    .featuresTips_block_01 A.ajax_link { padding: 3px 10px; text-decoration: underline; }
+    .featuresTips_block_01 .disable_link { pointer-events: none; cursor: default; text-decoration: none !important; color: #000; background: #BBBBBB; }
+    .featuresTips_block_01 .or { margin: 0 30px 0 -50px; font-weight: bold; }
+    .featuresTips_instruction { padding: 10px 25px; }
+    .featuresTips_instruction .block_code { margin: 5px 70px; padding: 30px; border: 1px solid #ccc; background: #f7f7f7; font-weight: bold; text-align: center; }
+    .featuresTips_instruction .instruction_img { width: 90%; border: 0; }
+</style>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#featuresTips_getType').change(function(){
+        $('#featuresTips_global').removeClass('disable_link');
+        $.ajax({
+            url: "?plugin=featurestips&module=settings&action=List",
+            data: { type_id: $('#featuresTips_getType').val() },
+            cache: false,
+            success: function(html) {
+                $('#featuresTips_mitem').html(html);
+            }
+        });
+        return false;
+    });
+    $('#featuresTips_global').click(function(){
+        $("#featuresTips_getType [value='0']").attr("selected", "selected");
+        $(this).addClass("disable_link");
+        $.ajax({
+            url: "?plugin=featurestips&module=settings&type_id=globaltips&action=List",
+            cache: false,
+            success: function(html) {
+                $('#featuresTips_mitem').html(html);
+            }
+        });
+        return false;
+    });
+
+    $('#setblock li.settings').click(function () {
+        $('#tips, #instruction').hide();
+        $('#settings').show();
+        $('#setblock li').removeClass("selected");
+        $('li.settings').addClass("selected");
+    });
+    $('#setblock li.tips').click(function () {
+        $('#settings, #instruction').hide();
+        $('#tips').show();
+        $('#setblock li').removeClass("selected");
+        $('li.tips').addClass("selected");
+    });
+    $('#setblock li.instruction').click(function () {
+        $('#tips, #settings').hide();
+        $('#instruction').show();
+        $('#setblock li').removeClass("selected");
+        $('li.instruction').addClass("selected");
+    });
+});
+</script>
+{/literal}

@@ -1,0 +1,29 @@
+<div class="sidebar left200px">
+	<div class="block">
+		<ul class="menu-v with-icons">
+			<li class="bottom-padded{if $action == 'create'} selected{/if}">
+				<a class="bold" href="?plugin=regions&action=create">
+					<i class="icon16 add"></i>Добавить регион
+				</a>
+			</li>
+			<li {if $action == 'default'} class="selected"{/if}>
+				<a href="?plugin=regions">
+					<span class="count">{$count_cities}</span>
+					<i class="icon16 folders"></i>Все регионы
+				</a>
+			</li>
+			<li>
+				<a href="?plugin=regions&action=robots">
+					<i class="icon16 script"></i>Генерация robots.txt
+				</a>
+			</li>
+			{if $settings_are_available}
+			<li>
+				<a href="?action=plugins#/regions/" target="_blank">
+					<i class="icon16 settings"></i>Настройки плагина
+				</a>
+			</li>
+			{/if}
+		</ul>
+	</div>
+</div>

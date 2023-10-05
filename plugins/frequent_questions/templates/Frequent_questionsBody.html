@@ -1,0 +1,25 @@
+{if $fq_settings.fq_plugin_enabled>0}
+    {if $fq_settings.fq_page_title <> ""}<h1 class="fq_header" >{$fq_settings.fq_page_title}</h1>{/if}
+
+    {if $faq_items}
+        {foreach from=$faq_items key=k item=v }
+            {if $v.enable > 0}
+                {if $fq_settings.fq_expand > 0}
+                    <div class="table-cell "><span class="fq-plus fq-{$k}-plus fq_pointer" data-id="{$k}" >+</span></div>
+                {/if}
+                <div class="{if $fq_settings.fq_expand > 0}table-cell fq_pointer{/if} fq-question" data-id="{$k}" >
+                    {if $fq_settings.fq_qa_display>0}<span class='fq_question_header' >[`Question:`] </span>{/if}
+                    {$v.question}
+                </div>
+                
+                <div class="fq-ans-{$k} {if $fq_settings.fq_expand}fq_hide{/if} fq-answer" >
+                {if $fq_settings.fq_qa_display>0}
+                    <span class='fq_answer_header' >[`Answer:`]</span>
+                {/if}
+                {$v.answer}
+                </div>
+                <div class="clear-both"></div>
+            {/if}
+        {/foreach}
+    {/if}
+{/if}

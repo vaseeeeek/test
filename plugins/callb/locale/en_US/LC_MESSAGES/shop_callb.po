@@ -1,0 +1,420 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/callb\n"
+"POT-Creation-Date: 2015-05-22 03:03+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Max Severin <makc.severin@gmail.com>\n"
+"Language-Team: shop/plugins/callb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Language: en_US\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:5
+msgid "ID"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:7 /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:8
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:36 /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:23
+msgid "Customer"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:12 /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:13
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:42
+msgid "Name"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:17 /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:18
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:43
+msgid "Phone"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:22 /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:23
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:44
+msgid "Request date"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:27 /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:28
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:45
+msgid "Request status"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:51
+msgid "delete"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:74
+msgid "No requests."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:62
+msgid "Thanks"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:63
+msgid "your message has been sent!"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:64 /wa-apps/shop/plugins/callb/js/callb.frontend.js:70
+msgid "Close"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:69
+msgid "Error occurred when sending message"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.frontend.js:86
+msgid "Complete «Name» and «Phone»"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:126 /wa-apps/shop/plugins/callb/lib/config/plugin.php:7
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:49 /wa-apps/shop/plugins/callb/lib/config/settings.php:50
+#: /wa-apps/shop/plugins/callb/lib/shopCallb.plugin.php:20 /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:21
+#: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginBackend.actions.php:35
+msgid "Callback"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.requests.js:16
+msgid "Delete?"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:8
+msgid "Status"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:12
+msgid "Off"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:13
+msgid "On"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:17
+msgid "Display done requests"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:18
+msgid "When you enable this setting,<br />done requests will be displayed in the history of user requests."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:22
+msgid "No"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:23
+msgid "Yes"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:27
+msgid "Sender e-mail"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:28
+msgid "This email address will be listed as the return address of the message.<br />If the address is not specified, it will use the general email of the shop."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:34
+msgid "Recipient e-mail"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:35
+msgid "The address to which to send messages.<br />If the address is not specified, it will use the general email of the shop."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:41
+msgid "Selector of the button of callback form"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:42
+msgid ""
+"Specify the ID or class of the html element,<br />when clicking on which will open a form of callback.<br />Must be like «<b>#call-back-button</b>» or «<b>.call-"
+"back-button</b>»."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:48
+msgid "Header text"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:54
+msgid "«Name» field placeholder"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:55 /wa-apps/shop/plugins/callb/lib/config/settings.php:56
+msgid "Your Name"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:60
+msgid "«Phone» field placeholder"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:61 /wa-apps/shop/plugins/callb/lib/config/settings.php:62
+msgid "Your Phone"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:66
+msgid "«Send» button text"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:68 /wa-apps/shop/plugins/callb/lib/config/settings.php:69
+msgid "Send"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:72
+msgid "Form width (px)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:73
+msgid "Value range 320-600"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:84
+msgid "Form height (px)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:85
+msgid "Value range 240-400"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:96
+msgid "Form background color (HEX)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:103
+msgid "Header background color (HEX)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:110
+msgid "Header text color (HEX)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:117
+msgid "«Send» button width (px)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:118
+msgid "Value range 100-600"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:129
+msgid "«Send» button height (px)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:130
+msgid "Value range 24-160"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:141
+msgid "«Send» button background color (HEX)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:148
+msgid "«Send» button text color (HEX)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:22
+msgid "Good day!"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:23
+msgid "ordered a callback"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:26
+msgid "Callback plugin"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/actions/shopCallbPluginFrontendCallback.controller.php:27
+msgid "Administrator"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:39
+msgid "new"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.requests.js:30 /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:42
+msgid "done"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:46
+msgid "no status"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:48
+msgid "Masked input for phone"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:49
+msgid ""
+"If fill this setting will added the mask for the field with the phone number.<br />Tip about masks characters:<br /><b>a</b> - All alphabetic values (A-Z, a-"
+"z)<br /><b>9</b> - All numeric values (0-9)<br /><b>*</b> - Any alphanumeric values (A-Z, a-z, 0-9).<br />Leave the field empty, if you do not need mask input."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:162
+msgid "«Close» button background color when sending is success (HEX)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:169
+msgid "«Close» button background color when error occurred (HEX)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:176
+msgid "«Thanks message» text (appeal)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:182
+msgid "«Thanks message» text (text in 2nd line)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:188
+msgid "«Thanks message» text color"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:69
+msgid "Tip for setting up"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:70
+msgid "1) To use the plugin in the Shop app switch on «Status of frontend_head hook» plugin setting and scripts are automatically loaded in your template."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:71
+msgid ""
+"2) To use the plugin in other apps it is necessary to switch off «Status of frontend_head hook» plugin setting and to insert in the template of your application "
+"to the end of the tag &#060;head&#062; the following code:"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:73
+msgid "3) To bind the form to the html-element in the template, you must either create a new or use an existing one."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:74
+msgid "For example, you have the template has the following element:"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.settings.js:76
+msgid ""
+"Specify in the «Selector of the button of callback form» plugin setting the next - <b>#call-back-button</b> - and after clicking on this item will open the "
+"callback form."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:17
+msgid "Status of frontend_head hook"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:18
+msgid "Turn on to automatically output plugin via frontend_head hook."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/js/callb.backend.requests.js:16
+msgid "Done?"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/model/shopCallbPluginRequest.model.php:47
+msgid "deleted"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:52
+msgid "execute"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:27 /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:28
+#: /wa-apps/shop/plugins/callb/templates/actions/callb/CallbDefault.html:51
+msgid "Request url"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:37
+msgid "Comment"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:38
+msgid "The opportunity to leave a comment."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:93
+msgid "«Comment» field placeholder"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:94 /wa-apps/shop/plugins/callb/lib/config/settings.php:95
+#: /wa-apps/shop/plugins/callb/lib/updates/1.2.0/1440362029.php:35
+msgid "Your comment"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/templates/actions/settings/Settings.html:43
+msgid "For all questions"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:27
+msgid "Requests count"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:28
+msgid "The count of requests on the plugin page in the admin panel."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:125
+msgid "Value range 240-440"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/updates/1.4.0/1497799189.php:11 /wa-apps/shop/plugins/callb/lib/config/settings.php:239
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:240
+msgid "Clicking on the «Send» button, I give my"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/updates/1.4.0/1497799189.php:12 /wa-apps/shop/plugins/callb/lib/config/settings.php:245
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:246
+msgid "consent to the personal data processing"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:228
+msgid "Consent to the personal data processing"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:229
+msgid "Enable this setting to add to the form a checkbox consent to the processing of personal data and the link to the page with the Privacy Policy of the company."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:239
+msgid "Text"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:245
+msgid "Link text"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:251
+msgid "Link url"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:251
+msgid "Url of the page with the Privacy Policy."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:258
+msgid "Show checkbox"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:258
+msgid "Enable this setting to display the checkbox, otherwise it will display only the text and link."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:268
+msgid "Checkbox by default"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:268
+msgid "Select the status of the checkbox by default."
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:273
+msgid "Unchecked"
+msgstr ""
+
+#: /wa-apps/shop/plugins/callb/lib/config/settings.php:277
+msgid "Checked"
+msgstr ""

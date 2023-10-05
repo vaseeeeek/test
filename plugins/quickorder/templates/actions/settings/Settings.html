@@ -1,0 +1,113 @@
+{*
+* @author Gaponov Igor <gapon2401@gmail.com>
+*}
+
+{* Switcher *}
+<link rel="stylesheet" href="{$wa_url}wa-content/js/jquery-plugins/ibutton/jquery.ibutton.min.css?v={$wa->version()}">
+<script src="{$wa_url}wa-content/js/jquery-plugins/ibutton/jquery.ibutton.min.js"></script>
+
+{* Redactor *}
+<link rel="stylesheet" href="{$wa_url}wa-content/js/redactor/2/redactor.css?v{$wa->version(true)}">
+<script src="{$wa_url}wa-content/js/redactor/2/redactor.min.js?v{$wa->version(true)}"></script>
+{if $wa->locale() !== 'en_US'}
+    <script src="{$wa_url}wa-content/js/redactor/2/{substr($wa->locale(), 0, 2)}.js?v{$wa->version(true)}"></script>
+{/if}
+
+{* Jquery template *}
+<script src="{$plugin_url}js/tmpl.min.js"></script>
+
+{* Igaponov dialog *}
+<link rel="stylesheet" media="screen" href="{$plugin_url}js/dialog/jquery.dialog.min.css"/>
+<script src="{$plugin_url}js/dialog/jquery.dialog.js"></script>
+
+{* ColorPicker *}
+<link rel="stylesheet" media="screen" href="{$plugin_url}/js/colorpicker/css/colorpicker.css"/>
+<script src="{$plugin_url}/js/colorpicker/js/colorpicker.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Lobster|Lora|Noto+Sans|Open+Sans|Open+Sans+Condensed:300|PT+Sans|Roboto|Roboto+Condensed|Roboto+Slab|Ubuntu" rel="stylesheet">
+<link rel="stylesheet" href="{$plugin_url}js/appearance/appearance.css?v={$version}"/>
+<script src="{$plugin_url}js/appearance/appearance.js?v={$version}"></script>
+
+<script src="{$plugin_url}js/quickorderBackend.js?v={$version}"></script>
+<script src="{$plugin_url}js/quickorderDisplayBackend.js?v={$version}"></script>
+<script src="{$plugin_url}js/quickorderAnalyticsBackend.js?v={$version}"></script>
+<script src="{$plugin_url}js/quickorderAppearanceBackend.js?v={$version}"></script>
+<script src="{$plugin_url}js/quickorderAddonsBackend.js?v={$version}"></script>
+<script src="{$plugin_url}js/quickorderTemplatesBackend.js?v={$version}"></script>
+
+<link rel="stylesheet" href="{$plugin_url}css/quickorder.css?v={$version}"/>
+
+<h1>[`1-Click Ordering`]</h1>
+<img src="https://igaponov.ru/wa-apps/shop/img/logo/logo.png?v={$ver}" alt="[`Developer Igor Gaponov`]"
+     title='[`Developer Igor Gaponov`]' style="position: absolute; right: 20px; top: 20px;"/>
+
+<form action="about:blank" id="quickorder-form">
+    <div class="fields">
+        {$wa->csrf()}
+        <div class="field">
+            <div class="name">[`Plugin status`]</div>
+            <div class="value">
+                <div class="ibutton-checkbox">
+                    <ul class="menu-h">
+                        <li>
+                            <span class="switcher-off-label">[`Off`]</span>
+                        </li>
+                        <li>
+                            <input class="switcher not-inited" type="checkbox" name="settings[status]" value="1" {if !empty($status) || !isset($status)}checked="checked"{/if} />
+                        </li>
+                        <li>
+                            <span class="switcher-on-label">[`On`]</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <div class="name">[`Storefront`]</div>
+            <div class="value">
+                <select name="settings[storefront]" class="f-storefront">
+                    <option value="">[`Common settings for all storefronts`]</option>
+                    {if !empty($storefronts)}
+                        {foreach $storefronts as $d}
+                            <optgroup label="{$d.name|escape}">
+                                {foreach $d.routes as $route_hash => $r}
+                                    <option value="{$route_hash|escape}">{$r|escape}</option>
+                                {/foreach}
+                            </optgroup>
+                        {/foreach}
+                    {/if}
+                </select>
+            </div>
+        </div>
+        <div class="field f-storefront-content s-storefront-content hidden">
+            <ul class="tabs">
+                <li class="f-tab selected"><a href="javascript:void(0)" data-tab="general">[`General`]</a></li>
+                <li class="f-tab"><a href="javascript:void(0)" data-tab="display">[`Display`]</a></li>
+                <li class="f-tab"><a href="javascript:void(0)" data-tab="analytics">[`Analytics`]</a></li>
+                <li class="f-tab"><a href="javascript:void(0)" data-tab="appearance">[`Appearance`]</a></li>
+                <li class="f-tab"><a href="javascript:void(0)" data-tab="css">[`CSS styles`]</a></li>
+                <li class="f-tab"><a href="javascript:void(0)" data-tab="addons">[`Addons`]</a></li>
+                <li class="f-tab"><a href="javascript:void(0)" data-tab="templates">[`Templates`]</a></li>
+            </ul>
+            <div class="f-tab-content s-tab-content"></div>
+        </div>
+        <div id="fixed-save-panel">
+            <div class="block bordered-top">
+                <div class="errormsg"></div>
+                <input type="submit" name='submit' class="button green" id="f-quickorder-save" value="[`Save`]">
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    $(function () {
+        window.wa_url = {$wa_url|json_encode};
+        new QuickorderPlugin({
+            form: $('#quickorder-form'),
+            hash: '{$ver}',
+            lang: "{substr($wa->locale(), 0, 2)}"
+        });
+        {include file="./../../include.jslocale.html"}
+    });
+</script>

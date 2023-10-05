@@ -1,0 +1,41 @@
+{* Итоговая цена *}
+<div class="productsets-total-wrap" data-position="{$total_block_output}" {shopProductsetsPluginGenerator::BUNDLE_BLOCK_HEADER_ATTR}>
+
+    {* Текст перед блоком с итоговой ценой *}
+    {if !empty($bundle.settings.html_total_bottom) && $total_layout !== 'tl-1'}
+        <div class="productsets-total-before">{$bundle.settings.html_total_bottom}</div>
+    {/if}
+
+    {* Блок со списком товаров *}
+    {if $total_layout == 'tl-3'}
+        <div class="productsets-total-items">
+            <!-- Generated automatically -->
+        </div>
+    {/if}
+
+    {* Блок с ценой *}
+    <div class="productsets-total{if !empty($set.settings.bundle_text.total_price)} with-text{/if}">
+        {if isset($set.settings.bundle_text.total_price)}<div class="productsets-total-text">{$set.settings.bundle_text.total_price}</div>{/if}
+        <div class="productsets-total-price-wrap">
+            <div class="productsets-total-price" {shopProductsetsPluginGenerator::BUNDLE_PRICE_ATTR}>
+                <i class="productsets-loading"></i>
+            </div>
+            <div class="productsets-total-compare-price" {shopProductsetsPluginGenerator::BUNDLE_COMPARE_PRICE_ATTR}></div>
+        </div>
+    </div>
+    {* Блок со скидкой *}
+    <div class="productsets-total-discount-wrap">
+        {if isset($set.settings.bundle_text.saving)}<span class="productsets-total-discount-text">{$set.settings.bundle_text.saving}</span>{/if}
+        <span class="productsets-total-discount" {shopProductsetsPluginGenerator::BUNDLE_DISCOUNT_ATTR}><i class="productsets-loading"></i></span>
+    </div>
+    {* Блок с кнопкой "Добавить в корзину" *}
+    <div class="productsets-buttons">
+        <span class="productsets-button productsets-bundle-buy" {shopProductsetsPluginGenerator::BUNDLE_SUBMIT_ATTR}>{if isset($set.settings.bundle_text.buy)}{$set.settings.bundle_text.buy}{else}[`Add set to cart`]{/if}</span>
+    </div>
+
+    {* Текст после блока с итоговой ценой *}
+    {if !empty($bundle.settings.html_total_top) && $total_layout !== 'tl-1'}
+        <div class="productsets-total-before">{$bundle.settings.html_total_top}</div>
+    {/if}
+
+</div>

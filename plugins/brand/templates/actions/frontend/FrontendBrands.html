@@ -1,0 +1,26 @@
+{strip}
+	<div class="row">
+        {if $h1}
+			<h1>{$h1}</h1>
+        {/if}
+		{$brands_search_html}
+
+		<div class="shop-brand-brands__wrapper">
+            {foreach $brands as $brand}
+                {$brand_image_url = $brand->getImageUrl('0x100')}
+                {if !$brand_image_url}
+                    {$brand_image_url = $wa_app_static_url|cat:'img/image-fishki.png'}
+                {/if}
+
+				<div class="shop-brand-brands__brand-wrap" data-brand="{$brand.name|lower}" data-letter="{$brand.name|mb_substr:0:1}">
+					<a class="shop-brand-brands__brand-link" href="{$brand.frontend_url}">
+						<span class="shop-brand-brands__brand-image-box">
+							<img class="shop-brand-brands__brand-image" src="{$brand_image_url}" title="{$brand.name}" alt="{$brand.name}"/>
+						</span>
+						<span class="shop-brand-brands__brand-name">{$brand.name}</span>
+					</a>
+				</div>
+            {/foreach}
+		</div>
+	</div>
+{/strip}

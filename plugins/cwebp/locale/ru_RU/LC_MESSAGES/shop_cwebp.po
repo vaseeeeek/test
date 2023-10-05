@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/cwebp\n"
+"POT-Creation-Date: 2020-02-08 10:47+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: shop/plugins/cwebp\n"
+"Language-Team: shop/plugins/cwebp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-Language: ru_RU\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+msgid "Delete created webp images"
+msgstr "Удалить созданные изображения webp"
+
+msgid "Advanced settings"
+msgstr "Расширенные настройки"
+
+msgid "All webp thumbnails removed"
+msgstr "Все WEBP-эскизы успешно удалены"
+
+msgid "Plugin enabled"
+msgstr "Плагин включен"
+
+msgid "Convertion method"
+msgstr "Способ конвертации"
+
+msgid "Type"
+msgstr "Способ"
+
+msgid "On demand"
+msgstr "На лету"
+
+msgid "Allow on demand conversion, recommended way."
+msgstr "Разрешить создание эскизов на лету, рекомендованный вариант."
+
+msgid "Use cron"
+msgstr "cron"
+
+msgid "Use cron task to convert images in background. Add following command: "
+msgstr "Конвертировать по cron, будет происходить в фоне, заменяться эскизы по мере результата. Добавьте команду: "
+
+msgid "Be sure to make all the settings according to the instructions on the plugin page. Will not work in the cloud. Add command: "
+msgstr "Убедитесь, что сделали все настройки по инструкции на странице плагина. Не будет работать в облаке. Добавьте команду: "
+
+msgid "Products only"
+msgstr "Только товары"
+
+msgid "Convert product images only"
+msgstr "Конвертировать только изображения товаров"
+
+msgid "Skip PNG"
+msgstr "Пропускать PNG"
+
+msgid "Skip images in PNG format in case of quality issues."
+msgstr "Пропускать изображения в формате PNG, полезно при проблемах с качеством."
+
+msgid "Enable logging"
+msgstr "Включить лог"
+
+msgid "Enable conversions log file in cwebp.log"
+msgstr "Включить логирование процесса конвертации в cwebp.log"
+
+msgid "Quality"
+msgstr "Качество"
+
+msgid "Compression quality from 1 to 99. 80 recommended"
+msgstr "Коэфициент сжатия изображений от 1 до 99, можно попробовать начать с 80"
+
+msgid "Tasks"
+msgstr "Обработки"
+
+msgid "WEBP Images"
+msgstr "Изображения WEBP"
+
+msgid "PHP extension"
+msgstr "Расширение PHP"
+
+msgid "if compiled with webp support"
+msgstr "если собрано с поддержкой webp"
+
+msgid "Utility"
+msgstr "Утилита"
+
+msgid "called from command line"
+msgstr "с вызовом из командной строки"
+
+msgid "Remote webp conversion service, works anyway, slowest"
+msgstr "Удаленный сервис для конвертации в WEBP, работает в любом случае"

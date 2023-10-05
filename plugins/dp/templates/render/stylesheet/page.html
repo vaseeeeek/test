@@ -1,0 +1,59 @@
+{capture assign="styles"}
+    <style>
+        {if !empty($settings.design_page_general_color)}
+        .dp-page,
+        .dp-page__service-estimated-date,
+        .dp-page__service-cost,
+        .dp-page__service-cost .dp-price__array:first-child,
+        .dp-page__group-header-caption-title.dp-page__col,
+        .dp-page .dp-cost_value {
+            color: {$settings.design_page_general_color};
+        }
+        {/if}
+        {if !empty($settings.design_page_link_color)}
+        .dp-page a, .dp-page a:hover {
+            color: {$settings.design_page_link_color};
+        }
+        .dp-page__service-caption-view-on-map-link {
+            border-bottom-color: {$settings.design_page_link_color};
+        }
+        .dp-page__group-view-all-points-text {
+            color: {$settings.design_page_link_color};
+            border-bottom-color: {$settings.design_page_link_color};
+        }
+        {/if}
+        {if !empty($settings.design_page_delimiter_color)}
+        .dp-page__group-header {
+            border-top-color: {$settings.design_page_delimiter_color};
+            border-bottom-color: {$settings.design_page_delimiter_color};
+        }
+        {/if}
+        {if !empty($settings.design_page_free_color)}
+        .dp-page__service-cost .dp-price__value-free,
+        .dp-page__service-cost .dp-price__array:first-child .dp-price__value-free,
+        .dp-page .dp-cost__value_free, .dp-page .dp-cost__caption_free {
+            color: {$settings.design_page_free_color};
+        }
+        {/if}
+        {if !empty($settings.design_page_gray_color)}
+        .dp-page__group-header .dp-page__col,
+        .dp-page__service-caption-description,
+        .dp-page__service-estimated-date .dp-estimated-date__term,
+        .dp-page__service-cost .dp-price__estimated-symbol,
+        .dp-page__service-cost .dp-price__range--with-free .dp-price__range-else-text,
+        .dp-page__service-cost .dp-price__array,
+        .dp-page__service-cost .dp-price__array .dp-price__value-free {
+            color: {$settings.design_page_gray_color};
+        }
+        {/if}
+        {if !empty($settings.design_page_not_available_payment_color)}
+        .dp-page__service-payment-is-pay-on-ship-disabled { color: {$settings.design_page_not_available_payment_color}; }
+        {/if}
+        {if !empty($settings.design_page_loading_color)}
+        .dp-page__group-view-all-points-link.dp-loading:after,
+        .dp-page__service-caption-view-on-map-link.dp-loading:after {
+            background-image: url('data:image/svg+xml;charset=utf-8,<svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-rolling" style="background: none;"><circle cx="50" cy="50" fill="none" stroke="{$settings.design_page_loading_color|escape|urlencode}" stroke-width="10" r="44" stroke-dasharray="207.34511513692632 71.11503837897544" transform="rotate(104 50 50) "><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1.5s" begin="0s" repeatCount="indefinite"></animateTransform></circle></svg>');
+        }
+        {/if}
+    </style>
+{/capture}{$styles|regex_replace:'/<\/?style>/':''|strip}

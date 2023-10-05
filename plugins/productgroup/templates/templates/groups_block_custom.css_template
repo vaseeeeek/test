@@ -1,0 +1,84 @@
+.product-group__title {
+	{if $style_config->groups_header_font_size}
+		font-size: {$style_config->groups_header_font_size};
+	{/if}
+}
+
+.product-group__item.product-group-links__item {
+	{if $style_config->simple_group_font_color}
+		color: {$style_config->simple_group_font_color};
+	{/if}
+	{if $style_config->simple_group_background_color}
+		background-color: {$style_config->simple_group_background_color};
+	{/if}
+	{if $style_config->simple_group_border_color}
+		border-color: {$style_config->simple_group_border_color};
+	{/if}
+	{if $style_config->simple_group_border_width}
+		border-width: {$style_config->simple_group_border_width};
+	{/if}
+}
+
+.product-group__item.product-group-links__item:hover,
+.product-group__item.product-group-links__item:focus {
+	{if $style_config->simple_group_border_hover_color}
+		border-color: {$style_config->simple_group_border_hover_color};
+	{/if}
+}
+
+.product-group__item--active.product-group-links__item--active {
+	{if $style_config->simple_group_active_border_color}
+		border-color: {$style_config->simple_group_active_border_color};
+	{/if}
+}
+
+.product-group__item.product-group-photos__item {
+	{if $style_config->photo_group_item_width}
+		width: {$style_config->photo_group_item_width};
+	{/if}
+	{if $style_config->photo_group_item_height}
+		height: {$style_config->photo_group_item_height};
+	{/if}
+	{if $style_config->photo_group_border_color}
+		border-color: {$style_config->photo_group_border_color};
+	{/if}
+	{if $style_config->photo_group_border_radius}
+		border-radius: {$style_config->photo_group_border_radius};
+	{/if}
+}
+
+.product-group__item--active.product-group-photos__item--active {
+	{if $style_config->photo_group_active_border_color}
+		border-color: {$style_config->photo_group_active_border_color};
+	{/if}
+}
+
+.product-group-photos__image {
+	{if $style_config->photo_group_border_image_radius}
+        border-radius: {$style_config->photo_group_border_image_radius};
+    {/if}
+}
+
+.product-group__item.product-group-colors__item {
+	{if $style_config->color_group_border_color}
+		border-color: {$style_config->color_group_border_color};
+	{/if}
+	{if $style_config->color_group_border_width}
+		border-width: {$style_config->color_group_border_width};
+	{/if}
+	{if $style_config->color_group_border_radius}
+		border-radius: {$style_config->color_group_border_radius};
+	{/if}
+}
+
+.product-group__item.product-group-colors__item:hover {
+	{if $style_config->color_group_border_hover_color}
+		border-color: {$style_config->color_group_border_hover_color};
+	{/if}
+}
+
+.product-group__item--active.product-group-colors__item--active {
+	{if $style_config->color_group_active_border_color}
+		border-color: {$style_config->color_group_active_border_color};
+	{/if}
+}

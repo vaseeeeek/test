@@ -1,0 +1,995 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/quickorder\n"
+"POT-Creation-Date: 2018-07-05 15:46+0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: shop/plugins/quickorder\n"
+"Language-Team: shop/plugins/quickorder\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"Language: ru_RU\n"
+"X-Generator: Poedit 2.0.5\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+msgid "This product is not available for purchase"
+msgstr "Товар не доступен для заказа"
+
+msgid "Pre-order only"
+msgstr "Только под заказ"
+
+msgid "Out of stock"
+msgstr "Нет в наличии"
+
+msgid "In stock"
+msgstr "В наличии"
+
+msgid "Product with the selected option combination is not available for purchase"
+msgstr "Товар с выбранными характеристиками не доступен для заказа"
+
+msgid "This product is already selected"
+msgstr "Товар уже выбран"
+
+msgid "Select product sku"
+msgstr "Выбрать вариант товара"
+
+msgid "Payment"
+msgstr "Оплата"
+
+msgid "select another sku"
+msgstr "выбрать другой вариант"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Show all services"
+msgstr "Показать все услуги"
+
+msgid "Shipping"
+msgstr "Доставка"
+
+msgid "Loading..."
+msgstr "Загрузка..."
+
+msgid "Contact fields"
+msgstr "Контактные поля"
+
+msgid "Order comment"
+msgstr "Комментарий"
+
+msgid "Coupon code"
+msgstr "Купон"
+
+msgid "Discount"
+msgstr "Скидка"
+
+msgid "Total"
+msgstr "Итого"
+
+msgid "Captcha"
+msgstr "Капча"
+
+msgid "show more"
+msgstr "подробнее"
+
+msgid "1-Click Ordering"
+msgstr "Купить в один клик"
+
+msgid "Quantity of products"
+msgstr "Количество товаров"
+
+msgid "Product page"
+msgstr "Страница товара"
+
+msgid "Cart"
+msgstr "Корзина"
+
+msgid "Products"
+msgstr "Товары"
+
+msgid "Services"
+msgstr "Услуги"
+
+msgid "Name"
+msgstr "Название"
+
+msgid "Qty"
+msgstr "К-во"
+
+msgid "Sales"
+msgstr "Продажи"
+
+msgid "Profit"
+msgstr "Прибыль"
+
+msgid "Profit percentage"
+msgstr "Рентабельность"
+
+msgid "Subtotal %1$s &minus; Discount %2$s"
+msgstr "Общая стоимость %1$s &minus; Скидка %2$s"
+
+msgid "Total sales %1$s &minus; Purchase expense %2$s"
+msgstr "Общие продажи %1$s &minus; Закупочная стоимость %2$s"
+
+msgid "Profit percentage = Net profit (%s) / Cost price (%s) = %s%%"
+msgstr "Рентабельность реализованной продуктции = Прибыль (%s) / Закупочная стоимость (%s) = %s%%"
+
+msgid "Show more products"
+msgstr "Показать больше товаров"
+
+msgid "There were no products sold on the selected period."
+msgstr "В течение выбранного отчетного периода не было продаж."
+
+msgid "<strong>+%s%%</strong> to average order value"
+msgstr "<strong>+%s%%</strong> к средней сумме заказа"
+
+msgid "On the selected time period, there were no orders with <a href=\"%s\">extra services</a>."
+msgstr "В течение выбранного отчетного периода не было заказов с дополнительными <a href=\"%s\">услугами</a>."
+
+msgid "All channels"
+msgstr "Все каналы"
+
+msgid "Field name"
+msgstr "Название поля"
+
+msgid "additional settings"
+msgstr "дополнительные настройки"
+
+msgid "Hide field name"
+msgstr "Скрыть название поля"
+
+msgid "Placeholder"
+msgstr "Плейсхолдер"
+
+msgid "Select field type"
+msgstr "Выберите тип поля"
+
+msgid "Address"
+msgstr "Адрес"
+
+msgid "css class"
+msgstr "css класс"
+
+msgid "Required"
+msgstr "Обязательное"
+
+msgid "delete"
+msgstr "удалить"
+
+msgid "Show all"
+msgstr "Показать все"
+
+msgid "Minimal price of order"
+msgstr "Минимальная стоимость заказа"
+
+msgid "Minimal sum"
+msgstr "Минимальная стоимость"
+
+msgid "Minimal sum of each product"
+msgstr "Минимальная стоимость каждого товара"
+
+msgid "Minimal total quantity"
+msgstr "Минимальное общее количество"
+
+msgid "Minimal quantity of each product"
+msgstr "Минимальное количество каждого товара"
+
+msgid "Plugins"
+msgstr "Плагины"
+
+msgid "Delivery and payment filter"
+msgstr "Фильтр доставки и оплаты"
+
+msgid "Use plugin"
+msgstr "Использовать плагин"
+
+msgid "plugin disabled"
+msgstr "плагин неактивен"
+
+msgid "Plugin not found"
+msgstr "Плагин не найден"
+
+msgid "Flexdiscount"
+msgstr "Гибкие скидки и бонусы"
+
+msgid "Show active discounts"
+msgstr "Показать активные скидки"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "Collapse information"
+msgstr "Информация свернута"
+
+msgid "Collapse link"
+msgstr "текст"
+
+msgid "View type"
+msgstr "Тип отображения"
+
+msgid "More information about view type read in Flexdiscount docs."
+msgstr "Подробнее о типах отображения Вы можете прочитать в документации Гибких скидок"
+
+msgid "Show product prices with discount"
+msgstr "Отображать цены товаров со скидкой"
+
+msgid "Change compare prices"
+msgstr "Подменять зачеркнутые цены"
+
+msgid "Other settings"
+msgstr "Другие настройки"
+
+msgid "Update information, when contact fields had been changed"
+msgstr "Обновлять информацию, когда происходит изменение контактных полей"
+
+msgid "If you have any doubts with configuring the analytics, feel free to read <a href=\"https://www.webasyst.ru/store/plugin/shop/quickorder/readme/\" target=\"_blank\">documentation <i class=\"icon16 new-window\"></i></a>"
+msgstr "Если у Вас появились трудности при настройке аналитики, изучите <a href=\"https://www.webasyst.ru/store/plugin/shop/quickorder/readme/\" target=\"_blank\">документацию <i class=\"icon16 new-window\"></i></a>"
+
+msgid "Shared settings for product page and cart page"
+msgstr "Общие настройки для страницы товара и корзины"
+
+msgid "Cart page"
+msgstr "Корзина"
+
+msgid "Yandex metrica"
+msgstr "Яндекс метрика"
+
+msgid "Counter ID"
+msgstr "Номер счетчика (ID)"
+
+msgid "Activate Ecommerce"
+msgstr "Использовать Электронную коммерцию"
+
+msgid "Goal ID"
+msgstr "ID цели"
+
+msgid "Data container name"
+msgstr "Имя контейнера данных"
+
+msgid "Form opening"
+msgstr "Открытие формы"
+
+msgid "Form submit"
+msgstr "Форма отправлена"
+
+msgid "Form submit error"
+msgstr "Ошибка при отправке"
+
+msgid "Google analytics"
+msgstr "Google аналитика"
+
+msgid "Google analytics ID"
+msgstr "ID Google аналитики"
+
+msgid "Category"
+msgstr "Категория"
+
+msgid "Action"
+msgstr "Действие"
+
+msgid "What should I do, if live demo is not the same as on the website?"
+msgstr "Что делать, если отображение на примере не соответствует отображению на сайте?"
+
+msgid "Use this option to force the CSS styles"
+msgstr "Используйте данную опцию, чтобы повысить приоритет CSS стилей (!important)"
+
+msgid "Select element"
+msgstr "Выберите элемент"
+
+msgid "Button"
+msgstr "Кнопка"
+
+msgid "Form"
+msgstr "Форма"
+
+msgid "Form head"
+msgstr "Шапка формы"
+
+msgid "Form titles"
+msgstr "Заголовки полей формы"
+
+msgid "Form fields"
+msgstr "Поля формы"
+
+msgid "Form footer"
+msgstr "Подвал формы"
+
+msgid "Form button"
+msgstr "Кнопка формы"
+
+msgid "Theme appearances"
+msgstr "Темы дизайна"
+
+msgid "Dark grey"
+msgstr "Темно-серая"
+
+msgid "Dark red"
+msgstr "Темно-красная"
+
+msgid "Creme"
+msgstr "Кремовая"
+
+msgid "Brown"
+msgstr "Коричневая"
+
+msgid "Blue"
+msgstr "Синяя"
+
+msgid "Light blue"
+msgstr "Голубая"
+
+msgid "Orange"
+msgstr "Оранжевая"
+
+msgid "Light orange"
+msgstr "Светло-оранжевая"
+
+msgid "Green"
+msgstr "Зеленая"
+
+msgid "Olive"
+msgstr "Оливковая"
+
+msgid "Purple"
+msgstr "Фиолетовая"
+
+msgid "White blue"
+msgstr "Светло-голубая"
+
+msgid "Light red"
+msgstr "Светло-красная"
+
+msgid "Pink"
+msgstr "Розовая"
+
+msgid "clear all styles"
+msgstr "Очистить все стили"
+
+msgid "Live demonstration of form appearance"
+msgstr "Демонстрация внешнего вида формы"
+
+msgid "Field title one"
+msgstr "Заголовок поля формы один"
+
+msgid "Field title two"
+msgstr "Заголовок поля формы два"
+
+msgid "Field value"
+msgstr "Значение поля"
+
+msgid "Field title three"
+msgstr "Заголовок поля формы трии"
+
+msgid "Option one"
+msgstr "Вариант один"
+
+msgid "Option two"
+msgstr "Вариант два"
+
+msgid "Option three"
+msgstr "Вариант три"
+
+msgid "Option four"
+msgstr "Вариант четыре"
+
+msgid "Option five"
+msgstr "Вариант пять"
+
+msgid "1-Click cart ordering"
+msgstr "Быстрый заказ"
+
+msgid "Live demonstration of button appearance"
+msgstr "Демонстрация внешнего вида кнопки"
+
+msgid "Print Your CSS styles right here"
+msgstr "Добавляйте свой CSS ниже"
+
+msgid "Use default hook for output"
+msgstr "Использовать вывод по умолчанию (хук)"
+
+msgid "Use helper in your template"
+msgstr "Используйте хелпер у себя в шаблоне"
+
+msgid "Hide button and display form on the page"
+msgstr "Скрыть кнопку и сразу вывести форму на странице"
+
+msgid "Buy now with 1-Click"
+msgstr "Купить в 1 клик"
+
+msgid "Display"
+msgstr "Отображение"
+
+msgid "New line"
+msgstr "Отдельная строка"
+
+msgid "Inline"
+msgstr "Встроенное"
+
+msgid "CSS class"
+msgstr "CSS класс"
+
+msgid "Title"
+msgstr "Заголовок"
+
+msgid "Text after title"
+msgstr "Текст после заголовка"
+
+msgid "Fields"
+msgstr "Поля"
+
+msgid "Add field"
+msgstr "Добавить поле"
+
+msgid "Choose available shipping methods."
+msgstr "Выберите доступный вариант доставки."
+
+msgid "Add shipping"
+msgstr "Добавить доставку"
+
+msgid "Choose available payment methods."
+msgstr "Выберите доступный вариант оплаты."
+
+msgid "Add payment"
+msgstr "Добавить оплату"
+
+msgid "User comment"
+msgstr "Комментарий пользователя"
+
+msgid "Coupon field"
+msgstr "Поле купона"
+
+msgid "Discount information"
+msgstr "Информация о скидке"
+
+msgid "Total price"
+msgstr "Итоговая стоимость"
+
+msgid "Off"
+msgstr "Выкл"
+
+msgid "On"
+msgstr "Вкл"
+
+msgid "Text before submit button"
+msgstr "Текст перед кнопкой оформления"
+
+msgid "Submit button"
+msgstr "Кнопка оформления"
+
+msgid "Send"
+msgstr "Отправить"
+
+msgid "Successfull message"
+msgstr "Сообщение об успешном оформлении"
+
+msgid "Products and services"
+msgstr "Товары и услуги"
+
+msgid "Product image"
+msgstr "Изображение товара"
+
+msgid "Image size"
+msgstr "Размер изображения"
+
+msgid "Changing of product quantity"
+msgstr "Изменение количества товара"
+
+msgid "Service selection"
+msgstr "Выбор услуг"
+
+msgid "Skus selection"
+msgstr "Выбор вариантов товара"
+
+msgid "Compare at price"
+msgstr "Зачеркнутая цена"
+
+msgid "Multiply product price on the quantity"
+msgstr "Умножать цену товара на количество"
+
+msgid "Others"
+msgstr "Другие"
+
+msgid "Ruble sign"
+msgstr "Знак рубля"
+
+msgid "rub."
+msgstr "руб."
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "Terms and agreement"
+msgstr "Условия и соглашения"
+
+msgid "Text"
+msgstr "Текст"
+
+msgid "I am agree to the terms of service"
+msgstr "Я согласен с условиями предоставления услуг на сайте"
+
+msgid "Error message"
+msgstr "Сообщение об ошибке"
+
+msgid "You must read and agree to the Terms of service to place an order."
+msgstr "Вы должны ознакомиться и согласиться с Условиями предоставления услуг на сайте, чтобы продолжить оформление заказа"
+
+msgid "Tick by default"
+msgstr "Отмечено по умолчанию"
+
+msgid "Agree"
+msgstr "Согласен"
+
+msgid "Developer Igor Gaponov"
+msgstr "Разработчик Игорь Гапонов"
+
+msgid "Plugin status"
+msgstr "Статус плагина"
+
+msgid "Storefront"
+msgstr "Витрина"
+
+msgid "Common settings for all storefronts"
+msgstr "Общие настройки для всех витрин"
+
+msgid "General"
+msgstr "Основные"
+
+msgid "Analytics"
+msgstr "Аналитика"
+
+msgid "Appearance"
+msgstr "Оформление"
+
+msgid "CSS styles"
+msgstr "CSS стили"
+
+msgid "Addons"
+msgstr "Расширения"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Background"
+msgstr "Задний фон"
+
+msgid "Border"
+msgstr "Рамка"
+
+msgid "Color"
+msgstr "Цвет"
+
+msgid "Box shadow"
+msgstr "Тень"
+
+msgid "Border radius"
+msgstr "Скругление"
+
+msgid "Font"
+msgstr "Шрифт"
+
+msgid "Padding"
+msgstr "Внутренний отступ"
+
+msgid "Margin"
+msgstr "Внешний отступ"
+
+msgid "Alignment"
+msgstr "Выравнивание"
+
+msgid "Condition"
+msgstr "Состояние"
+
+msgid "Normal"
+msgstr "Обычный"
+
+msgid "On hover"
+msgstr "При наведении"
+
+msgid "Properties"
+msgstr "Свойства"
+
+msgid "Gradient"
+msgstr "Градиент"
+
+msgid "Solid color"
+msgstr "Цвет"
+
+msgid "Transparent"
+msgstr "Прозрачный"
+
+msgid "Start"
+msgstr "Начало"
+
+msgid "End"
+msgstr "Конец"
+
+msgid "Direction"
+msgstr "Направление"
+
+msgid "From left to right"
+msgstr "Слева направо"
+
+msgid "From right to left"
+msgstr "Справа налево"
+
+msgid "From top to bottom"
+msgstr "Сверху вниз"
+
+msgid "From bottom to top"
+msgstr "Снизу вверх"
+
+msgid "Transparency"
+msgstr "Прозрачность"
+
+msgid "Orientation"
+msgstr "Направление"
+
+msgid "linear"
+msgstr "линейное"
+
+msgid "radial"
+msgstr "радиальное"
+
+msgid "Thickness"
+msgstr "Толщина"
+
+msgid "Style"
+msgstr "Стиль"
+
+msgid "Dotted"
+msgstr "Точки"
+
+msgid "Dashed"
+msgstr "Пунктир"
+
+msgid "Double"
+msgstr "Двойная сплошная"
+
+msgid "Values"
+msgstr "Значения"
+
+msgid "X offset"
+msgstr "X-сдвиг"
+
+msgid "Y offset"
+msgstr "Y-сдвиг"
+
+msgid "Blur"
+msgstr "Размытие"
+
+msgid "Spread"
+msgstr "Растяжение"
+
+msgid "Inset"
+msgstr "Внутренняя тень"
+
+msgid "Radius"
+msgstr "Радиус"
+
+msgid "Top-left"
+msgstr "Верхний-левый"
+
+msgid "Top-right"
+msgstr "Верхний-правый"
+
+msgid "Bottom-left"
+msgstr "Нижний-левый"
+
+msgid "Bottom-right"
+msgstr "Нижний-правый"
+
+msgid "Size"
+msgstr "Размер"
+
+msgid "Use default"
+msgstr "По умолчанию"
+
+msgid "Font family"
+msgstr "Семейство шрифтов"
+
+msgid "Google fonts"
+msgstr "Google шрифты"
+
+msgid "Font style"
+msgstr "Стиль шрифта"
+
+msgid "Bold"
+msgstr "Жирный"
+
+msgid "Italic"
+msgstr "Курсив"
+
+msgid "Bold/Italic"
+msgstr "Жирный/Курсив"
+
+msgid "Top"
+msgstr "Сверху"
+
+msgid "Right"
+msgstr "Справа"
+
+msgid "Left"
+msgstr "Слева"
+
+msgid "To left"
+msgstr "Слева"
+
+msgid "To right"
+msgstr "Справа"
+
+msgid "To center"
+msgstr "По центру"
+
+msgid "Justify"
+msgstr "По ширине"
+
+msgid "Solid"
+msgstr "Сплошной"
+
+msgid "Width"
+msgstr "Ширина"
+
+msgid "Bottom"
+msgstr "Снизу"
+
+msgid "Cannot create order"
+msgstr "Не удается создать заказ"
+
+msgid "no-name"
+msgstr "Без имени"
+
+msgid "Fix the errors above"
+msgstr "Исправьте допущенные ошибки"
+
+msgid "The shopping cart is empty"
+msgstr "Корзина пуста"
+
+msgid "Wait, please... Redirecting"
+msgstr "Пожалуйста, подождите... Идет перенаправление"
+
+msgid "Field is required"
+msgstr "Обязательное поле"
+
+msgid "Fill in required fields"
+msgstr "Заполните обязательные поля"
+
+msgid "Your order is empty"
+msgstr "Ваш заказ пуст"
+
+msgid "Fill in captcha field"
+msgstr "Заполните проверочный код"
+
+msgid "Phone format is not correct.<br>Use this one:"
+msgstr "Некорректный формат телефона.<br>Используйте такой:"
+
+msgid "Shipping method has errors. Please, fix them."
+msgstr "Методы доставки содержат ошибки. Пожалуйста, исправьте их."
+
+msgid "Payment method has errors. Please, fix them."
+msgstr "Методы оплаты содержат ошибки. Пожалуйста, исправьте их."
+
+msgid "Minimal sum of order is %s"
+msgstr "Минимальная сумма заказа %s"
+
+msgid "Minimal sum of each product is"
+msgstr "Минимальная стоимость каждого товара %s"
+
+msgid "Minimal quantity of products is"
+msgstr "Минимальное количество товаров"
+
+msgid "Minimal quantity of each product is"
+msgstr "Минимальное количество каждого товара"
+
+msgid "Print correct phone format"
+msgstr "Укажите корректный формат телефона"
+
+msgid "Contact fields are empty"
+msgstr "Контактные поля не заполнены"
+
+msgid "Captcha is not correct"
+msgstr "Проверочный код неверный"
+
+msgid "Incorrect email"
+msgstr "Некорректный email"
+
+msgid "Payment method has errors."
+msgstr "Метод оплаты содержит ошибки."
+
+msgid "1-Click product and cart ordering"
+msgstr "Быстрый заказ товара и корзины в целом"
+
+msgid "1 click"
+msgstr "К1К"
+
+msgid "Loading"
+msgstr "Загрузка"
+
+msgid "Quick order of product"
+msgstr "Быстрый заказ товара"
+
+msgid "Quick order of cart"
+msgstr "Быстрый заказ корзины"
+
+msgid "phone mask"
+msgstr "маска телефона"
+
+msgid "Popup dialog closing"
+msgstr "Закрытие всплывающего окна"
+
+msgid "Close popup dialog, when user click outside the form"
+msgstr "Закрывать всплывающее окно, когда пользователь нажмет где-либо за пределами этого окна"
+
+msgid "Field placeholder"
+msgstr "Плейсхолдер поля"
+
+msgid "Address autodetection (Sypex Geo)"
+msgstr "Автоопределение адреса (Sypex Geo)"
+
+msgid "This addon will automatically detect country, region and city for customers, which doesn't have them"
+msgstr "Данное расширение автоматически определяет страну, регион и город у тех покупателей, у которых эта информация отсутствует"
+
+msgid "Use"
+msgstr "Использовать"
+
+msgid "cancel"
+msgstr "отмена"
+
+msgid "Ability to use affiliate bonus"
+msgstr "Возможность использования бонусных баллов"
+
+msgid "Activate affiliate program"
+msgstr "Активировать партнерскую программу"
+
+msgid "Your current affiliate bonus of $bonus points allows you to get an additonal discount of up to $discount"
+msgstr "Вы можете использовать свой партнерский бонус в $bonus баллов для получения дополнительной скидки в размере $discount"
+
+msgid "where $bonus - user affiliate bonus, $discount - user affiliate discount"
+msgstr "где $bonus - бонусные баллы пользователя, $discount - скидка по бонусным баллам"
+
+msgid "Success message"
+msgstr "Успешное сообщение"
+
+msgid "Bonus used"
+msgstr "Бонусные баллы использованы"
+
+msgid "Button name"
+msgstr "Название кнопки"
+
+msgid "Use bonus"
+msgstr "Использовать бонусные баллы"
+
+msgid "Info message"
+msgstr "Информационное сообщение"
+
+msgid "This order will add +$points points to your affiliate bonus."
+msgstr "Этот заказ увеличит ваш партнерский бонус на +$points баллов."
+
+msgid "where $points - user affiliate points"
+msgstr "где $points - количество баллов"
+
+msgid "Wait, please.."
+msgstr "Пожалуйста, подождите.."
+
+msgid "Apply"
+msgstr "Применить"
+
+msgid "Unauthorized checkout with existing customer profiles"
+msgstr "Заказ без авторизации с существующими профилями покупателя"
+
+msgid "Create new customer profile for every guest order"
+msgstr "Создавать новый профиль покупателя для каждого заказа"
+
+msgid "Add an order to existing customer profile with the same phone number or email address"
+msgstr "Прикреплять заказ к существующему покупателю с таким же номером телефона или email-адресом"
+
+msgid "After clicking the button \"1-Click Ordering\" on the product page or category page"
+msgstr "После нажатия кнопки \"Купить в один клик\" на странице товара или категории"
+
+msgid "Do not add product to the cart"
+msgstr "Не добавлять товар в корзину"
+
+msgid "Add product to the cart"
+msgstr "Добавить товар в корзину"
+
+msgid "Sku variants popup window"
+msgstr "Всплывающее окно выбора вариантов товара"
+
+msgid "Template of stocks output"
+msgstr "Шаблон вывода остатков"
+
+msgid "revert to original"
+msgstr "восстановить оригинал"
+
+msgid "show template"
+msgstr "показать шаблон"
+
+msgid "ATTENTION! Template has been changed. Content may differ from original."
+msgstr "ВНИМАНИЕ! Шаблон был изменен. Содержимое может отличаться от оригинала."
+
+msgid "revert template to original"
+msgstr "вернуть оригинальный шаблон"
+
+msgid "Template not exists."
+msgstr "Шаблон не существует."
+
+msgid "or"
+msgstr "или"
+
+msgid "Unknown template"
+msgstr "Неизвестный шаблон"
+
+msgid "It's strongly recommended not to edit templates. After you save the copy of template, you will not be able to get updates for that template later. Developer not responsible for errors, caused by your editing and will not be able to help you."
+msgstr "Настоятельно не рекомендуется редактировать шаблоны. После того, как вы сохраните копию шаблона, вы не сможете получать его обновления. Разработчик не несет никакой ответственности за ошибки, возникшие по причине редактирования шаблонов, и не будет оказывать вам помощь в их устранении."
+
+msgid "Developer will not consult you about editing the templates."
+msgstr "Разработчик не будет оказывать консультации по редактированию шаблонов."
+
+msgid "I recognize the attention above and would like to edit plugin templates"
+msgstr "Я прочитал(а) и осознаю предупреждение выше, и хочу приступить к редактированию шаблонов"
+
+msgid "Show the template"
+msgstr "Показать шаблон"
+
+msgid "Templates"
+msgstr "Шаблоны"
+
+msgid "Skus popup template"
+msgstr "Шаблон всплывающего окна вариантов товара"
+
+msgid "Affiliate template"
+msgstr "Шаблон бонусной программы"
+
+msgid "Contact fields template"
+msgstr "Шаблон контактных полей"
+
+msgid "Payment methods template"
+msgstr "Шаблон методов оплаты"
+
+msgid "Shipping methods template"
+msgstr "Шаблон методов доставки"
+
+msgid "Product item template"
+msgstr "Шаблон товара"
+
+msgid "Product item service template"
+msgstr "Шаблон услуг товара"
+
+msgid "Sku variant stocks template"
+msgstr "Шаблон вывода остатков"
+
+msgid "Common template"
+msgstr "Общий шаблон"
+
+msgid "Phone mask"
+msgstr "Маска телефона"
+
+msgid "Replace +78 to +7"
+msgstr "Заменить +78 на +7"
+
+msgid "When you use mask with +7, people sometimes enter phones like 8-012-345-67-89 and you get +7-801-234-56-78"
+msgstr "Когда вы используете маску, где начальные цифры +7, некоторые клиенты вводят телефон следующим образом 8-012-345-67-89, и вы получаете +7-801-234-56-78"
+
+msgid "If you want to get +7-012-345-67-89, enable this option"
+msgstr "Если вы хотите, чтобы в итоге получался номер +7-012-345-67-89 и восьмерка не учитывалась, включите данную опцию"
+
+msgid "Show shipping description"
+msgstr "Отображать описание методов доставки"
+
+msgid "Show payment description"
+msgstr "Отображать описание методов оплаты"
+
+msgid "Invalid coupon code"
+msgstr "Купон недействителен"
+
+msgid "Delay for stabilization on mobile devices, when we click on the input field"
+msgstr "Задержка на мобильных устройствах для стабилизации формы, когда был произведен клик на поле ввода"
+
+msgid "Coupon applied"
+msgstr "Купон применен"

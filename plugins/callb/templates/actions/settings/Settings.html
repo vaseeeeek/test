@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="{$wa_url}wa-content/js/farbtastic/farbtastic.css" type="text/css" />
+<script type="text/javascript" src="{$wa_url}wa-content/js/farbtastic/farbtastic.js"></script>
+
+<style type="text/css">
+    {include file="../../../css/callb.css" inline}
+</style>
+
+<style>
+    .fields.form { width: 50%; }
+
+    .field .value input[type="text"] { width: 200px; }
+
+    #plugins-settings-form { min-width: 600px; padding: 0 30px 30px 0; }
+    .s-colorpicker { display: none; margin: -110px 0 0 245px; position: absolute; }
+    .call-b-form { border-color: rgba(244, 244, 244, 1); border-style: solid; border-width: 10px 50px; box-shadow: 1px -1px 5px rgba(0, 0, 0, 0.3); float: right; left: 0; margin: 30px 0 50px; position: relative; top: 0; }
+    .tip-block { background: rgba(244, 244, 244, 1); border-color: rgba(244, 244, 244, 1); border-style: solid; border-width: 10px 20px; box-shadow: 1px -1px 5px rgba(0, 0, 0, 0.3); clear: right; float: right; margin: 0 0 25px; position: relative; width: 460px; }
+    .tip-block h3 { font-size: 18px; text-align: center; }
+    .tip-block h3 span { border-bottom: 1px dotted; cursor: pointer; }
+    .tip-block p { display: none; font-size: 13px; margin: 0 0 10px; }
+
+    .plugin-links { margin: 0 20px; position: absolute; right: 0; }
+    .plugin-links a { background: gray none repeat scroll 0 0; border-radius: 2px; color: #fefefe!important; display: none; font-size: 1em; margin: 0 0 10px; padding: 10px; position: relative; text-align: center; z-index: 9; }
+    .plugin-links a:hover { color: #fefefe!important; }
+    #more-info-support { background: rgb(51, 102, 255) none repeat scroll 0 0; }
+
+    @media (min-width:320px) and (max-width: 1600px) {
+        .call-b-form, .tip-block { float: left; }
+        .fields.form { width: 100%; }
+    }
+
+    #call-b-submit:disabled { cursor: default; opacity: 1; }
+</style>
+
+<script type="text/javascript">
+    {include file="../../../js/callb.backend.settings.js"}
+</script>
+
+<script type="text/javascript">
+    (function ($) {
+        callbBackendSettings.initModule();
+    })(jQuery);
+</script>
+
+<div class="plugin-links">
+    <a id="more-info-support" href="mailto:support@max-severin.com">[`For all questions`]:<br /><b>support@max-severin.com</b></a>
+</div>
+
+<h1>[`Callback`]</h1>
+
+<div class="fields form">
+    <form action="?module=plugins&id=callb&action=save" method="post" id="plugins-settings-form" enctype="multipart/form-data" target="plugins-settings-iframe">
+        {$wa->csrf()}
+        {foreach $settings_controls as $name => $control}
+        <div class="field">
+            {$control}
+        </div>
+        {/foreach}
+
+        <div class="field">
+            <div class="value submit">
+                <input type="submit" class="button green" value="{_w('Save')}">
+                <span id="plugins-settings-form-status" style="display:none"><!-- message placeholder --></span>
+            </div>
+        </div>
+
+    </form>
+    <iframe style="display:none" name="plugins-settings-iframe" id="plugins-settings-iframe"></iframe>
+</div>

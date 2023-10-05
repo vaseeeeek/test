@@ -1,0 +1,15 @@
+<div class="f-tab-appearance" style="display: none;">
+    <div class="field">
+        <label><input type="checkbox" class="f-shared-settings" data-tab="appearance" name="storefront_settings[shared_appearance_settings]" value="1"{if !empty($settings.shared_appearance_settings)} checked{/if}> [`Shared settings for product page and cart page`]</label>
+    </div>
+    <div class="field f-appearance-shared-settings-tabs f-shared-settings-tabs" data-tab="appearance" {if !empty($settings.shared_appearance_settings)} style="display: none"{/if}>
+        <ul class="menu-h">
+            <li class="selected"><a href="javascript:void(0)" data-page="product">[`Product page`]</a></li>
+            <li><a href="javascript:void(0)" data-page="cart">[`Cart page`]</a></li>
+        </ul>
+    </div>
+    <div>
+        {include file='./include.tab.appearance.settings.html' tab="product"}
+        {include file='./include.tab.appearance.settings.html' tab="cart"}
+    </div>
+</div>

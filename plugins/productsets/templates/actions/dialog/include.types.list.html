@@ -1,0 +1,20 @@
+{if !empty($types)}
+    <div class="s-types-block">
+        <ul class="menu-v with-icons">
+            {foreach $types as $type}
+                <li>
+                    <span class="count">{$type.count}</span>
+                    <a href="javascript:void(0)" data-type="types" class="f-get-products" data-id="{$type.id}">
+                        {shopHelper::getIcon($type.icon, 'icon.box')}{$type.name|escape}
+                    </a>
+                </li>
+            {/foreach}
+        </ul>
+    </div>
+{else}
+    <div class="block">
+        <p class="hint align-center">[`You have no product types in your online store. Create one in the store settings.`]</p>
+    </div>
+{/if}
+
+

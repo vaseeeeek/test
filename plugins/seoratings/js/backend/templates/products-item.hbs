@@ -1,0 +1,19 @@
+<div class="seoratings-backend__column--checkbox">
+  <label>
+    <input tabindex="-1" class="seoratings-backend__input--checkbox" type="checkbox"><span></span>
+  </label>
+</div>
+<div class="seoratings-backend__column--sort">
+  <div class="seoratings-backend__input--group">
+    <span class="seoratings-backend__button--up" data-js="rating__product--up">▲</span>
+    <input tabindex="{{sort}}" class="seoratings-backend__input--sort" data-js="rating__product--sort" type="text" value="{{sort}}">
+    <span class="seoratings-backend__button--down" data-js="rating__product--down">▼</span>
+  </div>
+</div>
+<a class="seoratings-backend__column--name" tabindex="-1" target="_blank" href="#/product/{{product_id}}/"data-product-id="{{product_id}}">
+<!--  <img src="{{image_url}}" alt="{{name}}">-->
+  {{name}}
+</a>
+<div class="seoratings-backend__column--actions">
+  <span class="seoratings-backend__link--delete-product" data-js="rating__product--delete">&times;</span>
+</div>

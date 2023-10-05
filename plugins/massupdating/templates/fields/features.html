@@ -1,0 +1,56 @@
+{if count($input['features']) > 0}
+<div class="massupdating-features">
+	<select id="massupdating-features" name="feature">
+		<option selected>-</option>
+		{foreach from=$input['features'] item=feature}
+		<option value="{$feature['value']}" data-code="{$feature['code']}">{$feature['title']}</option>
+		{/foreach}
+	</select>
+	<a href="#" id="massupdating-features-button" class="button blue">+</a>
+	<div style="display: none;" class="massupdating-features-arrow"></div>
+</div>
+<div style="margin-top: 10px;">
+<a class="inline-link" href="?action=plugins#/massupdating/"><b><i>[`В настройках`]</i></b></a> [`Вы можете задать характеристики, которые будут отображаться здесь по умолчанию.`]
+</div>
+<div style="margin-top: 10px;">
+[`Поля, которые Вы "заморозите", не будут затрагиваться при сохранении ни при каких условиях.`]
+</div>
+<script type="text/javascript">
+(function() {
+{literal}
+	$('#massupdating-features').change(function() {
+		if($(this).val() != 0)
+			$('.massupdating-features-arrow').css({display: 'inline-block'});
+		else
+			$('.massupdating-features-arrow').hide();
+	});
+{/literal}
+	$('#massupdating-features-button').click(function(e) {
+		var selected = $('#massupdating-features option:selected');
+		
+		if(selected.val() != 0) {
+			$('.massupdating-features-arrow').hide();
+			feature_id = selected.val();
+			feature_name = selected.text();
+			feature_code = selected.data('code');
+			selected.remove();
+			$('#massupdating-features').val(0);
+			
+			$.post('?plugin=massupdating&module=feature&action=control', {
+				feature_id: feature_id,
+				product_ids: $('#massupdating-product-ids').val()
+			}, function(data) {
+				$('.massupdating-features-wrapper').prepend($('<div class="field massupdating-feature-field"/>').html($('<div class="name" style="overflow: hidden;"/>').html(feature_name + '<br/><span class="hint">' + feature_code + '</span>')).append($('<div class="value"/>').html(data)));
+				
+				if($('#massupdating-features option').length == 1)
+					$('.massupdating-features').html('&nbsp;');
+			});
+		}
+		
+		e.preventDefault();
+	});
+})();
+</script>
+{else}
+&nbsp;
+{/if}

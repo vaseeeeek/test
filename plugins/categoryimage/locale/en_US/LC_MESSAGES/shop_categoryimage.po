@@ -1,0 +1,123 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/categoryimage\n"
+"POT-Creation-Date: 2013-10-27 16:42+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator:  shop/plugins/categoryimage\n"
+"Language-Team:  shop/plugins/categoryimage\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: en_US\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:1
+#: /wa-apps/shop/plugins/categoryimage/lib/config/plugin.php:8
+msgid "Category images"
+msgstr ""
+
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:8
+msgid "Thumbnails to be created when image is uploaded"
+msgstr ""
+
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:19
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:59
+msgid "Square crop"
+msgstr ""
+
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:19
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:21
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:23
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:25
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:27
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:27
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:41
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:47
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:53
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:59
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:65
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:65
+msgid "px"
+msgstr ""
+
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:21
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:41
+msgid "Max"
+msgstr ""
+
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:21
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:23
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:25
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:27
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:41
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:47
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:53
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:65
+msgid "Width"
+msgstr ""
+
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:21
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:23
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:25
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:27
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:41
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:47
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:53
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:65
+msgid "Height"
+msgstr ""
+
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:23
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:25
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:47
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:53
+msgid "auto"
+msgstr ""
+
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:30
+#: /wa-apps/shop/plugins/categoryimage/templates/Dialog.html:13
+msgid "delete"
+msgstr ""
+
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:59
+msgid "Size"
+msgstr ""
+
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:65
+msgid "Rectangular crop"
+msgstr ""
+
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:70
+msgid "Add"
+msgstr ""
+
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:76
+msgid "Sharpen"
+msgstr ""
+
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:79
+msgid "Apply sharpening filter when creating thumbnails (recommended)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:85
+msgid "Save"
+msgstr ""
+
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:87
+msgid "Saved"
+msgstr ""
+
+#: /wa-apps/shop/plugins/categoryimage/templates/actions/settings/Settings.html:145
+msgid "Click “Save” button below to apply this change."
+msgstr ""
+
+#: /wa-apps/shop/plugins/categoryimage/templates/Dialog.html:5
+msgid "Image"
+msgstr ""
+
+#: /wa-apps/shop/plugins/categoryimage/lib/config/plugin.php:9
+msgid "Allows to upload category images"
+msgstr ""

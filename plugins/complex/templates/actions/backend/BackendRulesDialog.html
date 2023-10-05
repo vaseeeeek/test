@@ -1,0 +1,37 @@
+<h1>Правило применения цен</h1>
+<form data-form-action="{$form_action}" action="?plugin=complex&module=rule&action={$form_action}" method="post" id="complex-rule-form" class="rule new new-rule" style="overflow: visible;">
+	<div class="rule-conditions">
+		{if $form_action == 'edit'}
+		{$rule}
+		{else}
+		<div class="condition-group and">
+			<ul class="menu-h condition-mode">
+				<input name="mode[-1]" type="hidden" value="and">
+				<li class="selected">
+					<a href="#" data-mode="and">[`All conditions are met`]</a>
+				</li>
+				<li>
+					<a href="#" data-mode="or">[`At least one condition is met`]</a>
+				</li>
+			</ul>
+			<div class="conditions">
+				<table class="conditions-table">
+					<tr class="no-conditions">
+						<td colspan="3">[`Add conditions.`]</td>
+					</tr>
+					<tr class="add-condition">
+						<td colspan="3">
+							<a href="#" class="inline-link bold">
+								<i class="icon16 add"></i><b><i><strong>[`Add condition`]</strong></i></b>
+							</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		{/if}
+	</div>
+</form>
+
+<script type="text/javascript" src="{$plugin_url}js/complex.rules.js"></script>
+<script type="text/javascript" src="{$plugin_url}js/complex.rules.dialog.js"></script>

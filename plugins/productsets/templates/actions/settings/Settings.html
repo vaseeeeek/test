@@ -1,0 +1,89 @@
+{*
+* @author Gaponov Igor <gapon2401@gmail.com>
+*}
+
+{* Igaponov dialog *}
+<link rel="stylesheet" media="screen" type="text/css" href="{$plugin_url}js/dialog/jquery.dialog.min.css"/>
+<script type="text/javascript" src="{$plugin_url}js/dialog/jquery.dialog.js"></script>
+
+<link rel="stylesheet" href="{$plugin_url}css/productsets.css?v={$version}"/>
+<script src="{$plugin_url}js/productsetsSettingsBackend.js?v={$version}"></script>
+
+<h1>[`Product sets`]</h1>
+
+<form action="about:blank" id="productsets-form">
+    <div class="fields">
+        {$wa->csrf()}
+        <div class="field">
+            <div class="name">[`Use hook frontend_products`]</div>
+            <div class="value">
+                <input type="hidden" name="settings[use_frontend_products]" value="0">
+                <label><input type="checkbox" name="settings[use_frontend_products]"{if !empty($settings.use_frontend_products) || !isset($settings.use_frontend_products)} checked{/if}></label>
+                <div class="mb hint">[`Some plugins can change the prices of products. By disabling this option, you refuse any changes to your products from third-party plugins.`]</div>
+            </div>
+        </div>
+        <div class="field">
+            <div class="name">[`Size of image thumbs`]</div>
+            <div class="value">
+                {$default_size = explode('x', shopProductsetsProductData::FRONTEND_IMAGE_SIZE)}
+                {$width = $default_size[0]|intval}
+                {if !empty($settings['frontend_image_size']['width'])}
+                    {$width =  $settings['frontend_image_size']['width']|intval}
+                {/if}
+                {$height = $default_size[1]|intval}
+                {if isset($settings['frontend_image_size']['height'])}
+                    {$height =  $settings['frontend_image_size']['height']}
+                {/if}
+                [`Width`]: <input type='number' class='short' name='settings[frontend_image_size][width]' value='{$width}'>
+                [`Height`]: <input type='number' class='short' name='settings[frontend_image_size][height]' value='{$height}'>
+            </div>
+        </div>
+        <div class="field">
+            <div class="name">[`Templates`]</div>
+            <div class="value">
+                <a href="javascript:void(0)" class="inline-link" onclick="$(this).hide().next().show()"><b><i>[`Edit templates`]</i></b></a>
+                <div class="mb hidden">
+                    <div class="attention-block mb bottom">
+                        <p>[`It's strongly recommended not to edit templates. After you save the copy of template, you will not be able to get updates for that template later. Developer not responsible for errors, caused by your editing and will not be able to help you.`]</p>
+                        <p>[`Developer will not consult you about editing the templates.`]</p>
+                    </div>
+                    <a href="javascript:void(0)" onclick="$(this).hide().next().show()">[`I recognize the attention above and would like to edit plugin templates`]</a>
+                    <div class="mb hidden">
+                        <div class="fields">
+                            {foreach $templates as $k => $template}
+                                <div class="field">
+                                    <div class="name">
+                                        {$template.name}
+                                        {if !empty($template.changed)}
+                                            <div><a href="javascript:void(0)" class="js-restore-template" data-id="{$k}">[`revert template to original`]</a></div>
+                                        {/if}
+                                    </div>
+                                    <div class="value">
+                                        {if !empty($template.changed)}
+                                            <div class="mb bottom attention-block">
+                                                [`ATTENTION! Template has been changed. Content may differ from original.`]
+                                            </div>
+                                        {/if}
+                                        <a href="javascript:void(0)" data-id="{$k}" class="js-edit-templates inline-link"><b><i>[`Show the template`]</i></b></a>
+                                    </div>
+                                </div>
+                            {/foreach}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="field errormsg"></div>
+        <div class="field">
+            <input type="submit" class="button green" value="[`Save`]">
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+    $(function () {
+        new ProductsetsSettingsPlugin({
+            wrap: $('#productsets-form')
+        });
+    });
+</script>

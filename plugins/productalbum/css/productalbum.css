@@ -1,0 +1,30 @@
+/* Блок productalbum для админки */
+.productalbum--backend {
+    font-size: 16px;
+    margin: 20px;
+}
+
+.productalbum--backend .productalbum__title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Блок productalbum для фронтенда */
+.productalbum--frontend {
+    font-size: 16px;
+    margin: 20px;
+}
+
+.productalbum--frontend .productalbum__title {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* Общие элементы для productalbum */
+.productalbum__list {
+    list-style: none;
+}
+
+.productalbum__item {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,1069 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/quickorder\n"
+"POT-Creation-Date: 2018-07-05 15:46+0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: shop/plugins/quickorder\n"
+"Language-Team: shop/plugins/quickorder\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"Language: en_US\n"
+"X-Generator: Poedit 2.0.5\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+msgid "This product is not available for purchase"
+msgstr ""
+
+msgid "Pre-order only"
+msgstr ""
+
+msgid "Out of stock"
+msgstr ""
+
+msgid "In stock"
+msgstr ""
+
+msgid "Product with the selected option combination is not available for purchase"
+msgstr ""
+
+msgid "This product is already selected"
+msgstr ""
+
+msgid "Select product sku"
+msgstr ""
+
+msgid "Payment"
+msgstr ""
+
+msgid "select another sku"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Show all services"
+msgstr ""
+
+msgid "Shipping"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Contact fields"
+msgstr ""
+
+msgid "Order comment"
+msgstr ""
+
+msgid "Coupon code"
+msgstr ""
+
+msgid "Discount"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+msgid "Captcha"
+msgstr ""
+
+msgid "show more"
+msgstr ""
+
+msgid "1-Click Ordering"
+msgstr ""
+
+msgid "Quantity of products"
+msgstr ""
+
+msgid "Product page"
+msgstr ""
+
+msgid "Cart"
+msgstr ""
+
+msgid "Products"
+msgstr ""
+
+msgid "Services"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Qty"
+msgstr ""
+
+msgid "Sales"
+msgstr ""
+
+msgid "Profit"
+msgstr ""
+
+msgid "Profit percentage"
+msgstr ""
+
+msgid "Subtotal %1$s &minus; Discount %2$s"
+msgstr ""
+
+msgid "Total sales %1$s &minus; Purchase expense %2$s"
+msgstr ""
+
+msgid "Profit percentage = Net profit (%s) / Cost price (%s) = %s%%"
+msgstr ""
+
+msgid "Show more products"
+msgstr ""
+
+msgid "There were no products sold on the selected period."
+msgstr ""
+
+msgid "<strong>+%s%%</strong> to average order value"
+msgstr ""
+
+msgid "On the selected time period, there were no orders with <a href=\"%s\">extra services</a>."
+msgstr ""
+
+msgid "All channels"
+msgstr ""
+
+msgid "Field name"
+msgstr ""
+
+msgid "additional settings"
+msgstr ""
+
+msgid "Hide field name"
+msgstr ""
+
+msgid "Placeholder"
+msgstr ""
+
+msgid "Select field type"
+msgstr ""
+
+msgid "Address"
+msgstr ""
+
+msgid "css class"
+msgstr ""
+
+msgid "Required"
+msgstr ""
+
+msgid "delete"
+msgstr ""
+
+msgid "Show all"
+msgstr ""
+
+msgid "Minimal price of order"
+msgstr ""
+
+msgid "Minimal sum"
+msgstr ""
+
+msgid "Minimal sum of each product"
+msgstr ""
+
+msgid "Minimal total quantity"
+msgstr ""
+
+msgid "Minimal quantity of each product"
+msgstr ""
+
+msgid "Plugins"
+msgstr ""
+
+msgid "Delivery and payment filter"
+msgstr ""
+
+msgid "Use plugin"
+msgstr ""
+
+msgid "plugin disabled"
+msgstr ""
+
+msgid "Plugin not found"
+msgstr ""
+
+msgid "Flexdiscount"
+msgstr ""
+
+msgid "Show active discounts"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Collapse information"
+msgstr ""
+
+msgid "Collapse link"
+msgstr ""
+
+msgid "View type"
+msgstr ""
+
+msgid "More information about view type read in Flexdiscount docs."
+msgstr ""
+
+msgid "Show product prices with discount"
+msgstr ""
+
+msgid "Change compare prices"
+msgstr ""
+
+msgid "Other settings"
+msgstr ""
+
+msgid "Update information, when contact fields had been changed"
+msgstr ""
+
+msgid "If you have any doubts with configuring the analytics, feel free to read <a href=\"#\" target=\"_blank\">documentation <i class=\"icon16 new-window\"></i></a>"
+msgstr ""
+
+msgid "Shared settings for product page and cart page"
+msgstr ""
+
+msgid "Cart page"
+msgstr ""
+
+msgid "Yandex metrica"
+msgstr ""
+
+msgid "Counter ID"
+msgstr ""
+
+msgid "Activate Ecommerce"
+msgstr ""
+
+msgid "Goal ID"
+msgstr ""
+
+msgid "Data container name"
+msgstr ""
+
+msgid "Form opening"
+msgstr ""
+
+msgid "Form submit"
+msgstr ""
+
+msgid "Form submit error"
+msgstr ""
+
+msgid "Google analytics"
+msgstr ""
+
+msgid "Google analytics ID"
+msgstr ""
+
+msgid "Category"
+msgstr ""
+
+msgid "Action"
+msgstr ""
+
+msgid "What should I do, if live demo is not the same as on the website?"
+msgstr ""
+
+msgid "Use this option to force the CSS styles"
+msgstr ""
+
+msgid "Select element"
+msgstr ""
+
+msgid "Button"
+msgstr ""
+
+msgid "Form"
+msgstr ""
+
+msgid "Form head"
+msgstr ""
+
+msgid "Form titles"
+msgstr ""
+
+msgid "Form fields"
+msgstr ""
+
+msgid "Form footer"
+msgstr ""
+
+msgid "Form button"
+msgstr ""
+
+msgid "Theme appearances"
+msgstr ""
+
+msgid "Dark grey"
+msgstr ""
+
+msgid "Dark red"
+msgstr ""
+
+msgid "Creme"
+msgstr ""
+
+msgid "Brown"
+msgstr ""
+
+msgid "Blue"
+msgstr ""
+
+msgid "Light blue"
+msgstr ""
+
+msgid "Orange"
+msgstr ""
+
+msgid "Light orange"
+msgstr ""
+
+msgid "Green"
+msgstr ""
+
+msgid "Olive"
+msgstr ""
+
+msgid "Purple"
+msgstr ""
+
+msgid "White blue"
+msgstr ""
+
+msgid "Light red"
+msgstr ""
+
+msgid "Pink"
+msgstr ""
+
+msgid "clear all styles"
+msgstr ""
+
+msgid "Live demonstration of form appearance"
+msgstr ""
+
+msgid "Field title one"
+msgstr ""
+
+msgid "Field title two"
+msgstr ""
+
+msgid "Field value"
+msgstr ""
+
+msgid "Field title three"
+msgstr ""
+
+msgid "Option one"
+msgstr ""
+
+msgid "Option two"
+msgstr ""
+
+msgid "Option three"
+msgstr ""
+
+msgid "Option four"
+msgstr ""
+
+msgid "Option five"
+msgstr ""
+
+msgid "1-Click cart ordering"
+msgstr ""
+
+msgid "Live demonstration of button appearance"
+msgstr ""
+
+msgid "Print Your CSS styles right here"
+msgstr ""
+
+msgid "Use default hook for output"
+msgstr ""
+
+msgid "Use helper in your template"
+msgstr ""
+
+msgid "Hide button and display form on the page"
+msgstr ""
+
+msgid "Buy now with 1-Click"
+msgstr ""
+
+msgid "Display"
+msgstr ""
+
+msgid "New line"
+msgstr ""
+
+msgid "Inline"
+msgstr ""
+
+msgid "CSS class"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Text after title"
+msgstr ""
+
+msgid "Fields"
+msgstr ""
+
+msgid "Add field"
+msgstr ""
+
+msgid "Choose available shipping methods."
+msgstr ""
+
+msgid "Add shipping"
+msgstr ""
+
+msgid "Choose available payment methods."
+msgstr ""
+
+msgid "Add payment"
+msgstr ""
+
+msgid "User comment"
+msgstr ""
+
+msgid "Coupon field"
+msgstr ""
+
+msgid "Discount information"
+msgstr ""
+
+msgid "Total price"
+msgstr ""
+
+msgid "Off"
+msgstr ""
+
+msgid "On"
+msgstr ""
+
+msgid "Text before submit button"
+msgstr ""
+
+msgid "Submit button"
+msgstr ""
+
+msgid "Send"
+msgstr ""
+
+msgid "Successfull message"
+msgstr ""
+
+msgid "Products and services"
+msgstr ""
+
+msgid "Product image"
+msgstr ""
+
+msgid "Image size"
+msgstr ""
+
+msgid "Changing of product quantity"
+msgstr ""
+
+msgid "Service selection"
+msgstr ""
+
+msgid "Skus selection"
+msgstr ""
+
+msgid "Compare at price"
+msgstr ""
+
+msgid "Multiply product price on the quantity"
+msgstr ""
+
+msgid "Others"
+msgstr ""
+
+msgid "Ruble sign"
+msgstr ""
+
+msgid "rub."
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Terms and agreement"
+msgstr ""
+
+msgid "Text"
+msgstr ""
+
+msgid "I am agree to the terms of service"
+msgstr ""
+
+msgid "Error message"
+msgstr ""
+
+msgid "You must read and agree to the Terms of service to place an order."
+msgstr ""
+
+msgid "Tick by default"
+msgstr ""
+
+msgid "Agree"
+msgstr ""
+
+msgid "Developer Igor Gaponov"
+msgstr ""
+
+msgid "Plugin status"
+msgstr ""
+
+msgid "Storefront"
+msgstr ""
+
+msgid "Common settings for all storefronts"
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+msgid "Analytics"
+msgstr ""
+
+msgid "Appearance"
+msgstr ""
+
+msgid "CSS styles"
+msgstr ""
+
+msgid "Addons"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Background"
+msgstr ""
+
+msgid "Border"
+msgstr ""
+
+msgid "Color"
+msgstr ""
+
+msgid "Box shadow"
+msgstr ""
+
+msgid "Border radius"
+msgstr ""
+
+msgid "Font"
+msgstr ""
+
+msgid "Padding"
+msgstr ""
+
+msgid "Margin"
+msgstr ""
+
+msgid "Alignment"
+msgstr ""
+
+msgid "Condition"
+msgstr ""
+
+msgid "Normal"
+msgstr ""
+
+msgid "On hover"
+msgstr ""
+
+msgid "Properties"
+msgstr ""
+
+msgid "Gradient"
+msgstr ""
+
+msgid "Solid color"
+msgstr ""
+
+msgid "Transparent"
+msgstr ""
+
+msgid "Start"
+msgstr ""
+
+msgid "End"
+msgstr ""
+
+msgid "Direction"
+msgstr ""
+
+msgid "From left to right"
+msgstr ""
+
+msgid "From right to left"
+msgstr ""
+
+msgid "From top to bottom"
+msgstr ""
+
+msgid "From bottom to top"
+msgstr ""
+
+msgid "Transparency"
+msgstr ""
+
+msgid "Orientation"
+msgstr ""
+
+msgid "linear"
+msgstr ""
+
+msgid "radial"
+msgstr ""
+
+msgid "Thickness"
+msgstr ""
+
+msgid "Style"
+msgstr ""
+
+msgid "Dotted"
+msgstr ""
+
+msgid "Dashed"
+msgstr ""
+
+msgid "Double"
+msgstr ""
+
+msgid "Values"
+msgstr ""
+
+msgid "X offset"
+msgstr ""
+
+msgid "Y offset"
+msgstr ""
+
+msgid "Blur"
+msgstr ""
+
+msgid "Spread"
+msgstr ""
+
+msgid "Inset"
+msgstr ""
+
+msgid "Radius"
+msgstr ""
+
+msgid "Top-left"
+msgstr ""
+
+msgid "Top-right"
+msgstr ""
+
+msgid "Bottom-left"
+msgstr ""
+
+msgid "Bottom-right"
+msgstr ""
+
+msgid "Size"
+msgstr ""
+
+msgid "Use default"
+msgstr ""
+
+msgid "Font family"
+msgstr ""
+
+msgid "Google fonts"
+msgstr ""
+
+msgid "Font style"
+msgstr ""
+
+msgid "Bold"
+msgstr ""
+
+msgid "Italic"
+msgstr ""
+
+msgid "Bold/Italic"
+msgstr ""
+
+msgid "Top"
+msgstr ""
+
+msgid "Right"
+msgstr ""
+
+msgid "Left"
+msgstr ""
+
+msgid "To left"
+msgstr ""
+
+msgid "To right"
+msgstr ""
+
+msgid "To center"
+msgstr ""
+
+msgid "Justify"
+msgstr ""
+
+msgid "Solid"
+msgstr ""
+
+msgid "Width"
+msgstr ""
+
+msgid "Bottom"
+msgstr ""
+
+msgid "Cannot create order"
+msgstr ""
+
+msgid "no-name"
+msgstr ""
+
+msgid "Fix the errors above"
+msgstr ""
+
+msgid "The shopping cart is empty"
+msgstr ""
+
+msgid "Wait, please... Redirecting"
+msgstr ""
+
+msgid "Field is required"
+msgstr ""
+
+msgid "Fill in required fields"
+msgstr ""
+
+msgid "Your order is empty"
+msgstr ""
+
+msgid "Fill in captcha field"
+msgstr ""
+
+msgid "Phone format is not correct.<br>Use this one:"
+msgstr ""
+
+msgid "Shipping method has errors. Please, fix them."
+msgstr ""
+
+msgid "Payment method has errors. Please, fix them."
+msgstr ""
+
+msgid "Minimal sum of order is %s"
+msgstr ""
+
+msgid "Minimal sum of each product is"
+msgstr ""
+
+msgid "Minimal quantity of products is"
+msgstr ""
+
+msgid "Minimal quantity of each product is"
+msgstr ""
+
+msgid "Print correct phone format"
+msgstr ""
+
+msgid "Contact fields are empty"
+msgstr ""
+
+msgid "Captcha is not correct"
+msgstr ""
+
+msgid "Incorrect email"
+msgstr ""
+
+msgid "Payment method has errors."
+msgstr ""
+
+msgid "1-Click Cart Ordering"
+msgstr ""
+
+msgid "We successfully accepted your order"
+msgstr ""
+
+msgid "Your order number is"
+msgstr ""
+
+msgid "Terms of service"
+msgstr ""
+
+msgid "I have read and agree to the %terms%"
+msgstr ""
+
+msgid "Minimal sum of order %s"
+msgstr ""
+
+msgid "1-Click product and cart ordering"
+msgstr ""
+
+msgid "1 click"
+msgstr ""
+
+msgid "Loading"
+msgstr ""
+
+msgid "Quick order of product"
+msgstr ""
+
+msgid "Quick order of cart"
+msgstr ""
+
+msgid "phone mask"
+msgstr ""
+
+msgid "Popup dialog closing"
+msgstr ""
+
+msgid "Close popup dialog, when user click outside the form"
+msgstr ""
+
+msgid "Field placeholder"
+msgstr ""
+
+msgid "Address autodetection (Sypex Geo)"
+msgstr ""
+
+msgid "This addon will automatically detect country, region and city for customers, which doesn't have them"
+msgstr ""
+
+msgid "Use"
+msgstr ""
+
+msgid "If you have any doubts with configuring the analytics, feel free to read <a href=\"https://www.webasyst.ru/store/plugin/shop/quickorder/readme/\" target=\"_blank\">documentation <i class=\"icon16 new-window\"></i></a>"
+msgstr ""
+
+msgid "cancel"
+msgstr ""
+
+msgid "Ability to use affiliate bonus"
+msgstr ""
+
+msgid "Activate affiliate program"
+msgstr ""
+
+msgid "Your current affiliate bonus of $bonus points allows you to get an additonal discount of up to $discount"
+msgstr ""
+
+msgid "where $bonus - user affiliate bonus, $discount - user affiliate discount"
+msgstr ""
+
+msgid "Success message"
+msgstr ""
+
+msgid "Bonus used"
+msgstr ""
+
+msgid "Button name"
+msgstr ""
+
+msgid "Use bonus"
+msgstr ""
+
+msgid "Info message"
+msgstr ""
+
+msgid "This order will add +$points points to your affiliate bonus."
+msgstr ""
+
+msgid "where $points - user affiliate points"
+msgstr ""
+
+msgid "Wait, please.."
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
+msgid "Unauthorized checkout with existing customer profiles"
+msgstr ""
+
+msgid "Create new customer profile for every guest order"
+msgstr ""
+
+msgid "Add an order to existing customer profile with the same phone number or email address"
+msgstr ""
+
+msgid "After clicking the button \"1-Click Ordering\" on the product page or category page"
+msgstr ""
+
+msgid "Do not add product to the cart"
+msgstr ""
+
+msgid "Add product to the cart"
+msgstr ""
+
+msgid "Only %d left in stock"
+msgid_plural "Only %d left in stock"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "Only a few items left"
+msgstr ""
+
+msgid "[`Subtotal %1$s &minus; Discount %2$s`]"
+msgstr ""
+
+msgid "[`Total sales %1$s &minus; Purchase expense %2$s`]"
+msgstr ""
+
+msgid "Shipping is required"
+msgstr ""
+
+msgid "Cannot upload file. Try to upload image"
+msgstr ""
+
+msgid "Files with extensions %s are allowed only."
+msgstr ""
+
+msgid "Upload only images"
+msgstr ""
+
+msgid "Not available"
+msgstr ""
+
+msgid "Shipping rate was not calculated because required currency %s is not defined in your store settings."
+msgstr ""
+
+msgid "Shipping option is not defined. Please return to the shipping option checkout step to continue."
+msgstr ""
+
+msgid "Only %d pcs of %s are available, and you already have all of them in your shopping cart."
+msgstr ""
+
+msgid "Oops! %s just went out of stock and is not available for purchase at the moment. We apologize for the inconvenience."
+msgstr ""
+
+msgid "Thank you!"
+msgstr ""
+
+msgid "We successfully accepted your order, and will contact you asap."
+msgstr ""
+
+msgid "Oops! %s just went out of stock and is not available for purchase at the moment. We apologize for the inconvenience. Please remove this product from your shopping cart to proceed."
+msgstr ""
+
+msgid "Oops! %s is not available for purchase at the moment. Please remove this product from your shopping cart to proceed."
+msgstr ""
+
+msgid "Sku variants popup window"
+msgstr ""
+
+msgid "Template of stocks output"
+msgstr ""
+
+msgid "revert to original"
+msgstr ""
+
+msgid "show template"
+msgstr ""
+
+msgid "ATTENTION! Template has been changed. Content may differ from original."
+msgstr ""
+
+msgid "revert template to original"
+msgstr ""
+
+msgid "Template not exists."
+msgstr ""
+
+msgid "or"
+msgstr ""
+
+msgid "Unknown template"
+msgstr ""
+
+msgid "It's strongly recommended not to edit templates. After you save the copy of template, you will not be able to get updates for that template later. Developer not responsible for errors, caused by your editing and will not be able to help you."
+msgstr ""
+
+msgid "Developer will not consult you about editing the templates."
+msgstr ""
+
+msgid "I recognize the attention above and would like to edit plugin templates"
+msgstr ""
+
+msgid "Show the template"
+msgstr ""
+
+msgid "Templates"
+msgstr ""
+
+msgid "Skus popup template"
+msgstr ""
+
+msgid "Affiliate template"
+msgstr ""
+
+msgid "Contact fields template"
+msgstr ""
+
+msgid "Payment methods template"
+msgstr ""
+
+msgid "Shipping methods template"
+msgstr ""
+
+msgid "Product item template"
+msgstr ""
+
+msgid "Product item service template"
+msgstr ""
+
+msgid "Sku variant stocks template"
+msgstr ""
+
+msgid "Common template"
+msgstr ""
+
+msgid "Phone mask"
+msgstr ""
+
+msgid "Replace +78 to +7"
+msgstr ""
+
+msgid "When you use mask with +7, people sometimes enter phones like 8-012-345-67-89 and you get +7-801-234-56-78"
+msgstr ""
+
+msgid "If you want to get +7-012-345-67-89, enable this option"
+msgstr ""
+
+msgid "Show shipping description"
+msgstr ""
+
+msgid "Show payment description"
+msgstr ""
+
+msgid "Invalid coupon code"
+msgstr ""
+
+msgid "Delay for stabilization on mobile devices, when we click on the input field"
+msgstr ""
+
+msgid "Coupon applied"
+msgstr ""

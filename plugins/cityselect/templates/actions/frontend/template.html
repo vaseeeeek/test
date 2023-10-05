@@ -1,0 +1,20 @@
+{strip}
+<div class="b-cityselect__wrapper b-cityselect__wrapper--{$current_theme} {if !empty($settings.by_hook)}b-cityselect__wrapper--{$settings.by_hook|escape}{/if}">
+
+<a href="#" class="b-cityselect__city i-cityselect__city_change"><i class="fas fa fa-map-marker fa-map-marker-alt"></i> <span class="i-cityselect__city">{$location.city}</span></a>
+
+{if !empty($location.need_detect) || $show_notifier=='force'}
+    <div class="b-cityselect__notifier b-cityselect__notifier--{$current_theme}">
+        <div class="b-cityselect__notifier_triangle"></div>
+        <div class="b-cityselect__notifier_title">Ваш город <b class="i-cityselect__city">{$location.city}</b>?</div>
+        <div class="b-cityselect__notifier_buttons nowrap">
+            <input type="button" class="btn btn-primary uni-btn uni-btn--red b-cityselect__city_yes i-cityselect__city_yes" value="Да"> <input type="button" class="b-cityselect__city_no btn btn-default gray uni-btn i-cityselect__city_no" value="Нет">
+        </div>
+    </div>
+    {if !empty($location.need_detect)}
+        <script>if (typeof shop_cityselect !== 'undefined') { shop_cityselect.detect() } else { document.addEventListener("DOMContentLoaded", function() { shop_cityselect.detect() }) }</script>
+    {/if}
+{/if}
+
+</div>
+{/strip}

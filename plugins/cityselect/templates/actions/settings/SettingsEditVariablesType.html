@@ -1,0 +1,34 @@
+<div class="i-cityselect__form_variables_type b-settings__middle_dialog">
+    <h3>Тип переменной</h3>
+    <input name="id" type="hidden" value="{$item.id|default:'0'}">
+
+    <div class="field">
+        <div class="name">
+            <label for="cityselect__variables_type_code">Символьный код</label>
+        </div>
+        <div class="value">
+            <input type="text" required id="cityselect__variables_type_code" name="code" value="{$item.code|default:''|escape}">
+        </div>
+    </div>
+    <div class="field">
+        <div class="name">
+            <label for="cityselect__variables_type_name">Название</label>
+        </div>
+        <div class="value">
+            <input type="text" required id="cityselect__variables_type_name" name="name" value="{$item.name|default:''|escape}">
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="name">
+            <label for="cityselect__variables_type_template">Шаблон</label>
+        </div>
+        <div class="value no-left" style="clear: both">
+            <textarea class="i-settings__code" required id="cityselect__variables_type_template" name="template">{$item.template|default:'<span class="i-cityselect__var--{$code|escape}">{$value}</span>'|escape}</textarea>
+        </div>
+    </div>
+
+    <div class="field">
+        <span class="hint">Для вывода в шаблоне используйте код: <span class="b-settings__copy_code i-settings__copy_code">{ldelim}shop{$plugin_id|ucfirst}Plugin::variable('<span class="i-settings__replace_code">{$item.code|default:'укажите код'|escape}</span>'){rdelim}</span></span>
+    </div>
+</div>

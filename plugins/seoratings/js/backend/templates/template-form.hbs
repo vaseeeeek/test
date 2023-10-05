@@ -1,0 +1,72 @@
+<form id="template-item-form">
+  <div class="seoratings-backend__main">
+    <div class="seoratings-backend__nav__content--top">
+      <span style="float: left; margin-top: 0; cursor: pointer" class="seoratings-backend__hint" data-js="handle__rating--templates">← Назад к списку шаблонов</span>
+      {{#unless isNew}}
+        <span style="float: right; margin-top: 0; cursor: pointer" class="seoratings-backend__hint" data-js="handle__template__delete">Удалить шаблон</span>
+      {{/unless}}
+    </div>
+    {{#unless isNew}}
+      <div class="seoratings-backend__field--id">
+        <div class="seoratings-backend__span--id">{{id}}</div>
+      </div>
+    {{/unless}}
+    <div class="seoratings-backend__field">
+      <div class="seoratings-backend__caption">Название шаблона</div>
+      <div class="seoratings-backend__control">
+        <input type="text" class="seoratings-backend__input--text" name="name" value="{{name}}">
+      </div>
+    </div>
+    <div class="seoratings-backend__field">
+      <div class="seoratings-backend__caption">
+        Для разработчиков
+        <span class="seoratings-backend__hint">
+          Для импорта/экспорта в настройках плагина
+        </span>
+      </div>
+      <div class="seoratings-backend__control">
+        <input id="primary_rating" class="seoratings-backend__input--toggle" name="developer" {{#if developer}}checked{{/if}} type="checkbox" value="1" />
+        <label class="seoratings-backend__field--toggle" for="primary_rating">Да</label>
+      </div>
+    </div>
+    {{#if isNew}}
+      <div class="seoratings-backend__field">
+        <div class="seoratings-backend__caption">Родительский шаблон</div>
+        <div class="seoratings-backend__control">
+          <select class="seoratings-backend__select" name="seoratings_templates">
+            <option disabled>Стандартные шаблоны:</option>
+            {{#each seoratings_standard_templates}}
+              <option value="{{this.id}}">{{this.name}}</option>
+            {{/each}}
+            {{#if hasTemplates}}
+              <option disabled>Созданные пользователем:</option>
+            {{/if}}
+            {{#each seoratings_templates}}
+              <option value="{{this.id}}">{{this.name}}</option>
+            {{/each}}
+          </select>
+          <span class="seoratings-backend__hint"><a data-js="handle__template__load">Загрузить шаблон</a></span>
+        </div>
+      </div>
+    {{/if}}
+    <div class="seoratings-backend__field">
+      <div class="seoratings-backend__caption -block">HTML (smarty)</div>
+      <div class="seoratings-backend__control -block">
+        <div class="ace" id="html"></div>
+      </div>
+    </div>
+    <div class="seoratings-backend__field">
+      <div class="seoratings-backend__caption -block">CSS</div>
+      <div class="seoratings-backend__control -block">
+        <div class="ace" id="css"></div>
+      </div>
+    </div>
+    <!--  <label class="seoratings-backend__field--checkbox">-->
+    <!--    <input class="seoratings-backend__checkbox" name="default_styles" {{#ifIsOn default_styles}}checked{{/ifIsOn}} type="checkbox" value="1" />-->
+    <!--    <span>Стандартные стили</span>-->
+    <!--  </label>-->
+  </div>
+</form>
+<div class="seoratings-backend__view--actions">
+  <a class="seoratings-backend__button--save" data-js="save">Сохранить</a>
+</div>

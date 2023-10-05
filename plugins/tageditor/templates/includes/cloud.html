@@ -1,0 +1,12 @@
+<ul class="Category__List--List -Tags {if $theme_settings.category_tags_double}-Double{/if} {if $theme_settings.category_tags_alt}-Alt{/if}">
+  {foreach $tags as $tag}
+    <li class="Category__Item--List -Tags">
+      <a class="Category__Link--List -Tags {if $theme_settings.category_tags_alt}-Alt{/if}"
+         href="{$wa->getUrl('shop/frontend/tag', ['tag' => $tag.url])}{if $subcollection_urls && $collection.name}{$collection.name}/{$collection.url}/{/if}"
+         {if $subcollection_urls && $collection.name}rel="nofollow"{/if}
+      >
+        {$tag.name|escape}
+      </a>
+    </li>
+  {/foreach}
+</ul>

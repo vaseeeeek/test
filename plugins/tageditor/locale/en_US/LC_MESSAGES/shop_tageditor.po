@@ -1,0 +1,611 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/tageditor\n"
+"POT-Creation-Date: 2014-06-02 16:38+0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: shop/plugins/tageditor\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"Language: en_US\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/settings/Settings.html:4
+msgid "No tags to edit."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/settings/Settings.html:10
+msgid "Type here to find a tag"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/settings/Settings.html:24
+msgid "This tag will be removed from all products! Continue?"
+msgstr "This tag will be removed from all products!"
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/settings/Settings.html:49
+msgid "Change tag:"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/settings/Settings.html:51
+msgid "Save"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/settings/Settings.html:51
+msgid "cancel"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/settings/Settings.html:61
+msgid "A tag cannot be empty."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagEdit.controller.php:24
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagDelete.controller.php:21
+msgid "Tag not found."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/settings/Settings.html:3
+msgid "Tag editor"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/settings/Settings.html:31
+msgid "View products with this tag"
+msgstr "View products with tag <strong>%s</strong>"
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/settings/Settings.html:36
+msgid "Delete"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagEdit.controller.php:11
+msgid "This tag does not exist any more. <span class=\"reload\">Reload tag list</span>."
+msgstr "This tag does not exist any more. <span class=\"tageditor-reload\">Reload tag list</span>."
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/settings/Settings.html:12
+msgid "No products"
+msgstr "No products with this tag"
+
+#: /wa-apps/shop/plugins/tageditor/lib/shopTageditor.plugin.php:18
+msgid "Tags"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagEdit.controller.php:21
+msgid "This tag already exists."
+msgstr "This tag already exists. Enter a different value."
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/settings/Settings.html:2
+msgid "Edit tags in “<a href=\"?action=products#/tageditor/\" class=\"underline\">Products</a>” section."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/Backend.html:20
+msgid "Delete all tags"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagDelete.controller.php:19
+msgid "Only an administrator is allowed to delete all tags."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/BackendTagOptions.html:12
+msgid "You can use any Smarty code in TITLE and META fields, and in SEO text HTML source; e.g.:"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/BackendTagOptions.html:14
+msgid "your store's name (from shop settings)"
+msgstr "your store's name (from Shop-Script settings)"
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/BackendTagOptions.html:15
+msgid "your store's phone number"
+msgstr "your store's phone number (from Shop-Script settings)"
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/BackendTagOptions.html:16
+msgid "current tag value"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/BackendTagOptions.html:17
+msgid "storefront name (from settlement settings)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagOptions.action.php:37
+msgid "default value"
+msgstr "apply value to all tags"
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagOptions.action.php:14
+msgid "Custom URL"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagOptions.action.php:17
+msgid "To apply custom URLs to tags in your storefront, make changes to your design theme as described on <a href=\"http://www.webasyst.com/store/plugin/shop/tageditor/\">plugin page in Webasyst Store</a>."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagEdit.controller.php:29
+msgid "There is already another tag with specified URL."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagEdit.controller.php:33
+msgid "There is already another tag (<strong>%s</strong>) accessible at the same URL <strong>%s</strong>."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:5
+msgid "Redirect to custom URLs"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:6
+msgid "Enable 301 redirect from original to custom tag URLs"
+msgstr "Enable 301 redirect from original to custom tag URLs."
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:5
+msgid "Tag management"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagOptions.action.php:28
+msgid "SEO text"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:16
+msgid "Show SEO text on first page only"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:17
+msgid "Disable SEO text on 2nd and further navigation pages of long tagged product lists."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:23
+msgid "SEO text location"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:28
+msgid "Default place provided by design theme"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:29
+msgid "Usually above product list.<br>"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:33
+msgid "I will manually add plugin call to a design theme template"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:34
+msgid "Add <strong><tt>{shopTageditorPlugin::seoText()}</tt></strong> to the desired design template file; e.g. <tt>search.html</tt></strong>."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:34
+msgid "Add <strong><tt>{shopTageditorPlugin::seoText()}</tt></strong> to the desired design template file; e.g., <tt>search.html</tt></strong>."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:40
+msgid "Products sort order"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:41
+msgid "How products must be sorted on tag-viewing page in the storefront."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:44
+msgid "By name"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:45
+msgid "Most expensive"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:46
+msgid "Least expensive"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:47
+msgid "Highest rated"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:48
+msgid "Lowest rated"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:49
+msgid "Best sellers"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:50
+msgid "Worst sellers"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:51
+msgid "In stock"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:52
+msgid "Date added"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:53
+msgid "Stock net worth"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagOptions.action.php:61
+msgid "-- select --"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:42
+msgid "This common setting can be changed individually for each tag."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/Backend.html:17
+msgid "Settings"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:33
+msgid "Add <strong><tt>{shopTageditorPlugin::seoText()}</tt></strong> to the desired design template file; e.g., to <tt>search.html</tt></strong>."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:57
+msgid "Add tag URLs to Sitemap file"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:61
+msgid "Change frequency (changefreq) of tag entries in Sitemap file"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:64
+msgid "(daily)"
+msgstr " "
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:65
+msgid "(weekly)"
+msgstr " "
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:66
+msgid "(monthly)"
+msgstr " "
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:71
+msgid "Priority percentage (priority) of tag entries in Sitemap file"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagOptions.action.php:48
+msgid "Extra SEO text"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagOptions.action.php:50
+msgid "To show extra SEO text on a tag page, add <strong><tt>{shopTageditorPlugin::seoTextExtra()}</tt></strong> to <em>search.html</em> file in your design editor."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagOptions.action.php:31
+msgid "Tag page title (H1)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/includes/settings/header_custom_cloud.html:2
+msgid "Custom tag cloud"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/includes/settings/header_sitemap.html:2
+msgid "Sitemap.xml"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/includes/settings/hint_custom_cloud.html:3
+msgid "To show a custom cloud of tags associated with products displayed on a <em>category</em>, <em>search</em>, or <em>tag</em> page, add <strong class=\"highlighted\"><tt>{ldelim}shopTageditorPlugin::cloud(){rdelim}</tt></strong> to the appropriate design theme template."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/includes/settings/hint_custom_cloud.html:5
+msgid "Sort tags"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/includes/settings/hint_custom_cloud.html:7
+msgid "To sort tags in   a custom cloud by <em>name</em> or <em>number of associated products</em>, add <strong><tt>{ldelim}shopTageditorPlugin::cloud(<span class=\"highlighted\">'name'</span>){rdelim}</tt></strong> or <strong><tt>{ldelim}shopTageditorPlugin::cloud(<span class=\"highlighted\">'count'</span>){rdelim}</tt></strong> respectively. Default sort value is <tt>'name'</tt>."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/includes/settings/hint_custom_cloud.html:9
+msgid "Limit tags"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/includes/settings/hint_custom_cloud.html:11
+msgid "To limit the number of displayed tags, add a number in the parentheses; e.g., <strong><tt>{ldelim}shopTageditorPlugin::cloud('count', <span class=\"highlighted\">30</span>){rdelim}</tt></strong>. By default, no limit is applied to displayed tag cloud."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/includes/settings/hint_custom_cloud.html:13
+msgid "On the <em>home page</em>, the cloud will always show all tags associated with all products available in the current storefront regardless of this setting‘s value."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:88
+msgid "How to use"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:93
+msgid "Show custom cloud on non-standard product listing pages"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:94
+msgid "Custom tag cloud added by means of <strong><tt>{shopTageditorPlugin::cloud()}</tt></strong> helper shows only tags associated with products displayed on a <em>category</em>, <em>search</em>, or <em>tag</em> page."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:96
+msgid "Other product listings pages; e.g., those generated by other plugins or info pages with embedded product sets, are not recognized. Please choose for the custom cloud either to show <em>all tags</em> or to show <em>no tags</em> at all on such pages."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/includes/settings.html:41
+msgid "Main tag cloud"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/includes/settings.html:46
+msgid "Replace Shop-Script’s default tag cloud, which does not take product types and product status into account, with a correct one provided by this plugin."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/includes/settings.html:50
+msgid "Find the portion of code which returns the default tag cloud."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/includes/settings.html:51
+msgid "It might look like this: <tt class=\"bold nowrap highlighted\">$wa->shop->tags()</tt>."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/includes/settings.html:52
+msgid "If you have applied custom tag URLs using this plugin, then the default code must be called inside plugin’s method: <tt class=\"nowrap highlighted\">shopTageditorPlugin::tags(<strong>$wa->shop->tags()</strong>)</tt>."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/includes/settings.html:55
+msgid "Whichever variant you have in your theme’s source code, replace it completely with this code: <tt class=\"bold highlighted\">shopTageditorPlugin::shopCloud()</tt>."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/includes/settings.html:57
+msgid "The result might look as follows:"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/Backend.html:20
+msgid "Update tag index for cloud"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/Backend.html:38
+msgid "Tag index update"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/Backend.html:48
+msgid "Expecting response from server..."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/Backend.html:50
+msgid "Please don't close your browser window until data update is completed."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/Backend.html:57
+msgid "Start update"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/Backend.html:57
+msgid "close"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/includes/products.html:2
+msgid "Tag cloud index update"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/includes/products.html:15
+msgid "Please wait until the update is completed to ensure that tag cloud index remains consistent."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/includes/products.html:16
+msgid "Or leave this page now and update the tag cloud index manually at any time in “<a href=\"?action=products#/tageditor/\">Tag editor</a>” section."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagIndexUpdate.controller.php:92
+msgid "Getting products data..."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagIndexUpdate.controller.php:120
+msgid "Updating tag index:"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagIndexUpdate.controller.php:165
+msgid "Tag index is up-to-date."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagIndexUpdate.controller.php:169
+msgid "%02d hr %02d min %02d sec"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagIndexUpdate.controller.php:170
+msgid "Total update time: %s."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:92
+msgid "Auto-update of main tag cloud"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:94
+msgid "Automatically update tag cloud index when products’ status, types, and tags are changed in “<a href=\"%s\">Products</a>” section’s listings."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:98
+msgid "You may disable the auto-update if you do not use this functionality of “Tag editor” plugin."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:101
+msgid "And you can update the tag index at any time manually in “<a href=\"%s\">Products → Tag editor</a>” section."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/Backend.html:25
+msgid "Delete all empty tags"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendUploadImage.controller.php:10
+msgid "File cannot be saved due to insufficient write permissions for %s folder."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendUploadImage.controller.php:39
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendUploadImage.controller.php:44
+msgid "Failed to upload file %s."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagOptions.action.php:28
+msgid "suggest URL"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/shopTageditor.plugin.php:162
+msgid "can save common values for all tags"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginBackendTagOptions.action.php:178
+msgid "use the value of another field"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/Backend.html:16
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/Backend.html:85
+msgid "Generate tag URLs"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/Backend.html:57
+msgid "Type in the search field to find a tag you need."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/Backend.html:88
+msgid "Delete manually saved URLs"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/Backend.html:91
+msgid "Tag URLs that you might have entered manually in tag properties will be lost and replaced by URLs automatically generated from tag names."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/Backend.html:92
+msgid "Do not enable this option if you want to preserve manually saved URLs and to automatically generate them only for tags with no custom URLs."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/Backend.html:99
+msgid "Generate"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/Backend.html:56
+msgid "You have too many tags (over %u) to show them all at once."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginFrontendTag.action.php:19
+msgid "category “%s”"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginFrontendTag.action.php:23
+msgid "search “%s”"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginFrontendTag.action.php:27
+msgid "tag “%s”"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/actions/shopTageditorPluginFrontendTag.action.php:49
+msgid "%s (%s)"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:115
+msgid "Custom cloud tag links"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:115
+msgid "What product listings custom cloud links should point to"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:118
+msgid "show products only from displayed product listing page"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:119
+msgid "show products from entire product catalog"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/Backend.html:83
+msgid "Delete tag"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/Backend.html:86
+msgid "Do delete this tag from all products"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/Backend.html:87
+msgid "Do not delete tag"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/backend/Backend.html:114
+msgid "Update"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/shopTageditor.plugin.php:224
+msgid "Publish tag URLs in a separate sitemap.xml file at <a href=\"%1$s\" target=\"_blank\">%1$s</a> <i class=\"icon16 new-window\"></i>."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/shopTageditor.plugin.php:228
+msgid "Use this option if you have a large number of tags and need to specify a separate Sitemap file URL in <tt>robots.txt</tt>."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:63
+msgid "Use a separate Sitemap file for tags"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/shopTageditor.plugin.php:224
+msgid "Publish tag URLs in a separate Sitemap file at <a href=\"%1$s\" target=\"_blank\">%1$s</a> <i class=\"icon16 new-window\"></i>."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:16
+msgid "Redirect tags with whitespaces in URLs"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:17
+msgid "If a tag contains whitespace characters, its URL by default may contain either <tt>%20</tt> (whitespaces) or <tt>+</tt> (plus signs) in place of whitespaces."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:19
+msgid "Both URLs of the same tag are valid and display the same tag, which may cause sanctions from search engines for publishing non-unique content at different URLs."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:21
+msgid "To avoid sanctions, select the plugin to redirect, with 301 response code, from one URL type to another."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:23
+msgid "If you do not know which of the redirects to choose, simply choose the one you personally like more, or any one at all."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:27
+msgid "do not redirect"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:32
+msgid "redirect from URLs with whitespaces to URLs with “+” characters"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:37
+msgid "redirect from URLs with “+” characters to URLs with whitespaces"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/includes/settings.html:53
+msgid "Update the tag cloud index in “<a href=\"?action=products#/tageditor/\">Products → Tag editor</a>” section."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/templates/actions/settings/SettingsCustomSitemapUrlsDialog.html:1
+msgid "Tags sitemap files’ URLs"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:113
+msgid "How to add tags to a Sitemap file"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:117
+msgid "Always add all tags, use current time as “Last Modified” value"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:118
+msgid "Fastest option. Some tags may be empty if some products are not visible or if different types of products are displayed in different storefronts."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:122
+msgid "Add only tags linked to visible products, use current time as “Last Modified” value"
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:124
+msgid "More precise option. To use it, either enable “%s” setting, or be sure to regularly update the tag cloud index."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:130
+msgid "Add only tags linked to visible products, use products’ update time as “Last Modified” value."
+msgstr ""
+
+#: /wa-apps/shop/plugins/tageditor/lib/config/settings.php:132
+msgid "Most precise but slowest option."
+msgstr ""

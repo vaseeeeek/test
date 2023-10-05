@@ -1,0 +1,50 @@
+{strip}
+
+<div class='productsets-bundle-item productsets-w-{$card_layout_width}{if !empty($bundle_item.alternative) && $card_layout !== 'cl-4'} js-productsets-init-alt-slider{/if}{if !empty($bundle_item.settings.delete_product)} productsets-has-delete{/if}{if !empty($is_last)} last-item{/if}{if $show_image == 'show' && $card_layout == 'cl-4'} ps-show-img{/if}'
+      data-id='{$bundle_item.id}'
+      data-sku-id='{$bundle_item.skuId}'
+     {if !empty($is_active)}  data-active='1'{/if}
+     {if !empty($item.settings.discount_required)}  data-discount-required='1'{/if}
+     {if !empty($bundle_item.alternative)}  data-active-slide='0' data-slider-type='{$alternative_slider}'{/if}
+      {shopProductsetsPluginGenerator::BUNDLE_PLUS_ATTR}='1'
+>
+    {$total_items = 0}
+    {$index = 0}
+    {if !empty($bundle_item.alternative)}
+        {$index = 1}
+        {$total_items = $index + $bundle_item.alternative|count}
+    {/if}
+    {* include.bundle.single.item.html *}
+    {include file=$templates.bundle_single_item.frontend_path item=$bundle_item index=$index total_items=$total_items i=$i}
+
+    {* Альтернативные товары *}
+    {if !empty($bundle_item.alternative)}
+
+        {if $card_layout == 'cl-4'}
+            <div class="productsets-alternative">
+                <div class="productsets-bundle-wrap card-layout-cl-2">
+        {/if}
+
+        {foreach $bundle_item.alternative as $alternative}
+            {if $card_layout == 'cl-4'}
+                <div class="productsets-bundle-item ps-ignore js-select-alternative-item productsets-w-small">
+            {/if}
+
+            {* include.bundle.single.item.html *}
+            {include file=$templates.bundle_single_item.frontend_path item=$alternative index=$index+$alternative@index+1 total_items=$total_items}
+
+            {if $card_layout == 'cl-4'}
+                </div>
+            {/if}
+        {/foreach}
+
+        {if $card_layout == 'cl-4'}
+                </div>
+            </div>
+        {/if}
+
+    {/if}
+
+</div>
+
+{/strip}

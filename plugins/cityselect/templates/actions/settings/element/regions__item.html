@@ -1,0 +1,24 @@
+
+<li class="i-cityselect__region--{$region->id}" data-id="{$region->id}">
+    <a href="" class="b-cityselect__delete i-cityselect__delete_region" data-id="{$region->id}" data-confirm="Удалить: [{$region->region|escape}] {$region->city}?"><i class="icon16 delete"></i> удалить</a>
+
+    <a href="" class="i-cityselect__change_region" data-id="{$region->id}">
+
+        {if empty($region->city)}
+            {$region_id = $region->region|intval}
+
+            {if empty($region_id)}
+                <b>По умолчанию</b>
+            {else}
+                <b>{$region->region_name}</b>
+            {/if}
+        {else}
+            {$region->region|escape}&nbsp;{$region->city|escape}
+        {/if}
+
+        {if !empty($region->redirect)}
+            <span class="gray">({waIdna::dec($region->redirect)|escape})</span>
+        {/if}
+
+    </a>
+</li>

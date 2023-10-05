@@ -1,0 +1,36 @@
+<h1 class="massupdating">
+	{$title} <span class="gray">({count($product_ids)})</span>
+</h1>
+{$wa->csrf()}
+<div class="field-group massupdating-dialog">
+	<p>
+		<b>[`Генератор артикулов`]</b> [`позволит Вам в автоматическом режиме присвоить названия артикулов тем товарам, у которых они отсутствуют. Настройте маску для генерации артикула и нажмите кнопку "Генерировать"!`]
+	</p>
+	<div align="center">
+		<label style="font-size: 1.4em;"><input name="generator[only_for_empty]" type="checkbox" checked> [`Только для артикулов без названия`]</label>
+		<div style="margin: 10px 0;">
+			<input name="generator[mask]" style="font-size: 1.6em; text-align: center; width: 500px;" type="text" placeholder="[`Маска артикула`]"/>
+		</div>
+		<label style="font-size: 1.4em;"><input name="generator[transliterate]" type="checkbox" checked> [`Транслитеровать символы`]</label>
+		<div style="margin-top: 10px;">
+			<label style="font-size: 1.4em;"><input name="generator[uppercase]" type="checkbox" checked> [`Перевести все в ВЕРХНИЙ РЕГИСТР`]</label>
+		</div>
+		<div style="margin-top: 10px;">
+			[`Разрешен к использованию Smarty. Доступные переменные:`]
+		</div>
+		<div style="margin-top: 10px; line-height: 1.8em;">{literal}
+			<span class="variable"><b>{$id}</b></span> — [`ID товара`]<br/>
+			<span class="variable"><b>{$sku_id}</b></span> — [`ID артикула`]<br/>
+			
+			<a href="javascript: //" onclick="$('#massupdating-generator-more').toggle();" class="inline-link"><b><i>[`Дополнительно...`]</i></b></a>
+			<div id="massupdating-generator-more" style="display: none;">
+				<div style="font-size: 1.4em; margin-bottom: 5px;">[`Следующие переменные можно использовать в связке с функциями нахождения подстроки, например, чтобы использовать первую букву категории.`]</div>
+				<span class="variable"><b>{$name}</b></span> — [`Название товара`]<br/>
+				<span class="variable"><b>{$category[0]}</b></span> ... <span class="variable"><b>{$category[N]}</b></span> — [`Наименования категорий, в которые входит товар (по вложенности, от последней до первой)`]<br/>
+				<span class="variable"><b>{$category_url[0]}</b></span> ... <span class="variable"><b>{$category_url[N]}</b></span> — [`URL категорий`]<br/>
+				<span class="variable"><b>{$r_category[N]}</b></span> [`и`] <span class="variable"><b>{$r_category_url[N]}</b></span> — [`Обратный массив с информациями по категориям (от первой до последней)`]<br/>
+				<span class="variable"><b>{mb_substr($category[0], 0, 2)}</b></span> — [`Первые 2 буквы наименования категории товара`]
+			</div>
+		{/literal}</div>
+	</div>
+</div>

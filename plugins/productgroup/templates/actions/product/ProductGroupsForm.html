@@ -1,0 +1,23 @@
+<script>
+	window.shop_productgroup = {
+		resource_base_url: {"{$wa_app_static_url}plugins/productgroup/"|json_encode}
+	};
+</script>
+
+<link rel="stylesheet" href="{$wa_app_static_url}plugins/productgroup/assets/product_groups_settings.css?v={shopProductgroupWaHelper::getAssetVersion()}" />
+<script src="{$wa_app_static_url}plugins/productgroup/assets/product_groups_settings.js?v={shopProductgroupWaHelper::getAssetVersion()}"></script>
+
+<div id="shop-productgroup-product-edit"></div>
+
+<script>
+	(function() {
+		var state = {$state|json_encode};
+
+		window.shop_productgroup_plugin_edit_controller.initOnProductEditPage(
+			state,
+			'shop-productgroup-product-edit',
+			$.product
+		);
+	})();
+
+</script>

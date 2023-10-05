@@ -1,0 +1,126 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/favorites\n"
+"POT-Creation-Date: 2016-06-07 20:04+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator:  shop/plugins/favorites\n"
+"Language-Team:  shop/plugins/favorites\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-Language: ru_RU\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:1
+msgid "Favorites"
+msgstr "Избранное"
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:7
+msgid "Link to add to favorites"
+msgstr "Ссылка добавления в избранное"
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:15
+msgid "Link to remove from favorites"
+msgstr "Ссылка удаления из избранного"
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:24
+msgid "Link to favorites in \"My account\""
+msgstr "Ссылка Избранное в личном кабинете"
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:33
+msgid "Hook"
+msgstr "Хук"
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:81
+msgid "Save"
+msgstr "Сохранить"
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:88
+msgid "Saved"
+msgstr "Сохранено"
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:91
+msgid "Favorites products"
+msgstr "Избранные товары"
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:94
+msgid "Favorites count"
+msgstr "Записей в избранном"
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:95
+msgid "If two users have added the same product to favorites, it's two entries."
+msgstr "Если два разных пользователя добавили один и тот же товар в избранное, то это две записи."
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:98
+msgid "Product"
+msgstr "Товар"
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:98
+msgid "Users count"
+msgstr "Количество пользователей"
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:110
+msgid "There are no products in favorites."
+msgstr "Нет ни одного товара в избранном."
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:34
+msgid "Select the place to show link to add to favorites"
+msgstr "Выберите место где показывать ссылку добавления в избранное"
+
+#: /wa-apps/shop/plugins/favorites/lib/config/settings.php:5
+#: /wa-apps/shop/plugins/favorites/lib/config/settings.php:7
+msgid "Add to favorites"
+msgstr "Добавить в избранное"
+
+#: /wa-apps/shop/plugins/favorites/lib/config/settings.php:10
+#: /wa-apps/shop/plugins/favorites/lib/config/settings.php:12
+msgid "Remove from favorites"
+msgstr "Удалить из избранного"
+
+#: /wa-apps/shop/plugins/favorites/lib/config/settings.php:15
+msgid "My account"
+msgstr "Личный кабинет"
+
+#: /wa-apps/shop/plugins/favorites/lib/config/settings.php:20
+msgid "Template"
+msgstr "Шаблон"
+
+#: /wa-apps/shop/plugins/favorites/lib/config/plugin.php:9
+msgid "Allows users to add products to favorites."
+msgstr "Позволяет пользователям добавлять товары в избранное"
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:39
+msgid "Next to the button \"Add to Cart\""
+msgstr "Рядом с кнопкой \"В корзину\""
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:40
+msgid "Additional information block in the sidebar"
+msgstr "Блок дополнительной информации в боковой части страницы"
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:41
+msgid "Additional information block in the main part of the product description"
+msgstr "Блок дополнительной информации в основной части описания товара"
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:42
+msgid "Don't use hook (other place, manual)"
+msgstr "Не использовать хук (другое место)"
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:44
+msgid "To show the links to add to favorites in any place in product.html use the code:"
+msgstr "Чтобы показать ссылки добавления в избранное в произвольном месте в product.html используйте код:"
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:52
+msgid "Template file of the design theme"
+msgstr "Шаблон темы дизайна"
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:58
+msgid "By default to display favorites products the plugin uses file search.html of your design theme."
+msgstr "По умолчанию для вывода списка товаров, добавленных в избранное, используется файл search.html вашей темы дизайна."
+
+#: /wa-apps/shop/plugins/favorites/templates/actions/settings/Settings.html:59
+msgid "If you have any doubts, it is better not to change this setting, and ask for help to the developer of the plugin."
+msgstr "Если у вас есть какие-то сомнения, то лучше не меняйте эту настройку, а обратитесь за помощью к разработчику плагина."

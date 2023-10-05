@@ -1,0 +1,29 @@
+{if !empty($items)}
+    {if $wa->isMobile()}
+        <div class="swiper-container end-reached">
+            <div class="swiper-wrapper">
+                {foreach $items as $item}
+                    <div class="swiper-slide"><a href="{$item.link|escape}"><span>{$item.name|escape}</span></a></div>
+                {/foreach}
+            </div>
+        </div>
+    {else}
+        <ul class="dop-cat-links">
+            {foreach $items as $item}
+                <li><a href="{$item.link|escape}"><img src="/wa-data/public/shop/{$item.img|escape}"><span>{$item.name|escape}</span></a></li>
+            {/foreach}
+        </ul>
+    {/if}
+
+    {literal}
+    <script>
+        $(document).ready(function () {
+            var swiper = new Swiper('.swiper-container', {
+                slidesPerView: 'auto',
+                spaceBetween: 30,
+            });
+        });
+    </script>
+    {/literal}
+
+{/if}

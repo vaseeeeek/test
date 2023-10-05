@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/productsets\n"
+"POT-Creation-Date: 2020-01-28T19:00:32.705Z\n"
+"Last-Translator: shop/plugins/productsets\n"
+"Language-Team: shop/plugins/productsets\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; "
+"plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%"
+"100)<10)||((n%100)>=20)))?(1):2));\n"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\frontend.js:197
+msgid "The set is empty"
+msgstr "Набор пустой"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\frontend.js:551
+msgid "Something wrong!"
+msgstr "Что-то пошло не так!"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\frontend.js:563
+msgid "Products has been successfully added to the cart"
+msgstr "Товары были успешно добавлены в корзину"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\frontend.js:565
+msgid "Continue shopping"
+msgstr "Продолжить покупки"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\frontend.js:566
+msgid "Proceed to checkout"
+msgstr "Оформить заказ"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\frontend.js:629
+msgid "Select product sku"
+msgstr "Выбрать вариант товара"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\frontend.js:1732
+msgid "1 product"
+msgid_plural "{n} products"
+msgstr[0] "{n} товар"
+msgstr[1] "{n} товара"
+msgstr[2] "{n} товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\frontend.product.js:275
+msgid "This product is already selected"
+msgstr "Товар уже выбран"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\frontend.product.js:280
+msgid "Product with the selected option combination is not available for purchase"
+msgstr "Товар с выбранными характеристиками не доступен для заказа"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\frontend.js:1339
+msgid "Minimal quantity of products is"
+msgstr "Минимальное количество товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\frontend.js:1348
+msgid "Maximal quantity of products is"
+msgstr "Максимальное количество товаров"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\frontend.js:1677
+msgid "Select another product"
+msgstr "Выберите другой товар"
+
+#: C:\Server\domains\localhost\ss\wa-apps\shop\plugins\productsets\js\frontend.js:1865
+msgid "delete"
+msgstr "удалить"

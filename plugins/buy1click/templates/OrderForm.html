@@ -1,0 +1,443 @@
+{strip}
+	<span class="buy1click-form__close-button">
+		{call buy1click_svg_sprite_icon icon='cross' width=14 height=14 fill='#828282'}
+	</span>
+	<div class="buy1click-form__header">{$settings.form_name}</div>
+	{if $settings.form_text}
+		<div class="buy1click-form__text">{$settings.form_text}</div>
+	{/if}
+	{if $settings.form_show_items}
+		<div class="buy1click-form__items">
+			<div class="buy1click-form__items-header buy1click-items-header">
+				<div class="buy1click-items-header__col buy1click-items-header__col_photo"></div>
+				<div class="buy1click-items-header__col buy1click-items-header__col_info"></div>
+				<div class="buy1click-items-header__col buy1click-items-header__col_price">Стоимость</div>
+				<div class="buy1click-items-header__col buy1click-items-header__col_quantity">Количество</div>
+				<div class="buy1click-items-header__col buy1click-items-header__col_total">Сумма</div>
+			</div>
+			{foreach $state.cart.items as $item}
+				{$product = $wa->shop->product($item.product_id)}
+				{$sku = $product.skus[$item.sku_id]}
+				<div class="buy1click-form__item buy1click-item" data-item_id="{$item.id}">
+					{if $settings.form_show_photo}
+						<div class="buy1click-item__col buy1click-item__col_photo">
+							{if $sku.image_id}
+								{$photo_url = $wa->shop->imgUrl($product['images'][$sku.image_id], "{$settings.form_photo_width * 2}x{$settings.form_photo_height * 2}")}
+							{else}
+								{$photo_url = $wa->shop->productImgUrl($product, "{$settings.form_photo_width * 2}x{$settings.form_photo_height * 2}")}
+							{/if}
+							{if $photo_url}
+								<img class="buy1click-item__photo" src="{$photo_url}" alt="{$item.name|escape}" />
+							{else}
+								{call buy1click_svg_sprite_icon classes='buy1click-item__photo' icon='fishki-photo' width=40 height=40 fill='#E0E0E0'}
+							{/if}
+						</div>
+					{/if}
+					<div class="buy1click-item__col buy1click-item__col_info">
+						<span class="buy1click-item__name">{$item.name|escape}</span>
+						{if $item.sku_name}
+							{' '}
+							<span class="buy1click-item__sku-name">({$item.sku_name|escape})</span>
+						{/if}
+						{foreach $item.services|default:[] as $service}
+							<span class="buy1click-item__service">{$service.service_name} {$service.variant_name} ({$service.price_currency_html})</span>
+						{/foreach}
+					</div>
+					<div class="buy1click-item__col buy1click-item__col_price buy1click-form__extend-elem">
+						<span class="buy1click-item__price">{$item.price_currency_html}</span>
+					</div>
+					<div class="buy1click-item__col buy1click-item__col_quantity">
+						{if $settings['form_quantity']}
+							<div class="buy1click-item__quantity buy1click-item-quantity">
+								<span class="buy1click-item-quantity__minus">
+									{call buy1click_svg_sprite_icon classes='buy1click-item-quantity__minus-icon' icon='minus' width=7 height=1 fill='#828282'}
+								</span>
+								<input class="buy1click-input-text buy1click-item-quantity__input"
+										value="{$item.quantity|default:1|escape}" type="number"
+								/>
+								<span class="buy1click-item-quantity__plus">
+									{call buy1click_svg_sprite_icon classes='buy1click-item-quantity__plus-icon' icon='plus' width=7 height=7 fill='#828282'}
+								</span>
+							</div>
+						{else}
+							× {$item.quantity|default:1}
+						{/if}
+					</div>
+					<div class="buy1click-item__col buy1click-item__col_price buy1click-form__not-extend-elem">
+						<span class="buy1click-item__price">{$item.price_currency_html}</span>
+					</div>
+					<div class="buy1click-item__col buy1click-item__col_total buy1click-form__extend-elem">
+						<span class="buy1click-item__total">{$item.full_price_currency_html}</span>
+					</div>
+				</div>
+			{/foreach}
+			{if $state.errors.available|default:false}
+				<div class="buy1click-form__error">
+					{$state.errors.available}
+				</div>
+			{elseif $state.errors.min_order|default:false}
+				<div class="buy1click-form__error">
+					Минимальная сумма заказа — {shop_currency_html($state.settings.order_min_total)} (Текущая сумма: {shop_currency_html($state.cart.total, true)})
+				</div>
+			{/if}
+		</div>
+	{/if}
+
+	{$fields = $state.fields}
+	{$contact_fields = []}
+	{$shipping_fields = []}
+
+	{foreach $settings['form_selected_fields'] as $field}
+		{if strpos($field.code, 'address_') === 0}
+			{$shipping_fields[] = $field}
+		{else}
+			{if $field.code == 'phone'}
+				{$field.type = 'tel'}
+			{elseif $field.code == 'email'}
+				{$field.type = 'email'}
+			{/if}
+			{$contact_fields[] = $field}
+		{/if}
+	{/foreach}
+
+	{if count($contact_fields) + count($shipping_fields) > 0}
+		<div class="buy1click-form__contact-info">
+			{if count($contact_fields) != 0}
+				<div class="buy1click-form__contact-info-group">
+					<div class="buy1click-form__sub-header buy1click-form__extend-elem">Контактная информация</div>
+					{foreach $contact_fields as $field}
+						{$is_masked = $field.mask|default:false}
+						{$is_error_required = isset($state.errors['required_contact_fields']) && in_array($field.code, $state.errors['required_contact_fields'])}
+						{$is_error_email = $field.code == 'email' && isset($state.errors['invalid_email'])}
+						<div class="buy1click-form__field buy1click-form-field {if $field.is_required}buy1click-form-field_required{/if} {if $is_masked}buy1click-form-field_masked{/if} {if $is_error_required || $is_error_email}buy1click-form-field_error{/if}"
+								data-field_id="{$field.code}" {if $is_masked}data-mask="{$field.mask}"{/if}>
+							<div class="buy1click-form-field__label">{$fields[$field.code].name}</div>
+							<div>
+								<input class="buy1click-form-field__input buy1click-input-text buy1click-input-text_fill"
+										type="{$field.type|default:'text'}"
+										value="{$state.contact_info[$field.code]|default:''|escape}"
+										{if trim($field.placeholder|default:'') !== ''}placeholder="{$field.placeholder|escape}"{/if}
+								/>
+							</div>
+							{if $is_error_required}
+								<div class="buy1click-form-field__error">Это поле обязательное</div>
+							{/if}
+							{if $is_error_email}
+								<div class="buy1click-form-field__error">Некорректный e-mail</div>
+							{/if}
+						</div>
+					{/foreach}
+				</div>
+			{/if}
+			{if count($shipping_fields) != 0}
+				<div class="buy1click-form__contact-info-group">
+					<div class="buy1click-form__sub-header">Адрес доставки</div>
+					{foreach $shipping_fields as $field}
+						{$is_error_required = isset($state.errors['required_contact_fields']) && in_array($field.code, $state.errors['required_contact_fields'])}
+						{if $field.code == 'address_country'}
+							<div class="buy1click-form__field buy1click-form-field {if $field.is_required}buy1click-form-field_required{/if} {if $is_error_required}buy1click-form-field_error{/if}"
+									data-field_id="address_country">
+								<div class="buy1click-form-field__label">{$fields[$field.code].name}</div>
+								<div>
+									<select class="buy1click-select buy1click-form-field__input buy1click-select_fill" data-search="true">
+										<option value="">- Выберите страну -</option>
+										{foreach $state.country_variants as $code => $country}
+											<option value="{$code|escape}"
+													{if $code == ($state.contact_info.shipping_address['country']|default:'')}
+														selected="selected"
+													{/if}
+											>{$country}</option>
+										{/foreach}
+									</select>
+								</div>
+								{if $is_error_required}
+									<div class="buy1click-form-field__error">Это поле обязательное</div>
+								{/if}
+							</div>
+						{elseif $field.code == 'address_region'}
+							{$has_region_variants = count($state.region_variants) != 0}
+							<div class="buy1click-form__field buy1click-form-field {if $field.is_required}buy1click-form-field_required{/if} buy1click-region-field {if $has_region_variants}buy1click-region-field_with-variants{/if} {if $is_error_required}buy1click-form-field_error{/if}"
+									data-field_id="address_region">
+								<div class="buy1click-form-field__label">{$fields[$field.code].name}</div>
+								<div>
+									<div class="buy1click-region-field__with-variants">
+										<select class="buy1click-select buy1click-form-field__input buy1click-select_fill" data-search="true">
+											<option value="">- Выберите регион -</option>
+											{foreach $state.region_variants as $code => $region}
+												<option value="{$code|escape}"
+														{if $code == ($state.contact_info.shipping_address['region']|default:'')}
+															selected="selected"
+														{/if}
+												>{$region}</option>
+											{/foreach}
+										</select>
+									</div>
+									<div class="buy1click-region-field__without-variants">
+										<input class="buy1click-input-text buy1click-form-field__input buy1click-input-text_fill"
+												value="{$state.contact_info.shipping_address['region']|default:''|escape}" />
+									</div>
+									{if $is_error_required}
+										<div class="buy1click-form-field__error">Это поле обязательное</div>
+									{/if}
+								</div>
+							</div>
+						{else}
+							{$code = $field.code|regex_replace:'/^address_/':''}
+							<div class="buy1click-form__field buy1click-form-field {if $field.is_required}buy1click-form-field_required{/if} {if $is_error_required}buy1click-form-field_error{/if}"
+									data-field_id="{$field.code|escape}">
+								<div class="buy1click-form-field__label">{$fields[$field.code].name}</div>
+								<div>
+									<input class="buy1click-input-text buy1click-form-field__input buy1click-input-text_fill" type="text"
+											value="{$state.contact_info.shipping_address[$code]|default:''|escape}"
+											{if trim($field.placeholder|default:'') !== ''}placeholder="{$field.placeholder|escape}"{/if}/>
+								</div>
+								{if $is_error_required}
+									<div class="buy1click-form-field__error">Это поле обязательное</div>
+								{/if}
+							</div>
+						{/if}
+					{/foreach}
+				</div>
+			{/if}
+		</div>
+	{/if}
+	{if $settings['form_shipping'] !== 'disabled'}
+		<div class="buy1click-form__shipping">
+			<div class="buy1click-form__sub-header">
+				Доставка
+				{call buy1click_svg_sprite_icon classes='buy1click-loader buy1click-form__sub-header-loader' icon='spinner' width=16 height=16 stroke='#333333'}
+			</div>
+
+			{foreach $state.shipping as $shipping_id => $shipping}
+				{$has_rates = is_array($shipping.rates) && count($shipping.rates) > 0}
+				{$has_multi_rates = is_array($shipping.rates) && count($shipping.rates) > 1}
+				{$has_custom_fields = is_array($shipping.custom_fields) && count($shipping.custom_fields) > 0}
+				{$has_error = !empty($shipping.error) || (is_array($shipping.rates) && array_key_exists(0, $shipping.rates) && is_array($shipping.rates[0]) && $shipping.rates[0].rate === null)}
+				{$is_disabled = $has_error || !$has_rates}
+
+				{if !$settings.form_shipping_show_invalid && $is_disabled && !is_null($shipping.rates)}
+					{continue}
+				{/if}
+
+				{$is_checked = !$is_disabled && $state.session.selected_shipping_id == $shipping.id}
+
+				<label data-shipping_id="{$shipping.id}"
+						class="buy1click-form__shipping-one buy1click-shipping buy1click-shipping_id_{$shipping.id} {if $has_multi_rates}buy1click-shipping_has-rates{/if} {if $has_custom_fields}buy1click-shipping_has-custom-fields{/if} {if $has_error} buy1click-shipping_error{/if}">
+					<input class="buy1click-shipping__input" type="radio" name="shipping_id"
+							value="{$shipping.id|escape}" {if $is_checked}checked{/if} {if $is_disabled}disabled{/if} />
+					<div class="buy1click-shipping__inner">
+						<div class="buy1click-shipping__col buy1click-shipping__col_radio">
+							<div class="buy1click-shipping__icon-unchecked">
+								{call buy1click_svg_sprite_icon classes='buy1click-shipping__icon-radio' icon='radio-unchecked' width=20 height=20 fill='#828282'}
+							</div>
+							<div class="buy1click-shipping__icon-checked">
+								{call buy1click_svg_sprite_icon classes='buy1click-shipping__icon-radio' icon='radio-checked' width=20 height=20 fill='#F2994A'}
+							</div>
+						</div>
+						{if $shipping.logo|default:null}
+							<div class="buy1click-shipping__col buy1click-shipping__col_logo">
+								<img src="{$shipping.logo}" class="buy1click-shipping__logo-image" alt="">
+							</div>
+						{/if}
+						<div class="buy1click-shipping__col buy1click-shipping__col_info">
+							<div class="buy1click-shipping__name">{$shipping.name}</div>
+							<select class="buy1click-shipping__rates buy1click-select">
+								{foreach $shipping.rates as $rate_id => $rate}
+									<option class="buy1click-shipping-rate"
+											value="{$rate_id|escape}"
+											data-rate_id="{$rate_id|escape}"
+											data-rate="{if $rate.rate !== null}{if $rate.rate == 0}Бесплатно{else}{$rate.rate_currency|escape}{/if}{/if}"
+											data-compare_rate="{if $rate.compare_rate !== null}{$rate.compare_rate_currency|escape}{/if}"
+											data-est_delivery="{$rate.est_delivery|escape}"
+											data-comment="{$rate.comment|escape}"
+											{if $state.session.selected_shipping_rate_id == $rate_id}selected{/if}
+									>
+										{$rate.name|default:''}{if !$settings.ignore_shipping_rate_in_total} ({if $rate.rate == 0}Бесплатно{else}{$rate.rate_currency}{/if}){/if}
+									</option>
+								{/foreach}
+							</select>
+							{if $shipping.error}
+								<div class="buy1click-shipping__error">
+									{$shipping.error}
+								</div>
+							{/if}
+							{if $has_custom_fields}
+								<div class="buy1click-shipping__custom-fields">
+									{foreach $shipping.custom_fields as $custom_field}
+										{$custom_field.html}
+									{/foreach}
+								</div>
+							{/if}
+						</div>
+						<div class="buy1click-shipping__col buy1click-shipping__col_rate">
+							{if $shipping.error}
+								Ошибка
+							{elseif $shipping.plugin.external && $shipping.rates === null}
+								{call buy1click_svg_sprite_icon classes='buy1click-loader' icon='spinner' width=16 height=16 stroke='#828282'}
+							{else}
+								{if $state.session.selected_shipping_id == $shipping.id}
+									{$rate = $shipping.rates[$state.session.selected_shipping_rate_id]}
+								{else}
+									{$rate = reset($shipping.rates)}
+								{/if}
+								<div class="buy1click-shipping__compare-rate">
+									{if $rate.compare_rate !== 0}
+										{$rate.compare_rate_currency}
+									{/if}
+								</div>
+								<div class="buy1click-shipping__rate">
+									{if !$settings.ignore_shipping_rate_in_total && $rate.rate !== null}
+										{if $rate.rate == 0}
+											Бесплатно
+										{else}
+											{$rate.rate_currency}
+										{/if}
+									{/if}
+								</div>
+								<div class="buy1click-shipping__est-delivery">
+									{$rate.est_delivery}
+								</div>
+								<div class="buy1click-shipping__comment">
+									{$rate.comment}
+								</div>
+							{/if}
+						</div>
+					</div>
+				</label>
+				{foreachelse}
+				<div class="buy1click-form__shipping-empty">Нет доступных способов доставки</div>
+			{/foreach}
+		</div>
+	{/if}
+	{if $settings['form_payment'] !== 'disabled'}
+		<div class="buy1click-form__payments">
+			<div class="buy1click-form__sub-header">
+				Оплата
+				{call buy1click_svg_sprite_icon classes='buy1click-loader buy1click-form__sub-header-loader' icon='spinner' width=16 height=16 stroke='#333333'}
+			</div>
+			{foreach $state.payments as $payment_id => $payment}
+				{$has_error = !empty($payment.error)}
+
+				{if $has_error}
+					{continue}
+				{/if}
+
+				<label data-payment_id="{$payment.id|escape}"
+						class="buy1click-form__payment buy1click-payment buy1click-payment_id_{$payment.id}">
+					<input class="buy1click-payment__input" type="radio" name="payment_id" value="{$payment.id}"
+							{if $state.session.selected_payment_id == $payment.id}checked{/if}/>
+					<span class="buy1click-payment__inner">
+						<span class="buy1click-payment__col buy1click-payment__col_radio">
+							<span class="buy1click-payment__icon-unchecked">
+								{call buy1click_svg_sprite_icon classes='buy1click-payments__icon-radio' icon='radio-unchecked' width=20 height=20 fill='#828282'}
+							</span>
+							<span class="buy1click-payment__icon-checked">
+								{call buy1click_svg_sprite_icon classes='buy1click-payments__icon-radio' icon='radio-checked' width=20 height=20 fill='#F2994A'}
+							</span>
+						</span>
+						{if $payment.logo|default:null}
+							<span class="buy1click-payment__col buy1click-payment__col_logo">
+								<img src="{$payment.logo}" class="buy1click-payment__logo-image" alt="">
+							</span>
+						{/if}
+						<span class="buy1click-payment__col buy1click-payment__col_name">
+							<span class="buy1click-payment__name">{$payment.name}</span>
+						</span>
+					</span>
+				</label>
+				{foreachelse}
+				<div class="buy1click-form__payments-empty">Нет доступных способов оплаты</div>
+			{/foreach}
+		</div>
+	{/if}
+	{if $settings['form_comment']}
+		<div class="buy1click-form__comment">
+			<div class="buy1click-form__field buy1click-form-field">
+				<div class="buy1click-form-field__label">Комментарий</div>
+				<div>
+					<textarea class="buy1click-textarea buy1click-form__comment-input">{$state.session.comment|escape}</textarea>
+				</div>
+			</div>
+		</div>
+	{/if}
+	{if $settings['form_coupon'] || $settings['form_show_total'] || $state.order.increase_plugin_fee.amount > 0}
+		<div class="buy1click-form__confirmation buy1click-confirmation">
+			<div class="buy1click-confirmation__inner">
+				<div class="buy1click-confirmation__col">
+					{if $settings['form_coupon']}
+						<div class="buy1click-form-field" data-field_id="coupon">
+							<div class="buy1click-form-field__label">Купон</div>
+							<div>
+								<input class="buy1click-input-text buy1click-form__coupon"
+										value="{$state.session.coupon|default:''|escape}" />
+							</div>
+						</div>
+					{/if}
+				</div>
+				<div class="buy1click-confirmation__col">
+					<div class="buy1click-form__total-box buy1click-total-box">
+						<div class="buy1click-total-box__inner">
+							{if $state.order.discount > 0}
+								<div class="buy1click-total-box__row">
+									<div class="buy1click-total-box__col"><span class="buy1click-total-box__label">Скидки:</span> {$state.order.discount_currency_html}</div>
+								</div>
+							{/if}
+							{if $settings.form_show_total || $state.order.increase_plugin_fee.amount > 0}
+								{if $state.order.shipping_total > 0}
+									<div class="buy1click-total-box__row">
+										<div class="buy1click-total-box__col"><span class="buy1click-total-box__label">Доставка:</span> {$state.order.shipping_total_currency_html}</div>
+									</div>
+								{/if}
+
+								{if $state.order.increase_plugin_fee.amount > 0}
+									<div class="buy1click-total-box__row">
+										<div class="buy1click-total-box__col"><span class="buy1click-total-box__label">{$state.order.increase_plugin_fee.name}:</span> {$state.order.increase_plugin_fee.amount_currency_html}</div>
+									</div>
+								{/if}
+								<div class="buy1click-total-box__row buy1click-total-box__row_total">
+									<div class="buy1click-total-box__col">
+										<span class="buy1click-total-box__label">
+											{call buy1click_svg_sprite_icon classes='buy1click-loader buy1click-form__total-loader' icon='spinner' width=16 height=16 stroke='#828282'}
+											Итого:
+										</span> {$state.order.total_currency_html}
+										{if $settings.ignore_shipping_rate_in_total}
+											<span class="buy1click-total-box__ignore-delivery-label">
+												без учета стоимости доставки
+											</span>
+										{/if}
+									</div>
+								</div>
+							{/if}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{/if}
+	{if $settings['form_captcha']}
+		<div class="buy1click-form__captcha">
+			{$wa->captcha()}
+		</div>
+		{if $state.errors.captcha|default:false}
+			<div class="buy1click-form__error">
+				Неверно введена CAPTCHA
+			</div>
+		{/if}
+	{/if}
+	{if $settings['form_is_enabled_policy']}
+		<div class="buy1click-form__policy">
+			<label class="buy1click-checkbox-box">
+				<span class="buy1click-checkbox-box__checkbox">
+					<input class="buy1click-checkbox" type="checkbox" {if $state.session.is_checked_policy}checked{/if} />
+				</span>
+				<span class="buy1click-checkbox-box__label">
+					{$settings['form_policy_text']}
+				</span>
+			</label>
+		</div>
+	{/if}
+	<button class="buy1click-form-button buy1click-form__submit-button">
+		{$settings.form_btn_text}
+		{call buy1click_svg_sprite_icon classes='buy1click-loader buy1click-loader_button buy1click-form-button__loader' icon='spinner' width=16 height=16 stroke='#828282'}
+	</button>
+{/strip}

@@ -1,0 +1,48 @@
+<div class="ig-dialog-wrap is-full-screen">
+    <div class="w-dialog-background"></div>
+    <div class="w-dialog-wrapper">
+        <div class="w-dialog-block gray-header compact-header">
+            <form action="" method="post">
+                <header class="w-dialog-header">
+                    <h1>[`Select products`]</h1>
+                </header>
+                <div class="w-dialog-content margin-block">
+                    <div class="sidebar left350px">
+                        <h5 class="heading f-collapse"><i class="icon16 darr"></i> [`Categories`]</h5>
+                        {include file="./include.categories.list.html"}
+
+                        <h5 class="heading f-collapse"><i class="icon16 darr"></i> [`Sets`]</h5>
+                        {include file="./include.sets.list.html"}
+
+                        <h5 class="heading f-collapse"><i class="icon16 darr"></i> [`Product types`]</h5>
+                        {include file="./include.types.list.html"}
+                    </div>
+                    <div class="content s-product-block left350px block">
+                        {* Список выбранных товаров *}
+                        <div class="selected-products">
+                            <!-- Generated automatically -->
+                        </div>
+                        <div class="s-show-more-products">
+                            <a href="javascript:void(0)" title="[`show more`]" class="js-show-more-products inline-link"><b><i>[`show more`]</i></b> <span class="indicator">15</span></a>
+                        </div>
+                        <div class="mb"><input style="padding: 10px; box-sizing: border-box; width: 100%" class="product-autocomplete" type="text" placeholder="{_w('Start typing product or SKU name')}"></div>
+                        <p class="margin-block"><label><input type="checkbox" class="f-autocomplete-skus" /> [`Show all skus in search`]</label></p>
+                        <p class="margin-block top semi">[`or select the category to find product you need.`]</p>
+                        <p class="align-center margin-block big-loader"><img src="{$plugin_url}img/loading.gif" /></p>
+                    </div>
+                </div>
+                <footer class="w-dialog-footer">
+                    <div class="margin-block errormsg"></div>
+                    <div class="t-actions">
+                        <div class="t-layout">
+                            <div class="t-column left">
+                                <input type="submit" class="button green t-button" value="[`Save`]"> [`or`] <a href="javascript:void(0)" class="js-close-dialog">[`cancel`]</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </form>
+        </div>
+    </div>
+</div>
+{include file='./include.dialog.products.tmpl.html'}

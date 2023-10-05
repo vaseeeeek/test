@@ -1,0 +1,143 @@
+table.zebra {
+    border: 0 none;
+    margin: 0;
+    width: 100%;
+}
+
+table.zebra th {
+    background: rgba(0, 0, 0, 0) -moz-linear-gradient(center top , #f5f5f5 0%, #dddddd 100%) repeat scroll 0 0;
+    border-bottom: 1px solid #bbbbbb;
+    color: #777777;
+    font-weight: normal;
+    padding: 2px 5px;
+    text-align: left;
+}
+
+table.zebra td {
+    background: #ffffff none repeat scroll 0 0;
+    border: 0 none;
+    padding: 5px;
+    vertical-align: middle;
+}
+
+/* SERGII DAVYDOV */
+
+#invite-add-form .field .name {
+	float: left;
+    width: 155px;
+    padding-top: 0.05em;
+    padding-bottom: 10px;
+    color: #888;
+    font-size: 0.95em;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+#invite-add-form #invite_shop_invite_add_email {
+	width: 30%;
+    max-width: 200px;
+    margin: 0;
+}
+
+#invite-add-form .hint {
+	color: #aaa;
+    font-size: 0.8em;
+}
+
+#invite-add-form #invite_shop_invite_add_description {
+	    min-width: 400px;
+    height: 70px;
+}
+
+#invite-add-form .field .value {
+    margin-left: 180px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+#invite-add-form .button {
+    -moz-border-radius: 24px;
+    -webkit-border-radius: 24px;
+    border-radius: 24px;
+    color: #111;
+    text-shadow: 0 1px 1px #fff;
+    font-weight: bold;
+    border: 3px solid #ddd;
+    -moz-box-shadow: -1px -1px 0 #444444 inset;
+    -webkit-box-shadow: -1px -1px 0 #444444 inset;
+    box-shadow: -1px -1px 0 #444444 inset;
+    white-space: nowrap;
+    font-size: 14px!important;
+    line-height: 20px;
+    height: 34px;
+    padding: 2px 15px 3px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: rgb(255,255,255);
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(221,221,221,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(221,221,221,1)));
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(221,221,221,1) 100%);
+    background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(221,221,221,1) 100%);
+    background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(221,221,221,1) 100%);
+    background: linear-gradient(top, rgba(255,255,255,1) 0%,rgba(221,221,221,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#dddddd',GradientType=0 );
+}
+
+
+#invite-add,
+#invite-add .fields {
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+.invite_table_m table.zebra th {
+    text-align: left;
+    padding: 2px 5px;
+    border-bottom: 1px solid #BBBBBB;
+    background: -moz-linear-gradient(center top, #F5F5F5 0%, #DDDDDD 100%) repeat scroll 0 0 transparent;
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#F5F5F5', endColorstr='#dddddd')";
+    font-weight: normal;
+    color: #777;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f5f5f5), color-stop(1, #ddd));
+    background-image: -o-linear-gradient(rgb(245,245,245),rgb(221,221,221));
+}
+
+.invite_table_m table.zebra td {
+    padding: 5px;
+    border: 0;
+    vertical-align: middle;
+    background: #fff;
+}
+
+.invite_table_m table.zebra tr:nth-child(odd) td {
+    background: #f2f7ff;
+}
+
+* i.icon16 {
+    text-decoration: none!important;
+    vertical-align: top;
+    margin: -0.1em 0.25em 0 0;
+}
+
+.invite_table_m table.zebra a {
+    display: block;
+    text-decoration: none;
+}
+
+.invite_table_m .icon16.cross {
+    background-position: -192px -16px;
+}
+
+.invite_table_m i.icon16 {
+    background-repeat: no-repeat;
+    background-image: url("../img/icon16.png");
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    text-indent: -9999px;
+    text-decoration: none!important;
+	background-size: auto;
+}
+
+.invite_table_m .icon16.yes {
+    background-position: 0 -16px;
+}

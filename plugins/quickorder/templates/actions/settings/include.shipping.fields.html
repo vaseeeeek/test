@@ -1,0 +1,20 @@
+<script type="text/x-tmpl" id="tmpl-shipping-field">
+    <div class="field">
+        <i class="icon16 sort" style="vertical-align: middle;"></i>
+        <select name="shipping" class='width30'>
+            <option value="">[`Show all`]</option>
+            {foreach $shipping as $sm}
+                <option {ldelim}% if (o.shipping == '{$sm.id}') { print('selected'); } %{rdelim} value="{$sm.id}">{$sm.name|escape}</option>
+            {/foreach}
+        </select>
+        <a href="javascript:void(0)" title="[`delete`]" class="f-delete-form-fields"><i class="icon16 cross" style="vertical-align: middle"></i></a>
+    </div>
+</script>
+
+<script type="text/x-tmpl" id="tmpl-shipping-fields">
+    {literal}
+    {% for (var i=0; i<o.fields.length; i++) { %}
+        {% include('tmpl-shipping-field', o.fields[i]); %}
+    {% } %}
+    {/literal}
+</script>

@@ -1,0 +1,65 @@
+<div class="field">
+    <div class="name">[`Minimal price`]</div>
+    <div class="value">
+        <input type="text" class="short" name="product[flexdiscount_minimal_discount_price]" value="{if isset($product['flexdiscount_minimal_discount_price'])}{$product['flexdiscount_minimal_discount_price']|floatval}{/if}">
+        <select name="product[flexdiscount_minimal_discount_currency]">
+            {foreach $currencies as $c}
+                <option value='{$c.code}' {if !empty($product['flexdiscount_minimal_discount_currency']) && $product['flexdiscount_minimal_discount_currency'] == $c['code']}selected{/if}>{$c['sign']} {$c['code']}</option>
+            {/foreach}
+        </select>
+        <label><input type="checkbox" name="minimal_price_for_all"> [`for all skus`]</label>
+        <p class="hint">{_wp('Price with all discounts (from plugin Flexdiscount) will never be lower than specified value. Make sure that setting "Product discount limit" is enabled and has value "product field"')}</p>
+    </div>
+</div>
+<div class="field">
+    <div class="name">[`Discount`]</div>
+    <div class="value">
+        <input type="text" class="short" name="product[flexdiscount_item_discount]" value="{if isset($product['flexdiscount_item_discount'])}{$product['flexdiscount_item_discount']|floatval}{/if}">
+        {$flexdiscount_discount_currency = ifempty($product, 'flexdiscount_discount_currency', '%')}
+        <select name="product[flexdiscount_discount_currency]">
+            <option value="%" {if $flexdiscount_discount_currency == '%'}selected{/if}>%</option>
+            {foreach $currencies as $c}
+                <option value='{$c.code}' {if $flexdiscount_discount_currency == $c['code']}selected{/if}>{$c['sign']} {$c['code']}</option>
+            {/foreach}
+        </select>
+        <label><input type="checkbox" name="discount_for_all"> [`for all skus`]</label>
+        <p class="hint">{_wp('Discount (from plugin Flexdiscount) will be applied, if you will select the type of the discount "Product field" in the plugin rule')}</p>
+    </div>
+</div>
+<div class="field">
+    <div class="name">[`Affiliate`]</div>
+    <div class="value">
+        <input type="text" class="short" name="product[flexdiscount_item_affiliate]" value="{if isset($product['flexdiscount_item_affiliate'])}{$product['flexdiscount_item_affiliate']|floatval}{/if}">
+        {$flexdiscount_affiliate_currency = ifset($product, 'flexdiscount_affiliate_currency', '%')}
+        <select name="product[flexdiscount_affiliate_currency]">
+            <option value="%" {if $flexdiscount_affiliate_currency == '%'}selected{/if}>%</option>
+            <option value="" {if $flexdiscount_affiliate_currency == ''}selected{/if}></option>
+        </select>
+        <label><input type="checkbox" name="affiliate_for_all"> [`for all skus`]</label>
+        <p class="hint">{_wp('Affiliate (from plugin Flexdiscount) will be applied, if you will select the type of the affiliate "Product field" in the plugin rule')}</p>
+    </div>
+</div>
+{if !empty($product.skus)}
+    <script>
+        $(function () {
+            const skus = {json_encode($product.skus)};
+            for (let skuId in skus) {
+                const sku = skus[skuId];
+                const discount = sku.flexdiscount_item_discount;
+                const discountCurrency = sku.flexdiscount_discount_currency;
+                const affiliate = sku.flexdiscount_item_affiliate;
+                const affiliateCurrency = sku.flexdiscount_affiliate_currency;
+                const $item = $(".s-product-skus [data-id='" + skuId + "']");
+                $item.find('.s-sku').append("<div class='flexdiscount-field-info grey' style='margin-top: 10px'></div>");
+                const $infoBlock = $item.find('.flexdiscount-field-info');
+
+                if (discount !== null) {
+                    $infoBlock.append("<span style='margin-right: 10px'>{_wp('Discount')}: " + parseFloat(discount).toFixed(2) + " " + discountCurrency + "</span>");
+                }
+                if (affiliate !== null) {
+                    $infoBlock.append("<span>{_wp('Affiliate')}: " + parseFloat(affiliate).toFixed(2) + " " + affiliateCurrency + "</span>");
+                }
+            }
+        });
+    </script>
+{/if}

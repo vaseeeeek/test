@@ -1,0 +1,94 @@
+<div class="block double-padded">
+	<div class="bundling-header">
+		<h1>
+			<a href="?action=products" class="back">&larr; [`Back`]</a>
+			<i class="icon16 box"></i>[`Bundles`]
+			<a href="?action=plugins#/bundling"><i class="icon16 plugins"></i></a>
+		</h1>
+	</div>
+	
+	<select autocomplete="off" id="bundling_bundle_groups" class="select">
+		<option value="custom">[`Create custom bundle groups`]</option>
+		<option value="main_category" selected>[`Use main category of product as bundle group`]</option>
+	</select>
+	<i id="bundling_bundle_groups_loading" class="icon16 loading" style="display: none; margin-top: 2px; margin-left: 10px;"></i>
+	
+	<div style="margin-bottom: 10px; margin-top: 10px;">
+	[`Enabled bundle group by main product category. Here you can set names and "multiple" param for each category to show in frontend.`]
+	</div>
+	
+	<table id="bundling-bundles-category-table" class="zebra">
+		<tr>
+			<th></th>
+			<th>[`Category`]</th>
+			<th></th>
+			<th>[`Type of accessory`]</th>
+			<th></th>
+		</tr>
+		<tr>
+			<td class="min-width"></td>
+			<td style="width: 200px;"><span class="gray">[`Main category is undefined`]</span></td>
+			<td style="width: 50px;" align="center">&rarr;</td>
+			<td>
+				<input name="title" type="text" value="{ifempty($undefined_category.title)}" placeholder="[`Accessories`]"/>
+				<label>
+					<input name="multiple" type="checkbox"{if !empty($undefined_category.multiple)} checked{/if}/>
+					[`Multiple select`]
+				</label>
+			</td>
+			<td>
+				<div class="edit-actions" style="display: none;"><a href="#" class="bundling-bundles-category-save" data-category-id="0" data-action="save"><i class="icon10 yes"></i> сохранить</a></div>
+			</td>
+		</tr>
+		{foreach $categories as $category}
+		<tr>
+			<td class="min-width"><span class="gray">{$category.id}</span></td>
+			<td style="width: 200px;">{$category.name}</td>
+			<td style="width: 50px;" align="center">&rarr;</td>
+			<td style="width: 450px;">
+				<input name="title" type="text" value="{ifempty($category.title)}" placeholder="{$category.name}"/>
+				<label>
+					<input name="multiple" type="checkbox"{if !empty($category.multiple)} checked{/if}/>
+					[`Multiple select`]
+				</label>
+			</td>
+			<td>
+				<div class="edit-actions" style="display: none;"><a href="#" class="bundling-bundles-category-save" data-category-id="{$category.id}" data-action="save"><i class="icon10 yes"></i> сохранить</a></div>
+			</td>
+		</tr>
+		{/foreach}
+	</table>
+</div>
+<script type="text/javascript" src="?plugin=bundling&module=loc"></script>
+<script type="text/javascript">
+(function($) {
+	var table = $('#bundling-bundles-category-table');
+	table.find('input').on('change keyup keydown', function() {
+		$(this).closest('tr').find('.edit-actions').show();
+	});
+	table.find('.bundling-bundles-category-save').click(function(e) {
+		var tr = $(this).closest('tr');
+		var data = {
+			id: $(this).data('category-id'),
+			title: tr.find('input[name="title"]').val(),
+			multiple: tr.find('input[name="multiple"]').is(':checked') ? 1 : 0,
+		}
+		
+		$.post('?plugin=bundling&action=saveCategoryBundles', data, function(r) {
+			if(r.status == 'ok') {
+				tr.find('.edit-actions').hide();
+			} else
+				alert(r.errors[0][0]);
+		}, 'json');
+		
+		e.preventDefault();
+	});
+	
+	$('#bundling_bundle_groups').change(function() {
+		$('#bundling_bundle_groups_loading').show();
+		$.get('?plugin=bundling&action=changeBundleGroups&value=' + $(this).val(), function() {
+			location.reload();
+		});
+	});
+})(jQuery);
+</script>

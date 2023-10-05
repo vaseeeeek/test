@@ -1,0 +1,13 @@
+{foreach $set_options as $control}
+    <div class="field set-options {$control.id}{if isset($control.class_name)} {$control.class_name}{/if}">
+        <div class="name">{$control.title}</div>
+        <div class="value">
+        {if $control.id == 'features' && $control.class_name == 'native' && !strlen(trim($control.html))}
+            [`No product features are available for selected settlement.`]<br>
+            <a href="?action=settings#/features/" class="no-underline">[`Create and set up product features »`]</a>
+        {else}
+            {$control.html}
+        {/if}
+        </div>
+    </div>
+{/foreach}

@@ -1,0 +1,36 @@
+{if !empty($settings.product_services) && !empty($product.services)}
+    <div class="quickorder-services">
+        {$show_more = 0}
+        {foreach $product.services as $s}
+            {$active_service = null}
+            {if isset($product.active_services[$s.id])}{$active_service = $product.active_services[$s.id]}{/if}
+            <div class="quickorder-row semi quickorder-service quickorder-service-{$s.id}"{if $s@index > 3}{$show_more = 1} style="display:none"{/if}>
+                <label>
+                    <input{if $active_service} checked{/if} data-price="{if $active_service && isset($s.variants[$active_service])}{shop_currency($s.variants[$active_service].price, $s.currency, null, 0)}{elseif isset($s.variants) && !empty($s.variants[$s.variant_id])}{shop_currency($s.variants[$s.variant_id].price, $s.currency, null, 0)}{else}{shop_currency($s.price, $s.currency, null, 0)}{/if}" type="checkbox" name="quickorder_product[services][]" value="{$s.id}" class="serv-{$s.id}-{$product.id}">
+                    <span class="service-name">
+                                {$s.name|escape}
+                        {if $s.price && !isset($s.variants)}
+                            (+<span class="service-price">{if !empty($settings.ruble_sign) && $settings.ruble_sign == 'html'}{shop_currency_html($s.price, $s.currency)}{else}{shop_currency($s.price, $s.currency)}{/if}</span>)
+                        {/if}
+                            </span>
+                </label>
+                {if isset($s.variants)}
+                    <select data-variant-id="{$s.variant_id}" name="quickorder_product[service_variant][{$s.id}]"{if !$active_service} disabled{/if}>
+                        {foreach $s.variants as $variant_id => $v}
+                            <option {if $active_service && $active_service == $variant_id}selected{/if} data-price="{shop_currency($v.price, $s.currency, null, 0)}" value="{$variant_id}">
+                                {$v.name|escape}{if $v.price} (+{if !empty($settings.ruble_sign) && $settings.ruble_sign == 'html'}{shop_currency_html($v.price, $s.currency)}{else}{shop_currency($v.price, $s.currency)}{/if}){/if}
+                            </option>
+                        {/foreach}
+                    </select>
+                {else}
+                    <input type="hidden" name="quickorder_product[service_variant][{$s.id}]" value="{$s.variant_id}">
+                {/if}
+            </div>
+        {/foreach}
+        {if $show_more}
+            <div class="quickorder-row">
+                <a href="javascript:void(0)" title="[`Show all services`]" class="quickorder-js-show-more quickorder-inline-link quickorder-inline">[`Show all services`]</a>
+            </div>
+        {/if}
+    </div>
+{/if}

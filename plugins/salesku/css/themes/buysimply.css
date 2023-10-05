@@ -1,0 +1,8 @@
+.product-list.thumbs { display: table; }
+.product-list.thumbs .salesku_plugin-product {float: inherit !important; /*min-height: 570px;*/}
+.product-list.thumbs .salesku_plugin-product form.addtocart {line-height: 25px;max-width: 330px;}
+.salesku_plugin-product .skus li {border: none;padding-bottom: 0;}
+.product-list.list .salesku_plugin-product .skus li .price {font-size: 100%;display: inline;}
+.product-list.list .salesku_plugin-product .image {vertical-align: top;}
+.product-list.list .salesku_plugin-product form.addtocart,
+.product-list.list .salesku_plugin-product .offers {width: 250px;}

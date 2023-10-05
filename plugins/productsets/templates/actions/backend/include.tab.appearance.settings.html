@@ -1,0 +1,265 @@
+<div class="f-appearance-{$tab} s-appearance-tab{if $tab == 'bundle'} active{/if}"{if $tab == 'userbundle'} style="display: none;"{/if} data-tab="{$tab}">
+    <div class="mb">
+        <a href="javascript:void(0)" class="js-layout-settings" title="[`Layout settings`]"><i class="icon16 settings"></i> [`Layout settings`]</a>
+        <span class="shop-tooltip">
+            <i class="icon16 info"></i>
+            <span>[`Read more in <a href="https://igaponov.ru/docs/193/layout-settings/" target="_blank">docs</a>`]</span>
+        </span>
+    </div>
+    <hr>
+    <div class="mb relative">
+        [`Select element`]:
+        {if $tab == 'bundle'}
+            <select class="inherit f-appearance-element s-appearance-element">
+                <option value="bundle_block" data-live="bundle_block_live" data-plugins="box-shadow,border-radius,border,margin">[`Block`]</option>
+                <option value="bundle_block_header" data-live="bundle_block_header_live" data-plugins="background,color,font">[`Block header`]</option>
+                <option value="bundle_block_content" data-live="bundle_block_content_live" data-plugins="background,color,font">[`Block content`]</option>
+                <option value="bundle_price" data-live="bundle_price_live" data-plugins="color,font">[`Total price`]</option>
+                <option value="bundle_compare_price" data-live="bundle_compare_price_live" data-plugins="color,font">[`Total compare price`]</option>
+                <option value="bundle_discount" data-live="bundle_discount_live" data-plugins="background,box-shadow,border-radius,padding,color,font">[`Total discount`]</option>
+                <option value="bundle_product_price" data-live="bundle_product_price_live" data-plugins="background,box-shadow,border-radius,padding,color,font">[`Product price`]</option>
+                <option value="bundle_product_com_price" data-live="bundle_product_com_price_live" data-plugins="color,font">[`Product compare price`]</option>
+                <option value="bundle_badge" data-live="bundle_badge_live" data-plugins="background,box-shadow,border-radius,padding,color,font">[`Badge`]</option>
+                <option value="bundle_quantity" data-live="bundle_quantity_live" data-hover data-plugins="color:svg">[`Quantity buttons`]</option>
+                <option value="bundle_quantity_field" data-live="bundle_quantity_field_live" data-plugins="background,border-radius,border,padding,color,font">[`Quantity field`]</option>
+                <option value="bundle_skus_icon" data-live="bundle_skus_icon_live" data-plugins="color:svg">[`Icon of skus selecting`]</option>
+                <option value="bundle_skus_wrap_icon" data-live="bundle_skus_wrap_icon_live" data-plugins="background">[`Wrap of icon of skus selecting`]</option>
+                <option value="bundle_sku" data-live="bundle_sku_live" data-plugins="background,box-shadow,border-radius,padding,color,font">[`Sku variants`]</option>
+                <option value="bundle_submit" data-live="bundle_submit_live" data-hover data-plugins="background,box-shadow,border-radius,padding,color,font">[`Submit button`]</option>
+                <option value="bundle_slider_arrow" data-live="bundle_slider_arrow_live" data-hover data-dependency=".bundle_block_slider_arrow_live:parentHover:svg|color" data-plugins="color:svg">[`Slider arrow`]</option>
+                <option value="bundle_block_slider_arrow" data-live="bundle_block_slider_arrow_live" data-hover data-plugins="background">[`Block of slider arrow`]</option>
+                <option value="bundle_plus" data-live="bundle_plus_live" data-before="1" data-after="1" data-plugins="background">[`Plus`]</option>
+                <option value="bundle_checkbox" data-live="bundle_checkbox_live" data-plugins="color:svg">[`Checkbox icon`]</option>
+                <option value="skus_popup" data-skip="1">[`Sku's popup`]</option>
+                <option value="success_popup" data-skip="1">[`Popup with successful message`]</option>
+            </select>
+            <select class="inherit f-element-children f-appearance-element s-appearance-element" data-element="skus_popup">
+                <option value="skus_popup_block" data-live="skus_popup_block_live" data-plugins="background,box-shadow,border-radius,border,padding">[`Block`]</option>
+                <option value="skus_popup_header" data-live="skus_popup_header_live" data-plugins="background,padding,border-radius,color,font,text-align">[`Block header`]</option>
+                <option value="skus_popup_content" data-live="skus_popup_content_live" data-plugins="background,color,font,padding,text-align">[`Block content`]</option>
+                <option value="skus_popup_close" data-before="1" data-after="1" data-live="skus_popup_close_live" data-plugins="background">[`Close button`]</option>
+            </select>
+            <select class="inherit f-element-children f-appearance-element s-appearance-element" data-element="success_popup">
+                <option value="success_popup_block" data-live="success_popup_block_live" data-plugins="background,box-shadow,border-radius,border,padding">[`Block`]</option>
+                <option value="success_popup_content" data-live="success_popup_content_live" data-plugins="color,font,text-align">[`Content`]</option>
+                <option value="success_popup_tick" data-live="success_popup_tick_live" data-plugins="color:svg">[`Tick icon`]</option>
+                <option value="success_popup_link" data-live="success_popup_link_live" data-plugins="color,font">[`Continue shopping link`]</option>
+                <option value="success_popup_button" data-hover data-live="success_popup_button_live" data-plugins="background,color,font,padding">[`Proceed to checkout button`]</option>
+                <option value="success_popup_close" data-before="1" data-after="1" data-live="success_popup_close_live" data-plugins="background">[`Close button`]</option>
+            </select>
+        {else}
+            <select class="inherit f-appearance-element s-appearance-element">
+                <option value="userbundle_button" data-live="userbundle_button_live" data-hover data-plugins="background,box-shadow,border-radius,padding,color,font">[`Popup button`]</option>
+                <option value="userbundle_blocks" data-live="userbundle_blocks_live" data-hover data-plugins="box-shadow,border-radius,border">[`Blocks`]</option>
+                <option value="userbundle_titles" data-live="userbundle_titles_live" data-plugins="color,font">[`Titles`]</option>
+                <option value="userbundle_title_lines" data-live="userbundle_title_lines_live" data-before="1" data-after="1" data-plugins="background">[`Title lines`]</option>
+                <option value="userbundle_title_inside" data-live="userbundle_title_inside_live" data-plugins="text-align,color,font">[`Title inside block`]</option>
+                <option value="userbundle_price" data-live="userbundle_price_live" data-plugins="color,font">[`Total price`]</option>
+                <option value="userbundle_compare_price" data-live="userbundle_compare_price_live" data-plugins="color,font">[`Total compare price`]</option>
+                <option value="userbundle_count" data-live="userbundle_count_live" data-plugins="color,font">[`Total count`]</option>
+                <option value="userbundle_discount" data-live="userbundle_discount_live" data-plugins="color,font">[`Total discount`]</option>
+                <option value="userbundle_product_price" data-live="userbundle_product_price_live" data-plugins="background,box-shadow,border-radius,padding,color,font">[`Product price`]</option>
+                <option value="userbundle_product_com_price" data-live="userbundle_product_com_price_live" data-plugins="color,font">[`Product compare price`]</option>
+                <option value="userbundle_badge" data-live="userbundle_badge_live" data-plugins="background,box-shadow,border-radius,padding,color,font">[`Badge`]</option>
+                <option value="userbundle_quantity" data-live="userbundle_quantity_live" data-hover data-plugins="color:svg">[`Quantity buttons`]</option>
+                <option value="userbundle_quantity_field" data-live="userbundle_quantity_field_live" data-plugins="background,border-radius,border,padding,color,font">[`Quantity field`]</option>
+                <option value="userbundle_skus_icon" data-live="userbundle_skus_icon_live" data-plugins="color:svg">[`Icon of skus selecting`]</option>
+                <option value="userbundle_skus_wrap_icon" data-live="userbundle_skus_wrap_icon_live" data-plugins="background">[`Wrap of icon of skus selecting`]</option>
+                <option value="userbundle_submit" data-live="userbundle_submit_live" data-hover data-plugins="background,box-shadow,border-radius,padding,color,font">[`Submit button`]</option>
+                <option value="userbundle_add" data-live="userbundle_add_live" data-hover data-dependency=".userbundle_icon_add_live:svg|color" data-plugins="background,box-shadow,border-radius,border,padding,color,font">[`Add button`]</option>
+                <option value="userbundle_added" data-live="userbundle_added_live" data-plugins="background,box-shadow,border-radius,border,padding,color,font">[`Add button of selected item`]</option>
+                <option value="userbundle_sku" data-live="userbundle_sku_live" data-plugins="color,font">[`Sku variants`]</option>
+                <option value="skus_popup" data-skip="1">[`Sku's popup`]</option>
+                <option value="success_popup" data-skip="1">[`Popup with successful message`]</option>
+            </select>
+            <select class="inherit f-element-children f-appearance-element s-appearance-element" data-element="skus_popup">
+                <option value="skus_popup_block" data-live="skus_popup_block_live" data-plugins="background,box-shadow,border-radius,border,padding">[`Block`]</option>
+                <option value="skus_popup_header" data-live="skus_popup_header_live" data-plugins="background,padding,border-radius,color,font,text-align">[`Block header`]</option>
+                <option value="skus_popup_content" data-live="skus_popup_content_live" data-plugins="background,color,font,padding,text-align">[`Block content`]</option>
+                <option value="skus_popup_close" data-before="1" data-after="1" data-live="skus_popup_close_live" data-plugins="background">[`Close button`]</option>
+            </select>
+            <select class="inherit f-element-children f-appearance-element s-appearance-element" data-element="success_popup">
+                <option value="success_popup_block" data-live="success_popup_block_live" data-plugins="background,box-shadow,border-radius,border,padding">[`Block`]</option>
+                <option value="success_popup_content" data-live="success_popup_content_live" data-plugins="color,font,text-align">[`Content`]</option>
+                <option value="success_popup_tick" data-live="success_popup_tick_live" data-plugins="color:svg">[`Tick icon`]</option>
+                <option value="success_popup_link" data-live="success_popup_link_live" data-plugins="color,font">[`Continue shopping link`]</option>
+                <option value="success_popup_button" data-hover data-live="success_popup_button_live" data-plugins="background,color,font,padding">[`Proceed to checkout button`]</option>
+                <option value="success_popup_close" data-before="1" data-after="1" data-live="success_popup_close_live" data-plugins="background">[`Close button`]</option>
+            </select>
+        {/if}
+    </div>
+    <div class="s-clear-appearance">
+        <a href="javascript:void(0)" class="f-clear-appearance"><i class="icon10 no"></i> [`clear all styles`]</a>
+    </div>
+    <div class="f-appearance-toolbar s-appearance-toolbar mb bottom">
+        <!-- Generated automatically -->
+    </div>
+    <div class="f-appearance-live-block">
+        <div class="s-form-appearance s-appearance-wrap">
+            <h2 class="align-center mb relative">
+                [`Live demonstration`]
+            </h2>
+            <div class="s-appearance-live-block">
+                <div class="productsets-wrap">
+                    {if $tab == 'bundle'}
+                        {include file='./include.demo.bundle.html'}
+                    {else}
+                        {include file='./include.demo.userbundle.html'}
+                    {/if}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {* Окно настроек макета *}
+    <div class="productsets-layout-popup">
+        {$layout_settings = []}
+        {if !empty($pset.settings.layout[$tab])}
+            {$layout_settings = $pset.settings.layout[$tab]}
+        {/if}
+        <a href="javascriot:void(0)" class="js-close-layout-popup s-close-layout-popup" title="[`close`]">[`close`]</a>
+        {if $tab == 'bundle'}
+            <h2>[`Bundle layout settings`]</h2>
+
+            {* Макет карточки товара *}
+            <div class="field">
+                <div class="name">[`Product card layout`]</div>
+                <div class="value">
+                    <select name="settings[layout][bundle][card_layout]" class="js-block-with-dependency" data-name="card_layout">
+                        {foreach ['cl-1', 'cl-2', 'cl-3', 'cl-4'] as $k => $v}
+                            <option value="{$v}" {if !empty($layout_settings.card_layout) && $layout_settings.card_layout == $v} selected{/if}>[`Layout`] {$k+1}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+
+            {* Ширина карточки *}
+            <div class="field{if (!empty($layout_settings.card_layout) && in_array($layout_settings.card_layout, ['cl-1', 'cl-4'])) || empty($layout_settings.card_layout)} hidden{/if}" data-dependency-value="cl-2,cl-3" data-name="card_layout">
+                <div class="name">[`Product card width`]</div>
+                <div class="value">
+                    <select name="settings[layout][bundle][card_layout_width]">
+                        {foreach ['small' => _wp('Small'), 'medium' => _wp('Medium'), 'large' => _wp('Large')] as $k => $v}
+                            <option value="{$k}" {if !empty($layout_settings.card_layout_width) && $layout_settings.card_layout_width == $k} selected{/if}>{$v}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+
+            {* Макет карточки товара в мобильной версии *}
+            <div class="field">
+                <div class="name">[`Mobile product card layout`]</div>
+                <div class="value">
+                    <select name="settings[layout][bundle][mobile_card_layout]">
+                        {foreach ['cl-1', 'cl-2', 'cl-3', 'cl-4'] as $k => $v}
+                            <option value="{$v}" {if !empty($layout_settings.mobile_card_layout) && $layout_settings.mobile_card_layout == $v} selected{/if}>[`Layout`] {$k+1}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+
+            {* Тип чекбокса *}
+            <div class="field{if (!empty($layout_settings.card_layout) && $layout_settings.card_layout == 'cl-4')} hidden{/if}" data-dependency-value="cl-1,cl-2,cl-3" data-name="card_layout">
+                <div class="name">[`Checkbox type`]</div>
+                <div class="value">
+                    <select name="settings[layout][bundle][checkbox_type]">
+                        {foreach ['circle' => _wp('Circle'), 'square' => _wp('Square')] as $k => $v}
+                            <option value="{$k}" {if !empty($layout_settings.checkbox_type) && $layout_settings.checkbox_type == $k} selected{/if}>{$v}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+
+            {* Изображения для 4 типа отображения товара *}
+            <div class="field{if (!empty($layout_settings.card_layout) && $layout_settings.card_layout !== 'cl-4')} hidden{/if}" data-dependency-value="cl-4" data-name="card_layout">
+                <div class="name">[`Product Image`]</div>
+                <div class="value">
+                    <select name="settings[layout][bundle][show_image]">
+                        {foreach ['show' => _wp('Show'), 'hide' => _wp('Hide')] as $k => $v}
+                            <option value="{$k}" {if !empty($layout_settings.show_image) && $layout_settings.show_image == $k} selected{/if}>{$v}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+
+            {* Тип альтернативного слайдера *}
+            <div class="field{if (!empty($layout_settings.card_layout) && $layout_settings.card_layout == 'cl-4')} hidden{/if}" data-dependency-value="cl-1,cl-2,cl-3" data-name="card_layout">
+                <div class="name">[`Type of alternative slider`]</div>
+                <div class="value">
+                    <select name="settings[layout][bundle][alternative_slider]">
+                        {foreach ['vertical' => _wp('Vertical'), 'horizontal' => _wp('Horizontal')] as $k => $v}
+                            <option value="{$k}" {if !empty($layout_settings.alternative_slider) && $layout_settings.alternative_slider == $k} selected{/if}>{$v}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+
+            {* Макет блока с итоговой ценой *}
+            <div class="field">
+                <div class="name">[`Layout of total block`]</div>
+                <div class="value">
+                    <select name="settings[layout][bundle][total_layout]" class="js-block-with-dependency" data-name="total_layout">
+                        {foreach ['tl-1', 'tl-2', 'tl-3'] as $k => $v}
+                            <option value="{$v}" {if !empty($layout_settings.total_layout) && $layout_settings.total_layout == $v} selected{/if}>[`Layout`] {$k + 1}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+
+            {* Расположение блока с итоговой ценой *}
+            <div class="field{if !empty($layout_settings.total_layout) && $layout_settings.total_layout !== 'tl-1'} hidden{/if}" data-dependency-value="tl-1" data-name="total_layout">
+                <div class="name">[`Place of the total block`]</div>
+                <div class="value">
+                    <select name="settings[layout][bundle][total_block_output]">
+                        {foreach ['top' => _wp('At the top'), 'bottom' => _wp('At the bottom')] as $k => $v}
+                            <option value="{$k}" {if !empty($layout_settings.total_block_output) && $layout_settings.total_block_output == $k} selected{/if}>{$v}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+
+            {* Отображение артикулов во всплывающем окне *}
+            <div class="field">
+                <div class="name">[`Displaying of selectable skus in popup window`]</div>
+                <div class="value">
+                    <select name="settings[layout][bundle][popup_skus_type]">
+                        {foreach ['select' => _wp('Select list'), 'inline' => _wp('Inline in row')] as $k => $v}
+                            <option value="{$k}" {if !empty($layout_settings.popup_skus_type) && $layout_settings.popup_skus_type == $k} selected{/if}>{$v}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+        {else}
+            <h2>[`User bundle layout settings`]</h2>
+
+            {* Отображение артикулов во всплывающем окне *}
+            <div class="field">
+                <div class="name">[`Displaying of selectable skus in popup window`]</div>
+                <div class="value">
+                    <select name="settings[layout][userbundle][popup_skus_type]">
+                        {foreach ['select' => _wp('Select list'), 'inline' => _wp('Inline in row')] as $k => $v}
+                            <option value="{$k}" {if !empty($layout_settings.popup_skus_type) && $layout_settings.popup_skus_type == $k} selected{/if}>{$v}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            </div>
+        {/if}
+    </div>
+
+    {if $tab == 'bundle'}
+        {$default_appearance = '{"bundle_block":{"box-shadow":{},"border-radius":{},"border":{"width":"1","style":"solid","color":"cccccc"},"margin":{"bottom":"10"}},"bundle_block_header":{"background":{"type":"color","color":"eeeeee","color_rgb":"238,238,238"},"color":{"color":"000000"},"font":{}},"bundle_block_content":{"background":{"type":"color","color":"ffffff","color_rgb":"255,255,255"},"color":{"color":"000000"},"font":{}},"bundle_price":{"color":{"color":"000000"},"font":{"size":"16","style":"bold"}},"bundle_compare_price":{"color":{},"font":{"size":"13"}},"bundle_discount":{"background":{"type":"color","color":"ffe469","color_rgb":"255,228,105"},"box-shadow":{},"border-radius":{"value":{"top-left":"5","top-right":"5","bottom-left":"5","bottom-right":"5"}},"padding":{"top":"5","right":"5","bottom":"5","left":"5"},"color":{"color":"000000"},"font":{"size":"14"}},"bundle_product_price":{"background":{"type":"color","color":"fef2b8","color_rgb":"254,242,184"},"box-shadow":{},"border-radius":{"value":{"top-left":"4","top-right":"4","bottom-left":"4","bottom-right":"4"}},"padding":{"top":"7","right":"7","bottom":"5","left":"7"},"color":{"color":"fb515c"},"font":{}},"bundle_product_com_price":{"color":{"color":"999999"},"font":{}},"bundle_badge":{"background":{"type":"color","color":"fb3f4c","color_rgb":"251,63,76"},"box-shadow":{},"border-radius":{"value":{"top-left":"2","top-right":"2","bottom-left":"2","bottom-right":"2"}},"padding":{"top":"1","bottom":"1","right":"2","left":"2"},"color":{"color":"ffffff"},"font":{"size":"12"}},"bundle_quantity":{"hover":{"color":{"color":"808080"}},"normal":{"color":{"color":"000000"}}},"bundle_skus_icon":{"color":{"color":"000000"}},"bundle_skus_wrap_icon":{"background":{"type":"color","color":"ffffff","color_rgb":"255,255,255"}},"bundle_sku":{"background":{"type":"color","color":"eeeeee","color_rgb":"238,238,238"},"box-shadow":{},"border-radius":{},"padding":{"top":"5","bottom":"5","right":"7","left":"7"},"color":{"color":"000000"},"font":{}},"bundle_submit":{"hover":{"background":{"type":"color","color":"808080","color_rgb":"128,128,128"},"box-shadow":{},"border-radius":{},"padding":{},"color":{},"font":{}},"normal":{"background":{"type":"color","color":"336699","color_rgb":"51,102,153"},"box-shadow":{},"border-radius":{},"padding":{"top":"5","bottom":"5","right":"10","left":"10"},"color":{"color":"ffffff"},"font":{}}},"bundle_slider_arrow":{"hover":{"color":{"color":"808080"}},"normal":{"color":{"color":"000000"}}},"bundle_block_slider_arrow":{"hover":{"background":{"type":"color","transparency":"0.5","color":"cccccc","color_rgb":"204,204,204"}},"normal":{"background":{"type":"transparent"}}},"bundle_plus":{"background":{"type":"color","color":"bbbbbb","color_rgb":"187,187,187"}},"bundle_checkbox":{"color":{"color":"000000"}},"skus_popup_block":{"background":{"type":"color","color":"ffffff","color_rgb":"255,255,255"},"box-shadow":{"x-offset":"0","y-offset":"0","blur":"70","spread":"0","color":"bbbbbb"},"border-radius":{},"border":{"width":"2","style":"solid","color":"f3f3f3"},"padding":{"top":"5","right":"5","bottom":"5","left":"5"}},"skus_popup_header":{"background":{"type":"color","color":"f3f3f3","color_rgb":"243,243,243"},"padding":{"top":"10","right":"10","bottom":"10","left":"10"},"border-radius":{},"color":{"color":"000000"},"font":{"size":"18"},"text-align":{"value":"left"}},"skus_popup_content":{"background":{"type":"color","color":"ffffff","color_rgb":"255,255,255"},"color":{"color":"000000"},"font":{},"padding":{"top":"10","right":"10","bottom":"10","left":"10"},"text-align":{"value":"center"}},"skus_popup_close":{"background":{"type":"color","color":"333333","color_rgb":"51,51,51"},"color":{"color":"eaff00"}},"success_popup_block":{"background":{"type":"color","color":"ffffff","color_rgb":"255,255,255"},"box-shadow":{"x-offset":"0","y-offset":"0","blur":"70","color":"bbbbbb"},"border-radius":{},"border":{"width":"2","style":"solid","color":"f3f3f3"},"padding":{"top":"5","right":"5","bottom":"5","left":"5"}},"success_popup_content":{"color":{"color":"358e08"},"font":{},"text-align":{"value":"center"}},"success_popup_tick":{"color":{"color":"358e08"}},"success_popup_link":{"color":{"color":"336699"},"font":{}},"success_popup_button":{"hover":{"background":{"type":"color","color":"808080","color_rgb":"128,128,128"},"color":{},"font":{},"padding":{},"text-align":{}},"normal":{"background":{"type":"color","color":"336699","color_rgb":"51,102,153"},"color":{"color":"ffffff"},"font":{},"padding":{"top":"5","right":"10","bottom":"5","left":"10"},"text-align":{"value":""}}},"success_popup_close":{"background":{"type":"color","color":"333333","color_rgb":"51,51,51"}},"bundle_quantity_field":{"background":{"type":"color"},"border-radius":{},"border":{"width":"1","style":"solid","color":"aaaaaa"},"padding":{"top":"2","right":"2","bottom":"2","left":"2"},"color":{"color":"000000"},"font":{"size":"14"}}}'}
+    {else}
+        {$default_appearance = '{"userbundle_button":{"hover":{"background":{"type":"color","color":"808080","color_rgb":"128,128,128"},"box-shadow":{},"border-radius":{},"padding":{},"color":{},"font":{}},"normal":{"background":{"type":"color","color":"b14791","color_rgb":"177,71,145"},"box-shadow":{},"border-radius":{},"padding":{"top":"5","bottom":"5","right":"10","left":"10"},"color":{"color":"ffffff"},"font":{}}},"userbundle_blocks":{"hover":{"box-shadow":{"x-offset":"0","y-offset":"0","blur":"15","spread":"5","color":"dddddd"},"border-radius":{},"border":{}},"normal":{"box-shadow":{},"border-radius":{},"border":{"width":"1","style":"solid","color":"cccccc"}}},"userbundle_titles":{"color":{"color":"000000"},"font":{"style":"bold","size":"16"}},"userbundle_title_lines":{"background":{"type":"color","color":"cccccc","color_rgb":"204,204,204"}},"userbundle_title_inside":{"text-align":{"value":"center"},"color":{"color":"000000"},"font":{}},"userbundle_price":{"color":{"color":"fb515c"},"font":{}},"userbundle_compare_price":{"color":{"color":"aaaaaa"},"font":{}},"userbundle_count":{"color":{"color":"000000"},"font":{}},"userbundle_discount":{"color":{"color":"000000"},"font":{}},"userbundle_product_price":{"background":{"type":"color","color":"fef2b8","color_rgb":"254,242,184"},"box-shadow":{},"border-radius":{"value":{"top-left":"4","top-right":"4","bottom-left":"4","bottom-right":"4"}},"padding":{"top":"7","right":"7","bottom":"5","left":"7"},"color":{"color":"fb515c"},"font":{}},"userbundle_product_com_price":{"color":{"color":"999999"},"font":{}},"userbundle_badge":{"background":{"type":"color","color":"fb3f4c","color_rgb":"251,63,76"},"box-shadow":{},"border-radius":{"value":{"top-left":"2","top-right":"2","bottom-left":"2","bottom-right":"2"}},"padding":{"top":"1","bottom":"1","right":"2","left":"2"},"color":{"color":"ffffff"},"font":{}},"userbundle_quantity":{"hover":{"color":{"color":"808080"}},"normal":{"color":{"color":"000000"}}},"userbundle_skus_icon":{"color":{"color":"000000"}},"userbundle_skus_wrap_icon":{"background":{"type":"color","color":"ffffff","color_rgb":"255,255,255"}},"userbundle_submit":{"hover":{"background":{"type":"color","color":"808080","color_rgb":"128,128,128"},"box-shadow":{},"border-radius":{},"padding":{},"color":{"color":"ffffff"},"font":{}},"normal":{"background":{"type":"color","color":"ffbf00","color_rgb":"255,191,0"},"box-shadow":{},"border-radius":{},"padding":{"top":"5","bottom":"5","right":"10","left":"10"},"color":{"color":"000000"},"font":{}}},"userbundle_add":{"hover":{"background":{"type":"color","color":"6bc80e","color_rgb":"107,200,14"},"box-shadow":{},"border-radius":{},"border":{"width":"1","style":"solid","color":"6bc80e"},"padding":{},"color":{"color":"ffffff"},"font":{}},"normal":{"background":{},"box-shadow":{},"border-radius":{},"border":{"width":"1","style":"solid","color":"cccccc"},"padding":{"top":"5","right":"5","bottom":"5","left":"5"},"color":{"color":"000000"},"font":{}}},"userbundle_added":{"background":{},"box-shadow":{},"border-radius":{},"border":{"width":"1","style":"solid","color":"6bc80e"},"padding":{"top":"5","right":"5","bottom":"5","left":"5"},"color":{"color":"ffffff"},"font":{}},"userbundle_sku":{"color":{"color":"aaaaaa"},"font":{"size":"12"}},"skus_popup_block":{"background":{"type":"color","color":"ffffff","color_rgb":"255,255,255"},"box-shadow":{"x-offset":"0","y-offset":"0","blur":"70","spread":"0","color":"bbbbbb"},"border-radius":{},"border":{"width":"2","style":"solid","color":"f3f3f3"},"padding":{"top":"5","right":"5","bottom":"5","left":"5"}},"skus_popup_header":{"background":{"type":"color","color":"f3f3f3","color_rgb":"243,243,243"},"padding":{"top":"10","right":"10","bottom":"10","left":"10"},"border-radius":{},"color":{"color":"000000"},"font":{"size":"18"},"text-align":{"value":"left"}},"skus_popup_content":{"background":{"type":"color","color":"ffffff","color_rgb":"255,255,255"},"color":{"color":"000000"},"font":{},"padding":{"top":"10","right":"10","bottom":"10","left":"10"},"text-align":{"value":"center"}},"skus_popup_close":{"background":{"type":"color","color":"333333","color_rgb":"51,51,51"},"color":{"color":"eaff00"}},"success_popup_block":{"background":{"type":"color","color":"ffffff","color_rgb":"255,255,255"},"box-shadow":{"x-offset":"0","y-offset":"0","blur":"70","color":"bbbbbb"},"border-radius":{},"border":{"width":"2","style":"solid","color":"f3f3f3"},"padding":{"top":"5","right":"5","bottom":"5","left":"5"}},"success_popup_content":{"color":{"color":"358e08"},"font":{},"text-align":{"value":"center"}},"success_popup_tick":{"color":{"color":"358e08"}},"success_popup_link":{"color":{"color":"336699"},"font":{}},"success_popup_button":{"hover":{"background":{"type":"color","color":"808080","color_rgb":"128,128,128"},"color":{},"font":{},"padding":{},"text-align":{}},"normal":{"background":{"type":"color","color":"336699","color_rgb":"51,102,153"},"color":{"color":"ffffff"},"font":{},"padding":{"top":"5","right":"10","bottom":"5","left":"10"},"text-align":{"value":""}}},"success_popup_close":{"background":{"type":"color","color":"333333","color_rgb":"51,51,51"}},"userbundle_quantity_field":{"background":{"type":"color"},"border-radius":{},"border":{"width":"1","style":"solid","color":"aaaaaa"},"padding":{"top":"2","right":"2","bottom":"2","left":"2"},"color":{"color":"000000"},"font":{"size":"14"}}}'}
+    {/if}
+
+    <script>
+        $(function () {
+            new ProductsetsAppearancePlugin({
+                wrap: $('.f-appearance-{$tab}'),
+                toolbar: $('.f-appearance-{$tab} .f-appearance-toolbar'),
+                tab: '{$tab}',
+                defaultAppearance: '{$default_appearance}'
+                {if !empty($pset.settings.appearance[$tab])},appearance: {$pset.settings.appearance[$tab]}{elseif !isset($pset.settings.appearance[$tab])},appearance: '{$default_appearance}'{/if}
+            });
+        });
+    </script>
+</div>

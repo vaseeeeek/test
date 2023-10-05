@@ -1,0 +1,183 @@
+<div class="block double-padded">
+	<div class="bundling-header">
+		<h1>
+			<a href="?action=products" class="back">&larr; [`Back`]</a>
+			<i class="icon16 box"></i>[`Bundles`]
+			<a href="?action=plugins#/bundling"><i class="icon16 plugins"></i></a>
+		</h1>
+	</div>
+	
+	<select autocomplete="off" id="bundling_bundle_groups" class="select">
+		<option value="custom" selected>[`Create custom bundle groups`]</option>
+		<option value="main_category">[`Use main category of product as bundle group`]</option>
+	</select>
+	<i id="bundling_bundle_groups_loading" class="icon16 loading" style="display: none; margin-top: 2px; margin-left: 10px;"></i>
+	
+	<div style="margin-bottom: 10px; margin-top: 10px;">
+	<ul style="display: inline-block;" class="menu-h"><li class="{if $by == 'category'}selected{/if}"><a href="?plugin=bundling&action=bundles&by=category">[`By category`]</a></li><li class="{if $by == 'type'}selected{/if}"><a href="?plugin=bundling&action=bundles&by=type">[`By product type`]</a></li><li class="{if $by == 'feature'}selected{/if}"><a href="?plugin=bundling&action=bundles&by=feature">[`By product feature`]</a></li>
+	</ul>
+	</div>
+	
+	<div style="margin-bottom: 10px; padding: 10px; background: #e9ffe5;">
+		<div class="bundling-add-group">
+			[`New`] <i class="icon16 folder"></i> <input id="bundling-new-group-title" type="text" placeholder="[`Type of accessory`]"/>
+				<select id="bundling-new-group-option" data-by="{$by}">
+					<option style="font-weight: bold;" value="0">- [`For any`] {if $by == 'type'}[`product with type`]{else}{if $by == 'category'}[`product in category`]{else}[`product with feature`]{/if}{/if} -</option>
+					<option value="0"></option>
+					{foreach $options as $option}
+					<option value="{$option.id}">{$option['name']|escape}</option>
+					{/foreach}
+				</select>
+			<div style="padding: 10px 0 5px 0;">
+				<label>
+					<input type="checkbox" id="bundling-new-group-multiple"/>
+					[`Multiple select`]
+				</label>
+			</div>
+			<div style="padding: 10px 0;">
+				<a href="#" class="button blue bundling-add-group-action-button" data-action="add" data-by="{$by}">[`Add`]</a>
+				{if $by == 'category'}
+				<label>
+					<input type="checkbox" id="bundling-new-group-subcategories"/>
+					[`Create for all subcategories`]
+				</label>
+				{/if}
+			</div>
+		</div>
+	</div>
+	
+	<div class="bundle bundling-bundles {$by}" id="bundling-bundles">
+	{foreach $bundles as $id => $bundle}
+	<h3>
+		{if $by == 'feature'}
+		<span class="gray">{$bundle.name|escape}</span>
+		{$bundle.title|escape}
+		{else}
+		{$bundle.name|escape}
+		{/if}
+	</h3>
+	<div class="bundling-bundle-group">
+		<table class="zebra bundling-bundle-group bundling-bundle-group-table bundling-bundle-group-by-{$by}" id="bundling-bundle-group-{$id}">
+			{$sort = 0}
+			{foreach $bundle['bundles'] as $bundle_id => $_bundle}
+			<tr id="bundling-bundle-{$bundle_id}" class="bundling-bundle" data-id="{$bundle_id}">
+				<td>
+					<input name="sort" type="hidden" value="{$sort++}"/>
+					<i class="icon16 upload bundling-bundle-sort bundling-bundle-sort-up"></i>
+					<i class="icon16 download bundling-bundle-sort bundling-bundle-sort-down"></i>
+
+					<input type="text" value="{$_bundle.title|escape}"/>
+					<label>
+						<input type="checkbox" class="bundling-bundle-multiple" id="bundling-bundle-multiple-{$bundle_id}" data-checked={if $_bundle.multiple}1 checked{else}0{/if} />
+						[`Multiple select`]
+					</label>
+				</td>
+			</tr>
+			<tr id="bundling-bundle-actions-{$bundle_id}" class="bundling-bundle-actions">
+				<td class="hint actions">
+					<a href="#" class="bundling-delete-bundle-button" data-bundle-id="{$bundle_id}"><i class="icon10 delete"></i> [`delete`]</a>
+				</td>
+				<td class="hint edit-actions" style="display: none;">
+					<a href="#" class="bundling-edit-action-button" data-action="save" data-id="{$bundle_id}"><i class="icon10 yes"></i> [`save`]</a>
+					[`or`]
+					<a href="#" class="bundling-edit-action-button" data-action="cancel" data-id="{$bundle_id}"><i class="icon10 no"></i> [`cancel`]</a>
+				</td>
+			</tr>
+			{/foreach}
+			<tr class="add" style="display: none;">
+				<td>
+					[`New`] <i class="icon16 folder"></i> <input type="text" placeholder="[`Type of accessory`]"/>
+					<label>
+						<input type="checkbox"/>
+						[`Multiple select`]
+					</label>
+				</td>
+			</tr>
+			<tr class="add" style="display: none;">
+				<td class="hint">
+					<a href="#" class="bundling-add-group-action-button" data-action="add" data-by="{$by}" data-id="{$id}"><i class="icon10 add"></i> [`add`]</a>
+					[`or`]
+					<a href="#" class="bundling-add-group-action-button" data-action="cancel" data-by="{$by}" data-id="{$id}"><i class="icon10 no"></i> [`cancel`]</a>
+				</td>
+			</tr>
+		</table>
+		<div class="hint">
+			<a class="bundling-add-group-for-this-button" data-id="{$id}" href="#">
+				<i class="icon10 add"></i>
+				[`add`]
+			</a>
+		</div>
+	</div>
+	{/foreach}
+	</div>
+</div>
+<style>
+	.bundling-bundle-sort {
+		cursor: pointer;
+	}
+</style>
+<script type="text/javascript" src="?plugin=bundling&module=loc"></script>
+<script type="text/javascript">
+(function($) {
+	$('#bundling_bundle_groups').change(function() {
+		$('#bundling_bundle_groups_loading').show();
+		$.get('?plugin=bundling&action=changeBundleGroups&value=' + $(this).val(), function() {
+			location.reload();
+		});
+	});
+	function moveBundle(id, action) {
+		var $bundle = $('#bundling-bundle-' + id);
+		var $actions = $('#bundling-bundle-actions-' + id);
+		if (!$bundle.length || !$actions.length) {
+			return;
+		}
+		var $sort = $bundle.find('[name="sort"]');
+
+		if (action == 1) {
+
+		}
+	}
+
+	$(document).on('click', '.bundling-bundle-sort', function () {
+		var $group = $(this).closest('.bundling-bundle-group');
+		var action = $(this).hasClass('bundling-bundle-sort-up') ? -1 : 1;
+		var $bundle = $(this).closest('.bundling-bundle');
+		var id = $bundle.data('id');
+		var $actions = $('#bundling-bundle-actions-' + id);
+		var $bundles = $group.find('.bundling-bundle');
+		var $sort = $bundle.find('[name="sort"]');
+		var sort = +$sort.val();
+		if (sort == 0 && action == -1) {
+			return;
+		} else if (action == 1 && $bundles.length == (sort + 1)) {
+			return;
+		}
+
+		if (action == 1) {
+			var $afterer = $actions.next().next().next();
+
+			$afterer.before($bundle);
+			$afterer.before($actions);
+		} else {
+			var $beforer = $bundle.prev().prev();
+
+			$beforer.before($bundle);
+			$beforer.before($actions);
+		}
+
+		var final_sort = { };
+		$group.find('.bundling-bundle').each(function(i) {
+			var $_sort = $(this).find('[name="sort"]');
+			if ($_sort.length) {
+				$_sort.val(i);
+			}
+			var id = $(this).data('id');
+			final_sort[id] = i;
+		});
+
+		$.post('?plugin=bundling&module=backend&action=saveBundlesSort', {
+			sort: final_sort
+		}, 'json');
+	});
+})(jQuery);
+</script>

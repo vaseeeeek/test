@@ -1,0 +1,93 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: shop/plugins/cwebp\n"
+"POT-Creation-Date: 2020-02-08 10:47+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: shop/plugins/cwebp\n"
+"Language-Team: shop/plugins/cwebp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: en_US\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: .\n"
+
+msgid "Delete created webp images"
+msgstr ""
+
+msgid "Advanced settings"
+msgstr ""
+
+msgid "All webp thumbnails removed"
+msgstr ""
+
+msgid "Plugin enabled"
+msgstr ""
+
+msgid "Convertion method"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "On demand"
+msgstr ""
+
+msgid "Allow on demand conversion, recommended way."
+msgstr ""
+
+msgid "Use cron"
+msgstr ""
+
+msgid "Use cron task to convert images in background. Add following command:"
+msgstr ""
+
+msgid "Be sure to make all the settings according to the instructions on the plugin page. Will not work in the cloud. Add command:"
+msgstr ""
+
+msgid "Products only"
+msgstr ""
+
+msgid "Convert product images only"
+msgstr ""
+
+msgid "Skip PNG"
+msgstr ""
+
+msgid "Skip images in PNG format in case of quality issues."
+msgstr ""
+
+msgid "Enable logging"
+msgstr ""
+
+msgid "Enable conversions log file in cwebp.log"
+msgstr ""
+
+msgid "Quality"
+msgstr ""
+
+msgid "Compression quality from 1 to 99. 80 recommended"
+msgstr ""
+
+msgid "Tasks"
+msgstr ""
+
+msgid "WEBP Images"
+msgstr ""
+
+msgid "PHP extension"
+msgstr ""
+
+msgid "if compiled with webp support"
+msgstr ""
+
+msgid "Utility"
+msgstr ""
+
+msgid "called from command line"
+msgstr ""
+
+msgid "Remote webp conversion service, works anyway, slowest"
+msgstr ""

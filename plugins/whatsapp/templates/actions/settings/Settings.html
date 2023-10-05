@@ -1,0 +1,168 @@
+{*
+* @author Gaponov Igor <gapon2401@gmail.com>
+    *}
+    <style>
+        .field input[type='text'] { height: 25px; padding: 0; width: 200px; }
+        .field select { height: 27px; }
+        .field input[type='text'], .field select { vertical-align: middle; }
+        .field { margin-bottom: 10px; }
+        .field-group { margin-top: 20px; }
+        .s-color-replacer { background: none repeat scroll 0 0 #FFFFFF; cursor: pointer; padding: 2px; }
+        .s-color-replacer .icon16 { margin: -1px 0 0; padding: 0; vertical-align: middle; }
+        .farbtastic { margin: 10px auto 0; }
+        .color-selected { border: 2px solid #000; }
+        .design-settings div { margin-bottom: 5px; }
+    </style>
+    {* Switcher *}
+    <link rel="stylesheet" href="{$wa_url}wa-content/js/jquery-plugins/ibutton/jquery.ibutton.min.css?v={$wa->version()}">
+    <script src="{$wa_url}wa-content/js/jquery-plugins/ibutton/jquery.ibutton.min.js"></script>
+
+    {* Farbtastic *}
+    <link rel="stylesheet" href="{$wa_url}wa-content/js/farbtastic/farbtastic.css?v={$wa->version()}">
+    <script src="{$wa_url}wa-content/js/farbtastic/farbtastic.js?v={$wa->version()}"></script>
+
+    <script type="text/javascript" src="{$plugin_url}js/whatsapp.js"></script>
+
+    <h1>[`WhatsApp share button`]</h1>
+    <div class="fields form">
+        <form action="about:blank" id="fields-form">
+            {$wa->csrf()}
+
+            <div class="field-group">
+                <div class="field">
+                    <div class="name">[`Plugin status`]:</div>
+                    <div class="value">
+                        <div class="ibutton-checkbox">
+                            <ul class="menu-h">
+                                <li>
+                                    <span id="switcher-off-label">[`Off`]</span>
+                                </li>
+                                <li>
+                                    <input class="switcher" type="checkbox" name="settings[enable]" value="1" {if !empty($settings['enable'])}checked="checked"{/if} />
+                                </li>
+                                <li>
+                                    <span id="switcher-on-label">[`On`]</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <h3>[`Settings`]</h3>
+                <div class="field">
+                    <div class="name">[`Button name`]:</div>
+                    <div class="value">
+                        <input type="text" name="settings[button_name]" value="{$settings['button_name']|escape}" />
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">[`Product page output places`]:</div>
+                    <div class="value">
+                        <label><input type="checkbox" name="settings[output_places][]" value="menu"{if isset($settings.output_places) && in_array('menu', $settings.output_places)} checked{/if}  /> [`Next to links to custom product pages`]</label><br />
+                        <label><input type="checkbox" name="settings[output_places][]" value="cart"{if isset($settings.output_places) && in_array('cart', $settings.output_places)} checked{/if} /> [`Next to the "Add to cart" button`]</label><br />
+                        <label><input type="checkbox" name="settings[output_places][]" value="block_aux"{if isset($settings.output_places) && in_array('block_aux', $settings.output_places)} checked{/if} /> [`Custom informational block, usually in a sidebar`]</label><br />
+                        <label><input type="checkbox" name="settings[output_places][]" value="block"{if isset($settings.output_places) && in_array('block',$settings.output_places)} checked{/if} /> [`Block of extra product details in main description area`]</label>
+                        <div class="hint">[`Output places depend on your Theme template. Contact to your developer, if you would like to change it`]</div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">[`Show only in mobile version`]:</div>
+                    <div class="value">
+                        <input type="checkbox" name="settings[only_mobile]" value="1" {if (!empty($settings['only_mobile']) || !isset($settings['only_mobile']))}checked{/if} />
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">[`Onclick javascript code`]:</div>
+                    <div class="value">
+                        <input type="text" name="settings[onclick]" value="{if isset($settings['onclick'])}{$settings['onclick']|escape}{/if}" />
+                        <div class="hint">[`Use for analytics. Any javascript errors can affect the plugin`]</div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="name">[`Message text`]:</div>
+                    <div class="value">
+                        <div>[`Use <b>%link%</b> as a product link and <b>%name%</b> as a product name`]</div>
+                        <textarea name="settings[message]" id="whatsapp-text">{if isset($settings['message'])}{$settings['message']|escape}{/if}</textarea>
+                        <div class="small">[`Symbols`] <span id="whatsapp-text-change">200</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="field-group">
+                <h3>[`Design`]</h3>
+
+                <div class="field">
+                    <div class="value design-settings">
+                            <div class="float-left">
+                                <div>
+                                    [`Button background color`]: #<input type="text" name="settings[button][background]" maxlength="6" value="{if !empty($settings.button.background)}{$settings.button.background}{/if}" class="s-color short">
+                                    <span class="s-color-replacer" style="margin-right: 50px;">
+                                        <i class="icon16" style="background: #{if !empty($settings.button.background)}{$settings.button.background}{/if};"></i>
+                                    </span>
+                                </div>
+                                <div>
+                                    [`Button text color`]: #<input type="text" name="settings[button][text]" maxlength="6" value="{if !empty($settings.button.text)}{$settings.button.text}{/if}" class="s-color short">
+                                    <span class="s-color-replacer" style="margin-right: 50px;">
+                                        <i class="icon16" style="background: #{if !empty($settings.button.text)}{$settings.button.text}{/if};"></i>
+                                    </span>
+                                </div>
+                                <div>
+                                    [`Button width`]: <input type="text" name="settings[button][width]" maxlength="4" value="{if isset($settings.button.width)}{$settings.button.width}{/if}" class="short"> px
+                                </div>
+                                <div>
+                                    [`Button height`]: <input type="text" name="settings[button][height]" maxlength="4" value="{if isset($settings.button.height)}{$settings.button.height}{/if}" class="short"> px
+                                </div>
+                                <div>
+                                    [`Font size`]: <input type="text" name="settings[button][size]" maxlength="2" value="{if isset($settings.button.size)}{$settings.button.size}{/if}" class="short"> px
+                                </div>
+                            </div>
+
+                            <div class="float-right">
+                                <div>
+                                    [`Padding`]: <input type="text" name="settings[button][padding]" value="{if isset($settings.button.padding)}{$settings.button.padding}{/if}">
+                                    <div class="small">[`Read more about padding <a href="http://www.w3schools.com/cssref/pr_padding.asp" target="_blank">here</a>`]</div>
+                                </div>
+                                <div>
+                                    [`Border color`]: #<input type="text" name="settings[border][color]" maxlength="6" value="{if !empty($settings.border.color)}{$settings.border.color}{/if}" class="s-color short">
+                                    <span class="s-color-replacer" style="margin-right: 50px;">
+                                        <i class="icon16" style="background: #{if !isset($settings.border.color)}3fb8e8{else}{$settings.border.color}{/if};"></i>
+                                    </span>
+                                </div>
+                                <div>
+                                    [`Border width`]: <input type="text" name="settings[border][width]" maxlength="2" value="{if isset($settings.border.width)}{$settings.border.width}{/if}" class="short"> px
+                                </div>
+                                <div>
+                                    [`Button border radius`]: <input type="text" name="settings[border][radius]" maxlength="3" value="{if isset($settings.border.radius)}{$settings.border.radius}{/if}" class="short"> px
+                                </div>
+                                <div>
+                                    [`Border style`]:
+                                    <select name="settings[border][style]">
+                                        <option value="none"{if isset($settings.border.style) && $settings.border.style == 'none'} selected{/if}>none</option>
+                                        <option value="dotted"{if isset($settings.border.style) && $settings.border.style == 'dotted'} selected{/if}>dotted</option>
+                                        <option value="dashed"{if isset($settings.border.style) && $settings.border.style == 'dashed'} selected{/if}>dashed</option>
+                                        <option value="solid"{if (isset($settings.border.style) && $settings.border.style == 'solid') || !isset($settings.border.style)} selected{/if}>solid</option>
+                                        <option value="double"{if isset($settings.border.style) && $settings.border.style == 'double'} selected{/if}>double</option>
+                                        <option value="groove"{if isset($settings.border.style) && $settings.border.style == 'groove'} selected{/if}>groove</option>
+                                        <option value="ridge"{if isset($settings.border.style) && $settings.border.style == 'ridge'} selected{/if}>ridge</option>
+                                        <option value="inset"{if isset($settings.border.style) && $settings.border.style == 'inset'} selected{/if}>inset</option>
+                                        <option value="outset"{if isset($settings.border.style) && $settings.border.style == 'outset'} selected{/if}>outset</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="clear-both"></div>
+                            <div id="s-colorpicker"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="field"><em class="errormsg"></em></div>
+            <div class="field"><input type="submit" class="button green" value="[`Save`]" /></div>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        $(function() {
+            $.whatsapp.init({
+                locale: {
+                    'Something wrong': '[`Something wrong`]'
+                }
+            });
+        });
+    </script>

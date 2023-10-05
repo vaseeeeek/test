@@ -1,0 +1,125 @@
+<h1 class="massupdating">
+	{$title} <span class="gray">({count($products)})</span>
+</h1>
+{$wa->csrf()}
+<input name="product_ids" type="hidden" id="massupdating-product-ids" value="{implode(',', array_keys($products))}"/>
+<div class="field-group massupdating-dialog">
+	{if ($action == 'massupdating' || $action == 'description' || $action == 'summary' || $action == 'meta_keywords' || $action == 'meta_title' || $action == 'meta_description' || $action == 'params')}<div class="field">
+		<p style="margin-bottom: 5px;">
+			[`В описании, кратком описании, заголовке страницы, META-полях и дополнительных параметрах можно использовать переменные:`]
+		</p>
+		<p>
+			<span class="variable"><b>{literal}{$name}{/literal}</b></span> — [`наименование товара`],
+			<span class="variable"><b>{literal}{$shop}{/literal}</b></span> — [`название магазина`],
+			<span class="variable"><b>{literal}{$price}{/literal}</b></span> — [`стоимость товара`],
+			<span class="variable"><b>{literal}{$summary}{/literal}</b></span> — [`краткое описание, только для заголовка title и META-полей`]
+		</p>
+	</div>{/if}
+	{if $action != 'badge' && $action != 'photo' && $action != 'subpages'}<div class="field">
+		<div class="value">
+			<label>
+				<input type="checkbox" name="dont-update-empty" checked />
+				[`Не обновлять оставленные пустыми поля`]
+		</div>
+	</div>{/if}
+	<div class="field">
+		<div class="value">
+			<label>
+				<input type="checkbox" name="reload" id="massupdating-reload"/>
+				[`Обновить страницу после сохранения`]
+			</label>
+		</div> <br/>
+	</div>
+{foreach from=$inputs key=key item=input}
+	<div class="field">
+		<div class="name{if $key == 'features'} bold" style="color: #000;{/if}">{if $key == 'features'}[`Редактировать характеристику...`]{else}{$input['name']}{/if}{if isset($input['name_description'])}<br/><span class="hint">{$input['name_description']}</span>{/if}</div>
+		<div class="value">
+			{if $input['params']['type'] == 'textarea'}
+			{if isset($input['params']['wysiwyg']) && $input['params']['wysiwyg']}
+			<ul id="massupdating-wysiwyg-switcher-{$key}" class="wa-editor-wysiwyg-html-toggle s-wysiwyg-html-toggle">
+				<li class="selected"><a class="wysiwyg" href="#">[s`WYSIWYG`]</a></li>
+				<li><a class="html" href="#">HTML</a></li>
+			</ul>
+			{/if}
+			<textarea placeholder="{if isset($input['different'])}[`Значения этого параметра у выбранных товаров отличаются.`]{/if}" name="{$key}" style="{ifset($input['params']['style'])}" id="massupdating-textarea-{$key}" class="massupdating-textarea-{$key} {ifset($input['params']['class'])}">{if $key == 'params'}{if !empty($input['value'])}{foreach $input['value'] as $k => $v}{if $k != 'order'}{$k}={$v|escape|cat:"\n"}{/if}{/foreach}{/if}{else}{ifset($input['value'])|escape}{/if}</textarea>
+			{if isset($input['params']['wysiwyg']) && $input['params']['wysiwyg']}
+			<script type="text/javascript">
+				(function(){
+					$.massupdating.initWysiwyg('#massupdating-textarea-{$key}');
+					$('#massupdating-wysiwyg-switcher-{$key} a').click(function(e) {
+						$.massupdating.toggleWysiwyg(e, '{$key}');
+						e.preventDefault();
+					});
+				})();
+			</script>
+			<style type="text/css">
+				#massupdating-textarea-{$key} {
+					width: 100%;
+					height: 220px;
+					-webkit-box-sizing: border-box;
+					-moz-box-sizing: border-box;
+					box-sizing: border-box;
+					margin-top: 22px;
+				}
+			</style>
+			{/if}
+			{else if $input['params']['type'] == 'input'}
+			<input placeholder="{if isset($input['different'])}[`Значения этого параметра у выбранных продуктов отличаются.`]{/if}" name="{$key}" style="{ifset($input['params']['style'])}" value="{ifset($input['value'])|escape}" id="massupdating-input-{$key}" class="massupdating-input-{$key} {ifset($input['params']['class'])}" />
+			{if $key == 'name'}
+			<p style="margin-top: 10px; margin-bottom: 5px;">
+				[`Для подстановки в название Вы можете использовать Smarty вместе с этими переменными (условные конструкции так же доступны):`]
+			</p><p>
+				<span class="variable"><b>{literal}{$price}{/literal}</b></span> — [`стоимость товара`],<br/>
+				<span class="variable"><b>{literal}{$min_price}{/literal}</b></span> — [`минимальная стоимость товара`],<br/>
+				<span class="variable"><b>{literal}{$max_price}{/literal}</b></span> — [`максимальная стоимость товара`],<br/>
+				<span class="variable"><b>{literal}{$feature['<span style="color: red;">brand</span>']['<span style="color: green;">value</span>']}{/literal}</b></span> — [`значение характеристики, где`] <span style="color: red;">brand</span> — [`код характеристики`], [`а`] <span style="color: green;">value</span> — [`выводимое значение характеристики (доступно: value, value_base_unit, unit, code, begin, end)`]
+			</p>
+			{/if}
+			{if $key == 'url'}
+			<p style="margin-top: 10px; margin-bottom: 5px;">
+				[`Кириллические символы будут транслитерованы. Разрешено использовать Smarty вместе с этими переменными:`]
+			</p><p>
+				<span class="variable"><b>{literal}{$name}{/literal}</b></span> — [`наименование товара`],<br/>
+				<span class="variable"><b>{literal}{$id}{/literal}</b></span> — [`ID товара`],<br/>
+				<span class="variable"><b>{literal}{$category[0]}</b></span> ... <span class="variable"><b>{$category[N]}{/literal}</b></span> — [`наименования категорий, в которые входит товар (по вложенности, от последней до первой)`]<br/>
+				<span class="variable"><b>{literal}{$category_url[0]}</b></span> ... <span class="variable"><b>{$category_url[N]}{/literal}</b></span> — [`URL категорий`]<br/>
+				<span class="variable"><b>{literal}{$r_category[N]}</b></span> [`и`] <span class="variable"><b>{$r_category_url[N]}{/literal}</b></span> — [`обратный массив с информациями по категориям (от первой до последней)`]<br/>
+			</p>
+			<div class="hint">{literal}
+				<b>Пример 1.</b> <font color="blue">{$category[0]}-{$name}-{$id}</font> <span class="red">naushniki-apple-earpods-394</span><br/>
+				<b>Пример 2.</b> <font color="blue">{$category_url[0]}-{$id}</font> <span class="red">headphones-394</span><br/>
+				<b>Пример 3.</b> <font color="blue">{implode('-', $r_category_url)}-{$name}</font> <span class="red">phones-accessories-headphones-apple-earpods</span>
+			{/literal}</div>
+			{/if}
+			{else}
+			{ifset($input['params']['field'])}
+			{include file="../fields/$key.html"}
+			{/if}
+			{if isset($input['description'])}<br/> <span class="hint">{$input['description']}</span>{/if}
+			{if $key == 'params'}<br/> <span class="hint">{_w("Optional set of custom <em>key=value</em> parameters which can be used within a frontend's theme template as <em>&#123;\$product.params.key&#125;</em>. Each key=value pair should be on a separate line.")}</span>{/if}
+		</div>
+	</div>
+	{if $key == 'features'}
+	<div class="massupdating-features-wrapper">
+		{if !empty($default_features)}
+		{foreach from=$default_features key=feature_key item=feature_input}
+		<div class="massupdating-freeze"><a class="massupdating-freeze-button" id="massupdating-freeze-{$feature_input['code']|escape}" href="javascript: $.massupdating.toggleField('{$feature_input['code']|escape}')">[`Заморозить`]</a></div>
+		<div data-disabled="0" id="massupdating-field-{$feature_input['code']|escape}" class="field massupdating-feature-field">
+			<div class="name" style="overflow: hidden;">{$feature_input['name']|escape}<br/><span class="hint">{$feature_input['code']|escape}</span></div>
+			<div class="value">{$feature_input['control']}</div>
+		</div>
+		{/foreach}
+		{/if}
+		{if !empty($features_for_all_types) && empty($default_features)}
+		{foreach from=$features_for_all_types key=feature_key item=feature_input}
+		<div class="massupdating-freeze"><a class="massupdating-freeze-button" id="massupdating-freeze-{$feature_input['code']|escape}" href="javascript: $.massupdating.toggleField('{$feature_input['code']|escape}')">[`Заморозить`]</a></div>
+		<div data-disabled="0" id="massupdating-field-{$feature_input['code']|escape}" class="field massupdating-feature-field">
+			<div class="name" style="overflow: hidden;">{$feature_input['name']|escape}<br/><span class="hint">{$feature_input['code']|escape}</span></div>
+			<div class="value">{$feature_input['control']}</div>
+		</div>
+		{/foreach}
+		{/if}
+	</div>
+	{/if}
+{/foreach}
+</div>

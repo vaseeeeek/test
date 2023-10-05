@@ -1,0 +1,27 @@
+<nav id="seoratings-nav-top">
+  <div class="seoratings-backend__actions--tabs">
+    <div class="seoratings-backend__actions--left">
+      <a class="seoratings-backend__link--tabs" data-js="handle__template__create"><i class="icon16 add"></i> Добавить шаблон</a>
+    </div>
+  </div>
+</nav>
+<div id="template-item-view">
+  <div class="seoratings-backend__main">
+    <div class="seoratings-backend__field">
+      {{#if hasTemplates}}
+        <div class="seoratings-backend__caption">Список шаблонов</div>
+        <div class="seoratings-backend__control">
+          <select class="seoratings-backend__select" name="seoratings_templates">
+            {{#each seoratings_templates}}
+              <option value="{{this.id}}">{{this.name}}</option>
+            {{/each}}
+          </select>
+          <span class="seoratings-backend__hint"><a data-js="handle__template__edit">Редактировать шаблон</a></span>
+        </div>
+      {{else}}
+        <p>Шаблонов не найдено. Для рейтингов будет использован стандартный шаблон. Нажмите <b>Добавить шаблон</b> что бы создать новый шаблон для вывода рейтингов.</p>
+      {{/if}}
+    </div>
+  </div>
+</div>
+<div id="template-item-form"></div>

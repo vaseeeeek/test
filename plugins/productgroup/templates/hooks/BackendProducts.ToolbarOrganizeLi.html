@@ -1,0 +1,26 @@
+<script>
+	window.shop_productgroup = {
+		resource_base_url: {"{$wa_app_static_url}plugins/productgroup/"|json_encode},
+	};
+</script>
+
+<script src="{shopProductgroupWaHelper::getStaticUrl('assets/backend_products_list.js')}?v={shopProductgroupWaHelper::getAssetVersion()}"></script>
+<link rel="stylesheet" href="{shopProductgroupWaHelper::getStaticUrl('assets/backend_products_list.css')}?v={shopProductgroupWaHelper::getAssetVersion()}">
+
+<script>
+	$(function () {
+		var product_list = $.product_list;
+		var add_to_list_button = document.getElementsByClassName('js-productgroup-add-to-group-button').item(0);
+
+		if (window.shop_productgroup_plugin_backend_products_list_controller && add_to_list_button && product_list) {
+			window.shop_productgroup_plugin_backend_products_list_controller.init(add_to_list_button, product_list);
+		}
+	});
+</script>
+
+<li class="productgroup-products-list__control-item">
+	{$image_path = shopProductgroupWaHelper::getStaticUrl('img/plugin.png')}
+	<a href="#" class="js-productgroup-add-to-group-button">
+		<img src="{$image_path}" alt="Группы товаров"> Добавить в группу
+	</a>
+</li>

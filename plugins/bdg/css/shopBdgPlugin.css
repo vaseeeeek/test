@@ -1,0 +1,37 @@
+.-b-,
+.badge_ {
+position: absolute;
+z-index: 100;
+left: -8px;
+top: 20px;
+text-align: center;
+}
+
+.-b- span,
+.badge_ span {
+color: #fff!important;
+padding: 4px 15px 5px;
+display:block;
+-webkit-border-top-left-radius: 3px;
+-webkit-border-top-right-radius: 5px;
+-webkit-border-bottom-right-radius: 5px;
+-moz-border-radius-topleft: 3px;
+-moz-border-radius-topright: 5px;
+-moz-border-radius-bottomright: 5px;
+border-top-left-radius: 3px;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
+box-shadow: rgba(128, 128, 128, 0.54) 1px 1px 1px;
+text-shadow: rgba(0, 0, 0, 0.39) 1px 1px 1px;
+}
+
+.-b- i,
+.badge_ i {
+display:block;
+width: 0;
+height: 0;
+margin:0 0 0 1px;
+border: #fff solid 3px;
+border-left-color: transparent!important;
+border-bottom-color: transparent!important;
+}

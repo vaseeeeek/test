@@ -1,0 +1,30 @@
+<div id="s-plugin-cwebp-div">
+    <button class="s-plugin-cwebp-delete">[`Delete created webp images`]</button><br>
+</div>
+<script>
+    $(".s-plugin-cwebp").hide();
+    $(".field:eq(0)").after('<div class="field"><div class="value"><a href="javascript:void(0);" class="hint" id="cwebp-advanced">[`Advanced settings`]</a></div></div>');
+    $(".field").slice(2, 7).hide();
+    $("#cwebp-advanced").click(function() {
+        $(".field").slice(2, 7).slideToggle();
+    });
+</script>
+<script>
+    $(".s-plugin-cwebp-delete").click(function (e) {
+        e.preventDefault();
+        $.get('?plugin=cwebp&action=delete', function() {
+            alert('[`All webp thumbnails removed`]');
+        })
+    });
+
+    $(function() {
+        if ($("input[name^='shop_cwebp[converters]']:checked").length === 0) {
+            $("input[name^='shop_cwebp[converters]']:enabled").prop('checked', true);
+            $("div.submit input").click()
+        }
+        if ($("input[name^='shop_cwebp[converters]']:checked:disabled").length > 0) {
+            $("input[name^='shop_cwebp[converters]']:checked:disabled").prop('checked', false);
+            $("div.submit input").click()
+        }
+    })
+</script>

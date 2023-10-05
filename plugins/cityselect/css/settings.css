@@ -1,0 +1,141 @@
+#plugins-settings-form small {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 20px;
+}
+.button.small {
+  font-size: 10px !important;
+  height: 26px !important;
+  line-height: 16px !important;
+  padding: 0 10px !important;
+  border: 1px solid #FDDA3B;
+  vertical-align: 2px;
+}
+.button.small.green {
+  border-color: green;
+}
+.input.big {
+  width: 500px !important;
+}
+#wa .CodeMirror,
+.dialog .CodeMirror {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+.CodeMirror-scroll {
+  height: auto;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.no-left {
+  margin-left: 0 !important;
+  clear: both;
+}
+.no-left textarea {
+  min-width: 600px !important;
+}
+.b-settings__copy_code {
+  font-weight: bold;
+  color: #555;
+}
+.b-sortable {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 800px;
+}
+.b-sortable li {
+  margin: 0 5px 5px 5px;
+  padding: 5px;
+  height: 1.5em;
+  line-height: 1.2em;
+}
+.b-sortable .ui-state-highlight {
+  height: 1.5em;
+  line-height: 1.2em;
+}
+.b-sortable .sort {
+  margin-top: 3px;
+}
+.b-sortable .delete {
+  float: right;
+  margin-top: 3px;
+}
+.b-sortable label {
+  margin-left: 16px;
+}
+.b-sortable input {
+  vertical-align: middle;
+}
+.b-cityselect__custom label {
+  margin-right: 20px;
+}
+.b-cityselect__delete {
+  display: inline-block;
+  float: right;
+}
+.b-settings__header {
+  background: #303030;
+  color: #fff;
+  margin: 0 0 20px 0;
+  padding: 10px;
+  font-weight: normal;
+  cursor: default;
+  text-transform: uppercase;
+  line-height: 1.2em;
+  font-size: 1em;
+}
+.b-settings__header small {
+  font-size: 80%;
+}
+.b-settings__doc_link {
+  color: #999;
+  display: inline-block;
+  margin-left: 20px !important;
+  padding-left: 20px !important;
+  text-transform: none !important;
+  background: url(https://ss.echo-company.ru/docs/wp-content/external_use/info.png) no-repeat left top;
+  background-size: 16px;
+}
+.b-settings__doc_link:visited {
+  color: #999;
+}
+.b-settings__submenu {
+  list-style: none;
+  margin: 0 0 30px;
+  padding: 0;
+}
+.b-settings__submenu li {
+  list-style: none;
+  margin: 0 30px 0 0;
+  padding: 0;
+  display: inline-block;
+}
+.b-settings__submenu img {
+  vertical-align: middle;
+}
+.b-settings__submenu a {
+  text-decoration: none;
+}
+.b-settings__small_dialog .dialog-window {
+  min-width: 0 !important;
+}
+.b-settings__middle_dialog .dialog-window {
+  min-width: 700px !important;
+}
+.b-settings__small_editor .CodeMirror {
+  padding: 2px !important;
+}
+.b-settings__dialog_error i {
+  vertical-align: middle;
+}
+.b-settings__right {
+  float: right;
+}
+.dialog-content .b-settings__copy_code,
+.dialog-content .b-settings__copy_code_input {
+  margin-top: 0;
+}
+.field .name.no-top {
+  padding-top: 0 !important;
+}

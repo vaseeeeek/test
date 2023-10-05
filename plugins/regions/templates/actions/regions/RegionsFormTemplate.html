@@ -1,0 +1,599 @@
+<link rel="stylesheet" href="{$wa_url}wa-content/js/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="{$wa_url}wa-content/js/redactor/redactor.css">
+
+<script src="{$wa_url}wa-content/js/codemirror/lib/codemirror.js"></script>
+<script src="{$wa_url}wa-content/js/codemirror/mode/xml/xml.js"></script>
+<script src="{$wa_url}wa-content/js/codemirror/mode/javascript/javascript.js"></script>
+<script src="{$wa_url}wa-content/js/codemirror/mode/css/css.js"></script>
+<script src="{$wa_url}wa-content/js/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+<script src="{$wa_url}wa-content/js/redactor/redactor.min.js"></script>
+{$lang = substr($wa->locale(), 0, 2)}
+{if $lang != 'en'}
+<script src="{$wa_url}wa-content/js/redactor/{$lang}.js"></script>
+{/if}
+
+{$sidebar}
+
+
+<div class="content left200px block double-padded">
+	{if $city_id|default:0}
+	<div class="float-right">
+		<div class="block">
+			<h6 class="heading">Организовать</h6>
+		</div>
+		<ul class="menu-v with-icons">
+			<li class="bottom-padded{if $action == 'clone'} selected{/if}">
+				<a href="?plugin=regions&action=clone&id={$city_id}">
+					<i class="icon16 split"></i>Создать дубликат
+				</a>
+			</li>
+		</ul>
+	</div>
+	{/if}
+
+	<div class="right200px">
+		<h1 class="city-page__header">
+			{block name='header'}{/block}
+		</h1>
+
+		<form class="hidden" id="form-upload"
+				action="?plugin=regions&module=data&action=uploadFiles"
+				method="post" enctype="multipart/form-data"
+				target="form-upload-iframe"></form>
+
+		<iframe class="hidden"
+				name="form-upload-iframe"></iframe>
+
+		<form class="form form_ajax city__form"
+				action="{block name='form_action'}{/block}"
+				method="post">
+
+			<input class="city-storefront__domain" name="domain" form="form-upload" type="hidden">
+			<input name="_csrf" form="form-upload" type="hidden" value="{htmlspecialchars($wa->cookie('_csrf', ''))}">
+			{$wa->csrf()}
+
+			<div class="field-group field-group_enable-helper">
+
+				<div class="field-group__fields">
+
+					<div class="field-box">
+
+						<label class="field-box__label" for="city_is-enable">
+							Включён
+						</label>
+
+						<div class="field-box__field">
+							<div class="select-box">
+								<select class="select-box__input" id="city_is-enable"
+										name="city[is_enable]">
+									<option value="">Нет</option>
+									<option value="1"{if $city['is_enable']|default:false} selected{/if}>
+										Да
+									</option>
+								</select>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="field-box">
+
+						<label class="field-box__label" for="city_is-popular">
+							Популярный
+						</label>
+
+						<div class="field-box__field">
+							<div class="select-box">
+								<select class="select-box__input" id="city_is-popular"
+										name="city[is_popular]">
+									<option value="">Нет</option>
+									<option value="1"{if $city['is_popular']|default:false} selected{/if}>
+										Да
+									</option>
+								</select>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="field-box">
+						<label class="field-box__label" for="city_is_default_for_storefront">
+							Регион по-умолчанию (для витрины)
+						</label>
+
+						<div class="field-box__field">
+							<select id="city_is_default_for_storefront" name="city[is_default_for_storefront]">
+								<option value="">Нет</option>
+								<option value="1"{if $city['is_default_for_storefront']|default:false} selected{/if}>
+								Да
+								</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="field-group__helper">
+					<span class="variable__name">{ldelim}$region.country{rdelim}</span>
+				</div>
+
+				<div class="field-group__fields">
+					<div class="field-box">
+
+						<label class="field-box__label" for="city_country-iso3">
+							Страна
+						</label>
+
+						<div class="field-box__field">
+							<div class="select-box select-box_ajax city__country"
+									data-action="?plugin=regions&module=data&action=regions"
+									data-method="post"
+									data-datatype="json">
+
+								<select class="select-box__input" id="city_country-iso3"
+										name="city[country_iso3]">
+									<option value="">- Не выбрано -</option>
+									{foreach $countries as $country}
+										<option value="{$country['iso3letter']}"
+												{if $country['iso3letter'] == $city['country_iso3']|default:''} selected{/if}>
+											{$country['name']}
+										</option>
+									{/foreach}
+								</select>
+
+								<div class="select-box__status">
+
+			                        <span class="form-status form-status_loading form-status_hidden">
+			                            <span class="form-status__icon"><i class="icon16 loading"></i></span>
+			                            <span class="form-status__text">Загрузка</span>
+			                        </span>
+
+			                        <span class="form-status form-status_success form-status_hidden">
+			                            <span class="form-status__icon"><i class="icon16 yes"></i></span>
+			                            <span class="form-status__text">Загружено</span>
+			                        </span>
+
+			                        <span class="form-status form-status_error form-status_hidden">
+			                            <span class="form-status__icon"></span>
+			                            <span class="form-status__text">Произошла ошибка</span>
+			                        </span>
+
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="field-group__helper">
+					<span class="variable__name">{ldelim}$region.area{rdelim}</span>
+				</div>
+
+				<div class="field-group__fields">
+					<div class="field-box">
+
+						<label class="field-box__label" for="city_region-code">
+							Регион/область/край
+						</label>
+
+						<div class="field-box__field">
+							<div class="select-box">
+								<select class="city__region-code select-box__input" id="city_region-code"
+										name="city[region_code]">
+									<option value="">- Не выбрано -</option>
+									{foreach $country_regions|default:array() as $_region}
+										<option value="{$_region['code']}"
+												{if $_region['code'] == $city['region_code']|default:''} selected{/if}>
+											{$_region['name']}
+										</option>
+									{/foreach}
+								</select>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="field-group__helper">
+					<span class="variable__name">{ldelim}$region.name{rdelim}</span>
+				</div>
+
+				<div class="field-group__fields">
+					<div class="field-box">
+
+						<label class="field-box__label" for="city_name">
+							Название города
+						</label>
+
+						<div class="field-box__field" >
+							<input class="large field-box__input-text" id="city_name"
+									name="city[name]" type="text" value="{$city['name']|default:''|escape}">
+						</div>
+
+					</div>
+				</div>
+
+				<div class="field-group__helper">
+					<span class="variable__name">{ldelim}$region.phone{rdelim}</span>
+				</div>
+
+				<div class="field-group__fields">
+					<div class="field-box">
+
+						<label class="field-box__label" for="city_phone">
+							Телефон
+						</label>
+
+						<div class="field-box__field bsui-smarty-textarea" data-cm_mode="htmlmixed">
+							<input class="field-box__input-text bsui-smarty-textarea__control" id="city_phone"
+									name="city[phone]" type="text"
+									value="{$city['phone']|default:''|escape}">
+						</div>
+
+					</div>
+				</div>
+
+				<div class="field-group__helper">
+					<span class="variable__name">{ldelim}$region.email{rdelim}</span>
+				</div>
+
+				<div class="field-group__fields">
+					<div class="field-box">
+
+						<label class="field-box__label" for="city_email">
+							E-mail
+						</label>
+
+						<div class="field-box__field bsui-smarty-textarea" data-cm_mode="htmlmixed">
+							<input class="field-box__input-text bsui-smarty-textarea__control" id="city_email"
+									name="city[email]" type="text"
+									value="{$city['email']|default:''|escape}">
+						</div>
+
+					</div>
+				</div>
+
+				<div class="field-group__helper">
+					<div class="variable__name">{ldelim}$region.schedule{rdelim}</div>
+				</div>
+
+				<div class="field-group__fields">
+					<div class="field-box">
+
+						<label class="field-box__label" for="city_schedule">
+							График работы
+						</label>
+
+						<div class="field-box__field bsui-smarty-textarea" data-cm_mode="htmlmixed">
+							<input class="field-box__input-text bsui-smarty-textarea__control" id="city_schedule"
+									name="city[schedule]" type="text"
+									value="{$city['schedule']|default:''|escape}">
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="field-group field-group_enable-helper">
+
+				<h2 class="field-group__header">
+					Дополнительные поля региона
+				</h2>
+
+				<div class="form__description">
+					<div>Вы можете использовать данные переменные в шаблонах темы дизайна и информационных страницах.</div>
+					<div>Для этого используйте код
+						<span class="variable__name">
+							{ldelim}shopRegionsViewHelper::parseTemplate('{ldelim}код переменной{rdelim}'){rdelim}
+						</span>
+					</div>
+				</div>
+
+				{foreach $params as $param}
+					<div class="field-group field-group_tiny field-group_enable-helper">
+
+						<div class="field-group__helper">
+							<span class="variable__name">{ldelim}$region.field[{$param['id']}]{rdelim}</span>
+						</div>
+
+						<div class="field-group__fields">
+							<div class="field-box">
+
+								<label class="field-box__label" for="city_param-{$param['id']}">
+									{$param.name|escape}
+								</label>
+
+								<div class="field-box__field bsui-smarty-textarea" data-cm_mode="htmlmixed">
+									<input class="field-box__input-text bsui-smarty-textarea__control" id="city_param-{$param['id']}"
+											name="city[params][{$param['id']}]" type="text"
+											value="{$city['params'][$param['id']]|default:''|escape}">
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				{/foreach}
+
+				{if $settings_are_available}
+					{if count($params)}
+						<div class="field-group__fields">
+							<div class="field-group__description">
+								Добавить дополнительные поля вы можете в <a href="?action=plugins#/regions/" target="_blank"
+										class="hide-indicator">настройках плагина</a>.
+							</div>
+						</div>
+					{else}
+						<div class="form__description">
+							Добавить дополнительные поля вы можете в <a href="?action=plugins#/regions/" target="_blank"
+									class="hide-indicator">настройках плагина</a>.
+						</div>
+					{/if}
+				{/if}
+
+			</div>
+
+			<div class="field-group field-group_enable-helper city__storefront-field-group
+					{if $city['storefront']|default:'' == ''}city__storefront-field-group_unlinked{/if}">
+
+				<h2 class="bsui-page__sub-header field-group__header">
+					Выбор и настройка витрины
+				</h2>
+
+				<div class="form__description">
+					Полные настройки витрины находятся в настройках приложения "Сайт" и "Магазин".
+				</div>
+
+				<div class="field-group__fields">
+
+					<div class="field-box">
+
+						<label class="field-box__label" for="city_storefront">
+							Витрина
+						</label>
+
+						<div class="field-box__field">
+							<div class="select-box select-box_ajax city__storefront-select"
+									data-action="?plugin=regions&module=data&action=storefront"
+									data-method="post"
+									data-datatype="json">
+								<div>
+
+									<select class="select-box__input" id="city_storefront" name="city[storefront]">
+										<option value="">- Не выбрано -</option>
+										{foreach $storefronts as $_storefront_params}
+											<option value="{$_storefront_params.name|escape}"
+													{if $city['storefront']|default:'' == $_storefront_params.name} selected="selected"{/if}
+													data-domain="{$_storefront_params.domain|escape}" data-route="{$_storefront_params.route|escape}"
+											>
+												{$_storefront_params.title|escape}
+											</option>
+										{/foreach}
+									</select>
+
+									<input type="hidden" name="city[domain]" value="{$city.domain_name|default:''}">
+									<input type="hidden" name="city[route]" value="{$city.route|default:''}">
+
+									<div class="select-box__status">
+
+				                        <span class="form-status form-status_loading form-status_hidden">
+				                            <span class="form-status__icon"><i class="icon16 loading"></i></span>
+				                            <span class="form-status__text">Загрузка</span>
+				                        </span>
+
+				                        <span class="form-status form-status_success form-status_hidden">
+				                            <span class="form-status__icon"><i class="icon16 yes"></i></span>
+				                            <span class="form-status__text">Загружено</span>
+				                        </span>
+
+				                        <span class="form-status form-status_error form-status_hidden">
+				                            <span class="form-status__icon"></span>
+				                            <span class="form-status__text">Произошла ошибка</span>
+				                        </span>
+
+									</div>
+
+								</div>
+
+								<div class="city__storefront-actions">
+									<a class="city__trigger-show-clone-form link-box"><i class="icon16 split"></i>Клонировать витрину</a> 
+
+									{if $settings_are_available}
+									<a class="city__storefront-link link-box"
+											href="?action=storefronts#/design/theme=null&domain={$storefront_settings['domain']['name']|ifset:''}&route={$storefront_settings['domain']['route_index']|ifset:''}&action=settings"
+											target="_blank">  <i class="icon16 settings"></i>Настройки витрины</a> 
+									{/if}
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="field-box field-box_linked">
+
+						<label class="field-box__label" for="city_storefront_robots-txt">
+							<i class="icon16 link" title="Связан с доменом"></i> Robots.txt
+						</label>
+
+						<div class="field-box__field">
+							<textarea class="field-box__text-area  text-area_syntax-highlight  text-area_syntax-highlight_plain city-storefront__robots-txt"
+									id="city_storefront_robots-txt"
+									name="storefront[robots_txt]" rows="1">{*
+								*}{$storefront_settings['domain']['robots_txt']|ifset:''|escape}{*
+							*}</textarea>
+						</div>
+
+					</div>
+
+					<div class="field-box field-box_linked field-box_sep">
+
+						<label class="field-box__label" for="city_storefront_head">
+							<i class="icon16 link" title="Связан с доменом"></i> Код в HEAD
+						</label>
+
+						<div class="field-box__field bsui-smarty-textarea bsui-smarty-textarea_big" data-cm_mode="htmlmixed">
+							<textarea class="field-box__text-area bsui-smarty-textarea__control city-storefront__head"
+									id="city_storefront_head"
+									name="storefront[head]" rows="1">{*
+								*}{$storefront_settings['domain']['head']|ifset:''|escape}{*
+							*}</textarea>
+						</div>
+
+						<div class="field-group__description">
+							Для вставки мета-тэга подтверждения сайта в поисковых системах.
+						</div>
+
+					</div>
+
+					<div class="field-box field-box_linked">
+
+						<label class="field-box__label" for="city_storefront_favicon">
+							<i class="icon16 link" title="Связан с доменом"></i> Favicon
+						</label>
+
+						<div class="field-box__field">
+							<div class="file-box">
+
+								<span>
+									<img class="city-storefront__favicon" src="">
+								</span>
+
+								<input class="file-box__input" id="city_storefront_favicon"
+										name="favicon" type="file"
+										form="form-upload">
+
+							</div>
+						</div>
+					</div>
+
+					<div class="field-box field-box_linked">
+
+						<label class="field-box__label" for="city_storefront_touch-icon">
+							<i class="icon16 link" title="Связан с доменом"></i> Favicon для iOS
+						</label>
+
+						<div class="field-box__field">
+							<div class="file-box">
+
+								<span>
+									<img class="city-storefront__touch-icon" src="">
+								</span>
+
+								<input class="file-box__input"  id="city_storefront_touch-icon"
+										name="touch_icon" type="file"
+										form="form-upload">
+
+							</div>
+						</div>
+
+					</div>
+
+					<div class="field-box field-box_linked field-box_sep">
+
+						<label class="field-box__label" for="city_storefront_regions_ssl">
+							<i class="icon16 link" title="Связан с доменом"></i> Использовать https на витрине
+						</label>
+
+						<div class="field-box__field">
+							<select class="select-box__input city-storefront__regions_ssl" name="storefront[regions_ssl]" id="city_storefront_regions_ssl">
+								<option value="">По-умолчанию</option>
+								<option value="1" {if $storefront_settings.regions_ssl|ifset:'' === '1'}selected="selected"{/if}>Да</option>
+								<option value="0" {if $storefront_settings.regions_ssl|ifset:'' === '0'}selected="selected"{/if}>Нет</option>
+							</select>
+						</div>
+
+					</div>
+
+					<h2 class="bsui-page__sub-header field-group__header">
+						Настройки склада, способы оплаты и доставки
+					</h2>
+
+					<div class="form__description">
+						<div>Настройки склада, способы оплаты и доствки Вы можете унаследовать от витрины, либо задать персональные для региона.</div>
+					</div>
+
+					<div>
+						<label>
+							<input class="js-specific_settings_enabled_input" type="radio" name="specific_settings_enabled" value="0" {if $specific_settings_enabled == '0'}checked="checked"{/if}>
+							Наследовать от витрины
+						</label>
+
+						<label class="left_10_percent">
+							<input class="js-specific_settings_enabled_input" type="radio" name="specific_settings_enabled" value="1" {if $specific_settings_enabled == '1'}checked="checked"{/if}>
+							Задать персонально для региона
+						</label>
+					</div>
+
+
+					<div class="js-storefront_options_block {if $specific_settings_enabled != '0'}hidden{/if}">
+						{$storefront_options}
+					</div>
+
+					<div class="js-storefront_specific_options_block {if $specific_settings_enabled != '1'}hidden{/if}">
+						{$region_specific_storefront_options}
+					</div>
+
+
+					{if $settings_are_available}
+						<div class="field-box city-storefront__pages field-box_linked">
+							<h2 class="subcategory_header">Информационные страницы</h2>
+
+							<label class="field-box__label">
+								<i class="icon16 link" title="Наследуется из настроек витрины"></i> Информационные страницы
+							</label>
+
+							<div class="field-box__field">
+								<div class="city_storefront__pages-list">
+									{foreach $storefront_pages|default:array() as $_page}
+									<a href="?action=storefronts#/pages/{$_page.id}" target="_blank">{$_page.name}</a>{if !$_page@last},{/if}
+									{/foreach}
+								</div>
+							</div>
+
+
+							<div class="field-group__description">
+								Для настройки общего шаблона для всех страниц перейдите в <a href="?action=plugins#/regions/">настройки</a>.
+							</div>
+
+						</div>
+					{/if}
+
+				</div>
+
+			</div>
+
+			<div class="form__footer">
+
+				<input type="hidden" name="is_submit" value="1">
+
+				<div class="submit-box">
+
+					<button class="submit-box__button button green">Сохранить</button>
+
+					<div class="submit-box__status">
+			            <span class="form-status form-status_loading form-status_hidden">
+			                <span class="form-status__icon"><i class="icon16 loading"></i></span>
+			                <span class="form-status__text">Загрузка</span>
+			            </span>
+			            <span class="form-status form-status_success form-status_hidden">
+			                <span class="form-status__icon"><i class="icon16 yes"></i></span>
+			                <span class="form-status__text">Сохранено</span>
+			            </span>
+			            <span class="form-status form-status_error form-status_hidden">
+			                <span class="form-status__icon"></span>
+			                <span class="form-status__text">Произошла ошибка</span>
+			            </span>
+					</div>
+
+				</div>
+
+			</div>
+		</form>
+
+		<div class="template-box">
+			<div class="template-page-link">
+				<a></a>
+			</div>
+		</div>
+	</div>
+</div>

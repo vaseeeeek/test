@@ -1,0 +1,144 @@
+{$js}{$css}
+<h1>Настройка плагина</h1>
+<div id="desc-block">
+	<p>Плагин позволяет закрепить один или несколько подарков за товаром в определенном порядке. Подарки к товару назначаются в редакторе товара. При завершении оформления заказа подарки закрепляются за заказом как товары с нулевой ценой.</p>
+
+	<p>Блок с подарком выводится на странице товара через хук frontend_product.block. Также этот блок возможно вывести через хелпер плагина {literal}{shopGiftPlugin::block($product_id)}{/literal}, где $product_id - идентификатор товар. На странице корзины выводится блок выбора подарков через хук frontend_cart. Так же предоставлена возможность вывода этого блока на страницах оформления заказа через хук frontend_checkout. Здесь покупатель имеет возможность выбрать подходящие подарки из предложенных или отказаться от ненужных.</p>
+
+	<p>Товары-подарки - это товары из каталога товаров. Для назначения товара подарком необходимое поместить его в список товаров с определенным в настройках плагина идентификатором.</p>
+
+	<p>Для корректной работы плагина необходимо выполнить две предварительные настройки.</p>
+
+	<p><i>1. Настройка уведомлений при оформлении заказа</i><br>
+	Так как включение подарков в состав заказа происходит после отправки уведомления об оформлении заказа, то в стандартных уведомлениях подарки будут отсутствовать. Для включения подарков в уведомления необходимо создать новые уведомления, привязанные к событию с идентификатором <b>gift</b>. Событие с идентификатором <b>gift</b> необходимо создать в разделе настройки "Статусы заказов".</p>
+	<p><i>2. Настройка синхронизации блока подарков с содержимым корзины.</i><br>
+	В большинстве тем дизайна перерасчет содержимого корзины происходит без перезагрузки страницы. А содержимое блока с подарками зависит от количества продуктов в корзине, поэтому необходима синхронизация. Для этого нужно вставить <br><b>$.giftCart();</b><br> внутрь функции updateCart, которая находится в файле cart.js вашей темы дизайна.</p>
+	<p>При возникновении затруднений с предварительной настройкой обратитесь в техподдержку плагина.</p>
+	
+	<p>В состав плагина входят два хелпера:<br>
+	{literal}
+	1. <b>{shopGiftPlugin::gifts($product_id)}</b> позволяет вывести блок подарков для товара с идентификатором $product_id<br>
+	2. <b>{shopGiftPlugin::products($gift_id,$product_id)}</b> позволяет вывести блок списка товаров, при покупке которых предлагаются подарки с идентификатором $gift_id или подаки товара с идентификатором $product_id. $gift_id - идентификатор товара-подарка или массив идентификаторов товаров-подарков. Если $gift_id не пуст, то $product_id не учитывается и этот параметр можно не указывать, если $gift_id пуст, то учитывается только $product_id.<br>
+	Примеры:<br>
+	<b>{shopGiftPlugin::products(1)}</b> - выводит товары с подарком, id подарка - 1<br>
+	<b>{shopGiftPlugin::products([1,2])}</b> - выводит товары с подарком, id подарков - 1 и 2<br>
+	<b>{shopGiftPlugin::products(0,1)}</b> - выводит товары с теми подарками, которые есть у товара с id = 1<br>
+	{/literal}
+	</p>
+</div>
+<div class="block block-frontend-disign">
+	<h4>
+		<i class="icon16 palette"></i>Дизайн плагина на витрине для темы 
+		<select name="theme" id="select-frontend-disign-theme">
+			{foreach $themes as $theme}
+			<option value="{$theme}">{$theme}</option>
+			{/foreach}
+		</select>
+	</h4>
+	<a href="#" class="inline-link" data-mode="text/css" data-name="css">css-стили</a>
+	<a href="#" class="inline-link" data-mode="text/javascript" data-name="js">js-скрипты</a>
+	<a href="#" class="inline-link" data-mode="text/html" data-name="products">блок "товары с подарком"</a>
+	<a href="#" class="inline-link" data-mode="text/html" data-name="gift">блок "подарки товара"</a>
+	<div id="frontend-disign-dialog" style="display:none;">
+		<textarea style="display:none;"></textarea>
+		{$wa->csrf()}
+	</div>
+	<div>
+		<span class="hint">По умолчанию дизайн плагина на витрине один и тот же для всех витрин. Если требуется настоить индивидуальный дизайн для каждой витрины, выберите тему в выпадающем списке, кликните на нужный блок и внесите необходимые правки.</span>
+	</div>
+</div>
+
+<div id="gift-css-dialog" style="display:none;">
+	<textarea name="gift_css">{$gift_css}</textarea>
+	{$wa->csrf()}
+</div>
+<div id="gift-js-dialog" style="display:none;">
+	<textarea name="gift_js">{$gift_js}</textarea>
+	{$wa->csrf()}
+</div>
+<div id="gift-products-html-dialog" style="display:none;">
+	<textarea name="products_html">{$products_html}</textarea>
+	{$wa->csrf()}
+</div>
+<div id="gift-gift-html-dialog" style="display:none;">
+	<textarea name="gift_html">{$gift_html}</textarea>
+	{$wa->csrf()}
+</div>
+
+<div class="fields form">
+	<form action="?module=plugins&id=gift&action=save" method="post" id="plugins-settings-form">
+	{$wa->csrf()}
+	<div class="field-group">
+		<div class="field">
+			<div class="name">
+				Включить плагин
+			</div>
+			<div class="value">
+				<input type="checkbox" name="shop_gift[on]" value="1"{if $settings.on|default:0} checked{/if}>
+			</div>
+		</div>
+		<div class="field">
+			<div class="name">
+				Включить вывод блока "подарки товара" через хук frontend_product.block
+			</div>
+			<div class="value">
+				<input type="checkbox" name="shop_gift[gift]" value="1"{if $settings.gift|default:0} checked{/if}>
+				<br>
+				<span class="hint">для вывода блока "подарки товара" на странице товара.<br> Блок можно вывести хелпером плагина <b>{literal}{shopGiftPlugin::gifts($product_id)}{/literal}</b>.</span>
+			</div>
+		</div>
+		<div class="field">
+			<div class="name">
+				Включить вывод блока выбора подарков через хук frontend_checkout
+			</div>
+			<div class="value">
+				<input type="checkbox" name="shop_gift[checkout]" value="1"{if $settings.checkout|default:0} checked{/if}>
+				<br>
+				<span class="hint">для вывода блока выбора подарка в разделе оформления заказа</span>
+			</div>
+		</div>
+		<div class="field">
+			<div class="name">
+				Включить вывод блока "товары с подарком"
+			</div>
+			<div class="value">
+				<input type="checkbox" name="shop_gift[products]" value="1"{if $settings.products|default:0} checked{/if}>
+				<br>
+				<span class="hint">для вывода блока "товары с подарком" на странице товара и странице корзины.<br> Блок можно вывести хелпером плагина <b>{literal}{shopGiftPlugin::products($gift_id,$product_id)}{/literal}</b>.</span>
+			</div>
+		</div>
+		<div class="field">
+			<div class="name">
+				Максимальное количесто товаров в блоке "товары с подарком"
+			</div>
+			<div class="value">
+				<input type="text" name="shop_gift[max_product_count]" value="{$settings.max_product_count|default:10}">
+			</div>
+		</div>
+		<div class="field">
+			<div class="name">
+				Идентификатор списка товаров
+			</div>
+			<div class="value">
+				<input type="text" name="shop_gift[list_id]" value="{$settings.list_id|default:gifts}">
+			</div>
+		</div>
+	</div>
+	<div class="field">
+		<div class="value submit">
+			<input type="submit" class="button green" value="Сохранить">
+			<span id="plugins-settings-form-status" style="display:none">
+				<i style="vertical-align:middle" class="icon16 yes"></i> [`Saved`]
+			</span>
+		</div>
+	</div>
+	</form>
+</div>
+
+
+<script type="text/javascript">
+$(function(){
+	$('#desc-block').waapplugindesc();
+	$('.block-frontend-disign').waapplugindisign({ plugin_id:'gift' });
+})
+</script>

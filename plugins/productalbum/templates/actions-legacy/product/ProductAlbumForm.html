@@ -1,0 +1,18 @@
+<style>
+{$css_content}
+</style>
+<div class="productalbum productalbum--backend" data-product-id>
+    {* <h1 class="productalbum__title">Альбомы для продукта ID: {$product_id}</h1> *}
+    
+    {$selectedId = $selectedAlbum['album_id']}
+    <select id="productalbum-select" name="album_id">
+        <option value="">Выберите альбом</option>
+        {foreach $photosAlbums as $album}
+            <option value="{$album.id}"{if $album.id == $selectedId}selected="selected"{/if}>{$album.name}</option>
+        {/foreach}
+    </select>
+</div>
+
+<script>
+    {$js_content}
+</script>

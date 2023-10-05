@@ -1,0 +1,43 @@
+<div class="brands-search">
+    {if $brands_search}
+    <div class="brands-search-wrapper">
+        <input type="text" class="brands-search-input" placeholder="Поиск Брендов">
+        <div class="brands-search-clear">
+            <svg class="brands-search-clear-icon " width="12" height="12" fill="currentColor">
+                <path d="M12 1.209L10.791 0 6 4.791 1.209 0 0 1.209 4.791 6 0 10.791 1.209 12 6 7.209 10.791 12 12 10.791 7.209 6 12 1.209z"></path>
+            </svg>
+        </div>
+    </div>
+    {/if}
+
+    {if $brands_alpha && count($letters)}
+    {$has_en_letters = count($letters['en_letters'])}
+    {$has_ru_letters = count($letters['ru_letters'])}
+    {$has_numbers = count($letters['numbers'])}
+
+    <div class="brands-letters">
+        <div class="brands-letters_header">По алфавиту</div>
+        {if $has_en_letters}
+        <ul class="brands-letters__list">
+            {foreach $letters['en_letters'] as $e}
+            <li class="brands-letters__item" data-letter="{$e}">{$e}</li>
+            {/foreach}
+        </ul>
+        {/if}
+        {if $has_ru_letters || $has_numbers}
+        <ul class="brands-letters__list">
+            {if $has_ru_letters}
+            {foreach $letters['ru_letters'] as $r}
+            <li class="brands-letters__item" data-letter="{$r}">{$r}</li>
+            {/foreach}
+            {/if}
+            {if $has_numbers}
+            {foreach $letters['numbers'] as $n}
+            <li class="brands-letters__item" data-letter="{$n}">{$n}</li>
+            {/foreach}
+            {/if}
+        </ul>
+        {/if}
+    </div>
+    {/if}
+</div>

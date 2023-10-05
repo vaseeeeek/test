@@ -1,0 +1,40 @@
+ul.menu-h li { padding:4px 0; vertical-align:middle; }
+.plugins label { font-size:12px; }
+select { padding:3px 5px; }
+
+.field .value input[type="text"],
+.field .value input[type="password"] { width:200px; }
+
+#wa .CodeMirror { background:#fff; border:1px solid #ccc; padding:10px; overflow:hidden; height:auto; }
+#wa .CodeMirror-scroll { height:auto; overflow:hidden; }
+
+.plugins { width:100%; }
+.plugins__list { padding:15px 20px; }
+.plugins__form { display:none; }
+.plugins__list_active { background:#eaf5f7; }
+.plugins__list_active .plugins__form { display:block; }
+.plugins__name { display:inline-block; font-style:italic; opacity:.5; }
+.plugins__name_active { opacity:1; }
+.plugins__name span { color:#aaa; font-size:14px; }
+.plugins__edit { color:#aaa; cursor:pointer; display:none; font-size:12px; font-style:italic; margin:0 20px; }
+.plugins__edit span { border-bottom:1px dashed; }
+.plugins__delete { border-bottom:1px dashed; color:#aaa; cursor:pointer; display:none; font-size:12px; font-style:italic; }
+.plugins__list_active .plugins__edit,
+.plugins__list_active .plugins__delete,
+.plugins__list:hover .plugins__edit,
+.plugins__list:hover .plugins__delete { display:inline-block; }
+
+.plugins__list .field .name { width:145px; }
+.plugins__list .field .value { margin-left:160px; }
+
+.plugins input,
+.plugins textarea { padding:2px 5px; }
+.plugins .button { padding:2px 15px 3px; }
+
+.plugins__inp input[type="text"] { width:150px!important; min-width:150px!important; }
+.plugins__inp select { width:164px; }
+
+.plugins__editTextarea { color:#aaa; cursor:pointer; display:inline-block; font-size:12px; font-style:italic; padding-top:0.45em; margin-bottom:10px }
+.plugins__editTextarea span { border-bottom:1px dashed; }
+
+.plugins__reset { border-bottom:1px dashed; color:#aaa; cursor:pointer; display:inline-block; font-size:12px; font-style:italic; padding-top:0.45em; margin-bottom:10px; margin-left:20px;  }

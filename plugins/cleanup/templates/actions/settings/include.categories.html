@@ -1,0 +1,120 @@
+{if !empty($categories)}
+        {literal}
+            <script type="text/javascript">
+            $('#tree').jstree({
+                "plugins" : [ "wholerow", "checkbox" ],
+              "core" : {
+                "check_callback":true,
+              },
+              "checkbox" : {
+                "keep_selected_style" : false,
+                "three_state":false,
+                "cascade":'down'
+              },
+            });
+            $("#btn-category-submit").click(function() {$("#s-cleanup-form-category").submit();});
+            $('#s-cleanup-form-category').submit(function(e){
+                e.preventDefault();
+                var $form = $( this ),
+                    url = $form.attr( "action" ),
+                    csrf = $('[name=_csrf]').attr("value"),
+                    limitCatImages=$('#chk-category-images').is(':checked');
+                    if(limitCatImages) imgconfirm=$.cleanup.l('product images from');
+                    else imgconfirm='';
+                    ref = $('#tree').jstree(true),
+                    searchIDs = ref.get_selected();
+                if(!searchIDs.length) { alert($.cleanup.l('No categories selected.'));return false; }
+                if (confirm($.cleanup.l('Are you sure you want to remove')+" "+imgconfirm+" "+searchIDs.length+" "+$.cleanup.l('categories')+"?")){
+                    var posting = $.post( url,{_csrf:csrf,CATs:searchIDs,limitCatImages:limitCatImages});
+                    posting.done(function( data ) {
+                        if (data!='OK') $('#s-cleanup-error').empty().append( data );
+                    });
+                    if(limitCatImages) {
+                            $('#chk-category-images-result').text('OK');
+                            setTimeout(function(){
+                        $('#chk-category-images-result').empty();}, 3000);
+                    } else {
+                        if(searchIDs.length > 1) {
+                                $(searchIDs).each(function(){
+                                $children = ref.get_node(this);
+                                $parent = $children.parent;
+                                $children = $children.children;
+                                ref.move_node($children,$parent);
+                                ref.delete_node(this);
+                                });
+                        } else {
+                                $children = ref.get_node(searchIDs);
+                                $parent = $children.parent;
+                                $children = $children.children;
+                                ref.move_node($children,$parent);
+                                ref.delete_node(searchIDs);
+                        };
+                    };
+                };
+            });
+            $('#btn-checkAll').click(function(){$('#tree').jstree().select_all();});
+            $('#btn-uncheckAll').click(function(){$('#tree').jstree().deselect_all();});
+            $('#btn-expandAll').click(function(){$('#tree').jstree('open_all');});
+            $('#btn-collapseAll').click(function(){$('#tree').jstree('close_all');});
+        </script>
+        {/literal}
+            <button class="button" id="btn-checkAll"> ☑</button> |
+            <button class="button" id="btn-uncheckAll">☐</button> |
+            <button class="button" id="btn-expandAll" >{_wp('Expand All')}</button> |
+            <button class="button" id="btn-collapseAll" >{_wp('Collapse All')}</button> |
+            <input class="button red" type="submit" id="btn-category-submit" value="{_wp('Remove')}">
+            <input type="checkbox" id="chk-category-images" title="{_wp('from selected categories')}">{_wp('Delete only product images')}</input>
+            <span id="chk-category-images-result"></span>
+            <hr>
+            <form method="POST" id="s-cleanup-form-category" action="?plugin=cleanup&action=run">
+                {$wa->csrf()}
+                <input type="submit" style="display:none">
+                <div id="tree">
+                    {$depth = -1}
+            {foreach $categories as $category}
+                {if $category.depth < $depth}
+                    {section name="end-category" loop = $depth - $category.depth}
+                        </li>
+                    </ul>
+                    {/section}
+                    {$depth = $category.depth}
+                {/if}
+              {if $category.depth == $depth}
+                  </li>
+                  <li class="" id="category-{$category.id}" data-type="category">
+              {/if}
+              {if $category.depth > $depth}
+                  <ul style="display: block;">
+                      <li class="dr" id="category-{$category.id}" data-type="category">
+                      {$depth = $category.depth}
+              {/if}
+                <i class="icon16 loading" style="float:right; display:none;"></i>
+                <span class="counters">
+                    <span class="count" {if empty($category.expanded) && $category.children_count > 0}style="display:none;"{/if}>
+                        {$category.total_count}
+                        {if $category.include_sub_categories}
+                            {$category.total_count}
+                        {else}
+                            {$category.count}
+                        {/if}
+                    </span>
+                    <span class="count subtree" {if !empty($category.expanded) || $category.children_count == 0} style="display:none;"{/if}>
+                        {$category.total_count}
+                    </span>
+                </span>
+                <a class="s-product-list{if !$category.status} gray{/if}">{strip}
+                    <i class="icon16 {if $category.type == shopCategoryModel::TYPE_DYNAMIC}folder-dynamic{else}folder{/if}"></i>
+                    <span class="name">{$category.name|escape}</span>
+                    <strong class="small highlighted count-new"></strong>
+                    <span class="count">{$category.total_count}</span>
+                </a>
+                {/strip}
+            {/foreach}
+            {section name="end-category" loop = $depth + 1}
+                  </li>
+                </ul>
+            {/section}
+            </form>
+            </div>
+{else} <h3>{_wp('No categories exist.')}</h3>
+{/if}

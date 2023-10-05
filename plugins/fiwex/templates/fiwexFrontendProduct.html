@@ -1,0 +1,20 @@
+<script type="text/javascript" src="{$wa_app_static_url}plugins/fiwex/JS/fiwex_product.js"></script>
+{$style}
+
+<div class="fiwex-tooltip-content">
+    <div class="fiwex-tooltip-tail"></div>
+    <div class="fiwex-tooltip-title"></div>
+    <div class="fiwex-tooltip-close" title="Закрыть/ESC">
+    </div>
+
+    <div class="fiwex-tooltip-body"></div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        fiwex_product_module.init({
+            'url': {json_encode($shop_path_for_fiwex_dump)},
+            'expflag_url': {json_encode($shop_path_for_fiwex_expflag)}
+        });
+    });
+</script>

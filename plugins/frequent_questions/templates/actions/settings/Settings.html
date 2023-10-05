@@ -1,0 +1,178 @@
+<link type="text/css" rel="stylesheet" href="{$wa_url}wa-content/js/redactor/redactor.css">
+<link href="{$spectrum_css}" rel="stylesheet" type="text/css"/>
+<link href="{$settings_css}" rel="stylesheet" type="text/css"/>
+<script src="{$wa_url}wa-content/js/redactor/redactor.min.js"></script>
+<script type="text/javascript" src="{$spectrum_js}"></script>
+<script type="text/javascript" src="{$frequent_questions_js}"></script>
+
+<h1>[`FAQ - Frequently Asked Questions`]</h1>
+<h4>[`All changes will be accepted after clicking \"Save\"`]</h4>
+<h4>[`Helper for displaying of questions and answers`]: {literal}{shopFrequent_questionsPlugin::print_faq()}{/literal}</h4>
+<div class=" form frequent_questions_form">
+    <form action="?plugin=frequent_questions&module=settings&action=save" method="post" id="plugins-settings-form">
+    <div class="field">
+        <div class="name">[`Plugin ON/OFF`]</div>
+        <div class="value no-shift">
+            <input type="checkbox" value="1" {if ($fq_plugin_enabled > 0)} checked{/if} class="fq_plugin_enabled">
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="name">[`Placing of the link`]</div>
+        <div class="value no-shift">
+            <input type="radio" value="default" name="fq_placing" id="fq_default_placing" {if ($fq_placing == 'default')} checked{/if} class="fq_default_placing"><label title="" for="fq_default_placing">[`Default (above the categories block)`]</label><br>
+        </div>
+        <div class="value no-shift">
+            <input type="radio" value="custom" name="fq_placing" id="fq_custom_placing" {if ($fq_placing == 'custom')} checked{/if} class="fq_custom_placing"><label for="fq_custom_placing">[`Custom. Use helper: `] {$fq_helper}</label>
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="name">[`Display headers "Question", "Answer"`]</div>
+        <div class="value no-shift">
+            <input type="checkbox" value="1" {if ($fq_qa_display > 0)} checked{/if} class="fq_qa_display">
+        </div>
+    </div>
+    
+    <div class="field">
+        <div class="name">[`Open in the new window`]</div>
+        <div class="value no-shift">
+            <input type="checkbox" value="1" {if ($fq_target_blank > 0)} checked{/if} class="fq_target_blank">
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="name">[`Link title`]</div>
+        <div class="value no-shift">
+            <input type="text" value="{$fq_link_title}" class="fq_link_title">
+            <div class="hint" style="display:inline;">[`default: "FAQ"`]</div>
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="name">[`Page title`]</div>
+        <div class="value no-shift">
+            <input type="text" value="{$fq_page_title}" class="fq_page_title">
+            
+        </div>
+    </div>
+        
+    <div class="field">
+        <div class="name">[`Show/hide asnwers`]</div>
+        <div class="value no-shift">
+            <input type="radio" value="1" name="fq_expand" id="fq_expand" {if ($fq_expand == 1)} checked{/if} class="fq_expand"><label title="" for="fq_expand">[`Expand/hide answer by click on the question`]</label><br>
+        </div>
+        <div class="value no-shift">
+            <input type="radio" value="0" name="fq_expand" id="fq_no_expand" {if ($fq_expand == 0)} checked{/if} class="fq_not_expand"><label for="fq_not_expand">[`Static display of questions and answers`]</label>
+        </div>
+    </div>
+	
+	<div class="field">
+        <div class="name">[`Header text color`]</div>
+        <div class="value no-shift">
+            <input type="text" value="{$fq_header_color}" class="fq_header_color fq_color">
+            <div class="hint" style="display:inline;">[`Select a color`]</div>
+        </div>
+       <br>
+    </div>
+    
+    <div class="field">
+        <div class="name">[`Question text color`]</div>
+        <div class="value no-shift">
+            <input type="text" value="{$fq_question_color}" class="fq_question_color fq_color">
+            <div class="hint" style="display:inline;">[`Select a color`]</div>
+        </div>
+    </div>
+    
+    <div class="field">
+        <div class="name">[`Answer text color`]</div>
+        <div class="value no-shift">
+            <input type="text" value="{$fq_answer_color}" class="fq_answer_color fq_color">
+            <div class="hint" style="display:inline;">[`Select a color`]</div>
+        </div>
+       <br>
+    </div>
+	<div class="field">
+        <div class="name">[`Question text size`]</div>
+        <div class="value no-shift">
+            <input type="text" value="{$fq_question_size}" class="fq_question_size">
+            <div class="hint" style="display:inline;">[`Font size, px**. Example: 12`]</div>
+        </div>
+        
+    </div>
+	<div class="field">
+        <div class="name">[`Answer text size`]</div>
+        <div class="value no-shift">
+            <input type="text" value="{$fq_answer_size}" class="fq_answer_size">
+            <div class="hint" style="display:inline;">[`Font size, px**. Example: 12`]</div>
+			<div class="hint"><br>**[`To sizing by default, leave this field empty.`]</div>
+        </div>
+    </div>
+		
+	<div class="field">
+        <div class="name">[`Show plus/minus`]</div>
+        <div class="value no-shift">
+            <input type="checkbox" value="1" {if ($fq_plus_enabled > 0)} checked{/if} class="fq_plus_enabled">
+        </div>
+    </div>
+        
+    <div class="field">
+        <div class="name">[`Plus color`]</div>
+        <div class="value no-shift">
+            <input type="text" value="{$fq_plus_color}" class="fq_plus_color fq_color">
+            <div class="hint" style="display:inline;">[`Select a color`]</div>
+        </div>
+    </div>
+    
+    <div class="field">
+        <div class="name">[`Minus color`]</div>
+        <div class="value no-shift">
+            <input type="text" value="{$fq_minus_color}" class="fq_minus_color fq_color">
+            <div class="hint" style="display:inline;">[`Select a color`]</div>
+        </div>
+       <br>
+    </div>
+    
+    <div class="field">
+        <div class="name">[`Meta keywords`]</div>
+        <div class="value no-shift">
+            <input type="text" value="{$fq_meta_keywords}" class="fq_meta_keywords">
+            <div class="hint" style="display:inline;">[`Meta keywords for FAQ page`]</div>
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="name">[`Meta description`]</div>
+        <div class="value no-shift">
+            <textarea class="fq_meta_description">{$fq_meta_description}</textarea><br>
+            <div class="hint" style="display:inline;">[`Meta description for FAQ page`]</div>
+        </div>
+    </div>
+    	    
+    <br>
+    <hr>
+    
+    <div id="new-qa-html" class="hide"><div class='field-group '><div class='field question'><div class='name'><label>[`Question`]</label></div><div class='value'><textarea class='textarea  fq-new-question' placeholder='[`Question text`]'></textarea></div></div><div class='field answer'><div class='name'><label>[`Answer`]</label></div><div class='value'><textarea class='textarea  fq-new-answer' placeholder='[`Answer text`]'></textarea></div></div><div class='field'><div class='name'><label>[`Show`]</label></div><div class='value'><input type='checkbox' value='1' checked class='fq_on'></div></div></div><div>&nbsp;<hr><br>&nbsp;</div></div>
+    
+    <table class="fq_list zebra"><tbody>
+    {$fq_html}
+    </tbody>
+    </table>
+
+    
+    <div class="fq_add">
+    <i class="icon16 add"></i> <b><i class="inline-link">[`New FAQ`]</i> </b>
+    </div>
+    
+    <div class="field">
+        <div class="value submit">
+            <input type="button" class="button green fq_submit" value="Сохранить">
+            <span id="plugins-settings-form-status" style="display:none">
+                <i style="vertical-align:middle" class="icon16 yes"></i> [`Saved`]
+            </span>
+        </div>
+    </div>
+    
+    
+    </form>
+</div>
